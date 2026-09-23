@@ -1,0 +1,13 @@
+{
+  "commit": "9a5f76c9bb70647d1ab4abd88872e395a7c06c79",
+  "parent": "ea6412b3da34f216e3874b9d80dc95313118e894",
+  "fixed_commit": "9a5f76c9bb70647d1ab4abd88872e395a7c06c79",
+  "summary": "Rounding by Duration::zero() reaches stamp % span with a zero divisor and panics. The upstream fix returns Ok(original) before the remainder operation, preserving the datetime. Contrary to the imported candidate description, this fix does not return DurationExceedsLimit. The commit adds a zero-duration assertion to round::tests::test_duration_round. Reversing only the zero-span guard restores the faulty implementation while preserving that test.",
+  "test": "round::tests::test_duration_round",
+  "expected_failure": "attempt to calculate the remainder with a divisor of zero",
+  "reversal": {
+    "path": "src/round.rs",
+    "fixed_text": "        if span == 0 {\n            return Ok(original);\n        }\n        let delta_down = stamp % span;\n        if delta_down == 0 {\n",
+    "parent_text": "        let delta_down = stamp % span;\n        if delta_down == 0 {\n"
+  }
+}
