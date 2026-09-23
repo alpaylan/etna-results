@@ -1,0 +1,13 @@
+{
+  "commit": "facc8575222d3f5da5b9a94288e44896911e701f",
+  "parent": "3576a881e89eec002408713eca7c90edc15ae90e",
+  "fixed_commit": "facc8575222d3f5da5b9a94288e44896911e701f",
+  "summary": "BinaryQuantized vector len() counted stored machine words instead of decoded elements. Each word yields QUANTIZED_WORD_SIZE elements, including padding, so the fix multiplies the word count by that constant. On a 64-bit target, the regression test added by the fix expects 64 for its one-word vector; reversing only this calculation returns 1. The regions are exact and unique in their respective Git revisions. No tests were executed.",
+  "test": "tests::node::unaligned_binary_quantized_iter_size",
+  "expected_failure": "Snapshot assertion for unaligned.len() fails: expected \"64\", actual \"1\".",
+  "reversal": {
+    "path": "src/unaligned_vector/binary_quantized.rs",
+    "fixed_text": "    fn len(vec: &UnalignedVector<Self>) -> usize {\n        (vec.vector.len() / size_of::<QuantizedWord>()) * QUANTIZED_WORD_SIZE\n    }\n",
+    "parent_text": "    fn len(vec: &UnalignedVector<Self>) -> usize {\n        vec.vector.len() / size_of::<QuantizedWord>()\n    }\n"
+  }
+}

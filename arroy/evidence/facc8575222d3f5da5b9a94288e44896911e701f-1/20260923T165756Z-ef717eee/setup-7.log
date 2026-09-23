@@ -1,0 +1,101 @@
+Command: rustup run 1.79.0 cargo check --locked --offline --tests
+Started: 2026-09-23T17:05:33.485348+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+    Checking arroy v0.4.0 (/home/runner/work/_temp/upstream)
+error[E0412]: cannot find type `UnalignedF32Slice` in this scope
+  --> src/spaces/simple_sse.rs:17:49
+   |
+17 | pub(crate) unsafe fn euclid_similarity_sse(v1: &UnalignedF32Slice, v2: &UnalignedF32Slice) -> f32 {
+   |                                                 ^^^^^^^^^^^^^^^^^ not found in this scope
+
+error[E0412]: cannot find type `UnalignedF32Slice` in this scope
+  --> src/spaces/simple_sse.rs:17:73
+   |
+17 | pub(crate) unsafe fn euclid_similarity_sse(v1: &UnalignedF32Slice, v2: &UnalignedF32Slice) -> f32 {
+   |                                                                         ^^^^^^^^^^^^^^^^^ not found in this scope
+
+error[E0412]: cannot find type `UnalignedF32Slice` in this scope
+  --> src/spaces/simple_sse.rs:61:46
+   |
+61 | pub(crate) unsafe fn dot_similarity_sse(v1: &UnalignedF32Slice, v2: &UnalignedF32Slice) -> f32 {
+   |                                              ^^^^^^^^^^^^^^^^^ not found in this scope
+
+error[E0412]: cannot find type `UnalignedF32Slice` in this scope
+  --> src/spaces/simple_sse.rs:61:70
+   |
+61 | pub(crate) unsafe fn dot_similarity_sse(v1: &UnalignedF32Slice, v2: &UnalignedF32Slice) -> f32 {
+   |                                                                      ^^^^^^^^^^^^^^^^^ not found in this scope
+
+error[E0412]: cannot find type `UnalignedF32Slice` in this scope
+  --> src/spaces/simple_avx.rs:17:49
+   |
+17 | pub(crate) unsafe fn euclid_similarity_avx(v1: &UnalignedF32Slice, v2: &UnalignedF32Slice) -> f32 {
+   |                                                 ^^^^^^^^^^^^^^^^^ not found in this scope
+
+error[E0412]: cannot find type `UnalignedF32Slice` in this scope
+  --> src/spaces/simple_avx.rs:17:73
+   |
+17 | pub(crate) unsafe fn euclid_similarity_avx(v1: &UnalignedF32Slice, v2: &UnalignedF32Slice) -> f32 {
+   |                                                                         ^^^^^^^^^^^^^^^^^ not found in this scope
+
+error[E0412]: cannot find type `UnalignedF32Slice` in this scope
+  --> src/spaces/simple_avx.rs:66:46
+   |
+66 | pub(crate) unsafe fn dot_similarity_avx(v1: &UnalignedF32Slice, v2: &UnalignedF32Slice) -> f32 {
+   |                                              ^^^^^^^^^^^^^^^^^ not found in this scope
+
+error[E0412]: cannot find type `UnalignedF32Slice` in this scope
+  --> src/spaces/simple_avx.rs:66:70
+   |
+66 | pub(crate) unsafe fn dot_similarity_avx(v1: &UnalignedF32Slice, v2: &UnalignedF32Slice) -> f32 {
+   |                                                                      ^^^^^^^^^^^^^^^^^ not found in this scope
+
+warning: unused import: `crate::unaligned_vector::UnalignedVector`
+ --> src/spaces/simple_sse.rs:7:5
+  |
+7 | use crate::unaligned_vector::UnalignedVector;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` on by default
+
+warning: unused import: `crate::unaligned_vector::UnalignedVector`
+ --> src/spaces/simple_avx.rs:4:5
+  |
+4 | use crate::unaligned_vector::UnalignedVector;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0433]: failed to resolve: use of undeclared type `UnalignedF32Slice`
+   --> src/spaces/simple_sse.rs:127:22
+    |
+127 |             let v1 = UnalignedF32Slice::from_slice(&v1[..]);
+    |                      ^^^^^^^^^^^^^^^^^ use of undeclared type `UnalignedF32Slice`
+
+error[E0433]: failed to resolve: use of undeclared type `UnalignedF32Slice`
+   --> src/spaces/simple_sse.rs:128:22
+    |
+128 |             let v2 = UnalignedF32Slice::from_slice(&v2[..]);
+    |                      ^^^^^^^^^^^^^^^^^ use of undeclared type `UnalignedF32Slice`
+
+error[E0433]: failed to resolve: use of undeclared type `UnalignedF32Slice`
+   --> src/spaces/simple_avx.rs:129:22
+    |
+129 |             let v1 = UnalignedF32Slice::from_slice(&v1[..]);
+    |                      ^^^^^^^^^^^^^^^^^ use of undeclared type `UnalignedF32Slice`
+
+error[E0433]: failed to resolve: use of undeclared type `UnalignedF32Slice`
+   --> src/spaces/simple_avx.rs:130:22
+    |
+130 |             let v2 = UnalignedF32Slice::from_slice(&v2[..]);
+    |                      ^^^^^^^^^^^^^^^^^ use of undeclared type `UnalignedF32Slice`
+
+Some errors have detailed explanations: E0412, E0433.
+For more information about an error, try `rustc --explain E0412`.
+warning: `arroy` (lib test) generated 2 warnings
+error: could not compile `arroy` (lib test) due to 12 previous errors; 2 warnings emitted
+
+Exit: 101
+Timed out: False
