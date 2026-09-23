@@ -1,0 +1,60 @@
+Command: rustup run 1.79.0 cargo fetch --locked
+Started: 2026-09-23T15:22:10.079602+00:00
+STDOUT:
+
+STDERR:
+    Updating crates.io index
+ Downloading crates ...
+  Downloaded crossbeam-utils v0.8.16
+  Downloaded windows_i686_gnullvm v0.52.6
+  Downloaded quote v1.0.40
+  Downloaded semver v1.0.26
+  Downloaded half v1.8.3
+  Downloaded ciborium-ll v0.2.1
+  Downloaded ciborium v0.2.1
+  Downloaded textwrap v0.16.1
+  Downloaded rayon v1.6.1
+  Downloaded wasm-bindgen-macro-support v0.2.105
+  Downloaded num-traits v0.2.18
+  Downloaded wasm-bindgen-shared v0.2.105
+  Downloaded rayon-core v1.10.2
+  Downloaded windows_x86_64_msvc v0.52.6
+  Downloaded hermit-abi v0.5.3
+  Downloaded ryu v1.0.20
+  Downloaded syn v2.0.56
+  Downloaded ciborium-io v0.2.1
+  Downloaded ppv-lite86 v0.2.17
+  Downloaded bumpalo v3.12.0
+  Downloaded os_str_bytes v6.5.1
+  Downloaded web-sys v0.3.82
+  Downloaded windows_i686_gnu v0.52.6
+  Downloaded windows_x86_64_gnullvm v0.52.6
+  Downloaded wasm-bindgen-macro v0.2.105
+  Downloaded windows_i686_msvc v0.52.6
+  Downloaded num_cpus v1.17.0
+  Downloaded regex v1.7.3
+  Downloaded windows_x86_64_gnu v0.52.6
+  Downloaded libc v0.2.163
+  Downloaded js-sys v0.3.82
+  Downloaded memoffset v0.9.1
+  Downloaded crossbeam-epoch v0.9.15
+  Downloaded unicode-ident v1.0.22
+  Downloaded windows-sys v0.52.0
+  Downloaded scopeguard v1.2.0
+  Downloaded crossbeam-deque v0.8.3
+  Downloaded windows_aarch64_msvc v0.52.6
+  Downloaded windows-targets v0.52.6
+  Downloaded windows_aarch64_gnullvm v0.52.6
+  Downloaded regex-syntax v0.6.29
+  Downloaded wasm-bindgen v0.2.105
+  Downloaded once_cell v1.17.2
+  Downloaded either v1.13.0
+  Downloaded crossbeam-channel v0.5.8
+  Downloaded serde_json v1.0.143
+  Downloaded itoa v1.0.15
+  Downloaded proc-macro2 v1.0.101
+  Downloaded memchr v2.6.0
+  Downloaded unicode-segmentation v1.12.0
+
+Exit: 0
+Timed out: False

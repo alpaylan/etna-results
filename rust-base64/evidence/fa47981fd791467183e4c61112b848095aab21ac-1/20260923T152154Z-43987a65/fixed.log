@@ -1,0 +1,75 @@
+Command: rustup run 1.79.0 cargo test --locked --offline --lib engine::general_purpose::decode::tests::estimate_via_u128_inflation -- --exact --nocapture --test-threads=1
+Started: 2026-09-23T15:22:23.383420+00:00
+STDOUT:
+
+running 1 test
+test engine::general_purpose::decode::tests::estimate_via_u128_inflation ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 143 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling cfg-if v1.0.5
+   Compiling libc v0.2.163
+   Compiling crossbeam-utils v0.8.16
+   Compiling serde_core v1.0.229
+   Compiling memoffset v0.9.1
+   Compiling serde v1.0.229
+   Compiling crossbeam-epoch v0.9.15
+   Compiling scopeguard v1.2.0
+   Compiling either v1.13.0
+   Compiling bitflags v1.3.2
+   Compiling serde_json v1.0.143
+   Compiling rayon-core v1.10.2
+   Compiling indexmap v1.9.3
+   Compiling num_cpus v1.17.0
+   Compiling crossbeam-deque v0.8.3
+   Compiling getrandom v0.2.17
+   Compiling atty v0.2.14
+   Compiling crossbeam-channel v0.5.8
+   Compiling num-traits v0.2.18
+   Compiling itoa v1.0.15
+   Compiling ciborium-io v0.2.1
+   Compiling hashbrown v0.12.3
+   Compiling os_str_bytes v6.5.1
+   Compiling unicode-width v0.1.14
+   Compiling memchr v2.6.0
+   Compiling half v1.8.3
+   Compiling plotters-backend v0.3.7
+   Compiling ryu v1.0.20
+   Compiling plotters-svg v0.3.7
+   Compiling ciborium-ll v0.2.1
+   Compiling textwrap v0.11.0
+   Compiling clap_lex v0.2.4
+   Compiling rand_core v0.6.4
+   Compiling itertools v0.10.5
+   Compiling lazy_static v1.5.0
+   Compiling strsim v0.8.0
+   Compiling regex-syntax v0.6.29
+   Compiling textwrap v0.16.1
+   Compiling ansi_term v0.12.1
+   Compiling same-file v1.0.6
+   Compiling vec_map v0.8.2
+   Compiling cast v0.3.0
+   Compiling ppv-lite86 v0.2.17
+   Compiling criterion-plot v0.5.0
+   Compiling rand_chacha v0.3.1
+   Compiling clap v2.34.0
+   Compiling walkdir v2.5.0
+   Compiling regex v1.7.3
+   Compiling clap v3.2.25
+   Compiling plotters v0.3.7
+   Compiling rayon v1.6.1
+   Compiling tinytemplate v1.2.1
+   Compiling ciborium v0.2.1
+   Compiling oorandom v11.1.5
+   Compiling anes v0.1.6
+   Compiling structopt v0.3.26
+   Compiling rand v0.8.8
+   Compiling criterion v0.4.0
+   Compiling base64 v0.21.0 (/home/runner/work/_temp/upstream)
+    Finished `test` profile [optimized + debuginfo] target(s) in 43.92s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260923T152154Z-43987a65/debug/deps/base64-76cdcc3cd0fe8c6d)
+
+Exit: 0
+Timed out: False
