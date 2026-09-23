@@ -1,0 +1,13 @@
+{
+  "commit": "2428c152a67c06057a98d9d29b08389cb3429c1f",
+  "parent": "268f6f80b4685b53f57706abc6aef31f46b54738",
+  "fixed_commit": "2428c152a67c06057a98d9d29b08389cb3429c1f",
+  "summary": "Chain::remaining used unchecked addition, allowing lengths exceeding usize::MAX to wrap when overflow checks were disabled. The fix uses checked_add(...).unwrap() to guarantee a panic on overflow; it also applies this correction to remaining_mut. The candidate's saturation description is inaccurate. Blocked: the fix adds no tests, and existing chain tests and documentation examples use small buffers without exercising overflow. No detecting upstream test was found at the fixed commit.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/buf/chain.rs",
+    "fixed_text": "        self.a.remaining().checked_add(self.b.remaining()).unwrap()\n",
+    "parent_text": "        self.a.remaining() + self.b.remaining()\n"
+  }
+}

@@ -4,7 +4,7 @@
 
 Upstream: https://github.com/tokio-rs/bytes
 
-Candidate: 939a5edf3d28acfc390eedc46eab69843ba363b6-1
+Candidate: 2428c152a67c06057a98d9d29b08389cb3429c1f-1
 
 Provenance: verbatim
 
