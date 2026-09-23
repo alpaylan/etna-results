@@ -1,0 +1,13 @@
+{
+  "commit": "939a5edf3d28acfc390eedc46eab69843ba363b6",
+  "parent": "788cb158ce2a81bda5d639d9df26d618be806c35",
+  "fixed_commit": "939a5edf3d28acfc390eedc46eab69843ba363b6",
+  "summary": "PartialOrd<Bytes> for [u8] delegates to other.partial_cmp(self), reversing unequal operands and exchanging Less with Greater. The fix compares byte slices with self first, preserving lexicographic order. The proposed reversal isolates this implementation change. Blocked: the fix adds no tests, and inspection of existing tests and source found no upstream test detecting the reversed ordering at this revision; existing cross-type equality tests do not exercise PartialOrd.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/bytes.rs",
+    "fixed_text": "impl PartialOrd<Bytes> for [u8] {\n    fn partial_cmp(&self, other: &Bytes) -> Option<cmp::Ordering> {\n        <[u8] as PartialOrd<[u8]>>::partial_cmp(self, other)\n    }\n}\n",
+    "parent_text": "impl PartialOrd<Bytes> for [u8] {\n    fn partial_cmp(&self, other: &Bytes) -> Option<cmp::Ordering> {\n        other.partial_cmp(self)\n    }\n}\n"
+  }
+}
