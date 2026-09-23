@@ -1,0 +1,13 @@
+{
+  "commit": "facc8575222d3f5da5b9a94288e44896911e701f",
+  "parent": "3576a881e89eec002408713eca7c90edc15ae90e",
+  "fixed_commit": "facc8575222d3f5da5b9a94288e44896911e701f",
+  "summary": "BinaryQuantized vector len() counted storage words instead of quantized elements, returning 1 for a vector whose iterator yields 64 elements on a 64-bit target. The fix multiplies the word count by QUANTIZED_WORD_SIZE to include every bit, including padding. Reversing only this calculation restores the candidate bug. The regression test added by this commit checks vector length before iterator length. No builds or tests were run.",
+  "test": "tests::node::unaligned_binary_quantized_iter_size",
+  "expected_failure": "Snapshot assertion fails at assert_snapshot!(unaligned.len(), @\"64\"): expected 64, actual 1.",
+  "reversal": {
+    "path": "src/unaligned_vector/binary_quantized.rs",
+    "fixed_text": "    fn len(vec: &UnalignedVector<Self>) -> usize {\n        (vec.vector.len() / size_of::<QuantizedWord>()) * QUANTIZED_WORD_SIZE\n    }\n",
+    "parent_text": "    fn len(vec: &UnalignedVector<Self>) -> usize {\n        vec.vector.len() / size_of::<QuantizedWord>()\n    }\n"
+  }
+}

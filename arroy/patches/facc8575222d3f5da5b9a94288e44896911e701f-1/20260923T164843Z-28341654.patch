@@ -1,0 +1,13 @@
+diff --git a/src/unaligned_vector/binary_quantized.rs b/src/unaligned_vector/binary_quantized.rs
+index b99c999..11cc9d6 100644
+--- a/src/unaligned_vector/binary_quantized.rs
++++ b/src/unaligned_vector/binary_quantized.rs
+@@ -53,7 +53,7 @@ impl UnalignedVectorCodec for BinaryQuantized {
+     }
+ 
+     fn len(vec: &UnalignedVector<Self>) -> usize {
+-        (vec.vector.len() / size_of::<QuantizedWord>()) * QUANTIZED_WORD_SIZE
++        vec.vector.len() / size_of::<QuantizedWord>()
+     }
+ }
+ 

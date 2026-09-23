@@ -1,0 +1,32 @@
+Command: rustup run 1.79.0 cargo generate-lockfile
+Started: 2026-09-23T16:48:56.685954+00:00
+STDOUT:
+
+STDERR:
+    Updating crates.io index
+     Locking 143 packages to latest compatible versions
+      Adding bitflags v1.3.2 (latest: v2.13.2)
+      Adding getrandom v0.2.17 (latest: v0.4.3)
+      Adding heed v0.20.5 (latest: v0.22.1)
+      Adding heed-types v0.20.1 (latest: v0.21.0)
+      Adding ordered-float v3.9.2 (latest: v5.5.0)
+      Adding ordered-float v4.6.0 (latest: v5.5.0)
+      Adding phf v0.11.3 (latest: v0.14.0)
+      Adding phf_generator v0.11.3 (latest: v0.14.0)
+      Adding phf_macros v0.11.3 (latest: v0.14.0)
+      Adding phf_shared v0.11.3 (latest: v0.14.0)
+      Adding r-efi v6.0.0 (latest: v7.1.0)
+      Adding rand v0.8.8 (latest: v0.10.3)
+      Adding rand_chacha v0.3.1 (latest: v0.10.0)
+      Adding rand_core v0.6.4 (latest: v0.10.1)
+      Adding redox_syscall v0.5.18 (latest: v0.9.4)
+      Adding roaring v0.10.12 (latest: v0.11.5)
+      Adding similar v2.7.0 (latest: v3.2.0)
+      Adding syn v2.0.119 (latest: v3.0.6)
+      Adding thiserror v1.0.69 (latest: v2.0.20)
+      Adding thiserror-impl v1.0.69 (latest: v2.0.20)
+      Adding wasi v0.11.1+wasi-snapshot-preview1 (latest: v0.14.7+wasi-0.2.4)
+      Adding windows-link v0.2.1 (latest: v0.100.0)
+
+Exit: 0
+Timed out: False

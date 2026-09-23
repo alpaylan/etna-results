@@ -1,0 +1,31 @@
+Command: rustup run 1.79.0 cargo fetch --locked
+Started: 2026-09-23T16:48:58.084328+00:00
+STDOUT:
+
+STDERR:
+ Downloading crates ...
+  Downloaded thiserror v1.0.69
+  Downloaded quote v1.0.47
+  Downloaded jiff-static v0.2.37
+  Downloaded phf_generator v0.11.3
+  Downloaded cfg-if v1.0.5
+  Downloaded thiserror-impl v1.0.69
+  Downloaded defmt-parser v1.0.0
+  Downloaded phf_macros v0.11.3
+  Downloaded ordered-float v4.6.0
+  Downloaded env_logger v0.11.11
+  Downloaded tempfile v3.27.0
+  Downloaded defmt v1.1.1
+  Downloaded instant-distance v0.6.1
+  Downloaded clap_lex v1.1.1
+error: failed to parse manifest at `/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/clap_lex-1.1.1/Cargo.toml`
+
+Caused by:
+  feature `edition2024` is required
+
+  The package requires the Cargo feature called `edition2024`, but that feature is not stabilized in this version of Cargo (1.79.0 (ffa9cf99a 2024-06-03)).
+  Consider trying a newer version of Cargo (this may require the nightly release).
+  See https://doc.rust-lang.org/nightly/cargo/reference/unstable.html#edition-2024 for more information about the status of this feature.
+
+Exit: 101
+Timed out: False

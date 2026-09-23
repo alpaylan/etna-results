@@ -1,0 +1,15 @@
+Command: rustup run 1.90.0 cargo generate-lockfile
+Started: 2026-09-23T16:48:58.241119+00:00
+STDOUT:
+
+STDERR:
+    Updating crates.io index
+     Locking 142 packages to latest Rust 1.90.0 compatible versions
+      Adding heed v0.20.5 (available: v0.22.1)
+      Adding ordered-float v4.6.0 (available: v5.5.0)
+      Adding rand v0.8.8 (available: v0.10.3)
+      Adding roaring v0.10.12 (available: v0.11.5)
+      Adding thiserror v1.0.69 (available: v2.0.20)
+
+Exit: 0
+Timed out: False

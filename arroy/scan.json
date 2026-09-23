@@ -1,0 +1,12 @@
+{
+  "repo": "https://github.com/meilisearch/arroy",
+  "tips": [
+    "facc8575222d3f5da5b9a94288e44896911e701f"
+  ],
+  "shallow": false,
+  "reviewed": [
+    "facc8575222d3f5da5b9a94288e44896911e701f"
+  ],
+  "reachable_commits": 300,
+  "scope": "One queued candidate; not an exhaustive history scan."
+}
