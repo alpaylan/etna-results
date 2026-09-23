@@ -1,0 +1,13 @@
+{
+  "commit": "e453f6062651f338ca3a7fb217f7590a2f89f9ab",
+  "parent": "730ecbd911fa1dd7fcfd36d9e4cd2e113bcf4514",
+  "fixed_commit": "e453f6062651f338ca3a7fb217f7590a2f89f9ab",
+  "summary": "String replacement panics when a match boundary splits a UTF-8 codepoint because try_replace_all_with slices the haystack using unchecked byte offsets. The fix skips such matches before slicing. The verbatim implementation reversal is identifiable, but the plan is blocked: no detecting named Rust test was found at the fixed commit. The fix adds no tests; existing replacement doctests use ASCII inputs. The existing fuzz-find target exercises replacement but supplies neither a named Rust regression test nor a committed reproducing input. No builds or tests were run.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/automaton.rs",
+    "fixed_text": "        for m in self.try_find_iter(Input::new(haystack))? {\n            // Since there are no restrictions on what kinds of patterns are\n            // in an Aho-Corasick automaton, we might get matches that split\n            // a codepoint, or even matches of a partial codepoint. When that\n            // happens, we just skip the match.\n            if !haystack.is_char_boundary(m.start())\n                || !haystack.is_char_boundary(m.end())\n            {\n                continue;\n            }\n            dst.push_str(&haystack[last_match..m.start()]);\n",
+    "parent_text": "        for m in self.try_find_iter(Input::new(haystack))? {\n            dst.push_str(&haystack[last_match..m.start()]);\n"
+  }
+}
