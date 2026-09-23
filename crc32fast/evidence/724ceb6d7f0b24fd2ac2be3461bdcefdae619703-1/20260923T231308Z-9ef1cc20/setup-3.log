@@ -1,0 +1,27 @@
+Command: rustup run 1.88.0 cargo fetch --locked
+Started: 2026-09-23T23:17:46.565862+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+ Downloading crates ...
+  Downloaded cfg-if v1.0.1 (registry `era`)
+  Downloaded rand v0.8.5 (registry `era`)
+  Downloaded rand_chacha v0.3.1 (registry `era`)
+  Downloaded bencher v0.1.5 (registry `era`)
+  Downloaded unicode-ident v1.0.18 (registry `era`)
+  Downloaded quickcheck v1.0.3 (registry `era`)
+  Downloaded proc-macro2 v1.0.95 (registry `era`)
+  Downloaded zerocopy-derive v0.8.26 (registry `era`)
+  Downloaded wasi v0.11.1+wasi-snapshot-preview1 (registry `era`)
+  Downloaded quote v1.0.40 (registry `era`)
+  Downloaded getrandom v0.2.16 (registry `era`)
+  Downloaded rand_core v0.6.4 (registry `era`)
+  Downloaded ppv-lite86 v0.2.21 (registry `era`)
+  Downloaded zerocopy v0.8.26 (registry `era`)
+  Downloaded syn v2.0.104 (registry `era`)
+  Downloaded libc v0.2.174 (registry `era`)
+
+Exit: 0
+Timed out: False

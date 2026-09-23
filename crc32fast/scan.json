@@ -1,0 +1,12 @@
+{
+  "repo": "https://github.com/srijs/rust-crc32fast",
+  "tips": [
+    "724ceb6d7f0b24fd2ac2be3461bdcefdae619703"
+  ],
+  "shallow": false,
+  "reviewed": [
+    "724ceb6d7f0b24fd2ac2be3461bdcefdae619703"
+  ],
+  "reachable_commits": 97,
+  "scope": "One queued candidate; not an exhaustive history scan."
+}

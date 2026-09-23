@@ -1,0 +1,13 @@
+{
+  "commit": "724ceb6d7f0b24fd2ac2be3461bdcefdae619703",
+  "parent": "cdbd51fecfa3a0343509b5faab3ce4cc5539d14a",
+  "fixed_commit": "724ceb6d7f0b24fd2ac2be3461bdcefdae619703",
+  "summary": "With len2 == 0, combine skipped the multiplication loop but returned crc1 ^ crc2, incorrectly changing the first checksum when crc2 was nonzero. The fix returns crc1 immediately for zero-length second chunks. The assertion added to combine::golden checks combine(0, 1, 0) == 0 and should detect the reversal. Both source regions are unique; no tests were executed.",
+  "test": "combine::golden",
+  "expected_failure": "assertion `left == right` failed\n  left: 1\n right: 0",
+  "reversal": {
+    "path": "src/combine.rs",
+    "fixed_text": "pub(crate) fn combine(crc1: u32, crc2: u32, len2: u64) -> u32 {\n    // Special case: If the length of the second chunk is zero, return the hash\n    // of the first chunk.\n    if len2 == 0 {\n        return crc1;\n    }\n\n",
+    "parent_text": "pub(crate) fn combine(crc1: u32, crc2: u32, len2: u64) -> u32 {\n"
+  }
+}

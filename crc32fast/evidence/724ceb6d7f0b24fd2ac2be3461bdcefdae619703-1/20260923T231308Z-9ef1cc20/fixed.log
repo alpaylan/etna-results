@@ -1,0 +1,29 @@
+Command: rustup run 1.88.0 cargo test --locked --offline --lib combine::golden -- --exact --nocapture --test-threads=1
+Started: 2026-09-23T23:17:49.016114+00:00
+STDOUT:
+
+running 1 test
+test combine::golden ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 5 filtered out; finished in 0.00s
+
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+   Compiling cfg-if v1.0.1
+   Compiling crc32fast v1.4.2 (/home/runner/work/_temp/upstream)
+   Compiling libc v0.2.174
+   Compiling zerocopy v0.8.26
+   Compiling bencher v0.1.5
+   Compiling getrandom v0.2.16
+   Compiling rand_core v0.6.4
+   Compiling ppv-lite86 v0.2.21
+   Compiling rand_chacha v0.3.1
+   Compiling rand v0.8.5
+   Compiling quickcheck v1.0.3
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.75s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260923T231308Z-9ef1cc20/debug/deps/crc32fast-a6d6f70d79cdaeaf)
+
+Exit: 0
+Timed out: False
