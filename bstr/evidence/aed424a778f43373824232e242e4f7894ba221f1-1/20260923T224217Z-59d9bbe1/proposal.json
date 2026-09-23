@@ -1,0 +1,13 @@
+{
+  "commit": "aed424a778f43373824232e242e4f7894ba221f1",
+  "parent": "f8a6c7031df1748b8469eb94372e2bd53d82ef1c",
+  "fixed_commit": "aed424a778f43373824232e242e4f7894ba221f1",
+  "summary": "SplitN could return an extra empty slice when its underlying split had already yielded the remainder and the next call reached the limit. The fix checks self.split.done before returning another slice. This reversal isolates the forward iterator correction. The fix adds a detecting assertion that splitting b\"abcdef\" twice on \"X\" yields only b\"abcdef\". It is a doctest; the current runner supports only library and integration tests, so reproduction will remain blocked until doctest selection is supported.",
+  "test": "src/ext_slice.rs - ext_slice::ByteSlice::splitn_str (line 1309)",
+  "expected_failure": "assertion failed: `(left == right)`\n  left: `[[97, 98, 99, 100, 101, 102], []]`,\n right: `[[97, 98, 99, 100, 101, 102]]`",
+  "reversal": {
+    "path": "src/ext_slice.rs",
+    "fixed_text": "impl<'a> Iterator for SplitN<'a> {\n    type Item = &'a [u8];\n\n    #[inline]\n    fn next(&mut self) -> Option<&'a [u8]> {\n        self.count += 1;\n        if self.count > self.limit || self.split.done {\n            None\n        } else if self.count == self.limit {\n            Some(&self.split.finder.haystack[self.split.last..])\n        } else {\n            self.split.next()\n        }\n    }\n}\n",
+    "parent_text": "impl<'a> Iterator for SplitN<'a> {\n    type Item = &'a [u8];\n\n    #[inline]\n    fn next(&mut self) -> Option<&'a [u8]> {\n        self.count += 1;\n        if self.count > self.limit {\n            None\n        } else if self.count == self.limit {\n            Some(&self.split.finder.haystack[self.split.last..])\n        } else {\n            self.split.next()\n        }\n    }\n}\n"
+  }
+}
