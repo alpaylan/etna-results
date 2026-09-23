@@ -1,0 +1,13 @@
+{
+  "commit": "8e48751508526cbe0c656f4dffa60cf4e6e4bfb0",
+  "parent": "572d6832783662a446937157c6061365f48863da",
+  "fixed_commit": "8e48751508526cbe0c656f4dffa60cf4e6e4bfb0",
+  "summary": "BitVec::insert rejected index == len before appending. The fix checks index.saturating_sub(1), allowing insertion at the end of a nonempty vector. The updated doctest in src/vec/api.rs exercises insert(5, true) on five bits, but the prototype runner supports only library and integration tests. The existing vec::tests::misc test inserts in the middle and does not detect this bug. Test selection is blocked by unsupported doctest execution; no tests were run.",
+  "test": "",
+  "expected_failure": "Index out of range: 5 >= 5",
+  "reversal": {
+    "path": "src/vec/api.rs",
+    "fixed_text": "\tpub fn insert(&mut self, index: usize, value: bool) {\n\t\t// we allow for index == len\n\t\tself.assert_in_bounds(index.saturating_sub(1));\n\t\tself.push(value);\n\t\tunsafe { self.get_unchecked_mut(index ..) }.rotate_right(1);\n\t}\n",
+    "parent_text": "\tpub fn insert(&mut self, index: usize, value: bool) {\n\t\tself.assert_in_bounds(index);\n\t\tself.push(value);\n\t\tunsafe { self.get_unchecked_mut(index ..) }.rotate_right(1);\n\t}\n"
+  }
+}
