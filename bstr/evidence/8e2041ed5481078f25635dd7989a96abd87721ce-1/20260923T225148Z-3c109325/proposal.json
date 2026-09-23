@@ -1,0 +1,13 @@
+{
+  "commit": "8e2041ed5481078f25635dd7989a96abd87721ce",
+  "parent": "16e782a7291a7f357ce4bfbf6d2155d65483e705",
+  "fixed_commit": "8e2041ed5481078f25635dd7989a96abd87721ce",
+  "summary": "BStr debug formatting delegated ASCII controls to char::escape_debug(), rendering byte 0x02 as \\u{2} instead of \\x02. The fix explicitly formats selected ASCII controls as two-digit hexadecimal escapes and NUL as \\0. The upstream test added by this commit checks these escapes. The reversal restores the exact parent implementation; reproduction remains for the runner.",
+  "test": "impls::test_debug",
+  "expected_failure": "assertion failed: `(left == right)`",
+  "reversal": {
+    "path": "src/impls.rs",
+    "fixed_text": "                match ch {\n                    '\\0' => write!(f, \"\\\\0\")?,\n                    '\\u{FFFD}' => {\n                        for &b in self[s..e].as_bytes() {\n                            write!(f, r\"\\x{:02X}\", b)?;\n                        }\n                    }\n                    // ASCII control characters except \\0, \\n, \\r, \\t\n                    '\\x01'..='\\x08'\n                    | '\\x0b'\n                    | '\\x0c'\n                    | '\\x0e'..='\\x19'\n                    | '\\x7f' => {\n                        write!(f, \"\\\\x{:02x}\", ch as u32)?;\n                    }\n                    '\\n' | '\\r' | '\\t' | _ => {\n                        write!(f, \"{}\", ch.escape_debug())?;\n                    }\n                }\n",
+    "parent_text": "                if ch == '\\u{FFFD}' {\n                    for &b in self[s..e].as_bytes() {\n                        write!(f, r\"\\x{:X}\", b)?;\n                    }\n                } else {\n                    write!(f, \"{}\", ch.escape_debug())?;\n                }\n"
+  }
+}

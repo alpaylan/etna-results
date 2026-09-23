@@ -3,17 +3,17 @@
 Resumed verified evidence; no tests rerun.
 
 **confirmed**: The same upstream test passed, panicked on the original defect ('assertion failed: `(left == right)`
-  left: `"\"\\xFF\xEF\xBF\xBD\\xFF\""`,
- right: `"\"\\xFF\\xEF\\xBF\\xBD\\xFF\""`'), and passed after restoration
+  left: `"\"\\0\\0\\0 ftypisom\\0\\0\\x02\\0isomiso2avc1mp\""`,
+ right: `"\"\\u{0}\\u{0}\\u{0} ftypisom\\u{0}\\u{0}\\u{2}\\u{0}isomiso2avc1mp\""`'), and passed after restoration
 
 Upstream: https://github.com/BurntSushi/bstr
 
-Candidate: eafb4951c651c4b4eab94621c259f80b217803ee-1
+Candidate: 8e2041ed5481078f25635dd7989a96abd87721ce-1
 
 Provenance: verbatim
 
 Latest outcomes: {"confirmed": 1}
 
-Reviewed commits: 1 / 87 reachable from the saved tip.
+Reviewed commits: 1 / 86 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

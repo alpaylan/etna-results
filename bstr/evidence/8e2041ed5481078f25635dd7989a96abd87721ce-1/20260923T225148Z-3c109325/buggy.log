@@ -1,0 +1,27 @@
+Command: rustup run 1.47.0 cargo test --locked --offline --lib impls::test_debug -- --exact --nocapture --test-threads=1
+Started: 2026-09-23T22:53:01.742081+00:00
+STDOUT:
+
+running 1 test
+test impls::test_debug ... FAILED
+
+failures:
+
+failures:
+    impls::test_debug
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 58 filtered out
+
+
+STDERR:
+   Compiling bstr v0.2.13 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 2.69s
+     Running /home/runner/work/_temp/build-20260923T225148Z-3c109325/debug/deps/bstr-052c7c284d73ff22
+thread 'main' panicked at 'assertion failed: `(left == right)`
+  left: `"\"\\0\\0\\0 ftypisom\\0\\0\\x02\\0isomiso2avc1mp\""`,
+ right: `"\"\\u{0}\\u{0}\\u{0} ftypisom\\u{0}\\u{0}\\u{2}\\u{0}isomiso2avc1mp\""`', src/impls.rs:937:5
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass '--lib'
+
+Exit: 101
+Timed out: False

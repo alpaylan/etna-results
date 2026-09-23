@@ -1,0 +1,34 @@
+diff --git a/src/impls.rs b/src/impls.rs
+index fa3d114..36a225f 100644
+--- a/src/impls.rs
++++ b/src/impls.rs
+@@ -375,24 +375,12 @@ mod bstr {
+         fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+             write!(f, "\"")?;
+             for (s, e, ch) in self.char_indices() {
+-                match ch {
+-                    '\0' => write!(f, "\\0")?,
+-                    '\u{FFFD}' => {
+-                        for &b in self[s..e].as_bytes() {
+-                            write!(f, r"\x{:02X}", b)?;
+-                        }
+-                    }
+-                    // ASCII control characters except \0, \n, \r, \t
+-                    '\x01'..='\x08'
+-                    | '\x0b'
+-                    | '\x0c'
+-                    | '\x0e'..='\x19'
+-                    | '\x7f' => {
+-                        write!(f, "\\x{:02x}", ch as u32)?;
+-                    }
+-                    '\n' | '\r' | '\t' | _ => {
+-                        write!(f, "{}", ch.escape_debug())?;
++                if ch == '\u{FFFD}' {
++                    for &b in self[s..e].as_bytes() {
++                        write!(f, r"\x{:X}", b)?;
+                     }
++                } else {
++                    write!(f, "{}", ch.escape_debug())?;
+                 }
+             }
+             write!(f, "\"")?;

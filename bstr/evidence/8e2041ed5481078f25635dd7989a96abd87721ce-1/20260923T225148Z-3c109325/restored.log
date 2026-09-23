@@ -1,0 +1,17 @@
+Command: rustup run 1.47.0 cargo test --locked --offline --lib impls::test_debug -- --exact --nocapture --test-threads=1
+Started: 2026-09-23T22:53:04.482118+00:00
+STDOUT:
+
+running 1 test
+test impls::test_debug ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 58 filtered out
+
+
+STDERR:
+   Compiling bstr v0.2.13 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 2.68s
+     Running /home/runner/work/_temp/build-20260923T225148Z-3c109325/debug/deps/bstr-052c7c284d73ff22
+
+Exit: 0
+Timed out: False
