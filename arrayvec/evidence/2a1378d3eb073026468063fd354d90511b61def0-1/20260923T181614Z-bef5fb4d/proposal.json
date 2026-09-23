@@ -1,0 +1,13 @@
+{
+  "commit": "2a1378d3eb073026468063fd354d90511b61def0",
+  "parent": "d86f06b068f65733fa8b7f4602aad0499ffe38ad",
+  "fixed_commit": "2a1378d3eb073026468063fd354d90511b61def0",
+  "summary": "The imported description does not match the original fix. ArrayVec::insert accepted indices greater than len but below capacity, causing len - index to underflow during element shifting instead of returning Some(element) unchanged. The fix rejects indices beyond len or equal to capacity. The fix-added test_insert_out_of_bounds in tests/tests.rs inserts at index 1 into an empty vector with capacity 8 and expects rejection. This is a proposed reversal; no tests were run.",
+  "test": "test_insert_out_of_bounds",
+  "expected_failure": "attempt to subtract with overflow",
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "    pub fn insert(&mut self, index: usize, element: A::Item) -> Option<A::Item> {\n        if index > self.len() || index == self.capacity() {\n            return Some(element);\n        }\n",
+    "parent_text": "    pub fn insert(&mut self, index: usize, element: A::Item) -> Option<A::Item> {\n        if index >= self.capacity() {\n            return Some(element);\n        }\n"
+  }
+}

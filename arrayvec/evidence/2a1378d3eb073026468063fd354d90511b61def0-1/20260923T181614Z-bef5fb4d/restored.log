@@ -1,0 +1,16 @@
+Command: rustup run 1.11.0 cargo test --test tests test_insert_out_of_bounds -- --nocapture
+Started: 2026-09-23T18:20:21.940301+00:00
+STDOUT:
+
+running 1 test
+test test_insert_out_of_bounds ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured
+
+
+STDERR:
+   Compiling arrayvec v0.3.17 (file:///home/runner/work/_temp/upstream)
+     Running /home/runner/work/_temp/build-20260923T181614Z-bef5fb4d/debug/tests-781000e735feff44
+
+Exit: 0
+Timed out: False
