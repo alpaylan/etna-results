@@ -1,0 +1,36 @@
+Command: rustup run 1.79.0 cargo generate-lockfile
+Started: 2026-09-23T15:17:03.143626+00:00
+STDOUT:
+
+STDERR:
+    Updating crates.io index
+     Locking 100 packages to latest compatible versions
+      Adding anes v0.1.6 (latest: v0.2.1)
+      Adding bitflags v1.3.2 (latest: v2.13.2)
+      Adding clap v2.34.0 (latest: v4.6.7)
+      Adding clap v3.2.25 (latest: v4.6.7)
+      Adding clap_lex v0.2.4 (latest: v1.1.1)
+      Adding criterion v0.4.0 (latest: v0.8.2)
+      Adding criterion-plot v0.5.0 (latest: v0.8.2)
+      Adding getrandom v0.2.17 (latest: v0.4.3)
+      Adding hashbrown v0.12.3 (latest: v0.17.1)
+      Adding heck v0.3.3 (latest: v0.5.0)
+      Adding hermit-abi v0.1.19 (latest: v0.5.3)
+      Adding indexmap v1.9.3 (latest: v2.14.2)
+      Adding itertools v0.10.5 (latest: v0.15.0)
+      Adding os_str_bytes v6.6.1 (latest: v7.2.1)
+      Adding rand v0.8.8 (latest: v0.10.3)
+      Adding rand_chacha v0.3.1 (latest: v0.10.0)
+      Adding rand_core v0.6.4 (latest: v0.10.1)
+      Adding rstest v0.12.0 (latest: v0.27.0)
+      Adding rstest_reuse v0.3.0 (latest: v0.7.0)
+      Adding strsim v0.8.0 (latest: v0.11.1)
+      Adding syn v1.0.109 (latest: v3.0.6)
+      Adding syn v2.0.119 (latest: v3.0.6)
+      Adding textwrap v0.11.0 (latest: v0.16.4)
+      Adding unicode-width v0.1.14 (latest: v0.2.2)
+      Adding wasi v0.11.1+wasi-snapshot-preview1 (latest: v0.14.7+wasi-0.2.4)
+      Adding windows-link v0.2.1 (latest: v0.100.0)
+
+Exit: 0
+Timed out: False
