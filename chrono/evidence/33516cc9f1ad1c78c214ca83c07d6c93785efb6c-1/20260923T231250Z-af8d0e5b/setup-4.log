@@ -1,0 +1,14 @@
+Command: rustup run 1.7.0 cargo fetch
+Started: 2026-09-23T23:15:24.432213+00:00
+STDOUT:
+
+STDERR:
+An unknown error occurred
+
+Caused by:
+  invalid version: cannot parse '0.3.0-alpha-0' as a semver
+
+To learn more, run the command again with --verbose.
+
+Exit: 101
+Timed out: False

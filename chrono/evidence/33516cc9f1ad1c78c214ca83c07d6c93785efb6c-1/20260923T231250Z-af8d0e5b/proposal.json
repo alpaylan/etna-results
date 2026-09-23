@@ -1,0 +1,13 @@
+{
+  "commit": "33516cc9f1ad1c78c214ca83c07d6c93785efb6c",
+  "parent": "260342a59228c0f2cbdb4eec5ebbb513d9516d50",
+  "fixed_commit": "33516cc9f1ad1c78c214ca83c07d6c93785efb6c",
+  "summary": "After consuming \"Sun\", the parser incorrectly sought the suffix \"sunday\", leaving \"day\" unconsumed. Changing that suffix to \"day\" consumes the full weekday. The existing parse_rfc850 test parses \"Sunday, 06-Nov-94 08:49:37 GMT\"; reversing the fix should cause an Invalid error when the expected comma encounters the leftover \"day\". No tests were run.",
+  "test": "format::parse::parse_rfc850",
+  "expected_failure": "Err(ParseError(Invalid))",
+  "reversal": {
+    "path": "src/format/scan.rs",
+    "fixed_text": "        [\"day\", \"sday\", \"nesday\", \"rsday\", \"day\", \"urday\", \"day\"];\n",
+    "parent_text": "        [\"day\", \"sday\", \"nesday\", \"rsday\", \"day\", \"urday\", \"sunday\"];\n"
+  }
+}

@@ -1,0 +1,15 @@
+Command: rustup run 1.7.0 cargo generate-lockfile
+Started: 2026-09-23T23:13:06.624068+00:00
+STDOUT:
+    Updating registry `https://github.com/rust-lang/crates.io-index`
+
+STDERR:
+An unknown error occurred
+
+Caused by:
+  invalid version: cannot parse '0.3.0-alpha-0' as a semver
+
+To learn more, run the command again with --verbose.
+
+Exit: 101
+Timed out: False

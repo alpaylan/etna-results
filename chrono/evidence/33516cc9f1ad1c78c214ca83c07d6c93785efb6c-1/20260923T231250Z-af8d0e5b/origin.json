@@ -1,0 +1,10 @@
+{
+  "mode": "llm",
+  "note": "LLM proposal for one queued historical regression.",
+  "candidate_id": "33516cc9f1ad1c78c214ca83c07d6c93785efb6c-1",
+  "prepared_at": "2026-09-23T23:11:55.779603+00:00",
+  "workflow_run": "35932340698",
+  "harness_commit": "5f693cb1237de2a59e56d54e2cf654f380bed448",
+  "requested_model": "",
+  "codex_version": "0.154.0"
+}
