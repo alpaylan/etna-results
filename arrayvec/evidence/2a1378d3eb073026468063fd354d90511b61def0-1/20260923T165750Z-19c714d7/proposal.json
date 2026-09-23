@@ -1,0 +1,13 @@
+{
+  "commit": "2a1378d3eb073026468063fd354d90511b61def0",
+  "parent": "d86f06b068f65733fa8b7f4602aad0499ffe38ad",
+  "fixed_commit": "2a1378d3eb073026468063fd354d90511b61def0",
+  "summary": "The imported summary does not match the historical fix: ArrayVec::insert accepted indices greater than len but below capacity, causing len - index to underflow during element shifting. The fix rejects these indices by returning Some(element) without modifying the vector, while preserving valid append positions below capacity. The upstream test added by this commit inserts at index 1 into an empty vector of capacity 8 and checks the returned element and unchanged length.",
+  "test": "test_insert_out_of_bounds",
+  "expected_failure": "attempt to subtract with overflow",
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "        if index > self.len() || index == self.capacity() {\n",
+    "parent_text": "        if index >= self.capacity() {\n"
+  }
+}

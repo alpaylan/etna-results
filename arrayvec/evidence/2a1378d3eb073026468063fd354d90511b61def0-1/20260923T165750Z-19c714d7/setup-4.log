@@ -1,0 +1,12 @@
+Command: rustup run 1.11.0 cargo build --tests
+Started: 2026-09-23T17:01:45.661382+00:00
+STDOUT:
+
+STDERR:
+error: Unknown flag: '--tests'. Did you mean '--test'?
+
+Usage:
+    cargo build [options]
+
+Exit: 1
+Timed out: False
