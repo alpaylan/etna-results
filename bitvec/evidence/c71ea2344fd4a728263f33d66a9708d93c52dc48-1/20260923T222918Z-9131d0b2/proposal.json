@@ -1,0 +1,13 @@
+{
+  "commit": "c71ea2344fd4a728263f33d66a9708d93c52dc48",
+  "parent": "79c83a4a1aaffb3be742cbd7817ebdbe80ef656b",
+  "fixed_commit": "c71ea2344fd4a728263f33d66a9708d93c52dc48",
+  "summary": "BitSlice::split_at_mut incorrectly rejects mid == self.len(), including splitting an empty slice at zero. The fix makes the bounds check inclusive, allowing the documented empty right half. The doctest updated by this fix splits an empty slice at zero and checks that both halves are empty. This is a proposed reversal; no tests were executed.",
+  "test": "src/slice/api.rs - slice::api::BitSlice<O,T>::split_at_mut (line 1241)",
+  "expected_failure": "Index 0 out of range: Excluded(0)",
+  "reversal": {
+    "path": "src/slice/api.rs",
+    "fixed_text": "\tpub fn split_at_mut(\n\t\t&mut self,\n\t\tmid: usize,\n\t) -> (&mut BitSlice<O, T::Alias>, &mut BitSlice<O, T::Alias>) {\n\t\tself.assert_in_bounds(mid, 0..=self.len());\n\t\tunsafe { self.split_at_unchecked_mut(mid) }\n\t}\n",
+    "parent_text": "\tpub fn split_at_mut(\n\t\t&mut self,\n\t\tmid: usize,\n\t) -> (&mut BitSlice<O, T::Alias>, &mut BitSlice<O, T::Alias>) {\n\t\tself.assert_in_bounds(mid, 0..self.len());\n\t\tunsafe { self.split_at_unchecked_mut(mid) }\n\t}\n"
+  }
+}
