@@ -1,0 +1,19 @@
+Command: rustup run 1.80.1 cargo test --locked --offline --test test_buf test_get_int -- --nocapture --test-threads=1
+Started: 2026-09-23T23:05:43.701724+00:00
+STDOUT:
+
+running 1 test
+test test_get_int ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 9 filtered out; finished in 0.00s
+
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+   Compiling bytes v1.7.1 (/home/runner/work/_temp/upstream)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.45s
+     Running tests/test_buf.rs (/home/runner/work/_temp/build-20260923T230131Z-38f3a1e7/debug/deps/test_buf-2f28dc6f85c9765b)
+
+Exit: 0
+Timed out: False

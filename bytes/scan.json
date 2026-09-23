@@ -1,12 +1,14 @@
 {
   "repo": "https://github.com/tokio-rs/bytes",
   "tips": [
+    "79fb85323cf4cf14d9b85f487b65fc147030cf4b",
     "f330ef6c4d806abecadca945f682436737399039"
   ],
   "shallow": false,
   "reviewed": [
+    "79fb85323cf4cf14d9b85f487b65fc147030cf4b",
     "f330ef6c4d806abecadca945f682436737399039"
   ],
-  "reachable_commits": 348,
+  "reachable_commits": 514,
   "scope": "One queued candidate; not an exhaustive history scan."
 }

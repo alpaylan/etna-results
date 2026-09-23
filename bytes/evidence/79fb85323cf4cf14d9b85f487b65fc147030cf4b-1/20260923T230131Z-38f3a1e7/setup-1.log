@@ -1,0 +1,14 @@
+Command: rustup toolchain install 1.80.1 --profile minimal
+Started: 2026-09-23T23:01:38.206498+00:00
+STDOUT:
+
+  1.80.1-x86_64-unknown-linux-gnu installed - rustc 1.80.1 (3f5fd8dd4 2024-08-06)
+
+
+STDERR:
+info: syncing channel updates for 1.80.1-x86_64-unknown-linux-gnu
+info: latest update on 2024-08-08 for version 1.80.1 (3f5fd8dd4 2024-08-06)
+info: downloading 3 components
+
+Exit: 0
+Timed out: False

@@ -1,0 +1,13 @@
+{
+  "commit": "79fb85323cf4cf14d9b85f487b65fc147030cf4b",
+  "parent": "291df5acc94b82a48765e67eeb1c1a2074539e68",
+  "fixed_commit": "79fb85323cf4cf14d9b85f487b65fc147030cf4b",
+  "summary": "Partial-width signed integers were zero-extended, so decoding byte 0xd6 returned 214 instead of -42. The fix sign-extends unsigned decoding results for both byte orders. This reversal restores only the original get_int implementation; test_get_int, added by the fix in tests/test_buf.rs, detects it at its first assertion. Both regions occur exactly once in their respective Git objects. No builds or tests were run.",
+  "test": "test_get_int",
+  "expected_failure": "assertion `left == right` failed\n  left: -42\n right: 214",
+  "reversal": {
+    "path": "src/buf/buf_impl.rs",
+    "fixed_text": "    fn get_int(&mut self, nbytes: usize) -> i64 {\n        sign_extend(self.get_uint(nbytes), nbytes)\n    }\n",
+    "parent_text": "    fn get_int(&mut self, nbytes: usize) -> i64 {\n        buf_get_impl!(be => self, i64, nbytes);\n    }\n"
+  }
+}

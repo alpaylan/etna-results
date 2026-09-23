@@ -1,0 +1,16 @@
+Command: rustup run 1.80.1 cargo generate-lockfile
+Started: 2026-09-23T23:04:34.265247+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+    Updating `era` index
+     Locking 54 packages to latest compatible versions
+      Adding matchers v0.1.0 (latest: v0.2.0)
+      Adding nu-ansi-term v0.46.0 (latest: v0.50.1)
+      Adding regex-automata v0.1.10 (latest: v0.4.7)
+      Adding regex-syntax v0.6.29 (latest: v0.8.4)
+
+Exit: 0
+Timed out: False
