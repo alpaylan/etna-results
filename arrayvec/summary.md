@@ -1,6 +1,6 @@
 # Cloud bug-mining prototype
 
-**blocked**: HTTP Error 403: rate limit exceeded
+**blocked**: fixed: no completed execution of the exact upstream test
 
 Upstream: https://github.com/bluss/arrayvec
 
