@@ -1,0 +1,8 @@
+Command: rustup run 1.75.0 cargo generate-lockfile
+Started: 2026-09-23T15:19:21.230804+00:00
+STDOUT:
+
+STDERR:
+
+Exit: 0
+Timed out: False
