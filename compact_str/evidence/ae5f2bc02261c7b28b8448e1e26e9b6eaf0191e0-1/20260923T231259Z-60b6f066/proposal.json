@@ -1,0 +1,13 @@
+{
+  "commit": "ae5f2bc02261c7b28b8448e1e26e9b6eaf0191e0",
+  "parent": "60ba04ad6c54749ee05f0672a15bd24c5dcac7df",
+  "fixed_commit": "ae5f2bc02261c7b28b8448e1e26e9b6eaf0191e0",
+  "summary": "Repr::reserve computed length + additional with unchecked addition, allowing overflow to wrap and incorrectly treat existing capacity as sufficient when overflow checks are disabled. The fix uses checked_add and expect to enforce the documented overflow panic; this revision does not return ReserveError. Blocked: the fix adds no tests, and existing reserve unit tests, doctests, and property tests exercise only nonoverflowing requests. No detecting upstream test was found at the required fixed commit. The exact implementation reversal is available; no builds or tests were run.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "compact_str/src/repr/mod.rs",
+    "fixed_text": "        let new_capacity = self\n            .len()\n            .checked_add(additional)\n            .expect(\"resulting capacity does not fit into usize\");\n",
+    "parent_text": "        let new_capacity = self.len() + additional;\n"
+  }
+}
