@@ -1,10 +1,12 @@
 {
   "repo": "https://github.com/bluss/arrayvec",
   "tips": [
+    "2a1378d3eb073026468063fd354d90511b61def0",
     "a554ea219a181f74542c5aaaeccec97a52f51939"
   ],
   "shallow": false,
   "reviewed": [
+    "2a1378d3eb073026468063fd354d90511b61def0",
     "a554ea219a181f74542c5aaaeccec97a52f51939"
   ],
   "reachable_commits": 436,
