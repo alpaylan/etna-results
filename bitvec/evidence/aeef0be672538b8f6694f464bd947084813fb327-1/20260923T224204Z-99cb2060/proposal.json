@@ -1,0 +1,13 @@
+{
+  "commit": "aeef0be672538b8f6694f464bd947084813fb327",
+  "parent": "9b755667afc7c7273aa84e6fc7a34e158b7e668b",
+  "fixed_commit": "aeef0be672538b8f6694f464bd947084813fb327",
+  "summary": "Octal formatting allocates floor(usize::BITS / 3) digit slots, causing an out-of-bounds panic when formatting a full usize-width element. The historical fix adds the remainder to provide sufficient capacity; it does not use the imported description's zip-based truncation implementation. The buffer-sizing reversal is exact and unique. Blocked: the fix adds no tests, and the existing slice::traits::format::octal test uses only u8 elements, requiring at most three digit slots and therefore missing the overflow. Searching Rust sources at the fixed commit found no detecting upstream test.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/slice/traits.rs",
+    "fixed_text": "\t\t\t\tconst D: usize = <usize as BitMemory>::BITS as usize / $blksz;\n\t\t\t\tconst M: usize = <usize as BitMemory>::BITS as usize % $blksz;\n\t\t\t\tconst W: usize = D + M;\n",
+    "parent_text": "\t\t\t\tconst W: usize = <usize as BitMemory>::BITS as usize / $blksz;\n"
+  }
+}
