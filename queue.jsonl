@@ -621,3 +621,4 @@
 {"claimed_at": "2026-09-23T22:50:19.751293+00:00", "claimed_by": "local://tick-5", "id": "af99a6ecb4723d0ea03982797a1becd8437d3f7d-1", "status": "claimed"}
 {"claimed_at": "2026-09-23T22:50:19.751295+00:00", "claimed_by": "local://tick-5", "id": "b58396d3aadd4c91086c94feb5ef5a29465b7d86-1", "status": "claimed"}
 {"claimed_at": "2026-09-23T22:50:19.751296+00:00", "claimed_by": "local://tick-5", "id": "acd1e0ffb8f076225759b8005d04f65ef77cccca-1", "status": "claimed"}
+{"id": "acd1e0ffb8f076225759b8005d04f65ef77cccca-1", "published_at": "2026-09-23T22:52:19.216411+00:00", "run": {"attempt": "20260923T225204Z-303b8027", "id": "35930552345", "url": "https://github.com/alpaylan/etna-ify/actions/runs/35930552345"}, "status": "blocked"}
