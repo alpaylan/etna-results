@@ -604,3 +604,8 @@
 {"id": "b08c4bdde959c172d5e77fe1746e903688b804e4-1", "published_at": "2026-09-23T22:22:04.595091+00:00", "run": {"attempt": "20260923T221946Z-12f6e424", "id": "35927589347", "url": "https://github.com/alpaylan/etna-ify/actions/runs/35927589347"}, "status": "unconfirmed"}
 {"id": "c71ea2344fd4a728263f33d66a9708d93c52dc48-1", "published_at": "2026-09-23T22:29:47.989644+00:00", "run": {"attempt": "20260923T222918Z-9131d0b2", "id": "35928490747", "url": "https://github.com/alpaylan/etna-ify/actions/runs/35928490747"}, "status": "blocked"}
 {"id": "b08c4bdde959c172d5e77fe1746e903688b804e4-1", "published_at": "2026-09-23T22:31:39.556469+00:00", "run": {"attempt": "20260923T222921Z-823622b3", "id": "35928483467", "url": "https://github.com/alpaylan/etna-ify/actions/runs/35928483467"}, "status": "unconfirmed"}
+{"claimed_at": "2026-09-23T22:40:32.769657+00:00", "claimed_by": "local://tick-4", "id": "f3d5b43000f6e9a52a233bf07c295929cce66387-1", "status": "claimed"}
+{"claimed_at": "2026-09-23T22:40:32.769663+00:00", "claimed_by": "local://tick-4", "id": "935cad8888d0f09837b95000c44f4a56579c7108-1", "status": "claimed"}
+{"claimed_at": "2026-09-23T22:40:32.769664+00:00", "claimed_by": "local://tick-4", "id": "aeef0be672538b8f6694f464bd947084813fb327-1", "status": "claimed"}
+{"claimed_at": "2026-09-23T22:40:32.769665+00:00", "claimed_by": "local://tick-4", "id": "aed424a778f43373824232e242e4f7894ba221f1-1", "status": "claimed"}
+{"claimed_at": "2026-09-23T22:40:32.769666+00:00", "claimed_by": "local://tick-4", "id": "b2111b6bbf2c9a819fb1338aa81bd099874106a1-1", "status": "claimed"}
