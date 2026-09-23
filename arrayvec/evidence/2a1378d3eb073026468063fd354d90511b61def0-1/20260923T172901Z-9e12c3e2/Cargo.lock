@@ -1,0 +1,25 @@
+[root]
+name = "arrayvec"
+version = "0.3.17"
+dependencies = [
+ "nodrop 0.1.8",
+ "odds 0.2.26 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "nodrop"
+version = "0.1.8"
+dependencies = [
+ "nodrop-union 0.1.9",
+ "odds 0.2.26 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "nodrop-union"
+version = "0.1.9"
+
+[[package]]
+name = "odds"
+version = "0.2.26"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+

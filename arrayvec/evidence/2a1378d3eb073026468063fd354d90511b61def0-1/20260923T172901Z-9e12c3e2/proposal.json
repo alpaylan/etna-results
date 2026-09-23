@@ -1,0 +1,13 @@
+{
+  "commit": "2a1378d3eb073026468063fd354d90511b61def0",
+  "parent": "d86f06b068f65733fa8b7f4602aad0499ffe38ad",
+  "fixed_commit": "2a1378d3eb073026468063fd354d90511b61def0",
+  "summary": "The original fix corrects ArrayVec::insert accepting indices greater than length but below capacity, contrary to the imported append-boundary description. Inserting at index 1 into an empty vector reaches len - index, causing subtraction overflow in debug builds and an invalid copy length without overflow checks. The fix returns Some(element) for invalid indices before accessing storage. The selected upstream test was added by this commit. No tests were run.",
+  "test": "test_insert_out_of_bounds",
+  "expected_failure": "attempt to subtract with overflow",
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "        if index > self.len() || index == self.capacity() {\n",
+    "parent_text": "        if index >= self.capacity() {\n"
+  }
+}
