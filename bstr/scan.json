@@ -1,16 +1,18 @@
 {
   "repo": "https://github.com/BurntSushi/bstr",
   "tips": [
+    "732fc99f3844d88dc40f33d95a7bc8f3f6bd2e5b",
     "8e2041ed5481078f25635dd7989a96abd87721ce",
     "b2111b6bbf2c9a819fb1338aa81bd099874106a1",
     "eafb4951c651c4b4eab94621c259f80b217803ee"
   ],
   "shallow": false,
   "reviewed": [
+    "732fc99f3844d88dc40f33d95a7bc8f3f6bd2e5b",
     "8e2041ed5481078f25635dd7989a96abd87721ce",
     "b2111b6bbf2c9a819fb1338aa81bd099874106a1",
     "eafb4951c651c4b4eab94621c259f80b217803ee"
   ],
-  "reachable_commits": 92,
+  "reachable_commits": 237,
   "scope": "One queued candidate; not an exhaustive history scan."
 }

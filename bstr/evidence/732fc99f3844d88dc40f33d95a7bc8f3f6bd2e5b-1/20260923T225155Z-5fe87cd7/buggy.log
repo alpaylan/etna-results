@@ -1,0 +1,31 @@
+Command: rustup run 1.83.0 cargo test --locked --offline --lib impls::test_debug -- --exact --nocapture --test-threads=1
+Started: 2026-09-23T22:55:04.892624+00:00
+STDOUT:
+
+running 1 test
+test impls::test_debug ... FAILED
+
+failures:
+
+failures:
+    impls::test_debug
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 47 filtered out; finished in 0.00s
+
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+warning: ignoring `resolver` config table without `-Zmsrv-policy`
+   Compiling bstr v1.11.1 (/home/runner/work/_temp/upstream)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.89s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260923T225155Z-5fe87cd7/debug/deps/bstr-10aeec19ce748777)
+thread 'impls::test_debug' panicked at src/impls.rs:1310:5:
+assertion `left == right` failed
+  left: "\"\\0\\x01\\x02\\x03\\x04\\x05\\x06\\x07\\x08\\t\\n\\x11\\x12\\r\\x14\\x15\\x16\\x17\\x18\\x19\\x1a\\x1b\\x1c\\x1d\\x1e\\x1f \\x7f\\x80\\x81\\xfe\\xff\""
+ right: "\"\\0\\x01\\x02\\x03\\x04\\x05\\x06\\x07\\x08\\t\\n\\x11\\x12\\r\\x14\\x15\\x16\\x17\\x18\\x19\\u{1a}\\u{1b}\\u{1c}\\u{1d}\\u{1e}\\u{1f} \\x7f\\x80\\x81\\xfe\\xff\""
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `--lib`
+
+Exit: 101
+Timed out: False

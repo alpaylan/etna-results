@@ -1,0 +1,14 @@
+Command: rustup run 1.83.0 cargo generate-lockfile
+Started: 2026-09-23T22:53:50.030266+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+warning: ignoring `resolver` config table without `-Zmsrv-policy`
+    Updating `era` index
+     Locking 78 packages to latest compatible versions
+      Adding criterion v0.3.6 (available: v0.5.1)
+
+Exit: 0
+Timed out: False
