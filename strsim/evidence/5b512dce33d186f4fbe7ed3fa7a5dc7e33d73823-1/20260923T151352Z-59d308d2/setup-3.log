@@ -1,0 +1,12 @@
+Command: rustup run 1.75.0 cargo fetch --locked
+Started: 2026-09-23T15:14:07.404412+00:00
+STDOUT:
+
+STDERR:
+error: failed to parse lock file at: /home/runner/work/_temp/upstream/Cargo.lock
+
+Caused by:
+  lock file version `4` was found, but this version of Cargo does not understand this lock file, perhaps Cargo needs to be updated?
+
+Exit: 101
+Timed out: False

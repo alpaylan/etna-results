@@ -1,6 +1,6 @@
 # Cloud bug-mining prototype
 
-**blocked**: Reversal changes are not part of the upstream fix
+**blocked**: Dependency setup failed; see setup logs
 
 Upstream: https://github.com/rapidfuzz/strsim-rs
 
@@ -10,6 +10,6 @@ Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-History coverage not yet recorded.
+Reviewed commits: 1 / 91 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.
