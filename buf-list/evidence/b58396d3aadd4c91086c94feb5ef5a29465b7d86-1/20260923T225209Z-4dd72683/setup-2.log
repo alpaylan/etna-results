@@ -1,0 +1,17 @@
+Command: rustup run 1.90.0 cargo generate-lockfile
+Started: 2026-09-23T22:54:35.390352+00:00
+STDOUT:
+
+STDERR:
+warning: both `/home/runner/work/_temp/upstream/.cargo/config` and `/home/runner/work/_temp/upstream/.cargo/config.toml` exist. Using `/home/runner/work/_temp/upstream/.cargo/config`
+    Updating `era` index
+     Locking 88 packages to latest Rust 1.70 compatible versions
+      Adding backtrace v0.3.74 (available: v0.3.76, requires Rust 1.82.0)
+      Adding proptest v1.7.0 (available: v1.8.0, requires Rust 1.74)
+      Adding test-strategy v0.3.1 (available: v0.4.3)
+      Adding wasi v0.14.4+wasi-0.2.4 (available: v0.14.7+wasi-0.2.4, requires Rust 1.82.0)
+      Adding windows-link v0.2.0 (requires Rust 1.71)
+      Adding wit-bindgen v0.45.1 (requires Rust 1.82.0)
+
+Exit: 0
+Timed out: False

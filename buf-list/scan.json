@@ -1,0 +1,12 @@
+{
+  "repo": "https://github.com/sunshowers-code/buf-list",
+  "tips": [
+    "b58396d3aadd4c91086c94feb5ef5a29465b7d86"
+  ],
+  "shallow": false,
+  "reviewed": [
+    "b58396d3aadd4c91086c94feb5ef5a29465b7d86"
+  ],
+  "reachable_commits": 49,
+  "scope": "One queued candidate; not an exhaustive history scan."
+}

@@ -1,0 +1,13 @@
+{
+  "commit": "b58396d3aadd4c91086c94feb5ef5a29465b7d86",
+  "parent": "3bd7ccda003a5ec482972664dab5012a22876175",
+  "fixed_commit": "b58396d3aadd4c91086c94feb5ef5a29465b7d86",
+  "summary": "When read_exact requests more bytes than remain, buf-list returns UnexpectedEof without updating the cursor position, diverging from std::io::Cursor on Rust 1.80 and later. The fix sets the position to the buffer's total length before returning the error. The existing cursor operation property test compares positions against std::io::Cursor after each operation; the fix adds a saved regression seed in proptest-regressions/cursor/tests.txt. This is a proposed comparison, not an observed reproduction.",
+  "test": "cursor::tests::proptest_cursor_ops",
+  "expected_failure": "position didn't match: buf_list position",
+  "reversal": {
+    "path": "src/cursor/mod.rs",
+    "fixed_text": "    fn read_exact_impl(&mut self, list: &BufList, buf: &mut [u8]) -> io::Result<()> {\n        // This is the same as read_impl as long as there's enough space.\n        let total = self.num_bytes(list);\n        let remaining = total.saturating_sub(self.pos);\n        let buf_len = buf.len();\n        if remaining < buf_len as u64 {\n            // Rust 1.80 and above will cause the position to be set to the end\n            // of the buffer, due to (apparently)\n            // https://github.com/rust-lang/rust/pull/125404. Follow that\n            // behavior.\n            self.set_pos(list, total);\n            return Err(io::Error::new(\n                io::ErrorKind::UnexpectedEof,\n                ReadExactError { remaining, buf_len },\n            ));\n        }\n\n        self.read_impl(list, buf);\n        Ok(())\n    }\n\n",
+    "parent_text": "    fn read_exact_impl(&mut self, list: &BufList, buf: &mut [u8]) -> io::Result<()> {\n        // This is the same as read_impl as long as there's enough space.\n        let remaining = self.num_bytes(list).saturating_sub(self.pos);\n        let buf_len = buf.len();\n        if remaining < buf_len as u64 {\n            return Err(io::Error::new(\n                io::ErrorKind::UnexpectedEof,\n                ReadExactError { remaining, buf_len },\n            ));\n        }\n\n        self.read_impl(list, buf);\n        Ok(())\n    }\n\n"
+  }
+}
