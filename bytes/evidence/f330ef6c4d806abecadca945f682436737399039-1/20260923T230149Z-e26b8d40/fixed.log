@@ -1,0 +1,25 @@
+Command: rustup run 1.40.0 cargo test --locked --offline --test test_bytes slice_ref_empty_subslice -- --nocapture --test-threads=1
+Started: 2026-09-23T23:02:41.127952+00:00
+STDOUT:
+
+running 1 test
+test slice_ref_empty_subslice ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 57 filtered out
+
+
+STDERR:
+   Compiling cfg-if v0.1.10
+   Compiling scoped-tls v0.1.2
+   Compiling bytes v0.5.3 (/home/runner/work/_temp/upstream)
+   Compiling libc v0.2.66
+   Compiling serde v1.0.104
+   Compiling log v0.4.8
+   Compiling generator v0.6.19
+   Compiling loom v0.2.14
+   Compiling serde_test v1.0.104
+    Finished test [unoptimized + debuginfo] target(s) in 7.77s
+     Running /home/runner/work/_temp/build-20260923T230149Z-e26b8d40/debug/deps/test_bytes-94962109dd2707a0
+
+Exit: 0
+Timed out: False

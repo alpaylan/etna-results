@@ -1,0 +1,25 @@
+Command: rustup run 1.40.0 cargo test --locked --offline --test test_bytes slice_ref_empty_subslice -- --nocapture --test-threads=1
+Started: 2026-09-23T23:02:48.950882+00:00
+STDOUT:
+
+running 1 test
+test slice_ref_empty_subslice ... FAILED
+
+failures:
+
+failures:
+    slice_ref_empty_subslice
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 57 filtered out
+
+
+STDERR:
+   Compiling bytes v0.5.3 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 0.77s
+     Running /home/runner/work/_temp/build-20260923T230149Z-e26b8d40/debug/deps/test_bytes-94962109dd2707a0
+thread 'main' panicked at 'subset is out of bounds: self = (0x55b28c8ff7cd, 5), subset = (0x55b28c907a35, 0)', src/bytes.rs:285:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace.
+error: test failed, to rerun pass '--test test_bytes'
+
+Exit: 101
+Timed out: False

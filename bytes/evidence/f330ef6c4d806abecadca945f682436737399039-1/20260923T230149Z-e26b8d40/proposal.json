@@ -1,0 +1,13 @@
+{
+  "commit": "f330ef6c4d806abecadca945f682436737399039",
+  "parent": "87b75cce161e55692564322c223b19bc1a440f72",
+  "fixed_commit": "f330ef6c4d806abecadca945f682436737399039",
+  "summary": "Bytes::slice(0..0) returns a fresh empty Bytes whose pointer need not lie within the original buffer. Passing its slice to slice_ref previously triggered a containment-check panic. The fix returns Bytes::new() for empty subsets before checking pointers. The added test slice_ref_empty_subslice in tests/test_bytes.rs exercises this behavior. The reversal removes only the added implementation guard and comments; tests have not been run.",
+  "test": "slice_ref_empty_subslice",
+  "expected_failure": "subset pointer (0x1) is smaller than self pointer",
+  "reversal": {
+    "path": "src/bytes.rs",
+    "fixed_text": "    pub fn slice_ref(&self, subset: &[u8]) -> Bytes {\n        // Empty slice and empty Bytes may have their pointers reset\n        // so explicitly allow empty slice to be a subslice of any slice.\n        if subset.is_empty() {\n            return Bytes::new();\n        }\n\n        let bytes_p = self.as_ptr() as usize;\n",
+    "parent_text": "    pub fn slice_ref(&self, subset: &[u8]) -> Bytes {\n        let bytes_p = self.as_ptr() as usize;\n"
+  }
+}
