@@ -1,0 +1,18 @@
+Command: rustup run 1.33.0 cargo fetch --locked
+Started: 2026-09-23T16:36:19.254108+00:00
+STDOUT:
+
+STDERR:
+error: failed to select a version for `syn`.
+    ... required by package `serde_derive v1.0.229`
+    ... which is depended on by `criterion v0.2.11`
+    ... which is depended on by `ahash v0.1.6 (/home/runner/work/_temp/upstream)`
+versions that meet the requirements `= 3.0.6` are: 3.0.6
+
+the package `serde_derive` depends on `syn`, with features: `proc-macro, printing` but `syn` does not have these features.
+
+
+failed to select a version for `syn` which could resolve this conflict
+
+Exit: 101
+Timed out: False
