@@ -1,0 +1,15 @@
+diff --git a/src/arrayvec.rs b/src/arrayvec.rs
+index bb6ce19..6c2c4c1 100644
+--- a/src/arrayvec.rs
++++ b/src/arrayvec.rs
+@@ -976,8 +976,8 @@ impl<T, const CAP: usize> ArrayVec<T, CAP> {
+         };
+         let mut iter = iterable.into_iter();
+         loop {
+-            if let Some(elt) = iter.next() {
+-                if ptr == end_ptr && CHECK { extend_panic(); }
++                if ptr == end_ptr { break; }
++                if let Some(elt) = iter.next() {
+                 debug_assert_ne!(ptr, end_ptr);
+                 ptr.write(elt);
+                 ptr = raw_ptr_add(ptr, 1);

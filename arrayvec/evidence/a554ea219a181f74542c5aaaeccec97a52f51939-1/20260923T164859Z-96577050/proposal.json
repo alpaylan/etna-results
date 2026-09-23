@@ -1,0 +1,13 @@
+{
+  "commit": "a554ea219a181f74542c5aaaeccec97a52f51939",
+  "parent": "182097035d6417c0d27f96c0434167341ca2bd82",
+  "fixed_commit": "a554ea219a181f74542c5aaaeccec97a52f51939",
+  "summary": "Previously, extend and from_iter stopped silently when capacity was reached, leaving excess iterator elements unconsumed. The fix checks capacity after obtaining the next element and panics on overflow while allowing exact fits. Restoring the parent's pre-iteration capacity check reintroduces silent truncation. The upstream test added by this commit extends a full capacity-5 vector with one additional element and expects a panic.",
+  "test": "test_extend_capacity_panic_2",
+  "expected_failure": "test did not panic as expected",
+  "reversal": {
+    "path": "src/arrayvec.rs",
+    "fixed_text": "            if let Some(elt) = iter.next() {\n                if ptr == end_ptr && CHECK { extend_panic(); }\n",
+    "parent_text": "                if ptr == end_ptr { break; }\n                if let Some(elt) = iter.next() {\n"
+  }
+}

@@ -1,0 +1,548 @@
+Command: rustup run 1.50.0 cargo check --locked --offline --tests
+Started: 2026-09-23T16:50:03.044616+00:00
+STDOUT:
+
+STDERR:
+   Compiling serde v1.0.125
+    Checking matches v0.1.8
+    Checking bencher v0.1.5
+    Checking arrayvec v0.5.2 (/home/runner/work/_temp/upstream)
+error[E0658]: const generics are unstable
+  --> src/arrayvec.rs:38:30
+   |
+38 | pub struct ArrayVec<T, const CAP: usize> {
+   |                              ^^^
+   |
+   = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+  --> src/arrayvec.rs:44:15
+   |
+44 | impl<T, const CAP: usize> Drop for ArrayVec<T, CAP> {
+   |               ^^^
+   |
+   = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+  --> src/arrayvec.rs:59:15
+   |
+59 | impl<T, const CAP: usize> ArrayVec<T, CAP> {
+   |               ^^^
+   |
+   = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/arrayvec.rs:627:15
+    |
+627 | impl<T, const CAP: usize> ArrayVecImpl for ArrayVec<T, CAP> {
+    |               ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/arrayvec.rs:647:15
+    |
+647 | impl<T, const CAP: usize> Deref for ArrayVec<T, CAP> {
+    |               ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/arrayvec.rs:655:15
+    |
+655 | impl<T, const CAP: usize> DerefMut for ArrayVec<T, CAP> {
+    |               ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/arrayvec.rs:672:15
+    |
+672 | impl<T, const CAP: usize> From<[T; CAP]> for ArrayVec<T, CAP> {
+    |               ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/arrayvec.rs:697:15
+    |
+697 | impl<T, const CAP: usize> std::convert::TryFrom<&[T]> for ArrayVec<T, CAP>
+    |               ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/arrayvec.rs:725:23
+    |
+725 | impl<'a, T: 'a, const CAP: usize> IntoIterator for &'a ArrayVec<T, CAP> {
+    |                       ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/arrayvec.rs:742:23
+    |
+742 | impl<'a, T: 'a, const CAP: usize> IntoIterator for &'a mut ArrayVec<T, CAP> {
+    |                       ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/arrayvec.rs:759:15
+    |
+759 | impl<T, const CAP: usize> IntoIterator for ArrayVec<T, CAP> {
+    |               ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/arrayvec.rs:769:30
+    |
+769 | pub struct IntoIter<T, const CAP: usize> {
+    |                              ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/arrayvec.rs:774:15
+    |
+774 | impl<T, const CAP: usize> Iterator for IntoIter<T, CAP> {
+    |               ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/arrayvec.rs:795:15
+    |
+795 | impl<T, const CAP: usize> DoubleEndedIterator for IntoIter<T, CAP> {
+    |               ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/arrayvec.rs:809:15
+    |
+809 | impl<T, const CAP: usize> ExactSizeIterator for IntoIter<T, CAP> { }
+    |               ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/arrayvec.rs:811:15
+    |
+811 | impl<T, const CAP: usize> Drop for IntoIter<T, CAP> {
+    |               ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/arrayvec.rs:826:15
+    |
+826 | impl<T, const CAP: usize> Clone for IntoIter<T, CAP>
+    |               ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/arrayvec.rs:838:15
+    |
+838 | impl<T, const CAP: usize> fmt::Debug for IntoIter<T, CAP>
+    |               ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/arrayvec.rs:850:35
+    |
+850 | pub struct Drain<'a, T: 'a, const CAP: usize> {
+    |                                   ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/arrayvec.rs:860:32
+    |
+860 | unsafe impl<'a, T: Sync, const CAP: usize> Sync for Drain<'a, T, CAP> {}
+    |                                ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/arrayvec.rs:861:32
+    |
+861 | unsafe impl<'a, T: Send, const CAP: usize> Send for Drain<'a, T, CAP> {}
+    |                                ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/arrayvec.rs:863:23
+    |
+863 | impl<'a, T: 'a, const CAP: usize> Iterator for Drain<'a, T, CAP> {
+    |                       ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/arrayvec.rs:879:23
+    |
+879 | impl<'a, T: 'a, const CAP: usize> DoubleEndedIterator for Drain<'a, T, CAP>
+    |                       ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/arrayvec.rs:890:23
+    |
+890 | impl<'a, T: 'a, const CAP: usize> ExactSizeIterator for Drain<'a, T, CAP> {}
+    |                       ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/arrayvec.rs:892:23
+    |
+892 | impl<'a, T: 'a, const CAP: usize> Drop for Drain<'a, T, CAP> {
+    |                       ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/arrayvec.rs:935:15
+    |
+935 | impl<T, const CAP: usize> Extend<T> for ArrayVec<T, CAP> {
+    |               ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/arrayvec.rs:952:15
+    |
+952 | impl<T, const CAP: usize> ArrayVec<T, CAP> {
+    |               ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/arrayvec.rs:959:52
+    |
+959 |     pub(crate) unsafe fn extend_from_iter<I, const CHECK: bool>(&mut self, iterable: I)
+    |                                                    ^^^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+    --> src/arrayvec.rs:1018:15
+     |
+1018 | impl<T, const CAP: usize> iter::FromIterator<T> for ArrayVec<T, CAP> {
+     |               ^^^
+     |
+     = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+    --> src/arrayvec.rs:1029:15
+     |
+1029 | impl<T, const CAP: usize> Clone for ArrayVec<T, CAP>
+     |               ^^^
+     |
+     = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+    --> src/arrayvec.rs:1053:15
+     |
+1053 | impl<T, const CAP: usize> Hash for ArrayVec<T, CAP>
+     |               ^^^
+     |
+     = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+    --> src/arrayvec.rs:1061:15
+     |
+1061 | impl<T, const CAP: usize> PartialEq for ArrayVec<T, CAP>
+     |               ^^^
+     |
+     = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+    --> src/arrayvec.rs:1069:15
+     |
+1069 | impl<T, const CAP: usize> PartialEq<[T]> for ArrayVec<T, CAP>
+     |               ^^^
+     |
+     = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+    --> src/arrayvec.rs:1077:15
+     |
+1077 | impl<T, const CAP: usize> Eq for ArrayVec<T, CAP> where T: Eq { }
+     |               ^^^
+     |
+     = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+    --> src/arrayvec.rs:1079:15
+     |
+1079 | impl<T, const CAP: usize> Borrow<[T]> for ArrayVec<T, CAP> {
+     |               ^^^
+     |
+     = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+    --> src/arrayvec.rs:1083:15
+     |
+1083 | impl<T, const CAP: usize> BorrowMut<[T]> for ArrayVec<T, CAP> {
+     |               ^^^
+     |
+     = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+    --> src/arrayvec.rs:1087:15
+     |
+1087 | impl<T, const CAP: usize> AsRef<[T]> for ArrayVec<T, CAP> {
+     |               ^^^
+     |
+     = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+    --> src/arrayvec.rs:1091:15
+     |
+1091 | impl<T, const CAP: usize> AsMut<[T]> for ArrayVec<T, CAP> {
+     |               ^^^
+     |
+     = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+    --> src/arrayvec.rs:1095:15
+     |
+1095 | impl<T, const CAP: usize> fmt::Debug for ArrayVec<T, CAP> where T: fmt::Debug {
+     |               ^^^
+     |
+     = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+    --> src/arrayvec.rs:1099:15
+     |
+1099 | impl<T, const CAP: usize> Default for ArrayVec<T, CAP> {
+     |               ^^^
+     |
+     = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+    --> src/arrayvec.rs:1106:15
+     |
+1106 | impl<T, const CAP: usize> PartialOrd for ArrayVec<T, CAP> where T: PartialOrd {
+     |               ^^^
+     |
+     = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+    --> src/arrayvec.rs:1128:15
+     |
+1128 | impl<T, const CAP: usize> Ord for ArrayVec<T, CAP> where T: Ord {
+     |               ^^^
+     |
+     = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+    --> src/arrayvec.rs:1138:12
+     |
+1138 | impl<const CAP: usize> io::Write for ArrayVec<u8, CAP> {
+     |            ^^^
+     |
+     = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+  --> src/array_string.rs:28:30
+   |
+28 | pub struct ArrayString<const CAP: usize> {
+   |                              ^^^
+   |
+   = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+  --> src/array_string.rs:34:12
+   |
+34 | impl<const CAP: usize> Default for ArrayString<CAP>
+   |            ^^^
+   |
+   = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+  --> src/array_string.rs:42:12
+   |
+42 | impl<const CAP: usize> ArrayString<CAP>
+   |            ^^^
+   |
+   = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/array_string.rs:368:12
+    |
+368 | impl<const CAP: usize> Deref for ArrayString<CAP>
+    |            ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/array_string.rs:380:12
+    |
+380 | impl<const CAP: usize> DerefMut for ArrayString<CAP>
+    |            ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/array_string.rs:391:12
+    |
+391 | impl<const CAP: usize> PartialEq for ArrayString<CAP>
+    |            ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/array_string.rs:398:12
+    |
+398 | impl<const CAP: usize> PartialEq<str> for ArrayString<CAP>
+    |            ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/array_string.rs:405:12
+    |
+405 | impl<const CAP: usize> PartialEq<ArrayString<CAP>> for str
+    |            ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/array_string.rs:412:12
+    |
+412 | impl<const CAP: usize> Eq for ArrayString<CAP> 
+    |            ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/array_string.rs:415:12
+    |
+415 | impl<const CAP: usize> Hash for ArrayString<CAP>
+    |            ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/array_string.rs:422:12
+    |
+422 | impl<const CAP: usize> Borrow<str> for ArrayString<CAP>
+    |            ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/array_string.rs:427:12
+    |
+427 | impl<const CAP: usize> AsRef<str> for ArrayString<CAP>
+    |            ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/array_string.rs:432:12
+    |
+432 | impl<const CAP: usize> fmt::Debug for ArrayString<CAP>
+    |            ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/array_string.rs:437:12
+    |
+437 | impl<const CAP: usize> fmt::Display for ArrayString<CAP>
+    |            ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/array_string.rs:443:12
+    |
+443 | impl<const CAP: usize> fmt::Write for ArrayString<CAP>
+    |            ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/array_string.rs:454:12
+    |
+454 | impl<const CAP: usize> Clone for ArrayString<CAP>
+    |            ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/array_string.rs:466:12
+    |
+466 | impl<const CAP: usize> PartialOrd for ArrayString<CAP>
+    |            ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/array_string.rs:477:12
+    |
+477 | impl<const CAP: usize> PartialOrd<str> for ArrayString<CAP>
+    |            ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/array_string.rs:488:12
+    |
+488 | impl<const CAP: usize> PartialOrd<ArrayString<CAP>> for str
+    |            ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/array_string.rs:499:12
+    |
+499 | impl<const CAP: usize> Ord for ArrayString<CAP>
+    |            ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/array_string.rs:506:12
+    |
+506 | impl<const CAP: usize> FromStr for ArrayString<CAP>
+    |            ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/array_string.rs:564:16
+    |
+564 | impl<'a, const CAP: usize> TryFrom<&'a str> for ArrayString<CAP>
+    |                ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error[E0658]: const generics are unstable
+   --> src/array_string.rs:575:16
+    |
+575 | impl<'a, const CAP: usize> TryFrom<fmt::Arguments<'a>> for ArrayString<CAP>
+    |                ^^^
+    |
+    = note: see issue #74878 <https://github.com/rust-lang/rust/issues/74878> for more information
+
+error: aborting due to 66 previous errors
+
+For more information about this error, try `rustc --explain E0658`.
+error: could not compile `arrayvec`
+
+To learn more, run the command again with --verbose.
+warning: build failed, waiting for other jobs to finish...
+error: build failed
+
+Exit: 101
+Timed out: False
