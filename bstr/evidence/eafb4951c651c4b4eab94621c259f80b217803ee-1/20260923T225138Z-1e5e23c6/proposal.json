@@ -1,0 +1,13 @@
+{
+  "commit": "eafb4951c651c4b4eab94621c259f80b217803ee",
+  "parent": "8e2041ed5481078f25635dd7989a96abd87721ce",
+  "fixed_commit": "eafb4951c651c4b4eab94621c259f80b217803ee",
+  "summary": "BStr debug formatting confused a valid UTF-8 replacement character (U+FFFD) with the sentinel for invalid UTF-8, printing its bytes as \\xEF\\xBF\\xBD instead of the literal character. The fix checks the original bytes and formats valid U+FFFD through escape_debug(), preserving byte escapes for invalid UTF-8. The fix adds a detecting assertion to impls::test_debug. Both proposed implementation regions occur exactly once in their respective revisions. No tests were run.",
+  "test": "impls::test_debug",
+  "expected_failure": "assertion failed: `(left == right)`",
+  "reversal": {
+    "path": "src/impls.rs",
+    "fixed_text": "                    '\\u{FFFD}' => {\n                        let bytes = self[s..e].as_bytes();\n                        if bytes == b\"\\xEF\\xBF\\xBD\" {\n                            write!(f, \"{}\", ch.escape_debug())?;\n                        } else {\n                            for &b in self[s..e].as_bytes() {\n                                write!(f, r\"\\x{:02X}\", b)?;\n                            }\n                        }\n                    }\n",
+    "parent_text": "                    '\\u{FFFD}' => {\n                        for &b in self[s..e].as_bytes() {\n                            write!(f, r\"\\x{:02X}\", b)?;\n                        }\n                    }\n"
+  }
+}

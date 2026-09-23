@@ -1,0 +1,20 @@
+diff --git a/src/impls.rs b/src/impls.rs
+index c7d0be3..93ac1ec 100644
+--- a/src/impls.rs
++++ b/src/impls.rs
+@@ -378,13 +378,8 @@ mod bstr {
+                 match ch {
+                     '\0' => write!(f, "\\0")?,
+                     '\u{FFFD}' => {
+-                        let bytes = self[s..e].as_bytes();
+-                        if bytes == b"\xEF\xBF\xBD" {
+-                            write!(f, "{}", ch.escape_debug())?;
+-                        } else {
+-                            for &b in self[s..e].as_bytes() {
+-                                write!(f, r"\x{:02X}", b)?;
+-                            }
++                        for &b in self[s..e].as_bytes() {
++                            write!(f, r"\x{:02X}", b)?;
+                         }
+                     }
+                     // ASCII control characters except \0, \n, \r, \t
