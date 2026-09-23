@@ -1,15 +1,19 @@
 # Cloud bug-mining prototype
 
-**blocked**: Proposal names no upstream test
+Resumed verified evidence; no tests rerun.
+
+**confirmed**: The same upstream test passed, panicked on the original defect ('assertion failed: `(left == right)`
+  left: `0`,
+ right: `1`'), and passed after restoration
 
 Upstream: https://github.com/ferrilab/bitvec
 
-Candidate: aeef0be672538b8f6694f464bd947084813fb327-1
+Candidate: b08c4bdde959c172d5e77fe1746e903688b804e4-1
 
 Provenance: verbatim
 
-Latest outcomes: {"blocked": 1}
+Latest outcomes: {"confirmed": 1}
 
-History coverage not yet recorded.
+Reviewed commits: 1 / 477 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.
