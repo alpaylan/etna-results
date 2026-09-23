@@ -1,0 +1,9 @@
+Command: rustup run 1.12.1 cargo fetch
+Started: 2026-09-23T23:13:54.309420+00:00
+STDOUT:
+
+STDERR:
+error: no source URL specified for `source.crates-io`, need either `registry` or `local-registry` defined
+
+Exit: 101
+Timed out: False

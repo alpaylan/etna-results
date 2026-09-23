@@ -1,0 +1,24 @@
+diff --git a/src/lib.rs b/src/lib.rs
+index e490dd1..d546711 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -1348,17 +1348,16 @@ impl Encoding {
+                         b'A'...b'Z' => {
+                             trimmed[trimmed_pos] = *byte + 0x20u8;
+                             trimmed_pos += 1usize;
+-                            if trimmed_pos == LONGEST_LABEL_LENGTH {
++                            if trimmed_pos > LONGEST_LABEL_LENGTH {
+                                 // There's no encoding with a label this long
+                                 return None;
+                             }
+                             continue;
+                         }
+-                        // XXX reject bytes that aren't allowed in labels
+                         _ => {
+                             trimmed[trimmed_pos] = *byte;
+                             trimmed_pos += 1usize;
+-                            if trimmed_pos == LONGEST_LABEL_LENGTH {
++                            if trimmed_pos > LONGEST_LABEL_LENGTH {
+                                 // There's no encoding with a label this long
+                                 return None;
+                             }

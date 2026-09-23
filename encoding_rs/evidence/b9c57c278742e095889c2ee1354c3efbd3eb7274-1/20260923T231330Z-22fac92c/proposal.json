@@ -1,0 +1,13 @@
+{
+  "commit": "b9c57c278742e095889c2ee1354c3efbd3eb7274",
+  "parent": "a8e2a7add93a4856758ece70429753ff8ad2b3ab",
+  "fixed_commit": "b9c57c278742e095889c2ee1354c3efbd3eb7274",
+  "summary": "Encoding::for_label checked whether trimmed_pos exceeded its 19-byte buffer length after writing each byte. At position 19 the check remained false, so a twentieth byte caused an out-of-bounds panic. The fix changes both checks from > to ==, returning None before another write. The regression test added by the fix exercises this with bogusbogusbogusbogus. This is a proposed reversal; no tests were run.",
+  "test": "tests::test_label_resolution",
+  "expected_failure": "index out of bounds: the len is 19 but the index is 19",
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "                        b'A'...b'Z' => {\n                            trimmed[trimmed_pos] = *byte + 0x20u8;\n                            trimmed_pos += 1usize;\n                            if trimmed_pos == LONGEST_LABEL_LENGTH {\n                                // There's no encoding with a label this long\n                                return None;\n                            }\n                            continue;\n                        }\n                        // XXX reject bytes that aren't allowed in labels\n                        _ => {\n                            trimmed[trimmed_pos] = *byte;\n                            trimmed_pos += 1usize;\n                            if trimmed_pos == LONGEST_LABEL_LENGTH {\n                                // There's no encoding with a label this long\n                                return None;\n                            }\n                            continue;\n                        }\n",
+    "parent_text": "                        b'A'...b'Z' => {\n                            trimmed[trimmed_pos] = *byte + 0x20u8;\n                            trimmed_pos += 1usize;\n                            if trimmed_pos > LONGEST_LABEL_LENGTH {\n                                // There's no encoding with a label this long\n                                return None;\n                            }\n                            continue;\n                        }\n                        _ => {\n                            trimmed[trimmed_pos] = *byte;\n                            trimmed_pos += 1usize;\n                            if trimmed_pos > LONGEST_LABEL_LENGTH {\n                                // There's no encoding with a label this long\n                                return None;\n                            }\n                            continue;\n                        }\n"
+  }
+}
