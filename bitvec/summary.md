@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: Proposal names no upstream test
+**unconfirmed**: The observed failure does not establish the described bug
 
 Upstream: https://github.com/ferrilab/bitvec
 
-Candidate: 8e48751508526cbe0c656f4dffa60cf4e6e4bfb0-1
+Candidate: b08c4bdde959c172d5e77fe1746e903688b804e4-1
 
 Provenance: verbatim
 
-Latest outcomes: {"blocked": 1}
+Latest outcomes: {"unconfirmed": 1}
 
-History coverage not yet recorded.
+Reviewed commits: 1 / 477 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

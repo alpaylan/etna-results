@@ -1,0 +1,12 @@
+{
+  "repo": "https://github.com/ferrilab/bitvec",
+  "tips": [
+    "b08c4bdde959c172d5e77fe1746e903688b804e4"
+  ],
+  "shallow": false,
+  "reviewed": [
+    "b08c4bdde959c172d5e77fe1746e903688b804e4"
+  ],
+  "reachable_commits": 477,
+  "scope": "One queued candidate; not an exhaustive history scan."
+}
