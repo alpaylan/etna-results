@@ -1,0 +1,11 @@
+Command: rustup run 1.11.0 cargo build
+Started: 2026-09-23T17:42:55.200401+00:00
+STDOUT:
+
+STDERR:
+   Compiling odds v0.2.26
+   Compiling nodrop v0.1.8 (file:///home/runner/work/_temp/upstream/nodrop)
+   Compiling arrayvec v0.3.17 (file:///home/runner/work/_temp/upstream)
+
+Exit: 0
+Timed out: False

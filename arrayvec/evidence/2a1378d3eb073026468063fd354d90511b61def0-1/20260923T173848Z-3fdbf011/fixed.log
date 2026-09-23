@@ -1,0 +1,13 @@
+Command: rustup run 1.11.0 cargo test --lib test_insert_out_of_bounds -- --nocapture --test-threads=1
+Started: 2026-09-23T17:42:56.686339+00:00
+STDOUT:
+
+STDERR:
+   Compiling arrayvec v0.3.17 (file:///home/runner/work/_temp/upstream)
+     Running /home/runner/work/_temp/build-20260923T173848Z-3fdbf011/debug/arrayvec-6c50ea427812e6fd
+thread 'main' panicked at '"Unrecognized option: \'test-threads\'."', ../src/libtest/lib.rs:246
+note: Run with `RUST_BACKTRACE=1` for a backtrace.
+error: test failed
+
+Exit: 101
+Timed out: False
