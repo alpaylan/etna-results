@@ -1,0 +1,108 @@
+Command: rustup run 1.33.0 cargo check --locked --tests
+Started: 2026-09-23T16:44:40.281036+00:00
+STDOUT:
+
+STDERR:
+warning: file found to be present in multiple build targets: /home/runner/work/_temp/upstream/tests/bench.rs
+    Checking ahash v0.1.6 (/home/runner/work/_temp/upstream)
+error[E0425]: cannot find function `aeshash` in this scope
+  --> src/aes_hash.rs:48:23
+   |
+48 |         self.buffer = aeshash(self.buffer.convert(),i).convert();
+   |                       ^^^^^^^ help: a crate with a similar name exists: `seahash`
+
+error[E0425]: cannot find function `aeshash` in this scope
+  --> src/aes_hash.rs:67:27
+   |
+67 |             self.buffer = aeshash(self.buffer.convert(),block).convert();
+   |                           ^^^^^^^ help: a crate with a similar name exists: `seahash`
+
+error[E0425]: cannot find function `aeshash` in this scope
+  --> src/aes_hash.rs:73:27
+   |
+73 |             self.buffer = aeshash(self.buffer.convert(),block as u128).convert();
+   |                           ^^^^^^^ help: a crate with a similar name exists: `seahash`
+
+error[E0425]: cannot find function `aeshash` in this scope
+  --> src/aes_hash.rs:79:27
+   |
+79 |             self.buffer = aeshash(self.buffer.convert(),block as u128).convert();
+   |                           ^^^^^^^ help: a crate with a similar name exists: `seahash`
+
+error[E0425]: cannot find function `aeshash` in this scope
+  --> src/aes_hash.rs:85:27
+   |
+85 |             self.buffer = aeshash(self.buffer.convert(), block as u128).convert();
+   |                           ^^^^^^^ help: a crate with a similar name exists: `seahash`
+
+error[E0425]: cannot find function `aeshash` in this scope
+  --> src/aes_hash.rs:89:27
+   |
+89 |             self.buffer = aeshash(self.buffer.convert(), data[0] as u128).convert();
+   |                           ^^^^^^^ help: a crate with a similar name exists: `seahash`
+
+error[E0425]: cannot find function `aeshash` in this scope
+  --> src/aes_hash.rs:91:23
+   |
+91 |         self.buffer = aeshash(self.buffer.convert(), [length, length].convert()).convert();
+   |                       ^^^^^^^ help: a crate with a similar name exists: `seahash`
+
+error[E0425]: cannot find function `aeshash` in this scope
+  --> src/aes_hash.rs:95:32
+   |
+95 |         let result: [u64; 2] = aeshash(aeshash(self.buffer.convert(), PAD), PAD).convert();
+   |                                ^^^^^^^ help: a crate with a similar name exists: `seahash`
+
+error[E0425]: cannot find function `aeshash` in this scope
+  --> src/aes_hash.rs:95:40
+   |
+95 |         let result: [u64; 2] = aeshash(aeshash(self.buffer.convert(), PAD), PAD).convert();
+   |                                        ^^^^^^^ help: a crate with a similar name exists: `seahash`
+
+error[E0425]: cannot find function `aeshash` in this scope
+   --> src/aes_hash.rs:143:18
+    |
+143 |         result = aeshash(value.convert(), result.convert()).convert();
+    |                  ^^^^^^^ help: a crate with a similar name exists: `seahash`
+
+error[E0425]: cannot find function `aeshash` in this scope
+   --> src/aes_hash.rs:144:18
+    |
+144 |         result = aeshash(result.convert(), result.convert()).convert();
+    |                  ^^^^^^^ help: a crate with a similar name exists: `seahash`
+
+error[E0425]: cannot find function `aeshash` in this scope
+   --> src/aes_hash.rs:147:19
+    |
+147 |         result2 = aeshash(value2.convert(), result2.convert()).convert();
+    |                   ^^^^^^^ help: a crate with a similar name exists: `seahash`
+
+error[E0425]: cannot find function `aeshash` in this scope
+   --> src/aes_hash.rs:148:19
+    |
+148 |         result2 = aeshash(result2.convert(), result.convert()).convert();
+    |                   ^^^^^^^ help: a crate with a similar name exists: `seahash`
+
+warning: unused import: `std::mem::transmute`
+ --> src/aes_hash.rs:4:5
+  |
+4 | use std::mem::transmute;
+  |     ^^^^^^^^^^^^^^^^^^^
+  |
+  = note: #[warn(unused_imports)] on by default
+
+warning: unused imports: `Hash`, `Hasher`
+   --> src/hash_quality_test.rs:141:21
+    |
+141 |     use std::hash::{Hash, Hasher};
+    |                     ^^^^  ^^^^^^
+
+error: aborting due to 13 previous errors
+
+For more information about this error, try `rustc --explain E0425`.
+error: Could not compile `ahash`.
+
+To learn more, run the command again with --verbose.
+
+Exit: 101
+Timed out: False
