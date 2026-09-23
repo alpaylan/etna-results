@@ -1,0 +1,13 @@
+{
+  "commit": "47fd2bdd7f59efa84ddd9ea5dcb1b10c32b4849c",
+  "parent": "7907da9150c948abc1a53046b15d66f56b77d1ec",
+  "fixed_commit": "47fd2bdd7f59efa84ddd9ea5dcb1b10c32b4849c",
+  "summary": "The parent returned sqrt(Hamming distance); the fix normalizes binary-quantized distances by dividing by the dimension count. Removing the added override restores the parent's normalization behavior. The imported OR-versus-XOR self-distance description does not match history: both revisions compute built distances using XOR. Blocked: no detecting upstream test exists at this revision. The fix changes no tests; tests::binary_quantized::write_and_retrieve_binary_quantized_vector checks storage and index snapshots without querying distances, and the remaining binary-quantization tests exercise encoding only.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/distance/binary_quantized_euclidean.rs",
+    "fixed_text": "    /// Normalizes the distance returned by the distance method.\n    fn normalized_distance(d: f32, dimensions: usize) -> f32 {\n        d / dimensions as f32\n    }\n\n    fn norm_no_header(v: &UnalignedVector<Self::VectorCodec>) -> f32 {\n",
+    "parent_text": "    fn norm_no_header(v: &UnalignedVector<Self::VectorCodec>) -> f32 {\n"
+  }
+}

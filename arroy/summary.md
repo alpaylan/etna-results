@@ -4,7 +4,7 @@
 
 Upstream: https://github.com/meilisearch/arroy
 
-Candidate: 6a091180d7558d464cdd2ce9daec35e055e1d91c-1
+Candidate: 47fd2bdd7f59efa84ddd9ea5dcb1b10c32b4849c-1
 
 Provenance: verbatim
 
