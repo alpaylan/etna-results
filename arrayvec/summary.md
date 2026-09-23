@@ -1,6 +1,6 @@
 # Cloud bug-mining prototype
 
-**blocked**: Dependency setup failed; see setup logs
+**blocked**: fixed: no completed execution of the exact upstream test
 
 Upstream: https://github.com/bluss/arrayvec
 
