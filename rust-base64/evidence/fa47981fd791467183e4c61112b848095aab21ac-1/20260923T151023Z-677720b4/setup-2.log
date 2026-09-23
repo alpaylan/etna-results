@@ -1,0 +1,50 @@
+Command: rustup run 1.90.0 cargo generate-lockfile
+Started: 2026-09-23T15:10:37.516523+00:00
+STDOUT:
+
+STDERR:
+    Updating crates.io index
+     Locking 102 packages to latest Rust 1.57.0 compatible versions
+      Adding bumpalo v3.12.0 (available: v3.20.3, requires Rust 1.71.1)
+      Adding ciborium v0.2.1 (available: v0.2.2, requires Rust 1.58)
+      Adding ciborium-io v0.2.1 (available: v0.2.2, requires Rust 1.58)
+      Adding ciborium-ll v0.2.1 (available: v0.2.2, requires Rust 1.58)
+      Adding criterion v0.4.0 (available: v0.5.1)
+      Adding crossbeam-channel v0.5.8 (available: v0.5.17, requires Rust 1.60)
+      Adding crossbeam-deque v0.8.3 (available: v0.8.8, requires Rust 1.61)
+      Adding crossbeam-epoch v0.9.15 (available: v0.9.21, requires Rust 1.61)
+      Adding crossbeam-utils v0.8.16 (available: v0.8.23, requires Rust 1.60)
+      Adding either v1.13.0 (available: v1.18.0, requires Rust 1.63.0)
+      Adding itoa v1.0.15 (available: v1.0.18, requires Rust 1.68)
+      Adding js-sys v0.3.82 (available: v0.3.105, requires Rust 1.77)
+      Adding libc v0.2.163 (available: v0.2.189, requires Rust 1.65)
+      Adding memchr v2.6.0 (available: v2.8.3, requires Rust 1.61)
+      Adding num-traits v0.2.18 (available: v0.2.19, requires Rust 1.60)
+      Adding once_cell v1.17.2 (available: v1.21.4, requires Rust 1.65)
+      Adding os_str_bytes v6.5.1 (available: v6.6.1, requires Rust 1.61.0)
+      Adding ppv-lite86 v0.2.17 (available: v0.2.21, requires Rust 1.61)
+      Adding proc-macro2 v1.0.101 (available: v1.0.107, requires Rust 1.71)
+      Adding quote v1.0.40 (available: v1.0.47, requires Rust 1.71)
+      Adding rand v0.8.8 (available: v0.10.3, requires Rust 1.85)
+      Adding rayon v1.6.1 (available: v1.12.0, requires Rust 1.80)
+      Adding rayon-core v1.10.2 (available: v1.13.0, requires Rust 1.80)
+      Adding regex v1.7.3 (available: v1.13.1, requires Rust 1.65)
+      Adding rstest v0.12.0 (available: v0.18.2)
+      Adding rstest_reuse v0.3.0 (available: v0.6.0)
+      Adding ryu v1.0.20 (available: v1.0.23, requires Rust 1.71)
+      Adding semver v1.0.26 (available: v1.0.28, requires Rust 1.68)
+      Adding serde_derive v1.0.229 (requires Rust 1.71)
+      Adding serde_json v1.0.143 (available: v1.0.151, requires Rust 1.71)
+      Adding syn v2.0.56 (available: v2.0.119, requires Rust 1.71)
+      Adding syn v3.0.6 (requires Rust 1.71)
+      Adding textwrap v0.16.1 (available: v0.16.4, requires Rust 1.88)
+      Adding unicode-ident v1.0.22 (available: v1.0.26, requires Rust 1.71)
+      Adding unicode-segmentation v1.12.0 (available: v1.13.3, requires Rust 1.85.0)
+      Adding wasm-bindgen v0.2.105 (available: v0.2.128, requires Rust 1.77)
+      Adding wasm-bindgen-macro v0.2.105 (available: v0.2.128, requires Rust 1.77)
+      Adding wasm-bindgen-macro-support v0.2.105 (available: v0.2.128, requires Rust 1.77)
+      Adding wasm-bindgen-shared v0.2.105 (available: v0.2.128, requires Rust 1.77)
+      Adding web-sys v0.3.82 (available: v0.3.105, requires Rust 1.77)
+
+Exit: 0
+Timed out: False

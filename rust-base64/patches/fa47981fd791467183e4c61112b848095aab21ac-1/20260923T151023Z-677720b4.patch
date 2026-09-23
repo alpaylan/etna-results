@@ -1,0 +1,25 @@
+diff --git a/src/engine/general_purpose/decode.rs b/src/engine/general_purpose/decode.rs
+index 5e30e45..590117a 100644
+--- a/src/engine/general_purpose/decode.rs
++++ b/src/engine/general_purpose/decode.rs
+@@ -30,11 +30,16 @@ pub struct GeneralPurposeEstimate {
+ 
+ impl GeneralPurposeEstimate {
+     pub(crate) fn new(encoded_len: usize) -> Self {
+-        // Formulas that won't overflow
+         Self {
+-            num_chunks: encoded_len / INPUT_CHUNK_LEN
+-                + (encoded_len % INPUT_CHUNK_LEN > 0) as usize,
+-            decoded_len_estimate: (encoded_len / 4 + (encoded_len % 4 > 0) as usize) * 3,
++            num_chunks: encoded_len
++                .checked_add(INPUT_CHUNK_LEN - 1)
++                .expect("Overflow when calculating number of chunks in input")
++                / INPUT_CHUNK_LEN,
++            decoded_len_estimate: encoded_len
++                .checked_add(3)
++                .expect("Overflow when calculating decoded len estimate")
++                / 4
++                * 3,
+         }
+     }
+ }
