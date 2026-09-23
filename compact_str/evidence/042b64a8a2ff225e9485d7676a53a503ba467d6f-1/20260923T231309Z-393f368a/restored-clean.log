@@ -1,0 +1,12 @@
+Command: rustup run 1.83.0 cargo clean -p compact_str
+Started: 2026-09-23T23:19:45.369703+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+warning: ignoring `resolver` config table without `-Zmsrv-policy`
+     Removed 97 files, 16.5MiB total
+
+Exit: 0
+Timed out: False
