@@ -1,0 +1,8 @@
+Command: rustup run 1.49.0 cargo clean -p bstr
+Started: 2026-09-23T22:43:18.242420+00:00
+STDOUT:
+
+STDERR:
+
+Exit: 0
+Timed out: False

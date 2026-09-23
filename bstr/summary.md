@@ -1,15 +1,19 @@
 # Cloud bug-mining prototype
 
-**blocked**: Selected test is not present at the fixed revision: src/ext_slice.rs - ext_slice::ByteSlice::splitn_str (line 1309)
+Resumed verified evidence; no tests rerun.
+
+**confirmed**: The same upstream test passed, panicked on the original defect ('assertion failed: `(left != right)`
+  left: `"hello bstr"`,
+ right: `"goodbye bstr"`'), and passed after restoration
 
 Upstream: https://github.com/BurntSushi/bstr
 
-Candidate: aed424a778f43373824232e242e4f7894ba221f1-1
+Candidate: b2111b6bbf2c9a819fb1338aa81bd099874106a1-1
 
 Provenance: verbatim
 
-Latest outcomes: {"blocked": 1}
+Latest outcomes: {"confirmed": 1}
 
-History coverage not yet recorded.
+Reviewed commits: 1 / 92 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

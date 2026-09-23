@@ -1,0 +1,13 @@
+{
+  "commit": "b2111b6bbf2c9a819fb1338aa81bd099874106a1",
+  "parent": "e9d337d3e54fa9547031b32ee55b999157bf56c0",
+  "fixed_commit": "b2111b6bbf2c9a819fb1338aa81bd099874106a1",
+  "summary": "The Cow-side equality implementation compares the right-hand BStr's bytes with themselves, so unequal operands incorrectly compare equal. The fix compares those bytes with self.as_bytes(), restoring comparison between the two operands. The regression test added by the fix checks that Cow<BStr>(\"hello bstr\") differs from &BStr(\"goodbye bstr\").",
+  "test": "impls::test_cows_regression",
+  "expected_failure": "assertion failed: `(left != right)`\n  left: `\"hello bstr\"`,\n right: `\"goodbye bstr\"`",
+  "reversal": {
+    "path": "src/impls.rs",
+    "fixed_text": "                let this: &[u8] = (&**other).as_ref();\n                PartialEq::eq(this, self.as_bytes())\n",
+    "parent_text": "                let this: &[u8] = (&**other).as_ref();\n                PartialEq::eq(this, other.as_bytes())\n"
+  }
+}

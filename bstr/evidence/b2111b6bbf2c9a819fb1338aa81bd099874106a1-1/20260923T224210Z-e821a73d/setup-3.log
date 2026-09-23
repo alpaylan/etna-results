@@ -1,0 +1,25 @@
+Command: rustup run 1.49.0 cargo fetch --locked
+Started: 2026-09-23T22:43:08.339322+00:00
+STDOUT:
+
+STDERR:
+ Downloading crates ...
+  Downloaded unicode-segmentation v1.7.1 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded cfg-if v1.0.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded lazy_static v1.4.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded regex-automata v0.1.9 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded serde v1.0.123 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded wasi v0.10.2+wasi-snapshot-preview1 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded rand_core v0.6.1 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded quickcheck v1.0.3 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded memchr v2.3.4 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded ucd-parse v0.1.8 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded getrandom v0.2.2 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded byteorder v1.4.2 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded rand v0.8.3 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded regex v1.4.3 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded regex-syntax v0.6.22 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded libc v0.2.85 (registry `git://127.0.0.1:9419/era-index`)
+
+Exit: 0
+Timed out: False

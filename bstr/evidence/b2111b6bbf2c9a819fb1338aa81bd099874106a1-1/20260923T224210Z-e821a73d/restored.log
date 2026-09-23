@@ -1,0 +1,17 @@
+Command: rustup run 1.49.0 cargo test --locked --offline --lib impls::test_cows_regression -- --exact --nocapture --test-threads=1
+Started: 2026-09-23T22:43:20.408850+00:00
+STDOUT:
+
+running 1 test
+test impls::test_cows_regression ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 59 filtered out
+
+
+STDERR:
+   Compiling bstr v0.2.14 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 2.03s
+     Running /home/runner/work/_temp/build-20260923T224210Z-e821a73d/debug/deps/bstr-11999c287a5eddc6
+
+Exit: 0
+Timed out: False

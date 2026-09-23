@@ -1,0 +1,13 @@
+diff --git a/src/impls.rs b/src/impls.rs
+index 4cba48e..c8dd6d9 100644
+--- a/src/impls.rs
++++ b/src/impls.rs
+@@ -33,7 +33,7 @@ macro_rules! impl_partial_eq_cow {
+             #[inline]
+             fn eq(&self, other: &$lhs) -> bool {
+                 let this: &[u8] = (&**other).as_ref();
+-                PartialEq::eq(this, self.as_bytes())
++                PartialEq::eq(this, other.as_bytes())
+             }
+         }
+     };

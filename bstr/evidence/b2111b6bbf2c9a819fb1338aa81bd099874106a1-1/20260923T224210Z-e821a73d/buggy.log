@@ -1,0 +1,27 @@
+Command: rustup run 1.49.0 cargo test --locked --offline --lib impls::test_cows_regression -- --exact --nocapture --test-threads=1
+Started: 2026-09-23T22:43:18.261255+00:00
+STDOUT:
+
+running 1 test
+test impls::test_cows_regression ... FAILED
+
+failures:
+
+failures:
+    impls::test_cows_regression
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 59 filtered out
+
+
+STDERR:
+   Compiling bstr v0.2.14 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 2.04s
+     Running /home/runner/work/_temp/build-20260923T224210Z-e821a73d/debug/deps/bstr-11999c287a5eddc6
+thread 'main' panicked at 'assertion failed: `(left != right)`
+  left: `"hello bstr"`,
+ right: `"goodbye bstr"`', src/impls.rs:979:5
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass '--lib'
+
+Exit: 101
+Timed out: False

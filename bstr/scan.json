@@ -1,0 +1,12 @@
+{
+  "repo": "https://github.com/BurntSushi/bstr",
+  "tips": [
+    "b2111b6bbf2c9a819fb1338aa81bd099874106a1"
+  ],
+  "shallow": false,
+  "reviewed": [
+    "b2111b6bbf2c9a819fb1338aa81bd099874106a1"
+  ],
+  "reachable_commits": 92,
+  "scope": "One queued candidate; not an exhaustive history scan."
+}
