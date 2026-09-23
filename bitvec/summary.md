@@ -3,17 +3,17 @@
 Resumed verified evidence; no tests rerun.
 
 **confirmed**: The same upstream test passed, panicked on the original defect ('assertion failed: `(left == right)`
-  left: `0`,
- right: `1`'), and passed after restoration
+  left: `BitVec<bitvec::order::Lsb0, u8> { addr: 0x55fb27de6da0, head: 000, bits: 10, capacity: 64 } [00000000, 00]`,
+ right: `BitSlice<bitvec::order::Lsb0, usize> { addr: 0x7ffde63dd380, head: 000000, bits: 10 } [0000011111]`'), and passed after restoration
 
 Upstream: https://github.com/ferrilab/bitvec
 
-Candidate: b08c4bdde959c172d5e77fe1746e903688b804e4-1
+Candidate: 935cad8888d0f09837b95000c44f4a56579c7108-1
 
 Provenance: verbatim
 
 Latest outcomes: {"confirmed": 1}
 
-Reviewed commits: 1 / 477 reachable from the saved tip.
+Reviewed commits: 1 / 433 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

@@ -1,0 +1,13 @@
+diff --git a/src/slice.rs b/src/slice.rs
+index e2ca16a..15f48e7 100644
+--- a/src/slice.rs
++++ b/src/slice.rs
+@@ -1266,7 +1266,7 @@ where
+ 		}
+ 		else {
+ 			for (to, from) in
+-				self.as_mut_bitptr_range().zip(src.as_bitptr_range())
++				self.as_mut_bitptr_range().zip(self.as_bitptr_range())
+ 			{
+ 				unsafe {
+ 					to.write(from.read());

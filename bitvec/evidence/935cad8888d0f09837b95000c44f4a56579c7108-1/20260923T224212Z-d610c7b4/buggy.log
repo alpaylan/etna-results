@@ -1,0 +1,28 @@
+Command: rustup run 1.49.0 cargo test --locked --offline --lib vec::tests::misc -- --exact --nocapture --test-threads=1
+Started: 2026-09-23T22:44:22.453951+00:00
+STDOUT:
+
+running 1 test
+test vec::tests::misc ... FAILED
+
+failures:
+
+failures:
+    vec::tests::misc
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 123 filtered out
+
+
+STDERR:
+   Compiling bincode v1.3.1
+   Compiling bitvec v0.20.1 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 10.61s
+     Running /home/runner/work/_temp/build-20260923T224212Z-d610c7b4/debug/deps/bitvec-f38ad9a458e51444
+thread 'main' panicked at 'assertion failed: `(left == right)`
+  left: `BitVec<bitvec::order::Lsb0, u8> { addr: 0x55fb27de6da0, head: 000, bits: 10, capacity: 64 } [00000000, 00]`,
+ right: `BitSlice<bitvec::order::Lsb0, usize> { addr: 0x7ffde63dd380, head: 000000, bits: 10 } [0000011111]`', src/vec/tests.rs:243:5
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass '--lib'
+
+Exit: 101
+Timed out: False

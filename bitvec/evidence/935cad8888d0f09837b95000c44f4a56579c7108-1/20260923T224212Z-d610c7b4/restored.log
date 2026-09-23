@@ -1,0 +1,18 @@
+Command: rustup run 1.49.0 cargo test --locked --offline --lib vec::tests::misc -- --exact --nocapture --test-threads=1
+Started: 2026-09-23T22:44:33.163790+00:00
+STDOUT:
+
+running 1 test
+test vec::tests::misc ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 123 filtered out
+
+
+STDERR:
+   Compiling bincode v1.3.1
+   Compiling bitvec v0.20.1 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 10.66s
+     Running /home/runner/work/_temp/build-20260923T224212Z-d610c7b4/debug/deps/bitvec-f38ad9a458e51444
+
+Exit: 0
+Timed out: False

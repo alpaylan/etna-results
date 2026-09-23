@@ -1,0 +1,13 @@
+{
+  "commit": "935cad8888d0f09837b95000c44f4a56579c7108",
+  "parent": "8794ee55086f536acfe813a90a0ae8f96cb46ece",
+  "fixed_commit": "935cad8888d0f09837b95000c44f4a56579c7108",
+  "summary": "When source and destination have different ordering or storage types, clone_from_bitslice incorrectly reads the destination's own bits, leaving it unchanged. The fix reads from src instead. The existing vec::tests::misc test, updated by this commit, appends five Msb0/u16 one-bits to five Lsb0/u8 zero-bits. Reversing the fix leaves all ten destination bits zero, violating its equality assertion. This plan is based on source inspection; no tests were run.",
+  "test": "vec::tests::misc",
+  "expected_failure": "assertion failed: `(left == right)`",
+  "reversal": {
+    "path": "src/slice.rs",
+    "fixed_text": "\t\t\t\tself.as_mut_bitptr_range().zip(src.as_bitptr_range())\n",
+    "parent_text": "\t\t\t\tself.as_mut_bitptr_range().zip(self.as_bitptr_range())\n"
+  }
+}
