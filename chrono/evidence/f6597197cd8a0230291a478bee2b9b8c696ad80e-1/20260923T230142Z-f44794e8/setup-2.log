@@ -1,0 +1,25 @@
+Command: rustup run 1.69.0 cargo generate-lockfile
+Started: 2026-09-23T23:03:01.702722+00:00
+STDOUT:
+
+STDERR:
+    Updating `era` index
+error: failed to get `arbitrary` as a dependency of package `chrono v0.4.24 (/home/runner/work/_temp/upstream)`
+
+Caused by:
+  failed to load source for dependency `arbitrary`
+
+Caused by:
+  Unable to update registry `crates-io`
+
+Caused by:
+  failed to update replaced source registry `crates-io`
+
+Caused by:
+  failed to fetch `file:///home/runner/work/_temp/era-index-20260923T230142Z-f44794e8/fetched`
+
+Caused by:
+  object not found - no match for id (22b8707e82df5ea3bccf9bdf46ec2f96fbe9acf0); class=Odb (9); code=NotFound (-3)
+
+Exit: 101
+Timed out: False
