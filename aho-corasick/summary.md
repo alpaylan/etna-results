@@ -4,7 +4,7 @@
 
 Upstream: https://github.com/BurntSushi/aho-corasick
 
-Candidate: e453f6062651f338ca3a7fb217f7590a2f89f9ab-1
+Candidate: 2df0983e7ef76bf50e6213fee35cda87af191292-1
 
 Provenance: verbatim
 
