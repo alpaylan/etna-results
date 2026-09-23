@@ -1,0 +1,12 @@
+{
+  "repo": "https://github.com/tkaitchuck/ahash",
+  "tips": [
+    "5c99070f97854557ec5e0e6451189798a8ad5853"
+  ],
+  "shallow": false,
+  "reviewed": [
+    "5c99070f97854557ec5e0e6451189798a8ad5853"
+  ],
+  "reachable_commits": 36,
+  "scope": "One queued candidate; not an exhaustive history scan."
+}

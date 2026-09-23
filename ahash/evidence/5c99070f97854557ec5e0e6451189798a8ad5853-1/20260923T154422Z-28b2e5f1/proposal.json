@@ -1,0 +1,13 @@
+{
+  "commit": "5c99070f97854557ec5e0e6451189798a8ad5853",
+  "parent": "9b2f78a8e5d960379e99ce928788148e56c0ce0b",
+  "fixed_commit": "5c99070f97854557ec5e0e6451189798a8ad5853",
+  "summary": "The historical AES implementation does not mix input length into its state, allowing null padding to produce collisions. The fix adds a final AES round incorporating the original length in both 64-bit halves. Reversing that round restores the faulty behavior exercised by the existing padding test, whose shared assertions were updated by this commit. The test uses src/aes_hash.rs and requires an AES-capable x86/x86_64 target with target-feature=+aes. No tests were executed.",
+  "test": "hash_quality_test::aes_tests::aes_padding_doesnot_collide",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/aes_hash.rs",
+    "fixed_text": "        if data.len() >= 1 {\n            self.buffer = aeshash(self.buffer.convert(), data[0] as u128).convert();\n        }\n        self.buffer = aeshash(self.buffer.convert(), [length, length].convert()).convert();\n    }\n",
+    "parent_text": "        if data.len() >= 1 {\n            self.buffer = aeshash(self.buffer.convert(), data[0] as u128).convert();\n        }\n    }\n"
+  }
+}
