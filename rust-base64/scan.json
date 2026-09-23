@@ -1,0 +1,12 @@
+{
+  "repo": "https://github.com/marshallpierce/rust-base64",
+  "tips": [
+    "fa47981fd791467183e4c61112b848095aab21ac"
+  ],
+  "shallow": false,
+  "reviewed": [
+    "fa47981fd791467183e4c61112b848095aab21ac"
+  ],
+  "reachable_commits": 440,
+  "scope": "One queued candidate; not an exhaustive history scan."
+}

@@ -1,0 +1,9 @@
+Command: rustup run 1.79.0 cargo clean -p base64
+Started: 2026-09-23T14:47:20.355312+00:00
+STDOUT:
+
+STDERR:
+     Removed 265 files, 38.5MiB total
+
+Exit: 0
+Timed out: False
