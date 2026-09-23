@@ -1,0 +1,13 @@
+{
+  "commit": "fa47981fd791467183e4c61112b848095aab21ac",
+  "parent": "92e94d2ca246481ec86079ce81451649daab6fdd",
+  "fixed_commit": "fa47981fd791467183e4c61112b848095aab21ac",
+  "summary": "GeneralPurposeEstimate::new rounds up by adding before dividing, causing decoded_len_estimate to panic near usize::MAX. The chunk-count calculation overflows for lengths greater than usize::MAX - 7, before the decoded-length calculation can run. The fix divides first and adds a remainder indicator, preserving both estimates without overflow. The regression test added by this commit checks both ends of the usize range against u128 calculations. This is a proposed reversal; no tests were executed.",
+  "test": "engine::general_purpose::decode::tests::estimate_via_u128_inflation",
+  "expected_failure": "Overflow when calculating number of chunks in input",
+  "reversal": {
+    "path": "src/engine/general_purpose/decode.rs",
+    "fixed_text": "impl GeneralPurposeEstimate {\n    pub(crate) fn new(encoded_len: usize) -> Self {\n        // Formulas that won't overflow\n        Self {\n            num_chunks: encoded_len / INPUT_CHUNK_LEN\n                + (encoded_len % INPUT_CHUNK_LEN > 0) as usize,\n            decoded_len_estimate: (encoded_len / 4 + (encoded_len % 4 > 0) as usize) * 3,\n        }\n    }\n}\n",
+    "parent_text": "impl GeneralPurposeEstimate {\n    pub(crate) fn new(encoded_len: usize) -> Self {\n        Self {\n            num_chunks: encoded_len\n                .checked_add(INPUT_CHUNK_LEN - 1)\n                .expect(\"Overflow when calculating number of chunks in input\")\n                / INPUT_CHUNK_LEN,\n            decoded_len_estimate: encoded_len\n                .checked_add(3)\n                .expect(\"Overflow when calculating decoded len estimate\")\n                / 4\n                * 3,\n        }\n    }\n}\n"
+  }
+}

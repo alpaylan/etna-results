@@ -1,0 +1,24 @@
+Command: rustup run 1.79.0 cargo generate-lockfile
+Started: 2026-09-23T17:20:11.731947+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+    Updating `era` index
+     Locking 90 packages to latest compatible versions
+      Adding clap v2.34.0 (latest: v4.1.1)
+      Adding clap v3.2.23 (latest: v4.1.1)
+      Adding clap_lex v0.2.4 (latest: v0.3.1)
+      Adding half v1.8.2 (latest: v2.2.1)
+      Adding hashbrown v0.12.3 (latest: v0.13.2)
+      Adding heck v0.3.3 (latest: v0.4.0)
+      Adding hermit-abi v0.1.19 (latest: v0.2.6)
+      Adding memoffset v0.7.1 (latest: v0.8.0)
+      Adding rstest v0.12.0 (latest: v0.16.0)
+      Adding rstest_reuse v0.3.0 (latest: v0.4.0)
+      Adding strsim v0.8.0 (latest: v0.10.0)
+      Adding textwrap v0.11.0 (latest: v0.16.0)
+
+Exit: 0
+Timed out: False
