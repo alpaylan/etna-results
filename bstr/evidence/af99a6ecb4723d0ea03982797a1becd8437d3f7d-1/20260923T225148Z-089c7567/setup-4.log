@@ -1,0 +1,24 @@
+Command: rustup run 1.82.0 cargo check --locked --offline --tests
+Started: 2026-09-23T22:55:42.437430+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+warning: ignoring `resolver` config table without `-Zmsrv-policy`
+   Compiling libc v0.2.162
+    Checking cfg-if v1.0.0
+    Checking regex-lite v0.1.6
+    Checking regex-automata v0.4.9
+    Checking memchr v2.7.4
+    Checking ucd-parse v0.1.13
+    Checking unicode-segmentation v1.12.0
+    Checking getrandom v0.2.15
+    Checking rand_core v0.6.4
+    Checking rand v0.8.5
+    Checking quickcheck v1.0.3
+    Checking bstr v1.10.0 (/home/runner/work/_temp/upstream)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.17s
+
+Exit: 0
+Timed out: False

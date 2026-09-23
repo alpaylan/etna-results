@@ -1,0 +1,13 @@
+{
+  "commit": "af99a6ecb4723d0ea03982797a1becd8437d3f7d",
+  "parent": "955fa1609eefb23fa3d324db1e57781f33b8fe3c",
+  "fixed_commit": "af99a6ecb4723d0ea03982797a1becd8437d3f7d",
+  "summary": "BStr debug formatting emitted uppercase hexadecimal escapes for invalid UTF-8 bytes, inconsistent with its lowercase control-character escapes. The fix uses lowercase hexadecimal formatting. The existing impls::test_debug, updated by this commit, checks lowercase invalid-byte escapes and should detect the implementation reversal. Tests were not executed.",
+  "test": "impls::test_debug",
+  "expected_failure": "assertion `left == right` failed",
+  "reversal": {
+    "path": "src/impls.rs",
+    "fixed_text": "                                write!(f, \"\\\\x{:02x}\", b)?;\n",
+    "parent_text": "                                write!(f, r\"\\x{:02X}\", b)?;\n"
+  }
+}
