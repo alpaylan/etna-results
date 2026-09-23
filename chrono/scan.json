@@ -1,12 +1,14 @@
 {
   "repo": "https://github.com/chronotope/chrono",
   "tips": [
+    "5a6b2b40a781c19ad34a3593313468d922fceeea",
     "f6597197cd8a0230291a478bee2b9b8c696ad80e"
   ],
   "shallow": false,
   "reviewed": [
+    "5a6b2b40a781c19ad34a3593313468d922fceeea",
     "f6597197cd8a0230291a478bee2b9b8c696ad80e"
   ],
-  "reachable_commits": 1008,
+  "reachable_commits": 1298,
   "scope": "One queued candidate; not an exhaustive history scan."
 }

@@ -1,0 +1,13 @@
+{
+  "commit": "5a6b2b40a781c19ad34a3593313468d922fceeea",
+  "parent": "e39346e2877b3a5445953f2bc5b64263cf46fc72",
+  "fixed_commit": "5a6b2b40a781c19ad34a3593313468d922fceeea",
+  "summary": "The relaxed RFC3339 parser slices the timezone suffix at byte 3 while checking for UTC, panicking when that index splits a UTF-8 character. The fix compares bytes instead, allowing malformed suffixes to return a parse error. The fix adds an assertion to test_datetime_from_str that rejects \"2015-02-18T23:16:9.15øøø\"; reversing the implementation line should make this assertion panic during parsing. No tests were executed.",
+  "test": "datetime::tests::test_datetime_from_str",
+  "expected_failure": "byte index 3 is not a char boundary",
+  "reversal": {
+    "path": "src/format/parse.rs",
+    "fixed_text": "    let (s, offset) = if s.len() >= 3 && \"UTC\".as_bytes().eq_ignore_ascii_case(&s.as_bytes()[..3]) {\n",
+    "parent_text": "    let (s, offset) = if s.len() >= 3 && \"UTC\".eq_ignore_ascii_case(&s[..3]) {\n"
+  }
+}
