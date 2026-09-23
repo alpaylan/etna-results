@@ -1,0 +1,69 @@
+Command: rustup run 1.51.0 cargo test --locked --offline --test issues issue_next -- --nocapture --test-threads=1
+Started: 2026-09-23T22:30:54.242626+00:00
+STDOUT:
+
+running 1 test
+test issue_next ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling lazy_static v1.4.0
+   Compiling cfg-if v1.0.0
+   Compiling either v1.6.1
+   Compiling scopeguard v1.1.0
+   Compiling itoa v0.4.7
+   Compiling byteorder v1.4.3
+   Compiling unicode-width v0.1.8
+   Compiling plotters-backend v0.3.0
+   Compiling same-file v1.0.6
+   Compiling tap v1.0.1
+   Compiling half v1.7.1
+   Compiling regex-syntax v0.6.23
+   Compiling funty v1.2.0
+   Compiling oorandom v11.1.3
+   Compiling static_assertions v1.1.0
+   Compiling itertools v0.9.0
+   Compiling itertools v0.10.0
+   Compiling textwrap v0.11.0
+   Compiling walkdir v2.3.2
+   Compiling wyz v0.4.0
+   Compiling regex-automata v0.1.9
+   Compiling plotters-svg v0.3.0
+   Compiling serde v1.0.125
+   Compiling libc v0.2.93
+   Compiling memchr v2.3.4
+   Compiling ryu v1.0.5
+   Compiling bitflags v1.2.1
+   Compiling radium v0.6.2
+   Compiling regex v1.4.6
+   Compiling crossbeam-utils v0.8.3
+   Compiling memoffset v0.6.3
+   Compiling num-traits v0.2.14
+   Compiling csv-core v0.1.10
+   Compiling num_cpus v1.13.0
+   Compiling atty v0.2.14
+   Compiling clap v2.33.3
+   Compiling bitvec v0.22.3 (/home/runner/work/_temp/upstream)
+   Compiling crossbeam-channel v0.5.1
+   Compiling crossbeam-epoch v0.9.3
+   Compiling plotters v0.3.0
+   Compiling serde_json v1.0.64
+   Compiling bstr v0.2.15
+   Compiling serde_cbor v0.11.1
+   Compiling bincode v1.3.3
+   Compiling serde_test v1.0.125
+   Compiling crossbeam-deque v0.8.0
+   Compiling cast v0.2.5
+   Compiling tinytemplate v1.2.1
+   Compiling csv v1.1.6
+   Compiling rayon-core v1.9.0
+   Compiling criterion-plot v0.4.3
+   Compiling rayon v1.5.0
+   Compiling criterion v0.3.4
+    Finished test [unoptimized + debuginfo] target(s) in 22.58s
+     Running /home/runner/work/_temp/build-20260923T222921Z-823622b3/debug/deps/issues-930680c6b6c2fa4a
+
+Exit: 0
+Timed out: False

@@ -1,0 +1,14 @@
+Command: rustup toolchain install 1.51.0 --profile minimal
+Started: 2026-09-23T22:29:29.364599+00:00
+STDOUT:
+
+  1.51.0-x86_64-unknown-linux-gnu installed - rustc 1.51.0 (2fd73fabe 2021-03-23)
+
+
+STDERR:
+info: syncing channel updates for 1.51.0-x86_64-unknown-linux-gnu
+info: latest update on 2021-03-25 for version 1.51.0 (2fd73fabe 2021-03-23)
+info: downloading 3 components
+
+Exit: 0
+Timed out: False

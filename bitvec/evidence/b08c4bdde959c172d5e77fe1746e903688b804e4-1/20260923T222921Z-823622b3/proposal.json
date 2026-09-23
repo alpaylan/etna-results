@@ -1,0 +1,13 @@
+{
+  "commit": "b08c4bdde959c172d5e77fe1746e903688b804e4",
+  "parent": "0ea87aac6184bac8ba263197e9e0a665d5e4e9b7",
+  "fixed_commit": "b08c4bdde959c172d5e77fe1746e903688b804e4",
+  "summary": "Leading/trailing bit counts returned 0 instead of the slice length when no opposite bit existed. The fix uses the slice length as the fallback. This reversal isolates leading_zeros: an all-zero slice again returns 0. The fix-added integration test issue_next in tests/issues.rs expects 1 for a single zero bit. Both regions occur exactly once; no tests were run.",
+  "test": "issue_next",
+  "expected_failure": "assertion failed: `(left == right)`\n  left: `0`,\n right: `1`",
+  "reversal": {
+    "path": "src/slice.rs",
+    "fixed_text": "\tpub fn leading_zeros(&self) -> usize {\n\t\tself.first_one().unwrap_or(self.len())\n\t}\n",
+    "parent_text": "\tpub fn leading_zeros(&self) -> usize {\n\t\tself.first_one().unwrap_or_default()\n\t}\n"
+  }
+}

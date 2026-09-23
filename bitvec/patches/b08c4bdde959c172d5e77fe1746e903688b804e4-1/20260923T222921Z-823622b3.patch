@@ -1,0 +1,13 @@
+diff --git a/src/slice.rs b/src/slice.rs
+index 9afae8c..35681e7 100644
+--- a/src/slice.rs
++++ b/src/slice.rs
+@@ -1261,7 +1261,7 @@ where
+ 	/// ```
+ 	#[inline]
+ 	pub fn leading_zeros(&self) -> usize {
+-		self.first_one().unwrap_or(self.len())
++		self.first_one().unwrap_or_default()
+ 	}
+ 
+ 	/// Counts the number of bits from the end of the bit-slice to the last bit

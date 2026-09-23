@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: Selected test is not present at the fixed revision: src/slice/api.rs - slice::api::BitSlice<O,T>::split_at_mut (line 1241)
+**unconfirmed**: The observed failure does not establish the described bug
 
 Upstream: https://github.com/ferrilab/bitvec
 
-Candidate: c71ea2344fd4a728263f33d66a9708d93c52dc48-1
+Candidate: b08c4bdde959c172d5e77fe1746e903688b804e4-1
 
 Provenance: verbatim
 
-Latest outcomes: {"blocked": 1}
+Latest outcomes: {"unconfirmed": 1}
 
-History coverage not yet recorded.
+Reviewed commits: 1 / 477 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.
