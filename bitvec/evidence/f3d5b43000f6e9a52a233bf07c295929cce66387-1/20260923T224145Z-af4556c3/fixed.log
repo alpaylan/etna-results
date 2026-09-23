@@ -1,0 +1,73 @@
+Command: rustup run 1.67.0 cargo test --locked --offline --lib vec::tests::bitvec_order -- --exact --nocapture --test-threads=1
+Started: 2026-09-23T22:45:00.439514+00:00
+STDOUT:
+
+running 1 test
+test vec::tests::bitvec_order ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 141 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling cfg-if v1.0.0
+   Compiling libc v0.2.139
+   Compiling serde v1.0.152
+   Compiling memoffset v0.7.1
+   Compiling crossbeam-utils v0.8.14
+   Compiling scopeguard v1.1.0
+   Compiling memchr v2.5.0
+   Compiling crossbeam-epoch v0.9.13
+   Compiling either v1.8.1
+   Compiling ryu v1.0.12
+   Compiling crossbeam-deque v0.8.2
+   Compiling num_cpus v1.15.0
+   Compiling getrandom v0.2.8
+   Compiling crossbeam-channel v0.5.6
+   Compiling plotters-backend v0.3.4
+   Compiling regex-automata v0.1.10
+   Compiling lazy_static v1.4.0
+   Compiling itoa v1.0.5
+   Compiling unicode-width v0.1.10
+   Compiling rayon-core v1.10.2
+   Compiling textwrap v0.11.0
+   Compiling plotters-svg v0.3.3
+   Compiling rand_core v0.6.4
+   Compiling num-traits v0.2.15
+   Compiling itertools v0.10.5
+   Compiling serde_json v1.0.91
+   Compiling bstr v0.2.17
+   Compiling csv-core v0.1.10
+   Compiling same-file v1.0.6
+   Compiling regex-syntax v0.6.28
+   Compiling itoa v0.4.8
+   Compiling cast v0.3.0
+   Compiling ppv-lite86 v0.2.17
+   Compiling half v1.8.2
+   Compiling bitflags v1.3.2
+   Compiling clap v2.34.0
+   Compiling rand_chacha v0.3.1
+   Compiling serde_cbor v0.11.2
+   Compiling regex v1.7.1
+   Compiling criterion-plot v0.4.5
+   Compiling csv v1.1.6
+   Compiling walkdir v2.3.2
+   Compiling tinytemplate v1.2.1
+   Compiling plotters v0.3.4
+   Compiling rayon v1.6.1
+   Compiling atty v0.2.14
+   Compiling oorandom v11.1.3
+   Compiling tap v1.0.1
+   Compiling wyz v0.5.1
+   Compiling radium v0.7.0
+   Compiling serde_test v1.0.152
+   Compiling rand v0.8.5
+   Compiling bincode v1.3.3
+   Compiling static_assertions v1.1.0
+   Compiling funty v2.0.0
+   Compiling criterion v0.3.6
+   Compiling bitvec v1.1.0 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 19.56s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260923T224145Z-af4556c3/debug/deps/bitvec-f326443c1b5966a4)
+
+Exit: 0
+Timed out: False

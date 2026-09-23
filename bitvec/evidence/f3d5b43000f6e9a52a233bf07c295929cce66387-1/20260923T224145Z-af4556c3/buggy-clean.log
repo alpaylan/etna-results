@@ -1,0 +1,8 @@
+Command: rustup run 1.67.0 cargo clean -p bitvec
+Started: 2026-09-23T22:45:20.042472+00:00
+STDOUT:
+
+STDERR:
+
+Exit: 0
+Timed out: False

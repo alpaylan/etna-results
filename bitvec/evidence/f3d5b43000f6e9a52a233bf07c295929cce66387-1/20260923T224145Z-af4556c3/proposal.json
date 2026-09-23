@@ -1,0 +1,13 @@
+{
+  "commit": "f3d5b43000f6e9a52a233bf07c295929cce66387",
+  "parent": "96baa4392469f48b7526c2490aca17fc324804a8",
+  "fixed_commit": "f3d5b43000f6e9a52a233bf07c295929cce66387",
+  "summary": "BitVec's blanket PartialOrd implementation delegates comparison with swapped operands but fails to reverse the resulting ordering, making unequal BitVec-to-BitSlice comparisons return the opposite result. The fix reverses the returned ordering. The commit adds vec::tests::bitvec_order, whose k < r_slice assertion detects this error. Reproduction has not been run.",
+  "test": "vec::tests::bitvec_order",
+  "expected_failure": "assertion failed: k < r_slice",
+  "reversal": {
+    "path": "src/vec/traits.rs",
+    "fixed_text": "\t\tother.partial_cmp(self.as_bitslice()).map(|o| o.reverse())\n",
+    "parent_text": "\t\tother.partial_cmp(self.as_bitslice())\n"
+  }
+}
