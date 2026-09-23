@@ -1,0 +1,27 @@
+Command: rustup run 1.33.0 cargo fetch --locked
+Started: 2026-09-23T15:51:18.708990+00:00
+STDOUT:
+
+STDERR:
+ Downloading crates ...
+  Downloaded rand_pcg v0.1.2
+  Downloaded autocfg v0.1.8
+  Downloaded rand_core v0.4.3
+  Downloaded rand_jitter v0.1.4
+  Downloaded hex v0.3.2
+  Downloaded autocfg v1.5.1
+  Downloaded rand_core v0.3.2
+  Downloaded rand_os v0.1.3
+  Downloaded rand_chacha v0.1.1
+  Downloaded fuchsia-cprng v0.1.1
+  Downloaded itoa v1.0.18
+error: failed to parse manifest at `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/itoa-1.0.18/Cargo.toml`
+
+Caused by:
+  failed to parse the `edition` key
+
+Caused by:
+  supported edition values are `2015` or `2018`, but `2021` is unknown
+
+Exit: 101
+Timed out: False
