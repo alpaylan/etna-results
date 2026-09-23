@@ -1,0 +1,12 @@
+Command: rustup run 1.33.0 cargo fetch --locked
+Started: 2026-09-23T16:24:33.651249+00:00
+STDOUT:
+
+STDERR:
+error: failed to parse lock file at: /home/runner/work/_temp/upstream/Cargo.lock
+
+Caused by:
+  invalid serialized PackageId for key `package.dependencies`
+
+Exit: 101
+Timed out: False
