@@ -1,0 +1,21 @@
+Command: rustup run 1.50.0 cargo fetch --locked
+Started: 2026-09-24T00:53:25.340532+00:00
+STDOUT:
+
+STDERR:
+ Downloading crates ...
+  Downloaded cfg-if v1.0.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded num-integer v0.1.44 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded num-traits v0.2.14 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded rand v0.8.3 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded arbitrary v1.0.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded wasi v0.10.2+wasi-snapshot-preview1 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded serde v1.0.124 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded rand_core v0.6.2 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded autocfg v1.0.1 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded quickcheck v1.0.3 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded getrandom v0.2.2 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded libc v0.2.88 (registry `git://127.0.0.1:9419/era-index`)
+
+Exit: 0
+Timed out: False

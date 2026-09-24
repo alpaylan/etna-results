@@ -1,0 +1,22 @@
+Command: rustup run 1.50.0 cargo test --locked --offline --test bigint_scalar test_scalar_div_rem_zero -- --nocapture --test-threads=1
+Started: 2026-09-24T00:53:40.152131+00:00
+STDOUT:
+
+running 1 test
+test test_scalar_div_rem_zero ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 4 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling num-bigint v0.4.0 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 4.64s
+     Running /home/runner/work/_temp/build-20260924T005217Z-412b6be2/debug/deps/bigint_scalar-a6ea6b3eda51f14b
+thread 'main' panicked at 'attempt to divide by zero', /home/runner/work/_temp/upstream/src/biguint/division.rs:45:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+thread 'main' panicked at 'attempt to divide by zero', /home/runner/work/_temp/upstream/src/biguint/division.rs:70:9
+thread 'main' panicked at 'attempt to divide by zero', /home/runner/work/_temp/upstream/src/biguint/division.rs:45:9
+thread 'main' panicked at 'attempt to divide by zero', /home/runner/work/_temp/upstream/src/biguint/division.rs:70:9
+
+Exit: 0
+Timed out: False

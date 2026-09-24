@@ -1,0 +1,13 @@
+{
+  "commit": "5dcf2a1deb1b8e2e225521cb103ee90a8c70b666",
+  "parent": "d1e4498cbc02d22b3ddded7216c38d94e494cf90",
+  "fixed_commit": "5dcf2a1deb1b8e2e225521cb103ee90a8c70b666",
+  "summary": "BigUint::zero() / 0u32 returned zero without panicking because the empty digit vector skipped all division operations. The fix checks for a zero divisor before iterating. Reversing only this guard restores the division bug. The fix-added test_scalar_div_rem_zero in tests/biguint_scalar.rs detects it when catch_unwind returns Ok instead of the expected panic.",
+  "test": "test_scalar_div_rem_zero",
+  "expected_failure": "called `Result::unwrap_err()` on an `Ok` value",
+  "reversal": {
+    "path": "src/biguint/division.rs",
+    "fixed_text": "pub(super) fn div_rem_digit(mut a: BigUint, b: BigDigit) -> (BigUint, BigDigit) {\n    if b == 0 {\n        panic!(\"attempt to divide by zero\")\n    }\n\n    let mut rem = 0;\n",
+    "parent_text": "pub(super) fn div_rem_digit(mut a: BigUint, b: BigDigit) -> (BigUint, BigDigit) {\n    let mut rem = 0;\n"
+  }
+}
