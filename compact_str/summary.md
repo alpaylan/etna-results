@@ -1,10 +1,10 @@
 # Cloud bug-mining prototype
 
-**blocked**: Proposal names no upstream test
+**blocked**: Reversal path is not changed by the upstream fix: 
 
 Upstream: https://github.com/ParkMyCar/compact_str
 
-Candidate: 8bee76b1bc65017dc433c7c2a42eda474ec415cf-1
+Candidate: dd81eb532b09b6e7df68f65b46932c2cf85b6b06-1
 
 Provenance: verbatim
 

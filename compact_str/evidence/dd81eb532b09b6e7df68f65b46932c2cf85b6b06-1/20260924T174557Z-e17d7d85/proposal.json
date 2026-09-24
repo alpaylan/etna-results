@@ -1,0 +1,13 @@
+{
+  "commit": "dd81eb532b09b6e7df68f65b46932c2cf85b6b06",
+  "parent": "6f5bccefd533185d16b09b7dfec03801084c90dd",
+  "fixed_commit": "dd81eb532b09b6e7df68f65b46932c2cf85b6b06",
+  "summary": "as_mut_bytes returned a capacity-length byte slice, exposing spare capacity that could be uninitialized. The fix limits the slice to the initialized string length and uses raw pointers or MaybeUninit for spare capacity. The added regression test checks that the returned slice length equals the string length. Blocked: reversing as_mut_bytes verbatim in compact_str/src/lib.rs requires restoring Repr::as_mut_buf, deleted by the same fix from compact_str/src/repr/mod.rs. The schema permits only one reversal path, so it cannot represent this required two-file reversal; reversing the caller alone would cause a compilation failure.",
+  "test": "tests::test_as_mut_bytes_only_exposes_initialized_data",
+  "expected_failure": null,
+  "reversal": {
+    "path": "",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
