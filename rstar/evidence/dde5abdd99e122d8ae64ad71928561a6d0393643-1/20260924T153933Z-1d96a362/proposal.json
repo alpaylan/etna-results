@@ -1,0 +1,13 @@
+{
+  "commit": "dde5abdd99e122d8ae64ad71928561a6d0393643",
+  "parent": "0abe2c290feb50e55e86b4f42ad22225dfdb6edc",
+  "fixed_commit": "dde5abdd99e122d8ae64ad71928561a6d0393643",
+  "summary": "Single-element removal stopped after a recursive match only when the child became empty. Otherwise it could continue into sibling subtrees, remove additional matches, return just one, and decrement the recorded size only once. The fix separates empty-child cleanup from stopping after the first match. The proposed verbatim reversal restores that faulty condition. Blocked: no detecting upstream test was found at this revision. The fix adds no tests; existing removal unit tests do not establish multiple matches across subtrees, and duplicate/overlapping-element doctests contain only two elements, so they do not exercise recursive parent traversal. No builds or tests were run.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "rstar/src/algorithm/removal.rs",
+    "fixed_text": "                    if !result.is_empty() {\n                        // Mark child for removal if it has become empty\n                        if data.children.is_empty() {\n                            node.children.remove(i);\n                        }\n",
+    "parent_text": "                    if !result.is_empty() && data.children.is_empty() {\n                        // Mark child for removal if it has become empty\n                        node.children.remove(i);\n"
+  }
+}
