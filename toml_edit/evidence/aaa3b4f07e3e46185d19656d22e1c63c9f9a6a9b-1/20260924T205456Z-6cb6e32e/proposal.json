@@ -1,0 +1,13 @@
+{
+  "commit": "aaa3b4f07e3e46185d19656d22e1c63c9f9a6a9b",
+  "parent": "c6fc3dde2f4c8fd86fd6e6a479192d1e03fde3de",
+  "fixed_commit": "aaa3b4f07e3e46185d19656d22e1c63c9f9a6a9b",
+  "summary": "The diagnostic for extending a non-table value with a dotted key incorrectly puts backticks around the type name. The fix removes those backticks while preserving quoting of the key. The existing custom harness in tests/test_invalid.rs names cases by fixture filename; duplicate-keys-dotted.toml checks the expected diagnostic updated by this fix. Reversing the implementation line should cause that snapshot comparison to fail. No tests were executed.",
+  "test": "duplicate-keys-dotted.toml",
+  "expected_failure": "Dotted key `ssl-version` attempted to extend non-table type (`string`)",
+  "reversal": {
+    "path": "src/parser/errors.rs",
+    "fixed_text": "                    \"Dotted key `{}` attempted to extend non-table type ({})\",\n",
+    "parent_text": "                    \"Dotted key `{}` attempted to extend non-table type (`{}`)\",\n"
+  }
+}

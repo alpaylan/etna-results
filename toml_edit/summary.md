@@ -1,10 +1,10 @@
 # Cloud bug-mining prototype
 
-**blocked**: Selected test is not present at the fixed revision: key-empty.toml
+**blocked**: Selected test is not present at the fixed revision: duplicate-keys-dotted.toml
 
 Upstream: https://github.com/toml-rs/toml
 
-Candidate: f88cd780699eb96e5284ebbbd31e3c36ab57258f-1
+Candidate: aaa3b4f07e3e46185d19656d22e1c63c9f9a6a9b-1
 
 Provenance: verbatim
 
