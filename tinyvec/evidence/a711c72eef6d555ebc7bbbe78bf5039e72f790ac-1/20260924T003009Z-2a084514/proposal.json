@@ -1,0 +1,13 @@
+{
+  "commit": "a711c72eef6d555ebc7bbbe78bf5039e72f790ac",
+  "parent": "6e326cc48208229d1f28abf74a3e06944c8f7bec",
+  "fixed_commit": "a711c72eef6d555ebc7bbbe78bf5039e72f790ac",
+  "summary": "Alternate Debug formatting of empty containers produced \"[\\n    ,\\n]\" instead of \"[]\". The fix guards both whitespace/separator writes with !self.is_empty() in ArrayVec, SliceVec, and TinyVec; it does not delegate to slice formatting as the imported record claims. The ArrayVec reversal below restores both original conditions. Blocked: no detecting upstream test exists at this commit. The fix changes no tests; ArrayVec_pretty_debug and TinyVec_pretty_debug only format three-element containers, while ArrayVec_formatting checks empty Debug output only in non-alternate mode. The imported case_empty and case_three_elements tests are absent. No tests were run.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/arrayvec.rs",
+    "fixed_text": "impl<A: Array> Debug for ArrayVec<A>\nwhere\n  A::Item: Debug,\n{\n  #[allow(clippy::missing_inline_in_public_items)]\n  fn fmt(&self, f: &mut Formatter) -> core::fmt::Result {\n    write!(f, \"[\")?;\n    if f.alternate() && !self.is_empty() {\n      write!(f, \"\\n    \")?;\n    }\n    for (i, elem) in self.iter().enumerate() {\n      if i > 0 {\n        write!(f, \",{}\", if f.alternate() { \"\\n    \" } else { \" \" })?;\n      }\n      Debug::fmt(elem, f)?;\n    }\n    if f.alternate() && !self.is_empty() {\n      write!(f, \",\\n\")?;\n    }\n    write!(f, \"]\")\n  }\n}\n",
+    "parent_text": "impl<A: Array> Debug for ArrayVec<A>\nwhere\n  A::Item: Debug,\n{\n  #[allow(clippy::missing_inline_in_public_items)]\n  fn fmt(&self, f: &mut Formatter) -> core::fmt::Result {\n    write!(f, \"[\")?;\n    if f.alternate() {\n      write!(f, \"\\n    \")?;\n    }\n    for (i, elem) in self.iter().enumerate() {\n      if i > 0 {\n        write!(f, \",{}\", if f.alternate() { \"\\n    \" } else { \" \" })?;\n      }\n      Debug::fmt(elem, f)?;\n    }\n    if f.alternate() {\n      write!(f, \",\\n\")?;\n    }\n    write!(f, \"]\")\n  }\n}\n"
+  }
+}
