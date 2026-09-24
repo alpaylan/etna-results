@@ -1,0 +1,13 @@
+{
+  "commit": "af87c8d331b81d2398997d89d2164c252ae6e9f5",
+  "parent": "9e3f88c06ca275294ef4cb1daf0789f06a28611d",
+  "fixed_commit": "af87c8d331b81d2398997d89d2164c252ae6e9f5",
+  "summary": "Blocked: this commit introduces the ASCII fast path, including apostrophe handling; it does not fix the claimed historical regression. The parent has no AsciiWordBoundIter or is_infix and already handles apostrophes through the Unicode implementation. Removing apostrophe support would split \"can't\", but that change is a synthetic mutation without corresponding parent code. The named upstream test was added by this commit and covers \"can't\", but no valid verbatim reversal establishes the claimed bug. No builds or tests were run.",
+  "test": "word::tests::test_ascii_word_indices_various_cases",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/word.rs",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
