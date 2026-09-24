@@ -1,0 +1,23 @@
+Command: rustup run 1.84.1 cargo check --locked --offline --tests
+Started: 2026-09-24T00:49:56.639113+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+   Compiling proc-macro2 v1.0.93
+   Compiling unicode-ident v1.0.16
+   Compiling serde v1.0.217
+    Checking memchr v2.7.4
+    Checking itoa v1.0.14
+    Checking ryu v1.0.19
+    Checking csv-core v0.1.11 (/home/runner/work/_temp/upstream/csv-core)
+   Compiling quote v1.0.38
+   Compiling syn v2.0.98
+   Compiling serde_derive v1.0.217
+    Checking bstr v1.11.3
+    Checking csv v1.3.1 (/home/runner/work/_temp/upstream)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 5.15s
+
+Exit: 0
+Timed out: False

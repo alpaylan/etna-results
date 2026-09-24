@@ -1,0 +1,13 @@
+{
+  "commit": "066de4aaf5dbf2c82bdb03fb574d905dde172d8a",
+  "parent": "95a5e1af3c99160492fdb4134690479f1d9736a3",
+  "fixed_commit": "066de4aaf5dbf2c82bdb03fb574d905dde172d8a",
+  "summary": "Reader::reset left output_pos unchanged after reading a partial record, causing subsequent field-end positions to include stale output bytes. The upstream regression test reads a partial \"baz\", resets, then parses \"baz,raz\\n\"; the buggy implementation reports ends[0] as 6 instead of 3. Resetting output_pos to zero corrects these offsets. The proposed reversal removes only that assignment. Tests were not executed.",
+  "test": "reader::tests::reset_input_partial",
+  "expected_failure": "assertion `left == right` failed\n  left: 6\n right: 3",
+  "reversal": {
+    "path": "csv-core/src/reader.rs",
+    "fixed_text": "    pub fn reset(&mut self) {\n        self.dfa_state = self.dfa.new_state(NfaState::StartRecord);\n        self.nfa_state = NfaState::StartRecord;\n        self.line = 1;\n        self.has_read = false;\n        self.output_pos = 0;\n    }\n",
+    "parent_text": "    pub fn reset(&mut self) {\n        self.dfa_state = self.dfa.new_state(NfaState::StartRecord);\n        self.nfa_state = NfaState::StartRecord;\n        self.line = 1;\n        self.has_read = false;\n    }\n"
+  }
+}
