@@ -1,0 +1,21 @@
+diff --git a/rational/src/lib.rs b/rational/src/lib.rs
+index 47bb0b0..a251a73 100644
+--- a/rational/src/lib.rs
++++ b/rational/src/lib.rs
+@@ -526,14 +526,12 @@ impl<T: Clone + Integer + Signed> Signed for Ratio<T> {
+ 
+     #[inline]
+     fn is_positive(&self) -> bool {
+-        (self.numer.is_positive() && self.denom.is_positive()) ||
+-        (self.numer.is_negative() && self.denom.is_negative())
++        !self.is_negative()
+     }
+ 
+     #[inline]
+     fn is_negative(&self) -> bool {
+-        (self.numer.is_negative() && self.denom.is_positive()) ||
+-        (self.numer.is_positive() && self.denom.is_negative())
++        self.numer.is_negative() ^ self.denom.is_negative()
+     }
+ }
+ 

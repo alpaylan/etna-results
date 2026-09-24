@@ -1,0 +1,13 @@
+{
+  "commit": "c22e3bf9a2733274a2a6d422cbd35b5a135d63ff",
+  "parent": "095738e7de5484aa34471fb056960d9463c44e85",
+  "fixed_commit": "c22e3bf9a2733274a2a6d422cbd35b5a135d63ff",
+  "summary": "The parent implementation classifies 0/1 as positive, making signum() return 1 instead of 0; zero with a negative denominator is incorrectly classified as negative. The fix checks strictly positive or negative numerator/denominator combinations, excluding zero from both predicates. The upstream test extended by this fix first detects the regression at assert_eq!(_0.signum(), Zero::zero()). Select test::test_signed in the num-rational crate at rational/Cargo.toml. No tests were executed.",
+  "test": "test::test_signed",
+  "expected_failure": null,
+  "reversal": {
+    "path": "rational/src/lib.rs",
+    "fixed_text": "    #[inline]\n    fn is_positive(&self) -> bool {\n        (self.numer.is_positive() && self.denom.is_positive()) ||\n        (self.numer.is_negative() && self.denom.is_negative())\n    }\n\n    #[inline]\n    fn is_negative(&self) -> bool {\n        (self.numer.is_negative() && self.denom.is_positive()) ||\n        (self.numer.is_positive() && self.denom.is_negative())\n    }\n",
+    "parent_text": "    #[inline]\n    fn is_positive(&self) -> bool {\n        !self.is_negative()\n    }\n\n    #[inline]\n    fn is_negative(&self) -> bool {\n        self.numer.is_negative() ^ self.denom.is_negative()\n    }\n"
+  }
+}
