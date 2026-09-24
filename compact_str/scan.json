@@ -1,11 +1,13 @@
 {
   "repo": "https://github.com/ParkMyCar/compact_str",
   "tips": [
-    "042b64a8a2ff225e9485d7676a53a503ba467d6f"
+    "042b64a8a2ff225e9485d7676a53a503ba467d6f",
+    "d7673f9022156bb32bbc02ad474955fbd043a39a"
   ],
   "shallow": false,
   "reviewed": [
-    "042b64a8a2ff225e9485d7676a53a503ba467d6f"
+    "042b64a8a2ff225e9485d7676a53a503ba467d6f",
+    "d7673f9022156bb32bbc02ad474955fbd043a39a"
   ],
   "reachable_commits": 697,
   "scope": "One queued candidate; not an exhaustive history scan."

@@ -1,0 +1,8 @@
+Command: rustup run 1.62.1 cargo clean -p compact_str-fuzz
+Started: 2026-09-24T17:48:25.536122+00:00
+STDOUT:
+
+STDERR:
+
+Exit: 0
+Timed out: False

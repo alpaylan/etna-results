@@ -1,0 +1,13 @@
+{
+  "commit": "d7673f9022156bb32bbc02ad474955fbd043a39a",
+  "parent": "5b0c6cfcad2fe39aaab94f301ca9959696e0a1f9",
+  "fixed_commit": "d7673f9022156bb32bbc02ad474955fbd043a39a",
+  "summary": "On 32-bit targets, inline capacity 16711422 encodes as [254, 254, 254, 254], colliding with the old heap-capacity marker. Decoding therefore incorrectly treats an inline capacity as heap-stored. The fix uses 255 for the marker's capacity bytes, retaining HEAP_MASK only in the final byte, placing the marker beyond valid inline capacities. The selected test was added by this fix and requires a 32-bit target to detect this regression; it belongs to the compact_str library package, not compact_str-fuzz. No tests were executed.",
+  "test": "repr::boxed::capacity::tests::test_all_valid_32bit_values",
+  "expected_failure": "value converted, but failed to roundtrip! val: 16711422",
+  "reversal": {
+    "path": "compact_str/src/repr/boxed/capacity.rs",
+    "fixed_text": "const USIZE_SIZE: usize = core::mem::size_of::<usize>();\n\n/// Used to generate [`CAPACITY_IS_ON_THE_HEAP`]\n#[allow(non_snake_case)]\nconst fn CAP_ON_HEAP_FLAG() -> [u8; USIZE_SIZE] {\n    // all bytes 255, with the last\n    let mut flag = [255; USIZE_SIZE];\n    flag[USIZE_SIZE - 1] = HEAP_MASK;\n    flag\n}\n\n/// State that describes the capacity as being stored on the heap.\n///\n/// All bytes `255`, with the last being [`HEAP_MASK`], using the same amount of bytes as `usize`\n/// Example (64-bit): `[255, 255, 255, 255, 255, 255, 255, 254]`\nconst CAPACITY_IS_ON_THE_HEAP: [u8; USIZE_SIZE] = CAP_ON_HEAP_FLAG();\n",
+    "parent_text": "const USIZE_SIZE: usize = core::mem::size_of::<usize>();\n// state that describes the capacity as being stored on the heap\nconst CAPACITY_IS_ON_THE_HEAP: [u8; USIZE_SIZE] = [HEAP_MASK; USIZE_SIZE];\n"
+  }
+}
