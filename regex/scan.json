@@ -2,11 +2,13 @@
   "repo": "https://github.com/rust-lang/regex",
   "tips": [
     "33898de870fc584ce912651590d8715d1178e667",
+    "72f09f1aeb0ff3f703b1afdbdd21f5ff63162fb4",
     "c4865a0c8446a701e10b0fd987f19068f5dcc365"
   ],
   "shallow": false,
   "reviewed": [
     "33898de870fc584ce912651590d8715d1178e667",
+    "72f09f1aeb0ff3f703b1afdbdd21f5ff63162fb4",
     "c4865a0c8446a701e10b0fd987f19068f5dcc365"
   ],
   "reachable_commits": 1595,

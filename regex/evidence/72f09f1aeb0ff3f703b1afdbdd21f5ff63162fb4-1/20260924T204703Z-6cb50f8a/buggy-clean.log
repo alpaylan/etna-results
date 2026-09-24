@@ -1,0 +1,8 @@
+Command: rustup run 1.60.0 cargo clean -p regex
+Started: 2026-09-24T20:49:15.718364+00:00
+STDOUT:
+
+STDERR:
+
+Exit: 0
+Timed out: False

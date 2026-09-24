@@ -1,0 +1,13 @@
+{
+  "commit": "72f09f1aeb0ff3f703b1afdbdd21f5ff63162fb4",
+  "parent": "b5372864e2df6a2f5e543a556a62197f50ca3650",
+  "fixed_commit": "72f09f1aeb0ff3f703b1afdbdd21f5ff63162fb4",
+  "summary": "ASCII class translation applied each added class's negation and case folding to the entire accumulated union. Consequently, [[:alnum:][:^ascii:]] incorrectly dropped ASCII alphanumeric characters in both Unicode and byte modes. The fix folds and negates each ASCII class independently before unioning it with the accumulated class. The fix adds class_ascii_multiple to check both modes. This plan reverses only the ASCII visitor branch; no tests were run.",
+  "test": "hir::translate::tests::class_ascii_multiple",
+  "expected_failure": "assertion failed: `(left == right)`",
+  "reversal": {
+    "path": "regex-syntax/src/hir/translate.rs",
+    "fixed_text": "            ast::ClassSetItem::Ascii(ref x) => {\n                if self.flags().unicode() {\n                    let xcls = self.hir_ascii_unicode_class(x)?;\n                    let mut cls = self.pop().unwrap().unwrap_class_unicode();\n                    cls.union(&xcls);\n                    self.push(HirFrame::ClassUnicode(cls));\n                } else {\n                    let xcls = self.hir_ascii_byte_class(x)?;\n                    let mut cls = self.pop().unwrap().unwrap_class_bytes();\n                    cls.union(&xcls);\n                    self.push(HirFrame::ClassBytes(cls));\n                }\n            }\n",
+    "parent_text": "            ast::ClassSetItem::Ascii(ref x) => {\n                if self.flags().unicode() {\n                    let mut cls = self.pop().unwrap().unwrap_class_unicode();\n                    for &(s, e) in ascii_class(&x.kind) {\n                        cls.push(hir::ClassUnicodeRange::new(s, e));\n                    }\n                    self.unicode_fold_and_negate(\n                        &x.span, x.negated, &mut cls,\n                    )?;\n                    self.push(HirFrame::ClassUnicode(cls));\n                } else {\n                    let mut cls = self.pop().unwrap().unwrap_class_bytes();\n                    for &(s, e) in ascii_class(&x.kind) {\n                        cls.push(hir::ClassBytesRange::new(s as u8, e as u8));\n                    }\n                    self.bytes_fold_and_negate(&x.span, x.negated, &mut cls)?;\n                    self.push(HirFrame::ClassBytes(cls));\n                }\n            }\n"
+  }
+}

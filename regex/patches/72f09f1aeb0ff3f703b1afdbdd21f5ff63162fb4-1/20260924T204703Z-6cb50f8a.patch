@@ -1,0 +1,29 @@
+diff --git a/regex-syntax/src/hir/translate.rs b/regex-syntax/src/hir/translate.rs
+index a7ae9bc..c9de231 100644
+--- a/regex-syntax/src/hir/translate.rs
++++ b/regex-syntax/src/hir/translate.rs
+@@ -434,14 +434,20 @@ impl<'t, 'p> Visitor for TranslatorI<'t, 'p> {
+             }
+             ast::ClassSetItem::Ascii(ref x) => {
+                 if self.flags().unicode() {
+-                    let xcls = self.hir_ascii_unicode_class(x)?;
+                     let mut cls = self.pop().unwrap().unwrap_class_unicode();
+-                    cls.union(&xcls);
++                    for &(s, e) in ascii_class(&x.kind) {
++                        cls.push(hir::ClassUnicodeRange::new(s, e));
++                    }
++                    self.unicode_fold_and_negate(
++                        &x.span, x.negated, &mut cls,
++                    )?;
+                     self.push(HirFrame::ClassUnicode(cls));
+                 } else {
+-                    let xcls = self.hir_ascii_byte_class(x)?;
+                     let mut cls = self.pop().unwrap().unwrap_class_bytes();
+-                    cls.union(&xcls);
++                    for &(s, e) in ascii_class(&x.kind) {
++                        cls.push(hir::ClassBytesRange::new(s as u8, e as u8));
++                    }
++                    self.bytes_fold_and_negate(&x.span, x.negated, &mut cls)?;
+                     self.push(HirFrame::ClassBytes(cls));
+                 }
+             }
