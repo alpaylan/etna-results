@@ -1,0 +1,13 @@
+{
+  "commit": "f758a09a4a916de927d1c1034478f1d904fd1f08",
+  "parent": "b078f7cb7ae778881e6d6c493808b6c5bd4a3796",
+  "fixed_commit": "f758a09a4a916de927d1c1034478f1d904fd1f08",
+  "summary": "The decoder subtracts the dictionary safety margin directly from an output pointer, potentially moving it before the allocation. With a zero-capacity output buffer, the pointer can wrap and incorrectly permit the fast decoding loop, causing a panic instead of returning an output-size error. The fix uses saturating integer subtraction before constructing the pointer. The fix-added root-level integration test bug_fuzz_8 in tests/tests.rs exercises this case. It requires checked-decode enabled and safe-decode disabled; select it with cargo test --no-default-features --features std,safe-encode,checked-decode --test tests bug_fuzz_8 -- --exact. No tests were executed.",
+  "test": "bug_fuzz_8",
+  "expected_failure": "0 + 4 4 wont fit ",
+  "reversal": {
+    "path": "src/block/decompress.rs",
+    "fixed_text": "    let safe_output_ptr = unsafe {\n        let mut output_num_safe_bytes = output\n            .capacity()\n            .saturating_sub(16 /* literal copy */ + 18 /* match copy */);\n        if USE_DICT {\n            // In the dictionary case the output pointer is moved by the match length in the dictionary.\n            // This may be up to 17 bytes without exiting the loop. So we need to ensure that we have\n            // at least additional 17 bytes of space left in the output buffer in the fast loop.\n            output_num_safe_bytes = output_num_safe_bytes.saturating_sub(17);\n        };\n\n        output_base.add(output_num_safe_bytes)\n    };\n",
+    "parent_text": "    let mut safe_output_ptr = unsafe {\n        output_base.add(\n            output\n                .capacity()\n                .saturating_sub(16 /* literal copy */ + 18 /* match copy */),\n        )\n    };\n\n    if USE_DICT {\n        unsafe {\n            // In the dictionary case the output pointer is moved by the match length in the dictionary.\n            // This may be up to 17 bytes without exiting the loop. So we need to ensure that we have\n            // at least additional 17 bytes of space left in the output buffer in the fast loop.\n            safe_output_ptr = safe_output_ptr.sub(17);\n        }\n    };\n"
+  }
+}
