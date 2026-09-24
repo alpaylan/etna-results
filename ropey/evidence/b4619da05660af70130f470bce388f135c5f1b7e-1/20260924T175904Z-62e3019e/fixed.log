@@ -1,0 +1,39 @@
+Command: rustup run 1.27.1 cargo test --locked --lib slice::tests::chunk_at_byte -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T17:59:58.085700+00:00
+STDOUT:
+
+running 1 test
+test slice::tests::chunk_at_byte ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 174 filtered out
+
+
+STDERR:
+   Compiling libc v0.2.42
+   Compiling remove_dir_all v0.5.1
+   Compiling fnv v1.0.6
+   Compiling ucd-util v0.1.1
+   Compiling bit-vec v0.5.0
+   Compiling quick-error v1.2.2
+   Compiling rand_core v0.2.1
+   Compiling bitflags v1.0.3
+   Compiling byteorder v1.2.3
+   Compiling lazy_static v1.0.1
+   Compiling smallvec v0.6.2
+   Compiling unicode-segmentation v1.2.1
+   Compiling bencher v0.1.5
+   Compiling regex-syntax v0.6.1
+   Compiling bit-set v0.5.0
+   Compiling rand v0.4.2
+   Compiling wait-timeout v0.1.5
+   Compiling rand v0.5.3
+   Compiling num-traits v0.2.5
+   Compiling tempfile v3.0.2
+   Compiling rusty-fork v0.2.0
+   Compiling proptest v0.8.3
+   Compiling ropey v0.7.0 (file:///home/runner/work/_temp/upstream)
+    Finished dev [unoptimized + debuginfo] target(s) in 17.18s
+     Running /home/runner/work/_temp/build-20260924T175904Z-62e3019e/debug/deps/ropey-34a1be17da021c0a
+
+Exit: 0
+Timed out: False

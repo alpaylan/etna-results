@@ -1,0 +1,13 @@
+{
+  "commit": "b4619da05660af70130f470bce388f135c5f1b7e",
+  "parent": "3dc680f6c1da4fab8ee8c017a72885f62bca0ad6",
+  "fixed_commit": "b4619da05660af70130f470bce388f135c5f1b7e",
+  "summary": "RopeSlice chunk lookup subtracted slice-start offsets from underlying chunk-start offsets even when the chunk began before the slice, causing unsigned underflow and a debug-build panic. The fix clamps returned byte, character, and line offsets to zero when necessary. This reversal restores the original chunk_at_byte implementation; the upstream test added by the fix exercises a slice starting inside a chunk. No tests were executed during planning.",
+  "test": "slice::tests::chunk_at_byte",
+  "expected_failure": "attempt to subtract with overflow",
+  "reversal": {
+    "path": "src/slice.rs",
+    "fixed_text": "                let (chunk, chunk_byte_idx, chunk_char_idx, chunk_line_idx) =\n                    node.get_chunk_at_byte(byte_idx + start_byte as usize);\n\n                // Calculate clipped start/end byte indices within the chunk.\n                let chunk_start_byte_idx =\n                    start_byte as usize - chunk_byte_idx.min(start_byte as usize);\n                let chunk_end_byte_idx = chunk.len().min(end_byte as usize - chunk_byte_idx);\n\n                // Return the clipped chunk and byte offset.\n                (\n                    &chunk[chunk_start_byte_idx..chunk_end_byte_idx],\n                    chunk_byte_idx - (start_byte as usize).min(chunk_byte_idx),\n                    chunk_char_idx - (start_char as usize).min(chunk_char_idx),\n                    chunk_line_idx - (start_line_break as usize).min(chunk_line_idx),\n                )\n",
+    "parent_text": "                let (chunk, chunk_byte_idx, chunk_char_idx, chunk_line_idx) =\n                    node.get_chunk_at_byte(byte_idx + start_byte as usize);\n\n                // Calculate clipped start/end byte indices within the chunk.\n                let chunk_start_byte_idx = if chunk_byte_idx < start_byte as usize {\n                    start_byte as usize - chunk_byte_idx\n                } else {\n                    0\n                };\n                let chunk_end_byte_idx = if (chunk_byte_idx + chunk.len()) > end_byte as usize {\n                    end_byte as usize - chunk_byte_idx\n                } else {\n                    chunk.len()\n                };\n\n                // Return the clipped chunk and byte offset.\n                (\n                    &chunk[chunk_start_byte_idx..chunk_end_byte_idx],\n                    chunk_byte_idx - start_byte as usize,\n                    chunk_char_idx - start_char as usize,\n                    chunk_line_idx - start_line_break as usize,\n                )\n"
+  }
+}

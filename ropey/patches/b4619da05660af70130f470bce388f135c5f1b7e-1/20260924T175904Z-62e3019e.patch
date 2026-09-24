@@ -1,0 +1,34 @@
+diff --git a/src/slice.rs b/src/slice.rs
+index 2fe9090..3c03d57 100644
+--- a/src/slice.rs
++++ b/src/slice.rs
+@@ -465,16 +465,23 @@ impl<'a> RopeSlice<'a> {
+                     node.get_chunk_at_byte(byte_idx + start_byte as usize);
+ 
+                 // Calculate clipped start/end byte indices within the chunk.
+-                let chunk_start_byte_idx =
+-                    start_byte as usize - chunk_byte_idx.min(start_byte as usize);
+-                let chunk_end_byte_idx = chunk.len().min(end_byte as usize - chunk_byte_idx);
++                let chunk_start_byte_idx = if chunk_byte_idx < start_byte as usize {
++                    start_byte as usize - chunk_byte_idx
++                } else {
++                    0
++                };
++                let chunk_end_byte_idx = if (chunk_byte_idx + chunk.len()) > end_byte as usize {
++                    end_byte as usize - chunk_byte_idx
++                } else {
++                    chunk.len()
++                };
+ 
+                 // Return the clipped chunk and byte offset.
+                 (
+                     &chunk[chunk_start_byte_idx..chunk_end_byte_idx],
+-                    chunk_byte_idx - (start_byte as usize).min(chunk_byte_idx),
+-                    chunk_char_idx - (start_char as usize).min(chunk_char_idx),
+-                    chunk_line_idx - (start_line_break as usize).min(chunk_line_idx),
++                    chunk_byte_idx - start_byte as usize,
++                    chunk_char_idx - start_char as usize,
++                    chunk_line_idx - start_line_break as usize,
+                 )
+             }
+             RopeSlice(RSEnum::Light { text, .. }) => (text, 0, 0, 0),

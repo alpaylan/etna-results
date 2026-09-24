@@ -1,15 +1,17 @@
 # Cloud bug-mining prototype
 
-**blocked**: Proposal names no upstream test
+Resumed verified evidence; no tests rerun.
+
+**confirmed**: The same upstream test passed, panicked on the original defect ('attempt to subtract with overflow'), and passed after restoration
 
 Upstream: https://github.com/cessen/ropey
 
-Candidate: 514b0686c04bd1108ec69d341302aeac9bc8dbb4-1
+Candidate: b4619da05660af70130f470bce388f135c5f1b7e-1
 
 Provenance: verbatim
 
-Latest outcomes: {"blocked": 1}
+Latest outcomes: {"confirmed": 1}
 
-History coverage not yet recorded.
+Reviewed commits: 1 / 263 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.
