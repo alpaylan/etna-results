@@ -1,0 +1,13 @@
+{
+  "commit": "ff2cf9f90677c9c69a7d469034717ba714b7f99a",
+  "parent": "462a2a27b28c131dfdbe8cce388464b761785852",
+  "fixed_commit": "ff2cf9f90677c9c69a7d469034717ba714b7f99a",
+  "summary": "The fix describes incorrectly accepting forbidden consecutive digit separators when the unchecked-prefix optimization splits a skip iterator at a separator boundary. It restricts that optimization to contiguous iterators, preserving separator context. However, lexical-util/src/skip.rs already makes take_n return None for non-contiguous iterators at both revisions, so the proposed verbatim reversal appears behaviorally redundant. No detecting upstream test was found: the commit adds no tests, and existing integer separator tests use short i32 inputs that bypass the changed path. Blocked pending a detecting upstream test; no builds or tests were run.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "lexical-parse-integer/src/algorithm.rs",
+    "fixed_text": "        // Can use the unchecked for the max_digits here. If we\n        // have a non-contiguous iterator, we could have a case like\n        // 123__456, with no consecutive digit sepatators allowed. If\n        // it's broken between the `_` characters, the integer will be\n        // seen as valid when it isn't.\n        if cfg!(not(feature = \"format\")) || $iter.is_contiguous() {\n            if let Some(mut small) = $iter.take_n($overflow_digits) {\n                let mut small_iter = small.integer_iter();\n                parse_digits_unchecked!(\n                    $value,\n                    small_iter,\n                    $add_op_uc,\n                    $start_index,\n                    $invalid_digit,\n                    $no_multi_digit,\n                    false\n                );\n            }\n        }\n",
+    "parent_text": "        // Can use the unchecked for the max_digits here\n        if let Some(mut small) = $iter.take_n($overflow_digits) {\n            let mut small_iter = small.integer_iter();\n            parse_digits_unchecked!(\n                $value,\n                small_iter,\n                $add_op_uc,\n                $start_index,\n                $invalid_digit,\n                $no_multi_digit,\n                false\n            );\n        }\n"
+  }
+}
