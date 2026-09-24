@@ -1,0 +1,13 @@
+{
+  "commit": "c160626b5e7dd8e9a95c140aed8972e8e2a14a39",
+  "parent": "bf214f318913a7a7944f9776eb38df41a0acda97",
+  "fixed_commit": "c160626b5e7dd8e9a95c140aed8972e8e2a14a39",
+  "summary": "varint_size added 7 before dividing the bit count by 7, overestimating the encoded length by one byte when the positive bit count is divisible by 7. The fix adds 6, correctly computing ceiling division. The fix-added test_vec_edge_cases in tests/max_size.rs, enabled by the default heapless feature, checks filled vectors at boundary capacities. Reversing this line should make capacity 127 report POSTCARD_MAX_SIZE 129 instead of the serialized length 128. No builds or tests were run.",
+  "test": "test_vec_edge_cases",
+  "expected_failure": "assertion failed: `(left == right)`\n  left: `129`,\n right: `128`",
+  "reversal": {
+    "path": "src/ser/max_size.rs",
+    "fixed_text": "    let roundup_bits = bits + (BITS_PER_VARINT_BYTE - 1);\n",
+    "parent_text": "    let roundup_bits = bits + (BITS_PER_BYTE - 1);\n"
+  }
+}
