@@ -1,0 +1,18 @@
+Command: rustup run 1.55.0 cargo generate-lockfile
+Started: 2026-09-24T00:24:01.719117+00:00
+STDOUT:
+
+STDERR:
+error: failed to load manifest for workspace member `/home/runner/work/_temp/upstream/tests/single-include`
+
+Caused by:
+  failed to load manifest for dependency `prost`
+
+Caused by:
+  failed to read `/home/runner/work/_temp/prost/Cargo.toml`
+
+Caused by:
+  No such file or directory (os error 2)
+
+Exit: 101
+Timed out: False
