@@ -2,16 +2,18 @@
 
 Resumed verified evidence; no tests rerun.
 
-**confirmed**: The same upstream test passed, panicked on the original defect ('attempt to subtract with overflow'), and passed after restoration
+**confirmed**: The same upstream test passed, panicked on the original defect ('assertion failed: `(left == right)`
+  left: `13`,
+ right: `14`'), and passed after restoration
 
 Upstream: https://github.com/cessen/ropey
 
-Candidate: b4619da05660af70130f470bce388f135c5f1b7e-1
+Candidate: 9b96de9cf35784fe1c2cd9ee885e32dc92cf3609-1
 
 Provenance: verbatim
 
 Latest outcomes: {"confirmed": 1}
 
-Reviewed commits: 1 / 263 reachable from the saved tip.
+Reviewed commits: 1 / 315 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

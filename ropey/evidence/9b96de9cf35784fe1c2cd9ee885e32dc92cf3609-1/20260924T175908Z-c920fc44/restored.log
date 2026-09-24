@@ -1,0 +1,18 @@
+Command: rustup run 1.27.2 cargo test --locked --test quickcheck_tests pt_byte_to_line_idx -- --nocapture --test-threads=1
+Started: 2026-09-24T18:00:22.618284+00:00
+STDOUT:
+
+running 1 test
+test pt_byte_to_line_idx ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 13 filtered out
+
+
+STDERR:
+   Compiling ropey v0.8.1 (file:///home/runner/work/_temp/upstream)
+    Finished dev [unoptimized + debuginfo] target(s) in 1.43s
+     Running /home/runner/work/_temp/build-20260924T175908Z-c920fc44/debug/deps/quickcheck_tests-f8ac03d1ddd38b52
+proptest: FileFailurePersistence::SourceParallel set, but failed to find lib.rs or main.rs
+
+Exit: 0
+Timed out: False

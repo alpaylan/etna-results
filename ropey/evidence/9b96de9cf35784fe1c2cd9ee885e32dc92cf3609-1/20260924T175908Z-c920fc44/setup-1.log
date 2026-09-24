@@ -1,0 +1,14 @@
+Command: rustup toolchain install 1.27.2 --profile minimal
+Started: 2026-09-24T17:59:17.454232+00:00
+STDOUT:
+
+  1.27.2-x86_64-unknown-linux-gnu installed - rustc 1.27.2 (58cc626de 2018-07-18)
+
+
+STDERR:
+info: syncing channel updates for 1.27.2-x86_64-unknown-linux-gnu
+info: latest update on 2018-07-20 for version 1.27.2 (58cc626de 2018-07-18)
+info: downloading 4 components
+
+Exit: 0
+Timed out: False

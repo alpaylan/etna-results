@@ -1,0 +1,28 @@
+diff --git a/src/str_utils.rs b/src/str_utils.rs
+index cf88b48..112bd09 100644
+--- a/src/str_utils.rs
++++ b/src/str_utils.rs
+@@ -401,20 +401,12 @@ unsafe fn count_line_breaks_in_usize_from_ptr(ptr: *const u8, end_ptr: *const u8
+     count
+ }
+ 
+-#[inline(always)]
+-fn flag_zero_bytes(word: usize) -> usize {
+-    const ONEMASK_LOW: usize = std::usize::MAX / 0xFF;
+-    const ONEMASK_HIGH: usize = ONEMASK_LOW << 7;
+-    let a = !word;
+-    let b = a & (a << 4);
+-    let c = b & (b << 2);
+-    c & (c << 1) & ONEMASK_HIGH
+-}
+-
+ #[inline(always)]
+ fn flag_bytes(word: usize, n: u8) -> usize {
+     const ONEMASK_LOW: usize = std::usize::MAX / 0xFF;
+-    flag_zero_bytes(word ^ (n as usize * ONEMASK_LOW))
++    const ONEMASK_HIGH: usize = ONEMASK_LOW << 7;
++    let word = word ^ (n as usize * ONEMASK_LOW);
++    (word.wrapping_sub(ONEMASK_LOW) & !word & ONEMASK_HIGH)
+ }
+ 
+ #[inline(always)]

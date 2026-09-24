@@ -1,0 +1,13 @@
+{
+  "commit": "9b96de9cf35784fe1c2cd9ee885e32dc92cf3609",
+  "parent": "ef96b560f6de5fab141e39f8387b82b50e49a4ec",
+  "fixed_commit": "9b96de9cf35784fe1c2cd9ee885e32dc92cf3609",
+  "summary": "The subtraction-based flag_bytes implementation allows borrows across byte boundaries to flag nonmatching bytes, causing incorrect line-break counts and byte-to-line indices. The fix computes exact per-byte zero flags using bitwise operations. Reverse only this correction. The fix adds pt_byte_to_line_idx in tests/quickcheck_tests.rs, which compares line indices against a slower reference implementation on generated newline sequences. Both selected source regions occur exactly once. No builds or tests were run.",
+  "test": "pt_byte_to_line_idx",
+  "expected_failure": "assertion failed: `(left == right)`",
+  "reversal": {
+    "path": "src/str_utils.rs",
+    "fixed_text": "#[inline(always)]\nfn flag_zero_bytes(word: usize) -> usize {\n    const ONEMASK_LOW: usize = std::usize::MAX / 0xFF;\n    const ONEMASK_HIGH: usize = ONEMASK_LOW << 7;\n    let a = !word;\n    let b = a & (a << 4);\n    let c = b & (b << 2);\n    c & (c << 1) & ONEMASK_HIGH\n}\n\n#[inline(always)]\nfn flag_bytes(word: usize, n: u8) -> usize {\n    const ONEMASK_LOW: usize = std::usize::MAX / 0xFF;\n    flag_zero_bytes(word ^ (n as usize * ONEMASK_LOW))\n}\n",
+    "parent_text": "#[inline(always)]\nfn flag_bytes(word: usize, n: u8) -> usize {\n    const ONEMASK_LOW: usize = std::usize::MAX / 0xFF;\n    const ONEMASK_HIGH: usize = ONEMASK_LOW << 7;\n    let word = word ^ (n as usize * ONEMASK_LOW);\n    (word.wrapping_sub(ONEMASK_LOW) & !word & ONEMASK_HIGH)\n}\n"
+  }
+}

@@ -1,0 +1,41 @@
+Command: rustup run 1.27.2 cargo test --locked --test quickcheck_tests pt_byte_to_line_idx -- --nocapture --test-threads=1
+Started: 2026-09-24T18:00:04.362016+00:00
+STDOUT:
+
+running 1 test
+test pt_byte_to_line_idx ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 13 filtered out
+
+
+STDERR:
+   Compiling rand_core v0.2.1
+   Compiling libc v0.2.42
+   Compiling remove_dir_all v0.5.1
+   Compiling void v1.0.2
+   Compiling fnv v1.0.6
+   Compiling quick-error v1.2.2
+   Compiling bit-vec v0.5.0
+   Compiling ucd-util v0.1.1
+   Compiling bitflags v1.0.3
+   Compiling byteorder v1.2.3
+   Compiling lazy_static v1.0.2
+   Compiling bencher v0.1.5
+   Compiling unicode-segmentation v1.2.1
+   Compiling unreachable v1.0.0
+   Compiling regex-syntax v0.6.2
+   Compiling bit-set v0.5.0
+   Compiling rand v0.5.4
+   Compiling wait-timeout v0.1.5
+   Compiling num-traits v0.2.5
+   Compiling smallvec v0.6.3
+   Compiling ropey v0.8.1 (file:///home/runner/work/_temp/upstream)
+   Compiling tempfile v3.0.3
+   Compiling rusty-fork v0.2.0
+   Compiling proptest v0.8.3
+    Finished dev [unoptimized + debuginfo] target(s) in 16.47s
+     Running /home/runner/work/_temp/build-20260924T175908Z-c920fc44/debug/deps/quickcheck_tests-f8ac03d1ddd38b52
+proptest: FileFailurePersistence::SourceParallel set, but failed to find lib.rs or main.rs
+
+Exit: 0
+Timed out: False

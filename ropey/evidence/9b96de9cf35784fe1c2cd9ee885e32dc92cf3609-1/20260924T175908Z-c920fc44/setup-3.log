@@ -1,0 +1,38 @@
+Command: rustup run 1.27.2 cargo fetch --locked
+Started: 2026-09-24T17:59:47.963815+00:00
+STDOUT:
+
+STDERR:
+ Downloading smallvec v0.6.3 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading unreachable v1.0.0 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading void v1.0.2 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading bencher v0.1.5 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading proptest v0.8.3 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading regex-syntax v0.6.2 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading ucd-util v0.1.1 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading bitflags v1.0.3 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading rand v0.5.4 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading winapi v0.3.5 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading winapi-i686-pc-windows-gnu v0.4.0 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading winapi-x86_64-pc-windows-gnu v0.4.0 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading libc v0.2.42 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading cloudabi v0.0.3 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading rand_core v0.2.1 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading fuchsia-zircon v0.3.3 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading fuchsia-zircon-sys v0.3.3 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading quick-error v1.2.2 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading byteorder v1.2.3 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading rusty-fork v0.2.0 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading fnv v1.0.6 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading tempfile v3.0.3 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading remove_dir_all v0.5.1 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading redox_syscall v0.1.40 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading wait-timeout v0.1.5 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading num-traits v0.2.5 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading bit-set v0.5.0 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading bit-vec v0.5.0 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading lazy_static v1.0.2 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading unicode-segmentation v1.2.1 (registry `git://127.0.0.1:9419/era-index`)
+
+Exit: 0
+Timed out: False

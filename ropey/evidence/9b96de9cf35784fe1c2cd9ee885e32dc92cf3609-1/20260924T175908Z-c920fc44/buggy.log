@@ -1,0 +1,157 @@
+Command: rustup run 1.27.2 cargo test --locked --test quickcheck_tests pt_byte_to_line_idx -- --nocapture --test-threads=1
+Started: 2026-09-24T18:00:21.089868+00:00
+STDOUT:
+
+running 1 test
+test pt_byte_to_line_idx ... FAILED
+
+failures:
+
+failures:
+    pt_byte_to_line_idx
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 13 filtered out
+
+
+STDERR:
+   Compiling ropey v0.8.1 (file:///home/runner/work/_temp/upstream)
+    Finished dev [unoptimized + debuginfo] target(s) in 1.44s
+     Running /home/runner/work/_temp/build-20260924T175908Z-c920fc44/debug/deps/quickcheck_tests-f8ac03d1ddd38b52
+proptest: FileFailurePersistence::SourceParallel set, but failed to find lib.rs or main.rs
+thread 'pt_byte_to_line_idx' panicked at 'assertion failed: `(left == right)`
+  left: `13`,
+ right: `14`', tests/quickcheck_tests.rs:434:9
+note: Run with `RUST_BACKTRACE=1` for a backtrace.
+thread 'pt_byte_to_line_idx' panicked at 'assertion failed: `(left == right)`
+  left: `13`,
+ right: `14`', tests/quickcheck_tests.rs:434:9
+thread 'pt_byte_to_line_idx' panicked at 'assertion failed: `(left == right)`
+  left: `13`,
+ right: `14`', tests/quickcheck_tests.rs:434:9
+thread 'pt_byte_to_line_idx' panicked at 'assertion failed: `(left == right)`
+  left: `13`,
+ right: `14`', tests/quickcheck_tests.rs:434:9
+thread 'pt_byte_to_line_idx' panicked at 'assertion failed: `(left == right)`
+  left: `13`,
+ right: `14`', tests/quickcheck_tests.rs:434:9
+thread 'pt_byte_to_line_idx' panicked at 'assertion failed: `(left == right)`
+  left: `13`,
+ right: `14`', tests/quickcheck_tests.rs:434:9
+thread 'pt_byte_to_line_idx' panicked at 'assertion failed: `(left == right)`
+  left: `13`,
+ right: `14`', tests/quickcheck_tests.rs:434:9
+thread 'pt_byte_to_line_idx' panicked at 'assertion failed: `(left == right)`
+  left: `13`,
+ right: `14`', tests/quickcheck_tests.rs:434:9
+thread 'pt_byte_to_line_idx' panicked at 'assertion failed: `(left == right)`
+  left: `13`,
+ right: `14`', tests/quickcheck_tests.rs:434:9
+thread 'pt_byte_to_line_idx' panicked at 'assertion failed: `(left == right)`
+  left: `13`,
+ right: `15`', tests/quickcheck_tests.rs:434:9
+thread 'pt_byte_to_line_idx' panicked at 'assertion failed: `(left == right)`
+  left: `12`,
+ right: `13`', tests/quickcheck_tests.rs:434:9
+thread 'pt_byte_to_line_idx' panicked at 'assertion failed: `(left == right)`
+  left: `12`,
+ right: `13`', tests/quickcheck_tests.rs:434:9
+thread 'pt_byte_to_line_idx' panicked at 'assertion failed: `(left == right)`
+  left: `14`,
+ right: `16`', tests/quickcheck_tests.rs:434:9
+thread 'pt_byte_to_line_idx' panicked at 'assertion failed: `(left == right)`
+  left: `13`,
+ right: `14`', tests/quickcheck_tests.rs:434:9
+thread 'pt_byte_to_line_idx' panicked at 'assertion failed: `(left == right)`
+  left: `14`,
+ right: `15`', tests/quickcheck_tests.rs:434:9
+thread 'pt_byte_to_line_idx' panicked at 'assertion failed: `(left == right)`
+  left: `14`,
+ right: `15`', tests/quickcheck_tests.rs:434:9
+thread 'pt_byte_to_line_idx' panicked at 'assertion failed: `(left == right)`
+  left: `15`,
+ right: `16`', tests/quickcheck_tests.rs:434:9
+thread 'pt_byte_to_line_idx' panicked at 'assertion failed: `(left == right)`
+  left: `15`,
+ right: `17`', tests/quickcheck_tests.rs:434:9
+thread 'pt_byte_to_line_idx' panicked at 'assertion failed: `(left == right)`
+  left: `14`,
+ right: `15`', tests/quickcheck_tests.rs:434:9
+thread 'pt_byte_to_line_idx' panicked at 'assertion failed: `(left == right)`
+  left: `13`,
+ right: `15`', tests/quickcheck_tests.rs:434:9
+thread 'pt_byte_to_line_idx' panicked at 'assertion failed: `(left == right)`
+  left: `13`,
+ right: `15`', tests/quickcheck_tests.rs:434:9
+thread 'pt_byte_to_line_idx' panicked at 'assertion failed: `(left == right)`
+  left: `13`,
+ right: `15`', tests/quickcheck_tests.rs:434:9
+thread 'pt_byte_to_line_idx' panicked at 'assertion failed: `(left == right)`
+  left: `13`,
+ right: `15`', tests/quickcheck_tests.rs:434:9
+thread 'pt_byte_to_line_idx' panicked at 'assertion failed: `(left == right)`
+  left: `13`,
+ right: `15`', tests/quickcheck_tests.rs:434:9
+thread 'pt_byte_to_line_idx' panicked at 'assertion failed: `(left == right)`
+  left: `13`,
+ right: `15`', tests/quickcheck_tests.rs:434:9
+thread 'pt_byte_to_line_idx' panicked at 'assertion failed: `(left == right)`
+  left: `13`,
+ right: `15`', tests/quickcheck_tests.rs:434:9
+thread 'pt_byte_to_line_idx' panicked at 'assertion failed: `(left == right)`
+  left: `13`,
+ right: `14`', tests/quickcheck_tests.rs:434:9
+thread 'pt_byte_to_line_idx' panicked at 'assertion failed: `(left == right)`
+  left: `13`,
+ right: `14`', tests/quickcheck_tests.rs:434:9
+thread 'pt_byte_to_line_idx' panicked at 'assertion failed: `(left == right)`
+  left: `13`,
+ right: `14`', tests/quickcheck_tests.rs:434:9
+thread 'pt_byte_to_line_idx' panicked at 'assertion failed: `(left == right)`
+  left: `13`,
+ right: `14`', tests/quickcheck_tests.rs:434:9
+thread 'pt_byte_to_line_idx' panicked at 'assertion failed: `(left == right)`
+  left: `13`,
+ right: `14`', tests/quickcheck_tests.rs:434:9
+thread 'pt_byte_to_line_idx' panicked at 'assertion failed: `(left == right)`
+  left: `13`,
+ right: `14`', tests/quickcheck_tests.rs:434:9
+thread 'pt_byte_to_line_idx' panicked at 'assertion failed: `(left == right)`
+  left: `13`,
+ right: `14`', tests/quickcheck_tests.rs:434:9
+thread 'pt_byte_to_line_idx' panicked at 'assertion failed: `(left == right)`
+  left: `13`,
+ right: `14`', tests/quickcheck_tests.rs:434:9
+thread 'pt_byte_to_line_idx' panicked at 'assertion failed: `(left == right)`
+  left: `13`,
+ right: `14`', tests/quickcheck_tests.rs:434:9
+thread 'pt_byte_to_line_idx' panicked at 'assertion failed: `(left == right)`
+  left: `13`,
+ right: `14`', tests/quickcheck_tests.rs:434:9
+thread 'pt_byte_to_line_idx' panicked at 'assertion failed: `(left == right)`
+  left: `13`,
+ right: `14`', tests/quickcheck_tests.rs:434:9
+thread 'pt_byte_to_line_idx' panicked at 'assertion failed: `(left == right)`
+  left: `13`,
+ right: `14`', tests/quickcheck_tests.rs:434:9
+thread 'pt_byte_to_line_idx' panicked at 'assertion failed: `(left == right)`
+  left: `11`,
+ right: `12`', tests/quickcheck_tests.rs:434:9
+thread 'pt_byte_to_line_idx' panicked at 'assertion failed: `(left == right)`
+  left: `10`,
+ right: `11`', tests/quickcheck_tests.rs:434:9
+thread 'pt_byte_to_line_idx' panicked at 'assertion failed: `(left == right)`
+  left: `10`,
+ right: `11`', tests/quickcheck_tests.rs:434:9
+proptest: FileFailurePersistence::SourceParallel set, but failed to find lib.rs or main.rs
+proptest: Saving this and future failures in /home/runner/work/_temp/upstream/tests/quickcheck_tests.proptest-regressions
+thread 'pt_byte_to_line_idx' panicked at 'Test failed: assertion failed: `(left == right)`
+  left: `10`,
+ right: `11`; minimal failing input: ref text = "\n\n\u{2028}\u{2028}\n\u{b}\u{85}\u{85}\u{85}\n\n\u{2028}\u{2028}", idx = 17
+	successes: 1
+	local rejects: 0
+	global rejects: 0
+', tests/quickcheck_tests.rs:97:1
+error: test failed, to rerun pass '--test quickcheck_tests'
+
+Exit: 101
+Timed out: False
