@@ -1,0 +1,17 @@
+Command: rustup run 1.75.0 cargo test --locked --offline --lib tests::jaro_winkler_long_prefix -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:34:01.076270+00:00
+STDOUT:
+
+running 1 test
+test tests::jaro_winkler_long_prefix ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 87 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling strsim v0.10.0 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 0.78s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T003052Z-c0c4078c/debug/deps/strsim-5f30551f0e345bd2)
+
+Exit: 0
+Timed out: False

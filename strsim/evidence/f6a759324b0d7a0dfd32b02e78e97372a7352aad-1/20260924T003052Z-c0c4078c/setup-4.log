@@ -1,0 +1,10 @@
+Command: rustup run 1.75.0 cargo check --locked --offline --tests
+Started: 2026-09-24T00:33:58.722424+00:00
+STDOUT:
+
+STDERR:
+    Checking strsim v0.10.0 (/home/runner/work/_temp/upstream)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.24s
+
+Exit: 0
+Timed out: False

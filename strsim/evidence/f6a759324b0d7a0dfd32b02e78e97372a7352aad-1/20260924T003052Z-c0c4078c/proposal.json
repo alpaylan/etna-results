@@ -1,0 +1,13 @@
+{
+  "commit": "f6a759324b0d7a0dfd32b02e78e97372a7352aad",
+  "parent": "15e1a033417864ec28b49e68040d177645957866",
+  "fixed_commit": "f6a759324b0d7a0dfd32b02e78e97372a7352aad",
+  "summary": "The original implementation used the entire common prefix, inflating Jaro-Winkler similarity, then clamped the result to 1.0. Contrary to the imported description, the historical implementation did not return values above 1.0. The fix caps the prefix at four elements and removes the redundant clamp. The upstream test updated by this fix expects approximately 0.866 for \"cheeseburger\" and \"cheese fries\", whereas the parent implementation returns approximately 0.911. The reversal restores the exact parent implementation. No tests were executed.",
+  "test": "tests::jaro_winkler_long_prefix",
+  "expected_failure": "actual not within < 0.001 of expected",
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "    let jaro_distance = generic_jaro(a, b);\n\n    let prefix_length = a\n        .into_iter()\n        .take(4)\n        .zip(b)\n        .take_while(|(a_elem, b_elem)| a_elem == b_elem)\n        .count();\n\n    return jaro_distance + 0.1 * prefix_length as f64 * (1.0 - jaro_distance);\n",
+    "parent_text": "    let jaro_distance = generic_jaro(a, b);\n\n    // Don't limit the length of the common prefix\n    let prefix_length = a\n        .into_iter()\n        .zip(b)\n        .take_while(|(a_elem, b_elem)| a_elem == b_elem)\n        .count();\n\n    let jaro_winkler_distance =\n        jaro_distance + (0.1 * prefix_length as f64 * (1.0 - jaro_distance));\n\n    if jaro_winkler_distance <= 1.0 {\n        jaro_winkler_distance\n    } else {\n        1.0\n    }\n"
+  }
+}
