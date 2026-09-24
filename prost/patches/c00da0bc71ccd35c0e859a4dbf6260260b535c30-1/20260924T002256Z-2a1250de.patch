@@ -1,0 +1,13 @@
+diff --git a/prost-types/src/lib.rs b/prost-types/src/lib.rs
+index 74d6498..b470a05 100644
+--- a/prost-types/src/lib.rs
++++ b/prost-types/src/lib.rs
+@@ -104,7 +104,7 @@ impl TryFrom<Duration> for time::Duration {
+     /// Converts a `Duration` to a `std::time::Duration`, failing if the duration is negative.
+     fn try_from(mut duration: Duration) -> Result<time::Duration, DurationError> {
+         duration.normalize();
+-        if duration.seconds >= 0 && duration.nanos >= 0 {
++        if duration.seconds >= 0 {
+             Ok(time::Duration::new(
+                 duration.seconds as u64,
+                 duration.nanos as u32,

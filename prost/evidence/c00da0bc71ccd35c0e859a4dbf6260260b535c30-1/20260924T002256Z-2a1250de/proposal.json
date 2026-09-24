@@ -1,0 +1,13 @@
+{
+  "commit": "c00da0bc71ccd35c0e859a4dbf6260260b535c30",
+  "parent": "963a2cf0bfad4adb4ce7945d5738f2bde5c49c0a",
+  "fixed_commit": "c00da0bc71ccd35c0e859a4dbf6260260b535c30",
+  "summary": "Conversion to std::time::Duration checked only normalized seconds, incorrectly accepting negative subsecond durations. For seconds = 0 and nanos = -1, casting nanos to u32 produced Ok(4.294967295s) instead of NegativeDuration with magnitude 1ns. The fix also requires nonnegative nanos. The commit adds a deterministic regression test for this case; no tests were executed during planning.",
+  "test": "tests::check_duration_try_from_negative_nanos",
+  "expected_failure": "assertion failed: matches!(time::Duration::try_from(neg_prost_duration), Err(DurationError::NegativeDuration(d)) if d == std_duration,)",
+  "reversal": {
+    "path": "prost-types/src/lib.rs",
+    "fixed_text": "        if duration.seconds >= 0 && duration.nanos >= 0 {\n",
+    "parent_text": "        if duration.seconds >= 0 {\n"
+  }
+}
