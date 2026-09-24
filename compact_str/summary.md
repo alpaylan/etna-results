@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: fixed: no completed execution of the exact upstream test
+**blocked**: Proposal names no upstream test
 
 Upstream: https://github.com/ParkMyCar/compact_str
 
-Candidate: 042b64a8a2ff225e9485d7676a53a503ba467d6f-1
+Candidate: 8928f86f2a7a55f19e8aa4de9916416214ab6202-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 697 reachable from the saved tip.
+History coverage not yet recorded.
 
 Scope: one queued candidate; history coverage is partial.

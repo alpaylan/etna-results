@@ -1,0 +1,13 @@
+{
+  "commit": "8928f86f2a7a55f19e8aa4de9916416214ab6202",
+  "parent": "84eac94491b1a631f970c49861271fca4c1175d5",
+  "fixed_commit": "8928f86f2a7a55f19e8aa4de9916416214ab6202",
+  "summary": "Blocked: this commit changes only CI workflows and test code; no implementation correction exists to reverse. The test changes add missing .unwrap() calls to Repr::new arguments in test_clone_from, correcting a compilation mismatch because the constructor returns Result<Repr, ReserveError> while the test requires Repr. Implementation code is identical between parent and fixed revisions. Reversing these changes would modify tests and cause compilation failure, which cannot establish the required functional regression.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
