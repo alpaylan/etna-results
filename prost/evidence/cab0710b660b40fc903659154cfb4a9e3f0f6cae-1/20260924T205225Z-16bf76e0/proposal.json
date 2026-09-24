@@ -1,0 +1,13 @@
+{
+  "commit": "cab0710b660b40fc903659154cfb4a9e3f0f6cae",
+  "parent": "4459a1e36a63a0e10e418b823957cc80d9fbc744",
+  "fixed_commit": "cab0710b660b40fc903659154cfb4a9e3f0f6cae",
+  "summary": "sanitize_line prepended a space to every nonempty comment, duplicating an existing single leading space and over-indenting generated RustDoc. The fix skips insertion for lines with exactly one leading space while preserving insertion for unspaced lines and multiply indented Markdown content. The regression test added by this fix checks these cases. Reversing only the condition restores the incorrect behavior; reproduction remains for the runner.",
+  "test": "ast::tests::test_comment_append_with_indent_leaves_prespaced_lines",
+  "expected_failure": "failed existing_space",
+  "reversal": {
+    "path": "prost-build/src/ast.rs",
+    "fixed_text": "        if Self::should_indent(&s) {\n            s.insert(0, ' ');\n        }\n",
+    "parent_text": "        if !s.is_empty() {\n            s.insert(0, ' ');\n        }\n"
+  }
+}
