@@ -1,0 +1,42 @@
+Command: rustup run 1.83.0 cargo test --locked --offline --lib tests::test_retain -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T17:52:13.086459+00:00
+STDOUT:
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 2 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 3 filtered out; finished in 0.00s
+
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+warning: ignoring `resolver` config table without `-Zmsrv-policy`
+   Compiling compact_str v0.8.0 (/home/runner/work/_temp/upstream/compact_str)
+   Compiling compact_str v0.6.1
+   Compiling example-sqlx v0.1.0 (/home/runner/work/_temp/upstream/examples/sqlx)
+   Compiling example-diesel v0.1.0 (/home/runner/work/_temp/upstream/examples/diesel)
+   Compiling compact_str-fuzz v0.0.0 (/home/runner/work/_temp/upstream/fuzz)
+   Compiling benches v0.1.0 (/home/runner/work/_temp/upstream/bench)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.31s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T174544Z-ac717105/debug/deps/benches-92e9e4409a1d29f2)
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T174544Z-ac717105/debug/deps/compact_str_fuzz-9023ae695080329f)
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T174544Z-ac717105/debug/deps/example_diesel-3d2c167d8b4cedd3)
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T174544Z-ac717105/debug/deps/example_sqlx-fb2ec1f7b0a01d28)
+
+Exit: 0
+Timed out: False
