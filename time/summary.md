@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: Selected test is not present at the fixed revision: parse_format_description::strftime_padding_missing_component::case_1
+**blocked**: fixed: source differs beyond the exact implementation reversal
 
 Upstream: https://github.com/time-rs/time
 
-Candidate: c57284f60a45552e367eb26834dec3996607a9f7-1
+Candidate: 8cbf0dbff0556c1d5df2c08cf8a047f903362c9d-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-History coverage not yet recorded.
+Reviewed commits: 1 / 1116 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

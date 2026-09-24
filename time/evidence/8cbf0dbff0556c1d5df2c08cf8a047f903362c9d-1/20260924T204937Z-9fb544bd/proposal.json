@@ -1,0 +1,13 @@
+{
+  "commit": "8cbf0dbff0556c1d5df2c08cf8a047f903362c9d",
+  "parent": "3343e8582696361e118a0045f6e8e36ae3484a5e",
+  "fixed_commit": "8cbf0dbff0556c1d5df2c08cf8a047f903362c9d",
+  "summary": "DefaultOutput was implemented with the unit types reversed, preventing valid calls such as Nanosecond::per(Second) from compiling. The fix implements DefaultOutput<smaller> for larger, matching per's bound and selecting u32 for this conversion. The fix adds convert::issue_749 in package time's tests target, requiring all features. Reversal is expected to cause compilation failure, which cannot satisfy the runtime confirmation gate. No tests were run.",
+  "test": "convert::issue_749",
+  "expected_failure": "the trait bound `Second: DefaultOutput<Nanosecond>` is not satisfied",
+  "reversal": {
+    "path": "time-core/src/convert.rs",
+    "fixed_text": "            impl DefaultOutput<$t> for $larger {\n",
+    "parent_text": "            impl DefaultOutput<$larger> for $t {\n"
+  }
+}

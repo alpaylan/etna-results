@@ -2,13 +2,15 @@
   "repo": "https://github.com/time-rs/time",
   "tips": [
     "0e99ae76a8dbbbf34a4950be6e6396cc88cc6486",
-    "80601003b3fbc993dc23e65d5c7c476970ba9053"
+    "80601003b3fbc993dc23e65d5c7c476970ba9053",
+    "8cbf0dbff0556c1d5df2c08cf8a047f903362c9d"
   ],
   "shallow": false,
   "reviewed": [
     "0e99ae76a8dbbbf34a4950be6e6396cc88cc6486",
-    "80601003b3fbc993dc23e65d5c7c476970ba9053"
+    "80601003b3fbc993dc23e65d5c7c476970ba9053",
+    "8cbf0dbff0556c1d5df2c08cf8a047f903362c9d"
   ],
-  "reachable_commits": 928,
+  "reachable_commits": 1116,
   "scope": "One queued candidate; not an exhaustive history scan."
 }

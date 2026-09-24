@@ -1,0 +1,13 @@
+diff --git a/time-core/src/convert.rs b/time-core/src/convert.rs
+index 7e661e3..bc34c70 100644
+--- a/time-core/src/convert.rs
++++ b/time-core/src/convert.rs
+@@ -99,7 +99,7 @@ macro_rules! impl_per {
+                 const VALUE: $float_output = $float_value;
+             })+
+ 
+-            impl DefaultOutput<$t> for $larger {
++            impl DefaultOutput<$larger> for $t {
+                 type Output = $default_output;
+             }
+         )+
