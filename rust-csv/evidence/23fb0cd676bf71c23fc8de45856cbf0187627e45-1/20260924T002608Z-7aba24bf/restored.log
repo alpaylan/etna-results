@@ -1,0 +1,17 @@
+Command: rustup run 1.31.0 cargo test --locked --lib byte_record::tests::eq_record_len -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:27:17.210070+00:00
+STDOUT:
+
+running 1 test
+test byte_record::tests::eq_record_len ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 128 filtered out
+
+
+STDERR:
+   Compiling csv v1.0.4 (/home/runner/work/_temp/upstream)
+    Finished dev [unoptimized + debuginfo] target(s) in 2.48s
+     Running /home/runner/work/_temp/build-20260924T002608Z-7aba24bf/debug/deps/csv-d65cd953995bc341
+
+Exit: 0
+Timed out: False

@@ -1,0 +1,13 @@
+{
+  "commit": "23fb0cd676bf71c23fc8de45856cbf0187627e45",
+  "parent": "2f859d9be1c86139c53e5d3f2d33aa86ad7847fb",
+  "fixed_commit": "23fb0cd676bf71c23fc8de45856cbf0187627e45",
+  "summary": "ByteRecord equality used zip, which stops at the shorter record, so records with identical initial fields but different field counts incorrectly compared equal. The fix rejects unequal field counts before comparing fields. The regression test added by this commit compares [\"12\", \"34\", \"56\"] with [\"12\", \"34\"] and asserts inequality. Reversing only the length guard restores the faulty behavior while preserving the test. No tests were run during planning.",
+  "test": "byte_record::tests::eq_record_len",
+  "expected_failure": "assertion failed: `(left != right)`",
+  "reversal": {
+    "path": "src/byte_record.rs",
+    "fixed_text": "impl PartialEq for ByteRecord {\n    fn eq(&self, other: &ByteRecord) -> bool {\n        if self.len() != other.len() {\n            return false;\n        }\n        self.iter().zip(other.iter()).all(|e| e.0 == e.1)\n    }\n}\n",
+    "parent_text": "impl PartialEq for ByteRecord {\n    fn eq(&self, other: &ByteRecord) -> bool {\n        self.iter().zip(other.iter()).all(|e| e.0 == e.1)\n    }\n}\n"
+  }
+}
