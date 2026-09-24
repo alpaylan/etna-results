@@ -1,0 +1,13 @@
+{
+  "commit": "467ef63969f477ee44b7456bb450fba95af25780",
+  "parent": "3d6dbbb1dfc64c597745d5d6b97f2a8dd543c42b",
+  "fixed_commit": "467ef63969f477ee44b7456bb450fba95af25780",
+  "summary": "Converting xn--55555577 to ASCII overflows the Punycode decoder's accumulator, causing a panic when overflow checks are enabled. Internal callers bypass the existing overflow guard. The fix uses checked_add to return an error instead. The fix-added test in idna/tests/unit.rs, in the idna package's unit test target, exercises this input. The reversal restores only the unchecked addition; both regions occur exactly once in their respective Git objects. No tests were executed.",
+  "test": "test_punycode_invalid_encoding",
+  "expected_failure": "attempt to add with overflow",
+  "reversal": {
+    "path": "idna/src/punycode.rs",
+    "fixed_text": "                i = i.checked_add(digit * weight).ok_or(())?;\n",
+    "parent_text": "                i += digit * weight;\n"
+  }
+}

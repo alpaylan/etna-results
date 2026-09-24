@@ -1,0 +1,82 @@
+Command: rustup run 1.79.0 cargo test --locked --offline --lib test_punycode_invalid_encoding -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T20:55:39.865782+00:00
+STDOUT:
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s
+
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+warning: /home/runner/work/_temp/upstream/url_debug_tests/Cargo.toml: no edition set: defaulting to the 2015 edition while the latest is 2021
+   Compiling stable_deref_trait v1.2.0
+   Compiling writeable v0.5.5
+   Compiling zerofrom v0.1.4
+   Compiling litemap v0.7.3
+   Compiling libc v0.2.155
+   Compiling yoke v0.7.4
+   Compiling icu_locid_transform_data v1.5.0
+   Compiling cfg-if v1.0.0
+   Compiling zerovec v0.10.2
+   Compiling icu_properties_data v1.5.0
+   Compiling serde v1.0.203
+   Compiling smallvec v1.13.2
+   Compiling icu_normalizer_data v1.5.0
+   Compiling ryu v1.0.18
+   Compiling dirs-sys-next v0.1.2
+   Compiling utf8_iter v1.0.4
+   Compiling dirs-next v2.0.0
+   Compiling write16 v1.0.0
+   Compiling unicode-width v0.1.13
+   Compiling utf16_iter v1.0.5
+   Compiling itoa v1.0.11
+   Compiling getopts v0.2.21
+   Compiling term v0.7.0
+   Compiling tinystr v0.7.6
+   Compiling icu_locid v1.5.0
+   Compiling icu_collections v1.5.0
+   Compiling num_cpus v1.16.0
+   Compiling icu_provider v1.5.0
+   Compiling percent-encoding v2.3.1 (/home/runner/work/_temp/upstream/percent_encoding)
+   Compiling icu_locid_transform v1.5.0
+   Compiling tester v0.9.1
+   Compiling bencher v0.1.5
+   Compiling icu_properties v1.5.0
+   Compiling serde_json v1.0.117
+   Compiling form_urlencoded v1.2.1 (/home/runner/work/_temp/upstream/form_urlencoded)
+   Compiling assert_matches v1.5.0
+   Compiling data-url v0.3.1 (/home/runner/work/_temp/upstream/data-url)
+   Compiling icu_normalizer v1.5.0
+   Compiling idna v1.0.0 (/home/runner/work/_temp/upstream/idna)
+   Compiling url v2.5.1 (/home/runner/work/_temp/upstream/url)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 6.41s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T204912Z-d94f5dfe/debug/deps/data_url-1df18a5b1171ba24)
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T204912Z-d94f5dfe/debug/deps/form_urlencoded-ffc480bd3c1ace60)
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T204912Z-d94f5dfe/debug/deps/idna-df045f9ee1925e1a)
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T204912Z-d94f5dfe/debug/deps/percent_encoding-02ce9d6259810935)
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T204912Z-d94f5dfe/debug/deps/url-4b8993ab6e70123c)
+
+Exit: 0
+Timed out: False
