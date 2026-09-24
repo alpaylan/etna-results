@@ -1,0 +1,14 @@
+Command: rustup toolchain install 1.96.1 --profile minimal
+Started: 2026-09-24T20:53:33.327644+00:00
+STDOUT:
+
+  1.96.1-x86_64-unknown-linux-gnu installed - rustc 1.96.1 (31fca3adb 2026-06-26)
+
+
+STDERR:
+info: syncing channel updates for 1.96.1-x86_64-unknown-linux-gnu
+info: latest update on 2026-06-30 for version 1.96.1 (31fca3adb 2026-06-26)
+info: downloading 3 components
+
+Exit: 0
+Timed out: False

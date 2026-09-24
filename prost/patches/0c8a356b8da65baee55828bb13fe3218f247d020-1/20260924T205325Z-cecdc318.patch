@@ -1,0 +1,14 @@
+diff --git a/prost-build/src/code_generator.rs b/prost-build/src/code_generator.rs
+index de4accf..cf96fe0 100644
+--- a/prost-build/src/code_generator.rs
++++ b/prost-build/src/code_generator.rs
+@@ -465,8 +465,7 @@ impl<'b> CodeGenerator<'_, 'b> {
+                         .descriptor
+                         .options
+                         .as_ref()
+-                        .and_then(|options| options.packed)
+-                        .unwrap_or(self.syntax == Syntax::Proto3)
++                        .map_or(self.syntax == Syntax::Proto3, |options| options.packed())
+                 {
+                     self.buf.push_str(", packed = \"false\"");
+                 }

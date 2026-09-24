@@ -1,6 +1,7 @@
 {
   "repo": "https://github.com/tokio-rs/prost",
   "tips": [
+    "0c8a356b8da65baee55828bb13fe3218f247d020",
     "10761018682438db5202d50231cda1721eb01710",
     "1fae49e24b94ee51c54dcd6c538da45a8c014342",
     "366c6fb9f15e152597be8f88c709ae7e964196ec",
@@ -19,6 +20,7 @@
   ],
   "shallow": false,
   "reviewed": [
+    "0c8a356b8da65baee55828bb13fe3218f247d020",
     "10761018682438db5202d50231cda1721eb01710",
     "1fae49e24b94ee51c54dcd6c538da45a8c014342",
     "366c6fb9f15e152597be8f88c709ae7e964196ec",
@@ -35,6 +37,6 @@
     "e5cc951127ea6f05faa72b48de7c2e8630f94555",
     "fb977f4cc28a3f5c913b963a27b553cf845bb9d2"
   ],
-  "reachable_commits": 803,
+  "reachable_commits": 809,
   "scope": "One queued candidate; not an exhaustive history scan."
 }

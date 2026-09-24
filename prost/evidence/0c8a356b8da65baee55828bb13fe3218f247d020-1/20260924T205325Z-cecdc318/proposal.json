@@ -1,0 +1,13 @@
+{
+  "commit": "0c8a356b8da65baee55828bb13fe3218f247d020",
+  "parent": "4104042b04071fa0a73c155ce2df64be8a75c194",
+  "fixed_commit": "0c8a356b8da65baee55828bb13fe3218f247d020",
+  "summary": "Proto3 repeated packable fields with unrelated options, such as deprecated=true, incorrectly receive packed=\"false\" when packed is unspecified. The old options.packed() accessor defaults to false; the fix preserves the optional value and applies the syntax default when absent. The added regression test compares generated proto2 and proto3 code against fixtures. Its assertion helper overwrites mismatched fixtures, so the runner must restore original fixtures between runs. No builds or tests were run.",
+  "test": "tests::test_generate_packed_encoding",
+  "expected_failure": "assertion `left == right` failed",
+  "reversal": {
+    "path": "prost-build/src/code_generator.rs",
+    "fixed_text": "                        .and_then(|options| options.packed)\n                        .unwrap_or(self.syntax == Syntax::Proto3)\n",
+    "parent_text": "                        .map_or(self.syntax == Syntax::Proto3, |options| options.packed())\n"
+  }
+}
