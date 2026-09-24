@@ -1,0 +1,13 @@
+{
+  "commit": "c4865a0c8446a701e10b0fd987f19068f5dcc365",
+  "parent": "d8761c00ed25c5899e3dcfb0f17e827b8e41530a",
+  "fixed_commit": "c4865a0c8446a701e10b0fd987f19068f5dcc365",
+  "summary": "hir_unicode_class ignored the != operator by consulting only the negated field, which tracks the \\p versus \\P sigil. Consequently, \\p{gc!=Separator} matched separators instead of their complement, and \\P{gc!=separator} incorrectly matched the complement. Calling is_negated() combines both sources of negation correctly. The fix adds a detecting assertion to class_unicode_gencat, enabled by the default unicode-gencat feature. This is a proposed reversal; no tests were run.",
+  "test": "hir::translate::tests::class_unicode_gencat",
+  "expected_failure": "assertion `left == right` failed",
+  "reversal": {
+    "path": "regex-syntax/src/hir/translate.rs",
+    "fixed_text": "                ast_class.is_negated(),\n",
+    "parent_text": "                ast_class.negated,\n"
+  }
+}
