@@ -1,0 +1,104 @@
+Command: rustup run 1.56.1 cargo check --locked --offline --tests
+Started: 2026-09-24T20:54:55.349435+00:00
+STDOUT:
+
+STDERR:
+   Compiling autocfg v1.0.1
+   Compiling proc-macro2 v1.0.32
+   Compiling unicode-xid v0.2.2
+   Compiling syn v1.0.82
+   Compiling serde_derive v1.0.130
+    Checking lazy_static v1.4.0
+   Compiling serde v1.0.130
+   Compiling libc v0.2.108
+   Compiling memchr v2.4.1
+    Checking cfg-if v1.0.0
+   Compiling crossbeam-utils v0.8.5
+   Compiling version_check v0.9.3
+   Compiling ryu v1.0.5
+   Compiling crossbeam-epoch v0.9.5
+   Compiling semver v1.0.4
+    Checking either v1.6.1
+   Compiling rayon-core v1.9.1
+    Checking scopeguard v1.1.0
+    Checking unicode-width v0.1.9
+   Compiling proc-macro-hack v0.5.19
+   Compiling anyhow v1.0.48
+    Checking regex-automata v0.1.10
+   Compiling serde_json v1.0.72
+    Checking itoa v0.4.8
+    Checking vec_map v0.8.2
+    Checking bitflags v1.3.2
+    Checking ansi_term v0.11.0
+    Checking regex-syntax v0.6.25
+   Compiling log v0.4.14
+   Compiling maybe-uninit v2.0.0
+    Checking strsim v0.8.0
+   Compiling unicode-segmentation v1.8.0
+    Checking cfg-if v0.1.10
+    Checking same-file v1.0.6
+    Checking plotters-backend v0.3.2
+    Checking glob v0.3.0
+    Checking once_cell v1.8.0
+    Checking fnv v1.0.7
+    Checking termcolor v1.1.2
+    Checking hashbrown v0.11.2
+    Checking half v1.8.2
+    Checking bytes v1.1.0
+    Checking ansi_term v0.12.1
+    Checking oorandom v11.1.3
+    Checking diff v0.1.12
+   Compiling memoffset v0.6.4
+   Compiling num-traits v0.2.14
+   Compiling num-integer v0.1.44
+   Compiling rayon v1.5.1
+   Compiling crossbeam-utils v0.7.2
+   Compiling indexmap v1.7.0
+    Checking itertools v0.10.1
+   Compiling proc-macro-error-attr v1.0.4
+   Compiling proc-macro-error v1.0.4
+    Checking textwrap v0.11.0
+    Checking walkdir v2.3.2
+    Checking plotters-svg v0.3.1
+    Checking thread_local v1.1.3
+   Compiling heck v0.3.3
+    Checking pretty_assertions v1.0.0
+   Compiling quote v1.0.10
+    Checking aho-corasick v0.7.18
+    Checking csv-core v0.1.10
+    Checking combine v4.6.2
+    Checking crossbeam-channel v0.5.1
+   Compiling rustc_version v0.4.0
+    Checking num_cpus v1.13.0
+    Checking atty v0.2.14
+    Checking time v0.1.44
+    Checking crossbeam-channel v0.4.4
+    Checking plotters v0.3.1
+    Checking regex v1.5.4
+    Checking clap v2.33.3
+    Checking crossbeam-deque v0.8.1
+   Compiling cast v0.2.7
+    Checking chrono v0.4.19
+    Checking criterion-plot v0.4.4
+   Compiling include_dir_impl v0.6.2
+   Compiling structopt-derive v0.4.18
+    Checking include_dir v0.6.2
+    Checking toml-test-data v1.0.0
+    Checking structopt v0.3.25
+    Checking libtest-mimic v0.3.0
+    Checking bstr v0.2.17
+    Checking serde_cbor v0.11.2
+    Checking kstring v1.0.6
+    Checking toml v0.5.8
+    Checking toml_edit v0.9.1 (/home/runner/work/_temp/upstream)
+    Checking globset v0.4.8
+    Checking csv v1.1.6
+    Checking ignore v0.4.18
+    Checking tinytemplate v1.2.1
+    Checking toml-test v0.3.1
+    Checking criterion v0.3.5
+    Checking toml-test-harness v0.3.0
+    Finished dev [optimized + debuginfo] target(s) in 30.78s
+
+Exit: 0
+Timed out: False

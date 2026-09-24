@@ -1,0 +1,13 @@
+{
+  "commit": "0140c9369dd70fd92ae2c7cf83f13180e819b806",
+  "parent": "63ffdd8b68846cb83c7d9d459ae1824cbaacd59f",
+  "fixed_commit": "0140c9369dd70fd92ae2c7cf83f13180e819b806",
+  "summary": "Array::fmt() normalized element spacing but preserved the array's trailing comma and whitespace, leaving a formatted multiline array with a comma and newline before its closing bracket. The fix clears both trailing fields. The commit adds test_format_array in tests/test_edit.rs, which expects the array to become [1, \"2\", 3.0]. The reversal removes only the implementation lines added by this fix. No builds or tests were run.",
+  "test": "test_format_array",
+  "expected_failure": "assertion failed: `(left == right)`",
+  "reversal": {
+    "path": "src/array.rs",
+    "fixed_text": "fn decorate_array(array: &mut Array) {\n    for (i, value) in array\n        .values\n        .iter_mut()\n        .filter_map(Item::as_value_mut)\n        .enumerate()\n    {\n        // [value1, value2, value3]\n        if i == 0 {\n            value.decorate(DEFAULT_LEADING_VALUE_DECOR.0, DEFAULT_LEADING_VALUE_DECOR.1);\n        } else {\n            value.decorate(DEFAULT_VALUE_DECOR.0, DEFAULT_VALUE_DECOR.1);\n        }\n    }\n    // Since everything is now on the same line, remove trailing commas and whitespace.\n    array.set_trailing_comma(false);\n    array.set_trailing(\"\");\n}\n",
+    "parent_text": "fn decorate_array(array: &mut Array) {\n    for (i, value) in array\n        .values\n        .iter_mut()\n        .filter_map(Item::as_value_mut)\n        .enumerate()\n    {\n        // [value1, value2, value3]\n        if i == 0 {\n            value.decorate(DEFAULT_LEADING_VALUE_DECOR.0, DEFAULT_LEADING_VALUE_DECOR.1);\n        } else {\n            value.decorate(DEFAULT_VALUE_DECOR.0, DEFAULT_VALUE_DECOR.1);\n        }\n    }\n}\n"
+  }
+}
