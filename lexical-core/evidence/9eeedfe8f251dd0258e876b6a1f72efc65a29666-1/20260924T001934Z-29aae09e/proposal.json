@@ -1,0 +1,13 @@
+{
+  "commit": "9eeedfe8f251dd0258e876b6a1f72efc65a29666",
+  "parent": "bb1cbf1b55f83fd3e6b92089de35fad96e3f75d8",
+  "fixed_commit": "9eeedfe8f251dd0258e876b6a1f72efc65a29666",
+  "summary": "With no_integer_leading_zeros enabled, complete integer parsing incorrectly accepts a zero followed by a non-digit, such as b\"0.1.0\", returning Ok(0). The fix distinguishes a following non-digit from end-of-input and invokes the parser-specific invalid-digit handler: complete parsing returns InvalidDigit(1), while partial parsing returns Ok((0, 1)). Reverse only this match block. The fix adds issue_98_test at the root of lexical-parse-integer/tests/issue_98_tests.rs; it requires features power-of-two and format. No builds or tests were run.",
+  "test": "issue_98_test",
+  "expected_failure": "assertion failed: result.is_err()",
+  "reversal": {
+    "path": "lexical-parse-integer/src/algorithm.rs",
+    "fixed_text": "            match iter.peek().map(|&c| char_to_digit_const(c, format.radix())) {\n                // Valid digit, we have an invalid value.\n                Some(Some(_)) => return into_error!(InvalidLeadingZeros, index),\n                // Have a non-digit character that follows.\n                Some(None) => return $invalid_digit!(<T>::ZERO, iter.cursor() + 1),\n                // No digits following, has to be ok\n                None => return $into_ok!(<T>::ZERO, index),\n            };\n",
+    "parent_text": "            match iter.peek().map(|&c| char_to_digit_const(c, format.radix())) {\n                // Valid digit, we have an invalid value.\n                Some(Some(_)) => return into_error!(InvalidLeadingZeros, index),\n                // Either not a digit that follows, or nothing follows.\n                _ => return $into_ok!(<T>::ZERO, index),\n            };\n"
+  }
+}

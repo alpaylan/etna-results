@@ -1,0 +1,17 @@
+diff --git a/lexical-parse-integer/src/algorithm.rs b/lexical-parse-integer/src/algorithm.rs
+index 255484f..a326f09 100644
+--- a/lexical-parse-integer/src/algorithm.rs
++++ b/lexical-parse-integer/src/algorithm.rs
+@@ -623,10 +623,8 @@ macro_rules! algorithm {
+             match iter.peek().map(|&c| char_to_digit_const(c, format.radix())) {
+                 // Valid digit, we have an invalid value.
+                 Some(Some(_)) => return into_error!(InvalidLeadingZeros, index),
+-                // Have a non-digit character that follows.
+-                Some(None) => return $invalid_digit!(<T>::ZERO, iter.cursor() + 1),
+-                // No digits following, has to be ok
+-                None => return $into_ok!(<T>::ZERO, index),
++                // Either not a digit that follows, or nothing follows.
++                _ => return $into_ok!(<T>::ZERO, index),
+             };
+         }
+     }

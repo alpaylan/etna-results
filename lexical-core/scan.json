@@ -1,0 +1,12 @@
+{
+  "repo": "https://github.com/Alexhuszagh/rust-lexical",
+  "tips": [
+    "9eeedfe8f251dd0258e876b6a1f72efc65a29666"
+  ],
+  "shallow": false,
+  "reviewed": [
+    "9eeedfe8f251dd0258e876b6a1f72efc65a29666"
+  ],
+  "reachable_commits": 878,
+  "scope": "One queued candidate; not an exhaustive history scan."
+}
