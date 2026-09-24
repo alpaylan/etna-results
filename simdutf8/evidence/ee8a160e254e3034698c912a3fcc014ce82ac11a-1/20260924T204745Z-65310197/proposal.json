@@ -1,0 +1,13 @@
+{
+  "commit": "ee8a160e254e3034698c912a3fcc014ce82ac11a",
+  "parent": "38bea76afd4c91827efb5f9ba78fea220653fba8",
+  "fixed_commit": "ee8a160e254e3034698c912a3fcc014ce82ac11a",
+  "summary": "Blocked: the commit only changes two cfg attributes in tests/tests.rs from not(features = \"std\") to not(feature = \"std\"), making test imports respect Cargo's std feature. The implementation source tree is identical in both revisions. No eligible implementation reversal exists; reversing this fix would modify protected test configuration. No detecting upstream test can be selected under the required comparison.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
