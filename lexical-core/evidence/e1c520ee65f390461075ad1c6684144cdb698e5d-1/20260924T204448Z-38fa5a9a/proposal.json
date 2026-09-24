@@ -1,0 +1,13 @@
+{
+  "commit": "e1c520ee65f390461075ad1c6684144cdb698e5d",
+  "parent": "554558528c38a864a59ee929508fb08077f783ce",
+  "fixed_commit": "e1c520ee65f390461075ad1c6684144cdb698e5d",
+  "summary": "Blocked: this commit corrects test expectations, not library implementation. The parse_float test incorrectly expected normalized mantissa/exponent pairs; the updated expectations match the unchanged parser's retained digits and truncation. Other changes add integer conversion proptests, their test dependency/import, and enable benchmark runs. No implementation correction exists to reverse while preserving tests and test configuration, so no valid detecting test/reversal pair can be proposed.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
