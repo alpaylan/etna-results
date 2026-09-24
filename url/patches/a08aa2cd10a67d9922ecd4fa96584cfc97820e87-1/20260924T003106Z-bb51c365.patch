@@ -1,0 +1,12 @@
+diff --git a/url/src/parser.rs b/url/src/parser.rs
+index 7d94d1d..d5ae831 100644
+--- a/url/src/parser.rs
++++ b/url/src/parser.rs
+@@ -1202,7 +1202,6 @@ impl<'a> Parser<'a> {
+                     _ => {
+                         self.check_url_code_point(c, &input);
+                         if scheme_type.is_file()
+-                            && self.serialization.len() > path_start
+                             && is_normalized_windows_drive_letter(
+                                 &self.serialization[path_start + 1..],
+                             )

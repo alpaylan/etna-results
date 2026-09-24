@@ -1,0 +1,13 @@
+{
+  "commit": "a08aa2cd10a67d9922ecd4fa96584cfc97820e87",
+  "parent": "edabc7979357e530feb558add94ba837eb613ab5",
+  "fixed_commit": "a08aa2cd10a67d9922ecd4fa96584cfc97820e87",
+  "summary": "Calling set_path(\"x\") on Url::parse(\"file://\") truncates serialization to path_start. The Windows drive-letter check then slices from path_start + 1, past the string's end, causing a panic. The fix guards the slice with serialization.len() > path_start. The fix adds the top-level regression test issue_864 in url/tests/unit.rs. Both selected regions occur exactly once; replacing the fixed region with the parent region exactly restores the parent implementation file. Tests were not run.",
+  "test": "issue_864",
+  "expected_failure": "byte index 8 is out of bounds of `file://`",
+  "reversal": {
+    "path": "url/src/parser.rs",
+    "fixed_text": "                        if scheme_type.is_file()\n                            && self.serialization.len() > path_start\n                            && is_normalized_windows_drive_letter(\n                                &self.serialization[path_start + 1..],\n                            )\n",
+    "parent_text": "                        if scheme_type.is_file()\n                            && is_normalized_windows_drive_letter(\n                                &self.serialization[path_start + 1..],\n                            )\n"
+  }
+}

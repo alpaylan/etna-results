@@ -1,0 +1,12 @@
+{
+  "repo": "https://github.com/servo/rust-url",
+  "tips": [
+    "a08aa2cd10a67d9922ecd4fa96584cfc97820e87"
+  ],
+  "shallow": false,
+  "reviewed": [
+    "a08aa2cd10a67d9922ecd4fa96584cfc97820e87"
+  ],
+  "reachable_commits": 1330,
+  "scope": "One queued candidate; not an exhaustive history scan."
+}

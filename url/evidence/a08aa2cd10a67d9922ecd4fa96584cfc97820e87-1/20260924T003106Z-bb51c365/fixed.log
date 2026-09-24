@@ -1,0 +1,63 @@
+Command: rustup run 1.72.0 cargo test --locked --offline --lib issue_864 -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:35:01.573551+00:00
+STDOUT:
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling libc v0.2.147
+   Compiling tinyvec_macros v0.1.1
+   Compiling cfg-if v1.0.0
+   Compiling serde v1.0.188
+   Compiling tinyvec v1.6.0
+   Compiling itoa v1.0.9
+   Compiling unicode-width v0.1.10
+   Compiling ryu v1.0.15
+   Compiling getopts v0.2.21
+   Compiling dirs-sys-next v0.1.2
+   Compiling dirs-next v2.0.0
+   Compiling unicode-normalization v0.1.22
+   Compiling term v0.7.0
+   Compiling num_cpus v1.16.0
+   Compiling percent-encoding v2.3.0 (/home/runner/work/_temp/upstream/percent_encoding)
+   Compiling unicode-bidi v0.3.13
+   Compiling tester v0.9.1
+   Compiling bencher v0.1.5
+   Compiling idna v0.4.0 (/home/runner/work/_temp/upstream/idna)
+   Compiling form_urlencoded v1.2.0 (/home/runner/work/_temp/upstream/form_urlencoded)
+   Compiling assert_matches v1.5.0
+   Compiling serde_json v1.0.105
+   Compiling data-url v0.3.0 (/home/runner/work/_temp/upstream/data-url)
+   Compiling url v2.4.1 (/home/runner/work/_temp/upstream/url)
+    Finished test [unoptimized + debuginfo] target(s) in 4.71s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T003106Z-bb51c365/debug/deps/data_url-5febba0318072eae)
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T003106Z-bb51c365/debug/deps/form_urlencoded-332d39f7121def76)
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T003106Z-bb51c365/debug/deps/idna-b2294fb4b4bd847b)
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T003106Z-bb51c365/debug/deps/percent_encoding-33e009e6376b6a16)
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T003106Z-bb51c365/debug/deps/url-45c571d35530a71d)
+
+Exit: 0
+Timed out: False
