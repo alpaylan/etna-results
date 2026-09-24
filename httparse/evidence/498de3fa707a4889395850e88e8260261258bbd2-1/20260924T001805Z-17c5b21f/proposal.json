@@ -1,0 +1,13 @@
+{
+  "commit": "498de3fa707a4889395850e88e8260261258bbd2",
+  "parent": "46c0915e1a57c9751feca5dcc976e53a616ea33a",
+  "fixed_commit": "498de3fa707a4889395850e88e8260261258bbd2",
+  "summary": "parse_token incorrectly accepted CR or LF as method/path delimiters, allowing malformed requests such as the fix's regression input with LF immediately after GET. The fix permits only space to terminate a token, so CR and LF instead produce Error::Token. The selected test was added by this fix. No tests were executed during planning.",
+  "test": "tests::test_request_with_invalid_token_delimiter",
+  "expected_failure": "assertion failed: actual Ok(Complete(33)) differs from expected Err(Token)",
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "fn parse_token<'a>(bytes: &mut Bytes<'a>) -> Result<&'a str> {\n    loop {\n        let b = next!(bytes);\n        if b == b' ' {\n            return Ok(Status::Complete(unsafe {\n                // all bytes up till `i` must have been `is_token`.\n                str::from_utf8_unchecked(bytes.slice_skip(1))\n            }));\n        } else if !is_token(b) {\n            return Err(Error::Token);\n        }\n    }\n}\n",
+    "parent_text": "fn parse_token<'a>(bytes: &mut Bytes<'a>) -> Result<&'a str> {\n    loop {\n        let b = next!(bytes);\n        if b == b' ' || b == b'\\r' || b == b'\\n' {\n            return Ok(Status::Complete(unsafe {\n                // all bytes up till `i` must have been `is_token`.\n                str::from_utf8_unchecked(bytes.slice_skip(1))\n            }));\n        } else if !is_token(b) {\n            return Err(Error::Token);\n        }\n    }\n}\n"
+  }
+}
