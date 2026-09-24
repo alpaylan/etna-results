@@ -1,0 +1,13 @@
+{
+  "commit": "8d56a3c35bde346cdc91c2736ab0e36ffde85b7f",
+  "parent": "3ee8c968d4157237cd59f2cd79ec724fd4cd401e",
+  "fixed_commit": "8d56a3c35bde346cdc91c2736ab0e36ffde85b7f",
+  "summary": "Adding two NotNan values directly wrapped the sum, allowing positive infinity plus negative infinity to produce NotNan(NaN). The fix validates the sum through NotNan::new and panics on NaN. This commit specifically fixes addition and adds the should_panic regression test test_add_fails_on_nan in tests/test.rs. No tests were executed during planning.",
+  "test": "test_add_fails_on_nan",
+  "expected_failure": "test did not panic as expected",
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "        NotNan::new(self.0 + other.0).expect(\"Addition resulted in NaN\")\n",
+    "parent_text": "        NotNan(self.0 + other.0)\n"
+  }
+}

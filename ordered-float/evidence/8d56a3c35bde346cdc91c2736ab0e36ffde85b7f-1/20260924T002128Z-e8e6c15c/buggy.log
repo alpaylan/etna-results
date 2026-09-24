@@ -1,0 +1,23 @@
+Command: rustup run 1.28.0 cargo test --locked --test test test_add_fails_on_nan -- --nocapture --test-threads=1
+Started: 2026-09-24T00:22:15.358781+00:00
+STDOUT:
+
+running 1 test
+test test_add_fails_on_nan ... FAILED
+
+failures:
+
+failures:
+    test_add_fails_on_nan
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 34 filtered out
+
+
+STDERR:
+   Compiling ordered-float v1.0.0 (file:///home/runner/work/_temp/upstream)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.58s
+     Running /home/runner/work/_temp/build-20260924T002128Z-e8e6c15c/debug/deps/test-2db4161f5842f1c4
+error: test failed, to rerun pass '--test test'
+
+Exit: 101
+Timed out: False

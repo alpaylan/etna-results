@@ -1,0 +1,13 @@
+diff --git a/src/lib.rs b/src/lib.rs
+index b688f1c..95b9580 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -265,7 +265,7 @@ impl<T: Float> Add for NotNan<T> {
+     type Output = Self;
+ 
+     fn add(self, other: Self) -> Self {
+-        NotNan::new(self.0 + other.0).expect("Addition resulted in NaN")
++        NotNan(self.0 + other.0)
+     }
+ }
+ 

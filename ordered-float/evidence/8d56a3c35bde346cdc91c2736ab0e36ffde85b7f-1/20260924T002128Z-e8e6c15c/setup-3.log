@@ -1,0 +1,13 @@
+Command: rustup run 1.28.0 cargo fetch --locked
+Started: 2026-09-24T00:22:00.226135+00:00
+STDOUT:
+
+STDERR:
+ Downloading serde_test v1.0.77 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading serde v1.0.77 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading unreachable v1.0.0 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading void v1.0.2 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading num-traits v0.2.5 (registry `git://127.0.0.1:9419/era-index`)
+
+Exit: 0
+Timed out: False

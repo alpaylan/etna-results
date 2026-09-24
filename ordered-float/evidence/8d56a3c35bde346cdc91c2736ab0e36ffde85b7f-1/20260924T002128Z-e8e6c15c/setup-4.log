@@ -1,0 +1,15 @@
+Command: rustup run 1.28.0 cargo check --locked --tests
+Started: 2026-09-24T00:22:01.176487+00:00
+STDOUT:
+
+STDERR:
+   Compiling serde v1.0.77
+   Compiling num-traits v0.2.5
+    Checking void v1.0.2
+    Checking unreachable v1.0.0
+    Checking ordered-float v1.0.0 (file:///home/runner/work/_temp/upstream)
+    Checking serde_test v1.0.77
+    Finished dev [unoptimized + debuginfo] target(s) in 6.72s
+
+Exit: 0
+Timed out: False
