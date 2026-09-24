@@ -1,0 +1,13 @@
+{
+  "commit": "67fc2730b6585ea60f7da6987459c554775967af",
+  "parent": "ae8d29e04a9a1d7f4e9cd799fdd0ac3e788a7b02",
+  "fixed_commit": "67fc2730b6585ea60f7da6987459c554775967af",
+  "summary": "Clearing the query temporarily removes the fragment, causing the opaque-path cleanup to incorrectly strip trailing spaces. The fix checks the saved fragment before stripping. The verbatim reversal is uniquely identifiable. Test selection is blocked: detecting cases exist in url/tests/setters_tests.json and were removed from expected_failures.txt by this fix, but execute through the harness=false url_wpt target rather than a named Rust test function. The runner's function-based selection cannot select these cases; the existing ordinary unit tests do not exercise query removal with a fragment present.",
+  "test": "",
+  "expected_failure": "expected href \"sc:space  #fragment\", but got \"sc:space#fragment\"",
+  "reversal": {
+    "path": "url/src/lib.rs",
+    "fixed_text": "            self.query_start = None;\n            if fragment.is_none() {\n                self.strip_trailing_spaces_from_opaque_path();\n            }\n",
+    "parent_text": "            self.query_start = None;\n            self.strip_trailing_spaces_from_opaque_path();\n"
+  }
+}
