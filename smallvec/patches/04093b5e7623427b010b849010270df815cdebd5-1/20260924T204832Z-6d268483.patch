@@ -1,0 +1,20 @@
+diff --git a/src/lib.rs b/src/lib.rs
+index 511f58c..55f5f31 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -336,13 +336,11 @@ impl<T, const N: usize, A: Allocator> Drain<'_, T, N, A> {
+         let vec = unsafe { self.vec.as_mut() };
+         let len = self.tail_start + self.tail_len;
+ 
+-        // Include the tail when reserving so it survives a reallocation.
++        // Test
+         let old_len = vec.len();
+         unsafe { vec.set_len(len) }
+-        let result = vec.try_reserve(additional);
+-        // Restore the prefix length before a reservation error can panic.
++        vec.reserve(additional);
+         unsafe { vec.set_len(old_len) };
+-        infallible(result);
+ 
+         let new_tail_start = self.tail_start + additional;
+         unsafe {

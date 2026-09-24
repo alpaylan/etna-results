@@ -1,0 +1,13 @@
+Command: rustup run 1.98.1 cargo generate-lockfile
+Started: 2026-09-24T20:54:25.767205+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+  |
+  = help: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+    Updating `era` index
+     Locking 101 packages to latest Rust 1.86 compatible versions
+
+Exit: 0
+Timed out: False

@@ -1,0 +1,13 @@
+{
+  "commit": "04093b5e7623427b010b849010270df815cdebd5",
+  "parent": "b0e5335b3726ad110b48130ddfa3c117e5e9b009",
+  "fixed_commit": "04093b5e7623427b010b849010270df815cdebd5",
+  "summary": "During splice, move_tail temporarily includes the tail in the vector length before reserving. If reserve panics, the prefix length is never restored, so Drain cleanup duplicates the tail and increases the length incorrectly, risking double-free. The fix uses try_reserve, restores the prefix length, then propagates the reservation error. The fix adds tests/main.rs::splice_reserve_panic, which checks that a caught capacity-overflow panic preserves the original length and drop counts. This plan has not been executed.",
+  "test": "splice_reserve_panic",
+  "expected_failure": "assertion `left == right` failed\n  left: 2\n right: 1",
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "        // Include the tail when reserving so it survives a reallocation.\n        let old_len = vec.len();\n        unsafe { vec.set_len(len) }\n        let result = vec.try_reserve(additional);\n        // Restore the prefix length before a reservation error can panic.\n        unsafe { vec.set_len(old_len) };\n        infallible(result);\n",
+    "parent_text": "        // Test\n        let old_len = vec.len();\n        unsafe { vec.set_len(len) }\n        vec.reserve(additional);\n        unsafe { vec.set_len(old_len) };\n"
+  }
+}

@@ -1,14 +1,16 @@
 {
   "repo": "https://github.com/servo/rust-smallvec",
   "tips": [
+    "04093b5e7623427b010b849010270df815cdebd5",
     "1bd2dbce81d9b58214bbbf5de30323017705d5a8",
     "944f60397a35043ef5704e9bf76b26cdcb5fc55d"
   ],
   "shallow": false,
   "reviewed": [
+    "04093b5e7623427b010b849010270df815cdebd5",
     "1bd2dbce81d9b58214bbbf5de30323017705d5a8",
     "944f60397a35043ef5704e9bf76b26cdcb5fc55d"
   ],
-  "reachable_commits": 470,
+  "reachable_commits": 586,
   "scope": "One queued candidate; not an exhaustive history scan."
 }
