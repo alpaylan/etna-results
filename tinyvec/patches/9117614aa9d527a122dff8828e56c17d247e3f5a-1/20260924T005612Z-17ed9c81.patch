@@ -1,0 +1,15 @@
+diff --git a/src/arrayish_vec.rs b/src/arrayish_vec.rs
+index ee87285..4a78425 100644
+--- a/src/arrayish_vec.rs
++++ b/src/arrayish_vec.rs
+@@ -200,8 +200,8 @@ impl<A: Arrayish> ArrayishVec<A> {
+       Bound::Unbounded => 0,
+     };
+     let end = match range.end_bound() {
+-      Bound::Included(x) => x + 1,
+-      Bound::Excluded(x) => *x,
++      Bound::Included(x) => *x,
++      Bound::Excluded(x) => x - 1,
+       Bound::Unbounded => self.len,
+     };
+     assert!(

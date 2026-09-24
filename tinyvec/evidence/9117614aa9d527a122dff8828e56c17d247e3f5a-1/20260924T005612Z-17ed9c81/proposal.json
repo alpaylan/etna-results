@@ -1,0 +1,13 @@
+{
+  "commit": "9117614aa9d527a122dff8828e56c17d247e3f5a",
+  "parent": "33c6a8cfad7eb8895302839e13c1c65796e9edd3",
+  "fixed_commit": "9117614aa9d527a122dff8828e56c17d247e3f5a",
+  "summary": "ArrayishVec::drain computed bounded ends one index too low, omitting the last requested element and potentially underflowing for an excluded end of zero. The fix converts inclusive ends to x + 1 and leaves exclusive ends at x. The fix-added test in tests/basic_tests.rs exercises both forms; reversing the implementation should make drain(..2) yield [1] instead of [1, 2].",
+  "test": "ArrayishVec_drain",
+  "expected_failure": "assertion failed: `(left == right)`\n  left: `[1]`,\n right: `[1, 2]`",
+  "reversal": {
+    "path": "src/arrayish_vec.rs",
+    "fixed_text": "    let end = match range.end_bound() {\n      Bound::Included(x) => x + 1,\n      Bound::Excluded(x) => *x,\n      Bound::Unbounded => self.len,\n    };\n",
+    "parent_text": "    let end = match range.end_bound() {\n      Bound::Included(x) => *x,\n      Bound::Excluded(x) => x - 1,\n      Bound::Unbounded => self.len,\n    };\n"
+  }
+}

@@ -1,11 +1,13 @@
 {
   "repo": "https://github.com/Lokathor/tinyvec",
   "tips": [
-    "71ad62a90f2ff95dae4e43d646a55b0329b1eedc"
+    "71ad62a90f2ff95dae4e43d646a55b0329b1eedc",
+    "9117614aa9d527a122dff8828e56c17d247e3f5a"
   ],
   "shallow": false,
   "reviewed": [
-    "71ad62a90f2ff95dae4e43d646a55b0329b1eedc"
+    "71ad62a90f2ff95dae4e43d646a55b0329b1eedc",
+    "9117614aa9d527a122dff8828e56c17d247e3f5a"
   ],
   "reachable_commits": 40,
   "scope": "One queued candidate; not an exhaustive history scan."

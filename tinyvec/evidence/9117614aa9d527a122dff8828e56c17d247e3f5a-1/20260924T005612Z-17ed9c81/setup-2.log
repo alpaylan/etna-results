@@ -1,0 +1,23 @@
+Command: rustup run 1.40.0 cargo generate-lockfile
+Started: 2026-09-24T00:56:45.328092+00:00
+STDOUT:
+
+STDERR:
+    Updating `git://127.0.0.1:9419/era-index` index
+    Updating git repository `https://github.com/jakubadamw/arbitrary-model-tests`
+error: failed to load source for a dependency on `arbitrary-model-tests`
+
+Caused by:
+  Unable to update https://github.com/jakubadamw/arbitrary-model-tests
+
+Caused by:
+  failed to parse manifest at `/home/runner/.cargo/git/checkouts/arbitrary-model-tests-d578fe8c51907814/ddcbd0c/proc_macro/Cargo.toml`
+
+Caused by:
+  failed to parse the `edition` key
+
+Caused by:
+  supported edition values are `2015` or `2018`, but `2021` is unknown
+
+Exit: 101
+Timed out: False
