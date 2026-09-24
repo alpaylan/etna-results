@@ -1,0 +1,13 @@
+{
+  "commit": "ab76b863b4b7bb21608a61e5fee2fc968501791c",
+  "parent": "116343fc1dccbc4fc622be5014b3f354bbfb25d8",
+  "fixed_commit": "ab76b863b4b7bb21608a61e5fee2fc968501791c",
+  "summary": "CaptureLocations::get doubles the capture index internally without overflow checks, so sufficiently large invalid indices can panic or wrap and return an unrelated capture instead of None. The fix uses checked arithmetic to return None on overflow. The doctest added by this fix exercises an overflowing index on 64-bit targets and should detect the reversal with overflow checks enabled. Run it explicitly with cargo test --doc because automatic doctests are disabled. No reproduction was executed.",
+  "test": "src/re_unicode.rs - re_unicode::CaptureLocations (line 914)",
+  "expected_failure": "attempt to multiply with overflow",
+  "reversal": {
+    "path": "src/re_trait.rs",
+    "fixed_text": "        let (s, e) = (i.checked_mul(2)?, i.checked_mul(2)?.checked_add(1)?);\n",
+    "parent_text": "        let (s, e) = (i * 2, i * 2 + 1);\n"
+  }
+}
