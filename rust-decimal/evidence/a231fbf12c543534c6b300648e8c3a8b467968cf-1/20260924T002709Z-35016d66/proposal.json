@@ -1,0 +1,13 @@
+{
+  "commit": "a231fbf12c543534c6b300648e8c3a8b467968cf",
+  "parent": "e346c59b352e98d4a6ca83b20aae6f38b59ce524",
+  "fixed_commit": "a231fbf12c543534c6b300648e8c3a8b467968cf",
+  "summary": "Buf16::partial_divide_96 increments a u32 remainder while propagating a carry. When the remainder is u32::MAX, plain addition panics with overflow checks enabled. wrapping_add(1) preserves the modular arithmetic required by the division algorithm. The regression test added by this fix checks that -79228157791897.854723898738431 / 184512476.73336922111 returns -429391.87200000000002327170816. The candidate's description of a u64 remainder in 64-bit division is inaccurate; the changed code uses u32 in 96-bit division. No tests were executed.",
+  "test": "issues::issue_392_overflow_during_remainder",
+  "expected_failure": "attempt to add with overflow",
+  "reversal": {
+    "path": "src/ops/div.rs",
+    "fixed_text": "                remainder = remainder.wrapping_add(1);\n",
+    "parent_text": "                remainder += 1;\n"
+  }
+}

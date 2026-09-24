@@ -1,15 +1,17 @@
 # Cloud bug-mining prototype
 
-**blocked**: fixed: no completed execution of the exact upstream test
+Resumed verified evidence; no tests rerun.
+
+**confirmed**: The same upstream test passed, panicked on the original defect ('attempt to add with overflow'), and passed after restoration
 
 Upstream: https://github.com/paupino/rust-decimal
 
-Candidate: 092fdf8c8def5e2eb4ca5624ebfae731c3c40407-1
+Candidate: a231fbf12c543534c6b300648e8c3a8b467968cf-1
 
 Provenance: verbatim
 
-Latest outcomes: {"blocked": 1}
+Latest outcomes: {"confirmed": 1}
 
-Reviewed commits: 1 / 783 reachable from the saved tip.
+Reviewed commits: 1 / 771 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

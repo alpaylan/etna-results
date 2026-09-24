@@ -1,0 +1,48 @@
+Command: rustup run 1.52.1 cargo check --locked --offline --tests
+Started: 2026-09-24T00:28:15.185791+00:00
+STDOUT:
+
+STDERR:
+   Compiling autocfg v1.0.1
+   Compiling proc-macro2 v1.0.27
+   Compiling unicode-xid v0.2.2
+   Compiling syn v1.0.72
+   Compiling memchr v2.4.0
+   Compiling serde v1.0.126
+   Compiling proc-macro-hack v0.5.19
+   Compiling futures-core v0.3.15
+   Compiling futures-channel v0.3.15
+   Compiling futures-task v0.3.15
+   Compiling proc-macro-nested v0.1.7
+    Checking pin-project-lite v0.2.6
+   Compiling ryu v1.0.5
+    Checking futures-sink v0.3.15
+   Compiling libc v0.2.95
+    Checking futures-io v0.3.15
+    Checking pin-utils v0.1.0
+    Checking slab v0.4.3
+   Compiling serde_derive v1.0.126
+    Checking regex-automata v0.1.10
+   Compiling serde_json v1.0.64
+    Checking itoa v0.4.7
+    Checking lazy_static v1.4.0
+    Checking arrayvec v0.5.2
+    Checking bytes v1.0.1
+   Compiling futures-macro v0.3.15
+   Compiling futures-util v0.3.15
+   Compiling num-traits v0.2.14
+   Compiling tokio v1.6.1
+    Checking csv-core v0.1.10
+   Compiling quote v1.0.9
+    Checking num_cpus v1.13.0
+    Checking bstr v0.2.16
+    Checking bincode v1.3.3
+    Checking rust_decimal v1.14.1 (/home/runner/work/_temp/upstream)
+    Checking csv v1.1.6
+   Compiling tokio-macros v1.2.0
+    Checking futures-executor v0.3.15
+    Checking futures v0.3.15
+    Finished dev [unoptimized + debuginfo] target(s) in 15.05s
+
+Exit: 0
+Timed out: False
