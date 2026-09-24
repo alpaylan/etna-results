@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**unconfirmed**: The observed failure does not establish the described bug
+**blocked**: Reversal changes are not part of the upstream fix
 
 Upstream: https://github.com/cessen/ropey
 
-Candidate: 1992665990964e5eee68a42a1aed2bd7abcfda87-1
+Candidate: 2caa67dc1ff119b9b2b0226fd3a3db7a9f146196-1
 
 Provenance: verbatim
 
-Latest outcomes: {"unconfirmed": 1}
+Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 585 reachable from the saved tip.
+History coverage not yet recorded.
 
 Scope: one queued candidate; history coverage is partial.

@@ -1,0 +1,13 @@
+{
+  "commit": "2caa67dc1ff119b9b2b0226fd3a3db7a9f146196",
+  "parent": "3f6b3e7ac80e842f68ab93cfe502966898685f1d",
+  "fixed_commit": "2caa67dc1ff119b9b2b0226fd3a3db7a9f146196",
+  "summary": "Removing the entire rope could panic because the general tree-editing logic does not correctly handle deleting all text. The fix replaces the root with an empty leaf and returns when the removal covers every character. The regression test added by the fix removes all 103 characters and checks that the rope is empty and its invariants hold. Reversing only this guard restores the parent implementation while preserving the test.",
+  "test": "rope::tests::remove_04",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/rope.rs",
+    "fixed_text": "        // A special case that the rest of the logic doesn't handle\n        // correctly.\n        if start == 0 && end == self.len_chars() {\n            self.root = Arc::new(Node::new());\n            return;\n        }\n\n        // Scope to contain borrow of root\n        {\n            let root = Arc::make_mut(&mut self.root);\n            let mut seam = None;\n",
+    "parent_text": "        // Scope to contain borrow of root\n        {\n            let root = Arc::make_mut(&mut self.root);\n            let mut seam = None;\n"
+  }
+}

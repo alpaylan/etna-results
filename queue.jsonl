@@ -1715,3 +1715,4 @@
 {"claimed_at": "2026-09-24T23:05:08.593363+00:00", "claimed_by": "https://github.com/alpaylan/etna-ify/actions/runs/36070905879", "id": "332f1c88232eac9f3aa7756fcbafb5f0272c74f2-1", "status": "claimed"}
 {"claimed_at": "2026-09-24T23:05:08.593365+00:00", "claimed_by": "https://github.com/alpaylan/etna-ify/actions/runs/36070905879", "id": "9aacd69aa203f1fb9f3630aa5e938fc7d66f41df-1", "status": "claimed"}
 {"claimed_at": "2026-09-24T23:05:08.593367+00:00", "claimed_by": "https://github.com/alpaylan/etna-ify/actions/runs/36070905879", "id": "217ccd40b498e164a6c605d4d7e01ca0117896f8-1", "status": "claimed"}
+{"id": "2caa67dc1ff119b9b2b0226fd3a3db7a9f146196-1", "published_at": "2026-09-24T23:19:44.339551+00:00", "run": {"attempt": "20260924T231931Z-a9d69ba4", "id": "36072034571", "url": "https://github.com/alpaylan/etna-ify/actions/runs/36072034571"}, "status": "blocked"}
