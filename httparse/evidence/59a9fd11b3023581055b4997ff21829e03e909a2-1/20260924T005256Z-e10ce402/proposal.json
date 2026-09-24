@@ -1,0 +1,13 @@
+{
+  "commit": "59a9fd11b3023581055b4997ff21829e03e909a2",
+  "parent": "0ce132a487b0b36f83e12b5dc340ab289afa9001",
+  "fixed_commit": "59a9fd11b3023581055b4997ff21829e03e909a2",
+  "summary": "HEADER_VALUE_MAP incorrectly accepted backspace (0x08) and rejected HTAB (0x09), causing header values containing an embedded tab to fail with HeaderValue. The fix corrects those bitmap entries, allowing the added regression test's User-Agent value some\\tagent to parse unchanged. This is a proposed reversal; no tests were executed.",
+  "test": "tests::test_request_header_value_htab",
+  "expected_failure": "assertion failed: `(left == right)` (left: `Err(HeaderValue)`, right: `Ok(Complete(40))`)",
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "static HEADER_VALUE_MAP: [bool; 256] = byte_map![\n    0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0,\n",
+    "parent_text": "static HEADER_VALUE_MAP: [bool; 256] = byte_map![\n    0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,\n"
+  }
+}
