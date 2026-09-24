@@ -1,0 +1,43 @@
+Command: rustup run 1.38.0 cargo test --locked --offline --test graphmap neighbors_incoming_includes_self_loops -- --nocapture --test-threads=1
+Started: 2026-09-24T01:02:03.517215+00:00
+STDOUT:
+
+running 1 test
+test neighbors_incoming_includes_self_loops ... FAILED
+
+failures:
+
+failures:
+    neighbors_incoming_includes_self_loops
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 10 filtered out
+
+
+STDERR:
+   Compiling petgraph v0.4.13 (/home/runner/work/_temp/upstream)
+warning: use of deprecated item 'indexmap::IndexMap::<K, V, S>::remove': use `swap_remove`
+   --> src/graphmap.rs:299:33
+    |
+299 |         let weight = self.edges.remove(&Self::edge_key(a, b));
+    |                                 ^^^^^^
+    |
+    = note: `#[warn(deprecated)]` on by default
+
+warning: field is never used: `start_node`
+   --> src/graphmap.rs:535:5
+    |
+535 |     start_node: N,
+    |     ^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` on by default
+
+    Finished dev [unoptimized + debuginfo] target(s) in 1.27s
+     Running /home/runner/work/_temp/build-20260924T010103Z-65462d4d/debug/deps/graphmap-c47b6d48938a2446
+thread 'main' panicked at 'assertion failed: `(left == right)`
+  left: `None`,
+ right: `Some(())`', tests/graphmap.rs:312:5
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace.
+error: test failed, to rerun pass '--test graphmap'
+
+Exit: 101
+Timed out: False

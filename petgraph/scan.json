@@ -1,0 +1,12 @@
+{
+  "repo": "https://github.com/petgraph/petgraph",
+  "tips": [
+    "e39f0f9523d4037ad212e89f51e1b7e8434964af"
+  ],
+  "shallow": false,
+  "reviewed": [
+    "e39f0f9523d4037ad212e89f51e1b7e8434964af"
+  ],
+  "reachable_commits": 1102,
+  "scope": "One queued candidate; not an exhaustive history scan."
+}

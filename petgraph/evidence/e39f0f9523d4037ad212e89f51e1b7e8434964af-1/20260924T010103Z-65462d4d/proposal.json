@@ -1,0 +1,13 @@
+{
+  "commit": "e39f0f9523d4037ad212e89f51e1b7e8434964af",
+  "parent": "98fb3ff6c5ae60912db87aec283c7703ed8357ce",
+  "fixed_commit": "e39f0f9523d4037ad212e89f51e1b7e8434964af",
+  "summary": "Directed GraphMap self-loops have only an Outgoing adjacency entry, so filtering solely by direction incorrectly omits them from neighbors_directed(node, Incoming). The fix records the starting node and accepts neighbors matching either the requested direction or the starting node. Reversing the iterator filter restores the faulty behavior. The fix adds neighbors_incoming_includes_self_loops in tests/graphmap.rs, which expects Some(()) for the self-loop. No tests were executed.",
+  "test": "neighbors_incoming_includes_self_loops",
+  "expected_failure": "assertion failed: `(left == right)`\n  left: `None`,\n right: `Some(())`",
+  "reversal": {
+    "path": "src/graphmap.rs",
+    "fixed_text": "            let self_dir = self.dir;\n            let start_node = self.start_node;\n            (&mut self.iter)\n                .filter_map(move |&(n, dir)| if dir == self_dir || n == start_node {\n                    Some(n)\n                } else { None })\n                .next()\n",
+    "parent_text": "            let self_dir = self.dir;\n            (&mut self.iter)\n                .filter_map(move |&(n, dir)| if dir == self_dir {\n                    Some(n)\n                } else { None })\n                .next()\n"
+  }
+}

@@ -1,0 +1,36 @@
+Command: rustup run 1.38.0 cargo check --locked --offline --tests
+Started: 2026-09-24T01:01:53.149667+00:00
+STDOUT:
+
+STDERR:
+   Compiling libc v0.2.62
+    Checking rand_core v0.4.2
+    Checking indexmap v1.2.0
+    Checking either v1.5.3
+    Checking fixedbitset v0.1.9
+    Checking defmac v0.1.3
+    Checking odds v0.2.26
+    Checking itertools v0.8.0
+    Checking rand_core v0.3.1
+    Checking petgraph v0.4.13 (/home/runner/work/_temp/upstream)
+    Checking rand v0.5.6
+warning: use of deprecated item 'indexmap::IndexMap::<K, V, S>::remove': use `swap_remove`
+   --> src/graphmap.rs:299:33
+    |
+299 |         let weight = self.edges.remove(&Self::edge_key(a, b));
+    |                                 ^^^^^^
+    |
+    = note: `#[warn(deprecated)]` on by default
+
+warning: use of deprecated item 'indexmap::IndexMap::<K, V, S>::remove': use `swap_remove`
+   --> src/graphmap.rs:299:33
+    |
+299 |         let weight = self.edges.remove(&Self::edge_key(a, b));
+    |                                 ^^^^^^
+    |
+    = note: `#[warn(deprecated)]` on by default
+
+    Finished dev [unoptimized + debuginfo] target(s) in 5.09s
+
+Exit: 0
+Timed out: False

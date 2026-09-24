@@ -1,0 +1,8 @@
+Command: rustup run 1.38.0 cargo clean -p petgraph
+Started: 2026-09-24T01:02:04.843412+00:00
+STDOUT:
+
+STDERR:
+
+Exit: 0
+Timed out: False

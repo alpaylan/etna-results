@@ -1,0 +1,15 @@
+diff --git a/src/graphmap.rs b/src/graphmap.rs
+index bb76e5e..476bcd8 100644
+--- a/src/graphmap.rs
++++ b/src/graphmap.rs
+@@ -545,9 +545,8 @@ impl<'a, N, Ty> Iterator for NeighborsDirected<'a, N, Ty>
+     fn next(&mut self) -> Option<N> {
+         if Ty::is_directed() {
+             let self_dir = self.dir;
+-            let start_node = self.start_node;
+             (&mut self.iter)
+-                .filter_map(move |&(n, dir)| if dir == self_dir || n == start_node {
++                .filter_map(move |&(n, dir)| if dir == self_dir {
+                     Some(n)
+                 } else { None })
+                 .next()

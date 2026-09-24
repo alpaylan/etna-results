@@ -1,0 +1,25 @@
+Command: rustup run 1.38.0 cargo test --locked --offline --test graphmap neighbors_incoming_includes_self_loops -- --nocapture --test-threads=1
+Started: 2026-09-24T01:02:04.873187+00:00
+STDOUT:
+
+running 1 test
+test neighbors_incoming_includes_self_loops ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out
+
+
+STDERR:
+   Compiling petgraph v0.4.13 (/home/runner/work/_temp/upstream)
+warning: use of deprecated item 'indexmap::IndexMap::<K, V, S>::remove': use `swap_remove`
+   --> src/graphmap.rs:299:33
+    |
+299 |         let weight = self.edges.remove(&Self::edge_key(a, b));
+    |                                 ^^^^^^
+    |
+    = note: `#[warn(deprecated)]` on by default
+
+    Finished dev [unoptimized + debuginfo] target(s) in 1.31s
+     Running /home/runner/work/_temp/build-20260924T010103Z-65462d4d/debug/deps/graphmap-c47b6d48938a2446
+
+Exit: 0
+Timed out: False
