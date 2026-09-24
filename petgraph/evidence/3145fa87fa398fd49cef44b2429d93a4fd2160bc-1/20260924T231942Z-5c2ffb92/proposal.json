@@ -1,0 +1,13 @@
+{
+  "commit": "3145fa87fa398fd49cef44b2429d93a4fd2160bc",
+  "parent": "0038703a1d22de7bcf4501dc826014af4e60a2b8",
+  "fixed_commit": "3145fa87fa398fd49cef44b2429d93a4fd2160bc",
+  "summary": "The parent restricts steiner_tree to default u32 graph indices, preventing calls with other index types. The fix introduces Ix: IndexType across the input graph, terminals, and returned graph. A verbatim signature reversal is available, but no detecting upstream test was found: all existing calls use default indices. The modified test::example_kous_paper changes only edge weights from i32 to usize, not indices. Leave this candidate blocked for lack of a detecting test; no builds or tests were run.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/algo/steiner_tree.rs",
+    "fixed_text": "pub fn steiner_tree<N, E, Ix>(\n    graph: &UnGraph<N, E, Ix>,\n    terminals: &[NodeIndex<Ix>],\n) -> StableGraph<N, E, Undirected, Ix>\nwhere\n    N: Default + Clone + Eq + Hash + Debug,\n    E: Copy + Eq + Ord + Measure + BoundedMeasure,\n    Ix: IndexType,\n",
+    "parent_text": "pub fn steiner_tree<N, E>(\n    graph: &UnGraph<N, E>,\n    terminals: &[NodeIndex],\n) -> StableGraph<N, E, Undirected>\nwhere\n    N: Default + Clone + Eq + Hash + Debug,\n    E: Copy + Eq + Ord + Measure + BoundedMeasure,\n"
+  }
+}
