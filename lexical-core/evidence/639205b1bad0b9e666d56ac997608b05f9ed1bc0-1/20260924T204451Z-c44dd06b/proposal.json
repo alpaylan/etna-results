@@ -1,0 +1,13 @@
+{
+  "commit": "639205b1bad0b9e666d56ac997608b05f9ed1bc0",
+  "parent": "f9dee40d21c87e548b7e400b31c82aceb5563a76",
+  "fixed_commit": "639205b1bad0b9e666d56ac997608b05f9ed1bc0",
+  "summary": "The parent indexes POWI_EXPONENTS by radix instead of radix minus two, selecting incorrect exponent chunks and accessing outside the array for radices 35 and 36. The fix subtracts two through base_to_powi!. A valid same-path verbatim reversal is blocked: the buggy implementation resides in deleted src/atof/basen.rs, while the corrected implementation resides in newly added src/atof/algorithm/lossy.rs, which has no parent-revision region. No detecting upstream test was found: the commit adds no assertions, decimal tests use an unaffected table entry, and base-36 tests parse only integers without invoking POWI. No builds or tests were run.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
