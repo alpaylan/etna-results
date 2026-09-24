@@ -1,0 +1,13 @@
+{
+  "commit": "c13ee581247fb009dbd12f7685b155e8c6bdcff5",
+  "parent": "dd0e66c0bae3ad2c7fdd075711d8163a4adb10ae",
+  "fixed_commit": "c13ee581247fb009dbd12f7685b155e8c6bdcff5",
+  "summary": "remaining_for eagerly computes n + k, which can overflow before saturating_sub or checked_binomial handles it, causing a debug panic or incorrect wrapped size hints. The fix handles n == 0 separately and computes (n - 1).checked_add(k), returning None on overflow while preserving representable n + k - 1 values. Blocked: the fix adds no tests, and no detecting upstream test was found at this revision. combinations_with_replacement_range_count only covers n and k through 7; other existing tests do not exercise this overflow. No tests were run.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/combinations_with_replacement.rs",
+    "fixed_text": "    let count = |n: usize, k: usize| {\n        let positions = if n == 0 { k.saturating_sub(1) } else { (n - 1).checked_add(k)? };\n        checked_binomial(positions, k)\n    };\n",
+    "parent_text": "    let count = |n: usize, k: usize| checked_binomial((n + k).saturating_sub(1), k);\n"
+  }
+}
