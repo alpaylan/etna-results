@@ -1,0 +1,15 @@
+diff --git a/src/inline_table.rs b/src/inline_table.rs
+index d5b4950..91c1377 100644
+--- a/src/inline_table.rs
++++ b/src/inline_table.rs
+@@ -36,9 +36,7 @@ impl InlineTable {
+ 
+     /// Convert to a table
+     pub fn into_table(self) -> Table {
+-        let mut t = Table::with_pairs(self.items);
+-        t.fmt();
+-        t
++        Table::with_pairs(self.items)
+     }
+ }
+ 

@@ -1,0 +1,13 @@
+{
+  "commit": "3105fed18a5b259f3697c5c808586fc06d8005be",
+  "parent": "b0d0d3aabe7bc83bcad032c8809e1e74eed6f9a2",
+  "fixed_commit": "3105fed18a5b259f3697c5c808586fc06d8005be",
+  "summary": "Converting an inline table into a standard table preserves inline key/value decoration, leaving unwanted leading spaces in serialized table entries. The fix calls Table::fmt() after conversion to clear that decoration and use standard table formatting. The upstream inline_table_to_table test in tests/convert.rs, added by this fix, checks the resulting document. The proposed reversal restores only the original conversion implementation; no tests were run.",
+  "test": "inline_table_to_table",
+  "expected_failure": "assertion failed: `(left == right)`",
+  "reversal": {
+    "path": "src/inline_table.rs",
+    "fixed_text": "    pub fn into_table(self) -> Table {\n        let mut t = Table::with_pairs(self.items);\n        t.fmt();\n        t\n    }\n",
+    "parent_text": "    pub fn into_table(self) -> Table {\n        Table::with_pairs(self.items)\n    }\n"
+  }
+}

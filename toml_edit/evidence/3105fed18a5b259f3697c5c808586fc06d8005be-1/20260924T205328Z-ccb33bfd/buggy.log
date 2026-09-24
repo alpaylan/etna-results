@@ -1,0 +1,44 @@
+Command: rustup run 1.56.1 cargo test --locked --offline --test convert inline_table_to_table -- --nocapture --test-threads=1
+Started: 2026-09-24T20:56:57.100997+00:00
+STDOUT:
+
+running 1 test
+test inline_table_to_table ... FAILED
+
+failures:
+
+failures:
+    inline_table_to_table
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 2 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling serde v1.0.130
+   Compiling bstr v0.2.17
+   Compiling serde_json v1.0.71
+   Compiling serde_cbor v0.11.2
+   Compiling kstring v1.0.6
+   Compiling toml v0.5.8
+   Compiling globset v0.4.8
+   Compiling csv v1.1.6
+   Compiling toml_edit v0.9.1 (/home/runner/work/_temp/upstream)
+   Compiling tinytemplate v1.2.1
+   Compiling toml-test v0.3.1
+   Compiling ignore v0.4.18
+   Compiling criterion v0.3.5
+   Compiling toml-test-harness v0.3.0
+    Finished test [optimized + debuginfo] target(s) in 49.26s
+     Running tests/convert.rs (/home/runner/work/_temp/build-20260924T205328Z-ccb33bfd/debug/deps/convert-3a37ee298415f32e)
+thread 'main' panicked at 'assertion failed: `(left == right)`
+
+[1mDiff[0m [31m< left[0m / [32mright >[0m :
+[31m<"\n[table]\n[0m[1;48;5;52;31m [0m[31mstring = \"value\"\n[0m[1;48;5;52;31m [0m[31marray = [1, 2, 3]\n[0m[1;48;5;52;31m [0m[31minline = { \"1\" = 1, \"2\" = 2 }\n[0m[1;48;5;52;31m [0m[31mchild = { other = \"world\" }[0m[1;48;5;52;31m [0m[31m\n"[0m
+[32m>"\n[table]\nstring = \"value\"\narray = [1, 2, 3]\ninline = { \"1\" = 1, \"2\" = 2 }\nchild = { other = \"world\" }\n"[0m
+
+', tests/convert.rs:49:5
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass '--test convert'
+
+Exit: 101
+Timed out: False
