@@ -1,10 +1,10 @@
 # Cloud bug-mining prototype
 
-**blocked**: Proposal names no upstream test
+**blocked**: Selected test is not present at the fixed revision: parse_format_description::strftime_padding_missing_component::case_1
 
 Upstream: https://github.com/time-rs/time
 
-Candidate: d279d8d38f5932ce8d0483df15f9df2e572dd026-1
+Candidate: c57284f60a45552e367eb26834dec3996607a9f7-1
 
 Provenance: verbatim
 

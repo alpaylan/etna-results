@@ -1,0 +1,13 @@
+{
+  "commit": "c57284f60a45552e367eb26834dec3996607a9f7",
+  "parent": "a74f35fe67ea7aa67b127a057cc65e098f4ec641",
+  "fixed_commit": "c57284f60a45552e367eb26834dec3996607a9f7",
+  "summary": "Truncated strftime padding modifiers (%_, %-, and %0) cause an out-of-bounds panic because the tokenizer accesses self.input[2] without checking its existence. The fix uses get(2) and returns InvalidFormatDescription::Expected for a valid escape sequence at byte index 2. The fix adds the selected regression test; case_1 covers %_. The integration tests require --all-features. This is a plan only; no tests were run.",
+  "test": "parse_format_description::strftime_padding_missing_component::case_1",
+  "expected_failure": "index out of bounds: the len is 2 but the index is 2",
+  "reversal": {
+    "path": "time/src/format_description/parse/strftime.rs",
+    "fixed_text": "        let padding = match self.input.get(1) {\n            Some(&b'_') => Some(Padding::Space),\n            Some(&b'-') => Some(Padding::None),\n            Some(&b'0') => Some(Padding::Zero),\n            Some(_) => None,\n            None => {\n                return Some(Err(error_expected_end(Location {\n                    byte: self.byte_pos,\n                })));\n            }\n        };\n\n        let (component, advance) = match (padding, self.input.get(2)) {\n            (Some(_), Some(&component)) => (component, 3),\n            (Some(_), None) => {\n                return Some(Err(error_expected_end(Location {\n                    byte: self.byte_pos + 2,\n                })));\n            }\n            (None, _) => (self.input[1], 2),\n        };\n\n",
+    "parent_text": "        let (padding, component, advance) = match self.input.get(1) {\n            Some(&b'_') => (Some(Padding::Space), self.input[2], 3),\n            Some(&b'-') => (Some(Padding::None), self.input[2], 3),\n            Some(&b'0') => (Some(Padding::Zero), self.input[2], 3),\n            Some(_) => (None, self.input[1], 2),\n            _ => {\n                return Some(Err(error_expected_end(Location {\n                    byte: self.byte_pos,\n                })));\n            }\n        };\n\n"
+  }
+}
