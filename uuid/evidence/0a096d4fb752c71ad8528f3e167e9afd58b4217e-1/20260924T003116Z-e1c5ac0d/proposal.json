@@ -1,0 +1,13 @@
+{
+  "commit": "0a096d4fb752c71ad8528f3e167e9afd58b4217e",
+  "parent": "7964c638a9d3bb467c03a017292fe1194e6f0664",
+  "fixed_commit": "0a096d4fb752c71ad8528f3e167e9afd58b4217e",
+  "summary": "Uuid::to_fields_le incorrectly reads both bytes of d2 from byte 5, discarding byte 4. The fix reads the low byte from index 4. The existing to_fields_le doctest expects d2 = 0xBD9A for its parsed UUID; the reversed implementation produces 0xBDBD. No tests were added by this fix. Reproduction has not been run.",
+  "test": "src/lib.rs - Uuid::to_fields_le (line 772)",
+  "expected_failure": "assertion failed: `(left == right)`",
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "            u16::from(self.as_bytes()[5]) << 8 | u16::from(self.as_bytes()[4]);\n",
+    "parent_text": "            u16::from(self.as_bytes()[5]) << 8 | u16::from(self.as_bytes()[5]);\n"
+  }
+}
