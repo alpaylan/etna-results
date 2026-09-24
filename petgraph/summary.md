@@ -2,16 +2,16 @@
 
 Resumed verified evidence; no tests rerun.
 
-**confirmed**: The same upstream test passed, panicked on the original defect ('index out of bounds: the len is 3 but the index is 3'), and passed after restoration
+**confirmed**: The same upstream test passed, panicked on the original defect ('assertion failed: paths.is_empty()'), and passed after restoration
 
 Upstream: https://github.com/petgraph/petgraph
 
-Candidate: ebee19788263054c79450a4c798831053b4a9c48-1
+Candidate: 8f7a0d93279f575627db90430d1a0aab242c3e9c-1
 
 Provenance: verbatim
 
 Latest outcomes: {"confirmed": 1}
 
-Reviewed commits: 1 / 1356 reachable from the saved tip.
+Reviewed commits: 1 / 1402 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

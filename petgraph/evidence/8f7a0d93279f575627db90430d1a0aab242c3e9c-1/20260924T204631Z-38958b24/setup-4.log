@@ -1,0 +1,37 @@
+Command: rustup run 1.89.0 cargo check --locked --offline --tests
+Started: 2026-09-24T20:50:31.222576+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+   Compiling libc v0.2.175
+    Checking foldhash v0.1.5
+   Compiling version_check v0.9.5
+   Compiling serde v1.0.219
+    Checking hashbrown v0.15.0
+   Compiling ahash v0.7.8
+    Checking rawpointer v0.2.1
+    Checking cfg-if v1.0.3
+    Checking equivalent v1.0.2
+    Checking rand_core v0.4.2
+    Checking rawslice v0.1.1
+    Checking rand_core v0.3.1
+    Checking unchecked-index v0.2.2
+    Checking either v1.15.0
+    Checking indexmap v2.11.0
+    Checking byteorder v1.5.0
+    Checking fixedbitset v0.5.7
+    Checking getrandom v0.2.16
+    Checking once_cell v1.20.3
+    Checking rand v0.5.6
+    Checking fxhash v0.2.1
+    Checking itertools v0.12.1
+    Checking odds v0.4.0
+    Checking defmac v0.2.1
+    Checking petgraph v0.8.2 (/home/runner/work/_temp/upstream)
+    Checking bincode v1.3.3
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 3.32s
+
+Exit: 0
+Timed out: False

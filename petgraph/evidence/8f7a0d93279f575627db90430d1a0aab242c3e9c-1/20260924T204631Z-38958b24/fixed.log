@@ -1,0 +1,43 @@
+Command: rustup run 1.89.0 cargo test --locked --offline --lib algo::simple_paths::test::test_simple_path_source_target -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T20:50:34.865892+00:00
+STDOUT:
+
+running 1 test
+test algo::simple_paths::test::test_simple_path_source_target ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 98 filtered out; finished in 0.00s
+
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+   Compiling libc v0.2.175
+   Compiling cfg-if v1.0.3
+   Compiling rawpointer v0.2.1
+   Compiling rand_core v0.4.2
+   Compiling foldhash v0.1.5
+   Compiling rawslice v0.1.1
+   Compiling serde v1.0.219
+   Compiling rand_core v0.3.1
+   Compiling hashbrown v0.15.0
+   Compiling once_cell v1.20.3
+   Compiling either v1.15.0
+   Compiling byteorder v1.5.0
+   Compiling getrandom v0.2.16
+   Compiling unchecked-index v0.2.2
+   Compiling equivalent v1.0.2
+   Compiling indexmap v2.11.0
+   Compiling odds v0.4.0
+   Compiling ahash v0.7.8
+   Compiling fxhash v0.2.1
+   Compiling rand v0.5.6
+   Compiling itertools v0.12.1
+   Compiling defmac v0.2.1
+   Compiling fixedbitset v0.5.7
+   Compiling bincode v1.3.3
+   Compiling petgraph v0.8.2 (/home/runner/work/_temp/upstream)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 5.20s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T204631Z-38958b24/debug/deps/petgraph-5f666cba43d0a240)
+
+Exit: 0
+Timed out: False

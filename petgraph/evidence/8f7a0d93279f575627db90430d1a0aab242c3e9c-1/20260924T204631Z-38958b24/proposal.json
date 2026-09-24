@@ -1,0 +1,13 @@
+{
+  "commit": "8f7a0d93279f575627db90430d1a0aab242c3e9c",
+  "parent": "e9b80dbbeabda6e7bd74c542040a8c1ce86ae03c",
+  "fixed_commit": "8f7a0d93279f575627db90430d1a0aab242c3e9c",
+  "summary": "When source and target are identical, all_simple_paths can incorrectly yield cycles that repeat the source node. The fix rejects visited neighbors before checking for the target and excludes visited targets during cutoff lookahead. The selected test was added by this fix and asserts that paths from node 1 back to itself in an undirected path graph are empty. This reversal restores only the original single-target implementation logic. No tests were executed.",
+  "test": "algo::simple_paths::test::test_simple_path_source_target",
+  "expected_failure": "assertion failed: paths.is_empty()",
+  "reversal": {
+    "path": "src/algo/simple_paths.rs",
+    "fixed_text": "            if let Some(child) = children.next() {\n                if visited.contains(&child) {\n                    continue;\n                }\n                if visited.len() < max_length {\n                    if child == to {\n                        if visited.len() >= min_length {\n                            let path = visited\n                                .iter()\n                                .cloned()\n                                .chain(Some(to))\n                                .collect::<TargetColl>();\n                            return Some(path);\n                        }\n                    } else {\n                        visited.insert(child);\n                        stack.push(graph.neighbors_directed(child, Outgoing));\n                    }\n                } else {\n                    if (child == to || children.any(|v| v == to && !visited.contains(&v)))\n                        && visited.len() >= min_length\n                    {\n",
+    "parent_text": "            if let Some(child) = children.next() {\n                if visited.len() < max_length {\n                    if child == to {\n                        if visited.len() >= min_length {\n                            let path = visited\n                                .iter()\n                                .cloned()\n                                .chain(Some(to))\n                                .collect::<TargetColl>();\n                            return Some(path);\n                        }\n                    } else if !visited.contains(&child) {\n                        visited.insert(child);\n                        stack.push(graph.neighbors_directed(child, Outgoing));\n                    }\n                } else {\n                    if (child == to || children.any(|v| v == to)) && visited.len() >= min_length {\n"
+  }
+}
