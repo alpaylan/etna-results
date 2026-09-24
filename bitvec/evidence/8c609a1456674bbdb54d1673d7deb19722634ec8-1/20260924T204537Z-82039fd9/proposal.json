@@ -1,0 +1,13 @@
+{
+  "commit": "8c609a1456674bbdb54d1673d7deb19722634ec8",
+  "parent": "00ceee2a7b75f6494a93917833626e89d84f1a64",
+  "fixed_commit": "8c609a1456674bbdb54d1673d7deb19722634ec8",
+  "summary": "Blocked: this commit changes only tests. Tests used u64 storage on 32-bit targets, where BitStore is not implemented for u64, preventing test compilation. The fix gates u64-specific tests and macro invocations to 64-bit targets and replaces two slice test inputs with u32. No implementation changes exist to reverse while preserving tests, so no valid implementation reversal or detecting test can be selected.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
