@@ -1,0 +1,28 @@
+diff --git a/prost-types/src/lib.rs b/prost-types/src/lib.rs
+index 0c46126..69e897a 100644
+--- a/prost-types/src/lib.rs
++++ b/prost-types/src/lib.rs
+@@ -36,21 +36,8 @@ impl Duration {
+     pub fn normalize(&mut self) {
+         // Make sure nanos is in the range.
+         if self.nanos <= -NANOS_PER_SECOND || self.nanos >= NANOS_PER_SECOND {
+-            if let Some(seconds) = self
+-                .seconds
+-                .checked_add((self.nanos / NANOS_PER_SECOND) as i64)
+-            {
+-                self.seconds = seconds;
+-                self.nanos %= NANOS_PER_SECOND;
+-            } else if self.nanos < 0 {
+-                // Negative overflow! Set to the least normal value.
+-                self.seconds = i64::MIN;
+-                self.nanos = -NANOS_MAX;
+-            } else {
+-                // Positive overflow! Set to the greatest normal value.
+-                self.seconds = i64::MAX;
+-                self.nanos = NANOS_MAX;
+-            }
++            self.seconds += (self.nanos / NANOS_PER_SECOND) as i64;
++            self.nanos %= NANOS_PER_SECOND;
+         }
+ 
+         // nanos should have the same sign as seconds.

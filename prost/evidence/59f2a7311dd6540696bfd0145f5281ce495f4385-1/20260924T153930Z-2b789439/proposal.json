@@ -1,0 +1,13 @@
+{
+  "commit": "59f2a7311dd6540696bfd0145f5281ce495f4385",
+  "parent": "0833d467bd55ee7ff427e0484fc299366ad9ab7d",
+  "fixed_commit": "59f2a7311dd6540696bfd0145f5281ce495f4385",
+  "summary": "Duration::normalize adds whole seconds from nanoseconds without checking overflow, causing a panic with overflow checks enabled or wrapping otherwise. The fix uses checked addition and saturates to the minimum or maximum normalized duration. This reversal isolates that correction. The upstream test added by the fix covers both limits, including seconds = i64::MIN and nanos = -1_000_000_000. No builds or tests were run.",
+  "test": "tests::check_duration_normalize",
+  "expected_failure": "attempt to add with overflow",
+  "reversal": {
+    "path": "prost-types/src/lib.rs",
+    "fixed_text": "        // Make sure nanos is in the range.\n        if self.nanos <= -NANOS_PER_SECOND || self.nanos >= NANOS_PER_SECOND {\n            if let Some(seconds) = self\n                .seconds\n                .checked_add((self.nanos / NANOS_PER_SECOND) as i64)\n            {\n                self.seconds = seconds;\n                self.nanos %= NANOS_PER_SECOND;\n            } else if self.nanos < 0 {\n                // Negative overflow! Set to the least normal value.\n                self.seconds = i64::MIN;\n                self.nanos = -NANOS_MAX;\n            } else {\n                // Positive overflow! Set to the greatest normal value.\n                self.seconds = i64::MAX;\n                self.nanos = NANOS_MAX;\n            }\n        }\n\n        // nanos should have the same sign as seconds.\n",
+    "parent_text": "        // Make sure nanos is in the range.\n        if self.nanos <= -NANOS_PER_SECOND || self.nanos >= NANOS_PER_SECOND {\n            self.seconds += (self.nanos / NANOS_PER_SECOND) as i64;\n            self.nanos %= NANOS_PER_SECOND;\n        }\n\n        // nanos should have the same sign as seconds.\n"
+  }
+}

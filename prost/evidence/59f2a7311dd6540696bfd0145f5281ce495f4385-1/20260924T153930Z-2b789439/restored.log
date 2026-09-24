@@ -1,0 +1,30 @@
+Command: rustup run 1.53.0 cargo test --locked --offline --lib tests::check_duration_normalize -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T15:42:56.424484+00:00
+STDOUT:
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 407 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling prost-derive v0.7.0 (/home/runner/work/_temp/upstream/prost-derive)
+warning: an associated function with this name may be added to the standard library in the future
+   --> prost-derive/src/lib.rs:109:14
+    |
+109 |             .intersperse(quote!(|));
+    |              ^^^^^^^^^^^
+    |
+    = note: `#[warn(unstable_name_collisions)]` on by default
+    = warning: once this associated item is added to the standard library, the ambiguity may cause an error or change in behavior!
+    = note: for more information, see issue #48919 <https://github.com/rust-lang/rust/issues/48919>
+    = help: call with fully qualified syntax `itertools::Itertools::intersperse(...)` to keep using the current method
+
+warning: 1 warning emitted
+
+   Compiling prost v0.7.0 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 46.66s
+     Running unittests (/home/runner/work/_temp/build-20260924T153930Z-2b789439/debug/deps/prost-c3bcd55365d8b263)
+
+Exit: 0
+Timed out: False
