@@ -1,0 +1,13 @@
+diff --git a/src/offset/local/tz_data.rs b/src/offset/local/tz_data.rs
+index fd6d2e8..6bce2bc 100644
+--- a/src/offset/local/tz_data.rs
++++ b/src/offset/local/tz_data.rs
+@@ -107,7 +107,7 @@ impl TzDataIndexes {
+         // and must be skipped, otherwise the slicing below reads out of bounds.
+         Ok(TzDataIndexes {
+             indexes: buf
+-                .chunks_exact(ENTRY_LEN)
++                .chunks(ENTRY_LEN)
+                 .filter_map(|chunk| {
+                     from_bytes_until_nul(&chunk[..TZ_NAME_LEN]).map(|name| {
+                         let name = name.to_bytes().to_vec().into_boxed_slice();

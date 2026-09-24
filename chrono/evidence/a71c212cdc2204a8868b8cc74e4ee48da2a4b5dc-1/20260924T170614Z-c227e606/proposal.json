@@ -1,0 +1,13 @@
+{
+  "commit": "a71c212cdc2204a8868b8cc74e4ee48da2a4b5dc",
+  "parent": "75926fce51a0e2a7b731b2b907a1f34d34b7a282",
+  "fixed_commit": "a71c212cdc2204a8868b8cc74e4ee48da2a4b5dc",
+  "summary": "The tzdata index parser processes trailing partial entries with chunks(), then slices them as complete entries, potentially panicking out of bounds. The fix uses chunks_exact() to skip incomplete entries. The regression test added by the fix supplies a 20-byte index region and expects an empty index; reversing the iterator change should cause the 40-byte name slice to panic. No tests were run.",
+  "test": "offset::local::tz_data::tests::test_tzdata_index_partial_entry",
+  "expected_failure": "range end index 40 out of range for slice of length 20",
+  "reversal": {
+    "path": "src/offset/local/tz_data.rs",
+    "fixed_text": "                .chunks_exact(ENTRY_LEN)\n",
+    "parent_text": "                .chunks(ENTRY_LEN)\n"
+  }
+}

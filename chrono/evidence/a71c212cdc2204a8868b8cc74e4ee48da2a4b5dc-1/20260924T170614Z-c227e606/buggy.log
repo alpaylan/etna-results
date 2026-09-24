@@ -1,0 +1,30 @@
+Command: rustup run 1.96.0 cargo test --locked --offline --lib offset::local::tz_data::tests::test_tzdata_index_partial_entry -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T17:15:41.610528+00:00
+STDOUT:
+
+running 1 test
+test offset::local::tz_data::tests::test_tzdata_index_partial_entry ... FAILED
+
+failures:
+
+failures:
+    offset::local::tz_data::tests::test_tzdata_index_partial_entry
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 289 filtered out; finished in 0.00s
+
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+  |
+  = help: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+   Compiling chrono v0.4.45 (/home/runner/work/_temp/upstream)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.23s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T170614Z-c227e606/debug/deps/chrono-29cedbb33911a60f)
+
+thread 'offset::local::tz_data::tests::test_tzdata_index_partial_entry' (3882) panicked at src/offset/local/tz_data.rs:112:48:
+range end index 40 out of range for slice of length 20
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `--lib`
+
+Exit: 101
+Timed out: False

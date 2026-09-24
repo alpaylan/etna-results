@@ -1,0 +1,49 @@
+Command: rustup run 1.96.0 cargo generate-lockfile
+Started: 2026-09-24T17:12:10.145330+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+  |
+  = help: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+    Updating `era` index
+     Locking 104 packages to latest Rust 1.62.0 compatible versions
+      Adding arbitrary v1.1.6 (available: v1.4.2, requires Rust 1.63.0)
+      Adding bincode v1.3.3 (available: v3.0.0, requires Rust 1.85.0)
+      Adding bstr v1.6.2 (available: v1.12.1, requires Rust 1.73)
+      Adding bumpalo v3.14.0 (available: v3.20.3, requires Rust 1.71.1)
+      Adding cc v1.0.94 (available: v1.2.64, requires Rust 1.63)
+      Adding console v0.16.3 (requires Rust 1.71)
+      Adding derive_arbitrary v1.1.6 (available: v1.4.2, requires Rust 1.63.0)
+      Adding itoa v1.0.15 (available: v1.0.18, requires Rust 1.68)
+      Adding js-sys v0.3.82 (available: v0.3.102, requires Rust 1.77)
+      Adding libc v0.2.163 (available: v0.2.186, requires Rust 1.65)
+      Adding log v0.4.28 (available: v0.4.32, requires Rust 1.71.0)
+      Adding once_cell v1.20.3 (available: v1.21.4, requires Rust 1.65)
+      Adding proc-macro2 v1.0.103 (available: v1.0.106, requires Rust 1.68)
+      Adding quote v1.0.41 (available: v1.0.45, requires Rust 1.71)
+      Adding rkyv v0.7.46 (available: v0.8.16, requires Rust 1.81)
+      Adding ryu v1.0.20 (available: v1.0.23, requires Rust 1.71)
+      Adding serde_json v1.0.145 (available: v1.0.150, requires Rust 1.71)
+      Adding similar v3.1.1 (requires Rust 1.85)
+      Adding similar-asserts v2.0.0 (requires Rust 1.85.0)
+      Adding syn v2.0.106 (available: v2.0.118, requires Rust 1.71)
+      Adding thiserror v2.0.17 (available: v2.0.18, requires Rust 1.68)
+      Adding thiserror-impl v2.0.17 (available: v2.0.18, requires Rust 1.68)
+      Adding unicode-ident v1.0.22 (available: v1.0.24, requires Rust 1.71)
+      Adding unicode-segmentation v1.12.0 (available: v1.13.3, requires Rust 1.85.0)
+      Adding wasm-bindgen v0.2.105 (available: v0.2.125, requires Rust 1.77)
+      Adding wasm-bindgen-futures v0.4.55 (available: v0.4.75, requires Rust 1.77)
+      Adding wasm-bindgen-macro v0.2.105 (available: v0.2.125, requires Rust 1.77)
+      Adding wasm-bindgen-macro-support v0.2.105 (available: v0.2.125, requires Rust 1.77)
+      Adding wasm-bindgen-shared v0.2.105 (available: v0.2.125, requires Rust 1.77)
+      Adding wasm-bindgen-test v0.3.55 (available: v0.3.75, requires Rust 1.77)
+      Adding wasm-bindgen-test-macro v0.3.55 (available: v0.3.75, requires Rust 1.77)
+      Adding web-sys v0.3.82 (available: v0.3.102, requires Rust 1.77)
+      Adding windows-bindgen v0.66.0 (requires Rust 1.82)
+      Adding windows-link v0.2.1 (requires Rust 1.71)
+      Adding windows-sys v0.61.2 (requires Rust 1.71)
+      Adding windows-threading v0.2.1 (requires Rust 1.82)
+
+Exit: 0
+Timed out: False

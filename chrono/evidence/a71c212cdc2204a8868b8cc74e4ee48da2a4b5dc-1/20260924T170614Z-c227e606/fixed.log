@@ -1,0 +1,37 @@
+Command: rustup run 1.96.0 cargo test --locked --offline --lib offset::local::tz_data::tests::test_tzdata_index_partial_entry -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T17:15:32.842287+00:00
+STDOUT:
+
+running 1 test
+test offset::local::tz_data::tests::test_tzdata_index_partial_entry ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 289 filtered out; finished in 0.00s
+
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+  |
+  = help: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+   Compiling serde_core v1.0.228
+   Compiling libc v0.2.163
+   Compiling itoa v1.0.15
+   Compiling ryu v1.0.20
+   Compiling windows-link v0.2.1
+   Compiling memchr v2.8.2
+   Compiling unicode-segmentation v1.12.0
+   Compiling console v0.16.3
+   Compiling similar v3.1.1
+   Compiling windows-threading v0.2.1
+   Compiling num-traits v0.2.19
+   Compiling iana-time-zone v0.1.65
+   Compiling similar-asserts v2.0.0
+   Compiling serde v1.0.228
+   Compiling serde_json v1.0.145
+   Compiling bincode v1.3.3
+   Compiling windows-bindgen v0.66.0
+   Compiling chrono v0.4.45 (/home/runner/work/_temp/upstream)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 8.67s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T170614Z-c227e606/debug/deps/chrono-29cedbb33911a60f)
+
+Exit: 0
+Timed out: False
