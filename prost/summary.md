@@ -4,12 +4,12 @@
 
 Upstream: https://github.com/tokio-rs/prost
 
-Candidate: 26463f437e1a3445c9d3119cf9cf0f64f5b23dfa-1
+Candidate: 4104042b04071fa0a73c155ce2df64be8a75c194-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 616 reachable from the saved tip.
+Reviewed commits: 1 / 808 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.
