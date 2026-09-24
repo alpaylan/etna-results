@@ -1,0 +1,13 @@
+{
+  "commit": "e4fd0e1b21f39e7d8ff35da53eb11d0624bbf6cc",
+  "parent": "cd9a45ea2aed6cde17ecfc2c2676870e1993c0a7",
+  "fixed_commit": "e4fd0e1b21f39e7d8ff35da53eb11d0624bbf6cc",
+  "summary": "Hangul composition incorrectly accepted LVT syllables with another trailing jamo, adding its offset and producing an unrelated syllable. The fix requires (l - S_BASE) % T_COUNT == 0, restricting composition to LV syllables. A verbatim implementation reversal is available, but no detecting upstream test was found at this revision: the fix adds no tests, and inspection of src/test.rs and its official normalization fixtures found no LVT-plus-trailing-jamo regression case. Leave this candidate blocked pending a suitable upstream test. No tests were executed.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/normalize.rs",
+    "fixed_text": "    if S_BASE <= l && l <= (S_BASE+S_COUNT-T_COUNT) // l should be a syllable block\n        && T_BASE <= v && v < (T_BASE+T_COUNT) // v should be a T jongseong jamo\n        && (l - S_BASE) % T_COUNT == 0 { // l should be an LV syllable block (not LVT)\n",
+    "parent_text": "    if S_BASE <= l && l <= (S_BASE+S_COUNT-T_COUNT) && T_BASE <= v && v < (T_BASE+T_COUNT) {\n"
+  }
+}

@@ -1,10 +1,10 @@
 # Cloud bug-mining prototype
 
-**blocked**: Reversal changes are not part of the upstream fix
+**blocked**: Proposal names no upstream test
 
 Upstream: https://github.com/unicode-rs/unicode-normalization
 
-Candidate: bd3770c5852d7e01fa74635c52100f0e4f4c34f4-1
+Candidate: e4fd0e1b21f39e7d8ff35da53eb11d0624bbf6cc-1
 
 Provenance: verbatim
 
