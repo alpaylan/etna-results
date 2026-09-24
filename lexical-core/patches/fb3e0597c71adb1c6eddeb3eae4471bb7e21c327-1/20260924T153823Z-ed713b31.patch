@@ -1,0 +1,21 @@
+diff --git a/lexical-parse-integer/src/shared.rs b/lexical-parse-integer/src/shared.rs
+index 744bb3e..446781e 100644
+--- a/lexical-parse-integer/src/shared.rs
++++ b/lexical-parse-integer/src/shared.rs
+@@ -206,14 +206,8 @@ macro_rules! parse_1digit {
+                     return $invalid_digit!($value, $iter);
+                 },
+             };
+-            let optvalue = $value.checked_mul(as_cast(radix))
+-                .and_then(|x| x.$op(as_cast(digit)));
+-            if let Some(unwrapped) = optvalue {
+-                $value = unwrapped;
+-            } else {
+-                $overflow = true;
+-                break;
+-            }
++            $value = $value.wrapping_mul(as_cast(radix));
++            $value = $value.wrapping_add(as_cast(digit));
+         }
+     }};
+ }

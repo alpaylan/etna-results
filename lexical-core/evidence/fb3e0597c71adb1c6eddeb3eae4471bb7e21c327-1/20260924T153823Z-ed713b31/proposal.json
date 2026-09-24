@@ -1,0 +1,13 @@
+{
+  "commit": "fb3e0597c71adb1c6eddeb3eae4471bb7e21c327",
+  "parent": "05cc14264790c38858ceed337eb8f15b6391ebff",
+  "fixed_commit": "fb3e0597c71adb1c6eddeb3eae4471bb7e21c327",
+  "summary": "Integer parsing used wrapping unsigned arithmetic followed by validation that could miss overflow when the wrapped value exceeded its minimum threshold, accepting inputs such as u8 \"356\". The fix uses checked multiplication and checked addition/subtraction, reporting overflow immediately. This reversal restores the original single-digit wrapping operations. The fix-added test issue_91_test in lexical-parse-integer/tests/issue_91_tests.rs should then fail on its first assertion because \"354\" wraps to Ok(98). No builds or tests were run.",
+  "test": "issue_91_test",
+  "expected_failure": "assertion failed: u8::from_lexical(b\"354\").is_err()",
+  "reversal": {
+    "path": "lexical-parse-integer/src/shared.rs",
+    "fixed_text": "            let optvalue = $value.checked_mul(as_cast(radix))\n                .and_then(|x| x.$op(as_cast(digit)));\n            if let Some(unwrapped) = optvalue {\n                $value = unwrapped;\n            } else {\n                $overflow = true;\n                break;\n            }\n",
+    "parent_text": "            $value = $value.wrapping_mul(as_cast(radix));\n            $value = $value.wrapping_add(as_cast(digit));\n"
+  }
+}
