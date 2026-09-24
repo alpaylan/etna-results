@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**unconfirmed**: The observed failure does not establish the described bug
+**blocked**: Proposal names no upstream test
 
 Upstream: https://github.com/chronotope/chrono
 
-Candidate: 3ffcd1b107fd3085bc184a1f5f7445b97a0d655f-1
+Candidate: ff370ae656a52ada172bb7a0fd98d1051a998a93-1
 
 Provenance: verbatim
 
-Latest outcomes: {"unconfirmed": 1}
+Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 1778 reachable from the saved tip.
+History coverage not yet recorded.
 
 Scope: one queued candidate; history coverage is partial.
