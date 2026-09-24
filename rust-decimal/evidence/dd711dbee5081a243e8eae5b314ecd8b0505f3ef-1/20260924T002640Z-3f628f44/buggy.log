@@ -1,0 +1,40 @@
+Command: rustup run 1.80.0 cargo test --locked --offline --test decimal_tests it_can_calculate_abs_sub -- --nocapture --test-threads=1
+Started: 2026-09-24T00:33:04.092574+00:00
+STDOUT:
+
+running 1 test
+test it_can_calculate_abs_sub ... FAILED
+
+failures:
+
+failures:
+    it_can_calculate_abs_sub
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 446 filtered out; finished in 0.00s
+
+
+STDERR:
+warning: both `/home/runner/work/_temp/upstream/.cargo/config` and `/home/runner/work/_temp/upstream/.cargo/config.toml` exist. Using `/home/runner/work/_temp/upstream/.cargo/config`
+   Compiling rust_decimal v1.35.0
+   Compiling rust_decimal v1.35.0 (/home/runner/work/_temp/upstream)
+warning: struct `OptionDecimalVisitor` is never constructed
+   --> src/serde.rs:373:8
+    |
+373 | struct OptionDecimalVisitor;
+    |        ^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` on by default
+
+   Compiling rust_decimal_macros v1.35.0
+warning: `rust_decimal` (lib) generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.84s
+     Running tests/decimal_tests.rs (/home/runner/work/_temp/build-20260924T002640Z-3f628f44/debug/deps/decimal_tests-37d241ce5d024a87)
+thread 'it_can_calculate_abs_sub' panicked at tests/decimal_tests.rs:3452:9:
+assertion `left == right` failed: Input: 123 122
+  left: 1
+ right: 123
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `--test decimal_tests`
+
+Exit: 101
+Timed out: False

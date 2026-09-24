@@ -1,0 +1,60 @@
+Command: rustup run 1.80.0 cargo generate-lockfile
+Started: 2026-09-24T00:31:00.119401+00:00
+STDOUT:
+
+STDERR:
+warning: both `/home/runner/work/_temp/upstream/.cargo/config` and `/home/runner/work/_temp/upstream/.cargo/config.toml` exist. Using `/home/runner/work/_temp/upstream/.cargo/config`
+    Updating `era` index
+     Locking 297 packages to latest compatible versions
+      Adding addr2line v0.22.0 (latest: v0.24.1)
+      Adding ahash v0.7.8 (latest: v0.8.11)
+      Adding anes v0.1.6 (latest: v0.2.0)
+      Adding atomic v0.5.3 (latest: v0.6.0)
+      Adding bitflags v1.3.2 (latest: v2.6.0)
+      Adding bytecheck v0.6.12 (latest: v0.7.0)
+      Adding bytecheck_derive v0.6.12 (latest: v0.7.0)
+      Adding fallible-iterator v0.2.0 (latest: v0.3.0)
+      Adding generator v0.7.5 (latest: v0.8.2)
+      Adding generic-array v0.14.7 (latest: v1.1.0)
+      Adding gimli v0.29.0 (latest: v0.31.0)
+      Adding hashbrown v0.12.3 (latest: v0.14.5)
+      Adding hermit-abi v0.3.9 (latest: v0.4.0)
+      Adding http v0.2.12 (latest: v1.1.0)
+      Adding http-body v0.4.6 (latest: v1.0.1)
+      Adding hyper v0.14.30 (latest: v1.4.1)
+      Adding idna v0.5.0 (latest: v1.0.2)
+      Adding itertools v0.10.5 (latest: v0.13.0)
+      Adding linux-raw-sys v0.4.14 (latest: v0.6.4)
+      Adding loom v0.5.6 (latest: v0.7.2)
+      Adding matchers v0.1.0 (latest: v0.2.0)
+      Adding nu-ansi-term v0.46.0 (latest: v0.50.1)
+      Adding ptr_meta v0.1.4 (latest: v0.2.0)
+      Adding ptr_meta_derive v0.1.4 (latest: v0.2.0)
+      Adding pulldown-cmark v0.9.6 (latest: v0.11.0)
+      Adding radium v0.7.0 (latest: v1.1.0)
+      Adding redox_syscall v0.4.1 (latest: v0.5.3)
+      Adding regex-automata v0.1.10 (latest: v0.4.7)
+      Adding regex-syntax v0.6.29 (latest: v0.8.4)
+      Adding siphasher v0.3.11 (latest: v1.0.1)
+      Adding syn v1.0.109 (latest: v2.0.72)
+      Adding toml v0.7.8 (latest: v0.8.19)
+      Adding toml_edit v0.19.15 (latest: v0.22.20)
+      Adding toml_edit v0.21.1 (latest: v0.22.20)
+      Adding wasi v0.11.0+wasi-snapshot-preview1 (latest: v0.13.1+wasi-0.2.0)
+      Adding windows v0.48.0 (latest: v0.58.0)
+      Adding windows-sys v0.52.0 (latest: v0.59.0)
+      Adding windows-targets v0.48.5 (latest: v0.52.6)
+      Adding windows_aarch64_gnullvm v0.48.5 (latest: v0.52.6)
+      Adding windows_aarch64_msvc v0.48.5 (latest: v0.52.6)
+      Adding windows_i686_gnu v0.48.5 (latest: v0.52.6)
+      Adding windows_i686_msvc v0.48.5 (latest: v0.52.6)
+      Adding windows_x86_64_gnu v0.48.5 (latest: v0.52.6)
+      Adding windows_x86_64_gnullvm v0.48.5 (latest: v0.52.6)
+      Adding windows_x86_64_msvc v0.48.5 (latest: v0.52.6)
+      Adding winnow v0.5.40 (latest: v0.6.18)
+      Adding wyz v0.5.1 (latest: v0.6.1)
+      Adding zerocopy v0.6.6 (latest: v0.7.35)
+      Adding zerocopy-derive v0.6.6 (latest: v0.7.35)
+
+Exit: 0
+Timed out: False

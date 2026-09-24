@@ -1,0 +1,13 @@
+{
+  "commit": "dd711dbee5081a243e8eae5b314ecd8b0505f3ef",
+  "parent": "6f8b0ae8570b33727a779da8bb81983c4bb58d68",
+  "fixed_commit": "dd711dbee5081a243e8eae5b314ecd8b0505f3ef",
+  "summary": "Decimal's Signed::abs_sub returned self.abs() when self > other, so 123.abs_sub(122) returned 123 instead of 1. The fix returns self - other while retaining zero when self <= other. The fix updates it_can_calculate_abs_sub in tests/decimal_tests.rs to expect the correct differences. Both reversal regions occur exactly once in their respective revisions. No builds or tests were run.",
+  "test": "it_can_calculate_abs_sub",
+  "expected_failure": "assertion `left == right` failed: Input: 123 122\n  left: 1\n right: 123",
+  "reversal": {
+    "path": "src/decimal.rs",
+    "fixed_text": "    fn abs_sub(&self, other: &Self) -> Self {\n        if self <= other {\n            ZERO\n        } else {\n            self - other\n        }\n    }\n",
+    "parent_text": "    fn abs_sub(&self, other: &Self) -> Self {\n        if self <= other {\n            ZERO\n        } else {\n            self.abs()\n        }\n    }\n"
+  }
+}

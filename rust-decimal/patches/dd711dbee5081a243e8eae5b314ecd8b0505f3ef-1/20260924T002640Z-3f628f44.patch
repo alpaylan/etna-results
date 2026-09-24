@@ -1,0 +1,13 @@
+diff --git a/src/decimal.rs b/src/decimal.rs
+index 3a1d787..2388748 100644
+--- a/src/decimal.rs
++++ b/src/decimal.rs
+@@ -1896,7 +1896,7 @@ impl Signed for Decimal {
+         if self <= other {
+             ZERO
+         } else {
+-            self - other
++            self.abs()
+         }
+     }
+ 

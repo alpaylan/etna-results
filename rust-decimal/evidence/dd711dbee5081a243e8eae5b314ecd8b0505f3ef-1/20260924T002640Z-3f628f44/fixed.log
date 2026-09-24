@@ -1,0 +1,144 @@
+Command: rustup run 1.80.0 cargo test --locked --offline --test decimal_tests it_can_calculate_abs_sub -- --nocapture --test-threads=1
+Started: 2026-09-24T00:32:38.088659+00:00
+STDOUT:
+
+running 1 test
+test it_can_calculate_abs_sub ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 446 filtered out; finished in 0.00s
+
+
+STDERR:
+warning: both `/home/runner/work/_temp/upstream/.cargo/config` and `/home/runner/work/_temp/upstream/.cargo/config.toml` exist. Using `/home/runner/work/_temp/upstream/.cargo/config`
+   Compiling unicode-ident v1.0.12
+   Compiling libc v0.2.155
+   Compiling cfg-if v1.0.0
+   Compiling typenum v1.17.0
+   Compiling memchr v2.7.4
+   Compiling proc-macro2 v1.0.86
+   Compiling quote v1.0.36
+   Compiling generic-array v0.14.7
+   Compiling syn v2.0.72
+   Compiling tinyvec_macros v0.1.1
+   Compiling tinyvec v1.8.0
+   Compiling subtle v2.6.1
+   Compiling crypto-common v0.1.6
+   Compiling block-buffer v0.10.4
+   Compiling byteorder v1.5.0
+   Compiling unicode-bidi v0.3.15
+   Compiling digest v0.10.7
+   Compiling getrandom v0.2.15
+   Compiling rand_core v0.6.4
+   Compiling unicode-normalization v0.1.23
+   Compiling futures-core v0.3.30
+   Compiling pin-project-lite v0.2.14
+   Compiling bytes v1.7.1
+   Compiling futures-sink v0.3.30
+   Compiling percent-encoding v2.3.1
+   Compiling unicode-properties v0.1.1
+   Compiling cpufeatures v0.2.12
+   Compiling sha2 v0.10.8
+   Compiling stringprep v0.1.5
+   Compiling slab v0.4.9
+   Compiling hmac v0.12.1
+   Compiling md-5 v0.10.6
+   Compiling mio v1.0.1
+   Compiling socket2 v0.5.7
+   Compiling scopeguard v1.2.0
+   Compiling itoa v1.0.11
+   Compiling pin-utils v0.1.0
+   Compiling ryu v1.0.18
+   Compiling base64 v0.22.1
+   Compiling fallible-iterator v0.2.0
+   Compiling futures-task v0.3.30
+   Compiling siphasher v0.3.11
+   Compiling smallvec v1.13.2
+   Compiling equivalent v1.0.1
+   Compiling hashbrown v0.14.5
+   Compiling phf_shared v0.11.2
+   Compiling parking_lot_core v0.9.10
+   Compiling lock_api v0.4.12
+   Compiling futures-channel v0.3.30
+   Compiling indexmap v2.3.0
+   Compiling half v2.4.1
+   Compiling winnow v0.5.40
+   Compiling clap_lex v0.7.2
+   Compiling ciborium-io v0.2.2
+   Compiling either v1.13.0
+   Compiling anstyle v1.0.8
+   Compiling rust_decimal v1.35.0
+   Compiling regex-syntax v0.8.4
+   Compiling itertools v0.10.5
+   Compiling serde_derive v1.0.204
+   Compiling zerocopy-derive v0.6.6
+   Compiling futures-macro v0.3.30
+   Compiling zerocopy v0.6.6
+   Compiling ppv-lite86 v0.2.18
+   Compiling tokio-macros v2.4.0
+   Compiling rand_chacha v0.3.1
+   Compiling rand v0.8.5
+   Compiling futures-util v0.3.30
+   Compiling tokio v1.39.2
+   Compiling postgres-protocol v0.6.7
+   Compiling postgres-types v0.2.7
+   Compiling serde v1.0.204
+   Compiling regex-automata v0.4.7
+   Compiling async-trait v0.1.81
+   Compiling clap_builder v4.5.13
+   Compiling toml_datetime v0.6.8
+   Compiling serde_spanned v0.6.7
+   Compiling toml_edit v0.19.15
+   Compiling serde_json v1.0.122
+   Compiling tokio-util v0.7.11
+   Compiling ciborium-ll v0.2.2
+   Compiling unicase v2.7.0
+   Compiling num-traits v0.2.19
+   Compiling parking_lot v0.12.3
+   Compiling phf v0.11.2
+   Compiling form_urlencoded v1.2.1
+   Compiling idna v0.5.0
+   Compiling same-file v1.0.6
+   Compiling rust_decimal v1.35.0 (/home/runner/work/_temp/upstream)
+   Compiling bitflags v2.6.0
+   Compiling whoami v1.5.1
+   Compiling log v0.4.22
+   Compiling cast v0.3.0
+   Compiling tokio-postgres v0.7.11
+   Compiling criterion-plot v0.5.0
+   Compiling url v2.5.2
+   Compiling pulldown-cmark v0.9.6
+   Compiling walkdir v2.5.0
+   Compiling ciborium v0.2.2
+   Compiling toml v0.7.8
+   Compiling tinytemplate v1.2.1
+   Compiling clap v4.5.13
+   Compiling regex v1.10.6
+   Compiling semver v1.0.23
+   Compiling is-terminal v0.4.12
+   Compiling csv-core v0.1.11
+   Compiling futures-io v0.3.30
+   Compiling arrayvec v0.7.4
+   Compiling anes v0.1.6
+   Compiling oorandom v11.1.4
+   Compiling once_cell v1.19.0
+   Compiling futures v0.3.30
+   Compiling csv v1.3.0
+   Compiling criterion v0.5.1
+warning: struct `OptionDecimalVisitor` is never constructed
+   --> src/serde.rs:373:8
+    |
+373 | struct OptionDecimalVisitor;
+    |        ^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` on by default
+
+   Compiling version-sync v0.9.5
+   Compiling postgres v0.19.8
+warning: `rust_decimal` (lib) generated 1 warning
+   Compiling rust_decimal_macros v1.35.0
+   Compiling bincode v1.3.3
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 25.78s
+     Running tests/decimal_tests.rs (/home/runner/work/_temp/build-20260924T002640Z-3f628f44/debug/deps/decimal_tests-37d241ce5d024a87)
+
+Exit: 0
+Timed out: False
