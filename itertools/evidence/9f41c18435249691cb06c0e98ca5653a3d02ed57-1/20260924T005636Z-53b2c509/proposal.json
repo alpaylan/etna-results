@@ -1,0 +1,13 @@
+{
+  "commit": "9f41c18435249691cb06c0e98ca5653a3d02ed57",
+  "parent": "dd7fd96b3246f607825420f12141ebd1e0c4185a",
+  "fixed_commit": "9f41c18435249691cb06c0e98ca5653a3d02ed57",
+  "summary": "MergeJoinBy::size_hint added finite upper bounds with unchecked usize addition, which can panic with overflow checks enabled or wrap to an invalid upper bound otherwise. The fix uses checked_add to return None when the sum exceeds usize::MAX. The verbatim reversal is isolated and unique. Blocked: no detecting upstream test found at the fixed commit. The fix adds no tests; existing merge-join tests and the documentation example use small inputs that cannot trigger overflow. The candidate's OpaqueIter property is absent from this revision.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/merge_join.rs",
+    "fixed_text": "            (Some(x), Some(y)) => x.checked_add(y),\n",
+    "parent_text": "            (Some(x), Some(y)) => Some(x + y),\n"
+  }
+}

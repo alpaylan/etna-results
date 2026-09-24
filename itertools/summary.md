@@ -1,17 +1,15 @@
 # Cloud bug-mining prototype
 
-Resumed verified evidence; no tests rerun.
-
-**confirmed**: The same upstream test passed, panicked on the original defect ('Failed assertion None == Some([]) for iteration 0'), and passed after restoration
+**blocked**: Proposal names no upstream test
 
 Upstream: https://github.com/rust-itertools/itertools
 
-Candidate: 13aa10e27a6bb5b5dd70cb677924af5846862560-1
+Candidate: 9f41c18435249691cb06c0e98ca5653a3d02ed57-1
 
 Provenance: verbatim
 
-Latest outcomes: {"confirmed": 1}
+Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 1112 reachable from the saved tip.
+History coverage not yet recorded.
 
 Scope: one queued candidate; history coverage is partial.
