@@ -1,0 +1,18 @@
+Command: rustup run 1.89.0 cargo fetch --locked
+Started: 2026-09-24T00:24:31.209201+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+warning: no edition set: defaulting to the 2015 edition while 2021 is compatible with `rust-version`
+ Downloading crates ...
+  Downloaded foldhash v0.1.5 (registry `era`)
+  Downloaded allocator-api2 v0.2.21 (registry `era`)
+  Downloaded scoped_threadpool v0.1.9 (registry `era`)
+  Downloaded stats_alloc v0.1.10 (registry `era`)
+  Downloaded equivalent v1.0.2 (registry `era`)
+  Downloaded hashbrown v0.15.5 (registry `era`)
+
+Exit: 0
+Timed out: False

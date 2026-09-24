@@ -1,0 +1,20 @@
+diff --git a/src/lib.rs b/src/lib.rs
+index df52963..bd2b076 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -200,14 +200,9 @@ where
+     S: BuildHasher + Clone,
+ {
+     fn clone(&self) -> Self {
+-        let map_cap = if self.is_unbounded() {
+-            self.len()
+-        } else {
+-            self.cap().get()
+-        };
+         let mut new_lru = LruCache::construct(
+             self.cap(),
+-            HashMap::with_capacity_and_hasher(map_cap, self.map.hasher().clone()),
++            HashMap::with_capacity_and_hasher(self.cap().get(), self.map.hasher().clone()),
+         );
+ 
+         for (key, value) in self.iter().rev() {

@@ -1,0 +1,13 @@
+{
+  "commit": "3ec42b6369082c00da2836fe033db20cb52a36fc",
+  "parent": "e2e3e47c33386672fc715deabf3494b071b8d04c",
+  "fixed_commit": "3ec42b6369082c00da2836fe033db20cb52a36fc",
+  "summary": "Cloning an unbounded LruCache reserves usize::MAX hash-map slots, causing a capacity-overflow panic before copying entries. The fix reserves self.len() slots for unbounded caches while preserving their unbounded capacity. The regression test added by this commit clones an unbounded cache and checks entries and eviction order.",
+  "test": "tests::test_clone_unbounded",
+  "expected_failure": "Hash table capacity overflow",
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "    fn clone(&self) -> Self {\n        let map_cap = if self.is_unbounded() {\n            self.len()\n        } else {\n            self.cap().get()\n        };\n        let mut new_lru = LruCache::construct(\n            self.cap(),\n            HashMap::with_capacity_and_hasher(map_cap, self.map.hasher().clone()),\n        );\n",
+    "parent_text": "    fn clone(&self) -> Self {\n        let mut new_lru = LruCache::construct(\n            self.cap(),\n            HashMap::with_capacity_and_hasher(self.cap().get(), self.map.hasher().clone()),\n        );\n"
+  }
+}

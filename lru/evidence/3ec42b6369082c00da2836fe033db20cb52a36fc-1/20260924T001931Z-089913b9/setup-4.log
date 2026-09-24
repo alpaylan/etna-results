@@ -1,0 +1,19 @@
+Command: rustup run 1.89.0 cargo check --locked --offline --tests
+Started: 2026-09-24T00:24:31.311517+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+warning: no edition set: defaulting to the 2015 edition while 2021 is compatible with `rust-version`
+    Checking foldhash v0.1.5
+    Checking allocator-api2 v0.2.21
+    Checking equivalent v1.0.2
+    Checking stats_alloc v0.1.10
+    Checking scoped_threadpool v0.1.9
+    Checking hashbrown v0.15.5
+    Checking lru v0.16.0 (/home/runner/work/_temp/upstream)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.73s
+
+Exit: 0
+Timed out: False
