@@ -1,0 +1,13 @@
+{
+  "commit": "3af4733e60f956bd8673b419d3a9e83fcd0a0b8e",
+  "parent": "6188ecf96c66f06d31d84784c50da182ae5fbb64",
+  "fixed_commit": "3af4733e60f956bd8673b419d3a9e83fcd0a0b8e",
+  "summary": "The v7 encoder reversed the first two supplied random bytes when packing the version/random field. The fix places random_bytes[0]'s low nibble in UUID byte 6 and random_bytes[1] in byte 7, preserving their order. The implementation reversal is exact and unique, but no detecting upstream test was found at this commit. The fix adds no tests; existing v7 tests and builder examples check version, variant, timestamp, parsing, or ordering across different timestamps, none of which detects this byte swap. Planning is blocked by the missing detecting test.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/timestamp.rs",
+    "fixed_text": "    let random_and_version =\n        (random_bytes[1] as u16 | ((random_bytes[0] as u16) << 8) & 0x0FFF) | (0x7 << 12);\n",
+    "parent_text": "    let random_and_version =\n        (random_bytes[0] as u16 | ((random_bytes[1] as u16) << 8) & 0x0FFF) | (0x7 << 12);\n"
+  }
+}
