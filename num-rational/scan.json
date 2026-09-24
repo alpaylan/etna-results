@@ -1,0 +1,12 @@
+{
+  "repo": "https://github.com/rust-num/num-rational",
+  "tips": [
+    "e10ca814e7b1f4d5fcc42ed5e7ceb39f8443ef5c"
+  ],
+  "shallow": false,
+  "reviewed": [
+    "e10ca814e7b1f4d5fcc42ed5e7ceb39f8443ef5c"
+  ],
+  "reachable_commits": 774,
+  "scope": "One queued candidate; not an exhaustive history scan."
+}

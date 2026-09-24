@@ -1,0 +1,8 @@
+Command: rustup run 1.35.0 cargo clean -p num-rational
+Started: 2026-09-24T00:22:16.493354+00:00
+STDOUT:
+
+STDERR:
+
+Exit: 0
+Timed out: False

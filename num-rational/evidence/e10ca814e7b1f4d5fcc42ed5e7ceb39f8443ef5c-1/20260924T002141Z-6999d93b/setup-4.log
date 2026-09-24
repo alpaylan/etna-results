@@ -1,0 +1,14 @@
+Command: rustup run 1.35.0 cargo check --locked --tests
+Started: 2026-09-24T00:22:11.168086+00:00
+STDOUT:
+
+STDERR:
+   Compiling autocfg v0.1.4
+   Compiling num-bigint v0.2.2
+   Compiling num-rational v0.2.1 (/home/runner/work/_temp/upstream)
+   Compiling num-traits v0.2.8
+   Compiling num-integer v0.1.41
+    Finished dev [unoptimized + debuginfo] target(s) in 2.14s
+
+Exit: 0
+Timed out: False

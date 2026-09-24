@@ -1,0 +1,13 @@
+{
+  "commit": "e10ca814e7b1f4d5fcc42ed5e7ceb39f8443ef5c",
+  "parent": "5e04dfcc0507bac7147036f4a9433b8c902ed1f7",
+  "fixed_commit": "e10ca814e7b1f4d5fcc42ed5e7ceb39f8443ef5c",
+  "summary": "Equal zero numerators incorrectly reach the inverse denominator comparison, making 0/1 compare greater than 0/2 and causing equality to return false. The fix returns Equal for equal zero numerators. The fix adds assert_eq!(_0, _0_2) to test::test_cmp, which exercises this behavior. The proposed reversal removes only the implementation guard; reproduction remains for the runner.",
+  "test": "test::test_cmp",
+  "expected_failure": "assertion failed: `(left == right)`",
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "        if self.numer == other.numer {\n            if T::is_zero(self.numer()) {\n                return cmp::Ordering::Equal;\n            }\n            let ord = self.denom.cmp(&other.denom);\n",
+    "parent_text": "        if self.numer == other.numer {\n            let ord = self.denom.cmp(&other.denom);\n"
+  }
+}

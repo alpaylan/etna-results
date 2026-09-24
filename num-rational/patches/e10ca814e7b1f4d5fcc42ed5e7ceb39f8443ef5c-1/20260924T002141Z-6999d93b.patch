@@ -1,0 +1,14 @@
+diff --git a/src/lib.rs b/src/lib.rs
+index 72122b7..6ca2b3c 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -385,9 +385,6 @@ impl<T: Clone + Integer> Ord for Ratio<T> {
+ 
+         // With equal numerators, the denominators can be inversely compared
+         if self.numer == other.numer {
+-            if T::is_zero(self.numer()) {
+-                return cmp::Ordering::Equal;
+-            }
+             let ord = self.denom.cmp(&other.denom);
+             return if self.numer < T::zero() {
+                 ord
