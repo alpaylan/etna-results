@@ -1,0 +1,13 @@
+{
+  "commit": "41d9972538d49ffa3964e3a94109619ce053ef36",
+  "parent": "cf08eec952de61db31eed0fb7ccbe06715fe6086",
+  "fixed_commit": "41d9972538d49ffa3964e3a94109619ce053ef36",
+  "summary": "When a range lower bound falls beyond the last key of a leaf, Node::path_next discards the ancestor path and returns an empty path, causing OrdMap::range to omit valid entries. The fix backtracks past exhausted ancestors to find the next available key. This reversal restores only the faulty path_next branch. The regression test added by the fix compares range counts against BTreeMap across a multilevel tree. No builds or tests were run.",
+  "test": "ord::map::test::range_iter_big",
+  "expected_failure": "assertion failed: `(left == right)`",
+  "reversal": {
+    "path": "src/nodes/btree.rs",
+    "fixed_text": "                None => match self.keys.get(index) {\n                    Some(_) => {\n                        path.push((self, index));\n                        path\n                    }\n                    None => {\n                        // go back up to find next\n                        while let Some((node, idx)) = path.last() {\n                            if node.keys.len() == *idx {\n                                path.pop();\n                            } else {\n                                break;\n                            }\n                        }\n                        path\n                    }\n                },\n                Some(ref node) => {\n                    path.push((self, index));\n                    node.path_next(key, path)\n",
+    "parent_text": "                None => match self.keys.get(index) {\n                    Some(_) => {\n                        path.push((self, index));\n                        path\n                    }\n                    None => Vec::new(),\n                },\n                Some(ref node) => {\n                    path.push((self, index));\n                    node.path_next(key, path)\n"
+  }
+}

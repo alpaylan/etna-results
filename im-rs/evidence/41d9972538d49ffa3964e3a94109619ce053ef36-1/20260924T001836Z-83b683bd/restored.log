@@ -1,0 +1,32 @@
+Command: rustup run 1.60.0 cargo test --locked --offline --lib ord::map::test::range_iter_big -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:21:12.086101+00:00
+STDOUT:
+
+running 1 test
+test ord::map::test::range_iter_big ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 105 filtered out; finished in 2.10s
+
+
+STDERR:
+   Compiling im v15.0.0 (/home/runner/work/_temp/upstream)
+warning: panic message is not a string literal
+    --> src/vector/mod.rs:2532:43
+     |
+2532 |             assert!(!input.ptr_eq(&inp2), len);
+     |                                           ^^^
+     |
+     = note: `#[warn(non_fmt_panics)]` on by default
+     = note: this usage of assert!() is deprecated; it will be a hard error in Rust 2021
+     = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2021/panic-macro-consistency.html>
+help: add a "{}" format string to Display the message
+     |
+2532 |             assert!(!input.ptr_eq(&inp2), "{}", len);
+     |                                           +++++
+
+warning: `im` (lib test) generated 1 warning
+    Finished test [unoptimized + debuginfo] target(s) in 10.50s
+     Running unittests (/home/runner/work/_temp/build-20260924T001836Z-83b683bd/debug/deps/im-1f5c2f16462d67ac)
+
+Exit: 0
+Timed out: False

@@ -1,0 +1,78 @@
+Command: rustup run 1.60.0 cargo check --locked --offline --tests
+Started: 2026-09-24T00:20:23.319389+00:00
+STDOUT:
+
+STDERR:
+   Compiling libc v0.2.124
+    Checking cfg-if v1.0.0
+   Compiling autocfg v1.1.0
+   Compiling getrandom v0.1.16
+    Checking lazy_static v1.4.0
+   Compiling crossbeam-utils v0.8.8
+   Compiling proc-macro2 v0.4.30
+   Compiling unicode-xid v0.1.0
+   Compiling typenum v1.15.0
+    Checking scopeguard v1.1.0
+   Compiling rayon-core v1.9.2
+   Compiling syn v0.15.44
+    Checking ppv-lite86 v0.2.16
+   Compiling serde v1.0.136
+    Checking remove_dir_all v0.5.3
+    Checking fastrand v1.7.0
+    Checking bit-vec v0.6.3
+    Checking quick-error v1.2.3
+   Compiling version_check v0.9.4
+   Compiling serde_json v1.0.79
+    Checking fnv v1.0.7
+    Checking bitflags v1.3.2
+    Checking byteorder v1.4.3
+    Checking ryu v1.0.9
+    Checking itoa v1.0.1
+    Checking either v1.6.1
+    Checking regex-syntax v0.6.25
+    Checking difference v2.0.0
+    Checking ansi_term v0.11.0
+    Checking metrohash v1.0.6
+   Compiling memoffset v0.6.5
+   Compiling crossbeam-epoch v0.9.8
+   Compiling num-traits v0.2.14
+   Compiling rayon v1.5.2
+    Checking bit-set v0.5.2
+    Checking pretty_assertions v0.6.1
+   Compiling im v15.0.0 (/home/runner/work/_temp/upstream)
+    Checking crossbeam-channel v0.5.4
+    Checking num_cpus v1.13.1
+    Checking tempfile v3.3.0
+    Checking wait-timeout v0.2.0
+   Compiling quote v0.6.13
+    Checking bitmaps v2.1.0
+    Checking rand_core v0.5.1
+    Checking rusty-fork v0.3.0
+    Checking crossbeam-deque v0.8.1
+    Checking rand_pcg v0.2.1
+    Checking rand_chacha v0.2.2
+    Checking rand_xorshift v0.2.0
+    Checking rand_xoshiro v0.4.0
+    Checking rand v0.7.3
+    Checking sized-chunks v0.6.5
+    Checking proptest v0.10.1
+   Compiling proptest-derive v0.2.0
+warning: panic message is not a string literal
+    --> src/vector/mod.rs:2532:43
+     |
+2532 |             assert!(!input.ptr_eq(&inp2), len);
+     |                                           ^^^
+     |
+     = note: `#[warn(non_fmt_panics)]` on by default
+     = note: this usage of assert!() is deprecated; it will be a hard error in Rust 2021
+     = note: for more information, see <https://doc.rust-lang.org/nightly/edition-guide/rust-2021/panic-macro-consistency.html>
+help: add a "{}" format string to Display the message
+     |
+2532 |             assert!(!input.ptr_eq(&inp2), "{}", len);
+     |                                           +++++
+
+warning: `im` (lib test) generated 1 warning
+    Finished dev [unoptimized + debuginfo] target(s) in 13.86s
+
+Exit: 0
+Timed out: False
