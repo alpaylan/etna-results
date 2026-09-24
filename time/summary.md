@@ -4,7 +4,7 @@
 
 Upstream: https://github.com/time-rs/time
 
-Candidate: fd664eef0dd6bf4ca729ece9f4bfd8c4bd96ef82-1
+Candidate: d279d8d38f5932ce8d0483df15f9df2e572dd026-1
 
 Provenance: verbatim
 

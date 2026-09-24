@@ -1,0 +1,13 @@
+{
+  "commit": "d279d8d38f5932ce8d0483df15f9df2e572dd026",
+  "parent": "f04a28feecd42e5e0657bdad2a4cf0f93c9ee749",
+  "fixed_commit": "d279d8d38f5932ce8d0483df15f9df2e572dd026",
+  "summary": "Blocked: this commit changes only tests/compile-fail/invalid_offset.rs and its expected diagnostics. It replaces offset!(+24), now valid under the supported hour range, with offset!(+26) to restore invalid-hour diagnostic coverage. The offset parser is identical before and after the commit and already rejects hours above 25. There is no implementation change to reverse; reversing the test changes would violate the unchanged-test requirement.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
