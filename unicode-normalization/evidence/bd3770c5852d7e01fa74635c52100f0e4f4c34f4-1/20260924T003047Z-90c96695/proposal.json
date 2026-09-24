@@ -1,0 +1,13 @@
+{
+  "commit": "bd3770c5852d7e01fa74635c52100f0e4f4c34f4",
+  "parent": "ba25f078054b771d638a10724de82c170b9c08ca",
+  "fixed_commit": "bd3770c5852d7e01fa74635c52100f0e4f4c34f4",
+  "summary": "Hangul composition incorrectly accepted U+11A7 (T_BASE) as a trailing consonant, returning Some of the unchanged LV syllable instead of None. The fix requires a positive trailing-consonant offset, rejecting the sentinel. Reverse the complete compose_hangul function verbatim while preserving the regression test added by the fix. No builds or tests were run.",
+  "test": "normalize::tests::test_hangul_composition",
+  "expected_failure": "assertion failed: `(left == right)`; left is Some('죠') (U+C8E0), right is None",
+  "reversal": {
+    "path": "src/normalize.rs",
+    "fixed_text": "fn compose_hangul(a: char, b: char) -> Option<char> {\n    let (a, b) = (a as u32, b as u32);\n    match (a, b) {\n        // Compose a leading consonant and a vowel together into an LV_Syllable\n        (L_BASE ... L_END, V_BASE ... V_END) => {\n            let l_index = a - L_BASE;\n            let v_index = b - V_BASE;\n            let lv_index = l_index * N_COUNT + v_index * T_COUNT;\n            let s = S_BASE + lv_index;\n            Some(unsafe {char::from_u32_unchecked(s)})\n        },\n        // Compose an LV_Syllable and a trailing consonant into an LVT_Syllable\n        (S_BASE ... S_END, T_BASE ... T_END) if (a - S_BASE) % T_COUNT == 0 && (b - T_BASE) > 0 => {\n            Some(unsafe {char::from_u32_unchecked(a + (b - T_BASE))})\n        },\n        _ => None,\n    }\n}\n",
+    "parent_text": "fn compose_hangul(a: char, b: char) -> Option<char> {\n    let l = a as u32;\n    let v = b as u32;\n    // Compose an LPart and a VPart\n    if L_BASE <= l && l < (L_BASE + L_COUNT) // l should be an L choseong jamo\n        && V_BASE <= v && v < (V_BASE + V_COUNT) { // v should be a V jungseong jamo\n        let r = S_BASE + (l - L_BASE) * N_COUNT + (v - V_BASE) * T_COUNT;\n        return unsafe { Some(char::from_u32_unchecked(r)) };\n    }\n    // Compose an LVPart and a TPart\n    if S_BASE <= l && l <= (S_BASE+S_COUNT-T_COUNT) // l should be a syllable block\n        && T_BASE <= v && v < (T_BASE+T_COUNT) // v should be a T jongseong jamo\n        && (l - S_BASE) % T_COUNT == 0 { // l should be an LV syllable block (not LVT)\n        let r = l + (v - T_BASE);\n        return unsafe { Some(char::from_u32_unchecked(r)) };\n    }\n    None\n}\n"
+  }
+}
