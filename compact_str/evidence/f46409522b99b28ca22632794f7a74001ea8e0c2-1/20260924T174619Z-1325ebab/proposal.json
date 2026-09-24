@@ -1,0 +1,13 @@
+{
+  "commit": "f46409522b99b28ca22632794f7a74001ea8e0c2",
+  "parent": "b56644272585b2a023c0c660cce253ae1b98c37b",
+  "fixed_commit": "f46409522b99b28ca22632794f7a74001ea8e0c2",
+  "summary": "The fix removes Drain's misleading #[must_use] attribute: discarding the iterator still deletes the selected range through Drop, so warning that it does nothing unless consumed is incorrect. The reversal restores that attribute verbatim. Blocked: no detecting upstream runtime test was found. The added drain tests exercise unchanged runtime behavior and cannot distinguish this reversal. With upstream CI's -D warnings, the reversal would instead cause a compilation failure, which does not meet the confirmation gate. No builds or tests were run.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "compact_str/src/lib.rs",
+    "fixed_text": "/// An iterator over the exacted data by [`CompactString::drain()`].\n///\n/// Note: this is deliberately not `#[must_use]`. Dropping a `Drain` still removes the\n/// selected range from the source `CompactString` (see the `Drop` impl), so calling\n/// `drain(range)` purely to delete a range, without consuming the iterator, is a valid\n/// and common use, mirroring `alloc::string::Drain`.\npub struct Drain<'a> {\n",
+    "parent_text": "/// An iterator over the exacted data by [`CompactString::drain()`].\n#[must_use = \"iterators are lazy and do nothing unless consumed\"]\npub struct Drain<'a> {\n"
+  }
+}
