@@ -1,19 +1,15 @@
 # Cloud bug-mining prototype
 
-Resumed verified evidence; no tests rerun.
-
-**confirmed**: The same upstream test passed, panicked on the original defect ('assertion failed: `(left == right)`
-  left: `[0, 0, 0, 0, 0, 0, 0, 0, 0]`,
- right: `[33, 49, 50, 51, 101, 120, 49, 50, 51]`'), and passed after restoration
+**blocked**: Dependency setup failed; see setup logs
 
 Upstream: https://github.com/tokio-rs/bytes
 
-Candidate: 0a2c43af8811fecf6fd08379f16571594bcbb738-1
+Candidate: f693e038d9ad3042c0a68bb3ef609117b1d7a86a-1
 
 Provenance: verbatim
 
-Latest outcomes: {"confirmed": 1}
+Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 424 reachable from the saved tip.
+Reviewed commits: 1 / 99 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

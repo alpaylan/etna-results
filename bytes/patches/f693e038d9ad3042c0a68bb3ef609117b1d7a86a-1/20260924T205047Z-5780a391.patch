@@ -1,0 +1,20 @@
+diff --git a/src/buf/mod.rs b/src/buf/mod.rs
+index b5cd568..587de2c 100644
+--- a/src/buf/mod.rs
++++ b/src/buf/mod.rs
+@@ -407,13 +407,12 @@ impl<'a> Sink for &'a mut Vec<u8> {
+         self.clear();
+ 
+         let rem = buf.remaining();
++        let cap = self.capacity();
+ 
+         // Ensure that the vec is big enough
+         if rem > self.capacity() {
+-            // current length is 0, so reserve completely
+-            self.reserve(rem);
++            self.reserve(rem - cap);
+         }
+-        debug_assert!(rem <= self.capacity());
+ 
+         unsafe {
+             {

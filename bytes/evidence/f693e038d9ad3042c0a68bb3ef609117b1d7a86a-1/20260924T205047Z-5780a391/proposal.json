@@ -1,0 +1,13 @@
+{
+  "commit": "f693e038d9ad3042c0a68bb3ef609117b1d7a86a",
+  "parent": "d0d27bd5401c3953ec8446560de33121611fbf1d",
+  "fixed_commit": "f693e038d9ad3042c0a68bb3ef609117b1d7a86a",
+  "summary": "Vec<u8>::copy_from clears the vector, then incorrectly reserves remaining bytes minus existing capacity. Vec::reserve measures additional space from length, which is now zero, so this can leave insufficient capacity before an unsafe copy and set_len. The fix reserves the full remaining byte count and adds a capacity debug assertion. The regression test added by the fix copies 32 bytes into a vector initially reserved for 16 bytes and checks that length does not exceed capacity.",
+  "test": "test_buf::test_vec_sink_capacity",
+  "expected_failure": "Length 32 must be less than or equal to capacity 16",
+  "reversal": {
+    "path": "src/buf/mod.rs",
+    "fixed_text": "        let rem = buf.remaining();\n\n        // Ensure that the vec is big enough\n        if rem > self.capacity() {\n            // current length is 0, so reserve completely\n            self.reserve(rem);\n        }\n        debug_assert!(rem <= self.capacity());\n",
+    "parent_text": "        let rem = buf.remaining();\n        let cap = self.capacity();\n\n        // Ensure that the vec is big enough\n        if rem > self.capacity() {\n            self.reserve(rem - cap);\n        }\n"
+  }
+}
