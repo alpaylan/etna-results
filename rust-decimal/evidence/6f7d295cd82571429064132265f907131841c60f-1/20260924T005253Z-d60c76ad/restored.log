@@ -1,0 +1,20 @@
+Command: rustup run 1.77.2 cargo test --locked --offline --test decimal_tests it_converts_from_i128 -- --nocapture --test-threads=1
+Started: 2026-09-24T00:57:57.749312+00:00
+STDOUT:
+
+running 1 test
+test it_converts_from_i128 ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 446 filtered out; finished in 0.00s
+
+
+STDERR:
+warning: Both `/home/runner/work/_temp/upstream/.cargo/config` and `/home/runner/work/_temp/upstream/.cargo/config.toml` exist. Using `/home/runner/work/_temp/upstream/.cargo/config`
+   Compiling rust_decimal v1.35.0
+   Compiling rust_decimal v1.35.0 (/home/runner/work/_temp/upstream)
+   Compiling rust_decimal_macros v1.34.2
+    Finished test [unoptimized + debuginfo] target(s) in 3.90s
+     Running tests/decimal_tests.rs (/home/runner/work/_temp/build-20260924T005253Z-d60c76ad/debug/deps/decimal_tests-85f5c9ad3b301b8d)
+
+Exit: 0
+Timed out: False

@@ -1,0 +1,10 @@
+Command: rustup run 1.77.2 cargo generate-lockfile
+Started: 2026-09-24T00:55:56.931813+00:00
+STDOUT:
+
+STDERR:
+warning: Both `/home/runner/work/_temp/upstream/.cargo/config` and `/home/runner/work/_temp/upstream/.cargo/config.toml` exist. Using `/home/runner/work/_temp/upstream/.cargo/config`
+    Updating `era` index
+
+Exit: 0
+Timed out: False

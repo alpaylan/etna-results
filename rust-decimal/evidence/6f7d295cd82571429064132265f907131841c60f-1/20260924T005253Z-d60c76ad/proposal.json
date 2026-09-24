@@ -1,0 +1,13 @@
+{
+  "commit": "6f7d295cd82571429064132265f907131841c60f",
+  "parent": "913dc5bc13dd20f9977f5a5591da0465d4db641a",
+  "fixed_commit": "6f7d295cd82571429064132265f907131841c60f",
+  "summary": "Decimal::from_i128 negates negative inputs before checking representability, causing i128::MIN to panic when overflow checks are enabled. The fix uses unsigned_abs() to obtain its magnitude safely, allowing the existing 96-bit range check to return None. The fix updates tests/decimal_tests.rs::it_converts_from_i128 to exercise i128::MIN and assert None.",
+  "test": "it_converts_from_i128",
+  "expected_failure": "attempt to negate with overflow",
+  "reversal": {
+    "path": "src/decimal.rs",
+    "fixed_text": "            unsigned = n.unsigned_abs();\n",
+    "parent_text": "            unsigned = -n as u128;\n"
+  }
+}
