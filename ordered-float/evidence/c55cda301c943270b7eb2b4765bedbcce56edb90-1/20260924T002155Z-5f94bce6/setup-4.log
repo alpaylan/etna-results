@@ -1,0 +1,14 @@
+Command: rustup run 1.48.0 cargo check --locked --offline --tests
+Started: 2026-09-24T00:22:53.893687+00:00
+STDOUT:
+
+STDERR:
+   Compiling autocfg v1.0.1
+   Compiling serde v1.0.118
+   Compiling num-traits v0.2.14
+    Checking ordered-float v2.0.0 (/home/runner/work/_temp/upstream)
+    Checking serde_test v1.0.118
+    Finished dev [unoptimized + debuginfo] target(s) in 4.49s
+
+Exit: 0
+Timed out: False

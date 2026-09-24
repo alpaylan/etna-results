@@ -1,0 +1,13 @@
+{
+  "commit": "c55cda301c943270b7eb2b4765bedbcce56edb90",
+  "parent": "e8fe06a58476ea70ac5d42d649bdf19f188f2b1c",
+  "fixed_commit": "c55cda301c943270b7eb2b4765bedbcce56edb90",
+  "summary": "NotNan assignment operators mutated the inner float before checking for NaN, so catching a panic exposed a receiver containing NaN. The fix computes and validates the result before assigning it, preserving the receiver on panic. This reversal isolates AddAssign<T>; the regression test added in tests/test.rs checks that infinity += negative infinity leaves a non-NaN receiver after catching the panic. No tests were run.",
+  "test": "not_nan_panic_safety",
+  "expected_failure": "assertion failed: !catch_op(not_nan(f32::INFINITY), |a| *a += f32::NEG_INFINITY).is_nan()",
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "impl<T: Float + AddAssign> AddAssign<T> for NotNan<T> {\n    fn add_assign(&mut self, other: T) {\n        *self = *self + other;\n    }\n}\n",
+    "parent_text": "impl<T: Float + AddAssign> AddAssign<T> for NotNan<T> {\n    fn add_assign(&mut self, other: T) {\n        self.0 += other;\n        assert!(!self.0.is_nan(), \"Addition resulted in NaN\");\n    }\n}\n"
+  }
+}

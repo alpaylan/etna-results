@@ -1,0 +1,26 @@
+Command: rustup run 1.48.0 cargo test --locked --offline --test test not_nan_panic_safety -- --nocapture --test-threads=1
+Started: 2026-09-24T00:22:58.452628+00:00
+STDOUT:
+
+running 1 test
+test not_nan_panic_safety ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 41 filtered out
+
+
+STDERR:
+   Compiling serde v1.0.118
+   Compiling num-traits v0.2.14
+   Compiling ordered-float v2.0.0 (/home/runner/work/_temp/upstream)
+   Compiling serde_test v1.0.118
+    Finished test [unoptimized + debuginfo] target(s) in 5.36s
+     Running /home/runner/work/_temp/build-20260924T002155Z-5f94bce6/debug/deps/test-a66a260b4ee6dbc5
+thread 'main' panicked at 'Addition resulted in NaN: FloatIsNan', /home/runner/work/_temp/upstream/src/lib.rs:365:37
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+thread 'main' panicked at 'Subtraction resulted in NaN: FloatIsNan', /home/runner/work/_temp/upstream/src/lib.rs:412:37
+thread 'main' panicked at 'Multiplication resulted in NaN: FloatIsNan', /home/runner/work/_temp/upstream/src/lib.rs:446:37
+thread 'main' panicked at 'Division resulted in NaN: FloatIsNan', /home/runner/work/_temp/upstream/src/lib.rs:492:37
+thread 'main' panicked at 'Rem resulted in NaN: FloatIsNan', /home/runner/work/_temp/upstream/src/lib.rs:526:37
+
+Exit: 0
+Timed out: False

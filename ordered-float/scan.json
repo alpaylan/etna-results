@@ -1,12 +1,14 @@
 {
   "repo": "https://github.com/reem/rust-ordered-float",
   "tips": [
-    "8d56a3c35bde346cdc91c2736ab0e36ffde85b7f"
+    "8d56a3c35bde346cdc91c2736ab0e36ffde85b7f",
+    "c55cda301c943270b7eb2b4765bedbcce56edb90"
   ],
   "shallow": false,
   "reviewed": [
-    "8d56a3c35bde346cdc91c2736ab0e36ffde85b7f"
+    "8d56a3c35bde346cdc91c2736ab0e36ffde85b7f",
+    "c55cda301c943270b7eb2b4765bedbcce56edb90"
   ],
-  "reachable_commits": 66,
+  "reachable_commits": 99,
   "scope": "One queued candidate; not an exhaustive history scan."
 }

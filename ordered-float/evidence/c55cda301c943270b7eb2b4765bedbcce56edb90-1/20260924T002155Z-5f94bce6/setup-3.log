@@ -1,0 +1,13 @@
+Command: rustup run 1.48.0 cargo fetch --locked
+Started: 2026-09-24T00:22:53.421553+00:00
+STDOUT:
+
+STDERR:
+ Downloading crates ...
+  Downloaded autocfg v1.0.1 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded serde v1.0.118 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded num-traits v0.2.14 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded serde_test v1.0.118 (registry `git://127.0.0.1:9419/era-index`)
+
+Exit: 0
+Timed out: False

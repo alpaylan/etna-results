@@ -1,0 +1,26 @@
+Command: rustup run 1.48.0 cargo test --locked --offline --test test not_nan_panic_safety -- --nocapture --test-threads=1
+Started: 2026-09-24T00:23:03.859955+00:00
+STDOUT:
+
+running 1 test
+test not_nan_panic_safety ... FAILED
+
+failures:
+
+failures:
+    not_nan_panic_safety
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 41 filtered out
+
+
+STDERR:
+   Compiling ordered-float v2.0.0 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 1.09s
+     Running /home/runner/work/_temp/build-20260924T002155Z-5f94bce6/debug/deps/test-a66a260b4ee6dbc5
+thread 'main' panicked at 'Addition resulted in NaN', /home/runner/work/_temp/upstream/src/lib.rs:381:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+thread 'main' panicked at 'assertion failed: !catch_op(not_nan(f32::INFINITY), |a| *a += f32::NEG_INFINITY).is_nan()', tests/test.rs:602:5
+error: test failed, to rerun pass '--test test'
+
+Exit: 101
+Timed out: False
