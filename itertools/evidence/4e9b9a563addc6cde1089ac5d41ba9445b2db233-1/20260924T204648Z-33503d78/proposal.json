@@ -1,0 +1,13 @@
+{
+  "commit": "4e9b9a563addc6cde1089ac5d41ba9445b2db233",
+  "parent": "3f99dc60539b9a9de31a93f0e1c32b6d505ad3bd",
+  "fixed_commit": "4e9b9a563addc6cde1089ac5d41ba9445b2db233",
+  "summary": "Cannot establish a functional regression plan. This commit addresses clippy::cast_lossless by replacing boolean-to-usize casts with equivalent usize::from conversions; test changes likewise replace lossless casts with equivalent conversions. Both implementations preserve the same values and behavior. No regression test is added, and no existing upstream test demonstrates a behavioral difference from reversing these changes. No builds or tests were executed.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
