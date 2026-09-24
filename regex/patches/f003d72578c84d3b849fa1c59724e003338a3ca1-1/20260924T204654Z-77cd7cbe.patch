@@ -1,0 +1,13 @@
+diff --git a/src/exec.rs b/src/exec.rs
+index c449b38..18300ac 100644
+--- a/src/exec.rs
++++ b/src/exec.rs
+@@ -279,7 +279,7 @@ impl ExecBuilder {
+                     // Regex sets with anchors do not go well with literal
+                     // optimizations.
+                     prefixes = None;
+-                } else if props.look_set_prefix_any().contains_word() {
++                } else if props.look_set_prefix().contains_word() {
+                     // The new literal extractor ignores look-around while
+                     // the old one refused to extract prefixes from regexes
+                     // that began with a \b. These old creaky regex internals

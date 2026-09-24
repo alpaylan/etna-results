@@ -1,0 +1,13 @@
+{
+  "commit": "f003d72578c84d3b849fa1c59724e003338a3ca1",
+  "parent": "93316a3b1adc43cc12fab6c73a59f646658cd984",
+  "fixed_commit": "f003d72578c84d3b849fa1c59724e003338a3ca1",
+  "summary": "Prefix literal optimization checked only mandatory leading word boundaries, missing the optional boundary in (?i:(?:\\b|_)win(?:32|64|dows)?(?:\\b|_)). This allowed a false match inside 'ubi-Darwin-x86_64.tar.gz'. The fix disables this optimization when a word boundary may occur before consuming input. Reversing that condition restores the faulty check. The fix adds the selected regression test in tests/regression.rs, included by the default integration test target; default features enable unicode and perf-literal. This is a proposed reversal, without test execution.",
+  "test": "regression::regression_bad_word_boundary",
+  "expected_failure": "assertion failed: !re.is_match(text!(hay))",
+  "reversal": {
+    "path": "src/exec.rs",
+    "fixed_text": "                } else if props.look_set_prefix_any().contains_word() {\n",
+    "parent_text": "                } else if props.look_set_prefix().contains_word() {\n"
+  }
+}
