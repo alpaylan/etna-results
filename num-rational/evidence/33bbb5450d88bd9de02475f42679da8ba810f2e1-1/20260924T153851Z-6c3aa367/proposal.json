@@ -1,0 +1,13 @@
+{
+  "commit": "33bbb5450d88bd9de02475f42679da8ba810f2e1",
+  "parent": "957e23246ab8661ad576cd2d2c8d2eb88a1c76a6",
+  "fixed_commit": "33bbb5450d88bd9de02475f42679da8ba810f2e1",
+  "summary": "Checked division of zero by zero computes gcd(0, 0) = 0 and then performs integer division by zero, panicking instead of returning None. The fix rejects a zero divisor before this computation. The regression test added by the fix checks that zero.checked_div(&zero) returns None. The proposed reversal removes only that guard; reproduction has not been run.",
+  "test": "test::arith::test_checked_zeros",
+  "expected_failure": "attempt to divide by zero",
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "    fn checked_div(&self, rhs: &Ratio<T>) -> Option<Ratio<T>> {\n        if rhs.is_zero() {\n            return None;\n        }\n        let gcd_ac = self.numer.gcd(&rhs.numer);\n",
+    "parent_text": "    fn checked_div(&self, rhs: &Ratio<T>) -> Option<Ratio<T>> {\n        let gcd_ac = self.numer.gcd(&rhs.numer);\n"
+  }
+}

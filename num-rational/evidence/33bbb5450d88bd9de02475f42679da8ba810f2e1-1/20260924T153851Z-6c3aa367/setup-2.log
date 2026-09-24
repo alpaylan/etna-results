@@ -1,0 +1,19 @@
+Command: rustup run 1.42.0 cargo generate-lockfile
+Started: 2026-09-24T15:39:24.836231+00:00
+STDOUT:
+
+STDERR:
+    Updating git repository `https://github.com/rust-num/num-bigint`
+error: failed to load source for a dependency on `num-bigint`
+
+Caused by:
+  Unable to update https://github.com/rust-num/num-bigint
+
+Caused by:
+  failed to find branch `master`
+
+Caused by:
+  cannot locate local branch 'master'; class=Reference (4); code=NotFound (-3)
+
+Exit: 101
+Timed out: False

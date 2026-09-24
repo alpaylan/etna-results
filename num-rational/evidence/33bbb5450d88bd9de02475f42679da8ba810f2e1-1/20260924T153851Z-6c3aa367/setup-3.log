@@ -1,0 +1,16 @@
+Command: rustup run 1.90.0 cargo generate-lockfile
+Started: 2026-09-24T15:39:26.087030+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+    Updating git repository `https://github.com/rust-num/num-bigint`
+    Updating `era` index
+error: failed to select a version for the requirement `num-bigint = "^0.3.0-pre"`
+candidate versions found which didn't match: 0.5.1
+location searched: Git repository https://github.com/rust-num/num-bigint
+required by package `num-rational v0.3.0-pre (/home/runner/work/_temp/upstream)`
+
+Exit: 101
+Timed out: False

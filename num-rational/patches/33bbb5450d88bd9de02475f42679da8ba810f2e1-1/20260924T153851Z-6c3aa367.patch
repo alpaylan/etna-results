@@ -1,0 +1,14 @@
+diff --git a/src/lib.rs b/src/lib.rs
+index 84f45a2..45d0d0d 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -773,9 +773,6 @@ where
+ {
+     #[inline]
+     fn checked_div(&self, rhs: &Ratio<T>) -> Option<Ratio<T>> {
+-        if rhs.is_zero() {
+-            return None;
+-        }
+         let gcd_ac = self.numer.gcd(&rhs.numer);
+         let gcd_bd = self.denom.gcd(&rhs.denom);
+         let denom = (self.denom.clone() / gcd_bd.clone())
