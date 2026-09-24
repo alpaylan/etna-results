@@ -1,0 +1,14 @@
+diff --git a/src/grapheme.rs b/src/grapheme.rs
+index e7a3161..57645d6 100644
+--- a/src/grapheme.rs
++++ b/src/grapheme.rs
+@@ -624,9 +624,6 @@ impl GraphemeCursor {
+         if self.offset == 0 {
+             return Ok(None);
+         }
+-        if self.offset == chunk_start {
+-            return Err(GraphemeIncomplete::PrevChunk);
+-        }
+         let mut iter = chunk[..self.offset - chunk_start].chars().rev();
+         let mut ch = iter.next().unwrap();
+         loop {

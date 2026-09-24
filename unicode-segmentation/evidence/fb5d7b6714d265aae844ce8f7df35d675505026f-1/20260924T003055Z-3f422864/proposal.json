@@ -1,0 +1,13 @@
+{
+  "commit": "fb5d7b6714d265aae844ce8f7df35d675505026f",
+  "parent": "611eaa72f1abfd5cdf2ead49c1b1bbf6fad31006",
+  "fixed_commit": "fb5d7b6714d265aae844ce8f7df35d675505026f",
+  "summary": "When the cursor offset equals a nonzero chunk_start, prev_boundary iterates an empty prefix and panics on unwrap() instead of requesting the preceding chunk. The fix returns Err(GraphemeIncomplete::PrevChunk) before constructing the iterator. Reverse only this guard; the regression test added by the fix exercises this case. No tests were run.",
+  "test": "grapheme::test_grapheme_cursor_prev_boundary_chunk_start",
+  "expected_failure": "called `Option::unwrap()` on a `None` value",
+  "reversal": {
+    "path": "src/grapheme.rs",
+    "fixed_text": "        if self.offset == 0 {\n            return Ok(None);\n        }\n        if self.offset == chunk_start {\n            return Err(GraphemeIncomplete::PrevChunk);\n        }\n        let mut iter = chunk[..self.offset - chunk_start].chars().rev();\n        let mut ch = iter.next().unwrap();\n",
+    "parent_text": "        if self.offset == 0 {\n            return Ok(None);\n        }\n        let mut iter = chunk[..self.offset - chunk_start].chars().rev();\n        let mut ch = iter.next().unwrap();\n"
+  }
+}

@@ -1,0 +1,25 @@
+Command: rustup run 1.24.1 cargo test --locked --lib grapheme::test_grapheme_cursor_prev_boundary_chunk_start -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:31:46.758662+00:00
+STDOUT:
+
+running 1 test
+test grapheme::test_grapheme_cursor_prev_boundary_chunk_start ... FAILED
+
+failures:
+
+failures:
+    grapheme::test_grapheme_cursor_prev_boundary_chunk_start
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 8 filtered out
+
+
+STDERR:
+   Compiling unicode-segmentation v1.2.0 (file:///home/runner/work/_temp/upstream)
+    Finished dev [unoptimized + debuginfo] target(s) in 1.10 secs
+     Running /home/runner/work/_temp/build-20260924T003055Z-3f422864/debug/deps/unicode_segmentation-4aa726421ec8a31b
+thread 'grapheme::test_grapheme_cursor_prev_boundary_chunk_start' panicked at 'called `Option::unwrap()` on a `None` value', /checkout/src/libcore/option.rs:335:21
+note: Run with `RUST_BACKTRACE=1` for a backtrace.
+error: test failed, to rerun pass '--lib'
+
+Exit: 101
+Timed out: False

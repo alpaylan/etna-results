@@ -1,0 +1,12 @@
+{
+  "repo": "https://github.com/unicode-rs/unicode-segmentation",
+  "tips": [
+    "fb5d7b6714d265aae844ce8f7df35d675505026f"
+  ],
+  "shallow": false,
+  "reviewed": [
+    "fb5d7b6714d265aae844ce8f7df35d675505026f"
+  ],
+  "reachable_commits": 68,
+  "scope": "One queued candidate; not an exhaustive history scan."
+}
