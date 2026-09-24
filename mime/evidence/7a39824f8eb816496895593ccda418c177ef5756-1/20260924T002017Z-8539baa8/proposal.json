@@ -1,0 +1,13 @@
+{
+  "commit": "7a39824f8eb816496895593ccda418c177ef5756",
+  "parent": "e4d6f183413d4328178aa5e96ee632b84ac48a7b",
+  "fixed_commit": "7a39824f8eb816496895593ccda418c177ef5756",
+  "summary": "Parsing \"text/event-stream;\" retained the trailing semicolon in the stored source despite having no parameters, producing subtype \"event-stream;\" and comparing unequal to TEXT_EVENT_STREAM. The fix truncates the source at the semicolon. This reversal restores only that source-retention bug, preserving the separate whitespace-handling correction and the regression test added by the fix.",
+  "test": "type_::tests::test_from_str_empty_parameter_list",
+  "expected_failure": "assertion failed: `(left == right)`\n  left: `\"text/event-stream;\"`,\n right: `\"text/event-stream\"`: case = \"text/event-stream;\"",
+  "reversal": {
+    "path": "mime-parse/src/lib.rs",
+    "fixed_text": "    let source = match params {\n        ParamSource::None => {\n            // Getting here means there *was* a `;`, but then no parameters\n            // after it... So let's just chop off the empty param list.\n            debug_assert_ne!(s.len(), start);\n            debug_assert_eq!(s.as_bytes()[start], b';');\n            Atoms::intern(&s[..start], slash, InternParams::None)\n        },\n",
+    "parent_text": "    let source = match params {\n        ParamSource::None => Atoms::intern(s, slash, InternParams::None),\n"
+  }
+}

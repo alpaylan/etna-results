@@ -1,0 +1,16 @@
+Command: rustup run 1.31.1 cargo fetch --locked
+Started: 2026-09-24T00:20:56.130726+00:00
+STDOUT:
+
+STDERR:
+ Downloading crates ...
+  Downloaded proc-macro2 v0.4.24 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded unicode-xid v0.1.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded proc-macro-hack v0.5.4 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded quote v0.6.10 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded quoted-string v0.2.2 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded quick-error v1.2.2 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded syn v0.15.24 (registry `git://127.0.0.1:9419/era-index`)
+
+Exit: 0
+Timed out: False

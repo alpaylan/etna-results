@@ -1,0 +1,19 @@
+diff --git a/mime-parse/src/lib.rs b/mime-parse/src/lib.rs
+index 7d112b9..e77268d 100644
+--- a/mime-parse/src/lib.rs
++++ b/mime-parse/src/lib.rs
+@@ -350,13 +350,7 @@ where
+     let params = params_from_str(s, &mut iter, start)?;
+ 
+     let source = match params {
+-        ParamSource::None => {
+-            // Getting here means there *was* a `;`, but then no parameters
+-            // after it... So let's just chop off the empty param list.
+-            debug_assert_ne!(s.len(), start);
+-            debug_assert_eq!(s.as_bytes()[start], b';');
+-            Atoms::intern(&s[..start], slash, InternParams::None)
+-        },
++        ParamSource::None => Atoms::intern(s, slash, InternParams::None),
+         ParamSource::Utf8(semicolon) => Atoms::intern(s, slash, InternParams::Utf8(semicolon as usize)),
+         ParamSource::One(semicolon, a) => Source::Dynamic(lower_ascii_with_params(s, semicolon as usize, &[a])),
+         ParamSource::Two(semicolon, a, b) => Source::Dynamic(lower_ascii_with_params(s, semicolon as usize, &[a, b])),

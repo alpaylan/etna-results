@@ -1,0 +1,28 @@
+Command: rustup run 1.31.1 cargo test --locked --lib type_::tests::test_from_str_empty_parameter_list -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:20:58.836990+00:00
+STDOUT:
+
+running 1 test
+test type_::tests::test_from_str_empty_parameter_list ... FAILED
+
+failures:
+
+failures:
+    type_::tests::test_from_str_empty_parameter_list
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 37 filtered out
+
+
+STDERR:
+   Compiling mime-parse v0.0.0 (/home/runner/work/_temp/upstream/mime-parse)
+   Compiling mime v0.4.0-a.0 (/home/runner/work/_temp/upstream)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.83s
+     Running /home/runner/work/_temp/build-20260924T002017Z-8539baa8/debug/deps/mime-8a7540947d055c46
+thread 'type_::tests::test_from_str_empty_parameter_list' panicked at 'assertion failed: `(left == right)`
+  left: `"text/event-stream;"`,
+ right: `"text/event-stream"`: case = "text/event-stream;"', src/type_.rs:354:13
+note: Run with `RUST_BACKTRACE=1` for a backtrace.
+error: test failed, to rerun pass '--lib'
+
+Exit: 101
+Timed out: False
