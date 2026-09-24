@@ -1,0 +1,13 @@
+{
+  "commit": "f88cd780699eb96e5284ebbbd31e3c36ab57258f",
+  "parent": "010d842fcc9c5ad77bc09fe23eae51b56ba9efd9",
+  "fixed_commit": "f88cd780699eb96e5284ebbbd31e3c36ab57258f",
+  "summary": "Missing keys produce incomplete diagnostics: parsing ` = 1` reports an unexpected `=` without explaining that a key is required. The fix labels the key parser with .expected(\"key\"), adding `Expected `key`` to the diagnostic. The existing snapshot test named key-empty.toml, registered by tests/test_invalid.rs, checks the diagnostic against a fixture updated by this fix. The proposed reversal exactly restores the parent implementation; no tests were executed.",
+  "test": "key-empty.toml",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/parser/key.rs",
+    "fixed_text": "        byte(DOT_SEP)\n    ).expected(\"key\")\n",
+    "parent_text": "        byte(DOT_SEP)\n    )\n"
+  }
+}
