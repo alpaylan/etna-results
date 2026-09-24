@@ -1,15 +1,17 @@
 # Cloud bug-mining prototype
 
-**blocked**: Proposal names no upstream test
+Resumed verified evidence; no tests rerun.
+
+**confirmed**: The same upstream test passed, panicked on the original defect ('matched 1.0.0-beta'), and passed after restoration
 
 Upstream: https://github.com/dtolnay/semver
 
-Candidate: ae1b06c8c005345ec9d343ddb0f87f45e61ea4a8-1
+Candidate: 5742fc2f584dc14b46199d797de65305fe9b5144-1
 
 Provenance: verbatim
 
-Latest outcomes: {"blocked": 1}
+Latest outcomes: {"confirmed": 1}
 
-History coverage not yet recorded.
+Reviewed commits: 1 / 484 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

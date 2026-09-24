@@ -1,0 +1,13 @@
+{
+  "commit": "5742fc2f584dc14b46199d797de65305fe9b5144",
+  "parent": "35d918d334cdecc9725e217f460b90f478b5dabd",
+  "fixed_commit": "5742fc2f584dc14b46199d797de65305fe9b5144",
+  "summary": "The old Less branch incorrectly accepts 1.0.0-beta for >1.0.0-alpha, <1.0: both matches_exact and matches_greater return false for the patch-less upper bound, so their negated conjunction returns true. The fix uses matches_less, which rejects matching major/minor versions when the comparator omits its patch. Existing test_less_than in tests/test_version_req.rs explicitly rejects this case and the analogous <1 case. The proposed reversal restores only the Less branch. No tests were executed.",
+  "test": "test_less_than",
+  "expected_failure": "matched 1.0.0-beta",
+  "reversal": {
+    "path": "src/eval.rs",
+    "fixed_text": "        Op::Less => matches_less(cmp, ver),\n",
+    "parent_text": "        Op::Less => !matches_exact(cmp, ver) && !matches_greater(cmp, ver),\n"
+  }
+}

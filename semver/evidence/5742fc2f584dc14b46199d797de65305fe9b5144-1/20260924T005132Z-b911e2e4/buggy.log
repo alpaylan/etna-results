@@ -1,0 +1,25 @@
+Command: rustup run 1.52.1 cargo test --locked --offline --test test_version_req test_less_than -- --nocapture --test-threads=1
+Started: 2026-09-24T00:52:41.816389+00:00
+STDOUT:
+
+running 1 test
+test test_less_than ... FAILED
+
+failures:
+
+failures:
+    test_less_than
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 16 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling semver v1.0.0 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 0.77s
+     Running tests/test_version_req.rs (/home/runner/work/_temp/build-20260924T005132Z-b911e2e4/debug/deps/test_version_req-7c56d08d4a4a64ce)
+thread 'main' panicked at 'matched 1.0.0-beta', tests/test_version_req.rs:98:5
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass '--test test_version_req'
+
+Exit: 101
+Timed out: False

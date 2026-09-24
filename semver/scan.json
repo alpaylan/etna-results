@@ -1,0 +1,12 @@
+{
+  "repo": "https://github.com/dtolnay/semver",
+  "tips": [
+    "5742fc2f584dc14b46199d797de65305fe9b5144"
+  ],
+  "shallow": false,
+  "reviewed": [
+    "5742fc2f584dc14b46199d797de65305fe9b5144"
+  ],
+  "reachable_commits": 484,
+  "scope": "One queued candidate; not an exhaustive history scan."
+}
