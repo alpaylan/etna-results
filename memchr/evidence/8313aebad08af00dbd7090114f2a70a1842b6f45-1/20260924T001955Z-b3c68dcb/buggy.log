@@ -1,0 +1,25 @@
+Command: rustup run 1.21.0 cargo test --locked --lib tests::qc_memchr1_iter -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:20:24.933192+00:00
+STDOUT:
+
+running 1 test
+test tests::qc_memchr1_iter ... FAILED
+
+failures:
+
+failures:
+    tests::qc_memchr1_iter
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 64 filtered out
+
+
+STDERR:
+   Compiling memchr v1.0.2 (file:///home/runner/work/_temp/upstream)
+    Finished dev [unoptimized + debuginfo] target(s) in 2.70 secs
+     Running /home/runner/work/_temp/build-20260924T001955Z-b3c68dcb/debug/deps/memchr-267a432db2f23b6d
+thread 'tests::qc_memchr1_iter' panicked at '[quickcheck] TEST FAILED. Arguments: ([0])', /home/runner/.cargo/registry/src/127.0.0.1-6a9c99ba1818a266/quickcheck-0.4.1/src/tester.rs:147:27
+note: Run with `RUST_BACKTRACE=1` for a backtrace.
+error: test failed, to rerun pass '--lib'
+
+Exit: 101
+Timed out: False

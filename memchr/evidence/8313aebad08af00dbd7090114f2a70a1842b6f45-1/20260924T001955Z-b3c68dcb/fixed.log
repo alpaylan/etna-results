@@ -1,0 +1,20 @@
+Command: rustup run 1.21.0 cargo test --locked --lib tests::qc_memchr1_iter -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:20:20.516370+00:00
+STDOUT:
+
+running 1 test
+test tests::qc_memchr1_iter ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 64 filtered out
+
+
+STDERR:
+   Compiling libc v0.2.32
+   Compiling rand v0.3.17
+   Compiling quickcheck v0.4.1
+   Compiling memchr v1.0.2 (file:///home/runner/work/_temp/upstream)
+    Finished dev [unoptimized + debuginfo] target(s) in 4.24 secs
+     Running /home/runner/work/_temp/build-20260924T001955Z-b3c68dcb/debug/deps/memchr-267a432db2f23b6d
+
+Exit: 0
+Timed out: False

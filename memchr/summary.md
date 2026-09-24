@@ -1,15 +1,17 @@
 # Cloud bug-mining prototype
 
-**blocked**: Proposal names no upstream test
+Resumed verified evidence; no tests rerun.
+
+**confirmed**: The same upstream test passed, panicked on the original defect ('[quickcheck] TEST FAILED. Arguments: ([0])'), and passed after restoration
 
 Upstream: https://github.com/BurntSushi/memchr
 
-Candidate: 1b37466ed6f79fcc40692beccfd16b199830b147-1
+Candidate: 8313aebad08af00dbd7090114f2a70a1842b6f45-1
 
 Provenance: verbatim
 
-Latest outcomes: {"blocked": 1}
+Latest outcomes: {"confirmed": 1}
 
-History coverage not yet recorded.
+Reviewed commits: 1 / 66 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

@@ -1,0 +1,13 @@
+{
+  "commit": "8313aebad08af00dbd7090114f2a70a1842b6f45",
+  "parent": "3b94fdfdaa068f95a96719767c98ae0868f95dd5",
+  "fixed_commit": "8313aebad08af00dbd7090114f2a70a1842b6f45",
+  "summary": "Memchr::next returned the updated cursor position, one byte beyond each match, producing one-based indices. The fix returns the zero-based match position while advancing the cursor past it. This reversal restores only the original forward-iterator implementation in src/lib.rs. The fix-added tests::qc_memchr1_iter compares its results with an enumerated byte scan and detects incorrect offsets when generated data contains a zero byte. No tests were run.",
+  "test": "tests::qc_memchr1_iter",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "impl<'a> Iterator for Memchr<'a> {\n    type Item = usize;\n\n    fn next(&mut self) -> Option<usize> {\n        iter_next!(self, memchr(self.needle, &self.haystack))\n    }\n}\n",
+    "parent_text": "impl<'a> Iterator for Memchr<'a> {\n    type Item = usize;\n\n    fn next(&mut self) -> Option<usize> {\n        let search_result = memchr(self.needle, &self.haystack);\n        match search_result {\n            Some(index) => {\n                // Move our internal position\n                self.haystack = self.haystack.split_at(index + 1).1;\n                self.position = self.position + index + 1;\n                Some(self.position)\n            }\n            None => None,\n        }\n    }\n}\n"
+  }
+}

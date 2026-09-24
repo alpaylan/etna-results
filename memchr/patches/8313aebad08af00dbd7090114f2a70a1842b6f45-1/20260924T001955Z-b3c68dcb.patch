@@ -1,0 +1,22 @@
+diff --git a/src/lib.rs b/src/lib.rs
+index 80f3d1b..b2184e8 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -124,7 +124,16 @@ impl<'a> Iterator for Memchr<'a> {
+     type Item = usize;
+ 
+     fn next(&mut self) -> Option<usize> {
+-        iter_next!(self, memchr(self.needle, &self.haystack))
++        let search_result = memchr(self.needle, &self.haystack);
++        match search_result {
++            Some(index) => {
++                // Move our internal position
++                self.haystack = self.haystack.split_at(index + 1).1;
++                self.position = self.position + index + 1;
++                Some(self.position)
++            }
++            None => None,
++        }
+     }
+ }
+ 
