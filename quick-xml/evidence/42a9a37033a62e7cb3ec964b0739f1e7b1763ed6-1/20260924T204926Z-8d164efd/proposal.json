@@ -1,0 +1,13 @@
+{
+  "commit": "42a9a37033a62e7cb3ec964b0739f1e7b1763ed6",
+  "parent": "967d60dffdf23aa9c34c7d85ec3575a4cadc45cb",
+  "fixed_commit": "42a9a37033a62e7cb3ec964b0739f1e7b1763ed6",
+  "summary": "No valid implementation reversal exists: the full diff changes only tests. It corrects the ignored enum_::internally_tagged::newtype::attributes test's XML so value is a child element matching NewtypeContent.value, and removes the redundant ignored test_parse_enum test whose enum lacked internal-tag configuration. The implementation source tree is identical in both revisions. Reversing either change would modify tests, violating the required preservation of upstream tests.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}

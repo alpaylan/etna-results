@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: fixed: no completed execution of the exact upstream test
+**blocked**: Proposal names no upstream test
 
 Upstream: https://github.com/tafia/quick-xml
 
-Candidate: ebaffb3db325c4657e5e5df43afa018ee71ce1c5-1
+Candidate: 42a9a37033a62e7cb3ec964b0739f1e7b1763ed6-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 990 reachable from the saved tip.
+History coverage not yet recorded.
 
 Scope: one queued candidate; history coverage is partial.
