@@ -1,0 +1,13 @@
+{
+  "commit": "3116bccab187a639238cd50754935400a433a3c5",
+  "parent": "d9c476b55a248a4283e14be4125fa892d1e53fbc",
+  "fixed_commit": "3116bccab187a639238cd50754935400a433a3c5",
+  "summary": "RunIter::advance_to returned without consuming remaining intervals when its target exceeded every value, allowing subsequent next() calls to yield values below the target. The fix calls self.intervals.nth(index) when index equals the remaining interval count, exhausting the iterator. Reversing only this forward-iteration correction should make the fix-added test in roaring/tests/iter_advance_to.rs return Some(196608) instead of None after advancing past 0x35B00. Both source regions occur exactly once in their respective revisions. No tests were run.",
+  "test": "advance_run_past_the_end",
+  "expected_failure": "assertion `left == right` failed\n  left: Some(196608)\n right: None",
+  "reversal": {
+    "path": "roaring/src/bitmap/store/interval_store.rs",
+    "fixed_text": "                if index == self.intervals.as_slice().len() {\n                    // Consume the whole iterator\n                    self.intervals.nth(index);\n                    return;\n                }\n",
+    "parent_text": "                if index == self.intervals.as_slice().len() {\n                    return;\n                }\n"
+  }
+}
