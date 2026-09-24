@@ -1,0 +1,27 @@
+Command: rustup run 1.60.0 cargo test --locked --offline --test test_bytes reserve_shared_reuse -- --nocapture --test-threads=1
+Started: 2026-09-24T20:53:24.298265+00:00
+STDOUT:
+
+running 1 test
+test reserve_shared_reuse ... FAILED
+
+failures:
+
+failures:
+    reserve_shared_reuse
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 70 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling bytes v1.1.0 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 1.10s
+     Running tests/test_bytes.rs (/home/runner/work/_temp/build-20260924T205141Z-1eaaa98a/debug/deps/test_bytes-89ee3a4894bf52b6)
+thread 'main' panicked at 'assertion failed: `(left == right)`
+  left: `[0, 0, 0, 0, 0, 0, 0, 0, 0]`,
+ right: `[33, 49, 50, 51, 101, 120, 49, 50, 51]`', tests/test_bytes.rs:545:5
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass '--test test_bytes'
+
+Exit: 101
+Timed out: False

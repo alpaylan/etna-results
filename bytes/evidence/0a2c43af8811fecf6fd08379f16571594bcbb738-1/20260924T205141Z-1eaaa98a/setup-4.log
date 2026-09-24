@@ -1,0 +1,12 @@
+Command: rustup run 1.60.0 cargo check --locked --offline --tests
+Started: 2026-09-24T20:53:18.156756+00:00
+STDOUT:
+
+STDERR:
+   Compiling serde v1.0.136
+   Compiling serde_test v1.0.136
+    Checking bytes v1.1.0 (/home/runner/work/_temp/upstream)
+    Finished dev [unoptimized + debuginfo] target(s) in 2.83s
+
+Exit: 0
+Timed out: False

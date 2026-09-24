@@ -3,17 +3,17 @@
 Resumed verified evidence; no tests rerun.
 
 **confirmed**: The same upstream test passed, panicked on the original defect ('assertion failed: `(left == right)`
-  left: `b""`,
- right: `[104, 101, 108, 108, 111, 119, 111, 114, 108, 100]`'), and passed after restoration
+  left: `[0, 0, 0, 0, 0, 0, 0, 0, 0]`,
+ right: `[33, 49, 50, 51, 101, 120, 49, 50, 51]`'), and passed after restoration
 
 Upstream: https://github.com/tokio-rs/bytes
 
-Candidate: af606aab9be1dde2aeefc1a21344a79beaba7bbe-1
+Candidate: 0a2c43af8811fecf6fd08379f16571594bcbb738-1
 
 Provenance: verbatim
 
 Latest outcomes: {"confirmed": 1}
 
-Reviewed commits: 1 / 330 reachable from the saved tip.
+Reviewed commits: 1 / 424 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

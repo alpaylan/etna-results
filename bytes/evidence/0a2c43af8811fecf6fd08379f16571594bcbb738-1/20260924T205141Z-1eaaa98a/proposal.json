@@ -1,0 +1,13 @@
+{
+  "commit": "0a2c43af8811fecf6fd08379f16571594bcbb738",
+  "parent": "8198f9e28ebbf59760af25748d18d6a43260edf3",
+  "fixed_commit": "0a2c43af8811fecf6fd08379f16571594bcbb738",
+  "summary": "BytesMut::reserve_inner incorrectly derives the buffer offset from the difference between vector and view capacities. After split_off truncates the view capacity, this calculation points to the wrong bytes when reallocating a uniquely held shared vector. The fix computes the actual pointer offset, preserving the buffer contents. The fix-added test reserve_shared_reuse in tests/test_bytes.rs exercises this case. No builds or tests were run.",
+  "test": "reserve_shared_reuse",
+  "expected_failure": "assertion failed: `(left == right)` at the content assertion following bytes.reserve(2000)",
+  "reversal": {
+    "path": "src/bytes_mut.rs",
+    "fixed_text": "                    let off = (self.ptr.as_ptr() as usize) - (v.as_ptr() as usize);\n",
+    "parent_text": "                    let off = v.capacity() - self.cap;\n"
+  }
+}
