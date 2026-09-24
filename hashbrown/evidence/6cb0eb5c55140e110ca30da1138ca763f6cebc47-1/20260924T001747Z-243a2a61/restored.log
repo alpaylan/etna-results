@@ -1,0 +1,23 @@
+Command: rustup run 1.94.1 cargo test --locked --offline --test hasher_unwind hashmap_reserve_survives_panicking_build_hasher -- --nocapture --test-threads=1
+Started: 2026-09-24T00:24:25.601738+00:00
+STDOUT:
+
+running 1 test
+test hashmap_reserve_survives_panicking_build_hasher ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.19s
+
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+  |
+  = help: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+   Compiling serde v1.0.228
+   Compiling rayon v1.11.0
+   Compiling hashbrown v0.16.1 (/home/runner/work/_temp/upstream)
+   Compiling serde_test v1.0.177
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.81s
+     Running tests/hasher_unwind.rs (/home/runner/work/_temp/build-20260924T001747Z-243a2a61/debug/deps/hasher_unwind-e7f84ab939844c4c)
+
+Exit: 0
+Timed out: False

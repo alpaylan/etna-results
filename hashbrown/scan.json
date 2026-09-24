@@ -1,0 +1,12 @@
+{
+  "repo": "https://github.com/rust-lang/hashbrown",
+  "tips": [
+    "6cb0eb5c55140e110ca30da1138ca763f6cebc47"
+  ],
+  "shallow": false,
+  "reviewed": [
+    "6cb0eb5c55140e110ca30da1138ca763f6cebc47"
+  ],
+  "reachable_commits": 1266,
+  "scope": "One queued candidate; not an exhaustive history scan."
+}

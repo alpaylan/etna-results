@@ -1,0 +1,42 @@
+Command: rustup run 1.94.1 cargo test --locked --offline --test hasher_unwind hashmap_reserve_survives_panicking_build_hasher -- --nocapture --test-threads=1
+Started: 2026-09-24T00:24:17.744899+00:00
+STDOUT:
+
+running 1 test
+test hashmap_reserve_survives_panicking_build_hasher ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.21s
+
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+  |
+  = help: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+   Compiling libc v0.2.184
+   Compiling crossbeam-utils v0.8.21
+   Compiling cfg-if v1.0.4
+   Compiling zerocopy v0.8.48
+   Compiling serde_core v1.0.228
+   Compiling crossbeam-epoch v0.9.18
+   Compiling crossbeam-deque v0.8.6
+   Compiling getrandom v0.3.4
+   Compiling allocator-api2 v0.2.21
+   Compiling rand_core v0.9.5
+   Compiling rayon-core v1.13.0
+   Compiling equivalent v1.0.2
+   Compiling either v1.15.0
+   Compiling foldhash v0.2.0
+   Compiling hashbrown v0.16.1 (/home/runner/work/_temp/upstream)
+   Compiling rayon v1.11.0
+   Compiling serde v1.0.228
+   Compiling bumpalo v3.20.2
+   Compiling fnv v1.0.7
+   Compiling serde_test v1.0.177
+   Compiling ppv-lite86 v0.2.21
+   Compiling rand_chacha v0.9.0
+   Compiling rand v0.9.2
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 5.41s
+     Running tests/hasher_unwind.rs (/home/runner/work/_temp/build-20260924T001747Z-243a2a61/debug/deps/hasher_unwind-e7f84ab939844c4c)
+
+Exit: 0
+Timed out: False

@@ -1,0 +1,35 @@
+Command: rustup run 1.94.1 cargo test --locked --offline --test hasher_unwind hashmap_reserve_survives_panicking_build_hasher -- --nocapture --test-threads=1
+Started: 2026-09-24T00:24:23.589261+00:00
+STDOUT:
+
+running 1 test
+test hashmap_reserve_survives_panicking_build_hasher ... FAILED
+
+failures:
+
+failures:
+    hashmap_reserve_survives_panicking_build_hasher
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+  |
+  = help: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+   Compiling serde v1.0.228
+   Compiling hashbrown v0.16.1 (/home/runner/work/_temp/upstream)
+   Compiling rayon v1.11.0
+   Compiling serde_test v1.0.177
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.94s
+     Running tests/hasher_unwind.rs (/home/runner/work/_temp/build-20260924T001747Z-243a2a61/debug/deps/hasher_unwind-e7f84ab939844c4c)
+
+thread 'hashmap_reserve_survives_panicking_build_hasher' (3448) panicked at tests/hasher_unwind.rs:135:5:
+assertion `left == right` failed: the surviving keys should stay reachable after the caught panic
+  left: []
+ right: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 135168, 34282438656, 34282438656, 94071673087376, 140420868735936, 140420868735952, 140420868735968, 140420868735984, 140420868736000, 140420868736016, 140420868736032, 140420868736048, 140420868736064, 140420868736080, 140420868736096, 140420868736112, 140420868736128, 140420868736144, 140420868736160, 140420868736176, 140420868736192, 140420868736208, 140420868736224, 140420868736240, 140420868736256, 140420868736272, 140420868736288, 140420868736304, 140420868736320, 140420868736336, 140420868736352, 140420868736368, 140420868736384, 140420868736400, 140420868736416, 140420868736432, 140420868736448, 140420868736464, 140420868736480, 140420868736496, 140420868736512, 140420868736528, 140420868736544, 140420868736560, 140420868736576, 140420868736592, 140420868736608, 140420868736624, 140420868736640, 140420868736656, 140420868736672, 140420868736688, 140420868736704, 140420868736720, 140420868736736, 140420868736752, 140420868736768, 140420868736784, 140420868736800, 140420868736816, 140420868736832, 140420868736848, 140420868736864, 140420868736880, 140420868736912, 140420868736928, 140420868736944, 140420868737024, 140420868737040, 140420868737056, 140420868737072, 140420868737136, 140420868737952, 140420868742720, 140420958931648]
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `--test hasher_unwind`
+
+Exit: 101
+Timed out: False

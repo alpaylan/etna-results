@@ -1,0 +1,12 @@
+Command: rustup run 1.94.1 cargo clean -p hashbrown
+Started: 2026-09-24T00:24:17.708728+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+  |
+  = help: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+     Removed 85 files, 26.8MiB total
+
+Exit: 0
+Timed out: False

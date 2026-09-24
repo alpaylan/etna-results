@@ -1,0 +1,13 @@
+{
+  "commit": "6cb0eb5c55140e110ca30da1138ca763f6cebc47",
+  "parent": "3bca52e3368231dc9663c00606af30bc6c7b530e",
+  "fixed_commit": "6cb0eb5c55140e110ca30da1138ca763f6cebc47",
+  "summary": "When a hasher panicked during an in-place rehash, the unwind guard skipped cleanup for element types requiring no drop. Unrehashed entries retained DELETED tags and remained counted, leaving len() inconsistent with reachable entries and corrupting iteration. The fix always clears those tags and decrements the item count, making only destructor invocation conditional. The fix adds the selected regression test in tests/hasher_unwind.rs. This plan reverses only the implementation guard; no tests were run.",
+  "test": "hashmap_reserve_survives_panicking_build_hasher",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/raw.rs",
+    "fixed_text": "        let mut guard = guard(self, move |self_| {\n            for i in 0..self_.num_buckets() {\n                unsafe {\n                    // Any elements that haven't been rehashed yet have a\n                    // DELETED tag. These need to be dropped and have their tag\n                    // reset to EMPTY.\n                    if *self_.ctrl(i) == Tag::DELETED {\n                        self_.set_ctrl(i, Tag::EMPTY);\n                        if let Some(drop) = drop {\n                            drop(self_.bucket_ptr(i, size_of));\n                        }\n                        self_.items -= 1;\n                    }\n                }\n            }\n            self_.growth_left = bucket_mask_to_capacity(self_.bucket_mask) - self_.items;\n        });\n",
+    "parent_text": "        let mut guard = guard(self, move |self_| {\n            if let Some(drop) = drop {\n                for i in 0..self_.num_buckets() {\n                    unsafe {\n                        if *self_.ctrl(i) == Tag::DELETED {\n                            self_.set_ctrl(i, Tag::EMPTY);\n                            drop(self_.bucket_ptr(i, size_of));\n                            self_.items -= 1;\n                        }\n                    }\n                }\n            }\n            self_.growth_left = bucket_mask_to_capacity(self_.bucket_mask) - self_.items;\n        });\n"
+  }
+}
