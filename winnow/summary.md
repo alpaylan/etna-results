@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: fixed: source differs beyond the exact implementation reversal
+**blocked**: Proposal names no upstream test
 
 Upstream: https://github.com/winnow-rs/winnow
 
-Candidate: b428d6504dd5f600ebe2a13bdd7b6510aa7d4a17-1
+Candidate: f5c49ba6607517c7eea73a32ffef66515f4b7049-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 3070 reachable from the saved tip.
+History coverage not yet recorded.
 
 Scope: one queued candidate; history coverage is partial.
