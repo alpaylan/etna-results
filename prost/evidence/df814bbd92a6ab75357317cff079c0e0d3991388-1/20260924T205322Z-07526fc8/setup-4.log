@@ -1,0 +1,66 @@
+Command: rustup run 1.87.0 cargo check --locked --offline --tests
+Started: 2026-09-24T20:57:48.015394+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+   Compiling proc-macro2 v1.0.95
+   Compiling libc v0.2.174
+   Compiling unicode-ident v1.0.18
+   Compiling getrandom v0.3.3
+   Compiling anyhow v1.0.98
+   Compiling rustix v1.0.7
+   Compiling either v1.15.0
+   Compiling itertools v0.14.0
+   Compiling prettyplease v0.2.34
+   Compiling quote v1.0.40
+   Compiling syn v2.0.103
+   Compiling regex-syntax v0.8.5
+   Compiling hashbrown v0.15.4
+   Compiling log v0.4.27
+   Compiling bytes v1.10.1
+   Compiling equivalent v1.0.2
+   Compiling bitflags v2.9.1
+   Compiling cfg-if v1.0.1
+   Compiling linux-raw-sys v0.9.4
+   Compiling indexmap v2.9.0
+   Compiling regex-automata v0.4.9
+   Compiling once_cell v1.21.3
+   Compiling fastrand v2.3.0
+   Compiling fixedbitset v0.5.7
+   Compiling petgraph v0.7.1
+   Compiling tempfile v3.20.0
+   Compiling regex v1.11.1
+   Compiling multimap v0.10.1
+   Compiling heck v0.5.0
+   Compiling env_filter v0.1.3
+   Compiling prost-derive v0.14.1 (/home/runner/work/_temp/upstream/prost-derive)
+   Compiling env_logger v0.11.8
+    Checking memchr v2.7.5
+   Compiling jobserver v0.1.33
+   Compiling shlex v1.3.0
+   Compiling cc v1.2.27
+   Compiling prost v0.14.1 (/home/runner/work/_temp/upstream/prost)
+   Compiling prost-types v0.14.1 (/home/runner/work/_temp/upstream/prost-types)
+   Compiling cmake v0.1.54
+   Compiling pulldown-cmark v0.13.0
+   Compiling prost-build v0.14.1 (/home/runner/work/_temp/upstream/prost-build)
+    Checking unicase v2.8.1
+   Compiling autocfg v1.5.0
+   Compiling protobuf v0.0.0 (/home/runner/work/_temp/upstream/protobuf)
+   Compiling zerocopy v0.8.26
+   Compiling serde v1.0.219
+   Compiling num-traits v0.2.19
+    Checking pulldown-cmark-to-cmark v21.0.0
+   Compiling serde_derive v1.0.219
+error: failed to run custom build command for `protobuf v0.0.0 (/home/runner/work/_temp/upstream/protobuf)`
+
+Caused by:
+  process didn't exit successfully: `/home/runner/work/_temp/build-20260924T205322Z-07526fc8/debug/build/protobuf-b5616ebc14a40613/build-script-build` (exit status: 1)
+  --- stderr
+  Error: protobuf sources are not checked out; Try `git submodule update --init --recursive`
+warning: build failed, waiting for other jobs to finish...
+
+Exit: 101
+Timed out: False
