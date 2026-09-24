@@ -1,0 +1,21 @@
+Command: rustup run 1.85.0 cargo test --locked --offline --test test_bytes owned_into_vec -- --nocapture --test-threads=1
+Started: 2026-09-24T20:55:51.638321+00:00
+STDOUT:
+
+running 1 test
+test owned_into_vec ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 108 filtered out; finished in 0.00s
+
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+   Compiling serde v1.0.193
+   Compiling bytes v1.10.0 (/home/runner/work/_temp/upstream)
+   Compiling serde_test v1.0.175
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.47s
+     Running tests/test_bytes.rs (/home/runner/work/_temp/build-20260924T205203Z-584bce34/debug/deps/test_bytes-c09f590af74fde91)
+
+Exit: 0
+Timed out: False

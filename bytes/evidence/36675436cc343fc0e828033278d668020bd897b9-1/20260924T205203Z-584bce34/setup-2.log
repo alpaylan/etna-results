@@ -1,0 +1,47 @@
+Command: rustup run 1.85.0 cargo generate-lockfile
+Started: 2026-09-24T20:54:15.739017+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+    Updating `era` index
+     Locking 50 packages to latest Rust 1.39 compatible versions
+      Adding generator v0.8.2 (available: v0.8.4, requires Rust 1.73)
+      Adding libc v0.2.163 (available: v0.2.170, requires Rust 1.63)
+      Adding log v0.4.18 (available: v0.4.26, requires Rust 1.60.0)
+      Adding loom v0.7.2 (requires Rust 1.65)
+      Adding once_cell v1.14.0 (available: v1.20.3, requires Rust 1.60)
+      Adding proc-macro2 v1.0.65 (available: v1.0.94, requires Rust 1.56)
+      Adding quote v1.0.30 (available: v1.0.39, requires Rust 1.56)
+      Adding regex v1.7.3 (available: v1.11.1, requires Rust 1.65)
+      Adding scoped-tls v1.0.0 (available: v1.0.1, requires Rust 1.59)
+      Adding serde v1.0.193 (available: v1.0.218)
+      Adding serde_derive v1.0.193 (requires Rust 1.56)
+      Adding serde_test v1.0.175 (available: v1.0.177, requires Rust 1.56)
+      Adding sharded-slab v0.1.4 (available: v0.1.7, requires Rust 1.42.0)
+      Adding syn v2.0.32 (requires Rust 1.56)
+      Adding thread_local v1.1.7 (available: v1.1.8, requires Rust 1.59)
+      Adding tracing v0.1.41 (requires Rust 1.63.0)
+      Adding tracing-core v0.1.33 (requires Rust 1.63.0)
+      Adding tracing-log v0.2.0 (requires Rust 1.56.0)
+      Adding tracing-subscriber v0.3.19 (requires Rust 1.63.0)
+      Adding valuable v0.1.1 (requires Rust 1.56)
+      Adding windows v0.58.0 (requires Rust 1.70)
+      Adding windows-core v0.58.0 (requires Rust 1.70)
+      Adding windows-implement v0.58.0 (requires Rust 1.70)
+      Adding windows-interface v0.58.0 (requires Rust 1.70)
+      Adding windows-result v0.2.0 (requires Rust 1.60)
+      Adding windows-strings v0.1.0 (requires Rust 1.60)
+      Adding windows-targets v0.52.6 (requires Rust 1.56)
+      Adding windows_aarch64_gnullvm v0.52.6 (requires Rust 1.56)
+      Adding windows_aarch64_msvc v0.52.6 (requires Rust 1.56)
+      Adding windows_i686_gnu v0.52.6 (requires Rust 1.56)
+      Adding windows_i686_gnullvm v0.52.6 (requires Rust 1.56)
+      Adding windows_i686_msvc v0.52.6 (requires Rust 1.56)
+      Adding windows_x86_64_gnu v0.52.6 (requires Rust 1.56)
+      Adding windows_x86_64_gnullvm v0.52.6 (requires Rust 1.56)
+      Adding windows_x86_64_msvc v0.52.6 (requires Rust 1.56)
+
+Exit: 0
+Timed out: False

@@ -1,0 +1,13 @@
+{
+  "commit": "36675436cc343fc0e828033278d668020bd897b9",
+  "parent": "e0f3a25faeca8babae5b4c5a810b8655adbcb96e",
+  "fixed_commit": "36675436cc343fc0e828033278d668020bd897b9",
+  "summary": "Converting owner-backed Bytes into Vec<u8> copies the contents but leaks the owner because owned_to_vec does not release its reference and the conversion suppresses Bytes destruction with ManuallyDrop. The fix releases the reference after copying and removes the now-redundant release from owned_to_mut. The added test owned_into_vec in tests/test_bytes.rs checks that the owner is dropped once. Reversing both functions restores the historical leak while preserving BytesMut conversion behavior. No tests were executed.",
+  "test": "owned_into_vec",
+  "expected_failure": "assertion `left == right` failed\n  left: 0\n right: 1",
+  "reversal": {
+    "path": "src/bytes.rs",
+    "fixed_text": "unsafe fn owned_to_vec(data: &AtomicPtr<()>, ptr: *const u8, len: usize) -> Vec<u8> {\n    let slice = slice::from_raw_parts(ptr, len);\n    let vec = slice.to_vec();\n    owned_drop_impl(data.load(Ordering::Relaxed));\n    vec\n}\n\nunsafe fn owned_to_mut(data: &AtomicPtr<()>, ptr: *const u8, len: usize) -> BytesMut {\n    BytesMut::from_vec(owned_to_vec(data, ptr, len))\n}\n",
+    "parent_text": "unsafe fn owned_to_vec(_data: &AtomicPtr<()>, ptr: *const u8, len: usize) -> Vec<u8> {\n    let slice = slice::from_raw_parts(ptr, len);\n    slice.to_vec()\n}\n\nunsafe fn owned_to_mut(data: &AtomicPtr<()>, ptr: *const u8, len: usize) -> BytesMut {\n    let bytes_mut = BytesMut::from_vec(owned_to_vec(data, ptr, len));\n    owned_drop_impl(data.load(Ordering::Relaxed));\n    bytes_mut\n}\n"
+  }
+}
