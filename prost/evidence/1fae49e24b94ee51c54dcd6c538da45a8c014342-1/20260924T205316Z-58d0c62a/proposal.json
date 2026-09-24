@@ -1,0 +1,13 @@
+{
+  "commit": "1fae49e24b94ee51c54dcd6c538da45a8c014342",
+  "parent": "447d351aa89e48ccab2bef67996b67da6dfaf27f",
+  "fixed_commit": "1fae49e24b94ee51c54dcd6c538da45a8c014342",
+  "summary": "Oneof collision detection ignored nested enums and compared sanitized snake-case message names against raw oneof names, missing reserved-keyword collisions. This generated duplicate Rust types such as Type and Abstract. The fix compares UpperCamelCase names across nested messages and enums, enabling the existing OneOf suffix. The fix extends oneof_name_conflict::test_creation to cover both cases. Reversal is expected to prevent compilation, which cannot satisfy the confirmation gate requiring an executed test failure; no reproduction is claimed.",
+  "test": "oneof_name_conflict::test_creation",
+  "expected_failure": "error[E0428]: the name `Type` is defined multiple times",
+  "reversal": {
+    "path": "prost-build/src/code_generator.rs",
+    "fixed_text": "        let nested_type_names = parent.nested_type.iter().map(DescriptorProto::name);\n        let nested_enum_names = parent.enum_type.iter().map(EnumDescriptorProto::name);\n        let has_type_name_conflict = nested_type_names\n            .chain(nested_enum_names)\n            .any(|type_name| to_upper_camel(type_name) == to_upper_camel(descriptor.name()));\n\n",
+    "parent_text": "        let has_type_name_conflict = parent\n            .nested_type\n            .iter()\n            .any(|nested| to_snake(nested.name()) == descriptor.name());\n\n"
+  }
+}

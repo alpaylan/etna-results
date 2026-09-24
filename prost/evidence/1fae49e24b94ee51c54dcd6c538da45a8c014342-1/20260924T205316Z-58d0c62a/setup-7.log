@@ -1,0 +1,21 @@
+Command: rustup run 1.91.1 cargo check --locked --offline --tests
+Started: 2026-09-24T20:59:25.303290+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+   Compiling protobuf v0.0.0 (/home/runner/work/_temp/upstream/protobuf)
+    Checking pulldown-cmark v0.13.0
+    Checking itertools v0.14.0
+    Checking fixedbitset v0.5.7
+error: failed to run custom build command for `protobuf v0.0.0 (/home/runner/work/_temp/upstream/protobuf)`
+
+Caused by:
+  process didn't exit successfully: `/home/runner/work/_temp/build-20260924T205316Z-58d0c62a/debug/build/protobuf-9337ff823da80394/build-script-build` (exit status: 1)
+  --- stderr
+  Error: protobuf sources are not checked out; Try `git submodule update --init --recursive`
+warning: build failed, waiting for other jobs to finish...
+
+Exit: 101
+Timed out: False
