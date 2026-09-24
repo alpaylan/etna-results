@@ -1,0 +1,36 @@
+Command: rustup run 1.72.0 cargo test --locked --offline --lib datetime::tests::nano_roundrip -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T17:10:12.103558+00:00
+STDOUT:
+
+running 1 test
+test datetime::tests::nano_roundrip ... nanos: -9223372036854775808
+nanos: -9223372036854775807
+nanos: -9223372036854775806
+nanos: -9223372035854775809
+nanos: -9223372035854775808
+nanos: -9223372035854775807
+nanos: -1000000001
+nanos: -1000000000
+nanos: -999999999
+nanos: 0
+nanos: 999999999
+nanos: 1000000000
+nanos: 1000000001
+nanos: 9223372035854775806
+nanos: 9223372035854775807
+nanos: 9223372035854775808
+nanos: 9223372036854775805
+nanos: 9223372036854775806
+nanos: 9223372036854775807
+ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 213 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling chrono v0.4.30 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 4.12s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T170549Z-ce15220f/debug/deps/chrono-39e32fff9df92469)
+
+Exit: 0
+Timed out: False

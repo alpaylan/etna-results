@@ -1,0 +1,13 @@
+{
+  "commit": "2afdde8f7f23f087b5027662e2882dba0663fef7",
+  "parent": "46ad2c2b2c901eb20e43a7fca025aac02605bda4",
+  "fixed_commit": "2afdde8f7f23f087b5027662e2882dba0663fef7",
+  "summary": "timestamp_nanos_opt incorrectly returns None for representable timestamps near i64::MIN because multiplying whole seconds by one billion underflows before adding the positive subsecond component. The fix shifts negative fractional timestamps one second toward zero and subtracts one billion from the subsecond component before checked arithmetic. The upstream test added by this commit exercises the i64::MIN roundtrip. This is a proposed verbatim reversal; no builds or tests were run.",
+  "test": "datetime::tests::nano_roundrip",
+  "expected_failure": "value roundtrips",
+  "reversal": {
+    "path": "src/naive/datetime/mod.rs",
+    "fixed_text": "    pub fn timestamp_nanos_opt(&self) -> Option<i64> {\n        let mut timestamp = self.timestamp();\n        let mut timestamp_subsec_nanos = i64::from(self.timestamp_subsec_nanos());\n\n        // subsec nanos are always non-negative, however the timestamp itself (both in seconds and in nanos) can be\n        // negative. Now i64::MIN is NOT dividable by 1_000_000_000, so\n        //\n        //   (timestamp * 1_000_000_000) + nanos\n        //\n        // may underflow (even when in theory we COULD represent the datetime as i64) because we add the non-negative\n        // nanos AFTER the multiplication. This is fixed by converting the negative case to\n        //\n        //   ((timestamp + 1) * 1_000_000_000) + (ns - 1_000_000_000)\n        //\n        // Also see <https://github.com/chronotope/chrono/issues/1289>.\n        if timestamp < 0 && timestamp_subsec_nanos > 0 {\n            timestamp_subsec_nanos -= 1_000_000_000;\n            timestamp += 1;\n        }\n\n        timestamp.checked_mul(1_000_000_000).and_then(|ns| ns.checked_add(timestamp_subsec_nanos))\n    }\n",
+    "parent_text": "    pub fn timestamp_nanos_opt(&self) -> Option<i64> {\n        self.timestamp().checked_mul(1_000_000_000)?.checked_add(self.time.nanosecond() as i64)\n    }\n"
+  }
+}

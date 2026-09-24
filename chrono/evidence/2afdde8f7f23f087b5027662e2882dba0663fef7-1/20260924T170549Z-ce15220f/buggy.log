@@ -1,0 +1,26 @@
+Command: rustup run 1.72.0 cargo test --locked --offline --lib datetime::tests::nano_roundrip -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T17:10:07.886098+00:00
+STDOUT:
+
+running 1 test
+test datetime::tests::nano_roundrip ... nanos: -9223372036854775808
+FAILED
+
+failures:
+
+failures:
+    datetime::tests::nano_roundrip
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 213 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling chrono v0.4.30 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 4.09s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T170549Z-ce15220f/debug/deps/chrono-39e32fff9df92469)
+thread 'datetime::tests::nano_roundrip' panicked at 'value roundtrips', src/datetime/tests.rs:1518:47
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `--lib`
+
+Exit: 101
+Timed out: False
