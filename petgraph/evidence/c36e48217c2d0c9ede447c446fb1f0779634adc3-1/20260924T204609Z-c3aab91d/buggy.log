@@ -1,0 +1,25 @@
+Command: rustup run 1.52.1 cargo test --locked --offline --lib matrix_graph::tests::test_add_edge_with_extension -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T20:47:06.357812+00:00
+STDOUT:
+
+running 1 test
+test matrix_graph::tests::test_add_edge_with_extension ... FAILED
+
+failures:
+
+failures:
+    matrix_graph::tests::test_add_edge_with_extension
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 53 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling petgraph v0.5.1 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 1.51s
+     Running unittests (/home/runner/work/_temp/build-20260924T204609Z-c3aab91d/debug/deps/petgraph-eea57f12178bbebf)
+thread 'main' panicked at 'assertion failed: g.has_edge(n2, n1)', src/matrix_graph.rs:1340:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass '--lib'
+
+Exit: 101
+Timed out: False

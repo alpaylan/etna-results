@@ -1,15 +1,17 @@
 # Cloud bug-mining prototype
 
-**blocked**: Proposal names no upstream test
+Resumed verified evidence; no tests rerun.
+
+**confirmed**: The same upstream test passed, panicked on the original defect ('assertion failed: g.has_edge(n2, n1)'), and passed after restoration
 
 Upstream: https://github.com/petgraph/petgraph
 
-Candidate: 0cd5c24fd09c601251b9a76c3dbfb942965480c9-1
+Candidate: c36e48217c2d0c9ede447c446fb1f0779634adc3-1
 
 Provenance: verbatim
 
-Latest outcomes: {"blocked": 1}
+Latest outcomes: {"confirmed": 1}
 
-History coverage not yet recorded.
+Reviewed commits: 1 / 1220 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.
