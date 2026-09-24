@@ -1,0 +1,13 @@
+diff --git a/src/lib.rs b/src/lib.rs
+index e38740f..cfd2589 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -453,7 +453,7 @@ macro_rules! __serialize_key {
+             where
+                 S: $crate::__impl::Serializer,
+             {
+-                $crate::Key::data(self).serialize(serializer)
++                self.data().serialize(serializer)
+             }
+         }
+ 

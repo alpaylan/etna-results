@@ -1,0 +1,8 @@
+Command: rustup run 1.49.0 cargo clean -p slotmap
+Started: 2026-09-24T18:13:41.955957+00:00
+STDOUT:
+
+STDERR:
+
+Exit: 0
+Timed out: False

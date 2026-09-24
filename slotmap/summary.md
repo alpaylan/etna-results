@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: Proposal names no upstream test
+**unconfirmed**: The implementation reversal did not make the upstream test fail
 
 Upstream: https://github.com/orlp/slotmap
 
-Candidate: 5c3fb220071f935f77c4ef33dd4d0e745f28d2d6-1
+Candidate: 2ef68bccaf6dcb8aea983b133a42f57728fac90b-1
 
 Provenance: verbatim
 
-Latest outcomes: {"blocked": 1}
+Latest outcomes: {"unconfirmed": 1}
 
-History coverage not yet recorded.
+Reviewed commits: 1 / 128 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

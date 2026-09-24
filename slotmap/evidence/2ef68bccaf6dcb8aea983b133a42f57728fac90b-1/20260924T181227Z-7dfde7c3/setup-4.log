@@ -1,0 +1,39 @@
+Command: rustup run 1.49.0 cargo check --locked --offline --tests
+Started: 2026-09-24T18:13:30.517528+00:00
+STDOUT:
+
+STDERR:
+   Compiling libc v0.2.82
+   Compiling getrandom v0.1.16
+   Compiling memchr v2.3.4
+    Checking cfg-if v1.0.0
+   Compiling proc-macro2 v1.0.24
+   Compiling unicode-xid v0.2.1
+   Compiling log v0.4.11
+    Checking lazy_static v1.4.0
+   Compiling syn v1.0.58
+   Compiling serde v1.0.118
+    Checking regex-syntax v0.6.22
+   Compiling ryu v1.0.5
+    Checking ppv-lite86 v0.2.10
+    Checking cfg-if v0.1.10
+   Compiling serde_derive v1.0.118
+   Compiling serde_json v1.0.61
+   Compiling version_check v0.9.2
+    Checking itoa v0.4.7
+    Checking byteorder v1.4.2
+    Checking thread_local v1.1.0
+    Checking fxhash v0.2.1
+    Checking aho-corasick v0.7.15
+   Compiling slotmap v1.0.1 (/home/runner/work/_temp/upstream)
+   Compiling quote v1.0.8
+    Checking regex v1.4.3
+    Checking rand_core v0.5.1
+    Checking rand_chacha v0.2.2
+    Checking rand v0.7.3
+    Checking env_logger v0.7.1
+    Checking quickcheck v0.9.2
+    Finished dev [unoptimized + debuginfo] target(s) in 11.39s
+
+Exit: 0
+Timed out: False

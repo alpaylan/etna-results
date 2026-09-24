@@ -1,0 +1,40 @@
+Command: rustup run 1.49.0 cargo fetch --locked
+Started: 2026-09-24T18:13:30.078285+00:00
+STDOUT:
+
+STDERR:
+ Downloading crates ...
+  Downloaded rand_chacha v0.2.2 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded thread_local v1.1.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded getrandom v0.1.16 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded cfg-if v0.1.10 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded lazy_static v1.4.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded cfg-if v1.0.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded quickcheck v0.9.2 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded env_logger v0.7.1 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded unicode-xid v0.2.1 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded itoa v0.4.7 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded version_check v0.9.2 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded fxhash v0.2.1 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded log v0.4.11 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded serde_derive v1.0.118 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded rand_hc v0.2.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded regex-syntax v0.6.22 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded wasi v0.9.0+wasi-snapshot-preview1 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded byteorder v1.4.2 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded ppv-lite86 v0.2.10 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded quote v1.0.8 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded memchr v2.3.4 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded rand_core v0.5.1 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded proc-macro2 v1.0.24 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded ryu v1.0.5 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded regex v1.4.3 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded serde v1.0.118 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded aho-corasick v0.7.15 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded rand v0.7.3 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded serde_json v1.0.61 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded syn v1.0.58 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded libc v0.2.82 (registry `git://127.0.0.1:9419/era-index`)
+
+Exit: 0
+Timed out: False

@@ -1,0 +1,40 @@
+Command: rustup run 1.49.0 cargo test --locked --offline --lib tests::macro_expansion -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T18:13:41.972748+00:00
+STDOUT:
+
+running 1 test
+test tests::macro_expansion ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 8 filtered out
+
+
+STDERR:
+   Compiling cfg-if v1.0.0
+   Compiling lazy_static v1.4.0
+   Compiling regex-syntax v0.6.22
+   Compiling ppv-lite86 v0.2.10
+   Compiling cfg-if v0.1.10
+   Compiling itoa v0.4.7
+   Compiling byteorder v1.4.2
+   Compiling thread_local v1.1.0
+   Compiling slotmap v1.0.1 (/home/runner/work/_temp/upstream)
+   Compiling libc v0.2.82
+   Compiling memchr v2.3.4
+   Compiling log v0.4.11
+   Compiling serde v1.0.118
+   Compiling fxhash v0.2.1
+   Compiling ryu v1.0.5
+   Compiling aho-corasick v0.7.15
+   Compiling getrandom v0.1.16
+   Compiling rand_core v0.5.1
+   Compiling rand_chacha v0.2.2
+   Compiling rand v0.7.3
+   Compiling regex v1.4.3
+   Compiling env_logger v0.7.1
+   Compiling serde_json v1.0.61
+   Compiling quickcheck v0.9.2
+    Finished test [unoptimized + debuginfo] target(s) in 9.49s
+     Running /home/runner/work/_temp/build-20260924T181227Z-7dfde7c3/debug/deps/slotmap-ecb707a4009e3e3e
+
+Exit: 0
+Timed out: False
