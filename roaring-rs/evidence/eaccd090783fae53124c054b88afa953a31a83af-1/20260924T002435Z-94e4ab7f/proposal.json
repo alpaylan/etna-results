@@ -1,0 +1,13 @@
+{
+  "commit": "eaccd090783fae53124c054b88afa953a31a83af",
+  "parent": "318366d041d958d59bef3e51569ecb452a1ea893",
+  "fixed_commit": "eaccd090783fae53124c054b88afa953a31a83af",
+  "summary": "BitmapIter::advance_to cleared only value_back when advancing beyond key_back, leaving stale front values available. The fix also sets key to key_back and clears value, ensuring the iterator is exhausted. The regression test added in roaring/tests/iter_advance_to.rs advances the back to 100 and then the front to 300; the reversed implementation should return Some(0) instead of None. Both reversal regions occur exactly once in their respective revisions. No tests were executed.",
+  "test": "advance_bitset_front_and_back_past_each_other",
+  "expected_failure": "assertion `left == right` failed\n  left: Some(0)\n right: None",
+  "reversal": {
+    "path": "roaring/src/bitmap/store/bitmap_store.rs",
+    "fixed_text": "                } else if cmp == Ordering::Equal {\n                    self.value_back\n                } else {\n                    // New key is greater than original key and key_back, this iterator is now empty\n                    self.key = self.key_back;\n                    self.value = 0;\n                    self.value_back = 0;\n                    return;\n                }\n",
+    "parent_text": "                } else if cmp == Ordering::Equal {\n                    self.value_back\n                } else {\n                    self.value_back = 0;\n                    return;\n                }\n"
+  }
+}
