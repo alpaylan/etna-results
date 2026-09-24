@@ -1,0 +1,13 @@
+diff --git a/src/buf/buf_impl.rs b/src/buf/buf_impl.rs
+index 2497a78..647cd21 100644
+--- a/src/buf/buf_impl.rs
++++ b/src/buf/buf_impl.rs
+@@ -2084,7 +2084,7 @@ pub trait Buf {
+     ///
+     /// This function panics if `nbytes` is greater than 8.
+     fn try_get_int(&mut self, nbytes: usize) -> Result<i64, TryGetError> {
+-        Ok(sign_extend(self.try_get_uint(nbytes)?, nbytes))
++        buf_try_get_impl!(be => self, i64, nbytes);
+     }
+ 
+     /// Gets a signed n-byte integer from `self` in little-endian byte order.

@@ -1,0 +1,13 @@
+{
+  "commit": "7930d93d583757e922014312d4aa3e58a415131f",
+  "parent": "d5c8ad3227afe459c09f1d0d85455abf00f0381a",
+  "fixed_commit": "7930d93d583757e922014312d4aa3e58a415131f",
+  "summary": "The fallible signed integer getters zero-filled unused high bytes instead of sign-extending negative values shorter than eight bytes. Thus try_get_int(3) returned Ok(16777215) for 0xffffff instead of Ok(-1). The fix sign-extends the unsigned getter's result. This reversal isolates the big-endian correction, which the first assertion of the fix-added test in tests/test_buf.rs exercises. No tests were executed.",
+  "test": "try_get_int_sign_extends",
+  "expected_failure": "assertion `left == right` failed\n  left: Ok(16777215)\n right: Ok(-1)",
+  "reversal": {
+    "path": "src/buf/buf_impl.rs",
+    "fixed_text": "    fn try_get_int(&mut self, nbytes: usize) -> Result<i64, TryGetError> {\n        Ok(sign_extend(self.try_get_uint(nbytes)?, nbytes))\n    }\n",
+    "parent_text": "    fn try_get_int(&mut self, nbytes: usize) -> Result<i64, TryGetError> {\n        buf_try_get_impl!(be => self, i64, nbytes);\n    }\n"
+  }
+}

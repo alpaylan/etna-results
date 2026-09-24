@@ -1,0 +1,36 @@
+Command: rustup run 1.98.1 cargo generate-lockfile
+Started: 2026-09-24T20:56:38.881009+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+  |
+  = help: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+    Updating `era` index
+     Locking 52 packages to latest Rust 1.57 compatible versions
+      Adding generator v0.8.2 (available: v0.8.9, requires Rust 1.73)
+      Adding libc v0.2.163 (available: v0.2.189, requires Rust 1.65)
+      Adding log v0.4.18 (available: v0.4.34, requires Rust 1.71.0)
+      Adding loom v0.7.2 (requires Rust 1.65)
+      Adding once_cell v1.17.2 (available: v1.21.4, requires Rust 1.65)
+      Adding proc-macro2 v1.0.101 (available: v1.0.107, requires Rust 1.71)
+      Adding quote v1.0.40 (available: v1.0.47, requires Rust 1.71)
+      Adding regex v1.7.3 (available: v1.13.1, requires Rust 1.65)
+      Adding scoped-tls v1.0.0 (available: v1.0.1, requires Rust 1.59)
+      Adding serde_derive v1.0.229 (requires Rust 1.71)
+      Adding syn v2.0.56 (available: v2.0.119, requires Rust 1.71)
+      Adding syn v3.0.4 (requires Rust 1.71)
+      Adding thread_local v1.1.7 (available: v1.1.10, requires Rust 1.63)
+      Adding tracing v0.1.40 (available: v0.1.44, requires Rust 1.65.0)
+      Adding tracing-core v0.1.32 (available: v0.1.36, requires Rust 1.65.0)
+      Adding tracing-subscriber v0.3.17 (available: v0.3.23, requires Rust 1.65.0)
+      Adding unicode-ident v1.0.22 (available: v1.0.24, requires Rust 1.71)
+      Adding windows v0.58.0 (requires Rust 1.70)
+      Adding windows-core v0.58.0 (requires Rust 1.70)
+      Adding windows-implement v0.58.0 (requires Rust 1.70)
+      Adding windows-interface v0.58.0 (requires Rust 1.70)
+      Adding windows-result v0.2.0 (requires Rust 1.60)
+      Adding windows-strings v0.1.0 (requires Rust 1.60)
+
+Exit: 0
+Timed out: False
