@@ -1,0 +1,13 @@
+{
+  "commit": "517bc7759c88c4d0083c865c38a1570ea6e5087b",
+  "parent": "504ff533ac0eba80792bfdc9e849ad918d32d6bd",
+  "fixed_commit": "517bc7759c88c4d0083c865c38a1570ea6e5087b",
+  "summary": "convert_error panics when formatting an end-of-input error after parsing 'a' while expecting 'b': without a preceding newline, line_begin incorrectly becomes the error offset, and extracting a line from the empty suffix unwraps None. The fix defaults line_begin to zero and safely handles an empty line iterator. The existing regression test, updated by this fix, checks the formatted diagnostic. It is a top-level test in tests/issues.rs; that integration target requires alloc and regexp_macros features.",
+  "test": "issue_1027_convert_error_panic_nonempty",
+  "expected_failure": "called `Option::unwrap()` on a `None` value",
+  "reversal": {
+    "path": "src/error.rs",
+    "fixed_text": "      let line_begin = prefix.iter().rev().position(|&b| b == b'\\n').map(|pos| offset - pos).unwrap_or(0);\n\n      // Find the full line after that newline\n      let line = input[line_begin..].lines().next().unwrap_or(&input[line_begin..]).trim_end();\n",
+    "parent_text": "      let line_begin = offset - prefix.iter().rev().position(|&b| b == b'\\n').unwrap_or(0);\n\n      // Find the full line after that newline\n      let line = input[line_begin..].lines().next().unwrap().trim_end();\n"
+  }
+}

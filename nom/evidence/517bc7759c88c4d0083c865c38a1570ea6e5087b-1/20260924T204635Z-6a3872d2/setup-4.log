@@ -1,0 +1,438 @@
+Command: rustup run 1.40.0 cargo check --locked --offline --tests
+Started: 2026-09-24T20:47:17.363049+00:00
+STDOUT:
+
+STDERR:
+   Compiling semver-parser v0.7.0
+   Compiling libc v0.2.66
+   Compiling autocfg v0.1.7
+    Checking lazy_static v1.4.0
+    Checking cfg-if v0.1.10
+   Compiling ryu v1.0.2
+   Compiling byteorder v1.3.2
+   Compiling serde v1.0.104
+   Compiling memchr v2.2.1
+   Compiling proc-macro2 v1.0.7
+    Checking scopeguard v1.0.0
+   Compiling unicode-xid v0.2.0
+   Compiling bitflags v1.2.1
+    Checking itoa v0.4.4
+    Checking rand_core v0.4.2
+    Checking either v1.5.3
+   Compiling rayon-core v1.7.0
+   Compiling cc v1.0.49
+   Compiling arrayvec v0.4.12
+   Compiling syn v1.0.13
+   Compiling fs_extra v1.1.0
+    Checking nodrop v0.1.14
+    Checking unicode-width v0.1.7
+   Compiling version_check v0.1.5
+   Compiling doc-comment v0.3.1
+    Checking same-file v1.0.5
+    Checking static_assertions v0.3.4
+   Compiling semver v0.9.0
+   Compiling crossbeam-utils v0.7.0
+   Compiling crossbeam-epoch v0.8.0
+   Compiling num-traits v0.2.10
+    Checking itertools v0.8.2
+    Checking rand_core v0.3.1
+    Checking textwrap v0.11.0
+    Checking walkdir v2.2.9
+   Compiling rustc_version v0.2.3
+   Compiling nom v5.0.1 (/home/runner/work/_temp/upstream)
+   Compiling memoffset v0.5.3
+   Compiling cast v0.2.3
+   Compiling lexical-core v0.4.6
+   Compiling jemalloc-sys v0.1.8
+    Checking num_cpus v1.11.1
+    Checking atty v0.2.14
+    Checking rand_os v0.1.3
+    Checking clap v2.33.0
+    Checking regex-automata v0.1.8
+    Checking rand_xoshiro v0.1.0
+   Compiling quote v1.0.2
+    Checking crossbeam-queue v0.2.1
+    Checking csv-core v0.1.6
+    Checking criterion-plot v0.3.1
+    Checking serde_json v1.0.44
+    Checking bstr v0.2.8
+    Checking crossbeam-deque v0.7.2
+    Checking csv v1.1.1
+warning: `#[inline]` is ignored on function prototypes
+  --> src/traits.rs:24:3
+   |
+24 |   #[inline]
+   |   ^^^^^^^^^
+   |
+   = note: `#[warn(unused_attributes)]` on by default
+
+warning: `#[inline]` is ignored on function prototypes
+   --> src/traits.rs:157:3
+    |
+157 |   #[inline]
+    |   ^^^^^^^^^
+
+warning: `#[inline]` is ignored on function prototypes
+   --> src/traits.rs:164:3
+    |
+164 |   #[inline]
+    |   ^^^^^^^^^
+
+warning: `#[inline]` is ignored on function prototypes
+   --> src/traits.rs:169:3
+    |
+169 |   #[inline]
+    |   ^^^^^^^^^
+
+warning: `#[inline]` is ignored on function prototypes
+   --> src/traits.rs:172:3
+    |
+172 |   #[inline]
+    |   ^^^^^^^^^
+
+warning: `#[inline]` is ignored on function prototypes
+   --> src/traits.rs:175:3
+    |
+175 |   #[inline]
+    |   ^^^^^^^^^
+
+warning: `#[inline]` is ignored on function prototypes
+   --> src/traits.rs:178:3
+    |
+178 |   #[inline]
+    |   ^^^^^^^^^
+
+warning: `#[inline]` is ignored on function prototypes
+   --> src/traits.rs:181:3
+    |
+181 |   #[inline]
+    |   ^^^^^^^^^
+
+warning: `#[inline]` is ignored on function prototypes
+   --> src/traits.rs:901:3
+    |
+901 |   #[inline(always)]
+    |   ^^^^^^^^^^^^^^^^^
+
+warning: `#[inline]` is ignored on function prototypes
+    --> src/traits.rs:1021:3
+     |
+1021 |   #[inline]
+     |   ^^^^^^^^^
+
+warning: `#[inline]` is ignored on function prototypes
+    --> src/traits.rs:1024:3
+     |
+1024 |   #[inline]
+     |   ^^^^^^^^^
+
+warning: `#[inline]` is ignored on function prototypes
+    --> src/traits.rs:1112:3
+     |
+1112 |   #[inline]
+     |   ^^^^^^^^^
+
+    Checking tinytemplate v1.0.3
+    Checking rayon v1.3.0
+   Compiling serde_derive v1.0.104
+    Checking criterion v0.2.11
+    Checking jemallocator v0.1.9
+warning: use of deprecated item 'ws': whitespace parsing only works with macros and will not be updated anymore
+  --> tests/json.rs:36:1
+   |
+36 | / named!(
+37 | |   array<Vec<JsonValue>>,
+38 | |   ws!(delimited!(
+39 | |     char!('['),
+...  |
+42 | |   ))
+43 | | );
+   | |__^
+   |
+   = note: `#[warn(deprecated)]` on by default
+   = note: this warning originates in a macro outside of the current crate (in Nightly builds, run with -Z external-macro-backtrace for more info)
+
+warning: use of deprecated item 'ws': whitespace parsing only works with macros and will not be updated anymore
+  --> tests/json.rs:45:1
+   |
+45 | / named!(
+46 | |   key_value<(&str, JsonValue)>,
+47 | |   ws!(separated_pair!(string, char!(':'), value))
+48 | | );
+   | |__^
+   |
+   = note: this warning originates in a macro outside of the current crate (in Nightly builds, run with -Z external-macro-backtrace for more info)
+
+warning: use of deprecated item 'ws': whitespace parsing only works with macros and will not be updated anymore
+  --> tests/json.rs:50:1
+   |
+50 | / named!(
+51 | |   hash<HashMap<String, JsonValue>>,
+52 | |   ws!(map!(
+53 | |     delimited!(char!('{'), separated_list!(char!(','), key_value), char!('}')),
+...  |
+61 | |   ))
+62 | | );
+   | |__^
+   |
+   = note: this warning originates in a macro outside of the current crate (in Nightly builds, run with -Z external-macro-backtrace for more info)
+
+warning: use of deprecated item 'ws': whitespace parsing only works with macros and will not be updated anymore
+  --> tests/json.rs:64:1
+   |
+64 | / named!(
+65 | |   value<JsonValue>,
+66 | |   ws!(alt!(
+67 | |       hash   => { |h|   JsonValue::Object(h)            } |
+...  |
+71 | |     ))
+72 | | );
+   | |__^
+   |
+   = note: this warning originates in a macro outside of the current crate (in Nightly builds, run with -Z external-macro-backtrace for more info)
+
+warning: use of deprecated item 'ws': whitespace parsing only works with macros and will not be updated anymore
+   --> src/combinator/macros.rs:129:13
+    |
+129 |             $submac!(i, $($args)*)
+    |             ^^^^^^^
+    | 
+   ::: src/whitespace.rs:841:5
+    |
+841 |     named!(abc, ws!(tag!("abc")));
+    |     ------------------------------ in this macro invocation
+    |
+    = note: `#[warn(deprecated)]` on by default
+
+warning: use of deprecated item 'ws': whitespace parsing only works with macros and will not be updated anymore
+   --> src/combinator/macros.rs:119:13
+    |
+119 |               $submac!(i, $($args)*)
+    |               ^^^^^^^
+    | 
+   ::: src/whitespace.rs:848:5
+    |
+848 | /     named!(pair_2<&[u8], (&[u8], &[u8]) >,
+849 | |       ws!(pair!( take!(3), tag!("de") ))
+850 | |     );
+    | |______- in this macro invocation
+
+warning: use of deprecated item 'ws': whitespace parsing only works with macros and will not be updated anymore
+   --> src/combinator/macros.rs:119:13
+    |
+119 |               $submac!(i, $($args)*)
+    |               ^^^^^^^
+    | 
+   ::: src/whitespace.rs:860:5
+    |
+860 | /     named!(prec<&[u8], &[u8] >,
+861 | |       ws!(preceded!( take!(3), tag!("de") ))
+862 | |     );
+    | |______- in this macro invocation
+
+warning: use of deprecated item 'ws': whitespace parsing only works with macros and will not be updated anymore
+   --> src/combinator/macros.rs:119:13
+    |
+119 |               $submac!(i, $($args)*)
+    |               ^^^^^^^
+    | 
+   ::: src/whitespace.rs:869:5
+    |
+869 | /     named!(term<&[u8], &[u8] >,
+870 | |       ws!(terminated!( take!(3), tag!("de") ))
+871 | |     );
+    | |______- in this macro invocation
+
+warning: use of deprecated item 'ws': whitespace parsing only works with macros and will not be updated anymore
+   --> src/combinator/macros.rs:119:13
+    |
+119 |               $submac!(i, $($args)*)
+    |               ^^^^^^^
+    | 
+   ::: src/whitespace.rs:879:5
+    |
+879 | /     named!(tuple_2<&[u8], (&[u8], &[u8]) >,
+880 | |       ws!(tuple!( take!(3), tag!("de") ))
+881 | |     );
+    | |______- in this macro invocation
+
+warning: use of deprecated item 'ws': whitespace parsing only works with macros and will not be updated anymore
+   --> src/combinator/macros.rs:119:13
+    |
+119 |               $submac!(i, $($args)*)
+    |               ^^^^^^^
+    | 
+   ::: src/whitespace.rs:893:5
+    |
+893 | /     named!(level_2<&[u8], (&[u8], (&[u8], &[u8])) >,
+894 | |       ws!(pair!(take!(3), tuple!( tag!("de"), tag!("fg ") )))
+895 | |     );
+    | |______- in this macro invocation
+
+warning: use of deprecated item 'ws': whitespace parsing only works with macros and will not be updated anymore
+   --> src/combinator/macros.rs:119:13
+    |
+119 |               $submac!(i, $($args)*)
+    |               ^^^^^^^
+    | 
+   ::: src/whitespace.rs:914:5
+    |
+914 | /     named!(do_parser<&[u8], (u8, u8)>,
+915 | |       ws!(do_parse!(
+916 | |         tag!("abcd")       >>
+917 | |         opt!(tag!("abcd")) >>
+...   |
+923 | |       ))
+924 | |     );
+    | |______- in this macro invocation
+
+warning: use of deprecated item 'ws': whitespace parsing only works with macros and will not be updated anymore
+   --> src/combinator/macros.rs:124:13
+    |
+124 |               $submac!(i, $($args)*)
+    |               ^^^^^^^
+    | 
+   ::: src/whitespace.rs:949:5
+    |
+949 | /     named!(
+950 | |       perm<(&[u8], &[u8], &[u8])>,
+951 | |       ws!(permutation!(tag!("abcd"), tag!("efg"), tag!("hi")))
+952 | |     );
+    | |______- in this macro invocation
+
+warning: use of deprecated item 'ws': whitespace parsing only works with macros and will not be updated anymore
+    --> src/combinator/macros.rs:109:13
+     |
+109  |             $submac!(i, $($args)*)
+     |             ^^^^^^^
+     | 
+    ::: src/whitespace.rs:1043:3
+     |
+1043 |   named!(str_parse(&str) -> &str, ws!(tag!("test")));
+     |   --------------------------------------------------- in this macro invocation
+
+warning: use of deprecated item 'ws': whitespace parsing only works with macros and will not be updated anymore
+    --> src/combinator/macros.rs:119:13
+     |
+119  |               $submac!(i, $($args)*)
+     |               ^^^^^^^
+     | 
+    ::: src/whitespace.rs:1053:3
+     |
+1053 | /   named!(pipeline_statement<&[u8], ()>,
+1054 | |     ws!(
+1055 | |       do_parse!(
+1056 | |       tag!("pipeline") >>
+...    |
+1069 | |   )
+1070 | |   );
+     | |____- in this macro invocation
+
+warning: use of deprecated item 'ws': whitespace parsing only works with macros and will not be updated anymore
+    --> src/multi/macros.rs:175:52
+     |
+175  |       many_till!($i, |i| $submac!(i, $($args)*), |i| $submac2!(i, $($args2)*))
+     |                                                      ^^^^^^^^
+     | 
+    ::: src/whitespace.rs:1073:3
+     |
+1073 | /   named!(
+1074 | |     fail<&[u8]>,
+1075 | |     map!(many_till!(take!(1), ws!(tag!("."))), |(r, _)| r[0])
+1076 | |   );
+     | |____- in this macro invocation
+
+warning: unused import: `digit1`
+   --> src/sequence/mod.rs:306:46
+    |
+306 |     use crate::character::complete::{alpha1, digit1};
+    |                                              ^^^^^^
+    |
+    = note: `#[warn(unused_imports)]` on by default
+
+warning: `#[inline]` is ignored on function prototypes
+  --> src/traits.rs:24:3
+   |
+24 |   #[inline]
+   |   ^^^^^^^^^
+   |
+   = note: `#[warn(unused_attributes)]` on by default
+
+warning: `#[inline]` is ignored on function prototypes
+   --> src/traits.rs:157:3
+    |
+157 |   #[inline]
+    |   ^^^^^^^^^
+
+warning: `#[inline]` is ignored on function prototypes
+   --> src/traits.rs:164:3
+    |
+164 |   #[inline]
+    |   ^^^^^^^^^
+
+warning: `#[inline]` is ignored on function prototypes
+   --> src/traits.rs:169:3
+    |
+169 |   #[inline]
+    |   ^^^^^^^^^
+
+warning: `#[inline]` is ignored on function prototypes
+   --> src/traits.rs:172:3
+    |
+172 |   #[inline]
+    |   ^^^^^^^^^
+
+warning: `#[inline]` is ignored on function prototypes
+   --> src/traits.rs:175:3
+    |
+175 |   #[inline]
+    |   ^^^^^^^^^
+
+warning: `#[inline]` is ignored on function prototypes
+   --> src/traits.rs:178:3
+    |
+178 |   #[inline]
+    |   ^^^^^^^^^
+
+warning: `#[inline]` is ignored on function prototypes
+   --> src/traits.rs:181:3
+    |
+181 |   #[inline]
+    |   ^^^^^^^^^
+
+warning: `#[inline]` is ignored on function prototypes
+   --> src/traits.rs:901:3
+    |
+901 |   #[inline(always)]
+    |   ^^^^^^^^^^^^^^^^^
+
+warning: `#[inline]` is ignored on function prototypes
+    --> src/traits.rs:1021:3
+     |
+1021 |   #[inline]
+     |   ^^^^^^^^^
+
+warning: `#[inline]` is ignored on function prototypes
+    --> src/traits.rs:1024:3
+     |
+1024 |   #[inline]
+     |   ^^^^^^^^^
+
+warning: `#[inline]` is ignored on function prototypes
+    --> src/traits.rs:1112:3
+     |
+1112 |   #[inline]
+     |   ^^^^^^^^^
+
+warning: unused variable: `result`
+   --> src/error.rs:564:9
+    |
+564 |     let result: IResult<_, _, VerboseError<&str>> = char('x')(input);
+    |         ^^^^^^ help: consider prefixing with an underscore: `_result`
+    |
+    = note: `#[warn(unused_variables)]` on by default
+
+    Finished dev [unoptimized + debuginfo] target(s) in 53.07s
+
+Exit: 0
+Timed out: False

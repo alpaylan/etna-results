@@ -1,0 +1,10 @@
+Command: rustup run 1.40.0 cargo test --locked --offline --test issues issue_1027_convert_error_panic_nonempty -- --nocapture --test-threads=1
+Started: 2026-09-24T20:48:10.560613+00:00
+STDOUT:
+
+STDERR:
+error: target `issues` in package `nom` requires the features: `alloc`, `regexp_macros`
+Consider enabling them by passing, e.g., `--features="alloc regexp_macros"`
+
+Exit: 101
+Timed out: False
