@@ -1,0 +1,13 @@
+{
+  "commit": "1b37466ed6f79fcc40692beccfd16b199830b147",
+  "parent": "619a813dbd9960c4f7a9fda95cb255906f046c29",
+  "fixed_commit": "1b37466ed6f79fcc40692beccfd16b199830b147",
+  "summary": "Blocked: the candidate's claimed forward-search bug does not match this commit. Both revisions call memrchr in src/lib.rs. The parent returns position + index + 1 through rposition; the fixed revision returns the same expression because rposition starts at zero and never becomes positive. By source inspection, the added tests::memrchr_iter test expects Some(15), Some(10), Some(5), None and receives those values in both revisions. No detecting upstream test was found. The exact implementation reversal is provided, but no builds or tests were executed.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "                if self.rposition > 0{\n                    //memrchr has been used once already.\n                    self.rposition = self.rposition - index;\n                    return Some(self.rposition);\n                }else{\n                    return Some(self.position + index+1);\n                }\n",
+    "parent_text": "                self.rposition = self.position + index + 1;\n                Some(self.rposition)\n"
+  }
+}
