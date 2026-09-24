@@ -1,17 +1,15 @@
 # Cloud bug-mining prototype
 
-Resumed verified evidence; no tests rerun.
-
-**confirmed**: The same upstream test passed, panicked on the original defect ('attempt to negate with overflow'), and passed after restoration
+**blocked**: fixed_text does not occur exactly once at the fixed revision
 
 Upstream: https://github.com/paupino/rust-decimal
 
-Candidate: 6f7d295cd82571429064132265f907131841c60f-1
+Candidate: c74bd40701cce99b264af6b9af2e66d0f66251f1-1
 
 Provenance: verbatim
 
-Latest outcomes: {"confirmed": 1}
+Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 963 reachable from the saved tip.
+History coverage not yet recorded.
 
 Scope: one queued candidate; history coverage is partial.

@@ -1,0 +1,13 @@
+{
+  "commit": "c74bd40701cce99b264af6b9af2e66d0f66251f1",
+  "parent": "9e55f7e33531cdc6ce79de672044f1f641177fc4",
+  "fixed_commit": "c74bd40701cce99b264af6b9af2e66d0f66251f1",
+  "summary": "Formatting 1.2 with precision 31 overflowed the internal 32-byte ArrayString. The fix caps internal precision at 28 and appends remaining zeros in Display. Blocked under the single-region schema: restoring the original overflow logic also restores the helper's scalar return type, requiring corresponding reversals in src/decimal.rs and src/serde.rs. Reversing only Display's padding branch would cause truncation instead of reproducing the historical overflow. The fix adds the detecting test named below. No builds or tests were run.",
+  "test": "str::test::display_does_not_overflow_max_capacity",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/str.rs",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
