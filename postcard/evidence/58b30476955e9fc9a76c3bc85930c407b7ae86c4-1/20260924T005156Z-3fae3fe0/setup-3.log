@@ -1,0 +1,24 @@
+Command: rustup run 1.45.2 cargo fetch --locked
+Started: 2026-09-24T00:52:42.214566+00:00
+STDOUT:
+
+STDERR:
+ Downloading crates ...
+  Downloaded serde v1.0.114 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded hash32 v0.1.1 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded stable_deref_trait v1.2.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded unicode-xid v0.2.1 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded typenum v1.12.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded postcard-cobs v0.1.5-pre (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded generic-array v0.12.3 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded byteorder v1.3.4 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded quote v1.0.7 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded proc-macro2 v1.0.19 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded serde_derive v1.0.114 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded generic-array v0.13.2 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded as-slice v0.1.3 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded syn v1.0.36 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded heapless v0.5.5 (registry `git://127.0.0.1:9419/era-index`)
+
+Exit: 0
+Timed out: False

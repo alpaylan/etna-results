@@ -1,0 +1,13 @@
+{
+  "commit": "58b30476955e9fc9a76c3bc85930c407b7ae86c4",
+  "parent": "8aafbd7b94a0767d5116b6637650fc4b828325b7",
+  "fixed_commit": "58b30476955e9fc9a76c3bc85930c407b7ae86c4",
+  "summary": "serialize_bytes omitted the varint length prefix expected by deserialize_bytes, causing payload bytes to be interpreted as a length and producing incorrect results or deserialization errors. The fix writes the length before the payload using a direct varint helper that avoids recursive serialization. Reversing only this prefix insertion restores the bug. The regression case added to de::test_heapless::bytes explicitly calls serialize_bytes through ByteSliceStruct and expects 33 encoded bytes for a 32-byte payload; the reversal produces 32. No tests were run.",
+  "test": "de::test_heapless::bytes",
+  "expected_failure": "assertion failed: `(left == right)`\n  left: `32`,\n right: `33`",
+  "reversal": {
+    "path": "src/ser/serializer.rs",
+    "fixed_text": "    fn serialize_bytes(self, v: &[u8]) -> Result<()> {\n        self.output\n            .try_push_varint_usize(&VarintUsize(v.len()))\n            .map_err(|_| Error::SerializeBufferFull)?;\n        self.output\n            .try_extend(v)\n            .map_err(|_| Error::SerializeBufferFull)\n    }\n",
+    "parent_text": "    fn serialize_bytes(self, v: &[u8]) -> Result<()> {\n        self.output\n            .try_extend(v)\n            .map_err(|_| Error::SerializeBufferFull)\n    }\n"
+  }
+}

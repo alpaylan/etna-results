@@ -1,0 +1,14 @@
+diff --git a/src/ser/serializer.rs b/src/ser/serializer.rs
+index 25b2324..9736b10 100644
+--- a/src/ser/serializer.rs
++++ b/src/ser/serializer.rs
+@@ -126,9 +126,6 @@ where
+     }
+ 
+     fn serialize_bytes(self, v: &[u8]) -> Result<()> {
+-        self.output
+-            .try_push_varint_usize(&VarintUsize(v.len()))
+-            .map_err(|_| Error::SerializeBufferFull)?;
+         self.output
+             .try_extend(v)
+             .map_err(|_| Error::SerializeBufferFull)

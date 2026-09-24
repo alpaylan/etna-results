@@ -1,0 +1,28 @@
+Command: rustup run 1.45.2 cargo test --locked --offline --lib de::test_heapless::bytes -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:52:58.340945+00:00
+STDOUT:
+
+running 1 test
+test de::test_heapless::bytes ... FAILED
+
+failures:
+
+failures:
+    de::test_heapless::bytes
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 30 filtered out
+
+
+STDERR:
+   Compiling postcard-cobs v0.1.5-pre
+   Compiling postcard v0.5.0 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 1.23s
+     Running /home/runner/work/_temp/build-20260924T005156Z-3fae3fe0/debug/deps/postcard-5e08fbeec5c97913
+thread 'main' panicked at 'assertion failed: `(left == right)`
+  left: `32`,
+ right: `33`', src/de/mod.rs:323:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass '--lib'
+
+Exit: 101
+Timed out: False
