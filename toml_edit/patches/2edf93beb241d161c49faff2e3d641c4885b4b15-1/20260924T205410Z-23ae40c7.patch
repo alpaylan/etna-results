@@ -1,0 +1,15 @@
+diff --git a/src/ser/mod.rs b/src/ser/mod.rs
+index 86ea562..e1b0139 100644
+--- a/src/ser/mod.rs
++++ b/src/ser/mod.rs
+@@ -149,9 +149,7 @@ pub fn to_string_pretty<T: ?Sized>(value: &T) -> Result<String, Error>
+ where
+     T: serde::ser::Serialize,
+ {
+-    let mut document = to_document(value)?;
+-    pretty::Pretty.visit_document_mut(&mut document);
+-    Ok(document.to_string())
++    to_document(value).map(|e| e.to_string())
+ }
+ 
+ /// Serialize the given data structure into a TOML document.

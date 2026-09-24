@@ -1,0 +1,13 @@
+{
+  "commit": "2edf93beb241d161c49faff2e3d641c4885b4b15",
+  "parent": "6e9016bfa4a1ecb7ada73e578d53f2d3da4bf238",
+  "fixed_commit": "2edf93beb241d161c49faff2e3d641c4885b4b15",
+  "summary": "to_string_pretty previously behaved identically to to_string, leaving nested tables inline and omitting multiline array formatting. The fix applies a Pretty visitor that expands tables and arrays of tables and formats multi-element arrays with indentation and trailing commas. Reversing only this function restores the original behavior. The fix-added pretty_std test in tests/pretty.rs compares serialization against the expected pretty output and requires the easy feature. This is a source-based plan; no builds or tests were run.",
+  "test": "pretty_std",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/ser/mod.rs",
+    "fixed_text": "pub fn to_string_pretty<T: ?Sized>(value: &T) -> Result<String, Error>\nwhere\n    T: serde::ser::Serialize,\n{\n    let mut document = to_document(value)?;\n    pretty::Pretty.visit_document_mut(&mut document);\n    Ok(document.to_string())\n}\n",
+    "parent_text": "pub fn to_string_pretty<T: ?Sized>(value: &T) -> Result<String, Error>\nwhere\n    T: serde::ser::Serialize,\n{\n    to_document(value).map(|e| e.to_string())\n}\n"
+  }
+}
