@@ -1,0 +1,12 @@
+{
+  "repo": "https://github.com/rusticstuff/simdutf8",
+  "tips": [
+    "8c247522cd4d4a07031170dfb7f9b0161c725d2a"
+  ],
+  "shallow": false,
+  "reviewed": [
+    "8c247522cd4d4a07031170dfb7f9b0161c725d2a"
+  ],
+  "reachable_commits": 91,
+  "scope": "One queued candidate; not an exhaustive history scan."
+}

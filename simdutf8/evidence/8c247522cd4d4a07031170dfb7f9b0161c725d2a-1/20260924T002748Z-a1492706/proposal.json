@@ -1,0 +1,13 @@
+{
+  "commit": "8c247522cd4d4a07031170dfb7f9b0161c725d2a",
+  "parent": "62561ccf475173fd249121a450ce15f5e45905e4",
+  "fixed_commit": "8c247522cd4d4a07031170dfb7f9b0161c725d2a",
+  "summary": "validate_utf8 incorrectly accepts 63 ASCII bytes followed by 0xF0 because the final SIMD chunk's incomplete-sequence mask is never incorporated into the error state. The fix adds an EOF check that merges this mask into the error state before returning. The proposed reversal removes only that call, restoring the parent's blank line and preserving the regression test added by the fix. No builds or tests were run.",
+  "test": "tests::incomplete_on_64th_byte",
+  "expected_failure": "assertion failed: validate_utf8(&invalid).is_err()",
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "        SimdInput::check_eof(&mut state);\n        if SimdInput::check_utf8_errors(&state) {\n",
+    "parent_text": "\n        if SimdInput::check_utf8_errors(&state) {\n"
+  }
+}

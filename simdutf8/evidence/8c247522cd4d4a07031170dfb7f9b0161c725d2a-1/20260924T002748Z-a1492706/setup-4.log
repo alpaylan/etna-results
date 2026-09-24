@@ -1,0 +1,26 @@
+Command: rustup run 1.51.0 cargo check --locked --offline --tests
+Started: 2026-09-24T00:28:56.719938+00:00
+STDOUT:
+
+STDERR:
+    Checking simdutf8 v0.0.1 (/home/runner/work/_temp/upstream)
+error[E0308]: mismatched types
+  --> src/lib.rs:40:86
+   |
+40 | fn please_compile_with_a_simd_compatible_cpu_setting_read_the_simdjonsrs_readme() -> ! {}
+   |    ----------------------------------------------------------------------------      ^ expected `!`, found `()`
+   |    |
+   |    implicitly returns `()` as its body has no tail or `return` expression
+   |
+   = note:   expected type `!`
+           found unit type `()`
+
+error: aborting due to previous error
+
+For more information about this error, try `rustc --explain E0308`.
+error: could not compile `simdutf8`
+
+To learn more, run the command again with --verbose.
+
+Exit: 101
+Timed out: False

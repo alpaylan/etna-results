@@ -1,0 +1,13 @@
+diff --git a/src/lib.rs b/src/lib.rs
+index f090c26..10a507e 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -78,7 +78,7 @@ pub fn validate_utf8(input: &[u8]) -> std::result::Result<(), Utf8Error> {
+ 
+             input.check_utf8(&mut state);
+         }
+-        SimdInput::check_eof(&mut state);
++
+         if SimdInput::check_utf8_errors(&state) {
+             Err(Utf8Error {})
+         } else {
