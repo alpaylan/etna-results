@@ -1,0 +1,13 @@
+{
+  "commit": "722af9f2c2829273f9c1b09e2fd989378f795cbc",
+  "parent": "46fb4c3c517bc0c27cd534b65f9e8b57c24ba18e",
+  "fixed_commit": "722af9f2c2829273f9c1b09e2fd989378f795cbc",
+  "summary": "Decimal::from_scientific adds a negative exponent's magnitude to the mantissa scale without first bounding it. The upstream regression input \"-20165.4676_e-+4294967292\" adds 4294967292 to scale 4, overflowing u32 and panicking when overflow checks are enabled. The fix rejects magnitudes above MAX_SCALE before addition, returning ScaleExceedsMaximumPrecision. The reversal removes only this new guard and preserves the regression test extended by the fix. No tests were run.",
+  "test": "it_can_parse_scientific_notation",
+  "expected_failure": "attempt to add with overflow",
+  "reversal": {
+    "path": "src/decimal.rs",
+    "fixed_text": "        if let Some(stripped) = exp.strip_prefix('-') {\n            let exp: u32 = stripped.parse().map_err(|_| Error::from(ERROR_MESSAGE))?;\n            if exp > Self::MAX_SCALE {\n                return Err(Error::ScaleExceedsMaximumPrecision(exp));\n            }\n            ret.set_scale(current_scale + exp)?;\n",
+    "parent_text": "        if let Some(stripped) = exp.strip_prefix('-') {\n            let exp: u32 = stripped.parse().map_err(|_| Error::from(ERROR_MESSAGE))?;\n            ret.set_scale(current_scale + exp)?;\n"
+  }
+}

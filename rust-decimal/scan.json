@@ -2,6 +2,7 @@
   "repo": "https://github.com/paupino/rust-decimal",
   "tips": [
     "092fdf8c8def5e2eb4ca5624ebfae731c3c40407",
+    "722af9f2c2829273f9c1b09e2fd989378f795cbc",
     "951512d003a4b65724d6074a15630534994b40e6",
     "a231fbf12c543534c6b300648e8c3a8b467968cf",
     "c205456643a5f831396c2e98caa7fc91f96363bc"
@@ -9,10 +10,11 @@
   "shallow": false,
   "reviewed": [
     "092fdf8c8def5e2eb4ca5624ebfae731c3c40407",
+    "722af9f2c2829273f9c1b09e2fd989378f795cbc",
     "951512d003a4b65724d6074a15630534994b40e6",
     "a231fbf12c543534c6b300648e8c3a8b467968cf",
     "c205456643a5f831396c2e98caa7fc91f96363bc"
   ],
-  "reachable_commits": 937,
+  "reachable_commits": 981,
   "scope": "One queued candidate; not an exhaustive history scan."
 }

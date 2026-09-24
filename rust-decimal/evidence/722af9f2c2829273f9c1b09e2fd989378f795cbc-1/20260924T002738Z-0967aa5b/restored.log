@@ -1,0 +1,20 @@
+Command: rustup run 1.85.0 cargo test --locked --offline --test decimal_tests it_can_parse_scientific_notation -- --nocapture --test-threads=1
+Started: 2026-09-24T00:32:48.809570+00:00
+STDOUT:
+
+running 1 test
+test it_can_parse_scientific_notation ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 447 filtered out; finished in 0.00s
+
+
+STDERR:
+warning: both `/home/runner/work/_temp/upstream/.cargo/config` and `/home/runner/work/_temp/upstream/.cargo/config.toml` exist. Using `/home/runner/work/_temp/upstream/.cargo/config`
+   Compiling rust_decimal v1.36.0
+   Compiling rust_decimal v1.36.0 (/home/runner/work/_temp/upstream)
+   Compiling rust_decimal_macros v1.36.0
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.49s
+     Running tests/decimal_tests.rs (/home/runner/work/_temp/build-20260924T002738Z-0967aa5b/debug/deps/decimal_tests-c0f6eba83d5a99d0)
+
+Exit: 0
+Timed out: False
