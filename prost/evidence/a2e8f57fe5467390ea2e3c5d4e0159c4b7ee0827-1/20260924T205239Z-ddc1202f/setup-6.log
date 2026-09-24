@@ -1,0 +1,10 @@
+Command: rustup run 1.84.1 cargo fetch --locked
+Started: 2026-09-24T20:57:47.147636+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+
+Exit: 0
+Timed out: False

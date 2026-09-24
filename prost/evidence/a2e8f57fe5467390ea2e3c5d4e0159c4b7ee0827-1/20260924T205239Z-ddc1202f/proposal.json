@@ -1,0 +1,13 @@
+{
+  "commit": "a2e8f57fe5467390ea2e3c5d4e0159c4b7ee0827",
+  "parent": "7c16959496b99157e53d59323c7b46470c95137e",
+  "fixed_commit": "a2e8f57fe5467390ea2e3c5d4e0159c4b7ee0827",
+  "summary": "Each Config::type_name_domain call cleared previously configured domains. In the updated upstream test setup, configuring Qux therefore discarded Foo's domain, producing /type_names.Foo instead of tests/type_names.Foo. The fix removes the clear operation so successive calls accumulate mappings. Reversing that implementation change should make the existing updated test fail; no tests were executed during planning.",
+  "test": "type_names::valid_type_names",
+  "expected_failure": "assertion `left == right` failed\n  left: \"tests/type_names.Foo\"\n right: \"/type_names.Foo\"",
+  "reversal": {
+    "path": "prost-build/src/config.rs",
+    "fixed_text": "    pub fn type_name_domain<I, S, D>(&mut self, paths: I, domain: D) -> &mut Self\n    where\n        I: IntoIterator<Item = S>,\n        S: AsRef<str>,\n        D: AsRef<str>,\n    {\n        for matcher in paths {\n            self.type_name_domains\n                .insert(matcher.as_ref().to_string(), domain.as_ref().to_string());\n        }\n        self\n    }",
+    "parent_text": "    pub fn type_name_domain<I, S, D>(&mut self, paths: I, domain: D) -> &mut Self\n    where\n        I: IntoIterator<Item = S>,\n        S: AsRef<str>,\n        D: AsRef<str>,\n    {\n        self.type_name_domains.clear();\n        for matcher in paths {\n            self.type_name_domains\n                .insert(matcher.as_ref().to_string(), domain.as_ref().to_string());\n        }\n        self\n    }"
+  }
+}
