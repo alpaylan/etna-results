@@ -1,0 +1,13 @@
+{
+  "commit": "13df1ef52ebc7579d0ec23694bb42dbdb3aca0b7",
+  "parent": "effaae863913b2f78e6d4ec0fb4fc6fac72637d1",
+  "fixed_commit": "13df1ef52ebc7579d0ec23694bb42dbdb3aca0b7",
+  "summary": "umul192_lower128 uses ordinary addition to combine the middle 64 bits of a product, causing an overflow panic when overflow checks are enabled. The fix uses wrapping_add to preserve the required modular arithmetic. The fix-added issue84_test in lexical-write-float/tests/algorithm_tests.rs expects (0, 3193382259244375) for the triggering operands. Run with overflow checks enabled and the compact feature disabled. Both reversal regions occur exactly once in their respective Git versions. No tests were executed.",
+  "test": "issue84_test",
+  "expected_failure": "attempt to add with overflow",
+  "reversal": {
+    "path": "lexical-write-float/src/algorithm.rs",
+    "fixed_text": "pub const fn umul192_lower128(x: u64, yhi: u64, ylo: u64) -> (u64, u64) {\n    let hi = x.wrapping_mul(yhi);\n    let hi_lo = x as u128 * ylo as u128;\n    // NOTE: This can wrap exactly to 0, and this is desired.\n    (hi.wrapping_add((hi_lo >> 64) as u64), hi_lo as u64)\n}\n",
+    "parent_text": "pub const fn umul192_lower128(x: u64, yhi: u64, ylo: u64) -> (u64, u64) {\n    let hi = x.wrapping_mul(yhi);\n    let hi_lo = x as u128 * ylo as u128;\n    (hi + (hi_lo >> 64) as u64, hi_lo as u64)\n}\n"
+  }
+}
