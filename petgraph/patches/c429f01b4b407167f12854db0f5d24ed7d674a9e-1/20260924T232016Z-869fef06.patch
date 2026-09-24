@@ -1,0 +1,13 @@
+diff --git a/crates/petgraph/src/generate.rs b/crates/petgraph/src/generate.rs
+index 39376af..27640de 100644
+--- a/crates/petgraph/src/generate.rs
++++ b/crates/petgraph/src/generate.rs
+@@ -63,7 +63,7 @@ impl<Ty: EdgeType> Generator<Ty> {
+         let nedges = if allow_selfloops {
+             (nodes * nodes - nodes) / scale + nodes
+         } else {
+-            (nodes * nodes - nodes) / scale
++            (nodes * nodes) / scale - nodes
+         };
+         assert!(nedges < 64);
+         Generator {

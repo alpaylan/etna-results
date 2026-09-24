@@ -1,0 +1,13 @@
+{
+  "commit": "c429f01b4b407167f12854db0f5d24ed7d674a9e",
+  "parent": "34e9c960f7ecab9365dd62e05cf2d1dbbc64c6d4",
+  "fixed_commit": "c429f01b4b407167f12854db0f5d24ed7d674a9e",
+  "summary": "Generator::all undercounts possible undirected edges without self-loops, enumerating only 2 graphs instead of 8 for three nodes. Subtracting nodes before division yields the correct n(n-1)/2 edge count while preserving directed behavior. The fix adds the selected regression test in crates/petgraph/tests/graph.rs, requiring feature generate. Reproduction has not been run.",
+  "test": "test_generate_undirected_without_selfloops_counts_all_graphs",
+  "expected_failure": "assertion `left == right` failed\n  left: 2\n right: 8",
+  "reversal": {
+    "path": "crates/petgraph/src/generate.rs",
+    "fixed_text": "            (nodes * nodes - nodes) / scale\n",
+    "parent_text": "            (nodes * nodes) / scale - nodes\n"
+  }
+}

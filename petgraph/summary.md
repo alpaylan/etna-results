@@ -1,19 +1,15 @@
 # Cloud bug-mining prototype
 
-Resumed verified evidence; no tests rerun.
-
-**confirmed**: The same upstream test passed, panicked on the original defect ('assertion `left == right` failed
-  left: Some([])
- right: None'), and passed after restoration
+**blocked**: fixed: no completed execution of the exact upstream test
 
 Upstream: https://github.com/petgraph/petgraph
 
-Candidate: d33a613f80f3eb5c1b295e0b3cf270bbd3292708-1
+Candidate: c429f01b4b407167f12854db0f5d24ed7d674a9e-1
 
 Provenance: verbatim
 
-Latest outcomes: {"confirmed": 1}
+Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 1388 reachable from the saved tip.
+Reviewed commits: 1 / 1425 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.
