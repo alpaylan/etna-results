@@ -1,0 +1,13 @@
+{
+  "commit": "10e396710ac7476aa870a737905dfb4e3ca41e65",
+  "parent": "70edcd0d19c09586896d0e7b76acfd119a2ef07c",
+  "fixed_commit": "10e396710ac7476aa870a737905dfb4e3ca41e65",
+  "summary": "Dense transitions were appended in pattern insertion order, but for_each_transition assumes byte-sorted transitions when constructing the full DFA. Unsorted transitions therefore produce incorrect byte-to-state mappings and pattern-order-dependent matches. The fix uses binary search to insert transitions in sorted order or update an existing entry. The regression test added by this commit compares match positions for reversed pattern orders. This plan has not been executed.",
+  "test": "tests::regression_full_order1",
+  "expected_failure": "assertion failed: `(left == right)`\n  left: `[(0, 3)]`,\n right: `[(0, 3), (3, 6)]`",
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "    fn set_goto(&mut self, b: u8, si: StateIdx) {\n        match self.0 {\n            DenseChoice::Sparse(ref mut m) => m.set_goto(b, si),\n            DenseChoice::Dense(ref mut m) => {\n                match m.binary_search_by_key(&b, |&(b, _)| b) {\n                    Ok(i) => m[i] = (b, si),\n                    Err(i) => m.insert(i, (b, si)),\n                }\n            }\n        }\n    }\n",
+    "parent_text": "    fn set_goto(&mut self, b: u8, si: StateIdx) {\n        match self.0 {\n            DenseChoice::Sparse(ref mut m) => m.set_goto(b, si),\n            DenseChoice::Dense(ref mut m) => m.push((b, si)),\n        }\n    }\n"
+  }
+}

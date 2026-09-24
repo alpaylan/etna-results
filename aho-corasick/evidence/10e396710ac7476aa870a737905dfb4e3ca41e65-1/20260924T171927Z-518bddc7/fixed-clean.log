@@ -1,0 +1,12 @@
+Command: rustup run 1.32.0 cargo clean -p aho-corasick
+Started: 2026-09-24T17:20:22.431209+00:00
+STDOUT:
+
+STDERR:
+error: There are multiple `aho-corasick` packages in your project, and the specification `aho-corasick` is ambiguous.
+Please re-run this command with `-p <spec>` where `<spec>` is one of the following:
+  file:///home/runner/work/_temp/upstream#aho-corasick:0.6.9
+  https://github.com/rust-lang/crates.io-index#aho-corasick:0.6.9
+
+Exit: 101
+Timed out: False

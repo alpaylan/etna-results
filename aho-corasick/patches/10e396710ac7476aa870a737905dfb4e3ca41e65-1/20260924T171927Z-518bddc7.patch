@@ -1,0 +1,18 @@
+diff --git a/src/lib.rs b/src/lib.rs
+index cd71073..d8cbe2b 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -559,12 +559,7 @@ impl Transitions for Dense {
+     fn set_goto(&mut self, b: u8, si: StateIdx) {
+         match self.0 {
+             DenseChoice::Sparse(ref mut m) => m.set_goto(b, si),
+-            DenseChoice::Dense(ref mut m) => {
+-                match m.binary_search_by_key(&b, |&(b, _)| b) {
+-                    Ok(i) => m[i] = (b, si),
+-                    Err(i) => m.insert(i, (b, si)),
+-                }
+-            }
++            DenseChoice::Dense(ref mut m) => m.push((b, si)),
+         }
+     }
+ 

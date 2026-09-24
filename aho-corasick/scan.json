@@ -1,0 +1,12 @@
+{
+  "repo": "https://github.com/BurntSushi/aho-corasick",
+  "tips": [
+    "10e396710ac7476aa870a737905dfb4e3ca41e65"
+  ],
+  "shallow": false,
+  "reviewed": [
+    "10e396710ac7476aa870a737905dfb4e3ca41e65"
+  ],
+  "reachable_commits": 98,
+  "scope": "One queued candidate; not an exhaustive history scan."
+}
