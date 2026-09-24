@@ -1,0 +1,13 @@
+{
+  "commit": "0c9456acf484691ef250998fec8ca823241c563c",
+  "parent": "2cf88c869704376a5b5bb595e6689f06ebc9db5b",
+  "fixed_commit": "0c9456acf484691ef250998fec8ca823241c563c",
+  "summary": "Digit iterators incorrectly delegated bulk reads using the underlying Bytes contiguity flag. A format permitting exponent separators makes Bytes noncontiguous even when its integer iterator is contiguous, causing a debug assertion during parsing of \"31.01e7_1\". The fix passes the digit iterator's own contiguity flag. Reverse only that bulk-read delegation. The existing test is a top-level function in lexical-parse-float/tests/api_tests.rs; select package lexical-parse-float, test target api_tests, with format enabled, compact disabled, and debug assertions enabled. No tests were added by this fix. This plan has not been executed.",
+  "test": "f64_exponent_internal_digit_separator_test",
+  "expected_failure": "assertion failed: is_contiguous",
+  "reversal": {
+    "path": "lexical-util/src/skip.rs",
+    "fixed_text": "        #[inline(always)]\n        unsafe fn peek_many_unchecked<V>(&self) -> V {\n            // SAFETY: Safe if the buffer has at least `size_of::<V>` elements.\n            unsafe { self.byte.peek_many_unchecked_impl(Self::IS_CONTIGUOUS) }\n        }\n",
+    "parent_text": "        #[inline(always)]\n        unsafe fn peek_many_unchecked<V>(&self) -> V {\n            debug_assert!(self.as_slice().len() >= mem::size_of::<V>());\n            // SAFETY: safe as long as the slice has at least count elements.\n            unsafe { self.byte.peek_many_unchecked() }\n        }\n"
+  }
+}

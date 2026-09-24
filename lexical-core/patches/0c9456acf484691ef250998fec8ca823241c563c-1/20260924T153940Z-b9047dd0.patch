@@ -1,0 +1,16 @@
+diff --git a/lexical-util/src/skip.rs b/lexical-util/src/skip.rs
+index 17e8b8e..9445788 100644
+--- a/lexical-util/src/skip.rs
++++ b/lexical-util/src/skip.rs
+@@ -661,8 +661,9 @@ macro_rules! skip_iterator_iter_base {
+ 
+         #[inline(always)]
+         unsafe fn peek_many_unchecked<V>(&self) -> V {
+-            // SAFETY: Safe if the buffer has at least `size_of::<V>` elements.
+-            unsafe { self.byte.peek_many_unchecked_impl(Self::IS_CONTIGUOUS) }
++            debug_assert!(self.as_slice().len() >= mem::size_of::<V>());
++            // SAFETY: safe as long as the slice has at least count elements.
++            unsafe { self.byte.peek_many_unchecked() }
+         }
+     };
+ }
