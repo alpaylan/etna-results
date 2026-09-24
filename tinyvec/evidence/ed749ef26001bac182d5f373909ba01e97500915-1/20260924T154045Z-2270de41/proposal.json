@@ -1,0 +1,13 @@
+{
+  "commit": "ed749ef26001bac182d5f373909ba01e97500915",
+  "parent": "d3f66a20c509965a138c95bfadada28147da335c",
+  "fixed_commit": "ed749ef26001bac182d5f373909ba01e97500915",
+  "summary": "SliceVec::drain adds 1 to excluded start bounds and included end bounds. At usize::MAX, this overflows: checked arithmetic panics, while unchecked arithmetic wraps to zero and can accept an invalid range. The fix uses saturating_add(1), preserving a large bound for the existing range checks to reject. The implementation reversal is exact and unique, but no detecting upstream test was found at this revision: the fix adds a honggfuzz target, while existing tests and SliceVec doctests do not exercise these extreme bounds. Blocked pending an eligible existing regression test; no builds or tests were run.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/slicevec.rs",
+    "fixed_text": "    let start = match range.start_bound() {\n      Bound::Included(x) => *x,\n      Bound::Excluded(x) => x.saturating_add(1),\n      Bound::Unbounded => 0,\n    };\n    let end = match range.end_bound() {\n      Bound::Included(x) => x.saturating_add(1),\n      Bound::Excluded(x) => *x,\n      Bound::Unbounded => self.len,\n    };\n",
+    "parent_text": "    let start = match range.start_bound() {\n      Bound::Included(x) => *x,\n      Bound::Excluded(x) => x + 1,\n      Bound::Unbounded => 0,\n    };\n    let end = match range.end_bound() {\n      Bound::Included(x) => x + 1,\n      Bound::Excluded(x) => *x,\n      Bound::Unbounded => self.len,\n    };\n"
+  }
+}
