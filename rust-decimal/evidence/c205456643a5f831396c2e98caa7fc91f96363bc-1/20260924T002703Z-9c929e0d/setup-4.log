@@ -1,0 +1,89 @@
+Command: rustup run 1.67.1 cargo check --locked --offline --tests
+Started: 2026-09-24T00:29:11.097178+00:00
+STDOUT:
+
+STDERR:
+   Compiling proc-macro2 v1.0.51
+   Compiling unicode-ident v1.0.6
+   Compiling quote v1.0.23
+   Compiling syn v1.0.107
+   Compiling autocfg v1.1.0
+   Compiling serde_derive v1.0.152
+   Compiling serde v1.0.152
+   Compiling libc v0.2.139
+   Compiling num-traits v0.2.15
+   Compiling memchr v2.5.0
+   Compiling futures-core v0.3.26
+    Checking tinyvec_macros v0.1.1
+   Compiling version_check v0.9.4
+    Checking tinyvec v1.6.0
+   Compiling indexmap v1.9.2
+    Checking cfg-if v1.0.0
+   Compiling futures-task v0.3.26
+   Compiling unicase v2.6.0
+   Compiling serde_json v1.0.93
+    Checking bitflags v1.3.2
+    Checking ryu v1.0.12
+    Checking unicode-normalization v0.1.22
+    Checking getrandom v0.2.8
+   Compiling pulldown-cmark v0.8.0
+    Checking unicode-bidi v0.3.10
+   Compiling futures-util v0.3.26
+    Checking itoa v1.0.5
+    Checking hashbrown v0.12.3
+    Checking pin-project-lite v0.2.9
+    Checking ciborium-io v0.2.0
+    Checking os_str_bytes v6.4.1
+   Compiling futures-channel v0.3.26
+    Checking half v1.8.2
+    Checking futures-sink v0.3.26
+    Checking either v1.8.1
+    Checking lazy_static v1.4.0
+   Compiling semver v1.0.16
+   Compiling rust_decimal v1.28.1 (/home/runner/work/_temp/upstream)
+    Checking percent-encoding v2.2.0
+    Checking form_urlencoded v1.1.0
+    Checking itertools v0.10.5
+    Checking ciborium-ll v0.2.0
+    Checking clap_lex v0.2.4
+    Checking idna v0.3.0
+    Checking rand_core v0.6.4
+   Compiling tokio v1.25.0
+    Checking pin-utils v0.1.0
+    Checking regex-syntax v0.6.28
+    Checking same-file v1.0.6
+   Compiling arrayvec v0.7.2
+    Checking textwrap v0.16.0
+    Checking regex-automata v0.1.10
+    Checking ppv-lite86 v0.2.17
+    Checking cast v0.3.0
+    Checking criterion-plot v0.5.0
+    Checking clap v3.2.23
+    Checking rand_chacha v0.3.1
+    Checking walkdir v2.3.2
+    Checking regex v1.7.1
+   Compiling tokio-macros v1.8.2
+    Checking url v2.3.1
+    Checking csv-core v0.1.10
+    Checking atty v0.2.14
+    Checking num_cpus v1.15.0
+    Checking oorandom v11.1.3
+    Checking anes v0.1.6
+    Checking itoa v0.4.8
+    Checking futures-io v0.3.26
+    Checking futures v0.3.26
+   Compiling rust_decimal_macros v1.28.1 (/home/runner/work/_temp/upstream/macros)
+    Checking rand v0.8.5
+    Checking bytes v1.4.0
+    Checking ciborium v0.2.0
+    Checking bstr v0.2.17
+    Checking toml v0.5.11
+    Checking csv v1.1.6
+    Checking bincode v1.3.3
+    Checking tinytemplate v1.2.1
+    Checking version-sync v0.9.4
+    Checking criterion v0.4.0
+    Finished dev [unoptimized + debuginfo] target(s) in 12.84s
+
+Exit: 0
+Timed out: False

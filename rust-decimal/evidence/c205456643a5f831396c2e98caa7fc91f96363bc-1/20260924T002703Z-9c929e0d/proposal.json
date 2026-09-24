@@ -1,0 +1,13 @@
+{
+  "commit": "c205456643a5f831396c2e98caa7fc91f96363bc",
+  "parent": "84f59436b0ed407c989f766394bf05b4c83e38a3",
+  "fixed_commit": "c205456643a5f831396c2e98caa7fc91f96363bc",
+  "summary": "The zero shortcut in round_dp_with_strategy replaced zero's original scale with dp before checking whether rounding was needed. Decimal::new(0, 28).round_dp(32) therefore produced scale 32 instead of preserving 28. The fix checks old_scale <= dp first and returns the original decimal unchanged. The selected regression test was added by this fix in tests/decimal_tests.rs. Both reversal regions occur exactly once, and substituting the parent region restores the exact parent implementation file. Tests were not run.",
+  "test": "it_does_not_round_decimals_to_too_many_dp",
+  "expected_failure": "assertion failed: `(left == right)`\n  left: `32`,\n right: `28`",
+  "reversal": {
+    "path": "src/decimal.rs",
+    "fixed_text": "    pub fn round_dp_with_strategy(&self, dp: u32, strategy: RoundingStrategy) -> Decimal {\n        let old_scale = self.scale();\n\n        // return early if decimal has a smaller number of fractional places than dp\n        // e.g. 2.51 rounded to 3 decimal places is 2.51\n        if old_scale <= dp {\n            return *self;\n        }\n\n        // Short circuit for zero\n        if self.is_zero() {\n            return Decimal {\n                lo: 0,\n                mid: 0,\n                hi: 0,\n                flags: flags(self.is_sign_negative(), dp),\n            };\n        }\n\n",
+    "parent_text": "    pub fn round_dp_with_strategy(&self, dp: u32, strategy: RoundingStrategy) -> Decimal {\n        // Short circuit for zero\n        if self.is_zero() {\n            return Decimal {\n                lo: 0,\n                mid: 0,\n                hi: 0,\n                flags: flags(self.is_sign_negative(), dp),\n            };\n        }\n\n        let old_scale = self.scale();\n\n        // return early if decimal has a smaller number of fractional places than dp\n        // e.g. 2.51 rounded to 3 decimal places is 2.51\n        if old_scale <= dp {\n            return *self;\n        }\n\n"
+  }
+}
