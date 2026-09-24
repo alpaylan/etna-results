@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: fixed: no completed execution of the exact upstream test
+**blocked**: Selected test is not present at the fixed revision: key-no-eol.toml
 
 Upstream: https://github.com/toml-rs/toml
 
-Candidate: 2edf93beb241d161c49faff2e3d641c4885b4b15-1
+Candidate: 010d842fcc9c5ad77bc09fe23eae51b56ba9efd9-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 445 reachable from the saved tip.
+History coverage not yet recorded.
 
 Scope: one queued candidate; history coverage is partial.

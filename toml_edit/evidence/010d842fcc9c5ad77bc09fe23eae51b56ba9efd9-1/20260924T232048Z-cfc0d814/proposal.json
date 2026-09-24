@@ -1,0 +1,13 @@
+{
+  "commit": "010d842fcc9c5ad77bc09fe23eae51b56ba9efd9",
+  "parent": "dd089ea418ad9e8be587dd36c56284ebb848b0f4",
+  "fixed_commit": "010d842fcc9c5ad77bc09fe23eae51b56ba9efd9",
+  "summary": "The newline parser incorrectly includes an article in its expected-token label, producing `Expected `a newline` or `end of input`` for `a = 1 b = 2`. The fix changes the label to `newline`. The existing test_invalid custom Rust harness registers the detecting snapshot test as key-no-eol.toml; its expected diagnostic was updated by this fix. Reversing the single implementation line preserves that snapshot. No tests were executed.",
+  "test": "key-no-eol.toml",
+  "expected_failure": "Diagnostic snapshot mismatch: actual contains Expected `a newline` or `end of input`, while the snapshot expects Expected `newline` or `end of input`.",
+  "reversal": {
+    "path": "src/parser/trivia.rs",
+    "fixed_text": "        .expected(\"newline\")\n",
+    "parent_text": "        .expected(\"a newline\")\n"
+  }
+}
