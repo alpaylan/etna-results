@@ -1,0 +1,36 @@
+Command: rustup run 1.31.0 cargo fetch --locked
+Started: 2026-09-24T20:45:36.374088+00:00
+STDOUT:
+
+STDERR:
+ Downloading crates ...
+  Downloaded itoa v0.4.3 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded bencher v0.1.5 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded unicode-xid v0.1.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded rand v0.4.3 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded approx v0.3.1 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded cfg-if v0.1.6 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded lazy_static v1.2.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded num-traits v0.2.6 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded toml v0.4.10 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded bitflags v1.0.4 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded fuchsia-zircon v0.3.3 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded static_assertions v0.2.5 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded unreachable v1.0.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded proc-macro2 v0.4.24 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded winapi-x86_64-pc-windows-gnu v0.4.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded stackvector v1.0.1 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded fuchsia-zircon-sys v0.3.3 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded syn v0.15.23 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded ryu v0.2.7 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded libc v0.2.45 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded serde v1.0.82 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded winapi v0.3.6 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded void v1.0.2 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded quote v0.6.10 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded serde_derive v1.0.82 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded dtoa v0.4.3 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded winapi-i686-pc-windows-gnu v0.4.0 (registry `git://127.0.0.1:9419/era-index`)
+
+Exit: 0
+Timed out: False

@@ -1,0 +1,13 @@
+{
+  "commit": "57dff01a83961728c7d006c74727c72092199a18",
+  "parent": "a5d26ce18a9b088fd28a1d88efe0788e8710c68c",
+  "fixed_commit": "57dff01a83961728c7d006c74727c72092199a18",
+  "summary": "The parser consumed a trailing exponent marker without exponent digits, incorrectly accepting strings such as \"0e\". The fix requires at least two remaining bytes before consuming the marker, leaving a lone marker unconsumed so checked parsing returns InvalidDigit. This reversal isolates that correction. The selected upstream unit test contains a deterministic assertion added by the fix requiring \"0e\" to return InvalidDigit. No builds or tests were run.",
+  "test": "atof::api::tests::atof64_base10_test",
+  "expected_failure": "assertion failed: `(left == right)`\n  left: `InvalidDigit`,\n right: `Success`",
+  "reversal": {
+    "path": "lexical-core/src/atof/algorithm/exponent.rs",
+    "fixed_text": "    // Force a check that the distance is >= 2, so we ensure there's something\n    // after the exponent. This fixes a regression discovered via proptest.\n    let dist = distance(state.curr, last);\n    if dist >= 2 && (*state.curr).to_ascii_lowercase() == exponent_notation_char(radix).to_ascii_lowercase() {\n",
+    "parent_text": "    if state.curr != last && (*state.curr).to_ascii_lowercase() == exponent_notation_char(radix).to_ascii_lowercase() {\n"
+  }
+}
