@@ -1,0 +1,14 @@
+diff --git a/src/reader.rs b/src/reader.rs
+index 9adeab8..bf1e35c 100644
+--- a/src/reader.rs
++++ b/src/reader.rs
+@@ -1606,8 +1606,7 @@ impl<R: io::Read> Reader<R> {
+                 }
+                 return result;
+             }
+-        }
+-        if self.state.trim.should_trim_fields() {
++        } else if self.state.trim.should_trim_fields() {
+             record.trim();
+         }
+         Ok(ok)

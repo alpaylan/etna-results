@@ -1,0 +1,13 @@
+{
+  "commit": "ce01ae7fe4cf7938a22ca565c33678e7422da6c0",
+  "parent": "06764b91b8d5237c79c1601c595c5b797ccb6c91",
+  "fixed_commit": "ce01ae7fe4cf7938a22ca565c33678e7422da6c0",
+  "summary": "With has_headers(false) and Trim::All, the first byte record retains surrounding whitespace because initializing the cached headers skips the else-if trimming branch. The fix makes trimming an independent conditional, so the first returned record is trimmed too. The fix adds the selected regression test. Both reversal regions occur exactly once in their respective files; no tests or builds were run.",
+  "test": "reader::tests::read_trimmed_records_without_headers",
+  "expected_failure": "assertion `left == right` failed\n  left: \"b1\"\n right: \" b1\\t\"",
+  "reversal": {
+    "path": "src/reader.rs",
+    "fixed_text": "                return result;\n            }\n        }\n        if self.state.trim.should_trim_fields() {\n            record.trim();\n        }\n        Ok(ok)\n",
+    "parent_text": "                return result;\n            }\n        } else if self.state.trim.should_trim_fields() {\n            record.trim();\n        }\n        Ok(ok)\n"
+  }
+}

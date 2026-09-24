@@ -1,0 +1,20 @@
+Command: rustup run 1.82.0 cargo test --locked --offline --lib reader::tests::read_trimmed_records_without_headers -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:31:11.364084+00:00
+STDOUT:
+
+running 1 test
+test reader::tests::read_trimmed_records_without_headers ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 140 filtered out; finished in 0.00s
+
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+warning: ignoring `resolver` config table without `-Zmsrv-policy`
+   Compiling csv v1.3.0 (/home/runner/work/_temp/upstream)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.05s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T002622Z-cce9b786/debug/deps/csv-7f44d8911785c0f8)
+
+Exit: 0
+Timed out: False
