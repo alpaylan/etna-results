@@ -1,0 +1,10 @@
+Command: rustup toolchain install 0.11.0 --profile minimal
+Started: 2026-09-24T23:20:22.517171+00:00
+STDOUT:
+
+STDERR:
+info: syncing channel updates for 0.11.0-x86_64-unknown-linux-gnu
+error: could not download nonexistent rust version `0.11.0-x86_64-unknown-linux-gnu`: could not download file from 'https://static.rust-lang.org/dist/rust-0.11.0-x86_64-unknown-linux-gnu.tar.gz.sha256' to '/home/runner/.rustup/tmp/v2g_tdsb2wbvuu1d_file': http request returned an unsuccessful status code: 404
+
+Exit: 1
+Timed out: False

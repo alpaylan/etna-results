@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: fixed: no completed execution of the exact upstream test
+**blocked**: Toolchain install failed; see setup logs
 
 Upstream: https://github.com/servo/rust-url
 
-Candidate: 467ef63969f477ee44b7456bb450fba95af25780-1
+Candidate: a1fdd28ec7761777c6d075bfe9974150a24c4d34-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 1355 reachable from the saved tip.
+Reviewed commits: 1 / 150 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

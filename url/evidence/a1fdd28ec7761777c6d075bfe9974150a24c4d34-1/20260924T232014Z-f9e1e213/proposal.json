@@ -1,0 +1,13 @@
+{
+  "commit": "a1fdd28ec7761777c6d075bfe9974150a24c4d34",
+  "parent": "4de939b0c6c2d7e437da8160ea6fffdcca6e24ee",
+  "fixed_commit": "a1fdd28ec7761777c6d075bfe9974150a24c4d34",
+  "summary": "Serialization returned an empty string for nonempty input because writing each name/value pair required output to already be nonempty. The fix moves pair serialization outside that condition, leaving only the separating ampersand conditional. The regression test added by the fix expects \"foo=%C3%A9%26&bar=&foo=%23\" and checks round-trip parsing.",
+  "test": "form_urlencoded::test_form_urlencoded",
+  "expected_failure": "Equality assertion fails: actual encoded string is empty; expected \"foo=%C3%A9%26&bar=&foo=%23\".",
+  "reversal": {
+    "path": "src/form_urlencoded.rs",
+    "fixed_text": "    let mut output = String::new();\n    for (name, value) in pairs {\n        if output.len() > 0 {\n            output.push_str(\"&\");\n        }\n        byte_serialize(name, &mut output, encoding_override);\n        output.push_str(\"=\");\n        byte_serialize(value, &mut output, encoding_override);\n    }\n    output\n}",
+    "parent_text": "    let mut output = String::new();\n    for (name, value) in pairs {\n        if output.len() > 0 {\n            output.push_str(\"&\");\n            byte_serialize(name, &mut output, encoding_override);\n            output.push_str(\"=\");\n            byte_serialize(value, &mut output, encoding_override);\n        }\n    }\n    output\n}"
+  }
+}
