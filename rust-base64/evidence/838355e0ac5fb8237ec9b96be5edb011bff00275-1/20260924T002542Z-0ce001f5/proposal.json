@@ -1,0 +1,13 @@
+{
+  "commit": "838355e0ac5fb8237ec9b96be5edb011bff00275",
+  "parent": "bf15ccf30af8bb6b1f326fffa025d7b0aaa3342f",
+  "fixed_commit": "838355e0ac5fb8237ec9b96be5edb011bff00275",
+  "summary": "BIN_HEX incorrectly included '7' and omitted 'f', producing encodings and decodings incompatible with BinHex 4.0. The fix restores the specified alphabet. The implementation reversal is verbatim, but no detecting upstream test was found at the fixed commit: regression examples exist only in the commit message, while existing randomized tests use the same alphabet for encoding and decoding or derive expectations from it. Leave this candidate blocked pending an eligible test; no tests were executed.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/alphabet.rs",
+    "fixed_text": "pub const BIN_HEX: Alphabet = Alphabet::from_str_unchecked(\n    \"!\\\"#$%&'()*+,-012345689@ABCDEFGHIJKLMNPQRSTUVXYZ[`abcdefhijklmpqr\",\n);\n",
+    "parent_text": "pub const BIN_HEX: Alphabet = Alphabet::from_str_unchecked(\n    \"!\\\"#$%&'()*+,-0123456789@ABCDEFGHIJKLMNPQRSTUVXYZ[`abcdehijklmpqr\",\n);\n"
+  }
+}
