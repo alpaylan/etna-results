@@ -1,0 +1,13 @@
+{
+  "commit": "e654efb9c19732f680f14db43a673a726b834f42",
+  "parent": "8a1e3e2286a992167001def94dc093348e15f3a1",
+  "fixed_commit": "e654efb9c19732f680f14db43a673a726b834f42",
+  "summary": "decode_without_base64 failed to advance slice_start after writing accumulated bytes before an invalid percent escape, causing subsequent writes to duplicate those bytes. For data:text/plain,X%, it produces XX% instead of X%. The fix advances slice_start to the percent sign, preserving the literal invalid escape without repeating the preceding bytes. The selected dynamically named test in data-url/tests/wpt.rs consumes a regression case added by this fix to data-urls.json. No tests were executed.",
+  "test": "data: URL \"data:text/plain,X%\"",
+  "expected_failure": "assertion `left == right` failed\n  left: [88, 88, 37]\n right: [88, 37]",
+  "reversal": {
+    "path": "data-url/src/lib.rs",
+    "fixed_text": "            if i > slice_start {\n                write_bytes(&bytes[slice_start..i])?;\n                slice_start = i;\n            }\n",
+    "parent_text": "            if i > slice_start {\n                write_bytes(&bytes[slice_start..i])?;\n            }\n"
+  }
+}

@@ -1,10 +1,10 @@
 # Cloud bug-mining prototype
 
-**blocked**: Proposal names no upstream test
+**blocked**: Selected test is not present at the fixed revision: data: URL "data:text/plain,X%"
 
 Upstream: https://github.com/servo/rust-url
 
-Candidate: 67fc2730b6585ea60f7da6987459c554775967af-1
+Candidate: e654efb9c19732f680f14db43a673a726b834f42-1
 
 Provenance: verbatim
 
