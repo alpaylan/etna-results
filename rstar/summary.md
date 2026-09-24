@@ -4,7 +4,7 @@
 
 Upstream: https://github.com/georust/rstar
 
-Candidate: dde5abdd99e122d8ae64ad71928561a6d0393643-1
+Candidate: df8f740698bd6301af85531e76ffe32b432df5aa-1
 
 Provenance: verbatim
 
