@@ -1,0 +1,14 @@
+Command: rustup toolchain install 1.47.0 --profile minimal
+Started: 2026-09-24T17:32:06.420689+00:00
+STDOUT:
+
+  1.47.0-x86_64-unknown-linux-gnu installed - rustc 1.47.0 (18bf6b4f0 2020-10-07)
+
+
+STDERR:
+info: syncing channel updates for 1.47.0-x86_64-unknown-linux-gnu
+info: latest update on 2020-10-08 for version 1.47.0 (18bf6b4f0 2020-10-07)
+info: downloading 3 components
+
+Exit: 0
+Timed out: False

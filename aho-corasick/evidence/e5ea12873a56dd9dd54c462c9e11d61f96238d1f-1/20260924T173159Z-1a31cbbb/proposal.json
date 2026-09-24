@@ -1,0 +1,13 @@
+{
+  "commit": "e5ea12873a56dd9dd54c462c9e11d61f96238d1f",
+  "parent": "39b029bb222eb04b03c9dfd7538c0fdb544fc579",
+  "fixed_commit": "e5ea12873a56dd9dd54c462c9e11d61f96238d1f",
+  "summary": "Stream searches can miss matches spanning buffer boundaries when a rare-byte prefilter finds no candidate and leaves the automaton state unupdated before the buffer rolls. The added regression test places \"1234j\" at offset 8191, crossing the 8192-byte buffer boundary. The fix disables prefilters that may search for non-starting match bytes during streaming, preserving automaton state across buffers. Reversing only the stream prefilter initialization restores the faulty behavior while preserving the upstream test. No tests were executed.",
+  "test": "tests::regression_stream_rare_byte_prefilter",
+  "expected_failure": "NOT FOUND!!!!",
+  "reversal": {
+    "path": "src/ahocorasick.rs",
+    "fixed_text": "        let prestate = if ac.imp.use_prefilter() {\n            PrefilterState::new(ac.max_pattern_len())\n        } else {\n            PrefilterState::disabled()\n        };\n        let buf = Buffer::new(ac.imp.max_pattern_len());\n",
+    "parent_text": "        let prestate = PrefilterState::new(ac.max_pattern_len());\n        let buf = Buffer::new(ac.imp.max_pattern_len());\n"
+  }
+}

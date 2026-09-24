@@ -1,0 +1,8 @@
+Command: rustup run 1.47.0 cargo clean -p aho-corasick
+Started: 2026-09-24T17:33:02.065873+00:00
+STDOUT:
+
+STDERR:
+
+Exit: 0
+Timed out: False

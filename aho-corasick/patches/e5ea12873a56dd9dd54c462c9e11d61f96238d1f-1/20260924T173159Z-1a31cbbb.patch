@@ -1,0 +1,17 @@
+diff --git a/src/ahocorasick.rs b/src/ahocorasick.rs
+index 9069396..831b4ce 100644
+--- a/src/ahocorasick.rs
++++ b/src/ahocorasick.rs
+@@ -1381,11 +1381,7 @@ impl<'a, R: io::Read, S: StateID> StreamChunkIter<'a, R, S> {
+             "stream searching is only supported for Standard match semantics"
+         );
+ 
+-        let prestate = if ac.imp.use_prefilter() {
+-            PrefilterState::new(ac.max_pattern_len())
+-        } else {
+-            PrefilterState::disabled()
+-        };
++        let prestate = PrefilterState::new(ac.max_pattern_len());
+         let buf = Buffer::new(ac.imp.max_pattern_len());
+         let state_id = ac.imp.start_state();
+         StreamChunkIter {
