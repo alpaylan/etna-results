@@ -1,0 +1,30 @@
+Command: rustup run 1.96.0 cargo test --locked --offline --lib offset::local::tz_info::timezone::tests::test_find_local_time_type_from_local_overflow -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T17:14:59.291589+00:00
+STDOUT:
+
+running 1 test
+test offset::local::tz_info::timezone::tests::test_find_local_time_type_from_local_overflow ... FAILED
+
+failures:
+
+failures:
+    offset::local::tz_info::timezone::tests::test_find_local_time_type_from_local_overflow
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 288 filtered out; finished in 0.00s
+
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+  |
+  = help: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+   Compiling chrono v0.4.45 (/home/runner/work/_temp/upstream)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.87s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T170622Z-aefeb5b1/debug/deps/chrono-29cedbb33911a60f)
+
+thread 'offset::local::tz_info::timezone::tests::test_find_local_time_type_from_local_overflow' (3643) panicked at src/offset/local/tz_info/timezone.rs:240:38:
+attempt to add with overflow
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `--lib`
+
+Exit: 101
+Timed out: False

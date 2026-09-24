@@ -4,12 +4,12 @@
 
 Upstream: https://github.com/chronotope/chrono
 
-Candidate: a71c212cdc2204a8868b8cc74e4ee48da2a4b5dc-1
+Candidate: 75926fce51a0e2a7b731b2b907a1f34d34b7a282-1
 
 Provenance: verbatim
 
 Latest outcomes: {"unconfirmed": 1}
 
-Reviewed commits: 1 / 1776 reachable from the saved tip.
+Reviewed commits: 1 / 1775 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

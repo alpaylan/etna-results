@@ -1,0 +1,13 @@
+{
+  "commit": "75926fce51a0e2a7b731b2b907a1f34d34b7a282",
+  "parent": "2c8426a3bdb456e476932978b27480d68adc48b2",
+  "fixed_commit": "75926fce51a0e2a7b731b2b907a1f34d34b7a282",
+  "summary": "Mapping local times adds UTC offsets to transition timestamps. At i64 extremes, these additions overflow or underflow, causing a panic with overflow checks or wrapped boundaries and incorrect mappings without them. The fix uses saturating_add for both boundaries, preserving comparisons for representable local times. The regression test added by the fix exercises both extremes. This plan has not been executed.",
+  "test": "offset::local::tz_info::timezone::tests::test_find_local_time_type_from_local_overflow",
+  "expected_failure": "attempt to add with overflow",
+  "reversal": {
+    "path": "src/offset/local/tz_info/timezone.rs",
+    "fixed_text": "                let transition_end =\n                    transition.unix_leap_time.saturating_add(i64::from(after_ltt.ut_offset));\n                let transition_start =\n                    transition.unix_leap_time.saturating_add(i64::from(prev.ut_offset));\n",
+    "parent_text": "                let transition_end = transition.unix_leap_time + i64::from(after_ltt.ut_offset);\n                let transition_start = transition.unix_leap_time + i64::from(prev.ut_offset);\n"
+  }
+}

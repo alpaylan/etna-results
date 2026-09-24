@@ -1,0 +1,17 @@
+diff --git a/src/offset/local/tz_info/timezone.rs b/src/offset/local/tz_info/timezone.rs
+index 9dfe2d5..128431b 100644
+--- a/src/offset/local/tz_info/timezone.rs
++++ b/src/offset/local/tz_info/timezone.rs
+@@ -237,10 +237,8 @@ impl<'a> TimeZoneRef<'a> {
+ 
+                 // the end and start here refers to where the time starts prior to the transition
+                 // and where it ends up after. not the temporal relationship.
+-                let transition_end =
+-                    transition.unix_leap_time.saturating_add(i64::from(after_ltt.ut_offset));
+-                let transition_start =
+-                    transition.unix_leap_time.saturating_add(i64::from(prev.ut_offset));
++                let transition_end = transition.unix_leap_time + i64::from(after_ltt.ut_offset);
++                let transition_start = transition.unix_leap_time + i64::from(prev.ut_offset);
+ 
+                 match transition_start.cmp(&transition_end) {
+                     Ordering::Greater => {
