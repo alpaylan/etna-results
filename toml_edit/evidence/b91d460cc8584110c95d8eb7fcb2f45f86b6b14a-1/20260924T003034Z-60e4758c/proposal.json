@@ -1,0 +1,13 @@
+{
+  "commit": "b91d460cc8584110c95d8eb7fcb2f45f86b6b14a",
+  "parent": "c8087a6bc6ff1464c5731fca0f70404ec200226f",
+  "fixed_commit": "b91d460cc8584110c95d8eb7fcb2f45f86b6b14a",
+  "summary": "At EOF, an unfinished inline table in NeedsEquals or NeedsValue state closed without emitting missing separator or scalar events, causing toml_edit to panic on malformed input such as `={=<=u==`. The fix emits those events before reporting the unclosed table, preserving receiver state so parsing returns an error. The fix updates parse::garbage1 in toml_edit's compliance test target to check that error instead of expecting a panic. The proposed reversal exactly restores the parent implementation and preserves the updated test. No tests were run.",
+  "test": "parse::garbage1",
+  "expected_failure": "setting a value should set a prefix",
+  "reversal": {
+    "path": "crates/toml_parser/src/parser/document.rs",
+    "fixed_text": "    match state {\n        State::NeedsKey => {}\n        State::NeedsEquals => {\n            receiver.key_val_sep(previous_span.after(), error);\n            receiver.scalar(previous_span.after(), Some(Encoding::LiteralString), error);\n        }\n        State::NeedsValue => {\n            receiver.scalar(previous_span.after(), Some(Encoding::LiteralString), error);\n        }\n        State::NeedsComma => {}\n    }\n    error.report_error(\n        ParseError::new(\"unclosed inline table\")\n",
+    "parent_text": "    error.report_error(\n        ParseError::new(\"unclosed inline table\")\n"
+  }
+}

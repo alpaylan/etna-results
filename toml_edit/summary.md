@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: Reversal changes are not part of the upstream fix
+**blocked**: fixed: source differs beyond the exact implementation reversal
 
 Upstream: https://github.com/toml-rs/toml
 
-Candidate: 57ea4b4f2adbb12f1fbb30ed7c45ac60e5493a31-1
+Candidate: b91d460cc8584110c95d8eb7fcb2f45f86b6b14a-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-History coverage not yet recorded.
+Reviewed commits: 1 / 2870 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.
