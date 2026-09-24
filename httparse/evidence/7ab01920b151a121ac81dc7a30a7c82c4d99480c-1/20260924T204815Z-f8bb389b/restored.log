@@ -1,0 +1,17 @@
+Command: rustup run 1.60.0 cargo test --locked --offline --lib tests::test_forbid_response_with_invalid_char_between_header_name_and_colon -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T20:50:03.302409+00:00
+STDOUT:
+
+running 1 test
+test tests::test_forbid_response_with_invalid_char_between_header_name_and_colon ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 64 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling httparse v1.7.0 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 0.65s
+     Running unittests (/home/runner/work/_temp/build-20260924T204815Z-f8bb389b/debug/deps/httparse-66e89dd7c99a3acd)
+
+Exit: 0
+Timed out: False

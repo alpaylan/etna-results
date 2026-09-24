@@ -1,0 +1,61 @@
+Command: rustup run 1.60.0 cargo test --locked --offline --lib tests::test_forbid_response_with_invalid_char_between_header_name_and_colon -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T20:49:51.547166+00:00
+STDOUT:
+
+running 1 test
+test tests::test_forbid_response_with_invalid_char_between_header_name_and_colon ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 64 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling lazy_static v1.4.0
+   Compiling cfg-if v1.0.0
+   Compiling scopeguard v1.1.0
+   Compiling ryu v1.0.9
+   Compiling either v1.6.1
+   Compiling itoa v1.0.1
+   Compiling unicode-width v0.1.9
+   Compiling plotters-backend v0.3.2
+   Compiling regex-automata v0.1.10
+   Compiling same-file v1.0.6
+   Compiling regex-syntax v0.6.25
+   Compiling itoa v0.4.8
+   Compiling bitflags v1.3.2
+   Compiling half v1.8.2
+   Compiling httparse v1.7.0 (/home/runner/work/_temp/upstream)
+   Compiling oorandom v11.1.3
+   Compiling textwrap v0.11.0
+   Compiling itertools v0.10.3
+   Compiling walkdir v2.3.2
+   Compiling plotters-svg v0.3.1
+   Compiling serde v1.0.136
+   Compiling crossbeam-utils v0.8.8
+   Compiling libc v0.2.124
+   Compiling memchr v2.4.1
+   Compiling clap v2.34.0
+   Compiling memoffset v0.6.5
+   Compiling num-traits v0.2.14
+   Compiling regex v1.5.5
+   Compiling crossbeam-channel v0.5.4
+   Compiling num_cpus v1.13.1
+   Compiling atty v0.2.14
+   Compiling csv-core v0.1.10
+   Compiling crossbeam-epoch v0.9.8
+   Compiling plotters v0.3.1
+   Compiling serde_json v1.0.79
+   Compiling bstr v0.2.17
+   Compiling serde_cbor v0.11.2
+   Compiling crossbeam-deque v0.8.1
+   Compiling tinytemplate v1.2.1
+   Compiling csv v1.1.6
+   Compiling cast v0.2.7
+   Compiling rayon-core v1.9.2
+   Compiling criterion-plot v0.4.4
+   Compiling rayon v1.5.2
+   Compiling criterion v0.3.5
+    Finished test [unoptimized + debuginfo] target(s) in 10.94s
+     Running unittests (/home/runner/work/_temp/build-20260924T204815Z-f8bb389b/debug/deps/httparse-66e89dd7c99a3acd)
+
+Exit: 0
+Timed out: False

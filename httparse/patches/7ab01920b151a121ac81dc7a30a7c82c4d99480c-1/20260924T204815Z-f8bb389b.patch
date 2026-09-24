@@ -1,0 +1,62 @@
+diff --git a/src/lib.rs b/src/lib.rs
+index 85f4418..0296732 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -942,34 +942,35 @@ fn parse_headers_iter_uninit<'a, 'b>(
+ 
+         // parse header name until colon
+         let header_name: &str = 'name: loop {
+-            let mut b = next!(bytes);
+-
+-            if is_header_name_token(b) {
+-                continue 'name;
+-            }
+-
+-            count += bytes.pos();
+-            let name = unsafe {
+-                str::from_utf8_unchecked(bytes.slice_skip(1))
+-            };
+-
++            let b = next!(bytes);
+             if b == b':' {
+-                break 'name name;
+-            }
+-
+-            if config.allow_spaces_after_header_name_in_responses {
+-                while b == b' ' || b == b'\t' {
+-                    b = next!(bytes);
+-
+-                    if b == b':' {
++                count += bytes.pos();
++                let _name = unsafe {
++                    str::from_utf8_unchecked(bytes.slice_skip(1))
++                };
++                break 'name _name;
++            } else if !is_header_name_token(b) {
++                if !config.allow_spaces_after_header_name_in_responses {
++                    return Err(Error::HeaderName);
++                }
++                count += bytes.pos();
++                let _name = unsafe { str::from_utf8_unchecked(bytes.slice_skip(1)) };
++                // eat white space between name and colon
++                'whitespace_before_colon: loop {
++                    let b = next!(bytes);
++                    if b == b' ' || b == b'\t' {
+                         count += bytes.pos();
+                         bytes.slice();
+-                        break 'name name;
++                        continue 'whitespace_before_colon;
++                    } else if b == b':' {
++                        count += bytes.pos();
++                        bytes.slice();
++                        break 'name _name;
++                    } else {
++                        return Err(Error::HeaderName);
+                     }
+                 }
+             }
+-
+-            return Err(Error::HeaderName);
+         };
+ 
+         let mut b;
