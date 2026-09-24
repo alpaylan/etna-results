@@ -1,0 +1,13 @@
+{
+  "commit": "5f4a46a522b4e325cc4d56c1b737e44915921cca",
+  "parent": "039bb5370f1c70317546625efda75dcd892b4511",
+  "fixed_commit": "5f4a46a522b4e325cc4d56c1b737e44915921cca",
+  "summary": "LruCache::pop removed and freed a map entry without detaching its linked-list node, leaving dangling links that subsequent operations could traverse. The fix detaches the node before returning its value. The regression test added by this commit pops an interior entry, inserts another, and checks the complete iteration order. Both reversal regions occur exactly once in their respective source revisions. No tests were run; reproduction remains for the runner.",
+  "test": "tests::test_that_pop_actually_detaches_node",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "            Some(mut old_node) => {\n                let node_ptr: *mut LruEntry<K, V> = &mut *old_node;\n                self.detach(node_ptr);\n                Some(old_node.val)\n            }\n",
+    "parent_text": "            Some(lru_entry) => Some(lru_entry.val),\n"
+  }
+}

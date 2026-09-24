@@ -1,0 +1,12 @@
+{
+  "repo": "https://github.com/jeromefroe/lru-rs",
+  "tips": [
+    "5f4a46a522b4e325cc4d56c1b737e44915921cca"
+  ],
+  "shallow": false,
+  "reviewed": [
+    "5f4a46a522b4e325cc4d56c1b737e44915921cca"
+  ],
+  "reachable_commits": 80,
+  "scope": "One queued candidate; not an exhaustive history scan."
+}

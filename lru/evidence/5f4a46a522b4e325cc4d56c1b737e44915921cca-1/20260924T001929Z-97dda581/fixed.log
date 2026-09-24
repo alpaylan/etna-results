@@ -1,0 +1,21 @@
+Command: rustup run 1.33.0 cargo test --locked --lib tests::test_that_pop_actually_detaches_node -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:20:11.546840+00:00
+STDOUT:
+
+running 1 test
+test tests::test_that_pop_actually_detaches_node ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 22 filtered out
+
+
+STDERR:
+   Compiling scopeguard v0.3.3
+   Compiling scoped_threadpool v0.1.9
+   Compiling byteorder v1.3.1
+   Compiling hashbrown v0.1.8
+   Compiling lru v0.1.12 (/home/runner/work/_temp/upstream)
+    Finished dev [unoptimized + debuginfo] target(s) in 1.92s
+     Running /home/runner/work/_temp/build-20260924T001929Z-97dda581/debug/deps/lru-31e66df9afb761f5
+
+Exit: 0
+Timed out: False

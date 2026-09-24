@@ -1,0 +1,14 @@
+Command: rustup run 1.33.0 cargo check --locked --tests
+Started: 2026-09-24T00:20:09.630861+00:00
+STDOUT:
+
+STDERR:
+   Compiling byteorder v1.3.1
+    Checking scopeguard v0.3.3
+    Checking scoped_threadpool v0.1.9
+    Checking hashbrown v0.1.8
+    Checking lru v0.1.12 (/home/runner/work/_temp/upstream)
+    Finished dev [unoptimized + debuginfo] target(s) in 1.82s
+
+Exit: 0
+Timed out: False

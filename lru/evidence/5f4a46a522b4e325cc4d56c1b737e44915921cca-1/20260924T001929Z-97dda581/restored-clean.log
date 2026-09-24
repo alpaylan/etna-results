@@ -1,0 +1,8 @@
+Command: rustup run 1.33.0 cargo clean -p lru
+Started: 2026-09-24T00:20:14.460238+00:00
+STDOUT:
+
+STDERR:
+
+Exit: 0
+Timed out: False

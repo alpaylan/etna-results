@@ -1,0 +1,13 @@
+Command: rustup run 1.33.0 cargo fetch --locked
+Started: 2026-09-24T00:20:09.399489+00:00
+STDOUT:
+
+STDERR:
+ Downloading crates ...
+  Downloaded scopeguard v0.3.3 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded hashbrown v0.1.8 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded scoped_threadpool v0.1.9 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded byteorder v1.3.1 (registry `git://127.0.0.1:9419/era-index`)
+
+Exit: 0
+Timed out: False
