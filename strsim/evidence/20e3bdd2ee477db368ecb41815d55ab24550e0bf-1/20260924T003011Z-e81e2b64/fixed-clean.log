@@ -1,0 +1,9 @@
+Command: rustup run 1.75.0 cargo clean -p strsim
+Started: 2026-09-24T00:33:14.230246+00:00
+STDOUT:
+
+STDERR:
+     Removed 30 files, 4.3MiB total
+
+Exit: 0
+Timed out: False

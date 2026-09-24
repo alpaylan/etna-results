@@ -1,0 +1,13 @@
+{
+  "commit": "20e3bdd2ee477db368ecb41815d55ab24550e0bf",
+  "parent": "f6a759324b0d7a0dfd32b02e78e97372a7352aad",
+  "fixed_commit": "20e3bdd2ee477db368ecb41815d55ab24550e0bf",
+  "summary": "Jaro-Winkler unconditionally applied a common-prefix boost, inflating similarities when the underlying Jaro score was at most 0.7. The fix applies the boost only above 0.7. The upstream test updated by this fix expects approximately 0.452 for \"Friedrich Nietzsche\" and \"Fran-Paul Sartre\", whereas the parent implementation returns approximately 0.562. Both implementation regions occur exactly once in their respective revisions. No tests were executed.",
+  "test": "tests::jaro_winkler_names",
+  "expected_failure": "actual not within < 0.001 of expected",
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "    let sim = generic_jaro(a, b);\n\n    if sim > 0.7 {\n        let prefix_length = a\n            .into_iter()\n            .take(4)\n            .zip(b)\n            .take_while(|(a_elem, b_elem)| a_elem == b_elem)\n            .count();\n\n        sim + 0.1 * prefix_length as f64 * (1.0 - sim)\n    } else {\n        sim\n    }\n",
+    "parent_text": "    let jaro_distance = generic_jaro(a, b);\n\n    let prefix_length = a\n        .into_iter()\n        .take(4)\n        .zip(b)\n        .take_while(|(a_elem, b_elem)| a_elem == b_elem)\n        .count();\n\n    return jaro_distance + 0.1 * prefix_length as f64 * (1.0 - jaro_distance);\n"
+  }
+}

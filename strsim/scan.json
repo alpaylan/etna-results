@@ -1,12 +1,14 @@
 {
   "repo": "https://github.com/rapidfuzz/strsim-rs",
   "tips": [
+    "20e3bdd2ee477db368ecb41815d55ab24550e0bf",
     "5b512dce33d186f4fbe7ed3fa7a5dc7e33d73823"
   ],
   "shallow": false,
   "reviewed": [
+    "20e3bdd2ee477db368ecb41815d55ab24550e0bf",
     "5b512dce33d186f4fbe7ed3fa7a5dc7e33d73823"
   ],
-  "reachable_commits": 91,
+  "reachable_commits": 105,
   "scope": "One queued candidate; not an exhaustive history scan."
 }

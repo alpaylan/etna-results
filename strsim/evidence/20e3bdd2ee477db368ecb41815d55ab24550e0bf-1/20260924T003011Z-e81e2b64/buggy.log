@@ -1,0 +1,26 @@
+Command: rustup run 1.75.0 cargo test --locked --offline --lib tests::jaro_winkler_names -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:33:15.522124+00:00
+STDOUT:
+
+running 1 test
+test tests::jaro_winkler_names ... FAILED
+
+failures:
+
+failures:
+    tests::jaro_winkler_names
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 87 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling strsim v0.10.0 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 0.83s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T003011Z-e81e2b64/debug/deps/strsim-5f30551f0e345bd2)
+thread 'tests::jaro_winkler_names' panicked at src/lib.rs:955:9:
+assertion failed: actual: `0.452`, expected: `0.5619883040935673`: actual not within < 0.001 of expected
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `--lib`
+
+Exit: 101
+Timed out: False
