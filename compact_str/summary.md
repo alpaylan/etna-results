@@ -4,7 +4,7 @@
 
 Upstream: https://github.com/ParkMyCar/compact_str
 
-Candidate: 8928f86f2a7a55f19e8aa4de9916416214ab6202-1
+Candidate: 8bee76b1bc65017dc433c7c2a42eda474ec415cf-1
 
 Provenance: verbatim
 

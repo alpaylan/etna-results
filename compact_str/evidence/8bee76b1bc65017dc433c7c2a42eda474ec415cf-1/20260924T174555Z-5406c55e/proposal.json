@@ -1,0 +1,13 @@
+{
+  "commit": "8bee76b1bc65017dc433c7c2a42eda474ec415cf",
+  "parent": "d4798639c24cacf528770d83e8842336b79fbc39",
+  "fixed_commit": "8bee76b1bc65017dc433c7c2a42eda474ec415cf",
+  "summary": "Missing PartialEq implementations prevented comparisons between certain owned and borrowed string types from compiling. The fix adds those implementations and relaxes the generic bound with ?Sized to support str. The proposed reversal restores that bound verbatim. Blocked under the confirmation gate: the added tests::test_eq_operator only checks compilation and discards comparison results. Reversal would cause compilation failure, not a failing executed test; no qualifying runtime detector was identified. No builds or tests were run.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "compact_str/src/lib.rs",
+    "fixed_text": "impl<T: AsRef<str> + ?Sized> PartialEq<T> for CompactString {\n    fn eq(&self, other: &T) -> bool {\n        self.as_str() == other.as_ref()\n    }\n}\n",
+    "parent_text": "impl<T: AsRef<str>> PartialEq<T> for CompactString {\n    fn eq(&self, other: &T) -> bool {\n        self.as_str() == other.as_ref()\n    }\n}\n"
+  }
+}
