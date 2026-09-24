@@ -1,0 +1,13 @@
+{
+  "commit": "db8546a0dd70d76ac174e89ce74a35308c5686a2",
+  "parent": "a4b0f53f1bae05b0ff63e33c96ba24d9f9aadfdd",
+  "fixed_commit": "db8546a0dd70d76ac174e89ce74a35308c5686a2",
+  "summary": "Blocked: the full commit diff changes only tests/reader-errors.rs, replacing read_event() with read_resolved_event() for the first read in the ill_formed err2! macro's ns_reader::borrowed tests. This corrects the test's API usage. The implementation source tree is identical at the parent and fix revisions, so no implementation reversal exists; reversing the sole change would modify protected test code.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
