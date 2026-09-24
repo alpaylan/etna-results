@@ -1,19 +1,15 @@
 # Cloud bug-mining prototype
 
-Resumed verified evidence; no tests rerun.
-
-**confirmed**: The same upstream test passed, panicked on the original defect ('assertion `left == right` failed
-  left: NodeIndex(1)
- right: NodeIndex(4294967295)'), and passed after restoration
+**blocked**: fixed: no completed execution of the exact upstream test
 
 Upstream: https://github.com/petgraph/petgraph
 
-Candidate: b682695f29833184b322333e151a588be8f98842-1
+Candidate: 34e9c960f7ecab9365dd62e05cf2d1dbbc64c6d4-1
 
 Provenance: verbatim
 
-Latest outcomes: {"confirmed": 1}
+Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 1413 reachable from the saved tip.
+Reviewed commits: 1 / 1424 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

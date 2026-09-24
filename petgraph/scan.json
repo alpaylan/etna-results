@@ -1,6 +1,7 @@
 {
   "repo": "https://github.com/petgraph/petgraph",
   "tips": [
+    "34e9c960f7ecab9365dd62e05cf2d1dbbc64c6d4",
     "36e5efb704a52159a59ee8980050ae0d5d951e1f",
     "4c7f18e73a730527b4b4fb571190d71d639b6376",
     "8f7a0d93279f575627db90430d1a0aab242c3e9c",
@@ -11,6 +12,7 @@
   ],
   "shallow": false,
   "reviewed": [
+    "34e9c960f7ecab9365dd62e05cf2d1dbbc64c6d4",
     "36e5efb704a52159a59ee8980050ae0d5d951e1f",
     "4c7f18e73a730527b4b4fb571190d71d639b6376",
     "8f7a0d93279f575627db90430d1a0aab242c3e9c",
@@ -19,6 +21,6 @@
     "e39f0f9523d4037ad212e89f51e1b7e8434964af",
     "ebee19788263054c79450a4c798831053b4a9c48"
   ],
-  "reachable_commits": 1413,
+  "reachable_commits": 1424,
   "scope": "One queued candidate; not an exhaustive history scan."
 }

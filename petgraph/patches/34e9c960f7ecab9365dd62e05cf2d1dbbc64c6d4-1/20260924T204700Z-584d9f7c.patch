@@ -1,0 +1,13 @@
+diff --git a/crates/petgraph/src/algo/coloring.rs b/crates/petgraph/src/algo/coloring.rs
+index b98e17e..f4de018 100644
+--- a/crates/petgraph/src/algo/coloring.rs
++++ b/crates/petgraph/src/algo/coloring.rs
+@@ -98,7 +98,5 @@ where
+         }
+     }
+ 
+-    let nb_colors = if colored.is_empty() { 0 } else { max_color + 1 };
+-
+-    (colored, nb_colors)
++    (colored, max_color + 1)
+ }

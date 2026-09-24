@@ -1,0 +1,72 @@
+Command: rustup run 1.97.1 cargo test --locked --offline --lib dsatur_coloring_empty_graph_uses_zero_colors -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T20:56:22.340991+00:00
+STDOUT:
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 104 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+  |
+  = help: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+   Compiling rand_core v0.4.2
+   Compiling libc v0.2.189
+   Compiling serde_core v1.0.229
+   Compiling foldhash v0.2.0
+   Compiling rand_core v0.3.1
+   Compiling rand_jitter v0.1.4
+   Compiling rand_chacha v0.1.1
+   Compiling rand_isaac v0.1.1
+   Compiling rand_xorshift v0.1.1
+   Compiling rand_hc v0.1.0
+   Compiling rand_pcg v0.1.2
+   Compiling hashbrown v0.17.1
+   Compiling equivalent v1.0.2
+   Compiling either v1.17.0
+   Compiling fixedbitset v0.5.7
+   Compiling rand_os v0.1.3
+   Compiling rawpointer v0.2.1
+   Compiling indexmap v2.14.0
+   Compiling cfg-if v1.0.4
+   Compiling rand v0.6.5
+   Compiling getrandom v0.2.17
+   Compiling rawslice v0.1.1
+   Compiling zmij v1.0.23
+   Compiling itoa v1.0.18
+   Compiling defmac v0.2.1
+   Compiling quickcheck v0.8.5
+   Compiling unchecked-index v0.2.2
+   Compiling memchr v2.8.3
+   Compiling once_cell v1.21.4
+   Compiling byteorder v1.5.0
+   Compiling fxhash v0.2.1
+   Compiling serde v1.0.229
+   Compiling ahash v0.7.8
+   Compiling serde_json v1.0.151
+   Compiling odds v0.4.0
+   Compiling rand v0.5.6
+   Compiling bincode v1.3.3
+   Compiling petgraph v0.8.3 (/home/runner/work/_temp/upstream/crates/petgraph)
+   Compiling itertools v0.10.5
+   Compiling itertools v0.12.1
+   Compiling petgraph-core v0.1.0 (/home/runner/work/_temp/upstream/crates/core)
+   Compiling petgraph-serialization-tests v0.0.0 (/home/runner/work/_temp/upstream/serialization-tests)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 8.41s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T204700Z-584d9f7c/debug/deps/petgraph-51f5d80552f796ba)
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T204700Z-584d9f7c/debug/deps/petgraph_core-337d4710aeb6b368)
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T204700Z-584d9f7c/debug/deps/petgraph_serialization_tests-bce14d3cc3a9d6bd)
+
+Exit: 0
+Timed out: False

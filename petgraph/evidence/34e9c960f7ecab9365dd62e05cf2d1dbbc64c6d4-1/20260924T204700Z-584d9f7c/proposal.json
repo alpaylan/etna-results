@@ -1,0 +1,13 @@
+{
+  "commit": "34e9c960f7ecab9365dd62e05cf2d1dbbc64c6d4",
+  "parent": "bcae5c71950e26440ebbc813a954e1f6ba1067f2",
+  "fixed_commit": "34e9c960f7ecab9365dd62e05cf2d1dbbc64c6d4",
+  "summary": "For an empty graph, dsatur_coloring incorrectly returns one used color because max_color starts at zero and the return expression unconditionally adds one. The fix returns zero when the coloring map is empty, preserving the existing count for nonempty graphs. The regression test added by this fix asserts that an empty undirected graph uses zero colors. No builds or tests were run.",
+  "test": "dsatur_coloring_empty_graph_uses_zero_colors",
+  "expected_failure": "assertion `left == right` failed\n  left: 1\n right: 0",
+  "reversal": {
+    "path": "crates/petgraph/src/algo/coloring.rs",
+    "fixed_text": "    let nb_colors = if colored.is_empty() { 0 } else { max_color + 1 };\n\n    (colored, nb_colors)\n",
+    "parent_text": "    (colored, max_color + 1)\n"
+  }
+}
