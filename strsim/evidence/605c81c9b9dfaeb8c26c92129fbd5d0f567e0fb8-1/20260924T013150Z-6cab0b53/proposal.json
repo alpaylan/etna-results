@@ -1,0 +1,13 @@
+{
+  "commit": "605c81c9b9dfaeb8c26c92129fbd5d0f567e0fb8",
+  "parent": "c4cdd9c35dfaf7fa4e5e023d22854180b114dd9c",
+  "fixed_commit": "605c81c9b9dfaeb8c26c92129fbd5d0f567e0fb8",
+  "summary": "The parent implementation returns 0.0 for all pairs of one-element sequences, including identical characters. Thus jaro(\"a\", \"a\") returns 0.0 and jaro_winkler(\"a\", \"a\") returns 0.1 instead of 1.0. The fix compares the elements in the length-one guard, returning 1.0 for equal inputs and 0.0 otherwise while preserving protection against search-range underflow. The selected regression test was added by this fix. No tests were executed.",
+  "test": "tests::jaro_same_one_character",
+  "expected_failure": "assertion failed: `(left == right)`\n  left: `1.0`,\n right: `0.0`",
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "    if a_len == 0 && b_len == 0 {\n        return 1.0;\n    } else if a_len == 0 || b_len == 0 {\n        return 0.0;\n    } else if a_len == 1 && b_len == 1 {\n        return if a.into_iter().eq(b.into_iter()) { 1.0} else { 0.0 };\n    }\n",
+    "parent_text": "    if a_len == 0 && b_len == 0 {\n        return 1.0\n    } else if a_len == 0 || b_len == 0 || (a_len == 1 && b_len == 1) {\n        return 0.0;\n    }\n"
+  }
+}

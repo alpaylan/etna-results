@@ -1,0 +1,17 @@
+Command: rustup run 1.39.0 cargo test --locked --offline --lib tests::jaro_same_one_character -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T01:32:24.738020+00:00
+STDOUT:
+
+running 1 test
+test tests::jaro_same_one_character ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 85 filtered out
+
+
+STDERR:
+   Compiling strsim v0.9.2 (/home/runner/work/_temp/upstream)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.92s
+     Running /home/runner/work/_temp/build-20260924T013150Z-6cab0b53/debug/deps/strsim-4c9467575237fd6b
+
+Exit: 0
+Timed out: False
