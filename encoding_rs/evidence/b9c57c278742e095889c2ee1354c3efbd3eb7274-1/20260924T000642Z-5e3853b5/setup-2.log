@@ -1,0 +1,9 @@
+Command: rustup run 1.12.1 cargo generate-lockfile
+Started: 2026-09-24T00:07:00.754755+00:00
+STDOUT:
+
+STDERR:
+    Updating registry `git://127.0.0.1:9419/era-index`
+
+Exit: 0
+Timed out: False

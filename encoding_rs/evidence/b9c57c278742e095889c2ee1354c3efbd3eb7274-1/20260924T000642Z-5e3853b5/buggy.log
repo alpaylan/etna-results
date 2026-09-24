@@ -1,0 +1,25 @@
+Command: rustup run 1.12.1 cargo test --lib tests::test_label_resolution -- --nocapture --test-threads=1
+Started: 2026-09-24T00:08:08.241113+00:00
+STDOUT:
+
+running 1 test
+test tests::test_label_resolution ... FAILED
+
+failures:
+
+failures:
+    tests::test_label_resolution
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured
+
+
+STDERR:
+   Compiling encoding_rs v0.2.4 (file:///home/runner/work/_temp/upstream)
+    Finished debug [unoptimized + debuginfo] target(s) in 6.23 secs
+     Running /home/runner/work/_temp/build-20260924T000642Z-5e3853b5/debug/deps/encoding_rs-4b11cace54656da4
+thread 'tests::test_label_resolution' panicked at 'index out of bounds: the len is 19 but the index is 19', src/lib.rs:1359
+note: Run with `RUST_BACKTRACE=1` for a backtrace.
+error: test failed
+
+Exit: 101
+Timed out: False

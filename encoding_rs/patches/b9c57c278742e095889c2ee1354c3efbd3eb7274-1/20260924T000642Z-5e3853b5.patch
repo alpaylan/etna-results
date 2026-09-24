@@ -1,0 +1,13 @@
+diff --git a/src/lib.rs b/src/lib.rs
+index e490dd1..d20885f 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -1358,7 +1358,7 @@ impl Encoding {
+                         _ => {
+                             trimmed[trimmed_pos] = *byte;
+                             trimmed_pos += 1usize;
+-                            if trimmed_pos == LONGEST_LABEL_LENGTH {
++                            if trimmed_pos > LONGEST_LABEL_LENGTH {
+                                 // There's no encoding with a label this long
+                                 return None;
+                             }

@@ -1,0 +1,24 @@
+Command: rustup run 1.12.1 cargo fetch
+Started: 2026-09-24T00:07:02.870328+00:00
+STDOUT:
+
+STDERR:
+ Downloading ansi_term v0.7.5 (registry git://127.0.0.1:9419/era-index)
+ Downloading kernel32-sys v0.2.2 (registry git://127.0.0.1:9419/era-index)
+ Downloading term v0.2.14 (registry git://127.0.0.1:9419/era-index)
+ Downloading rustc-serialize v0.3.19 (registry git://127.0.0.1:9419/era-index)
+ Downloading libc v0.2.17 (registry git://127.0.0.1:9419/era-index)
+ Downloading toml v0.1.30 (registry git://127.0.0.1:9419/era-index)
+ Downloading unicode-xid v0.0.3 (registry git://127.0.0.1:9419/era-index)
+ Downloading vec_map v0.4.0 (registry git://127.0.0.1:9419/era-index)
+ Downloading clap v1.5.5 (registry git://127.0.0.1:9419/era-index)
+ Downloading log v0.3.6 (registry git://127.0.0.1:9419/era-index)
+ Downloading strsim v0.4.1 (registry git://127.0.0.1:9419/era-index)
+ Downloading rusty-cheddar v0.3.3 (registry git://127.0.0.1:9419/era-index)
+ Downloading winapi-build v0.1.1 (registry git://127.0.0.1:9419/era-index)
+ Downloading bitflags v0.3.3 (registry git://127.0.0.1:9419/era-index)
+ Downloading winapi v0.2.8 (registry git://127.0.0.1:9419/era-index)
+ Downloading syntex_syntax v0.24.0 (registry git://127.0.0.1:9419/era-index)
+
+Exit: 0
+Timed out: False

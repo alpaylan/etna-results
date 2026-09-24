@@ -1,0 +1,13 @@
+{
+  "commit": "b9c57c278742e095889c2ee1354c3efbd3eb7274",
+  "parent": "a8e2a7add93a4856758ece70429753ff8ad2b3ab",
+  "fixed_commit": "b9c57c278742e095889c2ee1354c3efbd3eb7274",
+  "summary": "Encoding::for_label checked whether trimmed_pos exceeded its 19-byte buffer length after writing. At 19 bytes the check allowed another iteration, so the 20-byte label \"bogusbogusbogusbogus\" panicked instead of returning None. The fix changes > to ==, returning before another write. Reversing only the default-byte branch restores the bug exercised by the regression test added in this commit.",
+  "test": "tests::test_label_resolution",
+  "expected_failure": "index out of bounds: the len is 19 but the index is 19",
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "                            trimmed[trimmed_pos] = *byte;\n                            trimmed_pos += 1usize;\n                            if trimmed_pos == LONGEST_LABEL_LENGTH {\n",
+    "parent_text": "                            trimmed[trimmed_pos] = *byte;\n                            trimmed_pos += 1usize;\n                            if trimmed_pos > LONGEST_LABEL_LENGTH {\n"
+  }
+}
