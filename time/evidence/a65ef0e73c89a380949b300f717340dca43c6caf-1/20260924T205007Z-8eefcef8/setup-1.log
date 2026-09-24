@@ -1,0 +1,14 @@
+Command: rustup toolchain install 1.78.0 --profile minimal
+Started: 2026-09-24T20:50:15.045790+00:00
+STDOUT:
+
+  1.78.0-x86_64-unknown-linux-gnu installed - rustc 1.78.0 (9b00956e5 2024-04-29)
+
+
+STDERR:
+info: syncing channel updates for 1.78.0-x86_64-unknown-linux-gnu
+info: latest update on 2024-05-02 for version 1.78.0 (9b00956e5 2024-04-29)
+info: downloading 3 components
+
+Exit: 0
+Timed out: False

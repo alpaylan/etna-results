@@ -1,0 +1,13 @@
+{
+  "commit": "a65ef0e73c89a380949b300f717340dca43c6caf",
+  "parent": "38beb4a2e9e8eacfceef413c3a54fd56800510a7",
+  "fixed_commit": "a65ef0e73c89a380949b300f717340dca43c6caf",
+  "summary": "ISO 8601 formatting rounds fractional seconds instead of truncating to the requested precision: 03:04:05.999999999 becomes 03:04:06.000000 at six decimal places. The fix truncates the scaled floating-point value before formatting. Reversing only that addition restores the faulty behavior. The fix adds the selected regression test, which requires --all-features. No builds or tests were run.",
+  "test": "formatting::iso_8601_issue_678",
+  "expected_failure": "assertion `left == right` failed\n  left: \"2021-01-02T03:04:06.000000Z\"\n right: \"2021-01-02T03:04:05.999999Z\"",
+  "reversal": {
+    "path": "time/src/formatting/mod.rs",
+    "fixed_text": "        Some(digits_after_decimal) => {\n            // Truncate the decimal points up to the precision\n            let trunc_num = 10_f64.powi(digits_after_decimal.get().cast_signed().extend());\n            let value = f64::trunc(value * trunc_num) / trunc_num;\n\n            let digits_after_decimal = digits_after_decimal.get().extend();\n",
+    "parent_text": "        Some(digits_after_decimal) => {\n            let digits_after_decimal = digits_after_decimal.get().extend();\n"
+  }
+}
