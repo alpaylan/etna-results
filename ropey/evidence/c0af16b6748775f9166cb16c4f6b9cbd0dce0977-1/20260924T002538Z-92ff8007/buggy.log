@@ -1,0 +1,27 @@
+Command: rustup run 1.59.0 cargo test --locked --offline --lib slice::tests::utf16_cu_to_char_03 -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:27:55.316129+00:00
+STDOUT:
+
+running 1 test
+test slice::tests::utf16_cu_to_char_03 ... FAILED
+
+failures:
+
+failures:
+    slice::tests::utf16_cu_to_char_03
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 343 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling ropey v1.3.2 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 1.85s
+     Running unittests (/home/runner/work/_temp/build-20260924T002538Z-92ff8007/debug/deps/ropey-fee73359a25ef0e1)
+thread 'main' panicked at 'assertion failed: `(left == right)`
+  left: `1`,
+ right: `0`', src/slice.rs:2370:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass '--lib'
+
+Exit: 101
+Timed out: False
