@@ -4,7 +4,7 @@
 
 Upstream: https://github.com/Lokathor/tinyvec
 
-Candidate: ed749ef26001bac182d5f373909ba01e97500915-1
+Candidate: 48c004ddc27eebc8484a30602c894ba3915ec721-1
 
 Provenance: verbatim
 

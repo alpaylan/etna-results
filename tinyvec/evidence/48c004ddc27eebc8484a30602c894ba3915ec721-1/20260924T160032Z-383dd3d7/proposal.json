@@ -1,0 +1,13 @@
+{
+  "commit": "48c004ddc27eebc8484a30602c894ba3915ec721",
+  "parent": "35157680c77a5a4ee4c9d72ede0bff2ed044ade1",
+  "fixed_commit": "48c004ddc27eebc8484a30602c894ba3915ec721",
+  "summary": "ArrayVec::capacity returned the backing array length even when it exceeded 65,535, the maximum length representable by its u16 length field. The fix caps reported capacity at u16::MAX. The exact implementation reversal is identifiable, but no detecting upstream test was found at the fixed commit: the fix adds no tests, and existing tests and fuzz targets use smaller backing arrays. Blocked pending an existing detecting upstream test; no builds or tests were run.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/arrayvec.rs",
+    "fixed_text": "    self.data.as_slice().len().min(u16::MAX as usize)\n",
+    "parent_text": "    self.data.as_slice().len()\n"
+  }
+}
