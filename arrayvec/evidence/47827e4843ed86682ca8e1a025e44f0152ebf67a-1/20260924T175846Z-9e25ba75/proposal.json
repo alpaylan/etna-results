@@ -1,0 +1,13 @@
+{
+  "commit": "47827e4843ed86682ca8e1a025e44f0152ebf67a",
+  "parent": "8e5ff2d0fba33823e0c7023ac19284295e1dcbee",
+  "fixed_commit": "47827e4843ed86682ca8e1a025e44f0152ebf67a",
+  "summary": "Extending from a slice exceeding remaining capacity panicked. The fix introduces try_extend_from_slice, returning CapacityError without modifying the vector when insufficient capacity remains. The verbatim reversal restores only the overflow panic. Blocked: no existing upstream test at this commit exercises that branch. The updated test_extend_from_slice and doctest use slices that fit; test_write reaches the method only after truncating input to remaining capacity. No builds or tests were run.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "        if self.remaining_capacity() < other.len() {\n            return Err(CapacityError::new(()));\n        }\n",
+    "parent_text": "        if self.remaining_capacity() < other.len() {\n            panic!(\"ArrayVec::extend_from_slice: slice is larger then capacity left\");\n        }\n"
+  }
+}

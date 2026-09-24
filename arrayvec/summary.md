@@ -4,7 +4,7 @@
 
 Upstream: https://github.com/bluss/arrayvec
 
-Candidate: 8e5ff2d0fba33823e0c7023ac19284295e1dcbee-1
+Candidate: 47827e4843ed86682ca8e1a025e44f0152ebf67a-1
 
 Provenance: verbatim
 
