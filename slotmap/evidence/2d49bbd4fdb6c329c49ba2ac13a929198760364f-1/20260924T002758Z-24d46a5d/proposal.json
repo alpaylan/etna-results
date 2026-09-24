@@ -1,0 +1,13 @@
+{
+  "commit": "2d49bbd4fdb6c329c49ba2ac13a929198760364f",
+  "parent": "40af3152fc51fa34e16b2b2fa4482fa7ab65921d",
+  "fixed_commit": "2d49bbd4fdb6c329c49ba2ac13a929198760364f",
+  "summary": "SparseSecondaryMap::insert accepted null keys, storing a value and making contains_key/get recognize a key documented as always invalid. The fix returns None before modifying the map when key.is_null(). The proposed reversal removes only that guard. Blocked: the fix adds no tests, and existing sparse-secondary unit tests, QuickCheck tests, and documentation examples insert keys obtained from SlotMap rather than null keys. No detecting upstream test was found at the fixed commit; no tests were executed.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/sparse_secondary.rs",
+    "fixed_text": "    pub fn insert(&mut self, key: K, value: V) -> Option<V> {\n        if key.is_null() {\n            return None;\n        }\n\n        let kd = key.data();\n",
+    "parent_text": "    pub fn insert(&mut self, key: K, value: V) -> Option<V> {\n        let kd = key.data();\n"
+  }
+}
