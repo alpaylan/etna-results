@@ -1,0 +1,21 @@
+Command: rustup run 1.83.0 cargo test --locked --offline --test adjacency_matrix test_adjacency_matrix_for_adj_list -- --nocapture --test-threads=1
+Started: 2026-09-24T23:24:32.035434+00:00
+STDOUT:
+
+running 1 test
+test test_adjacency_matrix_for_adj_list ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s
+
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+warning: ignoring `resolver` config table without `-Zmsrv-policy`
+warning: /home/runner/work/_temp/upstream/serialization-tests/Cargo.toml: no edition set: defaulting to the 2015 edition while the latest is 2021
+   Compiling petgraph v0.6.5 (/home/runner/work/_temp/upstream)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.08s
+     Running tests/adjacency_matrix.rs (/home/runner/work/_temp/build-20260924T231947Z-0159b8e3/debug/deps/adjacency_matrix-70a3742a6928eb5d)
+
+Exit: 0
+Timed out: False

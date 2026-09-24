@@ -1,0 +1,21 @@
+diff --git a/src/adj.rs b/src/adj.rs
+index 0d107bf..0bd5836 100644
+--- a/src/adj.rs
++++ b/src/adj.rs
+@@ -641,12 +641,15 @@ where
+         for edge in self.edge_references() {
+             let i = edge.source().index() * n + edge.target().index();
+             matrix.put(i);
++
++            let j = edge.source().index() + n * edge.target().index();
++            matrix.put(j);
+         }
+         matrix
+     }
+ 
+     fn is_adjacent(&self, matrix: &FixedBitSet, a: NodeIndex<Ix>, b: NodeIndex<Ix>) -> bool {
+-        let n = self.node_count();
++        let n = self.edge_count();
+         let index = n * a.index() + b.index();
+         matrix.contains(index)
+     }

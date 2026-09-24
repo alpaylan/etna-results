@@ -1,0 +1,13 @@
+{
+  "commit": "7fa3aac97168de7fca54644a5b45c464d5245535",
+  "parent": "9fda6bbe2e52663d03317083d2623faa4f0d4cd4",
+  "fixed_commit": "7fa3aac97168de7fca54644a5b45c464d5245535",
+  "summary": "The directed adjacency list incorrectly inserted reverse edges into its adjacency matrix and queried rows using edge_count instead of node_count, producing incorrect adjacency results. The fix preserves edge direction and uses node_count consistently for matrix indexing. Reverse only these src/adj.rs changes. The fix-added test in tests/adjacency_matrix.rs exercises this behavior; in its five-node graph, the buggy lookup incorrectly reports adjacency from node 1 to node 0. This is a proposed comparison, not a reproduction result.",
+  "test": "test_adjacency_matrix_for_adj_list",
+  "expected_failure": "assertion failed: !g.is_adjacent(&matrix, a, b)",
+  "reversal": {
+    "path": "src/adj.rs",
+    "fixed_text": "    fn adjacency_matrix(&self) -> FixedBitSet {\n        let n = self.node_count();\n        let mut matrix = FixedBitSet::with_capacity(n * n);\n        for edge in self.edge_references() {\n            let i = edge.source().index() * n + edge.target().index();\n            matrix.put(i);\n        }\n        matrix\n    }\n\n    fn is_adjacent(&self, matrix: &FixedBitSet, a: NodeIndex<Ix>, b: NodeIndex<Ix>) -> bool {\n        let n = self.node_count();\n        let index = n * a.index() + b.index();\n        matrix.contains(index)\n    }\n",
+    "parent_text": "    fn adjacency_matrix(&self) -> FixedBitSet {\n        let n = self.node_count();\n        let mut matrix = FixedBitSet::with_capacity(n * n);\n        for edge in self.edge_references() {\n            let i = edge.source().index() * n + edge.target().index();\n            matrix.put(i);\n\n            let j = edge.source().index() + n * edge.target().index();\n            matrix.put(j);\n        }\n        matrix\n    }\n\n    fn is_adjacent(&self, matrix: &FixedBitSet, a: NodeIndex<Ix>, b: NodeIndex<Ix>) -> bool {\n        let n = self.edge_count();\n        let index = n * a.index() + b.index();\n        matrix.contains(index)\n    }\n"
+  }
+}

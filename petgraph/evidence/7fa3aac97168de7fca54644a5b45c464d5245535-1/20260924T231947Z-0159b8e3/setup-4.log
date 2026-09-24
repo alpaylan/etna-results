@@ -1,0 +1,38 @@
+Command: rustup run 1.83.0 cargo check --locked --offline --tests
+Started: 2026-09-24T23:24:21.772372+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+warning: ignoring `resolver` config table without `-Zmsrv-policy`
+warning: /home/runner/work/_temp/upstream/serialization-tests/Cargo.toml: no edition set: defaulting to the 2015 edition while the latest is 2021
+   Compiling libc v0.2.169
+   Compiling serde v1.0.217
+   Compiling version_check v0.9.5
+    Checking cfg-if v1.0.0
+    Checking hashbrown v0.14.5
+   Compiling ahash v0.7.8
+    Checking equivalent v1.0.1
+    Checking rawpointer v0.2.1
+    Checking rand_core v0.4.2
+    Checking rand_core v0.3.1
+    Checking rawslice v0.1.1
+    Checking indexmap v2.5.0
+    Checking fixedbitset v0.5.7
+    Checking either v1.13.0
+    Checking unchecked-index v0.2.2
+    Checking once_cell v1.20.2
+    Checking byteorder v1.5.0
+    Checking getrandom v0.2.15
+    Checking rand v0.5.6
+    Checking fxhash v0.2.1
+    Checking odds v0.4.0
+    Checking itertools v0.12.1
+    Checking defmac v0.2.1
+    Checking petgraph v0.6.5 (/home/runner/work/_temp/upstream)
+    Checking bincode v1.3.3
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 4.10s
+
+Exit: 0
+Timed out: False
