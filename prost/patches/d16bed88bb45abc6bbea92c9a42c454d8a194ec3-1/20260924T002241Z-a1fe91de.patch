@@ -1,0 +1,13 @@
+diff --git a/prost-types/src/duration.rs b/prost-types/src/duration.rs
+index 1bee519..85d6a1c 100644
+--- a/prost-types/src/duration.rs
++++ b/prost-types/src/duration.rs
+@@ -107,7 +107,7 @@ impl fmt::Display for Duration {
+     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+         let mut d = *self;
+         d.normalize();
+-        if self.seconds < 0 || self.nanos < 0 {
++        if self.seconds < 0 && self.nanos < 0 {
+             write!(f, "-")?;
+         }
+         write!(f, "{}", d.seconds.abs())?;

@@ -1,0 +1,13 @@
+{
+  "commit": "d16bed88bb45abc6bbea92c9a42c454d8a194ec3",
+  "parent": "ef27f65a55cad02f4b4a11d16912b44164ae818b",
+  "fixed_commit": "d16bed88bb45abc6bbea92c9a42c454d8a194ec3",
+  "summary": "Duration formatting required both seconds and nanos to be negative before emitting a minus sign, so -0.123s became 0.123s and -123s became 123s. Changing && to || preserves the sign when either component is negative. The formatting test added by this fix covers both cases and should fail first on -123s. No tests were run.",
+  "test": "duration::tests::test_format_duration",
+  "expected_failure": "assertion `left == right` failed\n  left: \"-123s\"\n right: \"123s\"",
+  "reversal": {
+    "path": "prost-types/src/duration.rs",
+    "fixed_text": "        if self.seconds < 0 || self.nanos < 0 {\n",
+    "parent_text": "        if self.seconds < 0 && self.nanos < 0 {\n"
+  }
+}
