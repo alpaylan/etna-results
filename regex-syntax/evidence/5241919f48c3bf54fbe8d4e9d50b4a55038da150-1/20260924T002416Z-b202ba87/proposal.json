@@ -1,0 +1,13 @@
+{
+  "commit": "5241919f48c3bf54fbe8d4e9d50b4a55038da150",
+  "parent": "488fe569575ea06e1d8c5b9f98f95d9644e1efa8",
+  "fixed_commit": "5241919f48c3bf54fbe8d4e9d50b4a55038da150",
+  "summary": "The ASCII Blank class used one reversed range from space to tab, normalized to U+0009–U+0020. Consequently, [[:blank:]] incorrectly matched control characters U+000A–U+001F. The fix replaces that range with singleton ranges for tab and space. The selected regression test was added by this fix and expects no match against those intervening control characters.",
+  "test": "regression::blank_matches_nothing_between_space_and_tab",
+  "expected_failure": "assertion failed: `(left == right)`\n  left: `false`,\n right: `true`",
+  "reversal": {
+    "path": "regex-syntax/src/hir/translate.rs",
+    "fixed_text": "        Blank => {\n            const X: T = &[('\\t', '\\t'), (' ', ' ')];\n            X\n        }\n",
+    "parent_text": "        Blank => {\n            const X: T = &[(' ', '\\t')];\n            X\n        }\n"
+  }
+}
