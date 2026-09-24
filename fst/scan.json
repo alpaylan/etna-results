@@ -1,12 +1,14 @@
 {
   "repo": "https://github.com/BurntSushi/fst",
   "tips": [
-    "439e6aafa1206db74415484e6b6b79cc7a427259"
+    "439e6aafa1206db74415484e6b6b79cc7a427259",
+    "5c2f0c8f790b278a141a376a004e3fc96cbdcf76"
   ],
   "shallow": false,
   "reviewed": [
-    "439e6aafa1206db74415484e6b6b79cc7a427259"
+    "439e6aafa1206db74415484e6b6b79cc7a427259",
+    "5c2f0c8f790b278a141a376a004e3fc96cbdcf76"
   ],
-  "reachable_commits": 122,
+  "reachable_commits": 143,
   "scope": "One queued candidate; not an exhaustive history scan."
 }

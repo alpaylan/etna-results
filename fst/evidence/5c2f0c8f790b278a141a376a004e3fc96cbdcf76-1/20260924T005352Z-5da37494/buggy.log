@@ -1,0 +1,33 @@
+Command: rustup run 1.15.1 cargo test --lib raw::node::tests::node_max_trans -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:54:34.283463+00:00
+STDOUT:
+
+running 1 test
+test raw::node::tests::node_max_trans ... FAILED
+
+failures:
+
+failures:
+    raw::node::tests::node_max_trans
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured
+
+
+STDERR:
+   Compiling kernel32-sys v0.2.2
+   Compiling thread-id v2.0.0
+   Compiling fs2 v0.2.5
+   Compiling thread_local v0.2.7
+   Compiling memmap v0.4.0
+   Compiling regex v0.1.80
+   Compiling env_logger v0.3.5
+   Compiling quickcheck v0.2.27
+   Compiling fst v0.1.35 (file:///home/runner/work/_temp/upstream)
+    Finished debug [unoptimized + debuginfo] target(s) in 14.11 secs
+     Running /home/runner/work/_temp/build-20260924T005352Z-5da37494/debug/deps/fst-1fb750c32386519e
+thread 'raw::node::tests::node_max_trans' panicked at 'assertion failed: `(left == right)` (left: `0`, right: `256`)', src/raw/node.rs:884
+note: Run with `RUST_BACKTRACE=1` for a backtrace.
+error: test failed
+
+Exit: 101
+Timed out: False

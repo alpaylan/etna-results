@@ -1,0 +1,30 @@
+diff --git a/src/raw/node.rs b/src/raw/node.rs
+index 21bcc0f..d9504d3 100644
+--- a/src/raw/node.rs
++++ b/src/raw/node.rs
+@@ -113,7 +113,7 @@ impl<'f> Node<'f> {
+     /// Returns an iterator over all transitions in this node in lexicographic
+     /// order.
+     pub fn transitions<'n>(&'n self) -> Transitions<'f, 'n> {
+-        Transitions { node: self, range: 0..self.len() }
++        Transitions { node: self, range: 0..self.len() as u8 }
+     }
+ 
+     /// Returns the transition at index `i`.
+@@ -667,14 +667,14 @@ impl PackSizes {
+ /// the underlying `Node`.
+ pub struct Transitions<'f: 'n, 'n> {
+     node: &'n Node<'f>,
+-    range: Range<usize>,
++    range: Range<u8>,
+ }
+ 
+ impl<'f, 'n> Iterator for Transitions<'f, 'n> {
+     type Item = Transition;
+ 
+     fn next(&mut self) -> Option<Transition> {
+-        self.range.next().map(|i| self.node.transition(i))
++        self.range.next().map(|i| self.node.transition(i as usize))
+     }
+ }
+ 
