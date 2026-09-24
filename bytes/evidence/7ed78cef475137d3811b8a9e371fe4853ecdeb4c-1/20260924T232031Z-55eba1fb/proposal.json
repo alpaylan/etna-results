@@ -1,0 +1,13 @@
+{
+  "commit": "7ed78cef475137d3811b8a9e371fe4853ecdeb4c",
+  "parent": "aab71ef82c8a7ad0740f75560afb438480943f0a",
+  "fixed_commit": "7ed78cef475137d3811b8a9e371fe4853ecdeb4c",
+  "summary": "Take::bytes panics when its limit exceeds the length of the slice returned by the underlying buffer. The fix bounds the slice endpoint by the minimum of that length and the limit. The fix adds long_take in tests/test_take.rs, which calls bytes() on an 11-byte buffer with a limit of 100. The proposed reversal restores the exact parent implementation; reproduction remains for the runner.",
+  "test": "long_take",
+  "expected_failure": "index 100 out of range for slice of length 11",
+  "reversal": {
+    "path": "src/buf/take.rs",
+    "fixed_text": "    fn bytes(&self) -> &[u8] {\n        let bytes = self.inner.bytes();\n        &bytes[..cmp::min(bytes.len(), self.limit)]\n    }\n",
+    "parent_text": "    fn bytes(&self) -> &[u8] {\n        &self.inner.bytes()[..self.limit]\n    }\n"
+  }
+}

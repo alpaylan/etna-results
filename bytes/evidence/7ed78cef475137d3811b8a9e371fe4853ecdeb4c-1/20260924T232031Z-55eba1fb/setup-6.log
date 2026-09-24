@@ -1,0 +1,9 @@
+Command: rustup run 1.18.0 cargo fetch --locked
+Started: 2026-09-24T23:21:34.442612+00:00
+STDOUT:
+
+STDERR:
+error: the lock file needs to be updated but --frozen was passed to prevent this
+
+Exit: 101
+Timed out: False

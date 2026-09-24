@@ -1,0 +1,14 @@
+diff --git a/src/buf/take.rs b/src/buf/take.rs
+index a0c8ed4..53c2933 100644
+--- a/src/buf/take.rs
++++ b/src/buf/take.rs
+@@ -143,8 +143,7 @@ impl<T: Buf> Buf for Take<T> {
+     }
+ 
+     fn bytes(&self) -> &[u8] {
+-        let bytes = self.inner.bytes();
+-        &bytes[..cmp::min(bytes.len(), self.limit)]
++        &self.inner.bytes()[..self.limit]
+     }
+ 
+     fn advance(&mut self, cnt: usize) {

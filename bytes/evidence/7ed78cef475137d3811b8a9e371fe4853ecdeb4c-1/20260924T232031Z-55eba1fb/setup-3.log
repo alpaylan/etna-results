@@ -1,0 +1,14 @@
+Command: rustup run 1.18.0 cargo fetch --locked
+Started: 2026-09-24T23:21:33.499750+00:00
+STDOUT:
+
+STDERR:
+ Downloading libc v0.2.24 (registry git://127.0.0.1:9419/era-index)
+ Downloading serde_test v1.0.8 (registry git://127.0.0.1:9419/era-index)
+ Downloading serde v1.0.8 (registry git://127.0.0.1:9419/era-index)
+ Downloading winapi v0.2.8 (registry git://127.0.0.1:9419/era-index)
+ Downloading byteorder v1.0.0 (registry git://127.0.0.1:9419/era-index)
+ Downloading iovec v0.1.0 (registry git://127.0.0.1:9419/era-index)
+
+Exit: 0
+Timed out: False
