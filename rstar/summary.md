@@ -1,17 +1,15 @@
 # Cloud bug-mining prototype
 
-Resumed verified evidence; no tests rerun.
-
-**confirmed**: The same upstream test passed, panicked on the original defect ('attempt to multiply with overflow'), and passed after restoration
+**blocked**: Dependency setup failed; see setup logs
 
 Upstream: https://github.com/georust/rstar
 
-Candidate: 84d12654104e783011f24267145fb6bfccd2a30e-1
+Candidate: f93071fc3e3e9b6ef7faf282c0fc992638346a53-1
 
 Provenance: verbatim
 
-Latest outcomes: {"confirmed": 1}
+Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 277 reachable from the saved tip.
+Reviewed commits: 1 / 302 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.
