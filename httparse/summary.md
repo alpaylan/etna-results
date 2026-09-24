@@ -1,15 +1,19 @@
 # Cloud bug-mining prototype
 
-**unconfirmed**: The observed failure does not establish the described bug
+Resumed verified evidence; no tests rerun.
+
+**confirmed**: The same upstream test passed, panicked on the original defect ('assertion `left == right` failed
+  left: Ok(Complete(28))
+ right: Err(Token)'), and passed after restoration
 
 Upstream: https://github.com/seanmonstar/httparse
 
-Candidate: 34efc1e39726d7f8d3afe34e2b44d2eebb6ba952-1
+Candidate: 9f6702be571b19ac84e19678b0c4f7eefd2a11b7-1
 
 Provenance: verbatim
 
-Latest outcomes: {"unconfirmed": 1}
+Latest outcomes: {"confirmed": 1}
 
-Reviewed commits: 1 / 80 reachable from the saved tip.
+Reviewed commits: 1 / 230 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

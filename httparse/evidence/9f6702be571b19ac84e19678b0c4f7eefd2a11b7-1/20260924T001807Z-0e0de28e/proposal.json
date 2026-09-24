@@ -1,0 +1,13 @@
+{
+  "commit": "9f6702be571b19ac84e19678b0c4f7eefd2a11b7",
+  "parent": "97c7e6e23672df1482930bdcd5ff1eae3dbecf16",
+  "fixed_commit": "9f6702be571b19ac84e19678b0c4f7eefd2a11b7",
+  "summary": "The method predicate accepted space and invalid HTTP token delimiters, allowing a request beginning with \" GET\" to parse successfully. The fix checks HTTP token characters using an uppercase-letter fast path and TOKEN_MAP, rejecting the leading space with Error::Token. Reversing only the predicate body restores the original behavior while preserving the upstream regression test added by this fix. No tests were run.",
+  "test": "tests::test_request_with_leading_space",
+  "expected_failure": "assertion `left == right` failed\n  left: Ok(Complete(28))\n right: Err(Token)",
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "    match b {\n        // For the majority case, this can be faster than the table lookup.\n        b'A'..=b'Z' => true,\n        _ => TOKEN_MAP[b as usize],\n    }\n",
+    "parent_text": "    b > 0x1F && b < 0x7F\n"
+  }
+}

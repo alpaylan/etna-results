@@ -1,0 +1,17 @@
+diff --git a/src/lib.rs b/src/lib.rs
+index 8ff46da..40c54b5 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -56,11 +56,7 @@ pub mod _benchable {
+ /// > ```
+ #[inline]
+ fn is_method_token(b: u8) -> bool {
+-    match b {
+-        // For the majority case, this can be faster than the table lookup.
+-        b'A'..=b'Z' => true,
+-        _ => TOKEN_MAP[b as usize],
+-    }
++    b > 0x1F && b < 0x7F
+ }
+ 
+ // ASCII codes to accept URI string.

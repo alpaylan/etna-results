@@ -1,0 +1,25 @@
+Command: rustup run 1.82.0 cargo generate-lockfile
+Started: 2026-09-24T00:21:30.487497+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+warning: ignoring `resolver` config table without `-Zmsrv-policy`
+    Updating `era` index
+     Locking 80 packages to latest compatible versions
+      Adding bitflags v1.3.2 (latest: v2.6.0)
+      Adding clap v2.34.0 (latest: v4.5.20)
+      Adding criterion v0.3.6 (latest: v0.5.1)
+      Adding criterion-plot v0.4.5 (latest: v0.5.0)
+      Adding half v1.8.3 (latest: v2.4.1)
+      Adding hermit-abi v0.1.19 (latest: v0.4.0)
+      Adding itertools v0.10.5 (latest: v0.13.0)
+      Adding textwrap v0.11.0 (latest: v0.16.1)
+      Adding unicode-width v0.1.14 (latest: v0.2.0)
+      Adding wasi v0.11.0+wasi-snapshot-preview1 (latest: v0.13.3+wasi-0.2.2)
+      Adding zerocopy v0.7.35 (latest: v0.8.7)
+      Adding zerocopy-derive v0.7.35 (latest: v0.8.7)
+
+Exit: 0
+Timed out: False

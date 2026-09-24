@@ -1,0 +1,31 @@
+Command: rustup run 1.82.0 cargo test --locked --offline --lib tests::test_request_with_leading_space -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:23:18.060023+00:00
+STDOUT:
+
+running 1 test
+test tests::test_request_with_leading_space ... FAILED
+
+failures:
+
+failures:
+    tests::test_request_with_leading_space
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 95 filtered out; finished in 0.00s
+
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+warning: ignoring `resolver` config table without `-Zmsrv-policy`
+   Compiling httparse v1.9.5 (/home/runner/work/_temp/upstream)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.94s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T001807Z-0e0de28e/debug/deps/httparse-28540785a555f7f2)
+thread 'tests::test_request_with_leading_space' panicked at src/lib.rs:2687:9:
+assertion `left == right` failed
+  left: Ok(Complete(28))
+ right: Err(Token)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `--lib`
+
+Exit: 101
+Timed out: False

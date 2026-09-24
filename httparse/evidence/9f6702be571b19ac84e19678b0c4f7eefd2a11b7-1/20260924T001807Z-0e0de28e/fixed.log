@@ -1,0 +1,65 @@
+Command: rustup run 1.82.0 cargo test --locked --offline --lib tests::test_request_with_leading_space -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:23:06.855934+00:00
+STDOUT:
+
+running 1 test
+test tests::test_request_with_leading_space ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 95 filtered out; finished in 0.00s
+
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+warning: ignoring `resolver` config table without `-Zmsrv-policy`
+   Compiling libc v0.2.161
+   Compiling serde v1.0.214
+   Compiling crossbeam-utils v0.8.20
+   Compiling memchr v2.7.4
+   Compiling crossbeam-epoch v0.9.18
+   Compiling byteorder v1.5.0
+   Compiling cfg-if v1.0.0
+   Compiling ryu v1.0.18
+   Compiling itoa v1.0.11
+   Compiling either v1.13.0
+   Compiling crossbeam-deque v0.8.5
+   Compiling getrandom v0.2.15
+   Compiling zerocopy v0.7.35
+   Compiling unicode-width v0.1.14
+   Compiling regex-syntax v0.8.5
+   Compiling plotters-backend v0.3.7
+   Compiling plotters-svg v0.3.7
+   Compiling ppv-lite86 v0.2.20
+   Compiling textwrap v0.11.0
+   Compiling num-traits v0.2.19
+   Compiling itertools v0.10.5
+   Compiling regex-automata v0.4.8
+   Compiling serde_json v1.0.132
+   Compiling rayon-core v1.12.1
+   Compiling rand_core v0.6.4
+   Compiling csv-core v0.1.11
+   Compiling cast v0.3.0
+   Compiling half v1.8.3
+   Compiling same-file v1.0.6
+   Compiling bitflags v1.3.2
+   Compiling clap v2.34.0
+   Compiling walkdir v2.5.0
+   Compiling serde_cbor v0.11.2
+   Compiling criterion-plot v0.4.5
+   Compiling csv v1.3.0
+   Compiling regex v1.11.1
+   Compiling rand_chacha v0.3.1
+   Compiling tinytemplate v1.2.1
+   Compiling rayon v1.10.0
+   Compiling plotters v0.3.7
+   Compiling atty v0.2.14
+   Compiling lazy_static v1.5.0
+   Compiling oorandom v11.1.4
+   Compiling httparse v1.9.5 (/home/runner/work/_temp/upstream)
+   Compiling rand v0.8.5
+   Compiling criterion v0.3.6
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 11.12s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T001807Z-0e0de28e/debug/deps/httparse-28540785a555f7f2)
+
+Exit: 0
+Timed out: False
