@@ -1,0 +1,13 @@
+{
+  "commit": "f6559fe270126c1a0593fe06218a89c1139267cc",
+  "parent": "ed8032195119caf2d691862efc0f5ff0377c8275",
+  "fixed_commit": "f6559fe270126c1a0593fe06218a89c1139267cc",
+  "summary": "Translating a manually constructed alternation containing an empty concatenation panics because visit_pre skips the concatenation frame, causing pop_concat_expr to encounter the enclosing alternation branch marker. The fix always pushes the concatenation frame, allowing translation to produce Hir::empty(). This reversal restores only the empty-concatenation guard. The selected regression test was added by the fix; no tests were executed.",
+  "test": "hir::translate::tests::regression_alt_empty_concat",
+  "expected_failure": "internal error: entered unreachable code: expected expr or concat, got alt branch marker",
+  "reversal": {
+    "path": "regex-syntax/src/hir/translate.rs",
+    "fixed_text": "            Ast::Concat(_) => {\n                self.push(HirFrame::Concat);\n            }\n",
+    "parent_text": "            Ast::Concat(ref x) if x.asts.is_empty() => {}\n            Ast::Concat(_) => {\n                self.push(HirFrame::Concat);\n            }\n"
+  }
+}

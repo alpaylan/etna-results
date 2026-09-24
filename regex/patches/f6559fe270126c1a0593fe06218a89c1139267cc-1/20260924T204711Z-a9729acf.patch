@@ -1,0 +1,12 @@
+diff --git a/regex-syntax/src/hir/translate.rs b/regex-syntax/src/hir/translate.rs
+index 2b500cc..4be9803 100644
+--- a/regex-syntax/src/hir/translate.rs
++++ b/regex-syntax/src/hir/translate.rs
+@@ -354,6 +354,7 @@ impl<'t, 'p> Visitor for TranslatorI<'t, 'p> {
+                     .unwrap_or_else(|| self.flags());
+                 self.push(HirFrame::Group { old_flags });
+             }
++            Ast::Concat(ref x) if x.asts.is_empty() => {}
+             Ast::Concat(_) => {
+                 self.push(HirFrame::Concat);
+             }
