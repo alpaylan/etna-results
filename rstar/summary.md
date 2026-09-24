@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: Proposal names no upstream test
+**blocked**: fixed: source differs beyond the exact implementation reversal
 
 Upstream: https://github.com/georust/rstar
 
-Candidate: 895f84938d9cec06d6f7706301c536ccd563b490-1
+Candidate: a40d83bcdbd393090a23276622323ef42d7ed956-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-History coverage not yet recorded.
+Reviewed commits: 1 / 317 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

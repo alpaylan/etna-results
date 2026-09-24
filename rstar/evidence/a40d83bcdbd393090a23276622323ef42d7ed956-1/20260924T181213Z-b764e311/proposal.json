@@ -1,0 +1,13 @@
+{
+  "commit": "a40d83bcdbd393090a23276622323ef42d7ed956",
+  "parent": "41e00b4088234bedda85af5558803323ff5ee303",
+  "fixed_commit": "a40d83bcdbd393090a23276622323ef42d7ed956",
+  "summary": "Draining within a distance on an empty integer-coordinate RTree visits the empty root's envelope, whose corners use scalar maximum and minimum values. Computing its squared distance overflows with overflow checks enabled. The fix seeds the drain iterator's stack only when the root has children, so empty trees yield no elements without evaluating that envelope. The test added by the fix covers both newly created trees and trees emptied by removal.",
+  "test": "algorithm::removal::test::test_drain_within_distance_on_empty_tree",
+  "expected_failure": "attempt to multiply with overflow",
+  "reversal": {
+    "path": "rstar/src/algorithm/removal.rs",
+    "fixed_text": "        let mut node_stack = Vec::with_capacity(max_depth);\n\n        // Do not push on an empty root onto `node_stack` as\n        // its AABB is pathological and might make `should_unpack_parent` panic.\n        if !root.children.is_empty() {\n            node_stack.push((root, 0, 0));\n        }\n",
+    "parent_text": "        let mut node_stack = Vec::with_capacity(max_depth);\n        node_stack.push((root, 0, 0));\n"
+  }
+}
