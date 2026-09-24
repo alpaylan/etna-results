@@ -1,0 +1,25 @@
+Command: rustup run 1.60.0 cargo test --locked --offline --lib rtree::test::test_remove_capacity -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:28:13.764460+00:00
+STDOUT:
+
+running 1 test
+test rtree::test::test_remove_capacity ... FAILED
+
+failures:
+
+failures:
+    rtree::test::test_remove_capacity
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 38 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling rstar v0.9.3 (/home/runner/work/_temp/upstream/rstar)
+    Finished test [unoptimized + debuginfo] target(s) in 2.54s
+     Running unittests (/home/runner/work/_temp/build-20260924T002551Z-ab5f538e/debug/deps/rstar-e2127d8bef203a2d)
+thread 'main' panicked at 'capacity overflow', library/alloc/src/raw_vec.rs:518:5
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass '-p rstar --lib'
+
+Exit: 101
+Timed out: False

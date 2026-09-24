@@ -1,0 +1,13 @@
+{
+  "commit": "44e1bf54192ad96672a465fcf95025180e540c3d",
+  "parent": "1701a8d5ebfe16c420f9bfeffe48756f9a1efee8",
+  "fixed_commit": "44e1bf54192ad96672a465fcf95025180e540c3d",
+  "summary": "Removing an item from a two-item RTree with MIN_SIZE = 1 computes the drain stack capacity using log base 1. This yields positive infinity, which casts to usize::MAX and causes Vec::with_capacity to panic. The fix clamps the logarithm base to at least 2, producing a finite capacity. The regression test added by this commit exercises this case. This plan reverses only that clamp; reproduction remains for the runner.",
+  "test": "rtree::test::test_remove_capacity",
+  "expected_failure": "capacity overflow",
+  "reversal": {
+    "path": "rstar/src/algorithm/removal.rs",
+    "fixed_text": "        let max_depth = (original_size as f32).log(m.max(2) as f32).ceil() as usize;\n",
+    "parent_text": "        let max_depth = (original_size as f32).log(m as f32).ceil() as usize;\n"
+  }
+}

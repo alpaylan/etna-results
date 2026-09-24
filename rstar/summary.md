@@ -1,15 +1,17 @@
 # Cloud bug-mining prototype
 
-**blocked**: Proposal names no upstream test
+Resumed verified evidence; no tests rerun.
+
+**confirmed**: The same upstream test passed, panicked on the original defect ('capacity overflow'), and passed after restoration
 
 Upstream: https://github.com/georust/rstar
 
-Candidate: 0139255a78ada92277ce0d1025c009254ea5b298-1
+Candidate: 44e1bf54192ad96672a465fcf95025180e540c3d-1
 
 Provenance: verbatim
 
-Latest outcomes: {"blocked": 1}
+Latest outcomes: {"confirmed": 1}
 
-History coverage not yet recorded.
+Reviewed commits: 1 / 210 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.
