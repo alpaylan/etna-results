@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: Proposal names no upstream test
+**blocked**: fixed: no completed execution of the exact upstream test
 
 Upstream: https://github.com/tokio-rs/prost
 
-Candidate: 5a25f274706ff5807c99842c1a91b3113cccf19f-1
+Candidate: 4ad5e3451fcd2e2192406351671a962e2e2be909-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-History coverage not yet recorded.
+Reviewed commits: 1 / 341 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

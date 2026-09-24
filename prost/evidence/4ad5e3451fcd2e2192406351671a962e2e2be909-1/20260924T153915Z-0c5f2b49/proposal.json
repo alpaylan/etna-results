@@ -1,0 +1,13 @@
+{
+  "commit": "4ad5e3451fcd2e2192406351671a962e2e2be909",
+  "parent": "90e9e74d633003fb2fd93ed691f5396d9ef716c9",
+  "fixed_commit": "4ad5e3451fcd2e2192406351671a962e2e2be909",
+  "summary": "Converting a SystemTime before the Unix epoch to Timestamp panicked because duration_since(UNIX_EPOCH) returned an error that was unconditionally unwrapped. The fix handles negative offsets explicitly, producing negative seconds and nonnegative nanoseconds. This reversal restores only that conversion's original implementation, preserving the fixed reverse conversion and the upstream round-trip property test added by the fix. No tests were run during planning.",
+  "test": "tests::check_system_time_roundtrip",
+  "expected_failure": "called `Result::unwrap()` on an `Err` value: SystemTimeError",
+  "reversal": {
+    "path": "prost-types/src/lib.rs",
+    "fixed_text": "impl From<std::time::SystemTime> for Timestamp {\n    fn from(system_time: std::time::SystemTime) -> Timestamp {\n        let (seconds, nanos) = match system_time.duration_since(std::time::UNIX_EPOCH) {\n            Ok(duration) => {\n                let seconds = i64::try_from(duration.as_secs()).unwrap();\n                (seconds, duration.subsec_nanos() as i32)\n            }\n            Err(error) => {\n                let duration = error.duration();\n                let seconds = i64::try_from(duration.as_secs()).unwrap();\n                let nanos = duration.subsec_nanos() as i32;\n                if nanos == 0 {\n                    (-seconds, 0)\n                } else {\n                    (-seconds - 1, 1_000_000_000 - nanos)\n                }\n            }\n        };\n        Timestamp { seconds, nanos }\n    }\n}\n",
+    "parent_text": "impl From<std::time::SystemTime> for Timestamp {\n    fn from(time: std::time::SystemTime) -> Timestamp {\n        let duration = Duration::from(time.duration_since(std::time::UNIX_EPOCH).unwrap());\n        Timestamp {\n            seconds: duration.seconds,\n            nanos: duration.nanos,\n        }\n    }\n}\n"
+  }
+}
