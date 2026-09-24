@@ -1,0 +1,13 @@
+diff --git a/src/biguint/multiplication.rs b/src/biguint/multiplication.rs
+index 597a202..aef731a 100644
+--- a/src/biguint/multiplication.rs
++++ b/src/biguint/multiplication.rs
+@@ -350,7 +350,7 @@ fn mac3(mut acc: &mut [BigDigit], mut b: &[BigDigit], mut c: &[BigDigit]) {
+ }
+ 
+ fn mul3(x: &[BigDigit], y: &[BigDigit]) -> BigUint {
+-    let len = x.len() + y.len() + 1;
++    let len = x.len() + y.len();
+     let mut prod = BigUint { data: vec![0; len] };
+ 
+     mac3(&mut prod.data, x, y);

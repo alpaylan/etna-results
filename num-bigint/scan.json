@@ -1,0 +1,12 @@
+{
+  "repo": "https://github.com/rust-num/num-bigint",
+  "tips": [
+    "8008707fea97b9215f3b949a0eb6044aec709a31"
+  ],
+  "shallow": false,
+  "reviewed": [
+    "8008707fea97b9215f3b949a0eb6044aec709a31"
+  ],
+  "reachable_commits": 1226,
+  "scope": "One queued candidate; not an exhaustive history scan."
+}

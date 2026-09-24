@@ -1,0 +1,25 @@
+Command: rustup run 1.56.0 cargo test --locked --offline --test biguint test_mul_overflow_2 -- --nocapture --test-threads=1
+Started: 2026-09-24T00:22:18.036683+00:00
+STDOUT:
+
+running 1 test
+test test_mul_overflow_2 ... FAILED
+
+failures:
+
+failures:
+    test_mul_overflow_2
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 58 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling num-bigint v0.4.2 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 2.44s
+     Running tests/biguint.rs (/home/runner/work/_temp/build-20260924T002102Z-de06f402/debug/deps/biguint-4b0a10571d7e0473)
+thread 'main' panicked at 'assertion failed: carry == 0', src/biguint/addition.rs:83:5
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass '--test biguint'
+
+Exit: 101
+Timed out: False
