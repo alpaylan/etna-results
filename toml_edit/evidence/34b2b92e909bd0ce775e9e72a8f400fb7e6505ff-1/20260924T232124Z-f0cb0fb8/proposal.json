@@ -1,0 +1,13 @@
+{
+  "commit": "34b2b92e909bd0ce775e9e72a8f400fb7e6505ff",
+  "parent": "572ef7e993ed1c9efaea2affe45a3f6d290af6b9",
+  "fixed_commit": "34b2b92e909bd0ce775e9e72a8f400fb7e6505ff",
+  "summary": "Unquoted alphabetic values produce misleading diagnostics: value=trust reports column 8 and Expected `rue`. The fix dispatches alphabetic values to complete boolean and special-float literals, reporting column 7 and Expected `true`, `false`, `inf` or `nan`. Removing that dispatch restores the faulty behavior. Blocked on test selection: the detecting upstream fixture, tests/fixtures/invalid/string-no-quotes-constant-like.stderr, was updated by this fix, but tests/test_invalid.rs registers it dynamically through fs_snapshot with harness=false. It has no Rust test function name accepted by the current runner's function-based discovery. No corresponding named regression test was found; no tests were executed.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/parser/value.rs",
+    "fixed_text": "            crate::parser::inline_table::INLINE_TABLE_OPEN => inline_table().map(v::Value::InlineTable),\n            b'a'..=b'z' | b'A'..=b'Z' => {\n                choice((\n                    range(crate::parser::numbers::TRUE).map(|_| v::Value::from(true)),\n                    range(crate::parser::numbers::FALSE).map(|_| v::Value::from(false)),\n                    crate::parser::numbers::inf().map(v::Value::from),\n                    crate::parser::numbers::nan().map(v::Value::from),\n                ))\n            },\n            // Uncommon enough not to be worth optimizing at this time\n",
+    "parent_text": "            crate::parser::inline_table::INLINE_TABLE_OPEN => inline_table().map(v::Value::InlineTable),\n            // Uncommon enough not to be worth optimizing at this time\n"
+  }
+}
