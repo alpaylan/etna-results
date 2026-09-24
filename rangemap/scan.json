@@ -2,13 +2,15 @@
   "repo": "https://github.com/jeffparsons/rangemap",
   "tips": [
     "6df612f45d6023cab8eeec69e10fe794c70eacd8",
+    "a6cdac3e99e747c9ec80b4ef238e1480e63927fb",
     "d1999f48003b43ec7ed598c9497b859a8302b897"
   ],
   "shallow": false,
   "reviewed": [
     "6df612f45d6023cab8eeec69e10fe794c70eacd8",
+    "a6cdac3e99e747c9ec80b4ef238e1480e63927fb",
     "d1999f48003b43ec7ed598c9497b859a8302b897"
   ],
-  "reachable_commits": 198,
+  "reachable_commits": 273,
   "scope": "One queued candidate; not an exhaustive history scan."
 }

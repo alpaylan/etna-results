@@ -1,0 +1,13 @@
+{
+  "commit": "a6cdac3e99e747c9ec80b4ef238e1480e63927fb",
+  "parent": "22bd0ce372ee6d15d6f5f031a4dfae7bef0896d8",
+  "fixed_commit": "a6cdac3e99e747c9ec80b4ef238e1480e63927fb",
+  "summary": "RangeInclusiveMap equality delegated to BTreeMap, whose wrapped keys compare only range starts. Maps containing 0..=5 and 0..=2 with equal values therefore incorrectly compared equal. The fix compares iterator entries containing complete ranges and values. Reversing only the equality change should make the regression test added by this commit fail; no tests were run during planning.",
+  "test": "inclusive_map::tests::test_equality_same_start_different_end",
+  "expected_failure": "assertion `left != right` failed",
+  "reversal": {
+    "path": "src/inclusive_map.rs",
+    "fixed_text": "    fn eq(&self, other: &RangeInclusiveMap<K, V, StepFnsT>) -> bool {\n        self.iter().eq(other.iter())\n    }\n",
+    "parent_text": "    fn eq(&self, other: &RangeInclusiveMap<K, V, StepFnsT>) -> bool {\n        self.btm == other.btm\n    }\n"
+  }
+}
