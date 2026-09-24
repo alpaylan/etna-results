@@ -1,0 +1,25 @@
+Command: rustup run 1.66.1 cargo test --locked --offline --test issues issue_1617_count_parser_returning_zero_size -- --nocapture --test-threads=1
+Started: 2026-09-24T00:23:46.623646+00:00
+STDOUT:
+
+running 1 test
+test issue_1617_count_parser_returning_zero_size ... FAILED
+
+failures:
+
+failures:
+    issue_1617_count_parser_returning_zero_size
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 12 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling nom v7.1.2 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 1.96s
+     Running tests/issues.rs (/home/runner/work/_temp/build-20260924T002106Z-223a75f0/debug/deps/issues-373e8c9bddce476c)
+thread 'main' panicked at 'attempt to divide by zero', /home/runner/work/_temp/upstream/src/multi/mod.rs:582:32
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `--test issues`
+
+Exit: 101
+Timed out: False

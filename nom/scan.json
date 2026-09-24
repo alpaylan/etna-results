@@ -1,0 +1,12 @@
+{
+  "repo": "https://github.com/rust-bakery/nom",
+  "tips": [
+    "931bcf0109decd100746297a0d0fa243f8c39e23"
+  ],
+  "shallow": false,
+  "reviewed": [
+    "931bcf0109decd100746297a0d0fa243f8c39e23"
+  ],
+  "reachable_commits": 2644,
+  "scope": "One queued candidate; not an exhaustive history scan."
+}

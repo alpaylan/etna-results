@@ -1,0 +1,17 @@
+Command: rustup run 1.66.1 cargo test --locked --offline --test issues issue_1617_count_parser_returning_zero_size -- --nocapture --test-threads=1
+Started: 2026-09-24T00:23:48.754884+00:00
+STDOUT:
+
+running 1 test
+test issue_1617_count_parser_returning_zero_size ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 12 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling nom v7.1.2 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 1.95s
+     Running tests/issues.rs (/home/runner/work/_temp/build-20260924T002106Z-223a75f0/debug/deps/issues-373e8c9bddce476c)
+
+Exit: 0
+Timed out: False

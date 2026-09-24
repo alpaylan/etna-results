@@ -1,0 +1,13 @@
+{
+  "commit": "931bcf0109decd100746297a0d0fa243f8c39e23",
+  "parent": "6923bacfd4e7496f56de787071bd221fef86faf4",
+  "fixed_commit": "931bcf0109decd100746297a0d0fa243f8c39e23",
+  "summary": "count divides its initial allocation budget by size_of::<O>(), panicking before parsing when O is zero-sized. The fix clamps the divisor to at least 1. The regression test added in tests/issues.rs parses three occurrences of \"abc\" into unit values and checks the remaining \"def\" and three results. The proposed reversal restores only the original capacity calculation. No tests were executed.",
+  "test": "issue_1617_count_parser_returning_zero_size",
+  "expected_failure": "attempt to divide by zero",
+  "reversal": {
+    "path": "src/multi/mod.rs",
+    "fixed_text": "    let max_initial_capacity =\n      MAX_INITIAL_CAPACITY_BYTES / crate::lib::std::mem::size_of::<O>().max(1);\n    let mut res = crate::lib::std::vec::Vec::with_capacity(count.min(max_initial_capacity));\n",
+    "parent_text": "    let max_initial_capacity = MAX_INITIAL_CAPACITY_BYTES / crate::lib::std::mem::size_of::<O>();\n    let mut res = crate::lib::std::vec::Vec::with_capacity(count.min(max_initial_capacity));\n"
+  }
+}

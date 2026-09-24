@@ -1,0 +1,44 @@
+Command: rustup run 1.66.1 cargo test --locked --offline --test issues issue_1617_count_parser_returning_zero_size -- --nocapture --test-threads=1
+Started: 2026-09-24T00:23:39.970737+00:00
+STDOUT:
+
+running 1 test
+test issue_1617_count_parser_returning_zero_size ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 12 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling libc v0.2.139
+   Compiling cfg-if v1.0.0
+   Compiling remove_dir_all v0.5.3
+   Compiling ppv-lite86 v0.2.17
+   Compiling fastrand v1.8.0
+   Compiling quick-error v1.2.3
+   Compiling bit-vec v0.6.3
+   Compiling fnv v1.0.7
+   Compiling bit-set v0.5.3
+   Compiling num-traits v0.2.15
+   Compiling memchr v2.5.0
+   Compiling regex-syntax v0.6.28
+   Compiling getrandom v0.2.8
+   Compiling rand_core v0.6.4
+   Compiling rand_chacha v0.3.1
+   Compiling tempfile v3.3.0
+   Compiling wait-timeout v0.2.0
+   Compiling rand v0.8.5
+   Compiling rusty-fork v0.3.0
+   Compiling rand_xorshift v0.3.0
+   Compiling quick-error v2.0.1
+   Compiling lazy_static v1.4.0
+   Compiling minimal-lexical v0.2.1
+   Compiling byteorder v1.4.3
+   Compiling bitflags v1.3.2
+   Compiling nom v7.1.2 (/home/runner/work/_temp/upstream)
+   Compiling proptest v1.0.0
+   Compiling doc-comment v0.3.3
+    Finished test [unoptimized + debuginfo] target(s) in 6.50s
+     Running tests/issues.rs (/home/runner/work/_temp/build-20260924T002106Z-223a75f0/debug/deps/issues-373e8c9bddce476c)
+
+Exit: 0
+Timed out: False
