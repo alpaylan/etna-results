@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: Dependency setup failed; see setup logs
+**blocked**: Proposal names no upstream test
 
 Upstream: https://github.com/tkaitchuck/ahash
 
-Candidate: 5c99070f97854557ec5e0e6451189798a8ad5853-1
+Candidate: 4edd74815be5b4542cd422e0c0542a6f27ec9c6d-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 36 reachable from the saved tip.
+History coverage not yet recorded.
 
 Scope: one queued candidate; history coverage is partial.

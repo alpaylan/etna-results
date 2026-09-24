@@ -1,0 +1,13 @@
+{
+  "commit": "4edd74815be5b4542cd422e0c0542a6f27ec9c6d",
+  "parent": "374729afd2fe2d3d1bd124b8e4aeeb547712453f",
+  "fixed_commit": "4edd74815be5b4542cd422e0c0542a6f27ec9c6d",
+  "summary": "The AES constructor previously used supplied keys unchanged. The fix intends to harden initialization against degenerate keys by XORing them with PI constants, matching the fallback implementation. Blocked at this revision: the added bindings have type [u64; 2], but enc and sum require u128, and key1 ^ key2 is invalid for arrays. Enabling AES therefore exposes a fixed-baseline compilation obstacle; disabling AES excludes the changed implementation. The commit adds no tests. Existing AES hash-quality tests were inspected, but no detecting test could be established. No builds or tests were executed.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/aes_hash.rs",
+    "fixed_text": "    pub fn new_with_keys(key1: u128, key2: u128) -> Self {\n        let pi: [u128; 2] = PI.convert();\n        let key1: [u64; 2] = (key1 ^ pi[0]).convert();\n        let key2: [u64; 2] = (key2 ^ pi[1]).convert();\n        Self {\n            enc: key1,\n            sum: key2,\n            key: key1 ^ key2,\n        }\n    }\n",
+    "parent_text": "    pub fn new_with_keys(key1: u128, key2: u128) -> Self {\n        Self {\n            enc: key1,\n            sum: key2,\n            key: key1 ^ key2,\n        }\n    }\n"
+  }
+}
