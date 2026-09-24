@@ -1,0 +1,114 @@
+Command: rustup run 1.65.0 cargo test --locked --offline --lib slice::tests::len_lines_03 -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:58:28.424522+00:00
+STDOUT:
+
+running 1 test
+test slice::tests::len_lines_03 ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 357 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling cfg-if v1.0.0
+   Compiling libc v0.2.137
+   Compiling serde v1.0.147
+   Compiling memoffset v0.6.5
+   Compiling crossbeam-utils v0.8.12
+   Compiling scopeguard v1.1.0
+   Compiling memchr v2.5.0
+   Compiling getrandom v0.2.8
+   Compiling crossbeam-epoch v0.9.11
+   Compiling rand_core v0.6.4
+   Compiling ryu v1.0.11
+   Compiling lazy_static v1.4.0
+   Compiling either v1.8.0
+   Compiling crossbeam-deque v0.8.2
+   Compiling num_cpus v1.14.0
+   Compiling crossbeam-channel v0.5.6
+   Compiling num-traits v0.2.15
+   Compiling ppv-lite86 v0.2.17
+   Compiling regex-automata v0.1.10
+   Compiling bitflags v1.3.2
+   Compiling fastrand v1.8.0
+   Compiling unicode-width v0.1.10
+   Compiling remove_dir_all v0.5.3
+   Compiling itoa v1.0.4
+   Compiling regex-syntax v0.6.28
+   Compiling plotters-backend v0.3.4
+   Compiling tempfile v3.3.0
+   Compiling plotters-svg v0.3.3
+   Compiling textwrap v0.11.0
+   Compiling rand_chacha v0.3.1
+   Compiling serde_json v1.0.87
+   Compiling bstr v0.2.17
+   Compiling rayon-core v1.9.3
+   Compiling itertools v0.10.5
+   Compiling wait-timeout v0.2.0
+   Compiling csv-core v0.1.10
+   Compiling bit-vec v0.6.3
+   Compiling cast v0.3.0
+   Compiling same-file v1.0.6
+   Compiling half v1.8.2
+   Compiling fnv v1.0.7
+   Compiling itoa v0.4.8
+   Compiling quick-error v1.2.3
+   Compiling rusty-fork v0.3.0
+   Compiling csv v1.1.6
+   Compiling serde_cbor v0.11.2
+   Compiling criterion-plot v0.4.5
+   Compiling walkdir v2.3.2
+   Compiling bit-set v0.5.3
+   Compiling regex v1.7.0
+   Compiling tinytemplate v1.2.1
+   Compiling rayon v1.5.3
+   Compiling rand v0.8.5
+   Compiling clap v2.34.0
+   Compiling plotters v0.3.4
+   Compiling rand_xorshift v0.3.0
+   Compiling atty v0.2.14
+   Compiling oorandom v11.1.3
+   Compiling quick-error v2.0.1
+   Compiling byteorder v1.4.3
+   Compiling proptest v1.0.0
+   Compiling smallvec v1.10.0
+   Compiling str_indices v0.4.0
+   Compiling unicode-segmentation v1.10.0
+   Compiling criterion v0.3.6
+   Compiling ropey v1.5.0 (/home/runner/work/_temp/upstream)
+warning: unnecessary parentheses around method argument
+    --> src/iter.rs:2562:40
+     |
+2562 |             let mut lines = s.lines_at(((i + 1) / 2)).reversed();
+     |                                        ^           ^
+     |
+     = note: `#[warn(unused_parens)]` on by default
+help: remove these parentheses
+     |
+2562 -             let mut lines = s.lines_at(((i + 1) / 2)).reversed();
+2562 +             let mut lines = s.lines_at((i + 1) / 2).reversed();
+     |
+
+warning: variable does not need to be mutable
+    --> src/iter.rs:2458:17
+     |
+2458 |             let mut lines = s.lines();
+     |                 ----^^^^^
+     |                 |
+     |                 help: remove this `mut`
+     |
+     = note: `#[warn(unused_mut)]` on by default
+
+warning: variable does not need to be mutable
+    --> src/iter.rs:2562:17
+     |
+2562 |             let mut lines = s.lines_at(((i + 1) / 2)).reversed();
+     |                 ----^^^^^
+     |                 |
+     |                 help: remove this `mut`
+
+warning: `ropey` (lib test) generated 3 warnings
+    Finished test [unoptimized + debuginfo] target(s) in 17.94s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T005603Z-ecee1c61/debug/deps/ropey-9d718a02e8943267)
+
+Exit: 0
+Timed out: False

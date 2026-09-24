@@ -1,0 +1,13 @@
+{
+  "commit": "8699de0908b3853431e2dcac6eb70faad7f326d0",
+  "parent": "bdcad278fb41ae4d545036baa2e116b94e3325c5",
+  "fixed_commit": "8699de0908b3853431e2dcac6eb70faad7f326d0",
+  "summary": "An internal-node RopeSlice ending between CR and LF undercounts len_lines() by one because its end metadata uses the unsliced tree's line-break count. With CR line recognition enabled, the fix detects the split and counts the slice's trailing CR as a line break. The fix-added test checks prefix line counts using the existing small unit-test tree capacity. Reversing only end_info restores the original calculation without changing tests. No tests were executed.",
+  "test": "slice::tests::len_lines_03",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/slice.rs",
+    "fixed_text": "            end_info: {\n                #[cfg(any(feature = \"cr_lines\", feature = \"unicode_lines\"))]\n                {\n                    let mut info = node.char_to_text_info(n_end);\n                    if node.is_crlf_split(n_end) {\n                        info.line_breaks += 1;\n                    }\n                    info\n                }\n                #[cfg(not(any(feature = \"cr_lines\", feature = \"unicode_lines\")))]\n                node.char_to_text_info(n_end)\n            },\n",
+    "parent_text": "            end_info: node.char_to_text_info(n_end),\n"
+  }
+}

@@ -1,0 +1,49 @@
+Command: rustup run 1.65.0 cargo test --locked --offline --lib slice::tests::len_lines_03 -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:58:49.031644+00:00
+STDOUT:
+
+running 1 test
+test slice::tests::len_lines_03 ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 357 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling ropey v1.5.0 (/home/runner/work/_temp/upstream)
+warning: unnecessary parentheses around method argument
+    --> src/iter.rs:2562:40
+     |
+2562 |             let mut lines = s.lines_at(((i + 1) / 2)).reversed();
+     |                                        ^           ^
+     |
+     = note: `#[warn(unused_parens)]` on by default
+help: remove these parentheses
+     |
+2562 -             let mut lines = s.lines_at(((i + 1) / 2)).reversed();
+2562 +             let mut lines = s.lines_at((i + 1) / 2).reversed();
+     |
+
+warning: variable does not need to be mutable
+    --> src/iter.rs:2458:17
+     |
+2458 |             let mut lines = s.lines();
+     |                 ----^^^^^
+     |                 |
+     |                 help: remove this `mut`
+     |
+     = note: `#[warn(unused_mut)]` on by default
+
+warning: variable does not need to be mutable
+    --> src/iter.rs:2562:17
+     |
+2562 |             let mut lines = s.lines_at(((i + 1) / 2)).reversed();
+     |                 ----^^^^^
+     |                 |
+     |                 help: remove this `mut`
+
+warning: `ropey` (lib test) generated 3 warnings
+    Finished test [unoptimized + debuginfo] target(s) in 2.25s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T005603Z-ecee1c61/debug/deps/ropey-9d718a02e8943267)
+
+Exit: 0
+Timed out: False
