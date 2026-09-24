@@ -1,0 +1,42 @@
+Command: rustup run 1.48.0 cargo fetch --locked
+Started: 2026-09-24T00:48:10.182247+00:00
+STDOUT:
+
+STDERR:
+ Downloading crates ...
+  Downloaded unicode-xid v0.2.1 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded rustc-test v0.3.1 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded ryu v1.0.5 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded itoa v0.4.6 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded serde_derive v1.0.118 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded time v0.1.44 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded getopts v0.2.21 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded unicode-width v0.1.8 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded rustc-serialize v0.3.24 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded proc-macro2 v1.0.24 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded quote v1.0.7 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded serde v1.0.118 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded winapi-build v0.1.1 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded matches v0.1.8 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded semver-parser v0.7.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded semver v0.9.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded rustc_version v0.2.3 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded tinyvec_macros v0.1.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded assert_matches v1.4.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded unicode-bidi v0.3.4 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded bencher v0.1.5 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded kernel32-sys v0.2.2 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded term v0.4.6 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded syn v1.0.54 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded wasi v0.10.0+wasi-snapshot-preview1 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded tinyvec v1.1.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded unicode-normalization v0.1.16 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded serde_json v1.0.60 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded winapi v0.3.9 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded libc v0.2.81 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded winapi v0.2.8 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded winapi-x86_64-pc-windows-gnu v0.4.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded winapi-i686-pc-windows-gnu v0.4.0 (registry `git://127.0.0.1:9419/era-index`)
+
+Exit: 0
+Timed out: False

@@ -4,12 +4,12 @@
 
 Upstream: https://github.com/servo/rust-url
 
-Candidate: a08aa2cd10a67d9922ecd4fa96584cfc97820e87-1
+Candidate: 3174ea50f822eb63797776d7be1ae4418163c724-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 1330 reachable from the saved tip.
+Reviewed commits: 1 / 1119 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

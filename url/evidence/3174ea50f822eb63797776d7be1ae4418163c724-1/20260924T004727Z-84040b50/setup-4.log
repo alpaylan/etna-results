@@ -1,0 +1,40 @@
+Command: rustup run 1.48.0 cargo check --locked --offline --tests
+Started: 2026-09-24T00:48:11.115490+00:00
+STDOUT:
+
+STDERR:
+   Compiling proc-macro2 v1.0.24
+   Compiling unicode-xid v0.2.1
+    Checking matches v0.1.8
+   Compiling syn v1.0.54
+   Compiling serde_derive v1.0.118
+   Compiling ryu v1.0.5
+    Checking tinyvec_macros v0.1.0
+   Compiling serde v1.0.118
+   Compiling serde_json v1.0.60
+   Compiling semver-parser v0.7.0
+   Compiling libc v0.2.81
+    Checking itoa v0.4.6
+    Checking unicode-width v0.1.8
+    Checking bencher v0.1.5
+    Checking percent-encoding v2.1.0 (/home/runner/work/_temp/upstream/percent_encoding)
+    Checking rustc-serialize v0.3.24
+    Checking term v0.4.6
+    Checking assert_matches v1.4.0
+    Checking unicode-bidi v0.3.4
+    Checking data-url v0.1.0 (/home/runner/work/_temp/upstream/data-url)
+    Checking tinyvec v1.1.0
+   Compiling semver v0.9.0
+    Checking getopts v0.2.21
+    Checking form_urlencoded v1.0.0 (/home/runner/work/_temp/upstream/form_urlencoded)
+   Compiling rustc_version v0.2.3
+    Checking unicode-normalization v0.1.16
+   Compiling quote v1.0.7
+    Checking time v0.1.44
+   Compiling rustc-test v0.3.1
+    Checking idna v0.2.0 (/home/runner/work/_temp/upstream/idna)
+    Checking url v2.2.0 (/home/runner/work/_temp/upstream/url)
+    Finished dev [unoptimized + debuginfo] target(s) in 8.84s
+
+Exit: 0
+Timed out: False

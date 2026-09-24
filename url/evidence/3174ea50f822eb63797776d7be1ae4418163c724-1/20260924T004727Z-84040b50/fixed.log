@@ -1,0 +1,62 @@
+Command: rustup run 1.48.0 cargo test --locked --offline --lib pop_if_empty_in_bounds -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:48:20.078597+00:00
+STDOUT:
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
+
+
+STDERR:
+   Compiling matches v0.1.8
+   Compiling tinyvec_macros v0.1.0
+   Compiling unicode-width v0.1.8
+   Compiling itoa v0.4.6
+   Compiling term v0.4.6
+   Compiling rustc-serialize v0.3.24
+   Compiling percent-encoding v2.1.0 (/home/runner/work/_temp/upstream/percent_encoding)
+   Compiling bencher v0.1.5
+   Compiling assert_matches v1.4.0
+   Compiling unicode-bidi v0.3.4
+   Compiling tinyvec v1.1.0
+   Compiling getopts v0.2.21
+   Compiling form_urlencoded v1.0.0 (/home/runner/work/_temp/upstream/form_urlencoded)
+   Compiling ryu v1.0.5
+   Compiling libc v0.2.81
+   Compiling unicode-normalization v0.1.16
+   Compiling serde v1.0.118
+   Compiling time v0.1.44
+   Compiling idna v0.2.0 (/home/runner/work/_temp/upstream/idna)
+   Compiling rustc-test v0.3.1
+   Compiling serde_json v1.0.60
+   Compiling data-url v0.1.0 (/home/runner/work/_temp/upstream/data-url)
+   Compiling url v2.2.0 (/home/runner/work/_temp/upstream/url)
+    Finished test [unoptimized + debuginfo] target(s) in 5.57s
+     Running /home/runner/work/_temp/build-20260924T004727Z-84040b50/debug/deps/data_url-7ed3987768d1cbe4
+     Running /home/runner/work/_temp/build-20260924T004727Z-84040b50/debug/deps/form_urlencoded-750e2138a8433c69
+     Running /home/runner/work/_temp/build-20260924T004727Z-84040b50/debug/deps/idna-5bd79aec67c2d9f4
+     Running /home/runner/work/_temp/build-20260924T004727Z-84040b50/debug/deps/percent_encoding-2b75b546f2e6427e
+     Running /home/runner/work/_temp/build-20260924T004727Z-84040b50/debug/deps/url-5b6c892a1ee358aa
+
+Exit: 0
+Timed out: False

@@ -1,0 +1,13 @@
+{
+  "commit": "3174ea50f822eb63797776d7be1ae4418163c724",
+  "parent": "6865d52fe424d84b9068d946f6893c52dfa43e5b",
+  "fixed_commit": "3174ea50f822eb63797776d7be1ae4418163c724",
+  "summary": "For a non-special URL with an empty path such as m://, after_first_slash is one byte beyond the serialization length. Both pop_if_empty() and pop() previously sliced from that out-of-bounds position and panicked. The fix adds early returns before slicing when after_first_slash is at or beyond the serialization length. The fix-added test pop_if_empty_in_bounds in url/tests/unit.rs exercises both methods. Reversing both guards should make it panic on pop_if_empty(); no tests were executed in this planning job.",
+  "test": "pop_if_empty_in_bounds",
+  "expected_failure": "byte index 5 is out of bounds of `m://`",
+  "reversal": {
+    "path": "url/src/path_segments.rs",
+    "fixed_text": "    pub fn pop_if_empty(&mut self) -> &mut Self {\n        if self.after_first_slash >= self.url.serialization.len() {\n            return self;\n        }\n        if self.url.serialization[self.after_first_slash..].ends_with('/') {\n            self.url.serialization.pop();\n        }\n        self\n    }\n\n    /// Remove the last segment of this URL’s path.\n    ///\n    /// If the path only has one segment, make it empty such that `url.path() == \"/\"`.\n    ///\n    /// Returns `&mut Self` so that method calls can be chained.\n    pub fn pop(&mut self) -> &mut Self {\n        if self.after_first_slash >= self.url.serialization.len() {\n            return self;\n        }\n        let last_slash = self.url.serialization[self.after_first_slash..]\n            .rfind('/')\n            .unwrap_or(0);\n        self.url\n            .serialization\n            .truncate(self.after_first_slash + last_slash);\n        self\n    }\n\n",
+    "parent_text": "    pub fn pop_if_empty(&mut self) -> &mut Self {\n        if self.url.serialization[self.after_first_slash..].ends_with('/') {\n            self.url.serialization.pop();\n        }\n        self\n    }\n\n    /// Remove the last segment of this URL’s path.\n    ///\n    /// If the path only has one segment, make it empty such that `url.path() == \"/\"`.\n    ///\n    /// Returns `&mut Self` so that method calls can be chained.\n    pub fn pop(&mut self) -> &mut Self {\n        let last_slash = self.url.serialization[self.after_first_slash..]\n            .rfind('/')\n            .unwrap_or(0);\n        self.url\n            .serialization\n            .truncate(self.after_first_slash + last_slash);\n        self\n    }\n\n"
+  }
+}
