@@ -1,0 +1,9 @@
+Command: rustup run 1.76.0 cargo clean -p regex
+Started: 2026-09-24T20:51:01.730743+00:00
+STDOUT:
+
+STDERR:
+     Removed 30 files, 10.7MiB total
+
+Exit: 0
+Timed out: False

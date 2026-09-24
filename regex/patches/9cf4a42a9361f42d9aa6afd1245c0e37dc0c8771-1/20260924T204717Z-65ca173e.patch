@@ -1,0 +1,21 @@
+diff --git a/regex-automata/src/nfa/thompson/compiler.rs b/regex-automata/src/nfa/thompson/compiler.rs
+index 668bca8..bb74c75 100644
+--- a/regex-automata/src/nfa/thompson/compiler.rs
++++ b/regex-automata/src/nfa/thompson/compiler.rs
+@@ -961,12 +961,10 @@ impl Compiler {
+         // for all matches. When an unanchored prefix is not added, then the
+         // NFA's anchored and unanchored start states are equivalent.
+         let all_anchored = exprs.iter().all(|e| {
+-            let props = e.borrow().properties();
+-            if self.config.get_reverse() {
+-                props.look_set_suffix().contains(hir::Look::End)
+-            } else {
+-                props.look_set_prefix().contains(hir::Look::Start)
+-            }
++            e.borrow()
++                .properties()
++                .look_set_prefix()
++                .contains(hir::Look::Start)
+         });
+         let anchored = !self.config.get_unanchored_prefix() || all_anchored;
+         let unanchored_prefix = if anchored {

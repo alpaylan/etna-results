@@ -1,0 +1,13 @@
+{
+  "commit": "9cf4a42a9361f42d9aa6afd1245c0e37dc0c8771",
+  "parent": "10fe722a3fcfdc17068b21f3262189cc52227bb5",
+  "fixed_commit": "9cf4a42a9361f42d9aa6afd1245c0e37dc0c8771",
+  "summary": "Reverse Thompson NFA compilation incorrectly treated a leading ^ as requiring an anchored search, omitting the unanchored prefix needed for patterns such as ^a. The fix checks for a trailing $ when compiling in reverse, while retaining the leading-^ check for forward compilation. The regression test added by this fix checks that reverse compilation of ^a includes the unanchored prefix states. This is a proposed verbatim reversal; no tests were executed.",
+  "test": "nfa::thompson::compiler::tests::compile_yes_reverse_unanchored_prefix_with_start_anchor",
+  "expected_failure": "assertion `left == right` failed",
+  "reversal": {
+    "path": "regex-automata/src/nfa/thompson/compiler.rs",
+    "fixed_text": "        let all_anchored = exprs.iter().all(|e| {\n            let props = e.borrow().properties();\n            if self.config.get_reverse() {\n                props.look_set_suffix().contains(hir::Look::End)\n            } else {\n                props.look_set_prefix().contains(hir::Look::Start)\n            }\n        });\n",
+    "parent_text": "        let all_anchored = exprs.iter().all(|e| {\n            e.borrow()\n                .properties()\n                .look_set_prefix()\n                .contains(hir::Look::Start)\n        });\n"
+  }
+}
