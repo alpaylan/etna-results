@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: Proposal names no upstream test
+**unconfirmed**: The observed failure does not establish the described bug
 
 Upstream: https://github.com/tafia/quick-xml
 
-Candidate: db8546a0dd70d76ac174e89ce74a35308c5686a2-1
+Candidate: 2745899e6cad14118d5c2a7bf10afbb03878cebc-1
 
 Provenance: verbatim
 
-Latest outcomes: {"blocked": 1}
+Latest outcomes: {"unconfirmed": 1}
 
-History coverage not yet recorded.
+Reviewed commits: 1 / 170 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

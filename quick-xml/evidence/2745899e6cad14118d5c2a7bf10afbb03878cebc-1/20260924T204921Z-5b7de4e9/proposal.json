@@ -1,0 +1,13 @@
+{
+  "commit": "2745899e6cad14118d5c2a7bf10afbb03878cebc",
+  "parent": "0fd7fbba4a335e893d541958b6129570853e059a",
+  "fixed_commit": "2745899e6cad14118d5c2a7bf10afbb03878cebc",
+  "summary": "Parsing malformed input containing <> passes an empty buffer to Reader::read_start. The parent implementation evaluates buf[len - 1], causing subtraction overflow in debug builds or an out-of-bounds panic without overflow checks. The fix uses buf.last(), safely skipping the trailing-slash branch for an empty buffer. The fix adds the root-level integration test fuzz_53 in tests/test.rs, which exercises this input. No tests were executed during planning.",
+  "test": "fuzz_53",
+  "expected_failure": "attempt to subtract with overflow",
+  "reversal": {
+    "path": "src/reader.rs",
+    "fixed_text": "        if let Some(&b'/') = buf.last() {\n",
+    "parent_text": "        if buf[len - 1] == b'/' {\n"
+  }
+}

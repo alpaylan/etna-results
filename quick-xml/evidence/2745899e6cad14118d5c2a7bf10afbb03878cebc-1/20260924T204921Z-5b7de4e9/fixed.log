@@ -1,0 +1,24 @@
+Command: rustup run 1.15.1 cargo test --test test fuzz_53 -- --nocapture --test-threads=1
+Started: 2026-09-24T20:50:02.757576+00:00
+STDOUT:
+
+running 1 test
+test fuzz_53 ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured
+
+
+STDERR:
+warning: only one of `license` or `license-file` is necessary
+warning: unused manifest key: badges.travis-ci.repository
+warning: unused manifest key: package.categories
+warning: unused manifest key: package.categories
+warning: unused manifest key: package.categories
+   Compiling bitflags v0.7.0
+   Compiling quick-xml v0.6.0 (file:///home/runner/work/_temp/upstream)
+   Compiling xml-rs v0.4.1
+    Finished debug [unoptimized + debuginfo] target(s) in 2.93 secs
+     Running /home/runner/work/_temp/build-20260924T204921Z-5b7de4e9/debug/deps/test-c55930549cb21938
+
+Exit: 0
+Timed out: False
