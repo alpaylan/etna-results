@@ -1,0 +1,21 @@
+Command: rustup run 1.81.0 cargo test --locked --offline --test tests test_official -- --nocapture --test-threads=1
+Started: 2026-09-24T00:35:38.216454+00:00
+STDOUT:
+
+running 1 test
+test test_official ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 2 filtered out; finished in 0.35s
+
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+   Compiling tinyvec_macros v0.1.1
+   Compiling tinyvec v1.8.0
+   Compiling unicode-normalization v0.1.24 (/home/runner/work/_temp/upstream)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.26s
+     Running tests/tests.rs (/home/runner/work/_temp/build-20260924T003044Z-bad93946/debug/deps/tests-80ab910b311b5b09)
+
+Exit: 0
+Timed out: False

@@ -1,0 +1,12 @@
+{
+  "repo": "https://github.com/unicode-rs/unicode-normalization",
+  "tips": [
+    "99d6e46cfbe1b9bc84249a84f9e58b7619c106e0"
+  ],
+  "shallow": false,
+  "reviewed": [
+    "99d6e46cfbe1b9bc84249a84f9e58b7619c106e0"
+  ],
+  "reachable_commits": 207,
+  "scope": "One queued candidate; not an exhaustive history scan."
+}

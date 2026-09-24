@@ -1,15 +1,19 @@
 # Cloud bug-mining prototype
 
-**blocked**: Proposal names no upstream test
+Resumed verified evidence; no tests rerun.
+
+**confirmed**: The same upstream test passed, panicked on the original defect ('assertion `left == right` failed
+  left: "\u{105c9}"
+ right: "\u{105d2}\u{307}"'), and passed after restoration
 
 Upstream: https://github.com/unicode-rs/unicode-normalization
 
-Candidate: e4fd0e1b21f39e7d8ff35da53eb11d0624bbf6cc-1
+Candidate: 99d6e46cfbe1b9bc84249a84f9e58b7619c106e0-1
 
 Provenance: verbatim
 
-Latest outcomes: {"blocked": 1}
+Latest outcomes: {"confirmed": 1}
 
-History coverage not yet recorded.
+Reviewed commits: 1 / 207 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

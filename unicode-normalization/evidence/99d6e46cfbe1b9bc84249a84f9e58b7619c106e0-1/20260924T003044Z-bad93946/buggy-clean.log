@@ -1,0 +1,11 @@
+Command: rustup run 1.81.0 cargo clean -p unicode-normalization
+Started: 2026-09-24T00:35:40.861179+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+     Removed 141 files, 44.6MiB total
+
+Exit: 0
+Timed out: False

@@ -1,0 +1,30 @@
+Command: rustup run 1.81.0 cargo test --locked --offline --test tests test_official -- --nocapture --test-threads=1
+Started: 2026-09-24T00:35:40.889033+00:00
+STDOUT:
+
+running 1 test
+test test_official ... FAILED
+
+failures:
+
+failures:
+    test_official
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 2 filtered out; finished in 0.23s
+
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+   Compiling unicode-normalization v0.1.24 (/home/runner/work/_temp/upstream)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.75s
+     Running tests/tests.rs (/home/runner/work/_temp/build-20260924T003044Z-bad93946/debug/deps/tests-80ab910b311b5b09)
+thread 'test_official' panicked at tests/tests.rs:36:13:
+assertion `left == right` failed
+  left: "\u{105c9}"
+ right: "\u{105d2}\u{307}"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `--test tests`
+
+Exit: 101
+Timed out: False

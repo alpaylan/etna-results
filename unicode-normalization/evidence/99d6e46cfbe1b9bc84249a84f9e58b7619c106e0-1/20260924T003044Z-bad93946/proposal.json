@@ -1,0 +1,13 @@
+{
+  "commit": "99d6e46cfbe1b9bc84249a84f9e58b7619c106e0",
+  "parent": "b7e343ae286aace7447e1b3460b8ff9c22708abf",
+  "fixed_commit": "99d6e46cfbe1b9bc84249a84f9e58b7619c106e0",
+  "summary": "The generator required both input codepoints to be astral, omitting the mixed-plane compositions U+105D2 + U+0307 → U+105C9 and U+105DA + U+0307 → U+105E4. These pairs returned None, leaving NFC/NFKC output decomposed. The fix accepts either input being astral and adds the missing generated table entries. Reversing those two entries restores the bug. The existing test_official integration test in tests/tests.rs checks both affected cases using tests/data/normalization_tests.rs; no tests were added by the fix. This is a proposed reproduction, not an observed result.",
+  "test": "test_official",
+  "expected_failure": "assertion `left == right` failed",
+  "reversal": {
+    "path": "src/tables.rs",
+    "fixed_text": "pub(crate) fn composition_table_astral(c1: char, c2: char) -> Option<char> {\n    match (c1, c2) {\n        ('\\u{105D2}', '\\u{0307}') => Some('\\u{105C9}'),\n        ('\\u{105DA}', '\\u{0307}') => Some('\\u{105E4}'),\n",
+    "parent_text": "pub(crate) fn composition_table_astral(c1: char, c2: char) -> Option<char> {\n    match (c1, c2) {\n"
+  }
+}

@@ -1,0 +1,14 @@
+Command: rustup run 1.81.0 cargo check --locked --offline --tests
+Started: 2026-09-24T00:35:36.521290+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+    Checking tinyvec_macros v0.1.1
+    Checking tinyvec v1.8.0
+    Checking unicode-normalization v0.1.24 (/home/runner/work/_temp/upstream)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.61s
+
+Exit: 0
+Timed out: False

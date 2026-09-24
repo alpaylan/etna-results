@@ -1,0 +1,13 @@
+Command: rustup run 1.81.0 cargo fetch --locked
+Started: 2026-09-24T00:35:36.382634+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+ Downloading crates ...
+  Downloaded tinyvec_macros v0.1.1 (registry `era`)
+  Downloaded tinyvec v1.8.0 (registry `era`)
+
+Exit: 0
+Timed out: False
