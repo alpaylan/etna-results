@@ -1,0 +1,13 @@
+{
+  "commit": "f31d2263ce37f9aae7413ab2a78b787f8214b89b",
+  "parent": "c160626b5e7dd8e9a95c140aed8972e8e2a14a39",
+  "fixed_commit": "f31d2263ce37f9aae7413ab2a78b787f8214b89b",
+  "summary": "varint_size(0) returned 0, underestimating POSTCARD_MAX_SIZE for zero-capacity heapless vectors and strings: their serialized length prefix requires one byte. The fix returns 1 for zero. The existing tests/max_size.rs test_vec_edge_cases test gains a zero-capacity case in this commit that compares POSTCARD_MAX_SIZE with the serialized length. The proposed reversal removes only the guard, exactly restoring the parent implementation. No tests were run.",
+  "test": "test_vec_edge_cases",
+  "expected_failure": "assertion failed: `(left == right)`\n  left: `0`,\n right: `1`",
+  "reversal": {
+    "path": "src/ser/max_size.rs",
+    "fixed_text": "const fn varint_size(max_n: usize) -> usize {\n    const BITS_PER_BYTE: usize = 8;\n    const BITS_PER_VARINT_BYTE: usize = 7;\n\n    if max_n == 0 {\n        return 1;\n    }\n\n",
+    "parent_text": "const fn varint_size(max_n: usize) -> usize {\n    const BITS_PER_BYTE: usize = 8;\n    const BITS_PER_VARINT_BYTE: usize = 7;\n\n"
+  }
+}
