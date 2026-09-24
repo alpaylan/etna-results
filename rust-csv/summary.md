@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: Proposal names no upstream test
+**blocked**: Toolchain install failed; see setup logs
 
 Upstream: https://github.com/BurntSushi/rust-csv
 
-Candidate: 9dab9474e796539cb44d412f5854572a0c852b75-1
+Candidate: e8945bf8a1e8779727748c2e0d460f8d9aaf4b67-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-History coverage not yet recorded.
+Reviewed commits: 1 / 129 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.
