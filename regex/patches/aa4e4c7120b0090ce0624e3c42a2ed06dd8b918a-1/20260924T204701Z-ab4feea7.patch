@@ -1,0 +1,18 @@
+diff --git a/regex-automata/src/nfa/thompson/backtrack.rs b/regex-automata/src/nfa/thompson/backtrack.rs
+index df99e45..79c57a9 100644
+--- a/regex-automata/src/nfa/thompson/backtrack.rs
++++ b/regex-automata/src/nfa/thompson/backtrack.rs
+@@ -820,11 +820,8 @@ impl BoundedBacktracker {
+         // bytes to the capacity in bits.
+         let capacity = 8 * self.get_config().get_visited_capacity();
+         let blocks = div_ceil(capacity, Visited::BLOCK_SIZE);
+-        let real_capacity = blocks.saturating_mul(Visited::BLOCK_SIZE);
+-        // It's possible for `real_capacity` to be smaller than the number of
+-        // NFA states for particularly large regexes, so we saturate towards
+-        // zero.
+-        (real_capacity / self.nfa.states().len()).saturating_sub(1)
++        let real_capacity = blocks * Visited::BLOCK_SIZE;
++        (real_capacity / self.nfa.states().len()) - 1
+     }
+ }
+ 

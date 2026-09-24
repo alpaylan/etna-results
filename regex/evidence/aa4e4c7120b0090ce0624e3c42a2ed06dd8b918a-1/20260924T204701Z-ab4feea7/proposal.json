@@ -1,0 +1,13 @@
+{
+  "commit": "aa4e4c7120b0090ce0624e3c42a2ed06dd8b918a",
+  "parent": "27a25385c0bd1228716271668febc88bd8c74932",
+  "fixed_commit": "aa4e4c7120b0090ce0624e3c42a2ed06dd8b918a",
+  "summary": "When the bounded backtracker's bitset capacity is smaller than its NFA state count, max_haystack_len subtracts one from zero, causing an overflow panic with overflow checks enabled. The fix uses saturating arithmetic so this case returns zero. The regression test added by the fix exercises this with visited_capacity(10) and [0-9A-Za-z]{100}.",
+  "test": "nfa::thompson::backtrack::tests::max_haystack_len_overflow",
+  "expected_failure": "attempt to subtract with overflow",
+  "reversal": {
+    "path": "regex-automata/src/nfa/thompson/backtrack.rs",
+    "fixed_text": "        let real_capacity = blocks.saturating_mul(Visited::BLOCK_SIZE);\n        // It's possible for `real_capacity` to be smaller than the number of\n        // NFA states for particularly large regexes, so we saturate towards\n        // zero.\n        (real_capacity / self.nfa.states().len()).saturating_sub(1)\n",
+    "parent_text": "        let real_capacity = blocks * Visited::BLOCK_SIZE;\n        (real_capacity / self.nfa.states().len()) - 1\n"
+  }
+}
