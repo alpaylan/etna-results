@@ -1,0 +1,23 @@
+diff --git a/src/buf/buf_mut.rs b/src/buf/buf_mut.rs
+index ab9ad18..f5ed2a7 100644
+--- a/src/buf/buf_mut.rs
++++ b/src/buf/buf_mut.rs
+@@ -990,13 +990,11 @@ impl BufMut for Vec<u8> {
+     unsafe fn advance_mut(&mut self, cnt: usize) {
+         let len = self.len();
+         let remaining = self.capacity() - len;
+-
+-        assert!(
+-            cnt <= remaining,
+-            "cannot advance past `remaining_mut`: {:?} <= {:?}",
+-            cnt,
+-            remaining
+-        );
++        if cnt > remaining {
++            // Reserve additional capacity, and ensure that the total length
++            // will not overflow usize.
++            self.reserve(cnt);
++        }
+ 
+         self.set_len(len + cnt);
+     }

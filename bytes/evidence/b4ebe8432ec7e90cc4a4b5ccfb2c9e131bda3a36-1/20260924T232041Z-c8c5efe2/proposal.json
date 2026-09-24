@@ -1,0 +1,13 @@
+{
+  "commit": "b4ebe8432ec7e90cc4a4b5ccfb2c9e131bda3a36",
+  "parent": "8bbe9dd87bdf11b1536e56415a39827eeb6d0f3e",
+  "fixed_commit": "b4ebe8432ec7e90cc4a4b5ccfb2c9e131bda3a36",
+  "summary": "Vec<u8>::advance_mut incorrectly reserves additional capacity and increases the length when cnt exceeds capacity minus length. The fix asserts that cnt fits within the existing spare capacity before changing the length. The upstream test in tests/test_buf_mut.rs, updated by this fix, expects advancing 12 bytes into a vector with capacity 8 to panic. Reversing the implementation should make that expected panic absent; no tests were executed.",
+  "test": "test_vec_advance_mut",
+  "expected_failure": "test did not panic as expected",
+  "reversal": {
+    "path": "src/buf/buf_mut.rs",
+    "fixed_text": "    unsafe fn advance_mut(&mut self, cnt: usize) {\n        let len = self.len();\n        let remaining = self.capacity() - len;\n\n        assert!(\n            cnt <= remaining,\n            \"cannot advance past `remaining_mut`: {:?} <= {:?}\",\n            cnt,\n            remaining\n        );\n\n        self.set_len(len + cnt);\n    }\n",
+    "parent_text": "    unsafe fn advance_mut(&mut self, cnt: usize) {\n        let len = self.len();\n        let remaining = self.capacity() - len;\n        if cnt > remaining {\n            // Reserve additional capacity, and ensure that the total length\n            // will not overflow usize.\n            self.reserve(cnt);\n        }\n\n        self.set_len(len + cnt);\n    }\n"
+  }
+}

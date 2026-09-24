@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: Dependency setup failed; see setup logs
+**unconfirmed**: The observed failure does not establish the described bug
 
 Upstream: https://github.com/tokio-rs/bytes
 
-Candidate: 7ed78cef475137d3811b8a9e371fe4853ecdeb4c-1
+Candidate: b4ebe8432ec7e90cc4a4b5ccfb2c9e131bda3a36-1
 
 Provenance: verbatim
 
-Latest outcomes: {"blocked": 1}
+Latest outcomes: {"unconfirmed": 1}
 
-Reviewed commits: 1 / 205 reachable from the saved tip.
+Reviewed commits: 1 / 351 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

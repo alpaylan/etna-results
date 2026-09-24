@@ -1,0 +1,22 @@
+Command: rustup run 1.42.0 cargo check --locked --offline --tests
+Started: 2026-09-24T23:21:51.997265+00:00
+STDOUT:
+
+STDERR:
+   Compiling semver-parser v0.7.0
+   Compiling log v0.4.8
+   Compiling libc v0.2.68
+   Compiling cc v1.0.50
+    Checking cfg-if v0.1.10
+   Compiling serde v1.0.105
+    Checking scoped-tls v0.1.2
+    Checking bytes v0.5.4 (/home/runner/work/_temp/upstream)
+   Compiling semver v0.9.0
+   Compiling rustc_version v0.2.3
+   Compiling generator v0.6.20
+    Checking loom v0.2.15
+    Checking serde_test v1.0.105
+    Finished dev [unoptimized + debuginfo] target(s) in 6.89s
+
+Exit: 0
+Timed out: False

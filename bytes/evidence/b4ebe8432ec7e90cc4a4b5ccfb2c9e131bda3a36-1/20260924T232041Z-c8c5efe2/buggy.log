@@ -1,0 +1,23 @@
+Command: rustup run 1.42.0 cargo test --locked --offline --test test_buf_mut test_vec_advance_mut -- --nocapture --test-threads=1
+Started: 2026-09-24T23:22:05.644846+00:00
+STDOUT:
+
+running 1 test
+test test_vec_advance_mut ... FAILED
+
+failures:
+
+failures:
+    test_vec_advance_mut
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 7 filtered out
+
+
+STDERR:
+   Compiling bytes v0.5.4 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 0.37s
+     Running /home/runner/work/_temp/build-20260924T232041Z-c8c5efe2/debug/deps/test_buf_mut-c6a5020d6387dd1b
+error: test failed, to rerun pass '--test test_buf_mut'
+
+Exit: 101
+Timed out: False

@@ -1,0 +1,24 @@
+Command: rustup run 1.42.0 cargo fetch --locked
+Started: 2026-09-24T23:21:50.431861+00:00
+STDOUT:
+
+STDERR:
+ Downloading crates ...
+  Downloaded semver-parser v0.7.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded cfg-if v0.1.10 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded rustc_version v0.2.3 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded scoped-tls v0.1.2 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded semver v0.9.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded winapi-i686-pc-windows-gnu v0.4.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded libc v0.2.68 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded cc v1.0.50 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded serde v1.0.105 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded winapi-x86_64-pc-windows-gnu v0.4.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded winapi v0.3.8 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded log v0.4.8 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded generator v0.6.20 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded loom v0.2.15 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded serde_test v1.0.105 (registry `git://127.0.0.1:9419/era-index`)
+
+Exit: 0
+Timed out: False
