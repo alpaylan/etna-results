@@ -1,0 +1,17 @@
+diff --git a/src/escape.rs b/src/escape.rs
+index 5fac7eb..4805abe 100644
+--- a/src/escape.rs
++++ b/src/escape.rs
+@@ -52,10 +52,11 @@ pub fn escape(raw: &[u8]) -> Cow<[u8]> {
+         let len = raw.len();
+         let mut v = Vec::with_capacity(len);
+         let mut start = 0;
++
+         for (i, r) in escapes {
+             v.extend_from_slice(&raw[start..i]);
++            start += i + 1;
+             v.extend_from_slice(r);
+-            start = i + 1;
+         }
+ 
+         if start < len {

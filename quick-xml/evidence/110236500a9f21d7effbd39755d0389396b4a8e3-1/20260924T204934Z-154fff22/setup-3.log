@@ -1,0 +1,23 @@
+Command: rustup run 1.20.0 cargo fetch --locked
+Started: 2026-09-24T20:49:58.334639+00:00
+STDOUT:
+
+STDERR:
+ Downloading xml-rs v0.6.1 (registry git://127.0.0.1:9419/era-index)
+ Downloading backtrace v0.3.3 (registry git://127.0.0.1:9419/era-index)
+ Downloading encoding_rs v0.7.0 (registry git://127.0.0.1:9419/era-index)
+ Downloading gcc v0.3.53 (registry git://127.0.0.1:9419/era-index)
+ Downloading error-chain v0.10.0 (registry git://127.0.0.1:9419/era-index)
+ Downloading bitflags v0.9.1 (registry git://127.0.0.1:9419/era-index)
+ Downloading winapi v0.2.8 (registry git://127.0.0.1:9419/era-index)
+ Downloading libc v0.2.30 (registry git://127.0.0.1:9419/era-index)
+ Downloading cfg-if v0.1.2 (registry git://127.0.0.1:9419/era-index)
+ Downloading rustc-demangle v0.1.5 (registry git://127.0.0.1:9419/era-index)
+ Downloading backtrace-sys v0.1.12 (registry git://127.0.0.1:9419/era-index)
+ Downloading dbghelp-sys v0.2.0 (registry git://127.0.0.1:9419/era-index)
+ Downloading winapi-build v0.1.1 (registry git://127.0.0.1:9419/era-index)
+ Downloading kernel32-sys v0.2.2 (registry git://127.0.0.1:9419/era-index)
+ Downloading memchr v1.0.1 (registry git://127.0.0.1:9419/era-index)
+
+Exit: 0
+Timed out: False

@@ -1,11 +1,13 @@
 {
   "repo": "https://github.com/tafia/quick-xml",
   "tips": [
+    "110236500a9f21d7effbd39755d0389396b4a8e3",
     "2745899e6cad14118d5c2a7bf10afbb03878cebc",
     "ebaffb3db325c4657e5e5df43afa018ee71ce1c5"
   ],
   "shallow": false,
   "reviewed": [
+    "110236500a9f21d7effbd39755d0389396b4a8e3",
     "2745899e6cad14118d5c2a7bf10afbb03878cebc",
     "ebaffb3db325c4657e5e5df43afa018ee71ce1c5"
   ],

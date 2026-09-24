@@ -1,0 +1,21 @@
+Command: rustup run 1.20.0 cargo check --locked --tests
+Started: 2026-09-24T20:49:59.662438+00:00
+STDOUT:
+
+STDERR:
+   Compiling gcc v0.3.53
+   Compiling cfg-if v0.1.2
+   Compiling libc v0.2.30
+   Compiling rustc-demangle v0.1.5
+   Compiling bitflags v0.9.1
+   Compiling encoding_rs v0.7.0
+   Compiling xml-rs v0.6.1
+   Compiling memchr v1.0.1
+   Compiling backtrace-sys v0.1.12
+   Compiling backtrace v0.3.3
+   Compiling error-chain v0.10.0
+   Compiling quick-xml v0.9.2 (file:///home/runner/work/_temp/upstream)
+    Finished dev [unoptimized + debuginfo] target(s) in 20.93 secs
+
+Exit: 0
+Timed out: False

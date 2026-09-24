@@ -1,0 +1,27 @@
+Command: rustup run 1.20.0 cargo test --locked --lib escape::test_escape -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T20:50:21.790791+00:00
+STDOUT:
+
+running 1 test
+test escape::test_escape ... FAILED
+
+failures:
+
+failures:
+    escape::test_escape
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 2 filtered out
+
+
+STDERR:
+   Compiling quick-xml v0.9.2 (file:///home/runner/work/_temp/upstream)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.85 secs
+     Running /home/runner/work/_temp/build-20260924T204934Z-154fff22/debug/deps/quick_xml-1fcb79d7ee386508
+thread 'escape::test_escape' panicked at 'assertion failed: `(left == right)`
+  left: `[38, 113, 117, 111, 116, 59, 97, 38, 113, 117, 111, 116, 59, 99]`,
+ right: `[38, 113, 117, 111, 116, 59, 97, 38, 113, 117, 111, 116, 59, 98, 99]`', src/escape.rs:188:4
+note: Run with `RUST_BACKTRACE=1` for a backtrace.
+error: test failed, to rerun pass '--lib'
+
+Exit: 101
+Timed out: False

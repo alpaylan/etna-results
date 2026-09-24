@@ -1,0 +1,17 @@
+Command: rustup run 1.20.0 cargo test --locked --lib escape::test_escape -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T20:50:20.760677+00:00
+STDOUT:
+
+running 1 test
+test escape::test_escape ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 2 filtered out
+
+
+STDERR:
+   Compiling quick-xml v0.9.2 (file:///home/runner/work/_temp/upstream)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.84 secs
+     Running /home/runner/work/_temp/build-20260924T204934Z-154fff22/debug/deps/quick_xml-1fcb79d7ee386508
+
+Exit: 0
+Timed out: False

@@ -1,0 +1,13 @@
+{
+  "commit": "110236500a9f21d7effbd39755d0389396b4a8e3",
+  "parent": "84fd24bb2f4e405c1334f93f26f4a80349c344e0",
+  "fixed_commit": "110236500a9f21d7effbd39755d0389396b4a8e3",
+  "summary": "XML escaping incorrectly accumulates absolute character positions into the source offset, skipping ordinary bytes or producing invalid slice ranges when escaping multiple characters. The fix assigns start = i + 1 after each replacement. The regression test added by the fix detects this: escaping \"\\\"a\\\"bc\" previously omitted the trailing 'b'. Both reversal regions occur exactly once and contain implementation code only. No builds or tests were run.",
+  "test": "escape::test_escape",
+  "expected_failure": "assertion failed: `(left == right)`",
+  "reversal": {
+    "path": "src/escape.rs",
+    "fixed_text": "        let mut start = 0;\n        for (i, r) in escapes {\n            v.extend_from_slice(&raw[start..i]);\n            v.extend_from_slice(r);\n            start = i + 1;\n        }\n",
+    "parent_text": "        let mut start = 0;\n\n        for (i, r) in escapes {\n            v.extend_from_slice(&raw[start..i]);\n            start += i + 1;\n            v.extend_from_slice(r);\n        }\n"
+  }
+}
