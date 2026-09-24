@@ -1,0 +1,84 @@
+Command: rustup run 1.41.0 cargo check --locked --offline --tests
+Started: 2026-09-24T00:18:28.124048+00:00
+STDOUT:
+
+STDERR:
+   Compiling libc v0.2.66
+   Compiling semver-parser v0.7.0
+    Checking lazy_static v1.4.0
+   Compiling autocfg v0.1.7
+   Compiling memchr v2.3.0
+   Compiling serde v1.0.104
+    Checking cfg-if v0.1.10
+   Compiling bitflags v1.2.1
+   Compiling proc-macro2 v1.0.8
+   Compiling ryu v1.0.2
+   Compiling byteorder v1.3.2
+   Compiling version_check v0.9.1
+    Checking scopeguard v1.0.0
+   Compiling unicode-xid v0.2.0
+    Checking either v1.5.3
+   Compiling autocfg v1.0.0
+   Compiling proc-macro2 v0.4.30
+    Checking unicode-xid v0.1.0
+    Checking itoa v0.4.5
+    Checking matches v0.1.8
+   Compiling rayon-core v1.7.0
+    Checking smallvec v1.2.0
+   Compiling syn v1.0.14
+   Compiling syn v0.15.44
+   Compiling pulldown-cmark v0.4.1
+    Checking regex-syntax v0.6.14
+    Checking unicode-width v0.1.7
+    Checking same-file v1.0.6
+    Checking percent-encoding v1.0.1
+    Checking difference v2.0.0
+    Checking semver-parser v0.9.0
+    Checking oorandom v11.1.0
+    Checking ansi_term v0.11.0
+    Checking rustc-hex v2.1.0
+    Checking faster-hex v0.4.1
+    Checking hex v0.4.0 (/home/runner/work/_temp/upstream)
+    Checking thread_local v1.0.1
+   Compiling semver v0.9.0
+   Compiling crossbeam-utils v0.7.0
+   Compiling crossbeam-epoch v0.8.0
+    Checking itertools v0.8.2
+   Compiling unicase v2.6.0
+    Checking unicode-bidi v0.3.4
+    Checking unicode-normalization v0.1.12
+   Compiling num-traits v0.2.11
+    Checking textwrap v0.11.0
+    Checking walkdir v2.3.1
+    Checking pretty_assertions v0.6.1
+   Compiling rustc_version v0.2.3
+    Checking idna v0.1.5
+   Compiling memoffset v0.5.3
+   Compiling cast v0.2.3
+    Checking num_cpus v1.12.0
+    Checking atty v0.2.14
+    Checking clap v2.33.0
+    Checking regex-automata v0.1.8
+   Compiling quote v1.0.2
+    Checking quote v0.6.13
+    Checking crossbeam-queue v0.2.1
+    Checking url v1.7.2
+    Checking aho-corasick v0.7.8
+    Checking csv-core v0.1.6
+    Checking plotters v0.2.12
+    Checking regex v1.3.4
+    Checking bstr v0.2.11
+    Checking serde_json v1.0.46
+    Checking toml v0.5.6
+    Checking criterion-plot v0.4.1
+    Checking csv v1.1.3
+    Checking tinytemplate v1.0.3
+    Checking crossbeam-deque v0.7.2
+    Checking version-sync v0.8.1
+    Checking rayon v1.3.0
+   Compiling serde_derive v1.0.104
+    Checking criterion v0.3.1
+    Finished dev [unoptimized + debuginfo] target(s) in 21.64s
+
+Exit: 0
+Timed out: False

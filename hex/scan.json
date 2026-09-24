@@ -1,12 +1,14 @@
 {
   "repo": "https://github.com/KokaKiwi/rust-hex",
   "tips": [
-    "71c83f2349d847ec95bf1ee6080ecdc7ca665037"
+    "71c83f2349d847ec95bf1ee6080ecdc7ca665037",
+    "764ee61536cbeb8cfbce6dba61c1b85398700bb6"
   ],
   "shallow": false,
   "reviewed": [
-    "71c83f2349d847ec95bf1ee6080ecdc7ca665037"
+    "71c83f2349d847ec95bf1ee6080ecdc7ca665037",
+    "764ee61536cbeb8cfbce6dba61c1b85398700bb6"
   ],
-  "reachable_commits": 12,
+  "reachable_commits": 55,
   "scope": "One queued candidate; not an exhaustive history scan."
 }

@@ -1,0 +1,13 @@
+diff --git a/src/error.rs b/src/error.rs
+index bd30dba..ee82778 100644
+--- a/src/error.rs
++++ b/src/error.rs
+@@ -24,7 +24,7 @@ impl fmt::Display for FromHexError {
+     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+         match *self {
+             Self::InvalidHexCharacter { c, index } => {
+-                write!(f, "Invalid character {:?} at position {}", c, index)
++                write!(f, "Invalid character '{}' at position {}", c, index)
+             }
+             Self::OddLength => write!(f, "Odd number of digits"),
+             Self::InvalidStringLength => write!(f, "Invalid string length"),

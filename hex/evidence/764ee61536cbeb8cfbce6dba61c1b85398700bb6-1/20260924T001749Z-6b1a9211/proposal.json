@@ -1,0 +1,13 @@
+{
+  "commit": "764ee61536cbeb8cfbce6dba61c1b85398700bb6",
+  "parent": "f98cad4be7ba74e20d8a39843939ac05875e5368",
+  "fixed_commit": "764ee61536cbeb8cfbce6dba61c1b85398700bb6",
+  "summary": "FromHexError::InvalidHexCharacter formatted control characters literally, so a newline produced a multiline error message. The fix uses debug formatting to escape the character. The existing test_display test, updated by this fix, expects an escaped newline at position 5.",
+  "test": "error::tests::test_display",
+  "expected_failure": "Equality assertion failure: the actual message contains a raw newline between quotes at position 5, while the expected message contains the literal escape sequence '\\n'.",
+  "reversal": {
+    "path": "src/error.rs",
+    "fixed_text": "                write!(f, \"Invalid character {:?} at position {}\", c, index)\n",
+    "parent_text": "                write!(f, \"Invalid character '{}' at position {}\", c, index)\n"
+  }
+}
