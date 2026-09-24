@@ -1,0 +1,13 @@
+{
+  "commit": "5fafe662c3fdcde6bf781c7f8ee230e7a549ae38",
+  "parent": "7cb7458e75b8e3eb4bdcadaf8bcc0e617499c1da",
+  "fixed_commit": "5fafe662c3fdcde6bf781c7f8ee230e7a549ae38",
+  "summary": "Blocked: the entire fix adds only `#[cfg(test)] extern crate itertools;` in src/lib.rs. This resolves the itertools import used by graph_impl::stable_graph::serialization::test_from_deserialized_with_holes when stable_graph and serde-1 are enabled. Reversing it would cause a compilation error before tests execute, not a behavioral test failure. No implementation correction or regression test was added, so no valid implementation-only reversal satisfies the confirmation gate. No builds or tests were run.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
