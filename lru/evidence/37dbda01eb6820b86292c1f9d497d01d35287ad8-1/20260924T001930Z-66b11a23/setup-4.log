@@ -1,0 +1,21 @@
+Command: rustup run 1.43.1 cargo check --locked --offline --tests
+Started: 2026-09-24T00:20:16.282538+00:00
+STDOUT:
+
+STDERR:
+   Compiling libc v0.2.70
+   Compiling getrandom v0.1.14
+   Compiling cfg-if v0.1.10
+   Compiling proc-macro-hack v0.5.16
+   Compiling autocfg v0.1.7
+    Checking stats_alloc v0.1.8
+    Checking scoped_threadpool v0.1.9
+   Compiling hashbrown v0.6.3
+   Compiling const-random-macro v0.1.8
+    Checking const-random v0.1.8
+    Checking ahash v0.2.18
+    Checking lru v0.4.4 (/home/runner/work/_temp/upstream)
+    Finished dev [unoptimized + debuginfo] target(s) in 2.36s
+
+Exit: 0
+Timed out: False

@@ -1,0 +1,22 @@
+Command: rustup run 1.43.1 cargo test --locked --offline --lib tests::test_no_memory_leaks -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:20:18.759960+00:00
+STDOUT:
+
+running 1 test
+test tests::test_no_memory_leaks ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 24 filtered out
+
+
+STDERR:
+   Compiling stats_alloc v0.1.8
+   Compiling scoped_threadpool v0.1.9
+   Compiling const-random v0.1.8
+   Compiling ahash v0.2.18
+   Compiling hashbrown v0.6.3
+   Compiling lru v0.4.4 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 1.47s
+     Running /home/runner/work/_temp/build-20260924T001930Z-66b11a23/debug/deps/lru-5263d937f0950cad
+
+Exit: 0
+Timed out: False

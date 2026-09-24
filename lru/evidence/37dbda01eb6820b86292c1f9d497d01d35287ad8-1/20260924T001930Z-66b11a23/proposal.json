@@ -1,0 +1,13 @@
+{
+  "commit": "37dbda01eb6820b86292c1f9d497d01d35287ad8",
+  "parent": "ac2d5c72b76d10645841de9aa97167ea1a0ec295",
+  "fixed_commit": "37dbda01eb6820b86292c1f9d497d01d35287ad8",
+  "summary": "Dropping LruCache called drop_in_place on pointers to MaybeUninit wrappers, skipping the contained keys' and values' destructors and leaking their resources. The fix uses as_mut_ptr() to drop the initialized K and V directly. The regression test added by this commit expects 100 value destructor calls; the reversal should produce zero. Both selected source regions occur exactly once. No tests were run.",
+  "test": "tests::test_no_memory_leaks",
+  "expected_failure": "assertion failed: `(left == right)`\n  left: `0`,\n right: `100`",
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "            ptr::drop_in_place(e.key.as_mut_ptr());\n            ptr::drop_in_place(e.val.as_mut_ptr());\n",
+    "parent_text": "            ptr::drop_in_place(&mut e.key as *mut _);\n            ptr::drop_in_place(&mut e.val as *mut _);\n"
+  }
+}

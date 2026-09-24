@@ -1,0 +1,15 @@
+diff --git a/src/lib.rs b/src/lib.rs
+index f18d934..0b35e4a 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -747,8 +747,8 @@ impl<K: Hash + Eq, V, S: BuildHasher> LruCache<K, V, S> {
+ impl<K, V, S> Drop for LruCache<K, V, S> {
+     fn drop(&mut self) {
+         self.map.values_mut().for_each(|e| unsafe {
+-            ptr::drop_in_place(e.key.as_mut_ptr());
+-            ptr::drop_in_place(e.val.as_mut_ptr());
++            ptr::drop_in_place(&mut e.key as *mut _);
++            ptr::drop_in_place(&mut e.val as *mut _);
+         });
+         // We rebox the head/tail, and because these are maybe-uninit
+         // they do not have the absent k/v dropped.

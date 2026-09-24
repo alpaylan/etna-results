@@ -1,0 +1,21 @@
+Command: rustup run 1.43.1 cargo fetch --locked
+Started: 2026-09-24T00:20:15.859208+00:00
+STDOUT:
+
+STDERR:
+ Downloading crates ...
+  Downloaded const-random-macro v0.1.8 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded hashbrown v0.6.3 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded const-random v0.1.8 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded autocfg v0.1.7 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded stats_alloc v0.1.8 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded scoped_threadpool v0.1.9 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded getrandom v0.1.14 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded cfg-if v0.1.10 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded ahash v0.2.18 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded wasi v0.9.0+wasi-snapshot-preview1 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded libc v0.2.70 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded proc-macro-hack v0.5.16 (registry `git://127.0.0.1:9419/era-index`)
+
+Exit: 0
+Timed out: False
