@@ -1,0 +1,13 @@
+{
+  "commit": "e5cc951127ea6f05faa72b48de7c2e8630f94555",
+  "parent": "23d9fd7ebed10cdbbb6e28da7ff66b3a585e45fc",
+  "fixed_commit": "e5cc951127ea6f05faa72b48de7c2e8630f94555",
+  "summary": "Converting an invalid private DateTime to Timestamp could panic in unchecked calendar arithmetic. Public callers previously validated inputs, but the regression test added by this fix exercises the private conversion directly. The fix introduces TryFrom and rejects invalid values before arithmetic. This reversal removes only the added validation guard, preserving the fallible API and unchanged upstream tests. The first test case is expected to underflow when subtracting 1900 from its year with overflow checks enabled. No tests were run.",
+  "test": "datetime::tests::check_invalid_datetimes",
+  "expected_failure": "attempt to subtract with overflow",
+  "reversal": {
+    "path": "prost-types/src/datetime.rs",
+    "fixed_text": "        if !date_time.is_valid() {\n            return Err(TimestampError::InvalidDateTime);\n        }\n        let seconds = date_time_to_seconds(&date_time);\n",
+    "parent_text": "        let seconds = date_time_to_seconds(&date_time);\n"
+  }
+}

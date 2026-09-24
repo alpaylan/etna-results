@@ -1,0 +1,14 @@
+diff --git a/prost-types/src/datetime.rs b/prost-types/src/datetime.rs
+index 81aae19..5905c79 100644
+--- a/prost-types/src/datetime.rs
++++ b/prost-types/src/datetime.rs
+@@ -576,9 +576,6 @@ impl TryFrom<DateTime> for Timestamp {
+     type Error = TimestampError;
+ 
+     fn try_from(date_time: DateTime) -> Result<Timestamp, TimestampError> {
+-        if !date_time.is_valid() {
+-            return Err(TimestampError::InvalidDateTime);
+-        }
+         let seconds = date_time_to_seconds(&date_time);
+         let nanos = date_time.nanos;
+         Ok(Timestamp {
