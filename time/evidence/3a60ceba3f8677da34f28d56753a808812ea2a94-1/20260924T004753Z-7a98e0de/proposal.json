@@ -1,0 +1,13 @@
+{
+  "commit": "3a60ceba3f8677da34f28d56753a808812ea2a94",
+  "parent": "7d05f5e56a48f4f57fb1ff17cf1ab7da3f8afac4",
+  "fixed_commit": "3a60ceba3f8677da34f28d56753a808812ea2a94",
+  "summary": "Unsigned byte packing incorrectly orders negative UTC offsets above positive offsets. The fix uses signed packing for comparison; its added ordering test compares -1 hour with +1 hour and expects Less. Blocked under the single-region verbatim schema: restoring the original comparison calls the removed as_u32 helper. Restoring that helper also removes as_u32_for_equality, which remains required in offset_date_time.rs. A compiling verbatim reversal requires changes across both implementation files. Calling as_u32_for_equality from cmp instead would be an adapted reversal, not exact parent source. No builds or tests were run.",
+  "test": "utc_offset::ordering::case_06",
+  "expected_failure": null,
+  "reversal": {
+    "path": "time/src/utc_offset.rs",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
