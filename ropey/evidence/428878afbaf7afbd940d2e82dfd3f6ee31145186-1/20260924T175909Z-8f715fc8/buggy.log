@@ -1,0 +1,27 @@
+Command: rustup run 1.29.1 cargo test --locked --lib str_utils::tests::ends_with_line_break_01 -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T18:00:36.166841+00:00
+STDOUT:
+
+running 1 test
+test str_utils::tests::ends_with_line_break_01 ... FAILED
+
+failures:
+
+failures:
+    str_utils::tests::ends_with_line_break_01
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 234 filtered out
+
+
+STDERR:
+   Compiling ropey v0.9.1 (file:///home/runner/work/_temp/upstream)
+    Finished dev [unoptimized + debuginfo] target(s) in 2.06s
+     Running /home/runner/work/_temp/build-20260924T175909Z-8f715fc8/debug/deps/ropey-0a02bde11483be6e
+thread 'str_utils::tests::ends_with_line_break_01' panicked at 'assertion failed: `(left == right)`
+  left: `true`,
+ right: `false`', src/str_utils.rs:1341:9
+note: Run with `RUST_BACKTRACE=1` for a backtrace.
+error: test failed, to rerun pass '--lib'
+
+Exit: 101
+Timed out: False

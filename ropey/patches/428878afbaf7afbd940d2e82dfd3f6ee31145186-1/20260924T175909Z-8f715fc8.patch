@@ -1,0 +1,14 @@
+diff --git a/src/str_utils.rs b/src/str_utils.rs
+index 195e2d2..713d6fb 100644
+--- a/src/str_utils.rs
++++ b/src/str_utils.rs
+@@ -248,8 +248,7 @@ pub(crate) fn ends_with_line_break(text: &str) -> bool {
+ 
+     // Check if the last codepoint is a line break.
+     match &text[i..] {
+-        "\u{000A}" | "\u{000B}" | "\u{000C}" | "\u{000D}" | "\u{0085}" | "\u{2028}"
+-        | "\u{2029}" => true,
++        "u{000A}" | "u{000B}" | "u{000C}" | "u{000D}" | "u{0085}" | "u{2028}" | "u{2029}" => true,
+         _ => false,
+     }
+ }

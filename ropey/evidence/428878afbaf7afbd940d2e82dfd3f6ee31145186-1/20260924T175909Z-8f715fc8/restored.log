@@ -1,0 +1,17 @@
+Command: rustup run 1.29.1 cargo test --locked --lib str_utils::tests::ends_with_line_break_01 -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T18:00:38.337267+00:00
+STDOUT:
+
+running 1 test
+test str_utils::tests::ends_with_line_break_01 ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 234 filtered out
+
+
+STDERR:
+   Compiling ropey v0.9.1 (file:///home/runner/work/_temp/upstream)
+    Finished dev [unoptimized + debuginfo] target(s) in 1.95s
+     Running /home/runner/work/_temp/build-20260924T175909Z-8f715fc8/debug/deps/ropey-0a02bde11483be6e
+
+Exit: 0
+Timed out: False

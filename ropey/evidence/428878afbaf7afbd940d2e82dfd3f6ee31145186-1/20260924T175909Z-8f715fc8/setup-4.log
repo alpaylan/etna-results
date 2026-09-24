@@ -1,0 +1,36 @@
+Command: rustup run 1.29.1 cargo check --locked --tests
+Started: 2026-09-24T18:00:05.193618+00:00
+STDOUT:
+
+STDERR:
+    Checking rand_core v0.3.0
+   Compiling version_check v0.1.5
+    Checking libc v0.2.43
+    Checking remove_dir_all v0.5.1
+   Compiling num-traits v0.2.6
+    Checking cfg-if v0.1.5
+    Checking void v1.0.2
+    Checking bit-vec v0.5.0
+    Checking ucd-util v0.1.1
+    Checking fnv v1.0.6
+    Checking quick-error v1.2.2
+    Checking bitflags v1.0.4
+    Checking byteorder v1.2.6
+    Checking bencher v0.1.5
+    Checking unicode-segmentation v1.2.1
+    Checking rand_core v0.2.2
+   Compiling lazy_static v1.1.0
+    Checking unreachable v1.0.0
+    Checking regex-syntax v0.6.2
+    Checking bit-set v0.5.0
+    Checking wait-timeout v0.1.5
+    Checking rand v0.5.5
+    Checking smallvec v0.6.5
+    Checking ropey v0.9.1 (file:///home/runner/work/_temp/upstream)
+    Checking tempfile v3.0.4
+    Checking rusty-fork v0.2.1
+    Checking proptest v0.8.7
+    Finished dev [unoptimized + debuginfo] target(s) in 12.59s
+
+Exit: 0
+Timed out: False

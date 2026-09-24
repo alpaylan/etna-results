@@ -1,0 +1,13 @@
+{
+  "commit": "428878afbaf7afbd940d2e82dfd3f6ee31145186",
+  "parent": "b09e262195da97529ccaa2dfe4bfaea3df70f84e",
+  "fixed_commit": "428878afbaf7afbd940d2e82dfd3f6ee31145186",
+  "summary": "ends_with_line_break compared the final codepoint against literal strings such as \"u{000A}\" instead of Unicode escapes, so it returned false for actual line breaks. This caused lightweight line iteration to omit the final empty line after a trailing line break. The fix adds the missing backslashes to recognize the seven supported line-break codepoints. The selected upstream test was added by this fix and checks newline detection directly. No tests were run in this planning job.",
+  "test": "str_utils::tests::ends_with_line_break_01",
+  "expected_failure": "assertion failed: `(left == right)`\n  left: `true`,\n right: `false`",
+  "reversal": {
+    "path": "src/str_utils.rs",
+    "fixed_text": "    // Check if the last codepoint is a line break.\n    match &text[i..] {\n        \"\\u{000A}\" | \"\\u{000B}\" | \"\\u{000C}\" | \"\\u{000D}\" | \"\\u{0085}\" | \"\\u{2028}\"\n        | \"\\u{2029}\" => true,\n        _ => false,\n    }\n",
+    "parent_text": "    // Check if the last codepoint is a line break.\n    match &text[i..] {\n        \"u{000A}\" | \"u{000B}\" | \"u{000C}\" | \"u{000D}\" | \"u{0085}\" | \"u{2028}\" | \"u{2029}\" => true,\n        _ => false,\n    }\n"
+  }
+}
