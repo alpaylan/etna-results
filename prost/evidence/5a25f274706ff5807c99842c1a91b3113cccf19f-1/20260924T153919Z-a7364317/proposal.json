@@ -1,0 +1,13 @@
+{
+  "commit": "5a25f274706ff5807c99842c1a91b3113cccf19f",
+  "parent": "ab6af6e6b712faf302a68910542ce3b5befe5314",
+  "fixed_commit": "5a25f274706ff5807c99842c1a91b3113cccf19f",
+  "summary": "The parent mutates String storage before validating UTF-8, potentially leaving invalid contents after an error or panic. The fix moves the bytes into a separate Vec and restores the String only after successful UTF-8 validation. Blocked: the added test encoding::test::string_merge_failure supplies an unterminated length varint (\\x80\\x80), which returns an error before appending bytes; its initially empty string therefore remains empty in both implementations. No detecting upstream test was identified. Additionally, restoring the original implementation requires restoring the std::str import; a single contiguous region covering both changes would include intervening test code, violating the region constraint. No builds or tests were run.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/encoding.rs",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
