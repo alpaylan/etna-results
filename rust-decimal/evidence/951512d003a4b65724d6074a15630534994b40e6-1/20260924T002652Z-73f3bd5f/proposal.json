@@ -1,0 +1,13 @@
+{
+  "commit": "951512d003a4b65724d6074a15630534994b40e6",
+  "parent": "a6d5caf0328842e612787b30239abefdeda48951",
+  "fixed_commit": "951512d003a4b65724d6074a15630534994b40e6",
+  "summary": "Decimal::is_integer decremented scale by 10 when dividing the mantissa by 10^9, skipping a fractional digit and incorrectly classifying values such as 0.4000000000 as integers. Decrementing by 9 correctly accounts for the digits consumed. The fix adds detecting cases to the existing top-level test_is_integer in tests/decimal_tests.rs. No tests were run.",
+  "test": "test_is_integer",
+  "expected_failure": "assertion `left == right` failed: value: 0.4000000000\n  left: true\n right: false",
+  "reversal": {
+    "path": "src/decimal.rs",
+    "fixed_text": "            let remainder = if scale > 9 {\n                scale -= 9;\n                ops::array::div_by_u32(&mut bits, POWERS_10[9])\n",
+    "parent_text": "            let remainder = if scale > 9 {\n                scale -= 10;\n                ops::array::div_by_u32(&mut bits, POWERS_10[9])\n"
+  }
+}

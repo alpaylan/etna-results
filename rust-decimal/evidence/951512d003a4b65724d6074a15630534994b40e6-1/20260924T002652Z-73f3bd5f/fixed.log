@@ -1,0 +1,95 @@
+Command: rustup run 1.71.1 cargo test --locked --offline --test decimal_tests test_is_integer -- --nocapture --test-threads=1
+Started: 2026-09-24T00:31:00.011315+00:00
+STDOUT:
+
+running 1 test
+test test_is_integer ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 444 filtered out; finished in 0.00s
+
+
+STDERR:
+warning: Both `/home/runner/work/_temp/upstream/.cargo/config` and `/home/runner/work/_temp/upstream/.cargo/config.toml` exist. Using `/home/runner/work/_temp/upstream/.cargo/config`
+   Compiling unicode-ident v1.0.11
+   Compiling libc v0.2.147
+   Compiling tinyvec_macros v0.1.1
+   Compiling num-traits v0.2.16
+   Compiling tinyvec v1.6.0
+   Compiling proc-macro2 v1.0.66
+   Compiling quote v1.0.33
+   Compiling syn v2.0.29
+   Compiling memchr v2.5.0
+   Compiling ryu v1.0.15
+   Compiling itoa v1.0.9
+   Compiling cfg-if v1.0.0
+   Compiling getrandom v0.2.10
+   Compiling unicode-normalization v0.1.22
+   Compiling futures-core v0.3.28
+   Compiling half v1.8.2
+   Compiling rust_decimal v1.31.0 (/home/runner/work/_temp/upstream)
+   Compiling ciborium-io v0.2.1
+   Compiling unicode-bidi v0.3.13
+   Compiling pin-project-lite v0.2.12
+   Compiling clap_lex v0.5.0
+   Compiling bitflags v2.4.0
+   Compiling linux-raw-sys v0.4.5
+   Compiling anstyle v1.0.1
+   Compiling futures-sink v0.3.28
+   Compiling percent-encoding v2.3.0
+   Compiling either v1.9.0
+   Compiling regex-syntax v0.7.4
+   Compiling itertools v0.10.5
+   Compiling form_urlencoded v1.2.0
+   Compiling rustix v0.38.8
+   Compiling regex-automata v0.3.6
+   Compiling clap_builder v4.3.24
+   Compiling serde_derive v1.0.185
+   Compiling idna v0.4.0
+   Compiling ciborium-ll v0.2.1
+   Compiling unicase v2.7.0
+   Compiling rand_core v0.6.4
+   Compiling futures-task v0.3.28
+   Compiling bitflags v1.3.2
+   Compiling same-file v1.0.6
+   Compiling pin-utils v0.1.0
+   Compiling cast v0.3.0
+   Compiling ppv-lite86 v0.2.17
+   Compiling criterion-plot v0.5.0
+   Compiling rand_chacha v0.3.1
+   Compiling futures-util v0.3.28
+   Compiling walkdir v2.3.3
+   Compiling pulldown-cmark v0.8.0
+   Compiling serde v1.0.185
+   Compiling syn v1.0.109
+   Compiling futures-channel v0.3.28
+   Compiling semver v1.0.18
+   Compiling url v2.4.0
+   Compiling clap v4.3.24
+   Compiling regex v1.9.3
+   Compiling tokio-macros v2.1.0
+   Compiling is-terminal v0.4.9
+   Compiling csv-core v0.1.10
+   Compiling num_cpus v1.16.0
+   Compiling serde_json v1.0.105
+   Compiling ciborium v0.2.1
+   Compiling toml v0.5.11
+   Compiling tinytemplate v1.2.1
+   Compiling futures-io v0.3.28
+   Compiling arrayvec v0.7.4
+   Compiling oorandom v11.1.3
+   Compiling anes v0.1.6
+   Compiling once_cell v1.18.0
+   Compiling criterion v0.5.1
+   Compiling futures v0.3.28
+   Compiling version-sync v0.9.4
+   Compiling tokio v1.32.0
+   Compiling csv v1.2.2
+   Compiling bincode v1.3.3
+   Compiling rust_decimal_macros v1.31.0 (/home/runner/work/_temp/upstream/macros)
+   Compiling rand v0.8.5
+   Compiling bytes v1.4.0
+    Finished test [unoptimized + debuginfo] target(s) in 22.95s
+     Running tests/decimal_tests.rs (/home/runner/work/_temp/build-20260924T002652Z-73f3bd5f/debug/deps/decimal_tests-38cd4f65bac9a407)
+
+Exit: 0
+Timed out: False
