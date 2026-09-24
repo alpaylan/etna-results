@@ -1,0 +1,8 @@
+Command: rustup run 1.45.1 cargo clean -p rstar
+Started: 2026-09-24T15:41:57.677533+00:00
+STDOUT:
+
+STDERR:
+
+Exit: 0
+Timed out: False

@@ -1,0 +1,25 @@
+Command: rustup run 1.45.1 cargo test --locked --offline --lib rtree::test::test_bulk_load_crash -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T15:42:03.779085+00:00
+STDOUT:
+
+running 1 test
+test rtree::test::test_bulk_load_crash ... FAILED
+
+failures:
+
+failures:
+    rtree::test::test_bulk_load_crash
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 28 filtered out
+
+
+STDERR:
+   Compiling rstar v0.8.2 (/home/runner/work/_temp/upstream/rstar)
+    Finished test [unoptimized + debuginfo] target(s) in 1.44s
+     Running /home/runner/work/_temp/build-20260924T154043Z-8af44c1c/debug/deps/rstar-2e595fa5294d7744
+thread 'main' panicked at 'assertion failed: self.children.len() >= min_size', rstar/src/node.rs:127:13
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass '-p rstar --lib'
+
+Exit: 101
+Timed out: False
