@@ -1,0 +1,44 @@
+Command: rustup run 1.56.1 cargo test --locked --offline --lib parser::tests::time_fraction_truncated -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T20:56:27.326261+00:00
+STDOUT:
+
+running 1 test
+test parser::tests::time_fraction_truncated ... FAILED
+
+failures:
+
+failures:
+    parser::tests::time_fraction_truncated
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 26 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling serde v1.0.130
+   Compiling bstr v0.2.17
+   Compiling serde_json v1.0.72
+   Compiling serde_cbor v0.11.2
+   Compiling kstring v1.0.6
+   Compiling toml v0.5.8
+   Compiling globset v0.4.8
+   Compiling csv v1.1.6
+   Compiling tinytemplate v1.2.1
+   Compiling toml-test v0.3.1
+   Compiling ignore v0.4.18
+   Compiling criterion v0.3.5
+   Compiling toml-test-harness v0.3.0
+   Compiling toml_edit v0.10.0 (/home/runner/work/_temp/upstream)
+    Finished test [optimized + debuginfo] target(s) in 36.20s
+     Running unittests (/home/runner/work/_temp/build-20260924T205338Z-3741750c/debug/deps/toml_edit-3137099827b4a44d)
+thread 'main' panicked at 'assertion failed: `(left == right)`
+
+[1mDiff[0m [31m< left[0m / [32mright >[0m :
+[31m<"1987-07-05T17:45:00"[0m
+[32m>"1987-07-05T17:45:00[0m[1;48;5;22;32m.123456789012345Z[0m[32m"[0m
+
+', src/parser/mod.rs:425:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass '--lib'
+
+Exit: 101
+Timed out: False
