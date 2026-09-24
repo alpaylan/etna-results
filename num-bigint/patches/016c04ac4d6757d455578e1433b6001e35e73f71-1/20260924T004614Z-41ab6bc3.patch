@@ -1,0 +1,14 @@
+diff --git a/src/biguint.rs b/src/biguint.rs
+index d634a7d..623823c 100644
+--- a/src/biguint.rs
++++ b/src/biguint.rs
+@@ -283,9 +283,6 @@ impl Integer for BigUint {
+     /// Returns `true` if the number is a multiple of `other`.
+     #[inline]
+     fn is_multiple_of(&self, other: &BigUint) -> bool {
+-        if other.is_zero() {
+-            return self.is_zero();
+-        }
+         (self % other).is_zero()
+     }
+ 

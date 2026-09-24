@@ -1,0 +1,13 @@
+{
+  "commit": "016c04ac4d6757d455578e1433b6001e35e73f71",
+  "parent": "e77ffacafef7e8fa2c2b990489b7aa30dceaed64",
+  "fixed_commit": "016c04ac4d6757d455578e1433b6001e35e73f71",
+  "summary": "BigUint::is_multiple_of with a zero argument computes a remainder modulo zero and panics. The fix returns self.is_zero() before division, correctly returning true for zero and false for nonzero receivers. The fix-added test_is_multiple_of in tests/biguint.rs covers both cases. The reversal removes only this guard; both source regions occur exactly once. Tests have not been run.",
+  "test": "test_is_multiple_of",
+  "expected_failure": "attempt to divide by zero",
+  "reversal": {
+    "path": "src/biguint.rs",
+    "fixed_text": "    fn is_multiple_of(&self, other: &BigUint) -> bool {\n        if other.is_zero() {\n            return self.is_zero();\n        }\n        (self % other).is_zero()\n    }\n",
+    "parent_text": "    fn is_multiple_of(&self, other: &BigUint) -> bool {\n        (self % other).is_zero()\n    }\n"
+  }
+}

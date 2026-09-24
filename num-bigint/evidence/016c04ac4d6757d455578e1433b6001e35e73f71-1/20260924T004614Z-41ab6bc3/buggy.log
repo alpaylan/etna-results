@@ -1,0 +1,25 @@
+Command: rustup run 1.60.0 cargo test --locked --offline --test bigint test_is_multiple_of -- --nocapture --test-threads=1
+Started: 2026-09-24T00:48:01.596206+00:00
+STDOUT:
+
+running 1 test
+test test_is_multiple_of ... FAILED
+
+failures:
+
+failures:
+    test_is_multiple_of
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 52 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling num-bigint v0.4.3 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 3.25s
+     Running tests/bigint.rs (/home/runner/work/_temp/build-20260924T004614Z-41ab6bc3/debug/deps/bigint-d7cd8a8564f6c9bb)
+thread 'main' panicked at 'attempt to divide by zero', /home/runner/work/_temp/upstream/src/biguint/division.rs:70:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass '--test bigint'
+
+Exit: 101
+Timed out: False
