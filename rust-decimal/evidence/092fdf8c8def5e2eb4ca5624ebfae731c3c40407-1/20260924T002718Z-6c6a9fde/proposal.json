@@ -1,0 +1,13 @@
+{
+  "commit": "092fdf8c8def5e2eb4ca5624ebfae731c3c40407",
+  "parent": "3482ce1d23fd9e80734079dede015a32d1409e75",
+  "fixed_commit": "092fdf8c8def5e2eb4ca5624ebfae731c3c40407",
+  "summary": "At this historical revision, ln(0) enters the positive-sign branch and divides by zero in C4 / (self * C256), causing a panic. The fix excludes zero from that branch, returning Decimal::ZERO as for negative inputs. The candidate's checked_ln/ln_wide description refers to a different implementation. This commit adds the zero case to tests/decimal_tests.rs::maths::test_ln, which requires the maths feature. Reversing only the guard restores the historical bug while preserving that test.",
+  "test": "maths::test_ln",
+  "expected_failure": "Division by zero",
+  "reversal": {
+    "path": "src/maths.rs",
+    "fixed_text": "        if self.is_sign_positive() && !self.is_zero() {\n            if *self == Decimal::ONE {\n",
+    "parent_text": "        if self.is_sign_positive() {\n            if *self == Decimal::ONE {\n"
+  }
+}

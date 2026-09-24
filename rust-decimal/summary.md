@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: Reversal changes are not part of the upstream fix
+**blocked**: fixed: no completed execution of the exact upstream test
 
 Upstream: https://github.com/paupino/rust-decimal
 
-Candidate: d0f2a64eb22391188b8984f973b3d4abf5720fd5-1
+Candidate: 092fdf8c8def5e2eb4ca5624ebfae731c3c40407-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-History coverage not yet recorded.
+Reviewed commits: 1 / 783 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.
