@@ -1,0 +1,20 @@
+Command: rustup run 1.68.1 cargo test --locked --offline --test test_default regression_i969 -- --nocapture --test-threads=1
+Started: 2026-09-24T23:23:34.429965+00:00
+STDOUT:
+
+STDERR:
+error: no test target named `test_default`.
+Available test targets:
+    default
+    default-bytes
+    nfa
+    nfa-utf8bytes
+    nfa-bytes
+    backtrack
+    backtrack-utf8bytes
+    backtrack-bytes
+    crates-regex
+
+
+Exit: 101
+Timed out: False

@@ -1,0 +1,13 @@
+diff --git a/src/exec.rs b/src/exec.rs
+index b9abcdc..96711e5 100644
+--- a/src/exec.rs
++++ b/src/exec.rs
+@@ -459,7 +459,7 @@ impl<'c> RegularExpression for ExecNoSync<'c> {
+                     self.cache.value(),
+                     true,
+                     &text[start..],
+-                    text.len() - start,
++                    text.len(),
+                 ) {
+                     dfa::Result::Match(_) => Some(text.len()),
+                     dfa::Result::NoMatch(_) => None,

@@ -1,0 +1,13 @@
+{
+  "commit": "d94f95523aed7fecc71fc2e082d1458f69dd8de3",
+  "parent": "32fed9429eafba0ae92a64b01796a0c5a75b88c8",
+  "fixed_commit": "d94f95523aed7fecc71fc2e082d1458f69dd8de3",
+  "summary": "End-anchored reverse DFA searches passed the original haystack length as an offset into &text[start..], causing an out-of-bounds panic for nonzero start offsets. The fix uses text.len() - start in shortest_match_at and is_match_at. This reversal restores only the shortest_match_at defect, exercised by the fix-added regression_i969 test in tests/test_default.rs (Cargo test target default): searching c.*d\\z in \"ababcd\" from offset 4 should return Some(6). No tests were run.",
+  "test": "regression_i969",
+  "expected_failure": "index out of bounds: the len is 2 but the index is 6",
+  "reversal": {
+    "path": "src/exec.rs",
+    "fixed_text": "            MatchType::DfaAnchoredReverse => {\n                match dfa::Fsm::reverse(\n                    &self.ro.dfa_reverse,\n                    self.cache.value(),\n                    true,\n                    &text[start..],\n                    text.len() - start,\n                ) {\n                    dfa::Result::Match(_) => Some(text.len()),\n                    dfa::Result::NoMatch(_) => None,\n                    dfa::Result::Quit => self.shortest_nfa(text, start),\n                }\n            }\n",
+    "parent_text": "            MatchType::DfaAnchoredReverse => {\n                match dfa::Fsm::reverse(\n                    &self.ro.dfa_reverse,\n                    self.cache.value(),\n                    true,\n                    &text[start..],\n                    text.len(),\n                ) {\n                    dfa::Result::Match(_) => Some(text.len()),\n                    dfa::Result::NoMatch(_) => None,\n                    dfa::Result::Quit => self.shortest_nfa(text, start),\n                }\n            }\n"
+  }
+}
