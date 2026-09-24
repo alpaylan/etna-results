@@ -1,0 +1,13 @@
+{
+  "commit": "0bba696c3795daaef945b821558cb2898a214ef1",
+  "parent": "e4e0987e914fcbef58bdfd3a57c5793f87d6d186",
+  "fixed_commit": "0bba696c3795daaef945b821558cb2898a214ef1",
+  "summary": "Previously, MIME equality compared raw parameter strings, making quoted and unquoted values with identical content unequal. The fix moves equality into src/cmp.rs and compares Value wrappers that decode quoted content. The existing test type_::tests::test_media_type_from_str checks quoted charset=\"utf-8\" against TEXT_PLAIN_UTF_8. Blocked: src/cmp.rs was newly added; its parent has no corresponding region. The old comparison lives in mime-parse/src/lib.rs, and restoring its use requires coordinated changes across files. The imported replacement with a.params() and b.param(name) is adapted code, not a verbatim parent region. No valid single-region verbatim reversal was established.",
+  "test": "type_::tests::test_media_type_from_str",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/cmp.rs",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
