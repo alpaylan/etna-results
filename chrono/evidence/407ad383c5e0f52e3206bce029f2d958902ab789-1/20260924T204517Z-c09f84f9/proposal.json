@@ -1,0 +1,13 @@
+{
+  "commit": "407ad383c5e0f52e3206bce029f2d958902ab789",
+  "parent": "b4c0cd3dd150d392470711096a7e30de8b24c1e9",
+  "fixed_commit": "407ad383c5e0f52e3206bce029f2d958902ab789",
+  "summary": "Date::and_time treated the stored UTC date as a local date, producing an incorrect datetime when the offset changes the calendar date. The fix converts the stored date to local time before combining it with the requested time. The regression test added by this commit uses a 365-day offset; reversing the fix should make its datetime assertion produce 2011-03-01T05:06:07+8760:00 instead of 2012-02-29T05:06:07+8760:00.",
+  "test": "date::tests::test_date_weird_offset",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/date.rs",
+    "fixed_text": "        let localdt = self.offset.to_local_date(&self.date).and_time(time);\n        self.offset.from_local_datetime(&localdt).single()\n",
+    "parent_text": "        self.offset.from_local_datetime(&self.date.and_time(time)).single()\n"
+  }
+}

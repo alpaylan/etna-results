@@ -1,0 +1,14 @@
+diff --git a/src/date.rs b/src/date.rs
+index e75cdcd..a0747b4 100644
+--- a/src/date.rs
++++ b/src/date.rs
+@@ -43,8 +43,7 @@ impl<Off:Offset> Date<Off> {
+     /// Fails on invalid datetime.
+     #[inline]
+     pub fn and_time(&self, time: NaiveTime) -> Option<DateTime<Off>> {
+-        let localdt = self.offset.to_local_date(&self.date).and_time(time);
+-        self.offset.from_local_datetime(&localdt).single()
++        self.offset.from_local_datetime(&self.date.and_time(time)).single()
+     }
+ 
+     /// Makes a new `DateTime` from the current date, hour, minute and second.
