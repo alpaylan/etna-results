@@ -1,0 +1,13 @@
+{
+  "commit": "6e7ba52a860685b740daf537f24ff56792ed9170",
+  "parent": "fbb0bdde72a9b571ded779fdc3544d8a39c812fc",
+  "fixed_commit": "6e7ba52a860685b740daf537f24ff56792ed9170",
+  "summary": "The GET and POST parsing fast paths returned static string literals instead of slices of the request buffer. The fix returns the consumed method bytes from that buffer, excluding the trailing space. The regression test added by the fix checks that a parsed GET method points within the input buffer. Both reversal regions occur exactly once in their respective revisions and contain only implementation code. No tests were run; the failing pointer-bound assertion depends on memory layout.",
+  "test": "tests::test_method_within_buffer",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "pub fn parse_method<'a>(bytes: &mut Bytes<'a>) -> Result<&'a str> {\n    const GET: [u8; 4] = *b\"GET \";\n    const POST: [u8; 4] = *b\"POST\";\n    match bytes.peek_n::<[u8; 4]>(4) {\n        Some(GET) => {\n            // SAFETY: matched the ASCII string and boundary checked\n            let method = unsafe {\n                bytes.advance(4);\n                let buf = bytes.slice_skip(1);\n                str::from_utf8_unchecked(buf)\n            };\n            Ok(Status::Complete(method))\n        }\n        Some(POST) if bytes.peek_ahead(4) == Some(b' ') => {\n            // SAFETY: matched the ASCII string and boundary checked\n            let method = unsafe {\n                bytes.advance(5);\n                let buf = bytes.slice_skip(1);\n                str::from_utf8_unchecked(buf)\n            };\n            Ok(Status::Complete(method))\n        }\n        _ => parse_token(bytes),\n    }\n}\n",
+    "parent_text": "pub fn parse_method<'a>(bytes: &mut Bytes<'a>) -> Result<&'a str> {\n    const GET: [u8; 4] = *b\"GET \";\n    const POST: [u8; 4] = *b\"POST\";\n    match bytes.peek_n::<[u8; 4]>(4) {\n        Some(GET) => {\n            unsafe {\n                bytes.advance_and_commit(4);\n            }\n            Ok(Status::Complete(\"GET\"))\n        }\n        Some(POST) if bytes.peek_ahead(4) == Some(b' ') => {\n            unsafe {\n                bytes.advance_and_commit(5);\n            }\n            Ok(Status::Complete(\"POST\"))\n        }\n        _ => parse_token(bytes),\n    }\n}\n"
+  }
+}
