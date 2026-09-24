@@ -1,0 +1,13 @@
+{
+  "commit": "cc68ae4f426d48eb69be9178c28440585c0c32fc",
+  "parent": "8c8ef44ea1264f6e3645bfe32aac6bc943b31fa2",
+  "fixed_commit": "cc68ae4f426d48eb69be9178c28440585c0c32fc",
+  "summary": "Including ')' in TOKEN_START makes lex_atom consume zero bytes at an unquoted closing parenthesis, causing repeated lexing without progress. Removing it lets the atom consume that character. The verbatim reversal is established. Test selection is blocked under the required Rust module/function naming constraint: the fix adds invalid/ext/not-toml/deb.toml fixtures exercised by custom decoder_compliance harnesses in toml and toml_edit, but no named Rust regression test. No suitable named test was found in toml_parser. The fixture is expected to trigger nontermination after reversal; no tests were executed.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "crates/toml_parser/src/lexer/mod.rs",
+    "fixed_text": "    const TOKEN_START: &[u8] = b\".=,[]{} \\t#\\r\\n'\\\"\";\n",
+    "parent_text": "    const TOKEN_START: &[u8] = b\".=,[]{} \\t#\\r\\n)'\\\"\";\n"
+  }
+}
