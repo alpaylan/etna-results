@@ -1,0 +1,13 @@
+{
+  "commit": "a61f31bace6b63c6d3336a3867b5617976b0653e",
+  "parent": "b1894e955031e0b1be2b06e5bbab4c3cdc65e883",
+  "fixed_commit": "a61f31bace6b63c6d3336a3867b5617976b0653e",
+  "summary": "When self is NaN, f16::max incorrectly returns NaN for a non-NaN other operand because other > self is false. The fix explicitly checks self.is_nan() and returns other. This reversal isolates f16::max; the upstream test added by the fix checks that NaN.max(42) returns 42. No tests were executed.",
+  "test": "binary16::test::test_max",
+  "expected_failure": "assertion `left == right` failed\n  left: NaN\n right: 42.0",
+  "reversal": {
+    "path": "src/binary16.rs",
+    "fixed_text": "    pub fn max(self, other: f16) -> f16 {\n        if self.is_nan() || other > self {\n            other\n        } else {\n            self\n        }\n    }\n",
+    "parent_text": "    pub fn max(self, other: f16) -> f16 {\n        if other > self && !other.is_nan() {\n            other\n        } else {\n            self\n        }\n    }\n"
+  }
+}

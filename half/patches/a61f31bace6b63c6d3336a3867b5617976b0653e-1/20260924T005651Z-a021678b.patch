@@ -1,0 +1,13 @@
+diff --git a/src/binary16.rs b/src/binary16.rs
+index 00f90c8..e8f7e1d 100644
+--- a/src/binary16.rs
++++ b/src/binary16.rs
+@@ -522,7 +522,7 @@ impl f16 {
+     #[inline]
+     #[must_use]
+     pub fn max(self, other: f16) -> f16 {
+-        if self.is_nan() || other > self {
++        if other > self && !other.is_nan() {
+             other
+         } else {
+             self

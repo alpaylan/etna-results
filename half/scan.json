@@ -2,13 +2,15 @@
   "repo": "https://github.com/VoidStarKat/half-rs",
   "tips": [
     "18e6467b52f821d21a7179d1da5ac5aded63b3bd",
-    "22b5bd6c086d4caf8651bf5b866241ba8ce67407"
+    "22b5bd6c086d4caf8651bf5b866241ba8ce67407",
+    "a61f31bace6b63c6d3336a3867b5617976b0653e"
   ],
   "shallow": false,
   "reviewed": [
     "18e6467b52f821d21a7179d1da5ac5aded63b3bd",
-    "22b5bd6c086d4caf8651bf5b866241ba8ce67407"
+    "22b5bd6c086d4caf8651bf5b866241ba8ce67407",
+    "a61f31bace6b63c6d3336a3867b5617976b0653e"
   ],
-  "reachable_commits": 57,
+  "reachable_commits": 384,
   "scope": "One queued candidate; not an exhaustive history scan."
 }

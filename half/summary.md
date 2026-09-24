@@ -1,19 +1,15 @@
 # Cloud bug-mining prototype
 
-Resumed verified evidence; no tests rerun.
-
-**confirmed**: The same upstream test passed, panicked on the original defect ('assertion failed: `(left == right)`
-  left: `0.00000005966285`,
- right: `0.000000059604645`'), and passed after restoration
+**blocked**: fixed: source differs beyond the exact implementation reversal
 
 Upstream: https://github.com/VoidStarKat/half-rs
 
-Candidate: 18e6467b52f821d21a7179d1da5ac5aded63b3bd-1
+Candidate: a61f31bace6b63c6d3336a3867b5617976b0653e-1
 
 Provenance: verbatim
 
-Latest outcomes: {"confirmed": 1}
+Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 57 reachable from the saved tip.
+Reviewed commits: 1 / 384 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.
