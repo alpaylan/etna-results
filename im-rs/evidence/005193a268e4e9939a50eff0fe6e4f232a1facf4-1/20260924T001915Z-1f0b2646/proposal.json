@@ -1,0 +1,13 @@
+{
+  "commit": "005193a268e4e9939a50eff0fe6e4f232a1facf4",
+  "parent": "0880f5fe32999c5954af3d81bd99d2e5092b0130",
+  "fixed_commit": "005193a268e4e9939a50eff0fe6e4f232a1facf4",
+  "summary": "Under nightly has_specialisation, equal nonempty Single vectors with distinct chunk allocations compare unequal because cmp_chunk checks pointer identity. The fix retains that fast path and compares elements when identities differ. The existing iter_mut property compares independently allocated vectors containing identical incremented elements; the fix adds persisted regression seeds shrinking to 13-element inputs. Detection requires has_specialisation; the candidate's stable Rust 1.40.0 configuration does not exercise this bug. No tests were executed.",
+  "test": "vector::test::iter_mut",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/vector/mod.rs",
+    "fixed_text": "            (Single(_, left), Single(_, right)) => {\n                if cmp_chunk(left, right) {\n                    return true;\n                }\n                self.iter().eq(other.iter())\n            }\n            (Full(_, left), Full(_, right)) => {\n                if left.length != right.length {\n                    return false;\n",
+    "parent_text": "            (Single(_, left), Single(_, right)) => cmp_chunk(left, right),\n            (Full(_, left), Full(_, right)) => {\n                if left.length != right.length {\n                    return false;\n"
+  }
+}

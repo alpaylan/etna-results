@@ -1,0 +1,17 @@
+Command: rustup run 1.40.0 cargo test --locked --offline --lib vector::test::iter_mut -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:21:00.306874+00:00
+STDOUT:
+
+running 1 test
+test vector::test::iter_mut ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 100 filtered out
+
+
+STDERR:
+   Compiling im v14.1.0 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 4.67s
+     Running /home/runner/work/_temp/build-20260924T001915Z-1f0b2646/debug/deps/im-ce4c0beb7eab37d8
+
+Exit: 0
+Timed out: False
