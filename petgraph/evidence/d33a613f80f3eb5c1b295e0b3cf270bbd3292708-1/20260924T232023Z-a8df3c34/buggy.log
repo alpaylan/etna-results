@@ -1,0 +1,31 @@
+Command: rustup run 1.88.0 cargo test --locked --offline --test iso iter_subgraph_empty -- --nocapture --test-threads=1
+Started: 2026-09-24T23:26:00.295609+00:00
+STDOUT:
+
+running 1 test
+test iter_subgraph_empty ... FAILED
+
+failures:
+
+failures:
+    iter_subgraph_empty
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 21 filtered out; finished in 0.00s
+
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+   Compiling petgraph v0.8.2 (/home/runner/work/_temp/upstream)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.57s
+     Running tests/iso.rs (/home/runner/work/_temp/build-20260924T232023Z-a8df3c34/debug/deps/iso-8c3331c1e059f6a6)
+
+thread 'iter_subgraph_empty' panicked at tests/iso.rs:515:5:
+assertion `left == right` failed
+  left: Some([])
+ right: None
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `--test iso`
+
+Exit: 101
+Timed out: False

@@ -1,0 +1,57 @@
+diff --git a/src/algo/isomorphism.rs b/src/algo/isomorphism.rs
+index a33f453..a43ca4c 100644
+--- a/src/algo/isomorphism.rs
++++ b/src/algo/isomorphism.rs
+@@ -575,6 +575,10 @@ mod matching {
+         NM: NodeMatcher<G0, G1>,
+         EM: EdgeMatcher<G0, G1>,
+     {
++        if st.0.is_complete() {
++            return Some(st.0.mapping.clone());
++        }
++
+         // A "depth first" search of a valid mapping from graph 1 to graph 2
+         // F(s, n, m) -- evaluate state s and add mapping n <-> m
+         // Find least T1out node (in st.out[1] but not in M[1])
+@@ -665,8 +669,6 @@ mod matching {
+         edge_match: &'c mut EM,
+         match_subgraph: bool,
+         stack: Vec<Frame<G0, G1>>,
+-        // if this is `Some(iter)` we're overriding any calls to `isomorphisms()` with calls to `iter` instead. that is, we return the single known mapping once.
+-        iter_override: Option<Option<Vec<usize>>>,
+     }
+ 
+     impl<'a, 'b, 'c, G0, G1, NM, EM> GraphMatcher<'a, 'b, 'c, G0, G1, NM, EM>
+@@ -692,20 +694,12 @@ mod matching {
+             match_subgraph: bool,
+         ) -> Self {
+             let stack = vec![Frame::Outer];
+-            let st = (Vf2State::new(g0), Vf2State::new(g1));
+-            let iter_override = if st.0.is_complete() {
+-                // the initial state is already complete. if this is the case, need to return the mapping immediately, because `next_candidate` in Frame::Outer will not succeed.
+-                Some(Some(st.0.mapping.clone()))
+-            } else {
+-                None
+-            };
+             Self {
+-                st,
++                st: (Vf2State::new(g0), Vf2State::new(g1)),
+                 node_match,
+                 edge_match,
+                 match_subgraph,
+                 stack,
+-                iter_override,
+             }
+         }
+     }
+@@ -728,10 +722,6 @@ mod matching {
+         type Item = Vec<usize>;
+ 
+         fn next(&mut self) -> Option<Self::Item> {
+-            if let Some(iter) = self.iter_override.as_mut() {
+-                // if we are overriding calls to `isomorphisms`, we return the mapping once
+-                return iter.take();
+-            }
+             isomorphisms(
+                 &mut self.st,
+                 self.node_match,

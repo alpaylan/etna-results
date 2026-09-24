@@ -1,0 +1,24 @@
+Command: rustup run 1.88.0 cargo generate-lockfile
+Started: 2026-09-24T23:24:02.340256+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+    Updating `era` index
+     Locking 76 packages to latest Rust 1.64 compatible versions
+      Adding ahash v0.7.8 (available: v0.8.12)
+      Adding bincode v1.3.3 (available: v2.0.1, requires Rust 1.85.0)
+      Adding hashbrown v0.15.0 (available: v0.15.4, requires Rust 1.65.0)
+      Adding itertools v0.10.5 (available: v0.14.0)
+      Adding itertools v0.12.1 (available: v0.14.0)
+      Adding once_cell v1.20.3 (available: v1.21.3, requires Rust 1.65)
+      Adding pest v2.7.15 (available: v2.8.1, requires Rust 1.80)
+      Adding pest_derive v2.7.15 (available: v2.8.1, requires Rust 1.80)
+      Adding pest_generator v2.7.15 (available: v2.8.1, requires Rust 1.80)
+      Adding pest_meta v2.7.15 (available: v2.8.1, requires Rust 1.80)
+      Adding quickcheck v0.8.5 (available: v1.0.3)
+      Adding rand v0.5.6 (available: v0.9.1)
+
+Exit: 0
+Timed out: False
