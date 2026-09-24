@@ -1,0 +1,13 @@
+{
+  "commit": "0cd5c24fd09c601251b9a76c3dbfb942965480c9",
+  "parent": "7b91964ac42a5c2eaf3af9e89561459f8b5613c3",
+  "fixed_commit": "0cd5c24fd09c601251b9a76c3dbfb942965480c9",
+  "summary": "Blocked: this commit changes only documentation and test code; the executable implementation is unchanged. The previous QuickCheck test could select terminals in disconnected components, causing an unreachable-target lookup to panic. The replacement steiner_tree_spans_terminals test in tests/quickcheck.rs tests each connected component separately, and the documentation clarifies the connected-graph requirement. No eligible implementation reversal exists; reproducing the corrected test behavior would require reversing test code, which is prohibited. No tests were executed.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
