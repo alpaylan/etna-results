@@ -1,0 +1,13 @@
+{
+  "commit": "5ebf32ed61c2642a295535e0d64c2f2c2ad1d1d2",
+  "parent": "83cb70d4ea45b584af7aaa0c5647d0a50ac24a1d",
+  "fixed_commit": "5ebf32ed61c2642a295535e0d64c2f2c2ad1d1d2",
+  "summary": "MediaType::subtype() incorrectly truncated structured subtypes at the suffix separator, returning \"html\" for \"text/html+xml\". The fix ends the subtype at the parameter boundary or source end, preserving \"html+xml\" while retaining the separate suffix accessor. The existing test_subtype assertion was updated by this fix. No tests were executed.",
+  "test": "type_::tests::test_subtype",
+  "expected_failure": "assertion failed: `(left == right)`\n  left: `\"html\"`,\n right: `\"html+xml\"`",
+  "reversal": {
+    "path": "mime-parse/src/lib.rs",
+    "fixed_text": "    #[inline]\n    pub fn subtype(&self) -> &str {\n        let end = self.semicolon()\n            .unwrap_or_else(|| self.source.as_ref().len());\n        &self.source.as_ref()[self.slash + 1..end]\n    }\n",
+    "parent_text": "    #[inline]\n    pub fn subtype(&self) -> &str {\n        let end = self.plus.unwrap_or_else(|| {\n            self.semicolon().unwrap_or_else(|| self.source.as_ref().len())\n        });\n        &self.source.as_ref()[self.slash + 1..end]\n    }\n"
+  }
+}

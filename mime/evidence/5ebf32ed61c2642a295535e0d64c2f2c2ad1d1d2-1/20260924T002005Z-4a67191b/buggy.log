@@ -1,0 +1,28 @@
+Command: rustup run 1.31.1 cargo test --locked --lib type_::tests::test_subtype -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:20:45.495927+00:00
+STDOUT:
+
+running 1 test
+test type_::tests::test_subtype ... FAILED
+
+failures:
+
+failures:
+    type_::tests::test_subtype
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 37 filtered out
+
+
+STDERR:
+   Compiling mime-parse v0.0.0 (/home/runner/work/_temp/upstream/mime-parse)
+   Compiling mime v0.4.0-a.0 (/home/runner/work/_temp/upstream)
+    Finished dev [unoptimized + debuginfo] target(s) in 2.31s
+     Running /home/runner/work/_temp/build-20260924T002005Z-4a67191b/debug/deps/mime-8a7540947d055c46
+thread 'type_::tests::test_subtype' panicked at 'assertion failed: `(left == right)`
+  left: `"html"`,
+ right: `"html+xml"`', src/type_.rs:298:9
+note: Run with `RUST_BACKTRACE=1` for a backtrace.
+error: test failed, to rerun pass '--lib'
+
+Exit: 101
+Timed out: False
