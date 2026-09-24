@@ -1,0 +1,13 @@
+{
+  "commit": "6df612f45d6023cab8eeec69e10fe794c70eacd8",
+  "parent": "1d0dd79b04d018fdbd710007286065a1e7834359",
+  "fixed_commit": "6df612f45d6023cab8eeec69e10fe794c70eacd8",
+  "summary": "Overlapping::next_back returned None when the last stored range started at or beyond the query end, prematurely stopping reverse iteration even when earlier ranges overlapped. The fix loops past non-overlapping trailing ranges until it finds an overlap or exhausts the iterator. The upstream property test added by this commit compares forward results with reversed backward results.",
+  "test": "map::tests::test_overlapping_reversible",
+  "expected_failure": "assertion `left == right` failed",
+  "reversal": {
+    "path": "src/map.rs",
+    "fixed_text": "impl<'a, K, V, R: Borrow<Range<K>>> DoubleEndedIterator for Overlapping<'a, K, V, R>\nwhere\n    K: Ord,\n{\n    fn next_back(&mut self) -> Option<Self::Item> {\n        while let Some((k, v)) = self.btm_range_iter.next_back() {\n            if k.start < self.query_range.borrow().end {\n                return Some((&k.range, v));\n            }\n        }\n\n        None\n    }\n}\n",
+    "parent_text": "impl<'a, K, V, R: Borrow<Range<K>>> DoubleEndedIterator for Overlapping<'a, K, V, R>\nwhere\n    K: Ord,\n{\n    fn next_back(&mut self) -> Option<Self::Item> {\n        if let Some((k, v)) = self.btm_range_iter.next_back() {\n            if k.start < self.query_range.borrow().end {\n                Some((&k.range, v))\n            } else {\n                // The rest of the items in the underlying iterator\n                // are past the query range. We can keep taking items\n                // from that iterator and this will remain true,\n                // so this is enough to make the iterator fused.\n                None\n            }\n        } else {\n            None\n        }\n    }\n}\n"
+  }
+}

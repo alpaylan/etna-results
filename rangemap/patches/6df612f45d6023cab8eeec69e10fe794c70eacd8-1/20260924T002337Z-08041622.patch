@@ -1,0 +1,28 @@
+diff --git a/src/map.rs b/src/map.rs
+index aefe142..116fdae 100644
+--- a/src/map.rs
++++ b/src/map.rs
+@@ -770,13 +770,19 @@ where
+     K: Ord,
+ {
+     fn next_back(&mut self) -> Option<Self::Item> {
+-        while let Some((k, v)) = self.btm_range_iter.next_back() {
++        if let Some((k, v)) = self.btm_range_iter.next_back() {
+             if k.start < self.query_range.borrow().end {
+-                return Some((&k.range, v));
++                Some((&k.range, v))
++            } else {
++                // The rest of the items in the underlying iterator
++                // are past the query range. We can keep taking items
++                // from that iterator and this will remain true,
++                // so this is enough to make the iterator fused.
++                None
+             }
++        } else {
++            None
+         }
+-
+-        None
+     }
+ }
+ 

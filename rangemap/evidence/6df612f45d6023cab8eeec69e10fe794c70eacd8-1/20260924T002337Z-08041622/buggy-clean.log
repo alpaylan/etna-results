@@ -1,0 +1,9 @@
+Command: rustup run 1.75.0 cargo clean -p rangemap
+Started: 2026-09-24T00:28:18.992108+00:00
+STDOUT:
+
+STDERR:
+     Removed 136 files, 150.3MiB total
+
+Exit: 0
+Timed out: False
