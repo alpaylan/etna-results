@@ -4,7 +4,7 @@
 
 Upstream: https://github.com/chronotope/chrono
 
-Candidate: 86391acae7da828e6d13cacd106f57220b3d33be-1
+Candidate: 49c4bad88a58631972ef685b49af3ce4bf29b520-1
 
 Provenance: verbatim
 
