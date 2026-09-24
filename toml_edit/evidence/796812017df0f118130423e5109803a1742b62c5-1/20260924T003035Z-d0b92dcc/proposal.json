@@ -1,0 +1,13 @@
+{
+  "commit": "796812017df0f118130423e5109803a1742b62c5",
+  "parent": "b91d460cc8584110c95d8eb7fcb2f45f86b6b14a",
+  "fixed_commit": "796812017df0f118130423e5109803a1742b62c5",
+  "summary": "The value parser's fallback returned an integer without a representation or span, causing malformed input such as \"==\\n[._[._\" to panic when downstream code required a span. The fix attaches an empty 0..0 span to the fallback integer so parsing can return the syntax error. The fix updates the existing compliance test parse::garbage2 to expect that error instead of a panic. The implementation reversal is derived verbatim from the upstream diff; both regions occur exactly once. Tests were not run.",
+  "test": "parse::garbage2",
+  "expected_failure": "all items have spans",
+  "reversal": {
+    "path": "crates/toml_edit/src/parser/value.rs",
+    "fixed_text": "    let value_raw = RawString::with_span(0..0);\n    let mut f = Formatted::new(0);\n    f.set_repr_unchecked(Repr::new_unchecked(value_raw));\n    Value::Integer(f)\n",
+    "parent_text": "    Value::from(0)\n"
+  }
+}
