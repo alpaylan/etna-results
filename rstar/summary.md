@@ -1,19 +1,15 @@
 # Cloud bug-mining prototype
 
-Resumed verified evidence; no tests rerun.
-
-**confirmed**: The same upstream test passed, panicked on the original defect ('assertion `left == right` failed
-  left: AABB { lower: (1.0, 1.0, 1.0), upper: (4.0, 4.0, 4.0) }
- right: AABB { lower: (3.0, 3.0, 3.0), upper: (4.0, 4.0, 4.0) }'), and passed after restoration
+**blocked**: Proposal names no upstream test
 
 Upstream: https://github.com/georust/rstar
 
-Candidate: 7634435cc268b798973f4a81a09f5352382da0fa-1
+Candidate: 9aa17e64dd5d8ed7e1968d159fa885173db59395-1
 
 Provenance: verbatim
 
-Latest outcomes: {"confirmed": 1}
+Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 279 reachable from the saved tip.
+History coverage not yet recorded.
 
 Scope: one queued candidate; history coverage is partial.
