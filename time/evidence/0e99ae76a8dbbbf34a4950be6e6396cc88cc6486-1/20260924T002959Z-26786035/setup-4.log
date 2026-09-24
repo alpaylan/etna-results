@@ -1,0 +1,52 @@
+Command: rustup run 1.70.0 cargo check --locked --offline --tests
+Started: 2026-09-24T00:32:50.595003+00:00
+STDOUT:
+
+STDERR:
+   Compiling proc-macro2 v1.0.60
+   Compiling quote v1.0.28
+   Compiling unicode-ident v1.0.9
+   Compiling serde v1.0.164
+   Compiling syn v1.0.109
+   Compiling serde_json v1.0.96
+   Compiling serde_test v1.0.164
+    Checking itoa v1.0.6
+    Checking rand_core v0.6.4
+   Compiling time-core v0.1.1 (/home/runner/work/_temp/upstream/time-core)
+    Checking ryu v1.0.13
+   Compiling time-macros v0.2.9 (/home/runner/work/_temp/upstream/time-macros)
+    Checking rand v0.8.5
+    Checking time v0.3.22 (/home/runner/work/_temp/upstream/time)
+warning: unused macro definition: `bug`
+  --> time-macros/src/lib.rs:36:14
+   |
+36 | macro_rules! bug {
+   |              ^^^
+   |
+   = note: `#[warn(unused_macros)]` on by default
+
+   Compiling syn v2.0.18
+warning: `time-macros` (lib) generated 1 warning
+   Compiling serde_derive v1.0.164
+   Compiling quickcheck_macros v1.0.0
+warning: unreachable statement
+  --> time/../tests/main.rs:78:5
+   |
+70 | /     return if status.success() {
+71 | |         Ok(())
+72 | |     } else {
+73 | |         Err(Box::new(Error(status)))
+74 | |     };
+   | |_____- any code following this expression is unreachable
+...
+78 | /     "Tests must be run with `--all-features`. Because the flag was not provided, `cargo test \
+79 | |      --all-features` is run.";
+   | |______________________________^ unreachable statement
+   |
+   = note: `#[warn(unreachable_code)]` on by default
+
+warning: `time` (test "tests") generated 1 warning
+    Finished dev [unoptimized] target(s) in 7.05s
+
+Exit: 0
+Timed out: False

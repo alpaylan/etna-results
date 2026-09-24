@@ -1,0 +1,16 @@
+diff --git a/time/src/duration.rs b/time/src/duration.rs
+index 68a38ee..453d225 100644
+--- a/time/src/duration.rs
++++ b/time/src/duration.rs
+@@ -299,10 +299,7 @@ impl Duration {
+     /// assert_eq!((-1).seconds().abs(), 1.seconds());
+     /// ```
+     pub const fn abs(self) -> Self {
+-        match self.seconds.checked_abs() {
+-            Some(seconds) => Self::new_unchecked(seconds, self.nanoseconds.abs()),
+-            None => Self::MAX,
+-        }
++        Self::new_unchecked(self.seconds.saturating_abs(), self.nanoseconds.abs())
+     }
+ 
+     /// Convert the existing `Duration` to a `std::time::Duration` and its sign. This returns a

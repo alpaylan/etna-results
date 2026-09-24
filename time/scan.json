@@ -1,0 +1,12 @@
+{
+  "repo": "https://github.com/time-rs/time",
+  "tips": [
+    "0e99ae76a8dbbbf34a4950be6e6396cc88cc6486"
+  ],
+  "shallow": false,
+  "reviewed": [
+    "0e99ae76a8dbbbf34a4950be6e6396cc88cc6486"
+  ],
+  "reachable_commits": 901,
+  "scope": "One queued candidate; not an exhaustive history scan."
+}

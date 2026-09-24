@@ -1,0 +1,13 @@
+{
+  "commit": "0e99ae76a8dbbbf34a4950be6e6396cc88cc6486",
+  "parent": "976a20c1b5d6580abf79efbc166e21b89ccf350e",
+  "fixed_commit": "0e99ae76a8dbbbf34a4950be6e6396cc88cc6486",
+  "summary": "Duration::abs incorrectly saturated only the seconds field: Duration::new(i64::MIN, 0).abs() returned (i64::MAX, 0), whereas Duration::MAX has 999999999 nanoseconds. The fix uses checked_abs and returns Duration::MAX on seconds overflow. Both revisions already take the absolute value of nanoseconds; the candidate's negative-nanoseconds claim is inaccurate. The fix adds the detecting assertion to tests/duration.rs::abs, collected as duration::abs with all features enabled.",
+  "test": "duration::abs",
+  "expected_failure": "assertion failed: `(left == right)`\n  left: `Duration { seconds: 9223372036854775807, nanoseconds: 0 }`,\n right: `Duration { seconds: 9223372036854775807, nanoseconds: 999999999 }`",
+  "reversal": {
+    "path": "time/src/duration.rs",
+    "fixed_text": "    pub const fn abs(self) -> Self {\n        match self.seconds.checked_abs() {\n            Some(seconds) => Self::new_unchecked(seconds, self.nanoseconds.abs()),\n            None => Self::MAX,\n        }\n    }",
+    "parent_text": "    pub const fn abs(self) -> Self {\n        Self::new_unchecked(self.seconds.saturating_abs(), self.nanoseconds.abs())\n    }"
+  }
+}
