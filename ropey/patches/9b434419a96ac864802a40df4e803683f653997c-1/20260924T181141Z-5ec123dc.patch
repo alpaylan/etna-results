@@ -1,0 +1,13 @@
+diff --git a/src/str_utils.rs b/src/str_utils.rs
+index 40ea566..273017c 100644
+--- a/src/str_utils.rs
++++ b/src/str_utils.rs
+@@ -30,7 +30,7 @@ pub use self::lines::to_byte_idx as line_to_byte_idx;
+ /// Runs in O(N) time.
+ #[inline]
+ pub fn char_to_line_idx(text: &str, char_idx: usize) -> usize {
+-    lines::from_byte_idx(text, str_indices::chars::to_byte_idx(text, char_idx))
++    str_indices::lines::from_byte_idx(text, str_indices::chars::to_byte_idx(text, char_idx))
+ }
+ 
+ /// Converts from line-index to char-index in a string slice.

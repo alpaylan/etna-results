@@ -1,0 +1,13 @@
+{
+  "commit": "9b434419a96ac864802a40df4e803683f653997c",
+  "parent": "19d460412a5fdd8d13292bf7fb72869b069b6b60",
+  "fixed_commit": "9b434419a96ac864802a40df4e803683f653997c",
+  "summary": "Character/line conversions unconditionally recognized all Unicode line breaks, ignoring the configured line-break features. The fix uses the feature-selected lines module. This reversal isolates char_to_line_idx. The test added by the fix should detect it with `cargo test --no-default-features --lib str_utils::tests::char_to_line_idx_01 -- --exact`: at character index 38, LF-only mode expects line 2, while the buggy implementation returns 8. Default features enable unicode_lines and would mask the bug. No tests were executed.",
+  "test": "str_utils::tests::char_to_line_idx_01",
+  "expected_failure": "assertion failed: `(left == right)`\n  left: `2`,\n right: `8`",
+  "reversal": {
+    "path": "src/str_utils.rs",
+    "fixed_text": "pub fn char_to_line_idx(text: &str, char_idx: usize) -> usize {\n    lines::from_byte_idx(text, str_indices::chars::to_byte_idx(text, char_idx))\n}\n",
+    "parent_text": "pub fn char_to_line_idx(text: &str, char_idx: usize) -> usize {\n    str_indices::lines::from_byte_idx(text, str_indices::chars::to_byte_idx(text, char_idx))\n}\n"
+  }
+}

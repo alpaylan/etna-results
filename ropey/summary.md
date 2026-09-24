@@ -1,19 +1,15 @@
 # Cloud bug-mining prototype
 
-Resumed verified evidence; no tests rerun.
-
-**confirmed**: The same upstream test passed, panicked on the original defect ('assertion failed: `(left == right)`
-  left: `Some(139)`,
- right: `Some(10)`'), and passed after restoration
+**unconfirmed**: The implementation reversal did not make the upstream test fail
 
 Upstream: https://github.com/cessen/ropey
 
-Candidate: f4e50e66e3aa76f79b62109a4e415bae354d3c42-1
+Candidate: 9b434419a96ac864802a40df4e803683f653997c-1
 
 Provenance: verbatim
 
-Latest outcomes: {"confirmed": 1}
+Latest outcomes: {"unconfirmed": 1}
 
-Reviewed commits: 1 / 418 reachable from the saved tip.
+Reviewed commits: 1 / 502 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.
