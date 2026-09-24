@@ -1,0 +1,13 @@
+{
+  "commit": "7b91964ac42a5c2eaf3af9e89561459f8b5613c3",
+  "parent": "bfd0652b938004bf297edce6930d224dc33e4296",
+  "fixed_commit": "7b91964ac42a5c2eaf3af9e89561459f8b5613c3",
+  "summary": "Blocked: this commit corrects tests that exercised maximal-clique algorithms on unsupported asymmetric directed graphs. It filters QuickCheck inputs to retain only reciprocal edges, updates unit tests, and documents the symmetry requirement. The algorithm implementation is unchanged; src/algo/maximal_cliques.rs changes only documentation. Reintroducing the reported problem would require reversing test changes, violating the requirement to preserve upstream tests. No valid implementation reversal or detecting test can be selected.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
