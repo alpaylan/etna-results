@@ -1,0 +1,21 @@
+Command: rustup run 1.56.0 cargo fetch --locked
+Started: 2026-09-24T00:47:46.633275+00:00
+STDOUT:
+
+STDERR:
+ Downloading crates ...
+  Downloaded rand_core v0.6.3 (registry `era`)
+  Downloaded autocfg v1.0.1 (registry `era`)
+  Downloaded cfg-if v1.0.0 (registry `era`)
+  Downloaded wasi v0.10.2+wasi-snapshot-preview1 (registry `era`)
+  Downloaded quickcheck v1.0.3 (registry `era`)
+  Downloaded getrandom v0.2.3 (registry `era`)
+  Downloaded num-integer v0.1.44 (registry `era`)
+  Downloaded num-traits v0.2.14 (registry `era`)
+  Downloaded serde v1.0.130 (registry `era`)
+  Downloaded rand v0.8.4 (registry `era`)
+  Downloaded arbitrary v1.0.2 (registry `era`)
+  Downloaded libc v0.2.105 (registry `era`)
+
+Exit: 0
+Timed out: False

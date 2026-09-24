@@ -1,0 +1,13 @@
+{
+  "commit": "0940e509dca55d19197adbe7cb5c1d5423a390cf",
+  "parent": "1fc25378c1caf8f97ce56da58ed8bc40a13e3e76",
+  "fixed_commit": "0940e509dca55d19197adbe7cb5c1d5423a390cf",
+  "summary": "Recursive multiplication can pass an all-zero operand slice to mac3. Searching for its first nonzero digit returns None, and the parent implementation panics on unwrap(). The fix returns without changing the accumulator because the product is zero. The fix adds the top-level regression test fuzzed_mul_1 in tests/fuzzed.rs, which checks multiplication of affected operands in both orders against an independently computed result. Both reversal regions occur exactly once; replacing the fixed region reproduces the parent implementation file exactly. No builds or tests were run.",
+  "test": "fuzzed_mul_1",
+  "expected_failure": "called `Option::unwrap()` on a `None` value",
+  "reversal": {
+    "path": "src/biguint/multiplication.rs",
+    "fixed_text": "    if let Some(&0) = b.first() {\n        if let Some(nz) = b.iter().position(|&d| d != 0) {\n            b = &b[nz..];\n            acc = &mut acc[nz..];\n        } else {\n            return;\n        }\n    }\n    if let Some(&0) = c.first() {\n        if let Some(nz) = c.iter().position(|&d| d != 0) {\n            c = &c[nz..];\n            acc = &mut acc[nz..];\n        } else {\n            return;\n        }\n    }\n",
+    "parent_text": "    if let Some(&0) = b.first() {\n        let nz = b.iter().position(|&d| d != 0).unwrap();\n        b = &b[nz..];\n        acc = &mut acc[nz..];\n    }\n    if let Some(&0) = c.first() {\n        let nz = c.iter().position(|&d| d != 0).unwrap();\n        c = &c[nz..];\n        acc = &mut acc[nz..];\n    }\n"
+  }
+}
