@@ -1,0 +1,28 @@
+Command: rustup run 1.77.0 cargo test --locked --offline --lib tests::test_append -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:32:31.127004+00:00
+STDOUT:
+
+running 1 test
+test tests::test_append ... FAILED
+
+failures:
+
+failures:
+    tests::test_append
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 67 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling smallvec v2.0.0-alpha.4 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 0.98s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T002827Z-666ad1ad/debug/deps/smallvec-e894599f53aa441c)
+thread 'tests::test_append' panicked at src/tests.rs:341:5:
+assertion `left == right` failed
+  left: 4
+ right: 6
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `--lib`
+
+Exit: 101
+Timed out: False

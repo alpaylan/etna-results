@@ -1,0 +1,12 @@
+Command: rustup run 1.77.0 cargo check --locked --offline --tests
+Started: 2026-09-24T00:32:26.125075+00:00
+STDOUT:
+
+STDERR:
+   Compiling serde v1.0.197
+    Checking smallvec v2.0.0-alpha.4 (/home/runner/work/_temp/upstream)
+    Checking bincode v1.3.3
+    Finished dev [unoptimized + debuginfo] target(s) in 2.00s
+
+Exit: 0
+Timed out: False

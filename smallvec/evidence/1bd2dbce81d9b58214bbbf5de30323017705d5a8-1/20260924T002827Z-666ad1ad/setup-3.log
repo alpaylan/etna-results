@@ -1,0 +1,16 @@
+Command: rustup run 1.77.0 cargo fetch --locked
+Started: 2026-09-24T00:32:25.917736+00:00
+STDOUT:
+
+STDERR:
+ Downloading crates ...
+  Downloaded proc-macro2 v1.0.79 (registry `era`)
+  Downloaded bincode v1.3.3 (registry `era`)
+  Downloaded quote v1.0.35 (registry `era`)
+  Downloaded unicode-ident v1.0.12 (registry `era`)
+  Downloaded serde_derive v1.0.197 (registry `era`)
+  Downloaded serde v1.0.197 (registry `era`)
+  Downloaded syn v2.0.53 (registry `era`)
+
+Exit: 0
+Timed out: False

@@ -1,0 +1,13 @@
+{
+  "commit": "1bd2dbce81d9b58214bbbf5de30323017705d5a8",
+  "parent": "c01d59533f4e1a7b02a925e9230197757ca71ad1",
+  "fixed_commit": "1bd2dbce81d9b58214bbbf5de30323017705d5a8",
+  "summary": "SmallVec::append copied the source elements and emptied the source without updating the destination length, leaving appended elements invisible. The fix sets the destination length to the combined length after copying. The upstream test added by this commit expects appending two elements to four to produce length six; the reversal should leave length four. Both regions occur exactly once, and the reversal restores the parent implementation. No tests were executed.",
+  "test": "tests::test_append",
+  "expected_failure": "assertion `left == right` failed\n  left: 4\n right: 6",
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "        unsafe { copy_nonoverlapping(other.as_ptr(), ptr, other_len) };\n        unsafe { self.set_len(total_len) }\n",
+    "parent_text": "        unsafe { copy_nonoverlapping(other.as_ptr(), ptr, other_len) };\n"
+  }
+}

@@ -1,0 +1,9 @@
+Command: rustup run 1.77.0 cargo clean -p smallvec
+Started: 2026-09-24T00:32:32.132379+00:00
+STDOUT:
+
+STDERR:
+     Removed 90 files, 20.8MiB total
+
+Exit: 0
+Timed out: False

@@ -1,0 +1,8 @@
+Command: git daemon --reuseaddr --export-all --base-path=/home/runner/work/_temp/era-index-20260924T002827Z-666ad1ad --listen=127.0.0.1 --port=9419 --detach --pid-file=/home/runner/work/_temp/era-index-20260924T002827Z-666ad1ad/daemon.pid
+Started: 2026-09-24T00:31:14.039635+00:00
+STDOUT:
+
+STDERR:
+
+Exit: 0
+Timed out: False
