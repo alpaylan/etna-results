@@ -1,0 +1,15 @@
+Command: rustup run 1.81.0 cargo fetch --locked
+Started: 2026-09-24T20:58:35.174665+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+ Downloading crates ...
+  Downloaded clap_lex v0.6.0 (registry `era`)
+  Downloaded bumpalo v3.14.0 (registry `era`)
+  Downloaded clap v4.4.18 (registry `era`)
+  Downloaded clap_builder v4.4.18 (registry `era`)
+
+Exit: 0
+Timed out: False

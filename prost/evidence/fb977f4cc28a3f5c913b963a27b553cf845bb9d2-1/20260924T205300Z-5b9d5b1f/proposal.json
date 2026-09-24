@@ -1,0 +1,13 @@
+{
+  "commit": "fb977f4cc28a3f5c913b963a27b553cf845bb9d2",
+  "parent": "8d4cac58ef7c5e33ba3279c836966c9109d4554c",
+  "fixed_commit": "fb977f4cc28a3f5c913b963a27b553cf845bb9d2",
+  "summary": "The generator incorrectly derives Copy for messages containing explicitly boxed message fields when their inner messages support Copy, although Box does not implement Copy. The fix checks configured boxing when deciding Copy eligibility. The existing prost-build test tests::test_generate_field_attributes detects the extra Copy derive on Bar using expected fixtures updated by this fix. Run this test in package prost-build, not the candidate's tests package. Its upstream assertion helper overwrites mismatched fixtures, so restore the original fixed-commit fixtures before subsequent runs. No tests were executed.",
+  "test": "tests::test_generate_field_attributes",
+  "expected_failure": "assertion `left == right` failed",
+  "reversal": {
+    "path": "prost-build/src/message_graph.rs",
+    "fixed_text": "            // nested and boxed messages cannot derive Copy\n            if self.is_nested(field.type_name(), fq_message_name)\n                || self\n                    .boxed\n                    .get_first_field(fq_message_name, field.name())\n                    .is_some()\n            {\n",
+    "parent_text": "            if self.is_nested(field.type_name(), fq_message_name) {\n"
+  }
+}

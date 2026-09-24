@@ -1,0 +1,19 @@
+diff --git a/prost-build/src/message_graph.rs b/prost-build/src/message_graph.rs
+index e2bcad9..cd17403 100644
+--- a/prost-build/src/message_graph.rs
++++ b/prost-build/src/message_graph.rs
+@@ -122,13 +122,7 @@ impl MessageGraph {
+         if field.label() == Label::Repeated {
+             false
+         } else if field.r#type() == Type::Message {
+-            // nested and boxed messages cannot derive Copy
+-            if self.is_nested(field.type_name(), fq_message_name)
+-                || self
+-                    .boxed
+-                    .get_first_field(fq_message_name, field.name())
+-                    .is_some()
+-            {
++            if self.is_nested(field.type_name(), fq_message_name) {
+                 false
+             } else {
+                 self.can_message_derive_copy(field.type_name())
