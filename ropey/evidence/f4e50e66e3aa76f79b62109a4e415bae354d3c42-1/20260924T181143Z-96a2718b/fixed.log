@@ -1,0 +1,45 @@
+Command: rustup run 1.37.0 cargo test --locked --offline --lib iter::tests::bytes_at_03 -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T18:12:39.654361+00:00
+STDOUT:
+
+running 1 test
+test iter::tests::bytes_at_03 ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 291 filtered out
+
+
+STDERR:
+   Compiling cfg-if v0.1.9
+   Compiling lazy_static v1.3.0
+   Compiling ppv-lite86 v0.2.5
+   Compiling remove_dir_all v0.5.2
+   Compiling rand_core v0.4.2
+   Compiling quick-error v1.2.2
+   Compiling bit-vec v0.5.1
+   Compiling fnv v1.0.6
+   Compiling regex-syntax v0.6.11
+   Compiling smallvec v0.6.10
+   Compiling unicode-segmentation v1.3.0
+   Compiling bencher v0.1.5
+   Compiling rand_core v0.3.1
+   Compiling bit-set v0.5.1
+   Compiling c2-chacha v0.2.2
+   Compiling libc v0.2.62
+   Compiling byteorder v1.3.2
+   Compiling bitflags v1.1.0
+   Compiling num-traits v0.2.8
+   Compiling getrandom v0.1.10
+   Compiling wait-timeout v0.2.0
+   Compiling rand v0.5.6
+   Compiling rand_core v0.5.0
+   Compiling rand_chacha v0.2.1
+   Compiling rand v0.7.0
+   Compiling tempfile v3.1.0
+   Compiling rusty-fork v0.2.2
+   Compiling proptest v0.8.7
+   Compiling ropey v1.0.1 (/home/runner/work/_temp/upstream)
+    Finished dev [unoptimized + debuginfo] target(s) in 18.33s
+     Running /home/runner/work/_temp/build-20260924T181143Z-96a2718b/debug/deps/ropey-8edd79307a28c113
+
+Exit: 0
+Timed out: False

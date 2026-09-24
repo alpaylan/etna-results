@@ -1,0 +1,37 @@
+Command: rustup run 1.37.0 cargo test --locked --offline --lib iter::tests::bytes_at_03 -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T18:12:58.043900+00:00
+STDOUT:
+
+running 1 test
+test iter::tests::bytes_at_03 ... FAILED
+
+failures:
+
+failures:
+    iter::tests::bytes_at_03
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 291 filtered out
+
+
+STDERR:
+   Compiling ropey v1.0.1 (/home/runner/work/_temp/upstream)
+warning: variable does not need to be mutable
+   --> src/iter.rs:116:30
+    |
+116 |         let (mut chunk_iter, mut chunk_byte_start, _, _) = Chunks::new_with_range_at_byte(
+    |                              ----^^^^^^^^^^^^^^^^
+    |                              |
+    |                              help: remove this `mut`
+    |
+    = note: #[warn(unused_mut)] on by default
+
+    Finished dev [unoptimized + debuginfo] target(s) in 1.62s
+     Running /home/runner/work/_temp/build-20260924T181143Z-96a2718b/debug/deps/ropey-8edd79307a28c113
+thread 'main' panicked at 'assertion failed: `(left == right)`
+  left: `Some(139)`,
+ right: `Some(10)`', src/iter.rs:1132:13
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace.
+error: test failed, to rerun pass '--lib'
+
+Exit: 101
+Timed out: False

@@ -1,0 +1,23 @@
+diff --git a/src/iter.rs b/src/iter.rs
+index b3f6a24..fde5b64 100644
+--- a/src/iter.rs
++++ b/src/iter.rs
+@@ -121,15 +121,10 @@ impl<'a> Bytes<'a> {
+             line_break_idx_range,
+         );
+ 
+-        let cur_chunk = if byte_idx_range.0 == byte_idx_range.1 {
+-            ""
+-        } else if at_byte < byte_idx_range.1 {
+-            chunk_iter.next().unwrap()
+-        } else {
+-            let chunk = chunk_iter.prev().unwrap();
+-            chunk_iter.next();
+-            chunk_byte_start -= chunk.len();
++        let cur_chunk = if let Some(chunk) = chunk_iter.next() {
+             chunk
++        } else {
++            ""
+         };
+ 
+         Bytes {

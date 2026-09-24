@@ -1,0 +1,13 @@
+{
+  "commit": "f4e50e66e3aa76f79b62109a4e415bae354d3c42",
+  "parent": "2502f6002a8484d9b452e491f376172ea742d922",
+  "fixed_commit": "f4e50e66e3aa76f79b62109a4e415bae354d3c42",
+  "summary": "Creating a byte iterator at the end of a nonempty rope initializes an empty current chunk, leaving backward iteration incorrectly positioned. The fix loads the last chunk, restores the chunk iterator's position, and adjusts the chunk's starting byte offset so prev() returns the final bytes correctly. This reversal isolates that initialization correction. The selected upstream test was added by the fix and compares backward iteration from the rope's end against TEXT.bytes().next_back(). Both source regions occur exactly once in their respective Git versions. No builds or tests were run.",
+  "test": "iter::tests::bytes_at_03",
+  "expected_failure": "assertion failed: `(left == right)`",
+  "reversal": {
+    "path": "src/iter.rs",
+    "fixed_text": "        let cur_chunk = if byte_idx_range.0 == byte_idx_range.1 {\n            \"\"\n        } else if at_byte < byte_idx_range.1 {\n            chunk_iter.next().unwrap()\n        } else {\n            let chunk = chunk_iter.prev().unwrap();\n            chunk_iter.next();\n            chunk_byte_start -= chunk.len();\n            chunk\n        };\n\n        Bytes {\n            chunk_iter: chunk_iter,\n            cur_chunk: cur_chunk.as_bytes(),\n            byte_idx: at_byte - chunk_byte_start,\n",
+    "parent_text": "        let cur_chunk = if let Some(chunk) = chunk_iter.next() {\n            chunk\n        } else {\n            \"\"\n        };\n\n        Bytes {\n            chunk_iter: chunk_iter,\n            cur_chunk: cur_chunk.as_bytes(),\n            byte_idx: at_byte - chunk_byte_start,\n"
+  }
+}

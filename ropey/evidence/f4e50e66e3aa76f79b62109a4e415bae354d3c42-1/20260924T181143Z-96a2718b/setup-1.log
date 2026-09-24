@@ -1,0 +1,14 @@
+Command: rustup toolchain install 1.37.0 --profile minimal
+Started: 2026-09-24T18:11:50.748899+00:00
+STDOUT:
+
+  1.37.0-x86_64-unknown-linux-gnu installed - rustc 1.37.0 (eae3437df 2019-08-13)
+
+
+STDERR:
+info: syncing channel updates for 1.37.0-x86_64-unknown-linux-gnu
+info: latest update on 2019-08-15 for version 1.37.0 (eae3437df 2019-08-13)
+info: downloading 3 components
+
+Exit: 0
+Timed out: False
