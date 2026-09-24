@@ -2,18 +2,16 @@
 
 Resumed verified evidence; no tests rerun.
 
-**confirmed**: The same upstream test passed, panicked on the original defect ('assertion failed: `(left == right)`
-  left: `129`,
- right: `128`'), and passed after restoration
+**confirmed**: The same upstream test passed, panicked on the original defect ('range end index 12 out of range for slice of length 11'), and passed after restoration
 
 Upstream: https://github.com/jamesmunns/postcard
 
-Candidate: c160626b5e7dd8e9a95c140aed8972e8e2a14a39-1
+Candidate: 41c2ddbdfc42e08e8eb2aa539a2a46806e65f4df-1
 
 Provenance: verbatim
 
 Latest outcomes: {"confirmed": 1}
 
-Reviewed commits: 1 / 108 reachable from the saved tip.
+Reviewed commits: 1 / 166 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

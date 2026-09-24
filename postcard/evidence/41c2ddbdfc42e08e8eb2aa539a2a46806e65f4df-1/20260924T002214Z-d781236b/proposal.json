@@ -1,0 +1,13 @@
+{
+  "commit": "41c2ddbdfc42e08e8eb2aa539a2a46806e65f4df",
+  "parent": "9d8cf0e26a60fb4ed7364b94323690b340bd8df4",
+  "fixed_commit": "41c2ddbdfc42e08e8eb2aa539a2a46806e65f4df",
+  "summary": "The accumulator's capacity check excluded the terminating sentinel, although the copied slice included it. A 12-byte frame fed to an 11-byte accumulator therefore passed the check and panicked on out-of-bounds slicing. The fix checks take.len(), including the sentinel, so the accumulator returns FeedResult::OverFull. The fix adds the selected regression test. This plan has not been executed.",
+  "test": "accumulator::extend_unchecked_in_bounds_test",
+  "expected_failure": "range end index 12 out of range for slice of length 11",
+  "reversal": {
+    "path": "src/accumulator.rs",
+    "fixed_text": "            if (self.idx + take.len()) <= N {\n",
+    "parent_text": "            if (self.idx + n) <= N {\n"
+  }
+}

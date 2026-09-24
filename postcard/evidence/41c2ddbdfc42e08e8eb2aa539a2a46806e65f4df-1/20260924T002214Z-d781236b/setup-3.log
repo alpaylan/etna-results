@@ -1,0 +1,38 @@
+Command: rustup run 1.67.1 cargo fetch --locked
+Started: 2026-09-24T00:24:40.959668+00:00
+STDOUT:
+
+STDERR:
+ Downloading crates ...
+  Downloaded hash32 v0.2.1 (registry `era`)
+  Downloaded atomic-polyfill v0.1.11 (registry `era`)
+  Downloaded byteorder v1.4.3 (registry `era`)
+  Downloaded critical-section v1.1.1 (registry `era`)
+  Downloaded serde v1.0.152 (registry `era`)
+  Downloaded autocfg v1.1.0 (registry `era`)
+  Downloaded cobs v0.2.3 (registry `era`)
+  Downloaded const_format_proc_macros v0.2.29 (registry `era`)
+  Downloaded stable_deref_trait v1.2.0 (registry `era`)
+  Downloaded bitflags v1.3.2 (registry `era`)
+  Downloaded rustc_version v0.4.0 (registry `era`)
+  Downloaded proc-macro-error-attr v1.0.4 (registry `era`)
+  Downloaded lock_api v0.4.9 (registry `era`)
+  Downloaded serde_derive v1.0.152 (registry `era`)
+  Downloaded quote v1.0.23 (registry `era`)
+  Downloaded version_check v0.9.4 (registry `era`)
+  Downloaded scopeguard v1.1.0 (registry `era`)
+  Downloaded proc-macro-error v1.0.4 (registry `era`)
+  Downloaded unicode-ident v1.0.6 (registry `era`)
+  Downloaded unicode-xid v0.2.4 (registry `era`)
+  Downloaded spin v0.9.5 (registry `era`)
+  Downloaded semver v1.0.16 (registry `era`)
+  Downloaded proc-macro2 v1.0.51 (registry `era`)
+  Downloaded heapless v0.7.16 (registry `era`)
+  Downloaded const_format v0.2.30 (registry `era`)
+  Downloaded defmt-parser v0.3.1 (registry `era`)
+  Downloaded defmt-macros v0.3.3 (registry `era`)
+  Downloaded defmt v0.3.2 (registry `era`)
+  Downloaded syn v1.0.107 (registry `era`)
+
+Exit: 0
+Timed out: False

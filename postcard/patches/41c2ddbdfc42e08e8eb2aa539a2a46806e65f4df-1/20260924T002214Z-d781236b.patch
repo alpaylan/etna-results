@@ -1,0 +1,13 @@
+diff --git a/src/accumulator.rs b/src/accumulator.rs
+index 0fd0872..4950dae 100644
+--- a/src/accumulator.rs
++++ b/src/accumulator.rs
+@@ -132,7 +132,7 @@ impl<const N: usize> CobsAccumulator<N> {
+             let (take, release) = input.split_at(n + 1);
+ 
+             // Does it fit?
+-            if (self.idx + take.len()) <= N {
++            if (self.idx + n) <= N {
+                 // Aw yiss - add to array
+                 self.extend_unchecked(take);
+ 

@@ -1,0 +1,38 @@
+Command: rustup run 1.67.1 cargo check --locked --offline --tests
+Started: 2026-09-24T00:24:41.194515+00:00
+STDOUT:
+
+STDERR:
+   Compiling proc-macro2 v1.0.51
+   Compiling semver v1.0.16
+   Compiling unicode-ident v1.0.6
+   Compiling quote v1.0.23
+   Compiling autocfg v1.1.0
+   Compiling syn v1.0.107
+   Compiling lock_api v0.4.9
+   Compiling serde_derive v1.0.152
+   Compiling rustc_version v0.4.0
+   Compiling serde v1.0.152
+    Checking scopeguard v1.1.0
+   Compiling heapless v0.7.16
+    Checking byteorder v1.4.3
+    Checking hash32 v0.2.1
+    Checking spin v0.9.5
+    Checking stable_deref_trait v1.2.0
+    Checking cobs v0.2.3
+    Checking postcard v1.0.3 (/home/runner/work/_temp/upstream)
+warning: variable does not need to be mutable
+   --> src/accumulator.rs:302:9
+    |
+302 |     let mut data = crate::to_vec_cobs::<_, 128>(&Demo { data: [0xcc; 10] }).unwrap();
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+    |
+    = note: `#[warn(unused_mut)]` on by default
+
+warning: `postcard` (lib test) generated 1 warning
+    Finished dev [unoptimized + debuginfo] target(s) in 5.68s
+
+Exit: 0
+Timed out: False

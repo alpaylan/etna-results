@@ -1,0 +1,36 @@
+Command: rustup run 1.67.1 cargo test --locked --offline --lib accumulator::extend_unchecked_in_bounds_test -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:24:49.465963+00:00
+STDOUT:
+
+running 1 test
+test accumulator::extend_unchecked_in_bounds_test ... FAILED
+
+failures:
+
+failures:
+    accumulator::extend_unchecked_in_bounds_test
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 44 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling postcard v1.0.3 (/home/runner/work/_temp/upstream)
+warning: variable does not need to be mutable
+   --> src/accumulator.rs:302:9
+    |
+302 |     let mut data = crate::to_vec_cobs::<_, 128>(&Demo { data: [0xcc; 10] }).unwrap();
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+    |
+    = note: `#[warn(unused_mut)]` on by default
+
+warning: `postcard` (lib test) generated 1 warning
+    Finished test [unoptimized + debuginfo] target(s) in 1.03s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T002214Z-d781236b/debug/deps/postcard-6383b6dcedd4d91c)
+thread 'accumulator::extend_unchecked_in_bounds_test' panicked at 'range end index 12 out of range for slice of length 11', src/accumulator.rs:174:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `--lib`
+
+Exit: 101
+Timed out: False

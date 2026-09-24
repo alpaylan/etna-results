@@ -1,0 +1,8 @@
+Command: rustup run 1.67.1 cargo clean -p postcard
+Started: 2026-09-24T00:24:49.438010+00:00
+STDOUT:
+
+STDERR:
+
+Exit: 0
+Timed out: False
