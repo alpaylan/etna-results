@@ -4,12 +4,12 @@
 
 Upstream: https://github.com/rust-lang/regex
 
-Candidate: bd345d74a1c5b7869abf063443bc4663cd20f1ea-1
+Candidate: 64ad0b618e043b791ed5385dd5504a436da1ddae-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 1571 reachable from the saved tip.
+Reviewed commits: 1 / 1621 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

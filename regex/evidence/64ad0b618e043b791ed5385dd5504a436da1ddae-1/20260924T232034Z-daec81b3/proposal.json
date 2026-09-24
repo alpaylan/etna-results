@@ -1,0 +1,13 @@
+{
+  "commit": "64ad0b618e043b791ed5385dd5504a436da1ddae",
+  "parent": "fa91c31a4291c9dda6afe19829e6fe2e3bbc2da5",
+  "fixed_commit": "64ad0b618e043b791ed5385dd5504a436da1ddae",
+  "summary": "Reverse suffix/inner optimizations could confirm an early literal candidate whose match starts after the true leftmost match. For `.bb|b` on `zabb`, the suffix optimization reports 2..3 instead of 1..4. The fix permits these optimizations only when conservative checks establish safe candidate ordering. This reversal removes only the reverse-suffix safety guard. The existing suite_string::default test loads regression/reverse-suffix-start-of-match-failure-011 and checks actual match spans; tests added by the fix check strategy selection. No tests were executed.",
+  "test": "suite_string::default",
+  "expected_failure": null,
+  "reversal": {
+    "path": "regex-automata/src/meta/strategy.rs",
+    "fixed_text": "        if !reverse_suffix::has_no_earlier_match(hirs, &lcs) {\n            debug!(\n                \"skipping reverse suffix optimization because \\\n                 an earlier suffix match could be a complete match \\\n                 inside of a larger match\"\n            );\n            return Err(core);\n        }\n        Ok(ReverseSuffix { core, pre })\n",
+    "parent_text": "        Ok(ReverseSuffix { core, pre })\n"
+  }
+}

@@ -1,0 +1,19 @@
+diff --git a/regex-automata/src/meta/strategy.rs b/regex-automata/src/meta/strategy.rs
+index c121443..e8d2b2c 100644
+--- a/regex-automata/src/meta/strategy.rs
++++ b/regex-automata/src/meta/strategy.rs
+@@ -1225,14 +1225,6 @@ impl ReverseSuffix {
+             );
+             return Err(core);
+         }
+-        if !reverse_suffix::has_no_earlier_match(hirs, &lcs) {
+-            debug!(
+-                "skipping reverse suffix optimization because \
+-                 an earlier suffix match could be a complete match \
+-                 inside of a larger match"
+-            );
+-            return Err(core);
+-        }
+         Ok(ReverseSuffix { core, pre })
+     }
+ 
