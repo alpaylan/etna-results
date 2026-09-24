@@ -1,0 +1,13 @@
+{
+  "commit": "732c8a58f049a81367187d209a8a2a1ba4df0479",
+  "parent": "38999703c36d067a8b33b5d4d3cc8fbdc843f64c",
+  "fixed_commit": "732c8a58f049a81367187d209a8a2a1ba4df0479",
+  "summary": "Key::from_str retried failed parses after wrapping the input in quotes, accepting invalid key representations and replacing the original diagnostic. The fix parses only the supplied representation. The updated test_parse_error in tests/test_parse.rs detects the diagnostic change: an apostrophe followed by a double quote must report a missing closing apostrophe, whereas the fallback returns 'Could not parse the line'. The reversal restores exactly the removed fallback logic. No tests were executed.",
+  "test": "test_parse_error",
+  "expected_failure": "Could not parse the line",
+  "reversal": {
+    "path": "src/key.rs",
+    "fixed_text": "    fn from_str(s: &str) -> Result<Self, Self::Err> {\n        Key::try_parse(s)\n    }\n",
+    "parent_text": "    fn from_str(s: &str) -> Result<Self, Self::Err> {\n        let basic = format!(\"\\\"{}\\\"\", s);\n        let literal = format!(\"'{}'\", s);\n        Key::try_parse(s)\n            .or_else(|_| Key::try_parse(&basic))\n            .or_else(|_| Key::try_parse(&literal))\n    }\n"
+  }
+}
