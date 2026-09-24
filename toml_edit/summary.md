@@ -4,12 +4,12 @@
 
 Upstream: https://github.com/toml-rs/toml
 
-Candidate: 9aacd69aa203f1fb9f3630aa5e938fc7d66f41df-1
+Candidate: 332f1c88232eac9f3aa7756fcbafb5f0272c74f2-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 448 reachable from the saved tip.
+Reviewed commits: 1 / 443 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

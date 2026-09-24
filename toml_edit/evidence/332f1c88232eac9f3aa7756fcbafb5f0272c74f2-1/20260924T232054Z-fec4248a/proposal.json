@@ -1,0 +1,13 @@
+{
+  "commit": "332f1c88232eac9f3aa7756fcbafb5f0272c74f2",
+  "parent": "5711a42cbf3b947f0e3770a73161fdde98a5c909",
+  "fixed_commit": "332f1c88232eac9f3aa7756fcbafb5f0272c74f2",
+  "summary": "Deserialization errors omitted the offending key path. The fix collects enclosing table and inline-table keys and formats them as a dotted path. Reverting only the Display implementation restores the missing-path behavior. The existing error_includes_key test in tests/serde.rs, updated by this fix, expects profile.dev.debug in the error message and requires the easy feature. No tests were executed.",
+  "test": "error_includes_key",
+  "expected_failure": "assertion failed: `(left == right)`\n  left: `\"expected a boolean or an integer\"`,\n right: `\"expected a boolean or an integer for key `profile.dev.debug`\"`",
+  "reversal": {
+    "path": "src/de/mod.rs",
+    "fixed_text": "impl std::fmt::Display for Error {\n    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {\n        self.inner.message.fmt(f)?;\n\n        if !self.inner.reverse_key.is_empty() {\n            write!(f, \" for key `\")?;\n            for (i, k) in self.inner.reverse_key.iter().rev().enumerate() {\n                if i > 0 {\n                    write!(f, \".\")?;\n                }\n                write!(f, \"{}\", k)?;\n            }\n            write!(f, \"`\")?;\n        }\n\n        Ok(())\n    }\n}\n",
+    "parent_text": "impl std::fmt::Display for Error {\n    fn fmt(&self, formatter: &mut std::fmt::Formatter) -> std::fmt::Result {\n        self.inner.message.fmt(formatter)\n    }\n}\n"
+  }
+}

@@ -1,0 +1,28 @@
+diff --git a/src/de/mod.rs b/src/de/mod.rs
+index 80b8b30..082602d 100644
+--- a/src/de/mod.rs
++++ b/src/de/mod.rs
+@@ -58,21 +58,8 @@ impl serde::de::Error for Error {
+ }
+ 
+ impl std::fmt::Display for Error {
+-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+-        self.inner.message.fmt(f)?;
+-
+-        if !self.inner.reverse_key.is_empty() {
+-            write!(f, " for key `")?;
+-            for (i, k) in self.inner.reverse_key.iter().rev().enumerate() {
+-                if i > 0 {
+-                    write!(f, ".")?;
+-                }
+-                write!(f, "{}", k)?;
+-            }
+-            write!(f, "`")?;
+-        }
+-
+-        Ok(())
++    fn fmt(&self, formatter: &mut std::fmt::Formatter) -> std::fmt::Result {
++        self.inner.message.fmt(formatter)
+     }
+ }
+ 
