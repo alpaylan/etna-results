@@ -1,0 +1,13 @@
+{
+  "commit": "1dc2377d9b411bcd32a0b35f5a61db6ce7a6467f",
+  "parent": "4ce108ebbe5293ee5dfe9cd53750c88dfe8d1fcb",
+  "fixed_commit": "1dc2377d9b411bcd32a0b35f5a61db6ce7a6467f",
+  "summary": "Vector::singleton stores one element but initializes metadata capacity to 0, so len() returns 0 and is_empty() returns true. The fix sets capacity to 1 while retaining origin 0, making the reported length correct. The fix adds the selected regression test. No tests were run during planning.",
+  "test": "vector::test::vector_singleton",
+  "expected_failure": "assertion failed: `(left == right)`\n  left: `0`,\n right: `1`",
+  "reversal": {
+    "path": "src/vector.rs",
+    "fixed_text": "    pub fn singleton<R>(a: R) -> Self\n    where\n        R: Shared<A>,\n    {\n        let mut tail = Node::new();\n        tail.push(Entry::Value(a.shared()));\n        let mut meta = Meta::default();\n        meta.capacity = 1;\n        Vector {\n            meta: meta,\n            root: Default::default(),\n            tail: Arc::new(tail),\n        }\n    }\n",
+    "parent_text": "    pub fn singleton<R>(a: R) -> Self\n    where\n        R: Shared<A>,\n    {\n        let mut tail = Node::new();\n        tail.push(Entry::Value(a.shared()));\n        Vector {\n            meta: Default::default(),\n            root: Default::default(),\n            tail: Arc::new(tail),\n        }\n    }\n"
+  }
+}

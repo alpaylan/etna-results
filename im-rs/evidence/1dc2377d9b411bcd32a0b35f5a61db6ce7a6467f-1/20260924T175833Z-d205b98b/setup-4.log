@@ -1,0 +1,45 @@
+Command: rustup run 1.26.0 cargo check --locked --tests
+Started: 2026-09-24T17:59:11.823273+00:00
+STDOUT:
+
+STDERR:
+   Compiling libc v0.2.41
+   Compiling void v1.0.2
+   Compiling regex v1.0.0
+   Compiling semver-parser v0.7.0
+   Compiling lazy_static v1.0.0
+   Compiling ucd-util v0.1.1
+   Compiling quick-error v1.2.1
+   Compiling utf8-ranges v1.0.0
+   Compiling serde v1.0.60
+   Compiling cfg-if v0.1.3
+   Compiling bit-vec v0.4.4
+   Compiling termcolor v0.3.6
+   Compiling regex-syntax v0.4.2
+   Compiling ansi_term v0.11.0
+   Compiling dtoa v0.4.2
+   Compiling bitflags v1.0.3
+   Compiling difference v2.0.0
+   Compiling itoa v0.4.1
+   Compiling unreachable v1.0.0
+   Compiling regex-syntax v0.6.0
+   Compiling humantime v1.1.1
+   Compiling memchr v2.0.1
+   Compiling atty v0.2.10
+   Compiling rand v0.4.2
+   Compiling semver v0.9.0
+   Compiling log v0.4.1
+   Compiling bit-set v0.4.0
+   Compiling thread_local v0.3.5
+   Compiling pretty_assertions v0.5.1
+   Compiling aho-corasick v0.6.4
+   Compiling rustc_version v0.2.2
+   Compiling proptest v0.6.0
+   Compiling im v10.2.1-alpha.0 (file:///home/runner/work/_temp/upstream)
+   Compiling env_logger v0.5.10
+   Compiling quickcheck v0.6.2
+   Compiling serde_json v1.0.17
+    Finished dev [unoptimized + debuginfo] target(s) in 16.16 secs
+
+Exit: 0
+Timed out: False
