@@ -1,0 +1,13 @@
+diff --git a/lexical-parse-integer/src/algorithm.rs b/lexical-parse-integer/src/algorithm.rs
+index 3caedc6..a1cfd17 100644
+--- a/lexical-parse-integer/src/algorithm.rs
++++ b/lexical-parse-integer/src/algorithm.rs
+@@ -24,7 +24,7 @@ use lexical_util::step::min_step;
+ /// Check if we can try to parse 8 digits.
+ macro_rules! can_try_parse_multidigits {
+     ($iter:expr, $radix:expr) => {
+-        $iter.is_contiguous() && (cfg!(not(feature = "power-of-two")) || $radix <= 10)
++        $iter.is_contiguous() && (cfg!(not(feature = "radix")) || $radix <= 10)
+     };
+ }
+ 

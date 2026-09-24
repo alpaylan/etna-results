@@ -1,0 +1,13 @@
+{
+  "commit": "64fe7aaa18987c34a8ff506368a9eaef3522493f",
+  "parent": "dbc42cd12205da1c8821e67fb9f9c21cd31d87b8",
+  "fixed_commit": "64fe7aaa18987c34a8ff506368a9eaef3522493f",
+  "summary": "With power-of-two enabled and radix disabled, the old guard incorrectly permits radix 16 and 32 to use multi-digit optimizations restricted to radixes <= 10, triggering a debug assertion. The fix checks power-of-two so these radixes use single-digit parsing. The fix extends algorithm_test in lexical-parse-integer/tests/algorithm_tests.rs with detecting assertions. Run that integration test with power-of-two enabled, radix and compact disabled, and debug assertions enabled. Reverse only the feature-guard line, preserving the macro rename and all tests. No tests were executed in this planning job.",
+  "test": "algorithm_test",
+  "expected_failure": "assertion failed: NumberFormat::<{ FORMAT }>::MANTISSA_RADIX <= 10",
+  "reversal": {
+    "path": "lexical-parse-integer/src/algorithm.rs",
+    "fixed_text": "        $iter.is_contiguous() && (cfg!(not(feature = \"power-of-two\")) || $radix <= 10)\n",
+    "parent_text": "        $iter.is_contiguous() && (cfg!(not(feature = \"radix\")) || $radix <= 10)\n"
+  }
+}

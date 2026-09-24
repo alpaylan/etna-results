@@ -1,0 +1,10 @@
+Command: git fetch --depth 1 https://github.com/rust-lang/crates.io-index-archive.git 0713a7d56b8c727ec7906d4d1f28467f2bcc7f85
+Started: 2026-09-24T16:00:00.859890+00:00
+STDOUT:
+
+STDERR:
+From https://github.com/rust-lang/crates.io-index-archive
+ * branch                0713a7d56b8c727ec7906d4d1f28467f2bcc7f85 -> FETCH_HEAD
+
+Exit: 0
+Timed out: False

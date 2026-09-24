@@ -2,6 +2,7 @@
   "repo": "https://github.com/Alexhuszagh/rust-lexical",
   "tips": [
     "0c9456acf484691ef250998fec8ca823241c563c",
+    "64fe7aaa18987c34a8ff506368a9eaef3522493f",
     "71624c3e49a8eb7b37eb591ca8c605696d8c0b33",
     "88f3bf04f831a81641098d8aff32402672a3cc7d",
     "9eeedfe8f251dd0258e876b6a1f72efc65a29666",
@@ -10,6 +11,7 @@
   "shallow": false,
   "reviewed": [
     "0c9456acf484691ef250998fec8ca823241c563c",
+    "64fe7aaa18987c34a8ff506368a9eaef3522493f",
     "71624c3e49a8eb7b37eb591ca8c605696d8c0b33",
     "88f3bf04f831a81641098d8aff32402672a3cc7d",
     "9eeedfe8f251dd0258e876b6a1f72efc65a29666",
