@@ -1,0 +1,42 @@
+Command: rustup run 1.74.0 cargo test --locked --offline --lib punycode::huge_encode -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T23:24:09.431767+00:00
+STDOUT:
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 1 test
+test punycode::huge_encode ... ignored, slow
+
+test result: ok. 0 passed; 0 failed; 1 ignored; 0 measured; 1 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling idna v0.4.0 (/home/runner/work/_temp/upstream/idna)
+   Compiling url v2.4.1 (/home/runner/work/_temp/upstream/url)
+    Finished test [unoptimized + debuginfo] target(s) in 0.81s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T232029Z-53412dca/debug/deps/data_url-cfc073d59318f5a5)
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T232029Z-53412dca/debug/deps/form_urlencoded-61d5e79bdd6c5316)
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T232029Z-53412dca/debug/deps/idna-4df9333c2e8c4ccc)
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T232029Z-53412dca/debug/deps/percent_encoding-72601d77e420deaa)
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T232029Z-53412dca/debug/deps/url-a824dcfc23f82c94)
+
+Exit: 0
+Timed out: False

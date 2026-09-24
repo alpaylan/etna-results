@@ -1,0 +1,13 @@
+{
+  "commit": "464b1f7d8fe9de117af184c1acb52b4f821a0cdc",
+  "parent": "912d716b04347ff35fa78dcd7b0567abc13d62dd",
+  "fixed_commit": "464b1f7d8fe9de117af184c1acb52b4f821a0cdc",
+  "summary": "encode_into increments a u32 input counter without checking overflow. With 2^32 non-ASCII characters, it panics when overflow checks are enabled, or wraps to zero and incorrectly returns success when checks are disabled. The fix uses checked_add to return Err(()) instead and adds early length guards to the public wrappers. The reversal restores only the counter changes. The fix-added test requires a 64-bit target and explicit execution with --ignored because it is marked slow.",
+  "test": "punycode::huge_encode",
+  "expected_failure": "attempt to add with overflow",
+  "reversal": {
+    "path": "idna/src/punycode.rs",
+    "fixed_text": "    let (mut input_length, mut basic_length) = (0u32, 0);\n    for c in input.clone() {\n        input_length = input_length.checked_add(1).ok_or(())?;\n",
+    "parent_text": "    let (mut input_length, mut basic_length) = (0, 0);\n    for c in input.clone() {\n        input_length += 1;\n"
+  }
+}

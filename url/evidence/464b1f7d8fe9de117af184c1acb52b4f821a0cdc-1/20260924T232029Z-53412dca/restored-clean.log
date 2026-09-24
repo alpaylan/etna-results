@@ -1,0 +1,9 @@
+Command: rustup run 1.74.0 cargo clean -p idna
+Started: 2026-09-24T23:24:10.267649+00:00
+STDOUT:
+
+STDERR:
+     Removed 123 files, 26.7MiB total
+
+Exit: 0
+Timed out: False
