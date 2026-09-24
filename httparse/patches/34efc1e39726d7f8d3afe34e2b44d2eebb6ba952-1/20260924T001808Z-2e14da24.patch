@@ -1,0 +1,36 @@
+diff --git a/src/lib.rs b/src/lib.rs
+index 3e717c4..b6ff72c 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -602,31 +602,18 @@ pub fn parse_chunk_size(buf: &[u8])
+     let mut size = 0;
+     let mut in_chunk_size = true;
+     let mut in_ext = false;
+-    let mut count = 0;
+     loop {
+         let b = next!(bytes);
+         match b {
+             b'0'...b'9' if in_chunk_size => {
+-                if count > 15 {
+-                    return Err(InvalidChunkSize);
+-                }
+-                count += 1;
+                 size *= RADIX;
+                 size += (b - b'0') as u64;
+             },
+             b'a'...b'f' if in_chunk_size => {
+-                if count > 15 {
+-                    return Err(InvalidChunkSize);
+-                }
+-                count += 1;
+                 size *= RADIX;
+                 size += (b + 10 - b'a') as u64;
+             }
+             b'A'...b'F' if in_chunk_size => {
+-                if count > 15 {
+-                    return Err(InvalidChunkSize);
+-                }
+-                count += 1;
+                 size *= RADIX;
+                 size += (b + 10 - b'A') as u64;
+             }

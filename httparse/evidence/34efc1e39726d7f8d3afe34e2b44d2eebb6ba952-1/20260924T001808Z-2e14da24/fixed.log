@@ -1,0 +1,20 @@
+Command: rustup run 1.12.1 cargo test --lib tests::test_chunk_size -- --nocapture --test-threads=1
+Started: 2026-09-24T00:18:42.438159+00:00
+STDOUT:
+
+running 1 test
+test tests::test_chunk_size ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured
+
+
+STDERR:
+   Compiling gcc v0.3.38
+   Compiling libc v0.2.17
+   Compiling pico-sys v0.0.1
+   Compiling httparse v1.2.0 (file:///home/runner/work/_temp/upstream)
+    Finished debug [unoptimized + debuginfo] target(s) in 7.97 secs
+     Running /home/runner/work/_temp/build-20260924T001808Z-2e14da24/debug/deps/httparse-5e54be72aa035f1f
+
+Exit: 0
+Timed out: False

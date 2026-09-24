@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: Selected test is not present at the fixed revision: tests::test_response_no_cr
+**unconfirmed**: The observed failure does not establish the described bug
 
 Upstream: https://github.com/seanmonstar/httparse
 
-Candidate: c0631f26e86157a8110a202c112b0ea7a051025b-1
+Candidate: 34efc1e39726d7f8d3afe34e2b44d2eebb6ba952-1
 
 Provenance: verbatim
 
-Latest outcomes: {"blocked": 1}
+Latest outcomes: {"unconfirmed": 1}
 
-History coverage not yet recorded.
+Reviewed commits: 1 / 80 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

@@ -1,0 +1,11 @@
+Command: rustup run 1.12.1 cargo fetch
+Started: 2026-09-24T00:18:41.022000+00:00
+STDOUT:
+
+STDERR:
+ Downloading gcc v0.3.38 (registry git://127.0.0.1:9419/era-index)
+ Downloading pico-sys v0.0.1 (registry git://127.0.0.1:9419/era-index)
+ Downloading libc v0.2.17 (registry git://127.0.0.1:9419/era-index)
+
+Exit: 0
+Timed out: False

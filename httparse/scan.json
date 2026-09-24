@@ -1,0 +1,12 @@
+{
+  "repo": "https://github.com/seanmonstar/httparse",
+  "tips": [
+    "34efc1e39726d7f8d3afe34e2b44d2eebb6ba952"
+  ],
+  "shallow": false,
+  "reviewed": [
+    "34efc1e39726d7f8d3afe34e2b44d2eebb6ba952"
+  ],
+  "reachable_commits": 80,
+  "scope": "One queued candidate; not an exhaustive history scan."
+}

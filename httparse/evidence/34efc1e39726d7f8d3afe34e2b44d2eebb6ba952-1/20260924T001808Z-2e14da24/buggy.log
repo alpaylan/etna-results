@@ -1,0 +1,25 @@
+Command: rustup run 1.12.1 cargo test --lib tests::test_chunk_size -- --nocapture --test-threads=1
+Started: 2026-09-24T00:18:50.539738+00:00
+STDOUT:
+
+running 1 test
+test tests::test_chunk_size ... FAILED
+
+failures:
+
+failures:
+    tests::test_chunk_size
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured
+
+
+STDERR:
+   Compiling httparse v1.2.0 (file:///home/runner/work/_temp/upstream)
+    Finished debug [unoptimized + debuginfo] target(s) in 0.74 secs
+     Running /home/runner/work/_temp/build-20260924T001808Z-2e14da24/debug/deps/httparse-5e54be72aa035f1f
+thread 'tests::test_chunk_size' panicked at 'attempt to multiply with overflow', src/lib.rs:613
+note: Run with `RUST_BACKTRACE=1` for a backtrace.
+error: test failed
+
+Exit: 101
+Timed out: False

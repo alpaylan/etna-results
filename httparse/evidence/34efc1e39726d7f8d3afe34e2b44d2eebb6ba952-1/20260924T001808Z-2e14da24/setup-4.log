@@ -1,0 +1,10 @@
+Command: rustup run 1.12.1 cargo build
+Started: 2026-09-24T00:18:41.845838+00:00
+STDOUT:
+
+STDERR:
+   Compiling httparse v1.2.0 (file:///home/runner/work/_temp/upstream)
+    Finished debug [unoptimized + debuginfo] target(s) in 0.32 secs
+
+Exit: 0
+Timed out: False

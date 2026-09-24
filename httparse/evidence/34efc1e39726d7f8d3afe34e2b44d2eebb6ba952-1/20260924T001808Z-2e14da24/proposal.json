@@ -1,0 +1,13 @@
+{
+  "commit": "34efc1e39726d7f8d3afe34e2b44d2eebb6ba952",
+  "parent": "f3bfef145b60fe21bac747ca082960ed6790114c",
+  "fixed_commit": "34efc1e39726d7f8d3afe34e2b44d2eebb6ba952",
+  "summary": "parse_chunk_size accumulated hexadecimal digits using ordinary u64 arithmetic without limiting their count. Oversized chunk sizes could panic with overflow checks enabled or wrap and incorrectly return Ok(Complete) without them. The fix rejects a seventeenth hexadecimal digit before arithmetic occurs. The existing tests::test_chunk_size test was extended by this commit with oversized inputs expecting InvalidChunkSize. The reversal removes only the added counter and guards. No builds or tests were run.",
+  "test": "tests::test_chunk_size",
+  "expected_failure": "attempt to multiply with overflow",
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "    let mut in_ext = false;\n    let mut count = 0;\n    loop {\n        let b = next!(bytes);\n        match b {\n            b'0'...b'9' if in_chunk_size => {\n                if count > 15 {\n                    return Err(InvalidChunkSize);\n                }\n                count += 1;\n                size *= RADIX;\n                size += (b - b'0') as u64;\n            },\n            b'a'...b'f' if in_chunk_size => {\n                if count > 15 {\n                    return Err(InvalidChunkSize);\n                }\n                count += 1;\n                size *= RADIX;\n                size += (b + 10 - b'a') as u64;\n            }\n            b'A'...b'F' if in_chunk_size => {\n                if count > 15 {\n                    return Err(InvalidChunkSize);\n                }\n                count += 1;\n                size *= RADIX;\n                size += (b + 10 - b'A') as u64;\n            }\n",
+    "parent_text": "    let mut in_ext = false;\n    loop {\n        let b = next!(bytes);\n        match b {\n            b'0'...b'9' if in_chunk_size => {\n                size *= RADIX;\n                size += (b - b'0') as u64;\n            },\n            b'a'...b'f' if in_chunk_size => {\n                size *= RADIX;\n                size += (b + 10 - b'a') as u64;\n            }\n            b'A'...b'F' if in_chunk_size => {\n                size *= RADIX;\n                size += (b + 10 - b'A') as u64;\n            }\n"
+  }
+}
