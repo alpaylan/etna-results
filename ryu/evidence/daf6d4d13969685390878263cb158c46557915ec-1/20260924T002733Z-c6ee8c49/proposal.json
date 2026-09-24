@@ -1,0 +1,13 @@
+{
+  "commit": "daf6d4d13969685390878263cb158c46557915ec",
+  "parent": "0430bb6ac6f88a1b621849966cd2d2c8a9ea39ff",
+  "fixed_commit": "daf6d4d13969685390878263cb158c46557915ec",
+  "summary": "Pretty formatting of small negative f32 values overwrote the minus sign with '0' and left the following byte unwritten. The fix writes at the sign-adjusted index, producing the correct decimal string. The fix adds check!(-1.234E-3, -0.001234) to the root-level test_ryu in tests/f2s_test.rs, whose string assertion detects the corrupted output. Both reversal regions occur exactly once in their respective source files. No builds or tests were run.",
+  "test": "test_ryu",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/pretty/mod.rs",
+    "fixed_text": "    } else if -6 < kk && kk <= 0 {\n        // 1234e-6 -> 0.001234\n        *result.offset(index) = b'0';\n        *result.offset(index + 1) = b'.';\n        let offset = 2 - kk;\n        for i in 2..offset {\n            *result.offset(index + i) = b'0';\n        }\n        write_mantissa(v.mantissa, result.offset(index + length + offset));\n        index as usize + length as usize + offset as usize\n",
+    "parent_text": "    } else if -6 < kk && kk <= 0 {\n        // 1234e-6 -> 0.001234\n        *result = b'0';\n        *result.offset(index + 1) = b'.';\n        let offset = 2 - kk;\n        for i in 2..offset {\n            *result.offset(index + i) = b'0';\n        }\n        write_mantissa(v.mantissa, result.offset(index + length + offset));\n        index as usize + length as usize + offset as usize\n"
+  }
+}

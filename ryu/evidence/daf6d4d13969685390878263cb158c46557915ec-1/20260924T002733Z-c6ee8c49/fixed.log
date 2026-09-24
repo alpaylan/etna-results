@@ -1,0 +1,21 @@
+Command: rustup run 1.28.0 cargo test --locked --test d2s_test test_ryu -- --nocapture --test-threads=1
+Started: 2026-09-24T00:28:09.293752+00:00
+STDOUT:
+
+running 1 test
+test test_ryu ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 7 filtered out
+
+
+STDERR:
+   Compiling libc v0.2.42
+   Compiling rand_core v0.2.1
+   Compiling ryu v0.0.0 (file:///home/runner/work/_temp/upstream)
+   Compiling rand v0.5.4
+   Compiling num_cpus v1.8.0
+    Finished dev [unoptimized + debuginfo] target(s) in 2.23s
+     Running /home/runner/work/_temp/build-20260924T002733Z-c6ee8c49/debug/deps/d2s_test-ce2c16efbb676cd6
+
+Exit: 0
+Timed out: False

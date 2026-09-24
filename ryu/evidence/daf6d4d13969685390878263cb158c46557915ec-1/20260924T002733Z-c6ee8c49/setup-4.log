@@ -1,0 +1,14 @@
+Command: rustup run 1.28.0 cargo check --locked --tests
+Started: 2026-09-24T00:28:07.232543+00:00
+STDOUT:
+
+STDERR:
+   Compiling ryu v0.0.0 (file:///home/runner/work/_temp/upstream)
+    Checking rand_core v0.2.1
+    Checking libc v0.2.42
+    Checking rand v0.5.4
+    Checking num_cpus v1.8.0
+    Finished dev [unoptimized + debuginfo] target(s) in 1.83s
+
+Exit: 0
+Timed out: False
