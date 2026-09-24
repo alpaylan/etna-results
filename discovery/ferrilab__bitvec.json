@@ -1,10 +1,10 @@
 {
-  "back_to": "50069c891bc5d7656f600d34a5aeabc797660463",
+  "back_to": "848500be484b600cb1e8628c12ab90e21a4dcdc8",
   "branch": "main",
-  "complete": false,
+  "complete": true,
   "repo": "https://github.com/ferrilab/bitvec",
-  "reviewed_total": 300,
+  "reviewed_total": 525,
   "shallow": false,
   "tip": "5fb855073acc2ed045094ed89d8daf8c765f0135",
-  "updated_at": "2026-09-24T16:48:43.730623+00:00"
+  "updated_at": "2026-09-24T19:28:08.220128+00:00"
 }

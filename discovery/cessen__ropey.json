@@ -1,10 +1,10 @@
 {
-  "back_to": "a375877058643c01049ba0f9a6d98611e104c602",
+  "back_to": "87f3615606ce4df88e15ff96e4aa00b9326373ee",
   "branch": "master",
-  "complete": false,
+  "complete": true,
   "repo": "https://github.com/cessen/ropey",
-  "reviewed_total": 300,
+  "reviewed_total": 524,
   "shallow": false,
   "tip": "1992665990964e5eee68a42a1aed2bd7abcfda87",
-  "updated_at": "2026-09-24T16:48:43.730623+00:00"
+  "updated_at": "2026-09-24T19:28:08.220128+00:00"
 }

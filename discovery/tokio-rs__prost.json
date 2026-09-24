@@ -1,0 +1,10 @@
+{
+  "back_to": "ece64fa021238b2a381ba0a3a4b3225220a4de46",
+  "branch": "master",
+  "complete": false,
+  "repo": "https://github.com/tokio-rs/prost",
+  "reviewed_total": 500,
+  "shallow": false,
+  "tip": "aed74ad0e844959ee6948f29c4e9cff0f278e89e",
+  "updated_at": "2026-09-24T19:28:08.220128+00:00"
+}

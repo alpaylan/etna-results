@@ -1,0 +1,10 @@
+{
+  "back_to": "482f0e0b7421415f9961234d9aa6e1b8e8c3159a",
+  "branch": "main",
+  "complete": true,
+  "repo": "https://github.com/rust-num/num-bigint",
+  "reviewed_total": 182,
+  "shallow": false,
+  "tip": "41f0b035d12971c5c7f7501917e31f0f6439c26c",
+  "updated_at": "2026-09-24T19:28:08.220128+00:00"
+}

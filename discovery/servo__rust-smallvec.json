@@ -1,0 +1,10 @@
+{
+  "back_to": "ccea60ed252f9b4116859bcf5ee989c8f20f6fca",
+  "branch": "v2",
+  "complete": true,
+  "repo": "https://github.com/servo/rust-smallvec",
+  "reviewed_total": 203,
+  "shallow": false,
+  "tip": "daa55c685990453f7f3cf1e119d94ad7c297726c",
+  "updated_at": "2026-09-24T19:28:08.220128+00:00"
+}

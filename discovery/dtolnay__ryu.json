@@ -1,10 +1,10 @@
 {
-  "back_to": "57ddfb686504b015bff547666b9e1d33bb6875a1",
+  "back_to": "8999d2c5d1d862a40a97d3cdca7ebb1240d4b605",
   "branch": "master",
-  "complete": false,
+  "complete": true,
   "repo": "https://github.com/dtolnay/ryu",
-  "reviewed_total": 300,
+  "reviewed_total": 324,
   "shallow": false,
   "tip": "75f9e707e77c89717ffb9c2a01fe2c28a016cc82",
-  "updated_at": "2026-09-24T16:48:43.730623+00:00"
+  "updated_at": "2026-09-24T19:28:08.220128+00:00"
 }

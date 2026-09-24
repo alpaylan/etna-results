@@ -1,10 +1,10 @@
 {
-  "back_to": "051e1170c41477ce162301c8711110a4577c1a23",
+  "back_to": "646b6c27b91dac07dbe171f66ccea7d4468832e9",
   "branch": "main",
-  "complete": false,
+  "complete": true,
   "repo": "https://github.com/chronotope/chrono",
-  "reviewed_total": 900,
+  "reviewed_total": 1184,
   "shallow": false,
   "tip": "6adaa5240c26fecb7bd9077334a91f8f67f4f3fe",
-  "updated_at": "2026-09-24T16:48:43.730623+00:00"
+  "updated_at": "2026-09-24T19:28:08.220128+00:00"
 }

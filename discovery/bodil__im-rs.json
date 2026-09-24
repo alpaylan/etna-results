@@ -1,10 +1,10 @@
 {
-  "back_to": "f1ad23412d6d8ba37afcc991602f06f4a015c2d4",
+  "back_to": "324fce726e89bb85275bab83993a4fa7076db8c8",
   "branch": "master",
-  "complete": false,
+  "complete": true,
   "repo": "https://github.com/bodil/im-rs",
-  "reviewed_total": 300,
+  "reviewed_total": 460,
   "shallow": false,
   "tip": "71331eadac64654bc56f598647ab544197cb1319",
-  "updated_at": "2026-09-24T16:48:43.730623+00:00"
+  "updated_at": "2026-09-24T19:28:08.220128+00:00"
 }
