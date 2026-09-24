@@ -1,15 +1,17 @@
 # Cloud bug-mining prototype
 
-**blocked**: Dependency setup failed; see setup logs
+Resumed verified evidence; no tests rerun.
+
+**confirmed**: The same upstream test passed, panicked on the original defect ('Failed assertion None == Some([]) for iteration 0'), and passed after restoration
 
 Upstream: https://github.com/rust-itertools/itertools
 
-Candidate: ca7025816a263ab7b57f439962341309a1073273-1
+Candidate: 13aa10e27a6bb5b5dd70cb677924af5846862560-1
 
 Provenance: verbatim
 
-Latest outcomes: {"blocked": 1}
+Latest outcomes: {"confirmed": 1}
 
-Reviewed commits: 1 / 663 reachable from the saved tip.
+Reviewed commits: 1 / 1112 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

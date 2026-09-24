@@ -1,0 +1,14 @@
+Command: rustup toolchain install 1.39.0 --profile minimal
+Started: 2026-09-24T00:47:19.797224+00:00
+STDOUT:
+
+  1.39.0-x86_64-unknown-linux-gnu installed - rustc 1.39.0 (4560ea788 2019-11-04)
+
+
+STDERR:
+info: syncing channel updates for 1.39.0-x86_64-unknown-linux-gnu
+info: latest update on 2019-11-07 for version 1.39.0 (4560ea788 2019-11-04)
+info: downloading 3 components
+
+Exit: 0
+Timed out: False

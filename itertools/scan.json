@@ -1,12 +1,14 @@
 {
   "repo": "https://github.com/rust-itertools/itertools",
   "tips": [
+    "13aa10e27a6bb5b5dd70cb677924af5846862560",
     "ca7025816a263ab7b57f439962341309a1073273"
   ],
   "shallow": false,
   "reviewed": [
+    "13aa10e27a6bb5b5dd70cb677924af5846862560",
     "ca7025816a263ab7b57f439962341309a1073273"
   ],
-  "reachable_commits": 663,
+  "reachable_commits": 1112,
   "scope": "One queued candidate; not an exhaustive history scan."
 }

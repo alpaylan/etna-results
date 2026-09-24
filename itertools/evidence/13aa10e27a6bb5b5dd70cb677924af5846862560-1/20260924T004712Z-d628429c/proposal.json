@@ -1,0 +1,13 @@
+{
+  "commit": "13aa10e27a6bb5b5dd70cb677924af5846862560",
+  "parent": "09403b3ca0a1361a9b781e3ee098107d13be3aa6",
+  "fixed_commit": "13aa10e27a6bb5b5dd70cb677924af5846862560",
+  "summary": "For an empty input, combinations(0) incorrectly yields no combinations instead of one empty combination. LazyBuffer::new eagerly probes the input and marks it done, causing Combinations::next to return None immediately. The fix initializes the buffer without consuming input, allowing the zero-length combination to be emitted. Reversing only this constructor restores that bug, detected by the empty-input assertion added to tests/test_std.rs::combinations_zero. Both regions occur exactly once in their respective Git versions. No tests were run.",
+  "test": "combinations_zero",
+  "expected_failure": "Failed assertion None == Some([]) for iteration 0",
+  "reversal": {
+    "path": "src/lazy_buffer.rs",
+    "fixed_text": "    pub fn new(it: I) -> LazyBuffer<I> {\n        LazyBuffer {\n            it: it,\n            done: false,\n            buffer: Vec::new(),\n        }\n    }\n",
+    "parent_text": "    pub fn new(it: I) -> LazyBuffer<I> {\n        let mut it = it;\n        let mut buffer = Vec::new();\n        let done;\n        if let Some(first) = it.next() {\n            buffer.push(first);\n            done = false;\n        } else {\n            done = true;\n        }\n        LazyBuffer {\n            it: it,\n            done: done,\n            buffer: buffer,\n        }\n    }\n"
+  }
+}

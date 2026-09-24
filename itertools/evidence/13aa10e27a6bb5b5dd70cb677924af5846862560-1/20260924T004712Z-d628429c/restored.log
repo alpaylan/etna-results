@@ -1,0 +1,125 @@
+Command: rustup run 1.39.0 cargo test --locked --offline --test test_std combinations_zero -- --nocapture --test-threads=1
+Started: 2026-09-24T00:48:00.533904+00:00
+STDOUT:
+
+running 1 test
+test combinations_zero ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 44 filtered out
+
+
+STDERR:
+   Compiling itertools v0.8.1 (/home/runner/work/_temp/upstream)
+warning: use of deprecated item 'try': use the `?` operator instead
+  --> src/format.rs:60:13
+   |
+60 |             try!(format(fst, &mut |disp: &fmt::Display| disp.fmt(f)));
+   |             ^^^
+   |
+   = note: `#[warn(deprecated)]` on by default
+
+warning: use of deprecated item 'try': use the `?` operator instead
+  --> src/format.rs:64:21
+   |
+64 |                     try!(f.write_str(self.sep));
+   |                     ^^^
+
+warning: use of deprecated item 'try': use the `?` operator instead
+  --> src/format.rs:66:17
+   |
+66 |                 try!(format(elt, &mut |disp: &fmt::Display| disp.fmt(f)));
+   |                 ^^^
+
+warning: use of deprecated item 'try': use the `?` operator instead
+  --> src/format.rs:85:13
+   |
+85 |             try!(cb(&fst, f));
+   |             ^^^
+
+warning: use of deprecated item 'try': use the `?` operator instead
+  --> src/format.rs:88:21
+   |
+88 |                     try!(f.write_str(self.sep));
+   |                     ^^^
+
+warning: use of deprecated item 'try': use the `?` operator instead
+  --> src/format.rs:90:17
+   |
+90 |                 try!(cb(&elt, f));
+   |                 ^^^
+
+warning: use of deprecated item 'try': use the `?` operator instead
+    --> src/lib.rs:1847:25
+     |
+1847 |             let mut x = try!(inner0(it, f));
+     |                         ^^^
+
+warning: trait objects without an explicit `dyn` are deprecated
+  --> src/format.rs:32:34
+   |
+32 |           F: FnMut(I::Item, &mut FnMut(&fmt::Display) -> fmt::Result) -> fmt::Result
+   |                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: use `dyn`: `dyn FnMut(&fmt::Display) -> fmt::Result`
+   |
+   = note: `#[warn(bare_trait_objects)]` on by default
+
+warning: trait objects without an explicit `dyn` are deprecated
+  --> src/format.rs:32:41
+   |
+32 |           F: FnMut(I::Item, &mut FnMut(&fmt::Display) -> fmt::Result) -> fmt::Result
+   |                                         ^^^^^^^^^^^^ help: use `dyn`: `dyn fmt::Display`
+
+warning: trait objects without an explicit `dyn` are deprecated
+  --> src/format.rs:51:34
+   |
+51 |           F: FnMut(I::Item, &mut FnMut(&fmt::Display) -> fmt::Result) -> fmt::Result
+   |                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: use `dyn`: `dyn FnMut(&fmt::Display) -> fmt::Result`
+
+warning: trait objects without an explicit `dyn` are deprecated
+  --> src/format.rs:51:41
+   |
+51 |           F: FnMut(I::Item, &mut FnMut(&fmt::Display) -> fmt::Result) -> fmt::Result
+   |                                         ^^^^^^^^^^^^ help: use `dyn`: `dyn fmt::Display`
+
+warning: trait objects without an explicit `dyn` are deprecated
+  --> src/format.rs:60:43
+   |
+60 |             try!(format(fst, &mut |disp: &fmt::Display| disp.fmt(f)));
+   |                                           ^^^^^^^^^^^^ help: use `dyn`: `dyn fmt::Display`
+
+warning: trait objects without an explicit `dyn` are deprecated
+  --> src/format.rs:66:47
+   |
+66 |                 try!(format(elt, &mut |disp: &fmt::Display| disp.fmt(f)));
+   |                                               ^^^^^^^^^^^^ help: use `dyn`: `dyn fmt::Display`
+
+warning: trait objects without an explicit `dyn` are deprecated
+    --> src/lib.rs:1659:41
+     |
+1659 |               F: FnMut(Self::Item, &mut FnMut(&fmt::Display) -> fmt::Result) -> fmt::Result,
+     |                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: use `dyn`: `dyn FnMut(&fmt::Display) -> fmt::Result`
+
+warning: trait objects without an explicit `dyn` are deprecated
+    --> src/lib.rs:1659:48
+     |
+1659 |               F: FnMut(Self::Item, &mut FnMut(&fmt::Display) -> fmt::Result) -> fmt::Result,
+     |                                                ^^^^^^^^^^^^ help: use `dyn`: `dyn fmt::Display`
+
+warning: trait objects without an explicit `dyn` are deprecated
+   --> tests/test_std.rs:201:41
+    |
+201 |     let mut it = Box::new(0..10) as Box<Iterator<Item=i32>>;
+    |                                         ^^^^^^^^^^^^^^^^^^ help: use `dyn`: `dyn Iterator<Item=i32>`
+    |
+    = note: `#[warn(bare_trait_objects)]` on by default
+
+warning: trait objects without an explicit `dyn` are deprecated
+   --> tests/test_std.rs:206:22
+    |
+206 |         let jt: &mut Iterator<Item = i32> = &mut *it;
+    |                      ^^^^^^^^^^^^^^^^^^^^ help: use `dyn`: `dyn Iterator<Item = i32>`
+
+    Finished dev [unoptimized + debuginfo] target(s) in 0.68s
+     Running /home/runner/work/_temp/build-20260924T004712Z-d628429c/debug/deps/test_std-1e633887e0c2dc06
+
+Exit: 0
+Timed out: False
