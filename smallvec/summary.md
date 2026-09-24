@@ -4,7 +4,7 @@
 
 Upstream: https://github.com/servo/rust-smallvec
 
-Candidate: 4d1d77849338f2532400094b00a5fc11f8cbec62-1
+Candidate: 0e60859e56db673e53482c6a09af3aa794c1f60b-1
 
 Provenance: verbatim
 
