@@ -1,0 +1,27 @@
+Command: rustup run 1.36.0 cargo check --locked --offline --tests
+Started: 2026-09-24T20:47:29.816542+00:00
+STDOUT:
+
+STDERR:
+   Compiling semver-parser v0.7.0
+   Compiling ryu v1.0.0
+    Checking void v1.0.2
+   Compiling autocfg v0.1.5
+    Checking static_assertions v0.3.3
+    Checking cfg-if v0.1.9
+    Checking lazy_static v1.3.0
+    Checking itoa v0.4.4
+    Checking dtoa v0.4.4
+    Checking bencher v0.1.5
+    Checking unreachable v1.0.0
+   Compiling num-traits v0.2.8
+   Compiling semver v0.9.0
+   Compiling rustc_version v0.2.3
+   Compiling stackvector v1.0.6
+   Compiling lexical-core v0.5.0 (/home/runner/work/_temp/upstream/lexical-core)
+   Compiling lexical v3.0.0 (/home/runner/work/_temp/upstream)
+    Checking approx v0.3.2
+    Finished dev [unoptimized + debuginfo] target(s) in 4.77s
+
+Exit: 0
+Timed out: False

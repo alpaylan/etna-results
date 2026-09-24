@@ -1,0 +1,41 @@
+Command: rustup run 1.36.0 cargo fetch --locked
+Started: 2026-09-24T20:47:28.793829+00:00
+STDOUT:
+
+STDERR:
+ Downloading crates ...
+  Downloaded semver-parser v0.7.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded unicode-xid v0.1.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded unreachable v1.0.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded approx v0.3.2 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded proc-macro2 v0.4.30 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded rand_core v0.4.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded lazy_static v1.3.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded dtoa v0.4.4 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded fuchsia-cprng v0.1.1 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded cfg-if v0.1.9 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded itoa v0.4.4 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded rand_core v0.3.1 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded static_assertions v0.3.3 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded void v1.0.2 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded rdrand v0.4.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded rustc_version v0.2.3 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded serde v1.0.98 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded semver v0.9.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded quote v0.6.13 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded autocfg v0.1.5 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded bencher v0.1.5 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded num-traits v0.2.8 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded ryu v1.0.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded serde_derive v1.0.98 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded toml v0.4.10 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded rand v0.4.6 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded syn v0.15.42 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded libc v0.2.60 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded winapi v0.3.7 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded stackvector v1.0.6 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded winapi-i686-pc-windows-gnu v0.4.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded winapi-x86_64-pc-windows-gnu v0.4.0 (registry `git://127.0.0.1:9419/era-index`)
+
+Exit: 0
+Timed out: False

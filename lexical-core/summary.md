@@ -4,12 +4,12 @@
 
 Upstream: https://github.com/Alexhuszagh/rust-lexical
 
-Candidate: 57dff01a83961728c7d006c74727c72092199a18-1
+Candidate: 295e1c2c2786c4f74b8247e2989e64155b708486-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 165 reachable from the saved tip.
+Reviewed commits: 1 / 247 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.
