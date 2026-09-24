@@ -1,0 +1,13 @@
+diff --git a/src/lib.rs b/src/lib.rs
+index b1732da..1c09066 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -650,7 +650,7 @@ impl<K: Hash + Eq, V, S: BuildHasher> LruCache<K, V, S> {
+     /// ```
+     pub fn clear(&mut self) {
+         loop {
+-            match self.pop_lru() {
++            match self.remove_last() {
+                 Some(_) => (),
+                 None => break,
+             }

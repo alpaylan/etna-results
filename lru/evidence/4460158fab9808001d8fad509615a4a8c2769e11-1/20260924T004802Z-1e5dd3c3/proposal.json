@@ -1,0 +1,13 @@
+{
+  "commit": "4460158fab9808001d8fad509615a4a8c2769e11",
+  "parent": "2d2f27216e6a1f11771b90a4c8ff636d7ff6d95d",
+  "fixed_commit": "4460158fab9808001d8fad509615a4a8c2769e11",
+  "summary": "clear() and shrinking resize() discarded boxed entries without dropping their MaybeUninit-wrapped keys and values, leaking their resources. The fix uses pop_lru(), which extracts initialized keys and values so their destructors run. This reversal isolates clear(). Its upstream regression test, added by the fix, should observe 9900 value drops instead of 10000 when run alone. No tests were executed.",
+  "test": "tests::test_no_memory_leaks_with_clear",
+  "expected_failure": "assertion failed: `(left == right)`\n  left: `9900`,\n right: `10000`",
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "    pub fn clear(&mut self) {\n        loop {\n            match self.pop_lru() {\n                Some(_) => (),\n                None => break,\n            }\n        }\n    }\n",
+    "parent_text": "    pub fn clear(&mut self) {\n        loop {\n            match self.remove_last() {\n                Some(_) => (),\n                None => break,\n            }\n        }\n    }\n"
+  }
+}

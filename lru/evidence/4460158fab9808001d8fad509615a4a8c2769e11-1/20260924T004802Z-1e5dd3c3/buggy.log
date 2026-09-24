@@ -1,0 +1,27 @@
+Command: rustup run 1.48.0 cargo test --locked --offline --lib tests::test_no_memory_leaks_with_clear -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:49:08.616357+00:00
+STDOUT:
+
+running 1 test
+test tests::test_no_memory_leaks_with_clear ... FAILED
+
+failures:
+
+failures:
+    tests::test_no_memory_leaks_with_clear
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 27 filtered out
+
+
+STDERR:
+   Compiling lru v0.6.2 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 0.95s
+     Running /home/runner/work/_temp/build-20260924T004802Z-1e5dd3c3/debug/deps/lru-7494d931eb4d6d95
+thread 'main' panicked at 'assertion failed: `(left == right)`
+  left: `9900`,
+ right: `10000`', src/lib.rs:1542:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass '--lib'
+
+Exit: 101
+Timed out: False
