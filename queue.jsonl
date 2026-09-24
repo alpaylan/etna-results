@@ -1177,3 +1177,4 @@
 {"claimed_at": "2026-09-24T17:04:19.419501+00:00", "claimed_by": "local://discovery-tick-1", "id": "75926fce51a0e2a7b731b2b907a1f34d34b7a282-1", "status": "claimed"}
 {"claimed_at": "2026-09-24T17:04:19.419502+00:00", "claimed_by": "local://discovery-tick-1", "id": "a71c212cdc2204a8868b8cc74e4ee48da2a4b5dc-1", "status": "claimed"}
 {"id": "5cf56035007f291b1b8f457fa3bfc79fb367419a-1", "published_at": "2026-09-24T17:06:08.957840+00:00", "run": {"attempt": "20260924T170554Z-072216dc", "id": "36031776168", "url": "https://github.com/alpaylan/etna-ify/actions/runs/36031776168"}, "status": "blocked"}
+{"id": "cf62e4648c5c42f0ccc17483d48cdaeaa9cb3788-1", "provenance": "verbatim", "published_at": "2026-09-24T17:10:35.014757+00:00", "run": {"attempt": "20260924T170547Z-40215c9a", "id": "36031761811", "url": "https://github.com/alpaylan/etna-ify/actions/runs/36031761811"}, "status": "confirmed"}

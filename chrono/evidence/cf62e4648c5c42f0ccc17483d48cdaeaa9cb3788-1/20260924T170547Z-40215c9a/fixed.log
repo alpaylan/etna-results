@@ -1,0 +1,71 @@
+Command: rustup run 1.72.1 cargo test --locked --offline --lib offset::tests::test_fixed_offset_min_max_dates -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T17:09:59.196955+00:00
+STDOUT:
+
+running 1 test
+test offset::tests::test_fixed_offset_min_max_dates ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 218 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling serde v1.0.188
+   Compiling ryu v1.0.15
+   Compiling itoa v1.0.9
+   Compiling num-traits v0.2.16
+   Compiling iana-time-zone v0.1.57
+   Compiling bincode v1.3.3
+   Compiling serde_json v1.0.107
+   Compiling chrono v0.4.31 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 6.42s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T170547Z-40215c9a/debug/deps/chrono-fd1f41caa7ce6926)
+[src/offset/mod.rs:553] offset_hour = -23
+[src/offset/mod.rs:553] offset_hour = -22
+[src/offset/mod.rs:553] offset_hour = -21
+[src/offset/mod.rs:553] offset_hour = -20
+[src/offset/mod.rs:553] offset_hour = -19
+[src/offset/mod.rs:553] offset_hour = -18
+[src/offset/mod.rs:553] offset_hour = -17
+[src/offset/mod.rs:553] offset_hour = -16
+[src/offset/mod.rs:553] offset_hour = -15
+[src/offset/mod.rs:553] offset_hour = -14
+[src/offset/mod.rs:553] offset_hour = -13
+[src/offset/mod.rs:553] offset_hour = -12
+[src/offset/mod.rs:553] offset_hour = -11
+[src/offset/mod.rs:553] offset_hour = -10
+[src/offset/mod.rs:553] offset_hour = -9
+[src/offset/mod.rs:553] offset_hour = -8
+[src/offset/mod.rs:553] offset_hour = -7
+[src/offset/mod.rs:553] offset_hour = -6
+[src/offset/mod.rs:553] offset_hour = -5
+[src/offset/mod.rs:553] offset_hour = -4
+[src/offset/mod.rs:553] offset_hour = -3
+[src/offset/mod.rs:553] offset_hour = -2
+[src/offset/mod.rs:553] offset_hour = -1
+[src/offset/mod.rs:553] offset_hour = 0
+[src/offset/mod.rs:553] offset_hour = 1
+[src/offset/mod.rs:553] offset_hour = 2
+[src/offset/mod.rs:553] offset_hour = 3
+[src/offset/mod.rs:553] offset_hour = 4
+[src/offset/mod.rs:553] offset_hour = 5
+[src/offset/mod.rs:553] offset_hour = 6
+[src/offset/mod.rs:553] offset_hour = 7
+[src/offset/mod.rs:553] offset_hour = 8
+[src/offset/mod.rs:553] offset_hour = 9
+[src/offset/mod.rs:553] offset_hour = 10
+[src/offset/mod.rs:553] offset_hour = 11
+[src/offset/mod.rs:553] offset_hour = 12
+[src/offset/mod.rs:553] offset_hour = 13
+[src/offset/mod.rs:553] offset_hour = 14
+[src/offset/mod.rs:553] offset_hour = 15
+[src/offset/mod.rs:553] offset_hour = 16
+[src/offset/mod.rs:553] offset_hour = 17
+[src/offset/mod.rs:553] offset_hour = 18
+[src/offset/mod.rs:553] offset_hour = 19
+[src/offset/mod.rs:553] offset_hour = 20
+[src/offset/mod.rs:553] offset_hour = 21
+[src/offset/mod.rs:553] offset_hour = 22
+[src/offset/mod.rs:553] offset_hour = 23
+
+Exit: 0
+Timed out: False

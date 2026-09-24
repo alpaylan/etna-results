@@ -1,0 +1,26 @@
+Command: rustup run 1.72.1 cargo test --locked --offline --lib offset::tests::test_fixed_offset_min_max_dates -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T17:10:05.714442+00:00
+STDOUT:
+
+running 1 test
+test offset::tests::test_fixed_offset_min_max_dates ... FAILED
+
+failures:
+
+failures:
+    offset::tests::test_fixed_offset_min_max_dates
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 218 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling chrono v0.4.31 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 3.56s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T170547Z-40215c9a/debug/deps/chrono-fd1f41caa7ce6926)
+[src/offset/mod.rs:537] offset_hour = -23
+thread 'offset::tests::test_fixed_offset_min_max_dates' panicked at '`NaiveDateTime - FixedOffset` out of range', src/naive/datetime/mod.rs:1844:38
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `--lib`
+
+Exit: 101
+Timed out: False

@@ -1,15 +1,17 @@
 # Cloud bug-mining prototype
 
-**blocked**: Reversal path is not changed by the upstream fix: 
+Resumed verified evidence; no tests rerun.
+
+**confirmed**: The same upstream test passed, panicked on the original defect ('`NaiveDateTime - FixedOffset` out of range'), and passed after restoration
 
 Upstream: https://github.com/chronotope/chrono
 
-Candidate: 5cf56035007f291b1b8f457fa3bfc79fb367419a-1
+Candidate: cf62e4648c5c42f0ccc17483d48cdaeaa9cb3788-1
 
 Provenance: verbatim
 
-Latest outcomes: {"blocked": 1}
+Latest outcomes: {"confirmed": 1}
 
-History coverage not yet recorded.
+Reviewed commits: 1 / 1375 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

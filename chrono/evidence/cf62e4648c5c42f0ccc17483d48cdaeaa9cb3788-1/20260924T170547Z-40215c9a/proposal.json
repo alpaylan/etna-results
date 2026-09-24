@@ -1,0 +1,13 @@
+{
+  "commit": "cf62e4648c5c42f0ccc17483d48cdaeaa9cb3788",
+  "parent": "652bd7842ab5a6856f241c23260789cbf3ab6c37",
+  "fixed_commit": "cf62e4648c5c42f0ccc17483d48cdaeaa9cb3788",
+  "summary": "TimeZone::from_local_datetime panicked when subtracting a timezone offset pushed a boundary datetime outside the representable range. The fix uses checked subtraction and returns LocalResult::None for out-of-range conversions, including ambiguous offsets. The regression test added by this commit exercises minimum and maximum datetimes across offsets from -23 to +23 hours; the reversed implementation should panic on its first maximum-datetime conversion. No tests were executed.",
+  "test": "offset::tests::test_fixed_offset_min_max_dates",
+  "expected_failure": "`NaiveDateTime - FixedOffset` out of range",
+  "reversal": {
+    "path": "src/offset/mod.rs",
+    "fixed_text": "    fn from_local_datetime(&self, local: &NaiveDateTime) -> LocalResult<DateTime<Self>> {\n        // Return `LocalResult::None` when the offset pushes a value out of range, instead of\n        // panicking.\n        match self.offset_from_local_datetime(local) {\n            LocalResult::None => LocalResult::None,\n            LocalResult::Single(offset) => match local.checked_sub_offset(offset.fix()) {\n                Some(dt) => LocalResult::Single(DateTime::from_naive_utc_and_offset(dt, offset)),\n                None => LocalResult::None,\n            },\n            LocalResult::Ambiguous(o1, o2) => {\n                match (local.checked_sub_offset(o1.fix()), local.checked_sub_offset(o2.fix())) {\n                    (Some(d1), Some(d2)) => LocalResult::Ambiguous(\n                        DateTime::from_naive_utc_and_offset(d1, o1),\n                        DateTime::from_naive_utc_and_offset(d2, o2),\n                    ),\n                    _ => LocalResult::None,\n                }\n            }\n        }\n    }\n",
+    "parent_text": "    fn from_local_datetime(&self, local: &NaiveDateTime) -> LocalResult<DateTime<Self>> {\n        self.offset_from_local_datetime(local)\n            .map(|offset| DateTime::from_naive_utc_and_offset(*local - offset.fix(), offset))\n    }\n"
+  }
+}
