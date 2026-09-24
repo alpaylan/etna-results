@@ -1,0 +1,14 @@
+Command: rustup run 1.78.0 cargo check --locked --offline --tests
+Started: 2026-09-24T23:25:07.734789+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+   Compiling serde v1.0.201
+    Checking smallvec v2.0.0-alpha.5 (/home/runner/work/_temp/upstream)
+    Checking bincode v1.3.3
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.72s
+
+Exit: 0
+Timed out: False

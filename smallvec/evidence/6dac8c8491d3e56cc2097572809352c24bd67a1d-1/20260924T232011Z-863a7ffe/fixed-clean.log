@@ -1,0 +1,11 @@
+Command: rustup run 1.78.0 cargo clean -p smallvec
+Started: 2026-09-24T23:25:10.581658+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+     Removed 30 files, 5.7MiB total
+
+Exit: 0
+Timed out: False

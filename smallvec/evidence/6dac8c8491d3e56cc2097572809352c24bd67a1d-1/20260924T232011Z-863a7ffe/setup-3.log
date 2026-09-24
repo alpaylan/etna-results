@@ -1,0 +1,18 @@
+Command: rustup run 1.78.0 cargo fetch --locked
+Started: 2026-09-24T23:25:07.540890+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+ Downloading crates ...
+  Downloaded quote v1.0.36 (registry `era`)
+  Downloaded bincode v1.3.3 (registry `era`)
+  Downloaded unicode-ident v1.0.12 (registry `era`)
+  Downloaded proc-macro2 v1.0.82 (registry `era`)
+  Downloaded serde_derive v1.0.201 (registry `era`)
+  Downloaded serde v1.0.201 (registry `era`)
+  Downloaded syn v2.0.61 (registry `era`)
+
+Exit: 0
+Timed out: False

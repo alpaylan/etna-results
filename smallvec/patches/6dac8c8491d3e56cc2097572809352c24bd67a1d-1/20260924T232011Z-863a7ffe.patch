@@ -1,0 +1,17 @@
+diff --git a/src/lib.rs b/src/lib.rs
+index da61d95..75c277f 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -961,11 +961,10 @@ impl<T, const N: usize> SmallVec<T, N> {
+         // SAFETY: see above
+         debug_assert!(self.spilled());
+         let len = self.len();
+-        let cap = self.raw.heap.1;
++        let (ptr, cap) = self.raw.heap;
+         if len == cap {
+             self.reserve(1);
+         }
+-        let ptr = self.raw.heap.0;
+         ptr.as_ptr().add(len).write(value);
+         self.set_len(len + 1)
+     }

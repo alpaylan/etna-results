@@ -1,0 +1,13 @@
+{
+  "commit": "6dac8c8491d3e56cc2097572809352c24bd67a1d",
+  "parent": "d0f49bcc7900dd80f5806f1b6684031adf132735",
+  "fixed_commit": "6dac8c8491d3e56cc2097572809352c24bd67a1d",
+  "summary": "SmallVec::push_heap cached the heap pointer before reserve(1), which could reallocate storage. The subsequent write could use a stale pointer, causing memory corruption or a crash when collecting an iterator without a size hint. The fix reads the pointer after reserving capacity. The regression test added by this commit collects one million bytes to exercise repeated growth; detection remains for the runner to establish.",
+  "test": "tests::collect_from_iter",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "        let cap = self.raw.heap.1;\n        if len == cap {\n            self.reserve(1);\n        }\n        let ptr = self.raw.heap.0;\n",
+    "parent_text": "        let (ptr, cap) = self.raw.heap;\n        if len == cap {\n            self.reserve(1);\n        }\n"
+  }
+}
