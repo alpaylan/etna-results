@@ -1,0 +1,13 @@
+{
+  "commit": "5ff21f4077df3b96cb20c4c9cc0da6ed2b90c1f3",
+  "parent": "6d4054a3a7b0d21da03a77c3e3d2f735b5f28aca",
+  "fixed_commit": "5ff21f4077df3b96cb20c4c9cc0da6ed2b90c1f3",
+  "summary": "Adding a negative duration with fractional seconds leaves a negative nanosecond remainder that is cast to u32, corrupting NaiveTime and NaiveDateTime arithmetic. The fix borrows one whole second and adds one second to the remainder, making it nonnegative before conversion. The regression test added by this commit checks that subtracting the base datetime recovers the original negative microsecond duration.",
+  "test": "naive::datetime::tests::test_datetime_add_sub_invariant",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/naive/time.rs",
+    "fixed_text": "        let mut rhssecs = rhs.num_seconds();\n        let mut rhs2 = rhs - Duration::seconds(rhssecs);\n        if rhs2 < Duration::zero() { // possible when rhs < 0\n            rhssecs -= 1;\n            rhs2 = rhs2 + Duration::seconds(1);\n        }\n        debug_assert!(rhs2 >= Duration::zero());\n        let mut secs = self.secs + (rhssecs % 86400 + 86400) as u32;\n",
+    "parent_text": "        let rhs2 = rhs - Duration::seconds(rhs.num_seconds());\n        let mut secs = self.secs + (rhs.num_seconds() % 86400 + 86400) as u32;\n"
+  }
+}
