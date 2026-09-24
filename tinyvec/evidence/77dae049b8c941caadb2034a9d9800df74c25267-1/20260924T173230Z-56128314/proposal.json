@@ -1,0 +1,13 @@
+{
+  "commit": "77dae049b8c941caadb2034a9d9800df74c25267",
+  "parent": "bfad8411c6de0f1b80585e5a3f3bb67c305d82fe",
+  "fixed_commit": "77dae049b8c941caadb2034a9d9800df74c25267",
+  "summary": "The tiny_vec! macro expands its heap arm using unqualified vec!, which fails to resolve in downstream no_std crates without that macro in scope. The fix uses $crate::alloc::vec! to resolve through tinyvec's alloc re-export. The proposed reversal restores that exact unqualified invocation. Blocked: the added tests/no_std_macro.rs contains only the compile-check function expands_to_heap, with no #[test]. Existing runtime macro tests use the std prelude, masking the bug. No qualifying executable regression test was found; compilation failure alone cannot satisfy the confirmation gate.",
+  "test": "",
+  "expected_failure": "cannot find macro `vec` in this scope",
+  "reversal": {
+    "path": "src/tinyvec.rs",
+    "fixed_text": "          f($crate::alloc::vec![$($elem),*])\n",
+    "parent_text": "          f(vec![$($elem),*])\n"
+  }
+}
