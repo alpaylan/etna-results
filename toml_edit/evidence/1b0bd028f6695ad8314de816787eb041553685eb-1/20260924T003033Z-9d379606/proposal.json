@@ -1,0 +1,13 @@
+{
+  "commit": "1b0bd028f6695ad8314de816787eb041553685eb",
+  "parent": "9eb4dab3fcb0e0a7e1480d33f479be8d16a6043e",
+  "fixed_commit": "1b0bd028f6695ad8314de816787eb041553685eb",
+  "summary": "Malformed array parsing can exit without an ArrayClose event, leaving the array span unset. A subsequent dotted key then triggers the document builder's 'all items have spans' panic instead of returning a parse error. The fix tracks the latest event span and supplies a fallback outer span. Reversing that fallback should expose the panic in the existing compliance test updated by this fix. No builds or tests were run.",
+  "test": "invalid::inline_table_missing_key_in_array",
+  "expected_failure": "all items have spans",
+  "reversal": {
+    "path": "crates/toml_edit/src/parser/array.rs",
+    "fixed_text": "    }\n    if result.span.is_none() {\n        result.span = Some(open_event.span().start()..close_span.end());\n    }\n\n    Value::Array(result)\n}",
+    "parent_text": "    }\n\n    Value::Array(result)\n}"
+  }
+}

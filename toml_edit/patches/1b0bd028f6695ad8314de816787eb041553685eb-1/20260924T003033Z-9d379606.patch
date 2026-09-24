@@ -1,0 +1,14 @@
+diff --git a/crates/toml_edit/src/parser/array.rs b/crates/toml_edit/src/parser/array.rs
+index 78e57b2..ce91ab8 100644
+--- a/crates/toml_edit/src/parser/array.rs
++++ b/crates/toml_edit/src/parser/array.rs
+@@ -76,9 +76,6 @@ pub(crate) fn on_array(
+             }
+         }
+     }
+-    if result.span.is_none() {
+-        result.span = Some(open_event.span().start()..close_span.end());
+-    }
+ 
+     Value::Array(result)
+ }
