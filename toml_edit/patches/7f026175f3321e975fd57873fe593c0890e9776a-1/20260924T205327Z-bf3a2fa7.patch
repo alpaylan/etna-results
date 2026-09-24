@@ -1,0 +1,31 @@
+diff --git a/src/de/item.rs b/src/de/item.rs
+index c8ba9b7..71f55a7 100644
+--- a/src/de/item.rs
++++ b/src/de/item.rs
+@@ -38,17 +38,6 @@ impl<'de, 'a> serde::Deserializer<'de> for ItemDeserializer {
+         self.input.deserialize_option(visitor)
+     }
+ 
+-    fn deserialize_newtype_struct<V>(
+-        self,
+-        _name: &'static str,
+-        visitor: V,
+-    ) -> Result<V::Value, Error>
+-    where
+-        V: serde::de::Visitor<'de>,
+-    {
+-        visitor.visit_newtype_struct(self)
+-    }
+-
+     fn deserialize_struct<V>(
+         self,
+         name: &'static str,
+@@ -86,7 +75,7 @@ impl<'de, 'a> serde::Deserializer<'de> for ItemDeserializer {
+ 
+     serde::forward_to_deserialize_any! {
+         bool u8 u16 u32 u64 i8 i16 i32 i64 f32 f64 char str string seq
+-        bytes byte_buf map unit
++        bytes byte_buf map unit newtype_struct
+         ignored_any unit_struct tuple_struct tuple identifier
+     }
+ }
