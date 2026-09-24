@@ -1,0 +1,13 @@
+{
+  "commit": "944f60397a35043ef5704e9bf76b26cdcb5fc55d",
+  "parent": "b955ac6606ed5be2f71757b99bf690b9398da175",
+  "fixed_commit": "944f60397a35043ef5704e9bf76b26cdcb5fc55d",
+  "summary": "For non-zero-sized elements, from_vec incorrectly treats a zero-capacity Vec's dangling pointer as heap storage. Calling shrink_to_fit then attempts to deallocate that pointer, causing undefined behavior. The fix returns an empty inline SmallVec when capacity is zero. The regression test added by this commit exercises that invalid deallocation path. No tests were executed during planning.",
+  "test": "tests::shrink_after_from_empty_vec",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "    pub fn from_vec(vec: Vec<T>) -> Self {\n        if vec.capacity() == 0 {\n            return Self::new();\n        }\n\n        if Self::is_zst() {\n",
+    "parent_text": "    pub fn from_vec(vec: Vec<T>) -> Self {\n        if Self::is_zst() {\n"
+  }
+}

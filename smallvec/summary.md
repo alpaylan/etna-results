@@ -1,19 +1,15 @@
 # Cloud bug-mining prototype
 
-Resumed verified evidence; no tests rerun.
-
-**confirmed**: The same upstream test passed, panicked on the original defect ('assertion `left == right` failed
-  left: 4
- right: 6'), and passed after restoration
+**blocked**: buggy: no completed execution of the exact upstream test
 
 Upstream: https://github.com/servo/rust-smallvec
 
-Candidate: 1bd2dbce81d9b58214bbbf5de30323017705d5a8-1
+Candidate: 944f60397a35043ef5704e9bf76b26cdcb5fc55d-1
 
 Provenance: verbatim
 
-Latest outcomes: {"confirmed": 1}
+Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 470 reachable from the saved tip.
+Reviewed commits: 1 / 453 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

@@ -1,0 +1,17 @@
+Command: rustup run 1.75.0 cargo test --locked --offline --lib tests::shrink_after_from_empty_vec -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T01:40:36.670786+00:00
+STDOUT:
+
+running 1 test
+test tests::shrink_after_from_empty_vec ... 
+STDERR:
+   Compiling smallvec v2.0.0-alpha.1 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 0.89s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T013605Z-b59b0565/debug/deps/smallvec-9f37e7a53ee1c50e)
+error: test failed, to rerun pass `--lib`
+
+Caused by:
+  process didn't exit successfully: `/home/runner/work/_temp/build-20260924T013605Z-b59b0565/debug/deps/smallvec-9f37e7a53ee1c50e 'tests::shrink_after_from_empty_vec' --exact --nocapture --test-threads=1` (signal: 11, SIGSEGV: invalid memory reference)
+
+Exit: 101
+Timed out: False
