@@ -1,0 +1,13 @@
+{
+  "commit": "bdd4144c3ba824eeccaefee66c1d4c5324fc3df0",
+  "parent": "4c26ba593abe7a5b1a15206edc116f3c64ff9da9",
+  "fixed_commit": "bdd4144c3ba824eeccaefee66c1d4c5324fc3df0",
+  "summary": "Quicksort retains equal_swap_side between partitioning iterations, so an earlier pivot-equal element can trigger a stale swap decision, causing incorrect partitioning or an out-of-bounds panic. The fix resets this state to None each iteration. The existing upstream property test, expanded by this commit, sorts generated integer vectors and checks their ordering. Detection remains subject to the runner's comparison; no tests were executed during planning.",
+  "test": "sort::test::test_quicksort",
+  "expected_failure": "index out of bounds",
+  "reversal": {
+    "path": "src/sort.rs",
+    "fixed_text": "    let mut greater_position = 0;\n\n    while less_position != less_focus.len() || greater_position != greater_focus.len() {\n        // At start of this loop, equal_position always points to an equal item\n        let mut equal_swap_side = None;\n        let equal_item = equal_focus.index(equal_position);\n",
+    "parent_text": "    let mut greater_position = 0;\n    let mut equal_swap_side = None;\n\n    while less_position != less_focus.len() || greater_position != greater_focus.len() {\n        // At start of this loop, equal_position always points to an equal item\n        let equal_item = equal_focus.index(equal_position);\n"
+  }
+}
