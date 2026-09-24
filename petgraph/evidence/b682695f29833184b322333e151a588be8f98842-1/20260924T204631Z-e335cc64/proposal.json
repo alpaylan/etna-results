@@ -1,0 +1,13 @@
+{
+  "commit": "b682695f29833184b322333e151a588be8f98842",
+  "parent": "29f4c92f5464e5609ddb0fec31c811f46215cbc0",
+  "fixed_commit": "b682695f29833184b322333e151a588be8f98842",
+  "summary": "StableGraph::reverse swaps links in vacant node and edge slots, corrupting the free lists maintained after removals. The fix reverses only occupied slots, preserving free-list links. The selected test was added by this fix and checks free-list integrity after removing nodes and reversing the graph; detection requires debug assertions. No builds or tests were run.",
+  "test": "graph_impl::stable_graph::test_reverse_after_remove_nodes",
+  "expected_failure": "assertion `left == right` failed",
+  "reversal": {
+    "path": "src/graph_impl/stable_graph/mod.rs",
+    "fixed_text": "        for edge in &mut self.g.edges {\n            if edge.weight.is_some() {\n                edge.node.swap(0, 1);\n                edge.next.swap(0, 1);\n            }\n        }\n        for node in &mut self.g.nodes {\n            if node.weight.is_some() {\n                node.next.swap(0, 1);\n            }\n        }\n",
+    "parent_text": "        for edge in &mut self.g.edges {\n            edge.node.swap(0, 1);\n            edge.next.swap(0, 1);\n        }\n        for node in &mut self.g.nodes {\n            node.next.swap(0, 1);\n        }\n"
+  }
+}

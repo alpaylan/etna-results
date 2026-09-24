@@ -1,0 +1,31 @@
+Command: rustup run 1.90.0 cargo test --locked --offline --lib graph_impl::stable_graph::test_reverse_after_remove_nodes -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T20:52:08.357819+00:00
+STDOUT:
+
+running 1 test
+test graph_impl::stable_graph::test_reverse_after_remove_nodes ... FAILED
+
+failures:
+
+failures:
+    graph_impl::stable_graph::test_reverse_after_remove_nodes
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 102 filtered out; finished in 0.00s
+
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+   Compiling petgraph v0.8.2 (/home/runner/work/_temp/upstream)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.12s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T204631Z-e335cc64/debug/deps/petgraph-582940463da5e8d4)
+
+thread 'graph_impl::stable_graph::test_reverse_after_remove_nodes' panicked at src/graph_impl/stable_graph/mod.rs:1429:21:
+assertion `left == right` failed
+  left: NodeIndex(1)
+ right: NodeIndex(4294967295)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `--lib`
+
+Exit: 101
+Timed out: False

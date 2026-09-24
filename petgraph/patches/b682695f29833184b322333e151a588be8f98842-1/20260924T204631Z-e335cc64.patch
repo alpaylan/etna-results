@@ -1,0 +1,23 @@
+diff --git a/src/graph_impl/stable_graph/mod.rs b/src/graph_impl/stable_graph/mod.rs
+index c5c3709..886273b 100644
+--- a/src/graph_impl/stable_graph/mod.rs
++++ b/src/graph_impl/stable_graph/mod.rs
+@@ -246,15 +246,11 @@ where
+         // edge incoming / outgoing lists,
+         // node incoming / outgoing lists
+         for edge in &mut self.g.edges {
+-            if edge.weight.is_some() {
+-                edge.node.swap(0, 1);
+-                edge.next.swap(0, 1);
+-            }
++            edge.node.swap(0, 1);
++            edge.next.swap(0, 1);
+         }
+         for node in &mut self.g.nodes {
+-            if node.weight.is_some() {
+-                node.next.swap(0, 1);
+-            }
++            node.next.swap(0, 1);
+         }
+     }
+ 

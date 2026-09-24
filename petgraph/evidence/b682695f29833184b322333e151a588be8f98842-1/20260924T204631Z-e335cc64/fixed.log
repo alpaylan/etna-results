@@ -1,0 +1,44 @@
+Command: rustup run 1.90.0 cargo test --locked --offline --lib graph_impl::stable_graph::test_reverse_after_remove_nodes -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T20:52:02.640022+00:00
+STDOUT:
+
+running 1 test
+test graph_impl::stable_graph::test_reverse_after_remove_nodes ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 102 filtered out; finished in 0.00s
+
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+   Compiling libc v0.2.176
+   Compiling serde_core v1.0.228
+   Compiling rawpointer v0.2.1
+   Compiling rand_core v0.4.2
+   Compiling foldhash v0.1.5
+   Compiling cfg-if v1.0.3
+   Compiling hashbrown v0.15.0
+   Compiling rand_core v0.3.1
+   Compiling rawslice v0.1.1
+   Compiling either v1.15.0
+   Compiling once_cell v1.20.3
+   Compiling unchecked-index v0.2.2
+   Compiling equivalent v1.0.2
+   Compiling byteorder v1.5.0
+   Compiling indexmap v2.11.4
+   Compiling fxhash v0.2.1
+   Compiling odds v0.4.0
+   Compiling getrandom v0.2.16
+   Compiling rand v0.5.6
+   Compiling ahash v0.7.8
+   Compiling itertools v0.12.1
+   Compiling fixedbitset v0.5.7
+   Compiling defmac v0.2.1
+   Compiling serde v1.0.228
+   Compiling bincode v1.3.3
+   Compiling petgraph v0.8.2 (/home/runner/work/_temp/upstream)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 5.41s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T204631Z-e335cc64/debug/deps/petgraph-582940463da5e8d4)
+
+Exit: 0
+Timed out: False
