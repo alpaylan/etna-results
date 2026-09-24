@@ -1,0 +1,13 @@
+{
+  "commit": "f9f3c7857d31c1c2341a1ddee0e9447f81a61465",
+  "parent": "cd0e3b008c1ea5c6835709ff72a1b76209f3831b",
+  "fixed_commit": "f9f3c7857d31c1c2341a1ddee0e9447f81a61465",
+  "summary": "Large day counts make checked_add_days and checked_sub_days panic while constructing Duration::days instead of returning None, also affecting DateTime through delegation. The fix checks multiplication into seconds and the duration bounds before constructing Duration::seconds. The implementation reversal is exact and unique. Blocked test selection: the detecting assertions added by this fix are doctests for NaiveDate::checked_add_days and NaiveDate::checked_sub_days in src/naive/date.rs, using Days::new(1000000000000). The current prototype runner supports named unit/integration test functions, not doctests. Existing named day-arithmetic tests do not exercise this duration overflow. No builds or tests were executed.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/naive/date.rs",
+    "fixed_text": "    fn diff_days(self, days: i64) -> Option<Self> {\n        let secs = days.checked_mul(86400)?; // 86400 seconds in one day\n        if secs >= core::i64::MAX / 1000 || secs <= core::i64::MIN / 1000 {\n            return None; // See the `time` 0.1 crate. Outside these bounds, `Duration::seconds` will panic\n        }\n        self.checked_add_signed(Duration::seconds(secs))\n    }\n",
+    "parent_text": "    fn diff_days(self, days: i64) -> Option<Self> {\n        self.checked_add_signed(Duration::days(days))\n    }\n"
+  }
+}

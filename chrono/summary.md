@@ -1,17 +1,15 @@
 # Cloud bug-mining prototype
 
-Resumed verified evidence; no tests rerun.
-
-**confirmed**: The same upstream test passed, panicked on the original defect ('byte index 3 is not a char boundary; it is inside 'ø' (bytes 2..4) of `øøø`'), and passed after restoration
+**blocked**: Proposal names no upstream test
 
 Upstream: https://github.com/chronotope/chrono
 
-Candidate: 5a6b2b40a781c19ad34a3593313468d922fceeea-1
+Candidate: f9f3c7857d31c1c2341a1ddee0e9447f81a61465-1
 
 Provenance: verbatim
 
-Latest outcomes: {"confirmed": 1}
+Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 1298 reachable from the saved tip.
+History coverage not yet recorded.
 
 Scope: one queued candidate; history coverage is partial.
