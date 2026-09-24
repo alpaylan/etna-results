@@ -1,0 +1,13 @@
+{
+  "commit": "1209e823b633c7ac73ae686896382b7207a907ac",
+  "parent": "7b88dc7d5e213a4d8095f4fed64d8f4732968fef",
+  "fixed_commit": "1209e823b633c7ac73ae686896382b7207a907ac",
+  "summary": "Size::Table left-pop performs size_table.pop_front() inside debug_assert_eq!, so disabling debug assertions skips the mutation. The stale size table can misdirect subsequent indexing and cause a panic. The fix executes the pop unconditionally and asserts only its result. The implementation reversal is exact and unique, but no detecting upstream test was established at this revision: the fix adds no tests, and inspection of existing vector regression and property tests did not establish coverage of the required table-backed left-pop and subsequent indexing. Leave this candidate blocked. Any future comparison must disable debug assertions consistently; no builds or tests were run.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/nodes/rrb.rs",
+    "fixed_text": "                        let first = size_table.pop_front();\n                        debug_assert_eq!(value, first);\n",
+    "parent_text": "                        debug_assert_eq!(value, size_table.pop_front());\n"
+  }
+}
