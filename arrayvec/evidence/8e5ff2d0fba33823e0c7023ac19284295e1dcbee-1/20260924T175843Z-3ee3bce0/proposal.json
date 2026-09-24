@@ -1,0 +1,13 @@
+{
+  "commit": "8e5ff2d0fba33823e0c7023ac19284295e1dcbee",
+  "parent": "d9222c0e61ecac7a896b82a54246bb4a038daa1d",
+  "fixed_commit": "8e5ff2d0fba33823e0c7023ac19284295e1dcbee",
+  "summary": "No valid functional-regression plan: this commit only renames ArrayVec::capacity_left to remaining_capacity and updates callers, documentation, and tests. Both revisions compute self.capacity() - self.len(); no runtime behavior changes. The updated test_capacity_left in tests/tests.rs retains the same assertions. Reversing the rename while preserving upstream tests would cause missing-method compilation errors, which cannot satisfy the confirmation gate. No builds or tests were run.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
