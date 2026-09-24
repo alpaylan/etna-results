@@ -1,0 +1,13 @@
+{
+  "commit": "b87cf17dd5690f8de408015fa014b51c25fbf1d6",
+  "parent": "8794b00b65662b42761a70a8114a69ea2fa913f9",
+  "fixed_commit": "b87cf17dd5690f8de408015fa014b51c25fbf1d6",
+  "summary": "StableGraph::node_bound returned 1 when no live nodes existed because rposition returned None and unwrap_or(0) + 1 produced 1. The fix returns 0 for no live nodes and otherwise the highest live node index plus one. Contrary to the imported description, the parent expression already gives the correct bound for nonempty dense graphs. Blocked: the fix adds no tests, and inspection of existing StableGraph unit, integration, and QuickCheck tests found no detecting upstream test at this revision. The exact implementation reversal is available; no builds or tests were run.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/stable_graph.rs",
+    "fixed_text": "        self.node_indices()\n            .next_back()\n            .map_or(0, |i| i.index() + 1)\n",
+    "parent_text": "        self.g.nodes.iter().rposition(|elt| elt.weight.is_some()).unwrap_or(0) + 1\n"
+  }
+}
