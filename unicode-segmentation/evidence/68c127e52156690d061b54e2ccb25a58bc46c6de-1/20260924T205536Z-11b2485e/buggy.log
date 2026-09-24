@@ -1,0 +1,30 @@
+Command: rustup run 1.98.0 cargo test --locked --offline --test test test_size_hint_is_a_valid_bound -- --nocapture --test-threads=1
+Started: 2026-09-24T21:03:43.801747+00:00
+STDOUT:
+
+running 1 test
+test test_size_hint_is_a_valid_bound ... FAILED
+
+failures:
+
+failures:
+    test_size_hint_is_a_valid_bound
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 8 filtered out; finished in 0.00s
+
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+  |
+  = help: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+   Compiling unicode-segmentation v1.13.3 (/home/runner/work/_temp/upstream)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.03s
+     Running tests/test.rs (/home/runner/work/_temp/build-20260924T205536Z-11b2485e/debug/deps/test-1ede379d469806a4)
+
+thread 'test_size_hint_is_a_valid_bound' (4326) panicked at src/sentence.rs:380:22:
+attempt to subtract with overflow
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `--test test`
+
+Exit: 101
+Timed out: False

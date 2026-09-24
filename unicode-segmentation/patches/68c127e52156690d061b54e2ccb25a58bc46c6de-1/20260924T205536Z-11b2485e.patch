@@ -1,0 +1,25 @@
+diff --git a/src/sentence.rs b/src/sentence.rs
+index 4a51a08..4b0729e 100644
+--- a/src/sentence.rs
++++ b/src/sentence.rs
+@@ -8,6 +8,7 @@
+ // option. This file may not be copied, modified, or distributed
+ // except according to those terms.
+ 
++use core::cmp;
+ use core::iter::Filter;
+ 
+ // All of the logic for forward iteration over sentences
+@@ -375,11 +376,8 @@ impl<'a> Iterator for USentenceBounds<'a> {
+ 
+     #[inline]
+     fn size_hint(&self) -> (usize, Option<usize>) {
+-        // The inner iterator yields break positions, and a sentence spans two of
+-        // them, so each bound is one less - saturating, because the inner lower
+-        // bound is 0 for an empty string and `usize` subtraction would underflow.
+         let (lower, upper) = self.iter.size_hint();
+-        (lower.saturating_sub(1), upper.map(|u| u.saturating_sub(1)))
++        (cmp::max(0, lower - 1), upper.map(|u| cmp::max(0, u - 1)))
+     }
+ 
+     #[inline]
