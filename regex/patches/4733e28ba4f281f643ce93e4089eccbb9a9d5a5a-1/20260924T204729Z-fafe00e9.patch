@@ -1,0 +1,16 @@
+diff --git a/regex-automata/src/dfa/onepass.rs b/regex-automata/src/dfa/onepass.rs
+index 5b6a0bd..f591e84 100644
+--- a/regex-automata/src/dfa/onepass.rs
++++ b/regex-automata/src/dfa/onepass.rs
+@@ -2103,10 +2103,7 @@ impl DFA {
+         // provide any number of slots that they want.)
+         let explicit_slots_len = core::cmp::min(
+             Slots::LIMIT,
+-            core::cmp::min(
+-                slots.len().saturating_sub(self.explicit_slot_start),
+-                cache.explicit_slots.len(),
+-            ),
++            slots.len().saturating_sub(self.explicit_slot_start),
+         );
+         cache.setup_search(explicit_slots_len);
+         for slot in cache.explicit_slots() {

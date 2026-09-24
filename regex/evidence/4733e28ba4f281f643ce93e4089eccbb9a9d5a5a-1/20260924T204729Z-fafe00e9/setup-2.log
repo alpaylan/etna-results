@@ -1,0 +1,27 @@
+Command: rustup run 1.93.0 cargo generate-lockfile
+Started: 2026-09-24T20:50:30.580068+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+  |
+  = help: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+    Updating `era` index
+     Locking 55 packages to latest Rust 1.65 compatible versions
+      Adding bstr v1.10.0 (available: v1.12.1, requires Rust 1.73)
+      Adding env_logger v0.9.3 (available: v0.10.2)
+      Adding indexmap v2.11.4 (available: v2.13.0, requires Rust 1.82)
+      Adding log v0.4.28 (available: v0.4.29, requires Rust 1.68.0)
+      Adding proc-macro2 v1.0.103 (available: v1.0.106, requires Rust 1.68)
+      Adding quote v1.0.41 (available: v1.0.44, requires Rust 1.68)
+      Adding serde_spanned v0.6.8 (available: v0.6.9, requires Rust 1.66)
+      Adding syn v2.0.106 (available: v2.0.114, requires Rust 1.68)
+      Adding textwrap v0.16.1 (available: v0.16.2, requires Rust 1.70)
+      Adding toml v0.8.20 (available: v0.8.23, requires Rust 1.66)
+      Adding toml_datetime v0.6.8 (available: v0.6.11, requires Rust 1.66)
+      Adding toml_edit v0.22.24 (available: v0.22.27, requires Rust 1.66)
+      Adding unicode-width v0.2.0 (available: v0.2.2, requires Rust 1.66)
+      Adding windows-link v0.2.1 (requires Rust 1.71)
+
+Exit: 0
+Timed out: False

@@ -1,0 +1,13 @@
+{
+  "commit": "4733e28ba4f281f643ce93e4089eccbb9a9d5a5a",
+  "parent": "5ea3eb1e95f0338e283f5f0b4681f0891a1cd836",
+  "fixed_commit": "4733e28ba4f281f643ce93e4089eccbb9a9d5a5a",
+  "summary": "onepass::DFA::try_search_slots panics when callers supply more slots than the compiled regex requires, despite the API permitting any slot count. The fix caps the active explicit-slot count at the cache length and limits copying to the available cached slots. This reversal restores the original slot-count calculation, causing the fix-added test for pattern abc with four slots to slice beyond its empty explicit-slot cache. Both regions occur exactly once in their respective Git versions. No tests were executed.",
+  "test": "dfa::onepass::regression::too_many_slots_normal_pattern",
+  "expected_failure": "range end index 2 out of range for slice of length 0",
+  "reversal": {
+    "path": "regex-automata/src/dfa/onepass.rs",
+    "fixed_text": "        let explicit_slots_len = core::cmp::min(\n            Slots::LIMIT,\n            core::cmp::min(\n                slots.len().saturating_sub(self.explicit_slot_start),\n                cache.explicit_slots.len(),\n            ),\n        );\n",
+    "parent_text": "        let explicit_slots_len = core::cmp::min(\n            Slots::LIMIT,\n            slots.len().saturating_sub(self.explicit_slot_start),\n        );\n"
+  }
+}
