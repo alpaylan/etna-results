@@ -1,0 +1,13 @@
+{
+  "commit": "b428d6504dd5f600ebe2a13bdd7b6510aa7d4a17",
+  "parent": "e870a6d2d05a7dcc95f871536500f85a9ee61115",
+  "fixed_commit": "b428d6504dd5f600ebe2a13bdd7b6510aa7d4a17",
+  "summary": "hex_uint accepted excessive leading hexadecimal digits by parsing only the first max_nibbles digits and leaving the rest as remainder. For u32, input \"00c5a31be2;\" incorrectly returned Ok((\"e2;\", 12952347)). The fix returns ErrorKind::IsA when the leading hexadecimal sequence exceeds the output type's digit limit. The selected upstream test was updated by this fix to require that error. Both reversal regions occur exactly once in their respective source files.",
+  "test": "character::tests::complete::hex_uint_tests",
+  "expected_failure": "assertion `left == right` failed: input \"00c5a31be2;\" returns Ok with remainder \"e2;\" and value 12952347 instead of Err(Backtrack(...IsA)).",
+  "reversal": {
+    "path": "src/character/mod.rs",
+    "fixed_text": "    Ok(max_offset) => {\n      if max_offset < invalid_offset {\n        // Overflow\n        return Err(ErrMode::from_error_kind(input, ErrorKind::IsA));\n      } else {\n        invalid_offset\n      }\n    }\n",
+    "parent_text": "    Ok(max_offset) => invalid_offset.min(max_offset),\n"
+  }
+}
