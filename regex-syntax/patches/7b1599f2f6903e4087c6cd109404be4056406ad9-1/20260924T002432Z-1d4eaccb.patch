@@ -1,0 +1,18 @@
+diff --git a/regex-syntax/src/ast/parse.rs b/regex-syntax/src/ast/parse.rs
+index 9e9900c..ed4bf92 100644
+--- a/regex-syntax/src/ast/parse.rs
++++ b/regex-syntax/src/ast/parse.rs
+@@ -1100,13 +1100,6 @@ impl<'s, P: Borrow<Parser>> ParserI<'s, P> {
+                 ast::ErrorKind::RepetitionMissing,
+             )),
+         };
+-        match ast {
+-            Ast::Empty(_) | Ast::Flags(_) => return Err(self.error(
+-                self.span(),
+-                ast::ErrorKind::RepetitionMissing,
+-            )),
+-            _ => {}
+-        }
+         if !self.bump_and_bump_space() {
+             return Err(self.error(
+                 Span::new(start, self.pos()),

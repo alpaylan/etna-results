@@ -1,0 +1,13 @@
+{
+  "commit": "7b1599f2f6903e4087c6cd109404be4056406ad9",
+  "parent": "67fca6cbfff22bb297e0935bc3c267bc336d4e3b",
+  "fixed_commit": "7b1599f2f6903e4087c6cd109404be4056406ad9",
+  "summary": "Counted repetition accepted flag directives as repetition targets, causing HIR translation to panic on patterns such as (?m){1,1}. The fix rejects Ast::Empty and Ast::Flags targets with RepetitionMissing. Reversing only this guard restores the historical bug. The selected regression test was added by the fix in tests/regression.rs and is included by the default integration test target. No builds or tests were run.",
+  "test": "regression::regression_invalid_repetition_expr",
+  "expected_failure": "called `Option::unwrap()` on a `None` value",
+  "reversal": {
+    "path": "regex-syntax/src/ast/parse.rs",
+    "fixed_text": "        assert!(self.char() == '{');\n        let start = self.pos();\n        let ast = match concat.asts.pop() {\n            Some(ast) => ast,\n            None => return Err(self.error(\n                self.span(),\n                ast::ErrorKind::RepetitionMissing,\n            )),\n        };\n        match ast {\n            Ast::Empty(_) | Ast::Flags(_) => return Err(self.error(\n                self.span(),\n                ast::ErrorKind::RepetitionMissing,\n            )),\n            _ => {}\n        }\n",
+    "parent_text": "        assert!(self.char() == '{');\n        let start = self.pos();\n        let ast = match concat.asts.pop() {\n            Some(ast) => ast,\n            None => return Err(self.error(\n                self.span(),\n                ast::ErrorKind::RepetitionMissing,\n            )),\n        };\n"
+  }
+}
