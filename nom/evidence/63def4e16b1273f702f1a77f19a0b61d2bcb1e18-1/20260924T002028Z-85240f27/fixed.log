@@ -1,0 +1,47 @@
+Command: rustup run 1.73.0 cargo test --locked --offline --test float float_test -- --nocapture --test-threads=1
+Started: 2026-09-24T00:24:06.097835+00:00
+STDOUT:
+
+running 2 tests
+test float_test ... ok
+test unsigned_float_test ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling libc v0.2.149
+   Compiling cfg-if v1.0.0
+   Compiling bitflags v2.4.1
+   Compiling linux-raw-sys v0.4.10
+   Compiling fastrand v2.0.1
+   Compiling ppv-lite86 v0.2.17
+   Compiling bit-vec v0.6.3
+   Compiling rustix v0.38.20
+   Compiling fnv v1.0.7
+   Compiling quick-error v1.2.3
+   Compiling getrandom v0.2.10
+   Compiling wait-timeout v0.2.0
+   Compiling bit-set v0.5.3
+   Compiling rand_core v0.6.4
+   Compiling num-traits v0.2.17
+   Compiling rand_chacha v0.3.1
+   Compiling rand_xorshift v0.3.0
+   Compiling memchr v2.6.4
+   Compiling rand v0.8.5
+   Compiling lazy_static v1.4.0
+   Compiling minimal-lexical v0.2.1
+   Compiling bitflags v1.3.2
+   Compiling quick-error v2.0.1
+   Compiling regex-syntax v0.6.29
+   Compiling tempfile v3.8.0
+   Compiling byteorder v1.5.0
+   Compiling rusty-fork v0.3.0
+   Compiling nom v7.1.2 (/home/runner/work/_temp/upstream)
+   Compiling doc-comment v0.3.3
+   Compiling proptest v1.0.0
+    Finished test [unoptimized + debuginfo] target(s) in 6.40s
+     Running tests/float.rs (/home/runner/work/_temp/build-20260924T002028Z-85240f27/debug/deps/float-65f3c9d5f9bc3530)
+
+Exit: 0
+Timed out: False

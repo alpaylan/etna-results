@@ -1,17 +1,15 @@
 # Cloud bug-mining prototype
 
-Resumed verified evidence; no tests rerun.
-
-**confirmed**: The same upstream test passed, panicked on the original defect ('attempt to divide by zero'), and passed after restoration
+**blocked**: fixed: no completed execution of the exact upstream test
 
 Upstream: https://github.com/rust-bakery/nom
 
-Candidate: 931bcf0109decd100746297a0d0fa243f8c39e23-1
+Candidate: 63def4e16b1273f702f1a77f19a0b61d2bcb1e18-1
 
 Provenance: verbatim
 
-Latest outcomes: {"confirmed": 1}
+Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 2644 reachable from the saved tip.
+Reviewed commits: 1 / 2678 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

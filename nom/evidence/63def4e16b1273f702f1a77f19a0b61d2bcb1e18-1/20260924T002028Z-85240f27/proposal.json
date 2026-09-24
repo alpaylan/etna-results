@@ -1,0 +1,13 @@
+{
+  "commit": "63def4e16b1273f702f1a77f19a0b61d2bcb1e18",
+  "parent": "c98ffebc56da7e13199428144db3ba4833144e3c",
+  "fixed_commit": "63def4e16b1273f702f1a77f19a0b61d2bcb1e18",
+  "summary": "The complete float parser matched \"inf\" before \"infinity\", returning positive infinity while leaving \"inity\" unconsumed. The fix tries the longer literal first, consuming \"infinity\" fully. The upstream fix updates number::complete::tests::float_test to assert that the remainder is empty. Reversing only these two implementation branches should trigger that assertion; no tests were run during planning.",
+  "test": "number::complete::tests::float_test",
+  "expected_failure": "assertion failed: i.is_empty()",
+  "reversal": {
+    "path": "src/number/complete.rs",
+    "fixed_text": "    |i: T| {\n      crate::bytes::complete::tag_no_case::<_, _, E>(\"infinity\")(i.clone())\n        .map_err(|_| crate::Err::Error(E::from_error_kind(i, ErrorKind::Float)))\n    },\n    |i: T| {\n      crate::bytes::complete::tag_no_case::<_, _, E>(\"inf\")(i.clone())\n        .map_err(|_| crate::Err::Error(E::from_error_kind(i, ErrorKind::Float)))\n    },\n",
+    "parent_text": "    |i: T| {\n      crate::bytes::complete::tag_no_case::<_, _, E>(\"inf\")(i.clone())\n        .map_err(|_| crate::Err::Error(E::from_error_kind(i, ErrorKind::Float)))\n    },\n    |i: T| {\n      crate::bytes::complete::tag_no_case::<_, _, E>(\"infinity\")(i.clone())\n        .map_err(|_| crate::Err::Error(E::from_error_kind(i, ErrorKind::Float)))\n    },\n"
+  }
+}

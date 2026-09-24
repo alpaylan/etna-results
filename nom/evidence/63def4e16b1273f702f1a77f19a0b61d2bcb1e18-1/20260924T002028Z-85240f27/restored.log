@@ -1,0 +1,18 @@
+Command: rustup run 1.73.0 cargo test --locked --offline --test float float_test -- --nocapture --test-threads=1
+Started: 2026-09-24T00:24:15.431872+00:00
+STDOUT:
+
+running 2 tests
+test float_test ... ok
+test unsigned_float_test ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling nom v7.1.2 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 2.62s
+     Running tests/float.rs (/home/runner/work/_temp/build-20260924T002028Z-85240f27/debug/deps/float-65f3c9d5f9bc3530)
+
+Exit: 0
+Timed out: False
