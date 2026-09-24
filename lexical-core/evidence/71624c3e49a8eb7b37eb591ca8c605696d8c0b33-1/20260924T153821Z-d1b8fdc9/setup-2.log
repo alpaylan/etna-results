@@ -1,0 +1,23 @@
+Command: rustup run 1.61.0 cargo generate-lockfile
+Started: 2026-09-24T15:39:25.238771+00:00
+STDOUT:
+
+STDERR:
+    Updating `era` index
+    Updating git repository `https://github.com/neithernut/quickcheck/`
+error: failed to get `quickcheck` as a dependency of package `lexical-parse-float v0.8.5 (/home/runner/work/_temp/upstream/lexical-parse-float)`
+
+Caused by:
+  failed to load source for dependency `quickcheck`
+
+Caused by:
+  Unable to update https://github.com/neithernut/quickcheck/?branch=i32min-shrink-bound
+
+Caused by:
+  failed to find branch `i32min-shrink-bound`
+
+Caused by:
+  cannot locate remote-tracking branch 'origin/i32min-shrink-bound'; class=Reference (4); code=NotFound (-3)
+
+Exit: 101
+Timed out: False

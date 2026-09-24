@@ -1,0 +1,13 @@
+{
+  "commit": "71624c3e49a8eb7b37eb591ca8c605696d8c0b33",
+  "parent": "17dca4a1bfefa7b8593be71d49775a3f259e3f5a",
+  "fixed_commit": "71624c3e49a8eb7b37eb591ca8c605696d8c0b33",
+  "summary": "When partial integer parsing encounters an invalid digit after a negative number, it returns the unsigned magnitude without applying the negative sign: parsing \"-1a\" as i8 returns Ok((1, 2)) instead of Ok((-1, 2)). The fix applies wrapping negation before converting the accumulated value to the signed result. The fix adds a detecting assertion to i8_decimal_test in lexical-parse-integer/tests/api_tests.rs. Both reversal regions occur exactly once, and replacing the fixed region restores the parent implementation file exactly. Tests were not run.",
+  "test": "i8_decimal_test",
+  "expected_failure": "assertion failed: `(left == right)`\n  left: `Ok((-1, 2))`,\n right: `Ok((1, 2))`",
+  "reversal": {
+    "path": "lexical-parse-integer/src/shared.rs",
+    "fixed_text": "        } else if <$t>::IS_SIGNED && $is_negative {\n            into_ok_partial!($value.wrapping_neg(), $iter.cursor() - 1)\n        } else {\n            into_ok_partial!($value, $iter.cursor() - 1)\n        }\n",
+    "parent_text": "        } else {\n            into_ok_partial!($value, $iter.cursor() - 1)\n        }\n"
+  }
+}

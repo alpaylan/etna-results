@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: Proposal names no upstream test
+**blocked**: Dependency setup failed; see setup logs
 
 Upstream: https://github.com/Alexhuszagh/rust-lexical
 
-Candidate: ff2cf9f90677c9c69a7d469034717ba714b7f99a-1
+Candidate: 71624c3e49a8eb7b37eb591ca8c605696d8c0b33-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-History coverage not yet recorded.
+Reviewed commits: 1 / 750 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.
