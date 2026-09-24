@@ -1,0 +1,13 @@
+{
+  "commit": "3bc74361d157ffd52910223aded0bde58300a14c",
+  "parent": "80f8d1595ef93b24ed676d015d3bf263687cf199",
+  "fixed_commit": "3bc74361d157ffd52910223aded0bde58300a14c",
+  "summary": "Blocked: this commit only raises the combine dependency requirement from 4.5.2 to 4.6.3 and updates 24 diagnostic snapshots. The upgrade removes misleading backticks around descriptive expectations, such as changing 'Expected `key`' to 'Expected key'. The existing tests/test_invalid.rs snapshot harness checks these diagnostics, but no implementation file changes in this commit, so no permitted verbatim implementation reversal exists. Reverting the dependency requirement also permits combine 4.6.3 and therefore does not reliably restore the old behavior. No builds or tests were run.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
