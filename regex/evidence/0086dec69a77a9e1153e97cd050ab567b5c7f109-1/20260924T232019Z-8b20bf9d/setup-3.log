@@ -1,0 +1,53 @@
+Command: rustup run 1.73.0 cargo fetch --locked
+Started: 2026-09-24T23:23:34.919981+00:00
+STDOUT:
+
+STDERR:
+ Downloading crates ...
+  Downloaded termcolor v1.3.0 (registry `era`)
+  Downloaded rand v0.8.5 (registry `era`)
+  Downloaded rand_core v0.6.4 (registry `era`)
+  Downloaded quickcheck v1.0.3 (registry `era`)
+  Downloaded quote v1.0.33 (registry `era`)
+  Downloaded cfg-if v1.0.0 (registry `era`)
+  Downloaded doc-comment v0.3.3 (registry `era`)
+  Downloaded hermit-abi v0.1.19 (registry `era`)
+  Downloaded atty v0.2.14 (registry `era`)
+  Downloaded tabwriter v1.3.0 (registry `era`)
+  Downloaded equivalent v1.0.1 (registry `era`)
+  Downloaded unicode-width v0.1.11 (registry `era`)
+  Downloaded winapi-util v0.1.6 (registry `era`)
+  Downloaded derive_arbitrary v1.3.1 (registry `era`)
+  Downloaded memmap2 v0.5.10 (registry `era`)
+  Downloaded toml_datetime v0.6.3 (registry `era`)
+  Downloaded indexmap v2.0.2 (registry `era`)
+  Downloaded humantime v2.1.0 (registry `era`)
+  Downloaded env_logger v0.9.3 (registry `era`)
+  Downloaded proc-macro2 v1.0.69 (registry `era`)
+  Downloaded serde_spanned v0.6.3 (registry `era`)
+  Downloaded wasi v0.11.0+wasi-snapshot-preview1 (registry `era`)
+  Downloaded anyhow v1.0.75 (registry `era`)
+  Downloaded getrandom v0.2.10 (registry `era`)
+  Downloaded toml v0.7.8 (registry `era`)
+  Downloaded memchr v2.6.4 (registry `era`)
+  Downloaded serde v1.0.189 (registry `era`)
+  Downloaded toml_edit v0.19.15 (registry `era`)
+  Downloaded syn v2.0.38 (registry `era`)
+  Downloaded hashbrown v0.14.1 (registry `era`)
+  Downloaded bstr v1.7.0 (registry `era`)
+  Downloaded aho-corasick v1.1.2 (registry `era`)
+  Downloaded libc v0.2.149 (registry `era`)
+  Downloaded winapi v0.3.9 (registry `era`)
+  Downloaded winnow v0.5.17 (registry `era`)
+  Downloaded arbitrary v1.3.1 (registry `era`)
+  Downloaded textwrap v0.16.0 (registry `era`)
+  Downloaded serde_derive v1.0.189 (registry `era`)
+  Downloaded winapi-i686-pc-windows-gnu v0.4.0 (registry `era`)
+  Downloaded winapi-x86_64-pc-windows-gnu v0.4.0 (registry `era`)
+  Downloaded once_cell v1.18.0 (registry `era`)
+  Downloaded log v0.4.20 (registry `era`)
+  Downloaded unicode-ident v1.0.12 (registry `era`)
+  Downloaded lexopt v0.3.0 (registry `era`)
+
+Exit: 0
+Timed out: False
