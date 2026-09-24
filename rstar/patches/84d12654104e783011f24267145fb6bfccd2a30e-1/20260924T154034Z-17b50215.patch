@@ -1,0 +1,28 @@
+diff --git a/rstar/src/aabb.rs b/rstar/src/aabb.rs
+index 2c76aa2..aaed847 100644
+--- a/rstar/src/aabb.rs
++++ b/rstar/src/aabb.rs
+@@ -1,6 +1,6 @@
+ use crate::point::{max_inline, Point, PointExt};
+ use crate::{Envelope, RTreeObject};
+-use num_traits::{One, Zero};
++use num_traits::{Bounded, One, Zero};
+ 
+ #[cfg(feature = "serde")]
+ use serde::{Deserialize, Serialize};
+@@ -220,11 +220,11 @@ where
+ }
+ 
+ fn new_empty<P: Point>() -> AABB<P> {
+-    let one = P::Scalar::one();
+-    let zero = P::Scalar::zero();
++    let max = P::Scalar::max_value();
++    let min = P::Scalar::min_value();
+     AABB {
+-        lower: P::from_value(one),
+-        upper: P::from_value(zero),
++        lower: P::from_value(max),
++        upper: P::from_value(min),
+     }
+ }
+ 

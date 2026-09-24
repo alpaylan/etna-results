@@ -1,0 +1,9 @@
+Command: rustup run 1.77.1 cargo clean -p rstar
+Started: 2026-09-24T15:44:41.859290+00:00
+STDOUT:
+
+STDERR:
+     Removed 20 files, 9.5MiB total
+
+Exit: 0
+Timed out: False
