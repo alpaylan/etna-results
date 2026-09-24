@@ -1,0 +1,21 @@
+diff --git a/src/lib.rs b/src/lib.rs
+index 40e98d5..069c0cb 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -47,14 +47,9 @@ pub fn jaro(a: &str, b: &str) -> f64 {
+ 
+     let a_len = a.chars().count();
+     let b_len = b.chars().count();
++    if a_len == 0 || b_len == 0 { return 0.0; }
+ 
+-    // The check for lengths of one here is to prevent integer overflow when
+-    // calculating the search range.
+-    if a_len == 0 || b_len == 0 || (a_len == 1 && b_len == 1) {
+-        return 0.0;
+-    }
+-
+-    let search_range = (max(a_len, b_len) / 2) - 1;
++    let search_range = max(0, (max(a_len, b_len) / 2) - 1);
+ 
+     let mut b_consumed = Vec::with_capacity(b_len);
+     for _ in 0..b_len {

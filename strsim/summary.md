@@ -4,12 +4,12 @@
 
 Upstream: https://github.com/rapidfuzz/strsim-rs
 
-Candidate: 14cf91e0ef0bb4a0c2aebaeeee691ba70d28a7e5-1
+Candidate: 3dfff3d4339e205651e99cab4ad8e193c07eaf83-1
 
 Provenance: verbatim
 
 Latest outcomes: {"unconfirmed": 1}
 
-Reviewed commits: 1 / 29 reachable from the saved tip.
+Reviewed commits: 1 / 39 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

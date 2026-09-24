@@ -1,0 +1,9 @@
+Command: rustup run 1.11.0 cargo build
+Started: 2026-09-24T01:27:35.723661+00:00
+STDOUT:
+
+STDERR:
+   Compiling strsim v0.5.0 (file:///home/runner/work/_temp/upstream)
+
+Exit: 0
+Timed out: False

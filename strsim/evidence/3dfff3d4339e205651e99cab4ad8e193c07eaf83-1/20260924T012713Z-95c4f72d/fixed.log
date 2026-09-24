@@ -1,0 +1,16 @@
+Command: rustup run 1.11.0 cargo test --lib tests::jaro_diff_one_character -- --nocapture
+Started: 2026-09-24T01:27:36.265380+00:00
+STDOUT:
+
+running 1 test
+test tests::jaro_diff_one_character ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured
+
+
+STDERR:
+   Compiling strsim v0.5.0 (file:///home/runner/work/_temp/upstream)
+     Running /home/runner/work/_temp/build-20260924T012713Z-95c4f72d/debug/strsim-4acbdf072dbc2863
+
+Exit: 0
+Timed out: False

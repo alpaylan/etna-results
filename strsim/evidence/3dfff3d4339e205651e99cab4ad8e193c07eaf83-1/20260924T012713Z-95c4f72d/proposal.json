@@ -1,0 +1,13 @@
+{
+  "commit": "3dfff3d4339e205651e99cab4ad8e193c07eaf83",
+  "parent": "819e3e2fd51bc14386161444f6fbb727e764becb",
+  "fixed_commit": "3dfff3d4339e205651e99cab4ad8e193c07eaf83",
+  "summary": "Distinct one-character strings cause unsigned subtraction underflow when jaro calculates its search range, panicking with overflow checks enabled; jaro_winkler inherits the panic. The original max(0, ...) cannot prevent underflow during argument evaluation. This fix returns 0.0 before that calculation for distinct one-character inputs; identical strings already return 1.0. Contrary to the imported description, this commit does not use saturating_sub. The selected regression test was added by the fix. No tests were run.",
+  "test": "tests::jaro_diff_one_character",
+  "expected_failure": "attempt to subtract with overflow",
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "    let b_len = b.chars().count();\n\n    // The check for lengths of one here is to prevent integer overflow when\n    // calculating the search range.\n    if a_len == 0 || b_len == 0 || (a_len == 1 && b_len == 1) {\n        return 0.0;\n    }\n\n    let search_range = (max(a_len, b_len) / 2) - 1;\n",
+    "parent_text": "    let b_len = b.chars().count();\n    if a_len == 0 || b_len == 0 { return 0.0; }\n\n    let search_range = max(0, (max(a_len, b_len) / 2) - 1);\n"
+  }
+}
