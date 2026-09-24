@@ -1,0 +1,13 @@
+{
+  "commit": "af606aab9be1dde2aeefc1a21344a79beaba7bbe",
+  "parent": "98951ba26cccb0d613edf0286976aebf48257af0",
+  "fixed_commit": "af606aab9be1dde2aeefc1a21344a79beaba7bbe",
+  "summary": "Bytes::truncate incorrectly clears the buffer when the requested length equals or exceeds its current length. The fix changes the length only when shortening the buffer. The fix-added test truncate in tests/test_bytes.rs checks oversized, equal, and shorter lengths; reversing the implementation should fail its first equality assertion after truncate(15) clears \"helloworld\". Both source regions occur exactly once in their respective revisions. No builds or tests were run.",
+  "test": "truncate",
+  "expected_failure": "assertion failed: `(left == right)`\n  left: `b\"\"`,\n right: `[104, 101, 108, 108, 111, 119, 111, 114, 108, 100]`",
+  "reversal": {
+    "path": "src/bytes.rs",
+    "fixed_text": "    pub fn truncate(&mut self, len: usize) {\n        if len < self.len {\n            self.len = len;\n        }\n    }\n",
+    "parent_text": "    pub fn truncate(&mut self, len: usize) {\n        if len >= self.len {\n            self.len = 0;\n        } else {\n            self.len = len;\n        }\n    }\n"
+  }
+}

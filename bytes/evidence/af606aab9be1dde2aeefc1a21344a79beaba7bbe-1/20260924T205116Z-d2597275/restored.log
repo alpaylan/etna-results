@@ -1,0 +1,17 @@
+Command: rustup run 1.39.0 cargo test --locked --offline --test test_bytes truncate -- --nocapture --test-threads=1
+Started: 2026-09-24T20:52:22.529249+00:00
+STDOUT:
+
+running 1 test
+test truncate ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 55 filtered out
+
+
+STDERR:
+   Compiling bytes v0.5.2 (/home/runner/work/_temp/upstream)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.67s
+     Running /home/runner/work/_temp/build-20260924T205116Z-d2597275/debug/deps/test_bytes-64e5022b76f79658
+
+Exit: 0
+Timed out: False
