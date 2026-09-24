@@ -4,7 +4,7 @@
 
 Upstream: https://github.com/Alexhuszagh/rust-lexical
 
-Candidate: 8bee20f2591db7499fdd2431386d9843b9c6417e-1
+Candidate: cc3ba2757cfbfb7f0d0763b4ef3b40e4af361087-1
 
 Provenance: verbatim
 

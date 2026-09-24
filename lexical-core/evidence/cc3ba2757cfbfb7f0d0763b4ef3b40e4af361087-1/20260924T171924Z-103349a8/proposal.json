@@ -1,0 +1,13 @@
+{
+  "commit": "cc3ba2757cfbfb7f0d0763b4ef3b40e4af361087",
+  "parent": "cbb6d100038442379d785db52504d31d7c5fa3d2",
+  "fixed_commit": "cc3ba2757cfbfb7f0d0763b4ef3b40e4af361087",
+  "summary": "Right-closed directed conversion used incorrect endpoint arguments for its fractional-part comparison when r == deltai, potentially choosing the wrong decimal significand. The fix uses two_fc minus 1 for shorter intervals or minus 2 otherwise, with beta_minus_1 unchanged. The implementation reversal is unique and verbatim. Blocked: the added compute_right_closed_directed_test supplies two inputs that bypass the changed equality branch; no other upstream test calls this implementation. No detecting upstream test was found. Tests were not executed.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "lexical-write-float/src/algorithm.rs",
+    "fixed_text": "        // Compare the fractional parts.\n        let two_f = two_fc\n            - if shorter {\n                1\n            } else {\n                2\n            };\n        if F::compute_mul_parity(two_f, &pow5, beta_minus_1) {\n            return short_circuit();\n        }\n    }\n",
+    "parent_text": "        // Compare the fractional parts.\n        if shorter && F::compute_mul_parity(two_fc * 2 - 1, &pow5, beta_minus_1 - 1) {\n            return short_circuit();\n        } else if !shorter && F::compute_mul_parity(two_fc - 1, &pow5, beta_minus_1) {\n            return short_circuit();\n        }\n    }\n"
+  }
+}
