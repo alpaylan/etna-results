@@ -4,12 +4,12 @@
 
 Upstream: https://github.com/RoaringBitmap/roaring-rs
 
-Candidate: eaccd090783fae53124c054b88afa953a31a83af-1
+Candidate: 318366d041d958d59bef3e51569ecb452a1ea893-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 1073 reachable from the saved tip.
+Reviewed commits: 1 / 1072 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

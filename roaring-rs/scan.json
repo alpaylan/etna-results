@@ -2,12 +2,14 @@
   "repo": "https://github.com/RoaringBitmap/roaring-rs",
   "tips": [
     "3116bccab187a639238cd50754935400a433a3c5",
+    "318366d041d958d59bef3e51569ecb452a1ea893",
     "c41bab3f0eb50b26b25cef4c066608add6c63f01",
     "eaccd090783fae53124c054b88afa953a31a83af"
   ],
   "shallow": false,
   "reviewed": [
     "3116bccab187a639238cd50754935400a433a3c5",
+    "318366d041d958d59bef3e51569ecb452a1ea893",
     "c41bab3f0eb50b26b25cef4c066608add6c63f01",
     "eaccd090783fae53124c054b88afa953a31a83af"
   ],

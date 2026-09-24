@@ -1,0 +1,61 @@
+Command: rustup run 1.88.0 cargo test --locked --offline --lib advance_run_with_nth -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:31:22.318540+00:00
+STDOUT:
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 192 filtered out; finished in 0.00s
+
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+   Compiling libc v0.2.174
+   Compiling cfg-if v1.0.1
+   Compiling zerocopy v0.8.26
+   Compiling rustix v1.0.8
+   Compiling serde v1.0.219
+   Compiling getrandom v0.3.3
+   Compiling lock_api v0.4.13
+   Compiling linux-raw-sys v0.9.4
+   Compiling scopeguard v1.2.0
+   Compiling bitflags v2.9.1
+   Compiling thiserror v2.0.12
+   Compiling getrandom v0.2.16
+   Compiling rand_core v0.6.4
+   Compiling fastrand v2.3.0
+   Compiling once_cell v1.21.3
+   Compiling byteorder v1.5.0
+   Compiling ppv-lite86 v0.2.21
+   Compiling hash32 v0.2.1
+   Compiling num-traits v0.2.19
+   Compiling tempfile v3.20.0
+   Compiling rand_chacha v0.3.1
+   Compiling heapless v0.7.17
+   Compiling wait-timeout v0.2.1
+   Compiling spin v0.9.8
+   Compiling quick-error v1.2.3
+   Compiling stable_deref_trait v1.2.0
+   Compiling fnv v1.0.7
+   Compiling bit-vec v0.8.0
+   Compiling rusty-fork v0.3.0
+   Compiling bit-set v0.8.0
+   Compiling serde_json v1.0.141
+   Compiling cobs v0.3.0
+   Compiling rand v0.8.5
+   Compiling rand_xorshift v0.3.0
+   Compiling regex-syntax v0.8.5
+   Compiling unarray v0.1.4
+   Compiling memchr v2.7.5
+   Compiling itoa v1.0.15
+   Compiling lazy_static v1.5.0
+   Compiling ryu v1.0.20
+   Compiling postcard v1.1.3
+   Compiling bytemuck v1.23.1
+   Compiling proptest v1.6.0
+   Compiling roaring v0.11.1 (/home/runner/work/_temp/upstream/roaring)
+    Finished `test` profile [optimized + debuginfo] target(s) in 30.39s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T002501Z-c7ffcc2b/debug/deps/roaring-f063ebdeb1bfdd37)
+
+Exit: 0
+Timed out: False

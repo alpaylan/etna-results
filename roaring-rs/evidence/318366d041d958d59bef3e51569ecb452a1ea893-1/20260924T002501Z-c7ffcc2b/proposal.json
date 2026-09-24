@@ -1,0 +1,13 @@
+{
+  "commit": "318366d041d958d59bef3e51569ecb452a1ea893",
+  "parent": "6555872e27cf7d18a1aac0963109a752d5a8b943",
+  "fixed_commit": "318366d041d958d59bef3e51569ecb452a1ea893",
+  "summary": "RunIter::nth can return Some instead of None for an oversized index because its skipping loop narrows a full interval's length to u16, losing the skip. The fix exhausts the iterator, resets its offsets, and returns None when n exceeds u16::MAX. The regression test added by this commit exercises this behavior after advance_back_to. The proposed reversal removes only that guard; both source regions are unique and match the original Git objects. No tests were executed.",
+  "test": "advance_run_with_nth",
+  "expected_failure": "assertion `left == right` failed",
+  "reversal": {
+    "path": "roaring/src/bitmap/store/interval_store.rs",
+    "fixed_text": "    fn nth(&mut self, n: usize) -> Option<Self::Item> {\n        if n > usize::from(u16::MAX) {\n            // Consume the whole iterator\n            self.intervals.nth(self.intervals.as_slice().len());\n            self.forward_offset = 0;\n            self.backward_offset = 0;\n            return None;\n        }\n        if let Some(skip) = n.checked_sub(1) {\n",
+    "parent_text": "    fn nth(&mut self, n: usize) -> Option<Self::Item> {\n        if let Some(skip) = n.checked_sub(1) {\n"
+  }
+}
