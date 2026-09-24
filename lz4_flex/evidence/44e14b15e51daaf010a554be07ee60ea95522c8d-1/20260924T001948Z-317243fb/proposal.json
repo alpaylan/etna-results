@@ -1,0 +1,13 @@
+{
+  "commit": "44e14b15e51daaf010a554be07ee60ea95522c8d",
+  "parent": "02938792b8e285a1a61a8d067b542b0f57f5b712",
+  "fixed_commit": "44e14b15e51daaf010a554be07ee60ea95522c8d",
+  "summary": "AutoFinishEncoder::drop panicked when try_finish() returned an error. The fix still attempts to finish the stream but discards the result, preventing this error-triggered panic. A unique verbatim implementation reversal is available. Blocked: the fix adds no tests, and no existing upstream test at this revision calls auto_finish or constructs AutoFinishEncoder. Existing frame tests explicitly finish their encoders and cannot detect this regression. No tests were run.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/frame/compress.rs",
+    "fixed_text": "impl<W: io::Write> Drop for AutoFinishEncoder<W> {\n    fn drop(&mut self) {\n        if let Some(mut encoder) = self.encoder.take() {\n            let _ = encoder.try_finish();\n        }\n    }\n}\n",
+    "parent_text": "impl<W: io::Write> Drop for AutoFinishEncoder<W> {\n    fn drop(&mut self) {\n        if let Some(mut encoder) = self.encoder.take() {\n            if let Err(err) = encoder.try_finish() {\n                panic!(\"Error when flushing frame on drop {:?} \", err);\n            }\n        }\n    }\n}\n"
+  }
+}
