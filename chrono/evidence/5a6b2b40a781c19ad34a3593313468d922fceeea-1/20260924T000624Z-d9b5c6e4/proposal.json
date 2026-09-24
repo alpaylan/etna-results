@@ -1,0 +1,13 @@
+{
+  "commit": "5a6b2b40a781c19ad34a3593313468d922fceeea",
+  "parent": "e39346e2877b3a5445953f2bc5b64263cf46fc72",
+  "fixed_commit": "5a6b2b40a781c19ad34a3593313468d922fceeea",
+  "summary": "parse_rfc3339_relaxed panics when checking for UTC if byte index 3 splits a UTF-8 character in the remaining input. The fix compares byte slices, allowing malformed suffixes to return a parse error. This commit adds the detecting input \"2015-02-18T23:16:9.15øøø\" to test_datetime_from_str. The proposed reversal restores only the original implementation line; no tests were run.",
+  "test": "datetime::tests::test_datetime_from_str",
+  "expected_failure": "byte index 3 is not a char boundary",
+  "reversal": {
+    "path": "src/format/parse.rs",
+    "fixed_text": "    let (s, offset) = if s.len() >= 3 && \"UTC\".as_bytes().eq_ignore_ascii_case(&s.as_bytes()[..3]) {\n",
+    "parent_text": "    let (s, offset) = if s.len() >= 3 && \"UTC\".eq_ignore_ascii_case(&s[..3]) {\n"
+  }
+}
