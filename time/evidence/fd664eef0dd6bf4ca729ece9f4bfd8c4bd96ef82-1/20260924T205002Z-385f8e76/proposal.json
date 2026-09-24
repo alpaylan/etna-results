@@ -1,0 +1,13 @@
+{
+  "commit": "fd664eef0dd6bf4ca729ece9f4bfd8c4bd96ef82",
+  "parent": "b8d09a7bccbd3ea300fe30bf12b5f0a11ba1d539",
+  "fixed_commit": "fd664eef0dd6bf4ca729ece9f4bfd8c4bd96ef82",
+  "summary": "Blocked: the full commit diff only updates tests/compile-fail/invalid_serializer.stderr to expect an additional E0391 compiler cycle diagnostic, referencing rust-lang/rust#119273. The associated compile_fail test and macro implementation are unchanged. There is no implementation fix to reverse; reversing the diagnostic snapshot would change test expectations and violate the required test preservation.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}

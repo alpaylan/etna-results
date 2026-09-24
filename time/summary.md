@@ -1,10 +1,10 @@
 # Cloud bug-mining prototype
 
-**blocked**: fixed_text does not occur exactly once at the fixed revision
+**blocked**: Proposal names no upstream test
 
 Upstream: https://github.com/time-rs/time
 
-Candidate: 3a60ceba3f8677da34f28d56753a808812ea2a94-1
+Candidate: fd664eef0dd6bf4ca729ece9f4bfd8c4bd96ef82-1
 
 Provenance: verbatim
 
