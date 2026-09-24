@@ -1,0 +1,13 @@
+{
+  "commit": "9c16185263660cf014a9419df2a8592626894696",
+  "parent": "8ead4cad4508d7e1afc731b704883189d5ab70b8",
+  "fixed_commit": "9c16185263660cf014a9419df2a8592626894696",
+  "summary": "The C++ wrapper uses std::runtime_error without including <stdexcept>, causing compilation failures with GCC. The fix explicitly includes that header in lexical.hpp and the C++ test source test_c.cc. The implementation reversal is exact, but no detecting Rust test was found: this is a C++ compilation fix, and compilation failures cannot satisfy the functional reproduction gate. Leave this candidate blocked; no builds or tests were run.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "lexical-capi/include/lexical.hpp",
+    "fixed_text": "#include <iterator>\n#include <stdexcept>\n#include <string>\n",
+    "parent_text": "#include <iterator>\n#include <string>\n"
+  }
+}
