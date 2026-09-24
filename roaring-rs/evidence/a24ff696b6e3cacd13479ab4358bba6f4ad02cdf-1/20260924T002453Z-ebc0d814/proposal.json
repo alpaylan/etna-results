@@ -1,0 +1,13 @@
+{
+  "commit": "a24ff696b6e3cacd13479ab4358bba6f4ad02cdf",
+  "parent": "b88e25824639ff37e20f8e0465a0552f03042be1",
+  "fixed_commit": "a24ff696b6e3cacd13479ab4358bba6f4ad02cdf",
+  "summary": "When forward iteration exhausts a full 0..=65535 interval, the u16 offset cannot increment. The parent returns without consuming the interval, causing subsequent calls to repeat 65535 instead of terminating or advancing to the next container. The fix consumes the exhausted interval. The proposed reversal removes only that forward correction. Blocked: no detecting upstream test was found at the fixed commit. The fix adds no tests; bitmap::store::interval_store::tests::iter_u16_max stops its loops before exhaustion and checks nth(65535) without checking the following call, so it does not detect this bug. No builds or tests were run.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "roaring/src/bitmap/store/interval_store.rs",
+    "fixed_text": "    fn move_next(&mut self) {\n        if let Some(value) = self.forward_offset.checked_add(1) {\n            self.forward_offset = value;\n        } else {\n            self.intervals.next();\n            return;\n        }\n",
+    "parent_text": "    fn move_next(&mut self) {\n        if let Some(value) = self.forward_offset.checked_add(1) {\n            self.forward_offset = value;\n        } else {\n            return;\n        }\n"
+  }
+}

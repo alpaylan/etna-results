@@ -4,7 +4,7 @@
 
 Upstream: https://github.com/RoaringBitmap/roaring-rs
 
-Candidate: 136b8f1e7a4807a0662e07646b8a03c1beb7b06d-1
+Candidate: a24ff696b6e3cacd13479ab4358bba6f4ad02cdf-1
 
 Provenance: verbatim
 
