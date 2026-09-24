@@ -1,0 +1,12 @@
+{
+  "repo": "https://github.com/cessen/ropey",
+  "tips": [
+    "cc516d54037a2f98785dc8cc77d6e6a6201502c3"
+  ],
+  "shallow": false,
+  "reviewed": [
+    "cc516d54037a2f98785dc8cc77d6e6a6201502c3"
+  ],
+  "reachable_commits": 515,
+  "scope": "One queued candidate; not an exhaustive history scan."
+}
