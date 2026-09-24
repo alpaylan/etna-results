@@ -1,0 +1,17 @@
+Command: rustup run 1.70.0 cargo generate-lockfile
+Started: 2026-09-24T00:21:37.777510+00:00
+STDOUT:
+
+STDERR:
+    Updating `era` index
+    Updating git repository `https://github.com/PSeitz/criterion.rs/`
+    Updating git repository `https://github.com/main--/rust-lz-fear`
+error: failed to select a version for the requirement `bitflags = "^2.4.2"`
+candidate versions found which didn't match: 2.3.1, 2.3.0, 2.2.1, ...
+location searched: `era` index (which is replacing registry `crates-io`)
+required by package `lz-fear v0.2.0 (https://github.com/main--/rust-lz-fear#6725e3ee)`
+    ... which satisfies git dependency `lz-fear` of package `lz4_flex v0.10.0 (/home/runner/work/_temp/upstream)`
+perhaps a crate was updated and forgotten to be re-vendored?
+
+Exit: 101
+Timed out: False

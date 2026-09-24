@@ -1,0 +1,12 @@
+{
+  "repo": "https://github.com/PSeitz/lz4_flex",
+  "tips": [
+    "2d83a3da281266aeb2928272001043ecc04a8fe4"
+  ],
+  "shallow": false,
+  "reviewed": [
+    "2d83a3da281266aeb2928272001043ecc04a8fe4"
+  ],
+  "reachable_commits": 487,
+  "scope": "One queued candidate; not an exhaustive history scan."
+}

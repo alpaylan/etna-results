@@ -1,0 +1,13 @@
+{
+  "commit": "2d83a3da281266aeb2928272001043ecc04a8fe4",
+  "parent": "15e4ffa13f3e91503b637a7a026479c77e3eeb53",
+  "fixed_commit": "2d83a3da281266aeb2928272001043ecc04a8fe4",
+  "summary": "Compression with a three-byte dictionary reaches a four-byte candidate read in get_batch, causing an out-of-bounds panic with default safe-encode enabled. The fix treats dictionaries shorter than the four-byte minimum match as empty. The regression test added by the fix exercises this case. The proposed reversal restores the exact parent implementation while preserving the test; reproduction has not been run.",
+  "test": "block::compress::tests::test_dict_no_panic",
+  "expected_failure": "range end index 4 out of range for slice of length 3",
+  "reversal": {
+    "path": "src/block/compress.rs",
+    "fixed_text": "fn compress_into_vec_with_dict<const USE_DICT: bool>(\n    input: &[u8],\n    prepend_size: bool,\n    mut dict_data: &[u8],\n) -> Vec<u8> {\n    let prepend_size_num_bytes = if prepend_size { 4 } else { 0 };\n    let max_compressed_size = get_maximum_output_size(input.len()) + prepend_size_num_bytes;\n    if dict_data.len() <= 3 {\n        dict_data = b\"\";\n    }\n",
+    "parent_text": "fn compress_into_vec_with_dict<const USE_DICT: bool>(\n    input: &[u8],\n    prepend_size: bool,\n    dict_data: &[u8],\n) -> Vec<u8> {\n    let prepend_size_num_bytes = if prepend_size { 4 } else { 0 };\n    let max_compressed_size = get_maximum_output_size(input.len()) + prepend_size_num_bytes;\n"
+  }
+}
