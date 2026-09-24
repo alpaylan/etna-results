@@ -1,0 +1,15 @@
+Command: rustup run 1.22.0 cargo fetch --locked
+Started: 2026-09-24T23:20:04.968721+00:00
+STDOUT:
+
+STDERR:
+ Downloading fuchsia-zircon v0.2.1 (registry git://127.0.0.1:9419/era-index)
+ Downloading bitflags v0.7.0 (registry git://127.0.0.1:9419/era-index)
+ Downloading rand v0.3.18 (registry git://127.0.0.1:9419/era-index)
+ Downloading libc v0.2.34 (registry git://127.0.0.1:9419/era-index)
+ Downloading unicode-segmentation v1.2.0 (registry git://127.0.0.1:9419/era-index)
+ Downloading smallvec v0.6.0 (registry git://127.0.0.1:9419/era-index)
+ Downloading fuchsia-zircon-sys v0.2.0 (registry git://127.0.0.1:9419/era-index)
+
+Exit: 0
+Timed out: False

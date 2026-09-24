@@ -1,0 +1,14 @@
+Command: rustup run 1.22.0 cargo check --locked --tests
+Started: 2026-09-24T23:20:05.538534+00:00
+STDOUT:
+
+STDERR:
+   Compiling unicode-segmentation v1.2.0
+   Compiling smallvec v0.6.0
+   Compiling libc v0.2.34
+   Compiling ropey v0.4.0 (file:///home/runner/work/_temp/upstream)
+   Compiling rand v0.3.18
+    Finished dev [unoptimized + debuginfo] target(s) in 2.79 secs
+
+Exit: 0
+Timed out: False

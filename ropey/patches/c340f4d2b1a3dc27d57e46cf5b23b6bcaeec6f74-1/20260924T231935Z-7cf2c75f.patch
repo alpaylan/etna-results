@@ -1,0 +1,74 @@
+diff --git a/src/rope.rs b/src/rope.rs
+index 3f1aa4c..04f3045 100644
+--- a/src/rope.rs
++++ b/src/rope.rs
+@@ -315,41 +315,36 @@ impl Rope {
+ 
+     /// Appends a `Rope` to the end of this one, consuming the other `Rope`.
+     pub fn append(&mut self, other: Rope) {
+-        if self.len_chars() == 0 {
++        let seam_byte_i = self.root.text_info().bytes;
++
++        let l_depth = self.root.depth();
++        let r_depth = other.root.depth();
++
++        if l_depth > r_depth {
++            let extra =
++                Arc::make_mut(&mut self.root).append_at_depth(other.root, l_depth - r_depth);
++            if let Some(node) = extra {
++                let mut children = ChildArray::new();
++                children.push((self.root.text_info(), self.root.clone()));
++                children.push((node.text_info(), node));
++                self.root = Arc::new(Node::Internal(children));
++            }
++        } else {
+             let mut other = other;
+-            std::mem::swap(self, &mut other);
+-        } else if other.len_chars() > 0 {
+-            let seam_byte_i = self.root.text_info().bytes;
+-
+-            let l_depth = self.root.depth();
+-            let r_depth = other.root.depth();
+-
+-            if l_depth > r_depth {
+-                let extra =
+-                    Arc::make_mut(&mut self.root).append_at_depth(other.root, l_depth - r_depth);
+-                if let Some(node) = extra {
+-                    let mut children = ChildArray::new();
+-                    children.push((self.root.text_info(), self.root.clone()));
+-                    children.push((node.text_info(), node));
+-                    self.root = Arc::new(Node::Internal(children));
+-                }
+-            } else {
+-                let mut other = other;
+-                let extra = Arc::make_mut(&mut other.root).prepend_at_depth(
+-                    self.root.clone(),
+-                    r_depth - l_depth,
+-                );
+-                if let Some(node) = extra {
+-                    let mut children = ChildArray::new();
+-                    children.push((node.text_info(), node));
+-                    children.push((other.root.text_info(), other.root.clone()));
+-                    other.root = Arc::new(Node::Internal(children));
+-                }
+-                *self = other;
+-            };
++            let extra = Arc::make_mut(&mut other.root).prepend_at_depth(
++                self.root.clone(),
++                r_depth - l_depth,
++            );
++            if let Some(node) = extra {
++                let mut children = ChildArray::new();
++                children.push((node.text_info(), node));
++                children.push((other.root.text_info(), other.root.clone()));
++                other.root = Arc::new(Node::Internal(children));
++            }
++            *self = other;
++        };
+ 
+-            Arc::make_mut(&mut self.root).fix_grapheme_seam(seam_byte_i);
+-        }
++        Arc::make_mut(&mut self.root).fix_grapheme_seam(seam_byte_i);
+     }
+ 
+     //--------------

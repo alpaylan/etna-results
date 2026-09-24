@@ -1,15 +1,17 @@
 # Cloud bug-mining prototype
 
-**blocked**: Reversal changes are not part of the upstream fix
+Resumed verified evidence; no tests rerun.
+
+**confirmed**: The same upstream test passed, panicked on the original defect ('assertion failed: text.len() > 0'), and passed after restoration
 
 Upstream: https://github.com/cessen/ropey
 
-Candidate: 2caa67dc1ff119b9b2b0226fd3a3db7a9f146196-1
+Candidate: c340f4d2b1a3dc27d57e46cf5b23b6bcaeec6f74-1
 
 Provenance: verbatim
 
-Latest outcomes: {"blocked": 1}
+Latest outcomes: {"confirmed": 1}
 
-History coverage not yet recorded.
+Reviewed commits: 1 / 68 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

@@ -1,0 +1,8 @@
+Command: rustup run 1.22.0 cargo clean -p ropey
+Started: 2026-09-24T23:20:10.250789+00:00
+STDOUT:
+
+STDERR:
+
+Exit: 0
+Timed out: False
