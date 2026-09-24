@@ -1,0 +1,13 @@
+{
+  "commit": "3f4e01a43254fe228d1ce64e47dfaf4edc8f4f19",
+  "parent": "2cae6fbc508fd2776a17bf126f9b7e9f47858549",
+  "fixed_commit": "3f4e01a43254fe228d1ce64e47dfaf4edc8f4f19",
+  "summary": "When an upper bound is absent, Node::path_prev checks the predecessor at index - 1 but incorrectly stores index in the iterator path, allowing a key beyond the bound into OrdMap::range. The fix stores index - 1. The upstream ranged_iter test extended by this commit checks that ..6 and ..=6 exclude key 7. This plan reverses only that implementation change; reproduction has not been run.",
+  "test": "ord::map::test::ranged_iter",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/nodes/btree.rs",
+    "fixed_text": "                None => match self.keys.get(index - 1) {\n                    Some(_) => {\n                        path.push((self, index - 1));\n                        path\n                    }\n                    None => Vec::new(),\n                },\n",
+    "parent_text": "                None => match self.keys.get(index - 1) {\n                    Some(_) => {\n                        path.push((self, index));\n                        path\n                    }\n                    None => Vec::new(),\n                },\n"
+  }
+}

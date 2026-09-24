@@ -1,0 +1,55 @@
+Command: rustup run 1.45.0 cargo test --locked --offline --lib ord::map::test::ranged_iter -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:20:18.431211+00:00
+STDOUT:
+
+running 1 test
+test ord::map::test::ranged_iter ... FAILED
+
+failures:
+
+failures:
+    ord::map::test::ranged_iter
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 104 filtered out
+
+
+STDERR:
+   Compiling im v15.0.0 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 12.79s
+     Running /home/runner/work/_temp/build-20260924T001838Z-e44ead98/debug/deps/im-b1b15875066b9b01
+thread 'main' panicked at 'assertion failed: `(left == right)`
+
+[1mDiff[0m [31m< left[0m / [32mright >[0m :
+ [
+     (
+         1,
+         2,
+     ),
+     (
+         2,
+         3,
+     ),
+     (
+         3,
+         4,
+     ),
+     (
+         4,
+         5,
+     ),
+     (
+         5,
+         6,
+     ),
+[32m>    (
+[0m[32m>        7,
+[0m[32m>        8,
+[0m[32m>    ),
+[0m ]
+
+', src/ord/map.rs:2379:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass '--lib'
+
+Exit: 101
+Timed out: False
