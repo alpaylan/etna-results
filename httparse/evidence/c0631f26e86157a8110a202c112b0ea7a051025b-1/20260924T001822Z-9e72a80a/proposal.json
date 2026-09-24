@@ -1,0 +1,13 @@
+{
+  "commit": "c0631f26e86157a8110a202c112b0ea7a051025b",
+  "parent": "5c385a9b1751f0734db24af731d1926e1d2bc731",
+  "fixed_commit": "c0631f26e86157a8110a202c112b0ea7a051025b",
+  "summary": "When a response status line ends with bare LF and no reason phrase, parsing leaves the byte-slice start before the status code, producing a first header name such as \"200\\nContent-type\". The fix calls bytes.slice() after consuming LF, resetting the slice to the beginning of the headers. The fix adds tests::test_response_no_cr, which asserts the correct header name.",
+  "test": "tests::test_response_no_cr",
+  "expected_failure": "assertion failed: `(left == right)`\n  left: `\"200\\nContent-type\"`,\n right: `\"Content-type\"`",
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "            b'\\n' => {\n                bytes.slice();\n                self.reason = Some(\"\");\n            }\n",
+    "parent_text": "            b'\\n' => self.reason = Some(\"\"),\n"
+  }
+}
