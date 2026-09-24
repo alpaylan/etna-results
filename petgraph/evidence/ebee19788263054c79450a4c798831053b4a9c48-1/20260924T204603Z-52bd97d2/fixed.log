@@ -1,0 +1,44 @@
+Command: rustup run 1.87.0 cargo test --locked --offline --test ford_fulkerson test_ford_fulkerson_stable_graphs -- --nocapture --test-threads=1
+Started: 2026-09-24T20:50:34.544629+00:00
+STDOUT:
+
+running 1 test
+test test_ford_fulkerson_stable_graphs ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s
+
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+   Compiling libc v0.2.172
+   Compiling foldhash v0.1.5
+   Compiling equivalent v1.0.2
+   Compiling allocator-api2 v0.2.21
+   Compiling rawpointer v0.2.1
+   Compiling rand_core v0.4.2
+   Compiling cfg-if v1.0.0
+   Compiling rawslice v0.1.1
+   Compiling rand_core v0.3.1
+   Compiling serde v1.0.219
+   Compiling unchecked-index v0.2.2
+   Compiling fixedbitset v0.5.7
+   Compiling hashbrown v0.15.0
+   Compiling byteorder v1.5.0
+   Compiling once_cell v1.20.3
+   Compiling getrandom v0.2.16
+   Compiling either v1.15.0
+   Compiling indexmap v2.9.0
+   Compiling ahash v0.7.8
+   Compiling itertools v0.12.1
+   Compiling rand v0.5.6
+   Compiling petgraph v0.8.1 (/home/runner/work/_temp/upstream)
+   Compiling fxhash v0.2.1
+   Compiling odds v0.4.0
+   Compiling defmac v0.2.1
+   Compiling bincode v1.3.3
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 4.42s
+     Running tests/ford_fulkerson.rs (/home/runner/work/_temp/build-20260924T204603Z-52bd97d2/debug/deps/ford_fulkerson-67efcb86c74af1ae)
+
+Exit: 0
+Timed out: False

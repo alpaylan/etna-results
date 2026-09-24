@@ -1,0 +1,13 @@
+diff --git a/src/algo/ford_fulkerson.rs b/src/algo/ford_fulkerson.rs
+index d465a48..9902bd1 100644
+--- a/src/algo/ford_fulkerson.rs
++++ b/src/algo/ford_fulkerson.rs
+@@ -162,7 +162,7 @@ where
+     N::EdgeWeight: Sub<Output = N::EdgeWeight> + PositiveMeasure,
+ {
+     let mut edge_to = vec![None; network.node_count()];
+-    let mut flows = vec![N::EdgeWeight::zero(); network.edge_bound()];
++    let mut flows = vec![N::EdgeWeight::zero(); network.edge_count()];
+     let mut max_flow = N::EdgeWeight::zero();
+     while has_augmented_path(&network, source, destination, &mut edge_to, &flows) {
+         let mut path_flow = N::EdgeWeight::max();

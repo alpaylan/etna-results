@@ -1,0 +1,13 @@
+{
+  "commit": "ebee19788263054c79450a4c798831053b4a9c48",
+  "parent": "48bd3958f25bd015bdf487df2835010938dc5ee5",
+  "fixed_commit": "ebee19788263054c79450a4c798831053b4a9c48",
+  "summary": "Ford-Fulkerson allocated its flow vector using edge_count() but indexed it by edge IDs. Removing edges from a StableGraph leaves gaps, so remaining edge IDs can exceed the vector bounds and cause a panic. Using edge_bound() allocates space for every valid edge index. The fix adds test_ford_fulkerson_stable_graphs in tests/ford_fulkerson.rs, gated by the default-enabled stable_graph feature. No tests were executed.",
+  "test": "test_ford_fulkerson_stable_graphs",
+  "expected_failure": "index out of bounds: the len is 3 but the index is 3",
+  "reversal": {
+    "path": "src/algo/ford_fulkerson.rs",
+    "fixed_text": "    let mut flows = vec![N::EdgeWeight::zero(); network.edge_bound()];\n",
+    "parent_text": "    let mut flows = vec![N::EdgeWeight::zero(); network.edge_count()];\n"
+  }
+}
