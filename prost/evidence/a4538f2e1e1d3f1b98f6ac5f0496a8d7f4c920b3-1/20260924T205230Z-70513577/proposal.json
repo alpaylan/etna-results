@@ -1,0 +1,13 @@
+{
+  "commit": "a4538f2e1e1d3f1b98f6ac5f0496a8d7f4c920b3",
+  "parent": "7f1c3034075a89fdf715822a7701f5084211f582",
+  "fixed_commit": "a4538f2e1e1d3f1b98f6ac5f0496a8d7f4c920b3",
+  "summary": "Nested messages without a package receive names such as '..M.SubMessage' instead of '.M.SubMessage'. This prevents map-entry lookup from matching protobuf type names, generating a reference to a nonexistent entry module. The fix centralizes name construction and adds the initial package separator only when the package is nonempty. Reversing only the message-name assignment restores the bug. The upstream test added by this fix exercises it, but the expected failure is during compilation, which cannot satisfy the reproduction contract's requirement for an executed failing test. No builds or tests were run.",
+  "test": "submessage_without_package::test_submessage_without_package",
+  "expected_failure": null,
+  "reversal": {
+    "path": "prost-build/src/code_generator.rs",
+    "fixed_text": "        let fq_message_name = self.fq_name(&message_name);\n",
+    "parent_text": "        let fq_message_name = format!(\n            \"{}{}{}{}.{}\",\n            if self.package.is_empty() && self.type_path.is_empty() {\n                \"\"\n            } else {\n                \".\"\n            },\n            self.package.trim_matches('.'),\n            if self.type_path.is_empty() { \"\" } else { \".\" },\n            self.type_path.join(\".\"),\n            message_name,\n        );\n"
+  }
+}

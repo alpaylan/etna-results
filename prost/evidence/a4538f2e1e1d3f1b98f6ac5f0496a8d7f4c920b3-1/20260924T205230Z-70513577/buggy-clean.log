@@ -1,0 +1,9 @@
+Command: rustup run 1.76.0 cargo clean -p prost
+Started: 2026-09-24T20:56:28.941712+00:00
+STDOUT:
+
+STDERR:
+     Removed 0 files
+
+Exit: 0
+Timed out: False
