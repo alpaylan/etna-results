@@ -1,0 +1,12 @@
+Command: rustup run 1.41.1 cargo check --locked --offline --tests
+Started: 2026-09-24T17:32:24.741620+00:00
+STDOUT:
+
+STDERR:
+   Compiling doc-comment v0.3.2
+   Compiling memchr v2.3.3
+    Checking aho-corasick v0.7.9 (/home/runner/work/_temp/upstream)
+    Finished dev [unoptimized + debuginfo] target(s) in 1.80s
+
+Exit: 0
+Timed out: False

@@ -1,0 +1,13 @@
+diff --git a/src/prefilter.rs b/src/prefilter.rs
+index bda215d..7af0f3f 100644
+--- a/src/prefilter.rs
++++ b/src/prefilter.rs
+@@ -591,7 +591,7 @@ impl RareBytesBuilder {
+         // `memchr2` for `k` and `j`.
+         let mut found = false;
+         for (pos, &b) in bytes.iter().enumerate() {
+-            self.set_offset(pos, b);
++            self.byte_offsets.set(b, RareByteOffset::new(pos).unwrap());
+             if found {
+                 continue;
+             }

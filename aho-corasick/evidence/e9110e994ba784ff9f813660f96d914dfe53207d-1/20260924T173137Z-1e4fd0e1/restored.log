@@ -1,0 +1,17 @@
+Command: rustup run 1.41.1 cargo test --locked --offline --lib tests::regression_case_insensitive_prefilter -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T17:32:31.532980+00:00
+STDOUT:
+
+running 1 test
+test tests::regression_case_insensitive_prefilter ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 86 filtered out
+
+
+STDERR:
+   Compiling aho-corasick v0.7.9 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 0.87s
+     Running /home/runner/work/_temp/build-20260924T173137Z-1e4fd0e1/debug/deps/aho_corasick-dd3c886b8af5bf8d
+
+Exit: 0
+Timed out: False

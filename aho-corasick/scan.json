@@ -2,13 +2,15 @@
   "repo": "https://github.com/BurntSushi/aho-corasick",
   "tips": [
     "10e396710ac7476aa870a737905dfb4e3ca41e65",
-    "d5413254a251d41348bb36ff0294148425d09ad3"
+    "d5413254a251d41348bb36ff0294148425d09ad3",
+    "e9110e994ba784ff9f813660f96d914dfe53207d"
   ],
   "shallow": false,
   "reviewed": [
     "10e396710ac7476aa870a737905dfb4e3ca41e65",
-    "d5413254a251d41348bb36ff0294148425d09ad3"
+    "d5413254a251d41348bb36ff0294148425d09ad3",
+    "e9110e994ba784ff9f813660f96d914dfe53207d"
   ],
-  "reachable_commits": 98,
+  "reachable_commits": 154,
   "scope": "One queued candidate; not an exhaustive history scan."
 }

@@ -1,0 +1,63 @@
+Command: rustup run 1.41.1 cargo test --locked --offline --lib tests::regression_case_insensitive_prefilter -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T17:32:30.616005+00:00
+STDOUT:
+
+running 1 test
+test tests::regression_case_insensitive_prefilter ... FAILED
+
+failures:
+
+failures:
+    tests::regression_case_insensitive_prefilter
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 86 filtered out
+
+
+STDERR:
+   Compiling aho-corasick v0.7.9 (/home/runner/work/_temp/upstream)
+warning: method is never used: `set_offset`
+   --> src/prefilter.rs:612:5
+    |
+612 |     fn set_offset(&mut self, pos: usize, byte: u8) {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` on by default
+
+    Finished test [unoptimized + debuginfo] target(s) in 0.87s
+     Running /home/runner/work/_temp/build-20260924T173137Z-1e4fd0e1/debug/deps/aho_corasick-dd3c886b8af5bf8d
+thread 'main' panicked at 'assertion failed: `(left == right)`
+  left: `1`,
+ right: `0`: failed to find "ab" in "AB"
+
+automaton:
+AhoCorasick { imp: NFA(NFA(
+match_kind: Standard
+-------------------------------------------------------------------------------
+0000: 
+  matches: 
+     fail: 2
+    depth: 0
+0001: 
+  matches: 
+     fail: 2
+    depth: 0
+0002: A => 3, a => 3
+  matches: 
+     fail: 2
+    depth: 0
+0003: B => 4, b => 4
+  matches: 
+     fail: 2
+    depth: 1
+0004: 
+  matches: 0
+     fail: 2
+    depth: 2
+-------------------------------------------------------------------------------
+)
+), match_kind: Standard }', src/tests.rs:1117:13
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace.
+error: test failed, to rerun pass '--lib'
+
+Exit: 101
+Timed out: False

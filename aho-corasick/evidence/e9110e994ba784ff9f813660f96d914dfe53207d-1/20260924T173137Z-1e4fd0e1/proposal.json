@@ -1,0 +1,13 @@
+{
+  "commit": "e9110e994ba784ff9f813660f96d914dfe53207d",
+  "parent": "c6e47f76b2518a1d0c841b778e7457c84eb54d13",
+  "fixed_commit": "e9110e994ba784ff9f813660f96d914dfe53207d",
+  "summary": "The rare-byte prefilter recorded pattern offsets only for literal bytes, even when ASCII case-insensitive matching was enabled. Opposite-case bytes retained zero offsets, causing candidate searches to start too late and miss valid matches. The fix records offsets for both cases. Reversing the offset-setting call restores the faulty behavior while preserving the regression test added by the fix. This plan has not been executed.",
+  "test": "tests::regression_case_insensitive_prefilter",
+  "expected_failure": "assertion failed: expected one match but found zero, with the diagnostic 'failed to find' identifying the lowercase needle and uppercase haystack",
+  "reversal": {
+    "path": "src/prefilter.rs",
+    "fixed_text": "            self.set_offset(pos, b);\n",
+    "parent_text": "            self.byte_offsets.set(b, RareByteOffset::new(pos).unwrap());\n"
+  }
+}
