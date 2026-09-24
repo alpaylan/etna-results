@@ -1,0 +1,13 @@
+{
+  "commit": "895f84938d9cec06d6f7706301c536ccd563b490",
+  "parent": "51d10c9fcbf238c33c48c2574e863970a08d059b",
+  "fixed_commit": "895f84938d9cec06d6f7706301c536ccd563b490",
+  "summary": "The old min_max_dist_2 starts with nearest endpoints and substitutes one farthest endpoint. Above two dimensions, this can underestimate the nearest-neighbor pruning bound and incorrectly discard candidates. The fix starts with farthest endpoints and substitutes one nearest endpoint, restoring the intended upper bound. The implementation reversal is exact, but no detecting upstream test exists at this revision: the fix adds no tests, and existing nearest-neighbor tests use two-dimensional points, where both formulas produce the same result. Leave this candidate blocked for lack of a detecting test; no tests were executed.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "rstar/src/aabb.rs",
+    "fixed_text": "            let mut p = max;\n            // Only set one component to the minimum distance\n            *p.nth_mut(i) = min.nth(i);\n",
+    "parent_text": "            let mut p = min;\n            // Only set one component to the maximum distance\n            *p.nth_mut(i) = max.nth(i);\n"
+  }
+}
