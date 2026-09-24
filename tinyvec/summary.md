@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: Proposal names no upstream test
+**blocked**: Dependency setup failed; see setup logs
 
 Upstream: https://github.com/Lokathor/tinyvec
 
-Candidate: a711c72eef6d555ebc7bbbe78bf5039e72f790ac-1
+Candidate: 71ad62a90f2ff95dae4e43d646a55b0329b1eedc-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-History coverage not yet recorded.
+Reviewed commits: 1 / 40 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

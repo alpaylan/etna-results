@@ -1,0 +1,19 @@
+diff --git a/src/arrayish_vec.rs b/src/arrayish_vec.rs
+index f99955d..ee87285 100644
+--- a/src/arrayish_vec.rs
++++ b/src/arrayish_vec.rs
+@@ -538,12 +538,8 @@ impl<A: Arrayish> ArrayishVec<A> {
+       index,
+       self.len
+     );
+-    if index == self.len - 1 {
+-        self.pop().unwrap()
+-    } else {
+-        let i = self.pop().unwrap();
+-        replace(&mut self[index], i)
+-    }
++    let i = self.pop().unwrap();
++    replace(&mut self[index], i)
+   }
+ 
+   /// Reduces the vec's length to the given value.

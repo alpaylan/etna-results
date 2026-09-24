@@ -1,0 +1,15 @@
+Command: rustup run 1.90.0 cargo generate-lockfile
+Started: 2026-09-24T00:56:00.330326+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+    Updating `era` index
+    Updating git repository `https://github.com/jakubadamw/arbitrary-model-tests`
+error: no matching package named `arbitrary-model-tests` found
+location searched: Git repository https://github.com/jakubadamw/arbitrary-model-tests
+required by package `tinyvec-fuzz v0.1.0 (/home/runner/work/_temp/upstream/fuzz)`
+
+Exit: 101
+Timed out: False

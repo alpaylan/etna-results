@@ -1,0 +1,13 @@
+{
+  "commit": "71ad62a90f2ff95dae4e43d646a55b0329b1eedc",
+  "parent": "d0bdff52cf878e5bef88a135bb9ddff7599c6e2e",
+  "fixed_commit": "71ad62a90f2ff95dae4e43d646a55b0329b1eedc",
+  "summary": "ArrayishVec::swap_remove panicked for a valid last-element index because pop shortened the vector before indexing that slot. The fix returns pop directly for the last element. The fix-added test ArrayishVec_swap_remove in tests/basic_tests.rs first removes index 3 from four elements, exercising the bug. Both reversal regions occur exactly once in their respective revisions. No builds or tests were run.",
+  "test": "ArrayishVec_swap_remove",
+  "expected_failure": "index out of bounds: the len is 3 but the index is 3",
+  "reversal": {
+    "path": "src/arrayish_vec.rs",
+    "fixed_text": "    if index == self.len - 1 {\n        self.pop().unwrap()\n    } else {\n        let i = self.pop().unwrap();\n        replace(&mut self[index], i)\n    }\n",
+    "parent_text": "    let i = self.pop().unwrap();\n    replace(&mut self[index], i)\n"
+  }
+}
