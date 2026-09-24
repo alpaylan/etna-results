@@ -1,0 +1,12 @@
+diff --git a/src/ser/pretty.rs b/src/ser/pretty.rs
+index fe6cea9..fa4da4e 100644
+--- a/src/ser/pretty.rs
++++ b/src/ser/pretty.rs
+@@ -16,7 +16,6 @@ impl crate::visit_mut::VisitMut for Pretty {
+ 
+     fn visit_table_mut(&mut self, node: &mut crate::Table) {
+         node.decor_mut().clear();
+-        node.set_implicit(true);
+ 
+         crate::visit_mut::visit_table_mut(self, node);
+     }

@@ -1,0 +1,13 @@
+{
+  "commit": "9aacd69aa203f1fb9f3630aa5e938fc7d66f41df",
+  "parent": "2383b4b0243c9a95b4648288a4105f44455fc917",
+  "fixed_commit": "9aacd69aa203f1fb9f3630aa5e938fc7d66f41df",
+  "summary": "Pretty serialization emits unnecessary parent table headers, such as [profile] before [profile.dev]. The fix marks tables implicit so the encoder omits headers for tables containing only nested tables. The fix-added regression test is error_includes_key in tests/pretty.rs and requires the easy feature. Both reversal regions occur exactly once; the reversal restores the exact parent implementation. No tests were executed.",
+  "test": "error_includes_key",
+  "expected_failure": "assert_eq!(raw, pretty) fails because pretty contains an extra [profile] header before [profile.dev].",
+  "reversal": {
+    "path": "src/ser/pretty.rs",
+    "fixed_text": "    fn visit_table_mut(&mut self, node: &mut crate::Table) {\n        node.decor_mut().clear();\n        node.set_implicit(true);\n\n        crate::visit_mut::visit_table_mut(self, node);\n    }\n",
+    "parent_text": "    fn visit_table_mut(&mut self, node: &mut crate::Table) {\n        node.decor_mut().clear();\n\n        crate::visit_mut::visit_table_mut(self, node);\n    }\n"
+  }
+}
