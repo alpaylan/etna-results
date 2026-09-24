@@ -1,0 +1,12 @@
+{
+  "repo": "https://github.com/tafia/quick-xml",
+  "tips": [
+    "ebaffb3db325c4657e5e5df43afa018ee71ce1c5"
+  ],
+  "shallow": false,
+  "reviewed": [
+    "ebaffb3db325c4657e5e5df43afa018ee71ce1c5"
+  ],
+  "reachable_commits": 990,
+  "scope": "One queued candidate; not an exhaustive history scan."
+}

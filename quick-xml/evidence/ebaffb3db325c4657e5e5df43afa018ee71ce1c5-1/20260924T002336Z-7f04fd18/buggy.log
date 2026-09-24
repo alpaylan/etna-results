@@ -1,0 +1,16 @@
+Command: rustup run 1.65.0 cargo test --locked --offline --lib se::simple_type::tests::escape_item::full::text -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:25:56.747901+00:00
+STDOUT:
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 196 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling quick-xml v0.26.0 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 1.89s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T002336Z-7f04fd18/debug/deps/quick_xml-634d45492e91ad9b)
+
+Exit: 0
+Timed out: False

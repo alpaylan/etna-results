@@ -1,0 +1,13 @@
+{
+  "commit": "ebaffb3db325c4657e5e5df43afa018ee71ce1c5",
+  "parent": "78a1cf5f6cbad79580ca67b75a5dbe925b004ae3",
+  "fixed_commit": "ebaffb3db325c4657e5e5df43afa018ee71ce1c5",
+  "summary": "The historical _escape implementation in src/escapei.rs encoded LF as &#13; and CR as &#10;, corrupting whitespace in xs:list items. The fix maps LF to &#10; and CR to &#13;. The selected upstream test was updated by this fix and requires the serialize feature. Both reversal regions occur exactly once in their respective Git objects. No tests were run.",
+  "test": "se::simple_type::tests::escape_item::full::text",
+  "expected_failure": "assertion failed: `(left == right)`; actual text&lt;&quot;&apos;&amp;&gt;&#32;&#9;&#13;&#10;text differs from expected text&lt;&quot;&apos;&amp;&gt;&#32;&#9;&#10;&#13;text",
+  "reversal": {
+    "path": "src/escapei.rs",
+    "fixed_text": "            b'\\n' => escaped.extend_from_slice(b\"&#10;\"),\n            b'\\r' => escaped.extend_from_slice(b\"&#13;\"),\n",
+    "parent_text": "            b'\\r' => escaped.extend_from_slice(b\"&#10;\"),\n            b'\\n' => escaped.extend_from_slice(b\"&#13;\"),\n"
+  }
+}
