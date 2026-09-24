@@ -1,0 +1,23 @@
+diff --git a/compact_str/src/repr/heap.rs b/compact_str/src/repr/heap.rs
+index 22bc948..e984ac5 100644
+--- a/compact_str/src/repr/heap.rs
++++ b/compact_str/src/repr/heap.rs
+@@ -102,6 +102,8 @@ impl HeapBuffer {
+ 
+     /// Try to grow the [`HeapBuffer`] by reallocating, returning an error if we fail
+     pub(crate) fn realloc(&mut self, new_capacity: usize) -> Result<usize, ()> {
++        let new_cap = Capacity::new(new_capacity);
++
+         // We can't reallocate to a size less than our length, or else we'd clip the string
+         if new_capacity < self.len {
+             return Err(());
+@@ -114,9 +116,6 @@ impl HeapBuffer {
+ 
+         // Always allocate at least MIN_HEAP_SIZE
+         let new_capacity = cmp::max(new_capacity, MIN_HEAP_SIZE);
+-        // N.B. must be computed _after_ the MIN_HEAP_SIZE clamp so the stored capacity matches the
+-        // layout we actually (re)allocate with, otherwise dealloc/realloc get a mismatched layout.
+-        let new_cap = Capacity::new(new_capacity);
+ 
+         let (new_cap, new_ptr) = match (self.cap.is_heap(), new_cap.is_heap()) {
+             // both current and new capacity can be stored inline

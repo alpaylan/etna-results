@@ -1,0 +1,13 @@
+{
+  "commit": "0969dcc71c2e06bb2200844d14c5ab7759211744",
+  "parent": "34612e96b6034345fb20c40ff69cd183bd025141",
+  "fixed_commit": "0969dcc71c2e06bb2200844d14c5ab7759211744",
+  "summary": "HeapBuffer::realloc computed its stored capacity before clamping the allocation size to MIN_HEAP_SIZE. Shrinking into the gap above MAX_SIZE therefore recorded a smaller capacity than allocated, causing incorrect capacity reporting and potentially undefined behavior during subsequent deallocation or reallocation. The fix computes the stored capacity after clamping. The unit test added by this fix checks that the stored capacity equals MIN_HEAP_SIZE. This plan reverses only that implementation correction; no tests were run.",
+  "test": "repr::heap::test::test_realloc_shrink_to_min_heap_gap",
+  "expected_failure": "assertion `left == right` failed\n  left: 25\n right: 32",
+  "reversal": {
+    "path": "compact_str/src/repr/heap.rs",
+    "fixed_text": "    pub(crate) fn realloc(&mut self, new_capacity: usize) -> Result<usize, ()> {\n        // We can't reallocate to a size less than our length, or else we'd clip the string\n        if new_capacity < self.len {\n            return Err(());\n        }\n\n        // HeapBuffer doesn't support 0 byte heap sizes\n        if new_capacity == 0 {\n            return Err(());\n        }\n\n        // Always allocate at least MIN_HEAP_SIZE\n        let new_capacity = cmp::max(new_capacity, MIN_HEAP_SIZE);\n        // N.B. must be computed _after_ the MIN_HEAP_SIZE clamp so the stored capacity matches the\n        // layout we actually (re)allocate with, otherwise dealloc/realloc get a mismatched layout.\n        let new_cap = Capacity::new(new_capacity);\n\n",
+    "parent_text": "    pub(crate) fn realloc(&mut self, new_capacity: usize) -> Result<usize, ()> {\n        let new_cap = Capacity::new(new_capacity);\n\n        // We can't reallocate to a size less than our length, or else we'd clip the string\n        if new_capacity < self.len {\n            return Err(());\n        }\n\n        // HeapBuffer doesn't support 0 byte heap sizes\n        if new_capacity == 0 {\n            return Err(());\n        }\n\n        // Always allocate at least MIN_HEAP_SIZE\n        let new_capacity = cmp::max(new_capacity, MIN_HEAP_SIZE);\n\n"
+  }
+}

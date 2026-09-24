@@ -4,12 +4,12 @@
 
 Upstream: https://github.com/ParkMyCar/compact_str
 
-Candidate: 0e48d4a5ece68263df3a968935316c36ca7b9f55-1
+Candidate: 0969dcc71c2e06bb2200844d14c5ab7759211744-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 708 reachable from the saved tip.
+Reviewed commits: 1 / 725 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

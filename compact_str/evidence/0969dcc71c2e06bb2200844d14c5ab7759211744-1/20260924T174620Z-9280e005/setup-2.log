@@ -1,0 +1,27 @@
+Command: rustup run 1.95.0 cargo generate-lockfile
+Started: 2026-09-24T17:51:10.815532+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+  |
+  = help: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+    Updating `era` index
+    Updating git repository `https://github.com/ParkMyCar/honggfuzz-rs.git`
+    Updating git submodule `https://github.com/google/honggfuzz`
+    Updating git submodule `https://github.com/aquynh/capstone`
+    Updating git submodule `https://github.com/libunwind/libunwind.git`
+     Locking 320 packages to latest Rust 1.95.0 compatible versions
+      Adding afl v0.14.5 (available: v0.18.2)
+      Adding bevy_ecs v0.17.3 (available: v0.18.1)
+      Adding bevy_reflect v0.17.3 (available: v0.18.1)
+      Adding compact_str v0.6.1 (available: v0.9.0)
+      Adding criterion v0.5.1 (available: v0.8.2)
+      Adding generic-array v0.14.7 (available: v0.14.9)
+      Adding rand v0.8.6 (available: v0.10.1)
+      Adding rand_distr v0.4.3 (available: v0.6.0)
+      Adding smol_str v0.2.2 (available: v0.3.6)
+      Adding sqlx v0.8.6 (available: v0.9.0)
+
+Exit: 0
+Timed out: False
