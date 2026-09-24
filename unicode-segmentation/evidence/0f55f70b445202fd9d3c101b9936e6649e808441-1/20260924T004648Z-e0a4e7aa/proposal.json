@@ -1,0 +1,13 @@
+{
+  "commit": "0f55f70b445202fd9d3c101b9936e6649e808441",
+  "parent": "0fa7148d3bfd1b1e35e942b27f8c86d460bae896",
+  "fixed_commit": "0f55f70b445202fd9d3c101b9936e6649e808441",
+  "summary": "GraphemeCursor::next_boundary panicked by unwrapping an empty character iterator when given an empty chunk at the cursor offset before the string end. The fix returns Err(GraphemeIncomplete::NextChunk) instead and uses saturating subtraction for the chunk-relative offset. The implementation reversal is exact and unique at both revisions. Blocked: the fix adds no tests, and existing cursor unit tests, doctests, integration tests, QuickCheck properties, and fuzz target do not exercise this trigger. No detecting upstream test was found at the fixed commit; no tests were executed.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/grapheme.rs",
+    "fixed_text": "        let mut iter = chunk[self.offset.saturating_sub(chunk_start)..].chars();\n        let mut ch = match iter.next() {\n            Some(ch) => ch,\n            None => return Err(GraphemeIncomplete::NextChunk),\n        };\n",
+    "parent_text": "        let mut iter = chunk[self.offset - chunk_start..].chars();\n        let mut ch = iter.next().unwrap();\n"
+  }
+}

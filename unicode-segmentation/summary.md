@@ -1,17 +1,15 @@
 # Cloud bug-mining prototype
 
-Resumed verified evidence; no tests rerun.
-
-**confirmed**: The same upstream test passed, panicked on the original defect ('called `Option::unwrap()` on a `None` value'), and passed after restoration
+**blocked**: Proposal names no upstream test
 
 Upstream: https://github.com/unicode-rs/unicode-segmentation
 
-Candidate: fb5d7b6714d265aae844ce8f7df35d675505026f-1
+Candidate: 0f55f70b445202fd9d3c101b9936e6649e808441-1
 
 Provenance: verbatim
 
-Latest outcomes: {"confirmed": 1}
+Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 68 reachable from the saved tip.
+History coverage not yet recorded.
 
 Scope: one queued candidate; history coverage is partial.
