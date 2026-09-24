@@ -1,0 +1,36 @@
+Command: rustup run 1.65.0 cargo test --locked --offline --test hash hash_1 -- --nocapture --test-threads=1
+Started: 2026-09-24T01:03:45.012222+00:00
+STDOUT:
+
+running 1 test
+test hash_1 ... FAILED
+
+failures:
+
+failures:
+    hash_1
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 2 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling ropey v1.5.0 (/home/runner/work/_temp/upstream)
+warning: unused import: `Rope`
+ --> tests/hash.rs:5:13
+  |
+5 | use ropey::{Rope, RopeBuilder};
+  |             ^^^^
+  |
+  = note: `#[warn(unused_imports)]` on by default
+
+warning: `ropey` (test "hash") generated 1 warning
+    Finished test [unoptimized + debuginfo] target(s) in 1.11s
+     Running tests/hash.rs (/home/runner/work/_temp/build-20260924T010122Z-4b447db3/debug/deps/hash-d9ba965167782c2d)
+thread 'main' panicked at 'assertion failed: `(left == right)`
+  left: `12162685164875189569`,
+ right: `10065942850530397974`', tests/hash.rs:68:5
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `--test hash`
+
+Exit: 101
+Timed out: False

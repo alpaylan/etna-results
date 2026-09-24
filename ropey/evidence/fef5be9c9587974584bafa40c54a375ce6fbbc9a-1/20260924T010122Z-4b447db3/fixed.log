@@ -1,0 +1,92 @@
+Command: rustup run 1.65.0 cargo test --locked --offline --test hash hash_1 -- --nocapture --test-threads=1
+Started: 2026-09-24T01:03:28.698196+00:00
+STDOUT:
+
+running 1 test
+test hash_1 ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 2 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling cfg-if v1.0.0
+   Compiling libc v0.2.137
+   Compiling serde v1.0.147
+   Compiling memoffset v0.6.5
+   Compiling crossbeam-utils v0.8.12
+   Compiling scopeguard v1.1.0
+   Compiling memchr v2.5.0
+   Compiling getrandom v0.2.8
+   Compiling crossbeam-epoch v0.9.11
+   Compiling rand_core v0.6.4
+   Compiling ryu v1.0.11
+   Compiling either v1.8.0
+   Compiling lazy_static v1.4.0
+   Compiling crossbeam-deque v0.8.2
+   Compiling num_cpus v1.14.0
+   Compiling crossbeam-channel v0.5.6
+   Compiling num-traits v0.2.15
+   Compiling remove_dir_all v0.5.3
+   Compiling plotters-backend v0.3.4
+   Compiling bitflags v1.3.2
+   Compiling regex-syntax v0.6.28
+   Compiling fastrand v1.8.0
+   Compiling itoa v1.0.4
+   Compiling unicode-width v0.1.10
+   Compiling regex-automata v0.1.10
+   Compiling ppv-lite86 v0.2.17
+   Compiling textwrap v0.11.0
+   Compiling rand_chacha v0.3.1
+   Compiling tempfile v3.3.0
+   Compiling bstr v0.2.17
+   Compiling serde_json v1.0.87
+   Compiling plotters-svg v0.3.3
+   Compiling rayon-core v1.9.3
+   Compiling itertools v0.10.5
+   Compiling wait-timeout v0.2.0
+   Compiling csv-core v0.1.10
+   Compiling half v1.8.2
+   Compiling byteorder v1.4.3
+   Compiling quick-error v1.2.3
+   Compiling cast v0.3.0
+   Compiling same-file v1.0.6
+   Compiling itoa v0.4.8
+   Compiling fnv v1.0.7
+   Compiling bit-vec v0.6.3
+   Compiling criterion-plot v0.4.5
+   Compiling rusty-fork v0.3.0
+   Compiling csv v1.1.6
+   Compiling bit-set v0.5.3
+   Compiling walkdir v2.3.2
+   Compiling serde_cbor v0.11.2
+   Compiling tinytemplate v1.2.1
+   Compiling rayon v1.5.3
+   Compiling regex v1.7.0
+   Compiling plotters v0.3.4
+   Compiling rand v0.8.5
+   Compiling clap v2.34.0
+   Compiling rand_xorshift v0.3.0
+   Compiling atty v0.2.14
+   Compiling quick-error v2.0.1
+   Compiling str_indices v0.4.0
+   Compiling oorandom v11.1.3
+   Compiling smallvec v1.10.0
+   Compiling proptest v1.0.0
+   Compiling ropey v1.5.0 (/home/runner/work/_temp/upstream)
+   Compiling fxhash v0.2.1
+   Compiling unicode-segmentation v1.10.0
+   Compiling criterion v0.3.6
+warning: unused import: `Rope`
+ --> tests/hash.rs:5:13
+  |
+5 | use ropey::{Rope, RopeBuilder};
+  |             ^^^^
+  |
+  = note: `#[warn(unused_imports)]` on by default
+
+warning: `ropey` (test "hash") generated 1 warning
+    Finished test [unoptimized + debuginfo] target(s) in 16.14s
+     Running tests/hash.rs (/home/runner/work/_temp/build-20260924T010122Z-4b447db3/debug/deps/hash-d9ba965167782c2d)
+
+Exit: 0
+Timed out: False
