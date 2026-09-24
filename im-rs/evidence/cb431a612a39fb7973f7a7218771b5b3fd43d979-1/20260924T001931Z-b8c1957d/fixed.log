@@ -1,0 +1,63 @@
+Command: rustup run 1.31.1 cargo test --locked --lib vector::test::issue_55_back -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:20:13.889320+00:00
+STDOUT:
+
+running 1 test
+test vector::test::issue_55_back ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 105 filtered out
+
+
+STDERR:
+   Compiling cfg-if v0.1.6
+   Compiling rand_core v0.3.0
+   Compiling nodrop v0.1.13
+   Compiling memoffset v0.2.1
+   Compiling scopeguard v0.3.3
+   Compiling lazy_static v1.2.0
+   Compiling remove_dir_all v0.5.1
+   Compiling fnv v1.0.6
+   Compiling bit-vec v0.5.0
+   Compiling ucd-util v0.1.3
+   Compiling quick-error v1.2.2
+   Compiling ansi_term v0.11.0
+   Compiling bitflags v1.0.4
+   Compiling either v1.5.0
+   Compiling byteorder v1.2.7
+   Compiling itoa v0.4.3
+   Compiling difference v2.0.0
+   Compiling crossbeam-utils v0.2.2
+   Compiling rand_xorshift v0.1.1
+   Compiling rand_hc v0.1.0
+   Compiling rand_isaac v0.1.1
+   Compiling rand_core v0.2.2
+   Compiling regex-syntax v0.6.4
+   Compiling bit-set v0.5.0
+   Compiling libc v0.2.46
+   Compiling arrayvec v0.4.10
+   Compiling num-traits v0.2.6
+   Compiling serde v1.0.84
+   Compiling ryu v0.2.7
+   Compiling typenum v1.10.0
+   Compiling pretty_assertions v0.5.1
+   Compiling rand_chacha v0.1.1
+   Compiling crossbeam-epoch v0.3.1
+   Compiling rand_os v0.1.1
+   Compiling wait-timeout v0.1.5
+   Compiling num_cpus v1.9.0
+   Compiling rand v0.5.5
+   Compiling crossbeam-deque v0.2.0
+   Compiling rand_pcg v0.1.1
+   Compiling rayon-core v1.4.1
+   Compiling rand v0.6.4
+   Compiling rayon v1.0.3
+   Compiling tempfile v3.0.5
+   Compiling serde_json v1.0.35
+   Compiling rusty-fork v0.2.1
+   Compiling proptest v0.8.7
+   Compiling im v12.2.0 (/home/runner/work/_temp/upstream)
+    Finished dev [unoptimized + debuginfo] target(s) in 18.44s
+     Running /home/runner/work/_temp/build-20260924T001931Z-b8c1957d/debug/deps/im-8e36f099870bdb93
+
+Exit: 0
+Timed out: False

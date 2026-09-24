@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: fixed: cannot guarantee a fresh package build
+**unconfirmed**: The implementation reversal did not make the upstream test fail
 
 Upstream: https://github.com/bodil/im-rs
 
-Candidate: f7449127b83327b82d82690e8333c552014149c8-1
+Candidate: cb431a612a39fb7973f7a7218771b5b3fd43d979-1
 
 Provenance: verbatim
 
-Latest outcomes: {"blocked": 1}
+Latest outcomes: {"unconfirmed": 1}
 
-Reviewed commits: 1 / 451 reachable from the saved tip.
+Reviewed commits: 1 / 286 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

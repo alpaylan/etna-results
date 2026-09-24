@@ -1,0 +1,13 @@
+{
+  "commit": "cb431a612a39fb7973f7a7218771b5b3fd43d979",
+  "parent": "da13ed17e7a2fe85d8486730e0911a9d875f44ad",
+  "fixed_commit": "cb431a612a39fb7973f7a7218771b5b3fd43d979",
+  "summary": "Node::parent treated a child with a full array of child pointers as completely dense even when its descendants were sparse. This incorrectly retained Size::Size accounting, causing incorrect subtree offsets during indexing and splitting. The fix checks is_completely_dense(level - 1), forcing cumulative Size::Table accounting for a sparse nonfinal child. The upstream issue_55_back regression test exercises repeated prepending followed by indexing and slicing. This is a proposed reversal; reproduction has not been run.",
+  "test": "vector::test::issue_55_back",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/nodes/rrb.rs",
+    "fixed_text": "                        if size.is_size()\n                            && !child.is_completely_dense(level - 1)\n                            && it.peek().is_some()\n                        {\n                            size = Size::table_from_size(level, size.size());\n                        }\n",
+    "parent_text": "                        if size.is_size() && !child.is_full() && it.peek().is_some() {\n                            size = Size::table_from_size(level, size.size());\n                        }\n"
+  }
+}

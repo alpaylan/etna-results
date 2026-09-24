@@ -1,0 +1,8 @@
+Command: git -c user.email=era@etna -c user.name=era commit -qm 'crates.io-index as of 2019-01-14T13:57:02Z'
+Started: 2026-09-24T00:19:56.013631+00:00
+STDOUT:
+
+STDERR:
+
+Exit: 0
+Timed out: False

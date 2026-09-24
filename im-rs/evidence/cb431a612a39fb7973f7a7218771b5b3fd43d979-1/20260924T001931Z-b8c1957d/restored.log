@@ -1,0 +1,17 @@
+Command: rustup run 1.31.1 cargo test --locked --lib vector::test::issue_55_back -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:20:35.047145+00:00
+STDOUT:
+
+running 1 test
+test vector::test::issue_55_back ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 105 filtered out
+
+
+STDERR:
+   Compiling im v12.2.0 (/home/runner/work/_temp/upstream)
+    Finished dev [unoptimized + debuginfo] target(s) in 2.18s
+     Running /home/runner/work/_temp/build-20260924T001931Z-b8c1957d/debug/deps/im-8e36f099870bdb93
+
+Exit: 0
+Timed out: False
