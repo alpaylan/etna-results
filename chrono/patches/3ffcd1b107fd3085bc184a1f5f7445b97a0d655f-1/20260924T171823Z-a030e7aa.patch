@@ -1,0 +1,17 @@
+diff --git a/src/format/formatting.rs b/src/format/formatting.rs
+index b5ef253..cac5144 100644
+--- a/src/format/formatting.rs
++++ b/src/format/formatting.rs
+@@ -410,10 +410,8 @@ impl OffsetFormat {
+                 OffsetPrecision::Hours
+             }
+             OffsetPrecision::Minutes | OffsetPrecision::OptionalMinutes => {
+-                // Round seconds to the nearest minute, but never roll over to 24:00. A
+-                // `FixedOffset` may be as large as 23:59:59, and rounding that up would emit
+-                // an invalid "+24:00" that no offset parser (including ours) accepts.
+-                let minutes = ((off + 30) / 60).min(24 * 60 - 1);
++                // Round seconds to the nearest minute.
++                let minutes = (off + 30) / 60;
+                 mins = (minutes % 60) as u8;
+                 hours = (minutes / 60) as u8;
+                 if self.precision == OffsetPrecision::OptionalMinutes && mins == 0 {

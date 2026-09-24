@@ -1,0 +1,13 @@
+{
+  "commit": "3ffcd1b107fd3085bc184a1f5f7445b97a0d655f",
+  "parent": "bcfa377ec881d2b21ccab05de356adfb5958b21c",
+  "fixed_commit": "3ffcd1b107fd3085bc184a1f5f7445b97a0d655f",
+  "summary": "Formatting offsets with magnitudes from 23:59:30 through 23:59:59 at minute precision rounds them to invalid ±24:00, causing RFC3339 output to fail parsing. The fix clamps rounded offset magnitudes to 1439 minutes (23:59), preserving the sign and ordinary rounding below that limit. The fix adds the selected regression test, which requires the alloc feature enabled by default. This plan is based on source inspection; no tests were run.",
+  "test": "format::formatting::tests::test_offset_minute_rounding_no_24h_rollover",
+  "expected_failure": "assertion `left == right` failed: offset 86399s formatted incorrectly\n  left: \"+24:00\"\n right: \"+23:59\"",
+  "reversal": {
+    "path": "src/format/formatting.rs",
+    "fixed_text": "                // Round seconds to the nearest minute, but never roll over to 24:00. A\n                // `FixedOffset` may be as large as 23:59:59, and rounding that up would emit\n                // an invalid \"+24:00\" that no offset parser (including ours) accepts.\n                let minutes = ((off + 30) / 60).min(24 * 60 - 1);\n",
+    "parent_text": "                // Round seconds to the nearest minute.\n                let minutes = (off + 30) / 60;\n"
+  }
+}
