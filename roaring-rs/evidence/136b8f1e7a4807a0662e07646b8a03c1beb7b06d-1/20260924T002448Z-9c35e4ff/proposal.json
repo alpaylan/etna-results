@@ -1,0 +1,13 @@
+{
+  "commit": "136b8f1e7a4807a0662e07646b8a03c1beb7b06d",
+  "parent": "36afadf47e2c4c4119bb4ee172ee32299151f77d",
+  "fixed_commit": "136b8f1e7a4807a0662e07646b8a03c1beb7b06d",
+  "summary": "advance_back_to could set key_back below key when the requested back bound precedes the front word. The fix preserves key_back == key, clears both cached words, and returns immediately. The verbatim reversal is uniquely matched, but no detecting upstream test was established at this revision. The added test combine_with_nth in roaring/tests/iter_advance_to.rs exercises this branch, yet source inspection shows next_back returns None with either implementation. Contrary to the imported candidate description, this revision contains no bitmap iterator debug assertion checking the violated invariant. Leave detection blocked; no tests were executed.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "roaring/src/bitmap/store/bitmap_store.rs",
+    "fixed_text": "                    // New key is less than original key and key_back, this iterator is now empty\n                    self.key_back = self.key;\n                    self.value = 0;\n                    self.value_back = 0;\n                    return;\n",
+    "parent_text": "                    (0, &mut self.value)\n"
+  }
+}
