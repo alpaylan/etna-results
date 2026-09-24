@@ -1,0 +1,20 @@
+Command: rustup run 1.69.0 cargo test --locked --offline --lib naive::date::tests::test_date_from_num_days_from_ce -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:09:08.317892+00:00
+STDOUT:
+
+running 1 test
+test naive::date::tests::test_date_from_num_days_from_ce ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 164 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling serde v1.0.162
+   Compiling serde_json v1.0.96
+   Compiling bincode v1.3.3
+   Compiling chrono v0.4.24 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 4.37s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T000630Z-e7331672/debug/deps/chrono-fcadd955fa536c29)
+
+Exit: 0
+Timed out: False

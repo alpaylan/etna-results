@@ -1,0 +1,13 @@
+{
+  "commit": "f6597197cd8a0230291a478bee2b9b8c696ad80e",
+  "parent": "a20a9b7b90d2e545211538477c2822b62c76ac71",
+  "fixed_commit": "f6597197cd8a0230291a478bee2b9b8c696ad80e",
+  "summary": "NaiveDate::from_num_days_from_ce_opt adds 365 to its i32 input, overflowing for values near i32::MAX and panicking when overflow checks are enabled instead of returning None. The fix uses checked_add(365)? to return None on overflow. The existing test was extended by this commit with i32::MIN and i32::MAX assertions; the latter detects the panic. No builds or tests were run.",
+  "test": "naive::date::tests::test_date_from_num_days_from_ce",
+  "expected_failure": "attempt to add with overflow",
+  "reversal": {
+    "path": "src/naive/date.rs",
+    "fixed_text": "        let days = days.checked_add(365)?; // make December 31, 1 BCE equal to day 0\n",
+    "parent_text": "        let days = days + 365; // make December 31, 1 BCE equal to day 0\n"
+  }
+}
