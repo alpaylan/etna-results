@@ -1,0 +1,12 @@
+{
+  "repo": "https://github.com/rust-lang/regex",
+  "tips": [
+    "33898de870fc584ce912651590d8715d1178e667"
+  ],
+  "shallow": false,
+  "reviewed": [
+    "33898de870fc584ce912651590d8715d1178e667"
+  ],
+  "reachable_commits": 1269,
+  "scope": "One queued candidate; not an exhaustive history scan."
+}

@@ -1,0 +1,13 @@
+diff --git a/regex-syntax/src/hir/mod.rs b/regex-syntax/src/hir/mod.rs
+index bdf2fb2..0d58eff 100644
+--- a/regex-syntax/src/hir/mod.rs
++++ b/regex-syntax/src/hir/mod.rs
+@@ -2211,7 +2211,7 @@ impl Properties {
+                 props.static_explicit_captures_len = None;
+             }
+             props.alternation_literal =
+-                props.alternation_literal && p.is_literal();
++                props.alternation_literal && p.is_alternation_literal();
+             if !min_poisoned {
+                 if let Some(xmin) = p.minimum_len() {
+                     if props.minimum_len.map_or(true, |pmin| xmin < pmin) {

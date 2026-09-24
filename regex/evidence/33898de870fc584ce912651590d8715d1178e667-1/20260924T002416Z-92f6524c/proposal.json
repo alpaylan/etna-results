@@ -1,0 +1,13 @@
+{
+  "commit": "33898de870fc584ce912651590d8715d1178e667",
+  "parent": "cf8751aaffd4613d69e56eb1e04a44ced2ca27c0",
+  "fixed_commit": "33898de870fc584ce912651590d8715d1178e667",
+  "summary": "Properties::union incorrectly propagated is_alternation_literal() from alternatives, classifying (?:z|xx)@|xx as a simple alternation of literals. The literal optimizer then encountered a nested alternation where it expected a literal and panicked during regex compilation. The fix requires each alternative to satisfy is_literal(). The fix-added regression_fuzz::todo test exercises this compilation under the default test target with default features.",
+  "test": "regression_fuzz::todo",
+  "expected_failure": "internal error: entered unreachable code: expected literal, got",
+  "reversal": {
+    "path": "regex-syntax/src/hir/mod.rs",
+    "fixed_text": "            props.alternation_literal =\n                props.alternation_literal && p.is_literal();\n            if !min_poisoned {\n",
+    "parent_text": "            props.alternation_literal =\n                props.alternation_literal && p.is_alternation_literal();\n            if !min_poisoned {\n"
+  }
+}
