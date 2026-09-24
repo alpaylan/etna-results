@@ -1,0 +1,14 @@
+Command: rustup run 1.49.0 cargo check --locked --offline --tests
+Started: 2026-09-24T00:21:23.795947+00:00
+STDOUT:
+
+STDERR:
+    Checking ahash v0.4.7
+    Checking stats_alloc v0.1.8
+    Checking scoped_threadpool v0.1.9
+    Checking hashbrown v0.9.1
+    Checking lru v0.6.3 (/home/runner/work/_temp/upstream)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.89s
+
+Exit: 0
+Timed out: False

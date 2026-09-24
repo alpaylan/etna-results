@@ -1,0 +1,14 @@
+diff --git a/src/lib.rs b/src/lib.rs
+index 0a67899..630c60d 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -510,9 +510,6 @@ impl<K: Hash + Eq, V, S: BuildHasher> LruCache<K, V, S> {
+         match self.map.remove(&k) {
+             None => None,
+             Some(mut old_node) => {
+-                unsafe {
+-                    ptr::drop_in_place(old_node.key.as_mut_ptr());
+-                }
+                 let node_ptr: *mut LruEntry<K, V> = &mut *old_node;
+                 self.detach(node_ptr);
+                 unsafe { Some(old_node.val.assume_init()) }

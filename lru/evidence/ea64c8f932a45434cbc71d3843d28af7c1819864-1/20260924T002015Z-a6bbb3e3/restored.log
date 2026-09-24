@@ -1,0 +1,17 @@
+Command: rustup run 1.49.0 cargo test --locked --offline --lib tests::test_no_memory_leaks_with_pop -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:21:27.991230+00:00
+STDOUT:
+
+running 1 test
+test tests::test_no_memory_leaks_with_pop ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 28 filtered out
+
+
+STDERR:
+   Compiling lru v0.6.3 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 1.14s
+     Running /home/runner/work/_temp/build-20260924T002015Z-a6bbb3e3/debug/deps/lru-ded67fb685669548
+
+Exit: 0
+Timed out: False

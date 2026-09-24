@@ -1,0 +1,13 @@
+{
+  "commit": "ea64c8f932a45434cbc71d3843d28af7c1819864",
+  "parent": "0ba1a0838fcc3aa05e8f7c8c1cf2a6910259e767",
+  "fixed_commit": "ea64c8f932a45434cbc71d3843d28af7c1819864",
+  "summary": "LruCache::pop removed the entry and returned its value without dropping its key. Because the key is stored in MaybeUninit<K>, freeing the node does not run the key's destructor, leaking its resources. The fix explicitly drops the key before detaching the node. The regression test added by this commit expects 20,000 key drops; reversing the fix should produce only 10,000 drops from temporary lookup keys. No tests were executed during planning.",
+  "test": "tests::test_no_memory_leaks_with_pop",
+  "expected_failure": "assertion failed: `(left == right)`\n  left: `10000`,\n right: `20000`",
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "    pub fn pop<Q>(&mut self, k: &Q) -> Option<V>\n    where\n        KeyRef<K>: Borrow<Q>,\n        Q: Hash + Eq + ?Sized,\n    {\n        match self.map.remove(&k) {\n            None => None,\n            Some(mut old_node) => {\n                unsafe {\n                    ptr::drop_in_place(old_node.key.as_mut_ptr());\n                }\n                let node_ptr: *mut LruEntry<K, V> = &mut *old_node;\n                self.detach(node_ptr);\n                unsafe { Some(old_node.val.assume_init()) }\n            }\n        }\n    }\n",
+    "parent_text": "    pub fn pop<Q>(&mut self, k: &Q) -> Option<V>\n    where\n        KeyRef<K>: Borrow<Q>,\n        Q: Hash + Eq + ?Sized,\n    {\n        match self.map.remove(&k) {\n            None => None,\n            Some(mut old_node) => {\n                let node_ptr: *mut LruEntry<K, V> = &mut *old_node;\n                self.detach(node_ptr);\n                unsafe { Some(old_node.val.assume_init()) }\n            }\n        }\n    }\n"
+  }
+}
