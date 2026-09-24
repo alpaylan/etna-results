@@ -1,19 +1,15 @@
 # Cloud bug-mining prototype
 
-Resumed verified evidence; no tests rerun.
-
-**confirmed**: The same upstream test passed, panicked on the original defect ('assertion `left == right` failed
-  left: 0
- right: 1'), and passed after restoration
+**blocked**: buggy: no completed execution of the exact upstream test
 
 Upstream: https://github.com/tokio-rs/bytes
 
-Candidate: 36675436cc343fc0e828033278d668020bd897b9-1
+Candidate: 60cbb776f22e4ef2268c026e88a24d6ed75b3776-1
 
 Provenance: verbatim
 
-Latest outcomes: {"confirmed": 1}
+Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 535 reachable from the saved tip.
+Reviewed commits: 1 / 548 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

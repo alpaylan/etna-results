@@ -1,0 +1,13 @@
+{
+  "commit": "60cbb776f22e4ef2268c026e88a24d6ed75b3776",
+  "parent": "7ce330f5192a322fb1efefe7ac9a3850b27162a1",
+  "fixed_commit": "60cbb776f22e4ef2268c026e88a24d6ed75b3776",
+  "summary": "Putting an empty slice into a zero-capacity BytesMut enters allocation reuse and calls copy_to_bytes(0), which creates another zero-capacity BytesMut and calls put again. This recurses indefinitely and overflows the stack. The fix returns immediately when the source has no remaining bytes. The fix-added test test_bytes_mut_reuse in tests/test_buf_mut.rs exercises this case. Both reversal regions occur exactly once; replacing the fixed region restores the entire implementation file to its parent version. No tests were run.",
+  "test": "test_bytes_mut_reuse",
+  "expected_failure": "thread 'test_bytes_mut_reuse' has overflowed its stack",
+  "reversal": {
+    "path": "src/bytes_mut.rs",
+    "fixed_text": "        if !src.has_remaining() {\n            // prevent calling `copy_to_bytes`->`put`->`copy_to_bytes` infintely when src is empty\n            return;\n        } else if self.capacity() == 0 {\n            // When capacity is zero, try reusing allocation of `src`.\n",
+    "parent_text": "        // When capacity is zero, try reusing allocation of `src`.\n        if self.capacity() == 0 {\n"
+  }
+}
