@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**unconfirmed**: The observed failure does not establish the described bug
+**blocked**: Proposal names no upstream test
 
 Upstream: https://github.com/reem/rust-ordered-float
 
-Candidate: c55cda301c943270b7eb2b4765bedbcce56edb90-1
+Candidate: 3aa8aa506b3231712958093ee513b37206a474da-1
 
 Provenance: verbatim
 
-Latest outcomes: {"unconfirmed": 1}
+Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 99 reachable from the saved tip.
+History coverage not yet recorded.
 
 Scope: one queued candidate; history coverage is partial.

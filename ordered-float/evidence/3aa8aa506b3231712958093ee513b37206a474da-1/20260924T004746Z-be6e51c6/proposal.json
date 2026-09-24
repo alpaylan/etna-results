@@ -1,0 +1,13 @@
+{
+  "commit": "3aa8aa506b3231712958093ee513b37206a474da",
+  "parent": "85d469f7a42a5d8e4296301b4239bc45af985c5d",
+  "fixed_commit": "3aa8aa506b3231712958093ee513b37206a474da",
+  "summary": "The parent hashes integer_decode() components, including the sign, so equal positive and negative zeros receive different hashes. The fix routes OrderedFloat and NotNaN hashing through hash_float, which hashes zero mantissas as a single zero representation. Reversing the OrderedFloat Hash implementation restores its bug verbatim. Detection is blocked: the fix adds no tests, and the existing tests/test.rs covers comparisons and NaN construction only, with no hashing assertions. The imported description's to_bits() implementation does not match this historical revision.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "impl<T: Float> Hash for OrderedFloat<T> {\n    fn hash<H: Hasher>(&self, state: &mut H) {\n        if self.is_nan() {\n            // normalize to one representation of NaN\n            hash_float(&T::nan(), state)\n        } else {\n            hash_float(self.as_ref(), state)\n        }\n    }\n}\n",
+    "parent_text": "impl<T: Float> Hash for OrderedFloat<T> {\n    fn hash<H: Hasher>(&self, state: &mut H) {\n        let (man, exp, sign) = if self.as_ref().is_nan() {\n            // normalize to one representation of NaN\n            T::nan().integer_decode()\n        } else {\n            self.as_ref().integer_decode()\n        };\n        (man ^ exp as u64 ^ sign as u64).hash(state)\n    }\n}\n"
+  }
+}
