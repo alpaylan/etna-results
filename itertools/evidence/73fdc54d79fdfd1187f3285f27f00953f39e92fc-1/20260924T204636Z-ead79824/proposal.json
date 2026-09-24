@@ -1,0 +1,13 @@
+{
+  "commit": "73fdc54d79fdfd1187f3285f27f00953f39e92fc",
+  "parent": "b4cde0668ad85a0d6349e0a55c50204ea8330f59",
+  "fixed_commit": "73fdc54d79fdfd1187f3285f27f00953f39e92fc",
+  "summary": "No valid implementation reversal exists. This commit only removes redundant parentheses from existing tests in tests/test_core.rs and tests/test_std.rs to eliminate compiler warnings. The implementation source tree is identical before and after the commit; no functional behavior changes or detecting regression test can be identified. Reversing any changed line would modify test code, violating the reversal requirements.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}

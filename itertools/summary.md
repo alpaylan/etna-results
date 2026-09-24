@@ -4,7 +4,7 @@
 
 Upstream: https://github.com/rust-itertools/itertools
 
-Candidate: 9f41c18435249691cb06c0e98ca5653a3d02ed57-1
+Candidate: 73fdc54d79fdfd1187f3285f27f00953f39e92fc-1
 
 Provenance: verbatim
 
