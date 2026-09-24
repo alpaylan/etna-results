@@ -1,0 +1,29 @@
+Command: rustup run 1.82.0 cargo test --locked --offline --lib algorithm::iterators::test::test_locate_within_distance_on_empty_tree -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:31:26.442133+00:00
+STDOUT:
+
+running 1 test
+test algorithm::iterators::test::test_locate_within_distance_on_empty_tree ... FAILED
+
+failures:
+
+failures:
+    algorithm::iterators::test::test_locate_within_distance_on_empty_tree
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 47 filtered out; finished in 0.00s
+
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+warning: ignoring `resolver` config table without `-Zmsrv-policy`
+   Compiling rstar v0.12.1 (/home/runner/work/_temp/upstream/rstar)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.14s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T002601Z-95f76ad8/debug/deps/rstar-a2ec5105e30c558c)
+thread 'algorithm::iterators::test::test_locate_within_distance_on_empty_tree' panicked at rstar/src/point.rs:242:44:
+attempt to multiply with overflow
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `-p rstar --lib`
+
+Exit: 101
+Timed out: False

@@ -1,0 +1,22 @@
+diff --git a/rstar/src/algorithm/iterators.rs b/rstar/src/algorithm/iterators.rs
+index 0000289..e577d76 100644
+--- a/rstar/src/algorithm/iterators.rs
++++ b/rstar/src/algorithm/iterators.rs
+@@ -53,12 +53,11 @@ where
+     Func: SelectionFunction<T>,
+ {
+     pub(crate) fn new(root: &'a ParentNode<T>, func: Func) -> Self {
+-        let current_nodes =
+-            if !root.children.is_empty() && func.should_unpack_parent(&root.envelope()) {
+-                root.children.iter().collect()
+-            } else {
+-                SmallVec::new()
+-            };
++        let current_nodes = if func.should_unpack_parent(&root.envelope()) {
++            root.children.iter().collect()
++        } else {
++            SmallVec::new()
++        };
+ 
+         SelectionIterator {
+             func,

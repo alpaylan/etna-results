@@ -1,0 +1,13 @@
+{
+  "commit": "4b44c0346c030802d5a092cf9001af303423bce4",
+  "parent": "7a48e311a84f309f7a3bc35d8896adccfe262754",
+  "fixed_commit": "4b44c0346c030802d5a092cf9001af303423bce4",
+  "summary": "Without the empty-root guard, constructing a distance-selection iterator evaluates the empty root's envelope. With the min/max AABB representation restored by this commit, querying an empty i64 tree at the origin squares i64::MIN and panics when overflow checks are enabled. The guard skips envelope evaluation and creates an empty iterator. Reversing only the immutable iterator constructor isolates this behavior for the existing regression test updated by the fix. No tests were run.",
+  "test": "algorithm::iterators::test::test_locate_within_distance_on_empty_tree",
+  "expected_failure": "attempt to multiply with overflow",
+  "reversal": {
+    "path": "rstar/src/algorithm/iterators.rs",
+    "fixed_text": "        let current_nodes =\n            if !root.children.is_empty() && func.should_unpack_parent(&root.envelope()) {\n                root.children.iter().collect()\n            } else {\n                SmallVec::new()\n            };\n",
+    "parent_text": "        let current_nodes = if func.should_unpack_parent(&root.envelope()) {\n            root.children.iter().collect()\n        } else {\n            SmallVec::new()\n        };\n"
+  }
+}

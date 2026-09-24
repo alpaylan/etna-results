@@ -1,12 +1,14 @@
 {
   "repo": "https://github.com/georust/rstar",
   "tips": [
-    "44e1bf54192ad96672a465fcf95025180e540c3d"
+    "44e1bf54192ad96672a465fcf95025180e540c3d",
+    "4b44c0346c030802d5a092cf9001af303423bce4"
   ],
   "shallow": false,
   "reviewed": [
-    "44e1bf54192ad96672a465fcf95025180e540c3d"
+    "44e1bf54192ad96672a465fcf95025180e540c3d",
+    "4b44c0346c030802d5a092cf9001af303423bce4"
   ],
-  "reachable_commits": 210,
+  "reachable_commits": 284,
   "scope": "One queued candidate; not an exhaustive history scan."
 }
