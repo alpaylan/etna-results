@@ -1,0 +1,12 @@
+{
+  "repo": "https://github.com/bodil/im-rs",
+  "tips": [
+    "f7449127b83327b82d82690e8333c552014149c8"
+  ],
+  "shallow": false,
+  "reviewed": [
+    "f7449127b83327b82d82690e8333c552014149c8"
+  ],
+  "reachable_commits": 451,
+  "scope": "One queued candidate; not an exhaustive history scan."
+}

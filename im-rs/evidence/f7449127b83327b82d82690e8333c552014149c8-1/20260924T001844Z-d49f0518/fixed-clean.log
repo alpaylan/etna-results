@@ -1,0 +1,10 @@
+Command: rustup run 1.43.1 cargo clean -p im
+Started: 2026-09-24T00:19:39.124645+00:00
+STDOUT:
+
+STDERR:
+thread 'main' panicked at 'assertion failed: self.host', src/tools/cargo/src/cargo/core/profiles.rs:920:13
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+Exit: 101
+Timed out: False

@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: Proposal names no upstream test
+**blocked**: fixed: cannot guarantee a fresh package build
 
 Upstream: https://github.com/bodil/im-rs
 
-Candidate: 1209e823b633c7ac73ae686896382b7207a907ac-1
+Candidate: f7449127b83327b82d82690e8333c552014149c8-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-History coverage not yet recorded.
+Reviewed commits: 1 / 451 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

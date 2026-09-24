@@ -1,0 +1,73 @@
+Command: rustup run 1.43.1 cargo check --locked --offline --tests
+Started: 2026-09-24T00:19:25.337593+00:00
+STDOUT:
+
+STDERR:
+   Compiling autocfg v1.0.0
+   Compiling libc v0.2.70
+    Checking cfg-if v0.1.10
+    Checking rand_core v0.4.2
+   Compiling getrandom v0.1.14
+   Compiling autocfg v0.1.7
+    Checking lazy_static v1.4.0
+   Compiling maybe-uninit v2.0.0
+   Compiling proc-macro2 v0.4.30
+    Checking ppv-lite86 v0.2.6
+    Checking scopeguard v1.1.0
+   Compiling typenum v1.12.0
+   Compiling unicode-xid v0.1.0
+   Compiling ryu v1.0.4
+   Compiling byteorder v1.3.4
+   Compiling bitflags v1.2.1
+   Compiling syn v0.15.44
+    Checking remove_dir_all v0.5.2
+   Compiling serde v1.0.110
+   Compiling rayon-core v1.7.0
+    Checking bit-vec v0.6.2
+    Checking quick-error v1.2.3
+    Checking fnv v1.0.7
+   Compiling version_check v0.9.1
+    Checking regex-syntax v0.6.17
+    Checking ansi_term v0.11.0
+    Checking difference v2.0.0
+    Checking itoa v0.4.5
+    Checking either v1.5.3
+    Checking metrohash v1.0.6
+    Checking rand_core v0.3.1
+    Checking rand_jitter v0.1.4
+   Compiling crossbeam-utils v0.7.2
+   Compiling memoffset v0.5.4
+   Compiling crossbeam-epoch v0.8.2
+   Compiling num-traits v0.2.11
+   Compiling rand_pcg v0.1.2
+   Compiling rand_chacha v0.1.1
+   Compiling rand v0.6.5
+    Checking bit-set v0.5.2
+    Checking pretty_assertions v0.6.1
+    Checking rand_xorshift v0.1.1
+    Checking rand_hc v0.1.0
+    Checking rand_isaac v0.1.1
+   Compiling im v14.3.0 (/home/runner/work/_temp/upstream)
+    Checking wait-timeout v0.2.0
+    Checking rand_os v0.1.3
+    Checking num_cpus v1.13.0
+   Compiling quote v0.6.13
+    Checking crossbeam-queue v0.2.1
+    Checking bitmaps v2.1.0
+    Checking rand_core v0.5.1
+    Checking crossbeam-deque v0.7.3
+    Checking rand_pcg v0.2.1
+    Checking rand_chacha v0.2.2
+    Checking rand_xoshiro v0.4.0
+    Checking rand v0.7.3
+    Checking rayon v1.3.0
+    Checking sized-chunks v0.6.1
+    Checking tempfile v3.1.0
+    Checking serde_json v1.0.53
+    Checking rusty-fork v0.2.2
+    Checking proptest v0.9.6
+   Compiling proptest-derive v0.1.2
+    Finished dev [unoptimized + debuginfo] target(s) in 13.72s
+
+Exit: 0
+Timed out: False

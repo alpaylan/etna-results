@@ -1,0 +1,13 @@
+{
+  "commit": "f7449127b83327b82d82690e8333c552014149c8",
+  "parent": "c15fa7f581d341f608b656f5ad12c24da8fa96d9",
+  "fixed_commit": "f7449127b83327b82d82690e8333c552014149c8",
+  "summary": "Vector::ptr_eq incorrectly returns true for cloned full-tree vectors whose outer chunks diverge but whose middle pointer remains shared: the final || bypasses the preceding chunk comparisons. The fix groups the middle-tree alternatives so all chunk comparisons must also succeed. This reversal isolates the ptr_eq correction. The upstream issue_131 test added by the fix checks that modifying a 65-element clone makes ptr_eq return false.",
+  "test": "vector::test::issue_131",
+  "expected_failure": "assertion failed: !huge.ptr_eq(&huge2)",
+  "reversal": {
+    "path": "src/vector/mod.rs",
+    "fixed_text": "                cmp_chunk(&left.outer_f, &right.outer_f)\n                    && cmp_chunk(&left.inner_f, &right.inner_f)\n                    && cmp_chunk(&left.inner_b, &right.inner_b)\n                    && cmp_chunk(&left.outer_b, &right.outer_b)\n                    && ((left.middle.is_empty() && right.middle.is_empty())\n                        || Ref::ptr_eq(&left.middle, &right.middle))\n",
+    "parent_text": "                cmp_chunk(&left.outer_f, &right.outer_f)\n                    && cmp_chunk(&left.inner_f, &right.inner_f)\n                    && cmp_chunk(&left.inner_b, &right.inner_b)\n                    && cmp_chunk(&left.outer_b, &right.outer_b)\n                    && (left.middle.is_empty() && right.middle.is_empty())\n                    || Ref::ptr_eq(&left.middle, &right.middle)\n"
+  }
+}
