@@ -1,0 +1,13 @@
+{
+  "commit": "a5850bbd0d1bf6e5ae1ed1310cbe8919fa77d618",
+  "parent": "d47dd038017a48adc9b25f690f1f4f27160aeb3b",
+  "fixed_commit": "a5850bbd0d1bf6e5ae1ed1310cbe8919fa77d618",
+  "summary": "The parser accepted a concrete patch component after a minor wildcard when an explicit operator was present, such as >1.*.0, because the rejection guard checked op == Op::Wildcard. The fix tracks the minor wildcard independently of the operator and rejects the following concrete patch component. A verbatim implementation reversal is available, but no detecting upstream test was found at the fixed commit: the fix adds no tests, and existing wildcard and parse-error tests do not exercise this case. The test selector is empty so the candidate remains blocked; no tests were executed.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/parse.rs",
+    "fixed_text": "    let (major, text) = numeric_identifier(text, pos)?;\n    let mut has_wildcard = false;\n\n    let (minor, text) = if let Some(text) = text.strip_prefix('.') {\n        pos = Position::Minor;\n        if let Some(text) = text.strip_prefix('*') {\n            has_wildcard = true;\n            if default_op {\n                op = Op::Wildcard;\n            }\n            (None, text)\n        } else {\n            let (minor, text) = numeric_identifier(text, pos)?;\n            (Some(minor), text)\n        }\n    } else {\n        (None, text)\n    };\n\n    let (patch, text) = if let Some(text) = text.strip_prefix('.') {\n        pos = Position::Patch;\n        if let Some(text) = text.strip_prefix('*') {\n            if default_op {\n                op = Op::Wildcard;\n            }\n            (None, text)\n        } else if has_wildcard {\n            return Err(Error::new(ErrorKind::UnexpectedAfterWildcard));\n",
+    "parent_text": "    let (major, text) = numeric_identifier(text, pos)?;\n\n    let (minor, text) = if let Some(text) = text.strip_prefix('.') {\n        pos = Position::Minor;\n        if let Some(text) = text.strip_prefix('*') {\n            if default_op {\n                op = Op::Wildcard;\n            }\n            (None, text)\n        } else {\n            let (minor, text) = numeric_identifier(text, pos)?;\n            (Some(minor), text)\n        }\n    } else {\n        (None, text)\n    };\n\n    let (patch, text) = if let Some(text) = text.strip_prefix('.') {\n        pos = Position::Patch;\n        if let Some(text) = text.strip_prefix('*') {\n            if default_op {\n                op = Op::Wildcard;\n            }\n            (None, text)\n        } else if op == Op::Wildcard {\n            return Err(Error::new(ErrorKind::UnexpectedAfterWildcard));\n"
+  }
+}
