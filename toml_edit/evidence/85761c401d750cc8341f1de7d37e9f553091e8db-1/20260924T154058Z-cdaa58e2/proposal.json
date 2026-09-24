@@ -1,0 +1,13 @@
+{
+  "commit": "85761c401d750cc8341f1de7d37e9f553091e8db",
+  "parent": "5edb4770ad2976d1af880a23f90a43c2a963c2e2",
+  "fixed_commit": "85761c401d750cc8341f1de7d37e9f553091e8db",
+  "summary": "Malformed hexadecimal input such as `0xz_` continues into numeric decoding after validation reports an invalid digit. Underscore processing then mistakes the radix prefix's `x` for an underscore and panics with debug assertions enabled. The fix returns validation success and skips decoding invalid input. Reverse only the hexadecimal branch's validation guard. The existing test's snapshot was updated by this fix; reproduction has not been run.",
+  "test": "parse_document::hex_with_bad_chars",
+  "expected_failure": "assertion `left == right` failed\n  left: \"x\"\n right: \"_\"",
+  "reversal": {
+    "path": "crates/toml_parser/src/decoder/scalar.rs",
+    "fixed_text": "                let radix = IntegerRadix::Hex;\n                let kind = ScalarKind::Integer(radix);\n                let stream = &value[2..];\n                if ensure_radixed_value(stream, raw, radix, error) {\n                    decode_float_or_integer(stream, raw, kind, output, error)\n                } else {\n                    kind\n                }\n",
+    "parent_text": "                let radix = IntegerRadix::Hex;\n                let kind = ScalarKind::Integer(radix);\n                let stream = &value[2..];\n                ensure_radixed_value(stream, raw, radix, error);\n                decode_float_or_integer(stream, raw, kind, output, error)\n"
+  }
+}

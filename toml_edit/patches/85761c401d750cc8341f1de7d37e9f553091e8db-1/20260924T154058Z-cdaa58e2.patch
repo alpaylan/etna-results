@@ -1,0 +1,18 @@
+diff --git a/crates/toml_parser/src/decoder/scalar.rs b/crates/toml_parser/src/decoder/scalar.rs
+index 24d0ccd..a84e5de 100644
+--- a/crates/toml_parser/src/decoder/scalar.rs
++++ b/crates/toml_parser/src/decoder/scalar.rs
+@@ -272,11 +272,8 @@ fn decode_zero_prefix<'i>(
+                 let radix = IntegerRadix::Hex;
+                 let kind = ScalarKind::Integer(radix);
+                 let stream = &value[2..];
+-                if ensure_radixed_value(stream, raw, radix, error) {
+-                    decode_float_or_integer(stream, raw, kind, output, error)
+-                } else {
+-                    kind
+-                }
++                ensure_radixed_value(stream, raw, radix, error);
++                decode_float_or_integer(stream, raw, kind, output, error)
+             }
+             b'o' | b'O' => {
+                 if value.contains(" ") {

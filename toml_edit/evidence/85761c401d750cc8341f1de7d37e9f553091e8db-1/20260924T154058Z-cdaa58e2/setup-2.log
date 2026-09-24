@@ -1,0 +1,18 @@
+Command: rustup run 1.93.0 cargo generate-lockfile
+Started: 2026-09-24T15:44:09.272934+00:00
+STDOUT:
+
+STDERR:
+warning: both `/home/runner/work/_temp/upstream/.cargo/config` and `/home/runner/work/_temp/upstream/.cargo/config.toml` exist. Using `/home/runner/work/_temp/upstream/.cargo/config`
+    Updating `era` index
+     Locking 123 packages to latest Rust 1.76 compatible versions
+      Adding divan v0.1.16 (available: v0.1.21, requires Rust 1.80.0)
+      Adding divan-macros v0.1.16 (available: v0.1.21)
+      Adding indexmap v2.11.4 (available: v2.13.0, requires Rust 1.82)
+      Adding proptest v1.8.0 (available: v1.10.0, requires Rust 1.84)
+      Adding toml v0.5.11 (available: v0.9.11+spec-1.1.0)
+      Adding wasip2 v1.0.2+wasi-0.2.9 (requires Rust 1.87.0)
+      Adding wit-bindgen v0.51.0 (requires Rust 1.87.0)
+
+Exit: 0
+Timed out: False
