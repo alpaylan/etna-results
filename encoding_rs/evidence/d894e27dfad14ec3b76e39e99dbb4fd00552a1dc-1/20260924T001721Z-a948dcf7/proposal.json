@@ -1,0 +1,13 @@
+{
+  "commit": "d894e27dfad14ec3b76e39e99dbb4fd00552a1dc",
+  "parent": "6dd118cad419dc37a073d0efd91f7f51e22e374f",
+  "fixed_commit": "d894e27dfad14ec3b76e39e99dbb4fd00552a1dc",
+  "summary": "Encoder::encode_from_utf16 could write a numeric character reference past effective_dst_len, then panic when the next iteration sliced dst with its start greater than its end. The fix returns OutputFull immediately when total_written reaches or exceeds effective_dst_len. The implementation reversal is unambiguous, but no detecting upstream test was found at this revision: the fix adds no tests, and existing UTF-16 encoding tests use src/testing.rs, which allocates 10 * (input length + 1) bytes and avoids this buffer boundary. Leave this candidate blocked pending a suitable upstream test; no tests were executed.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "                    // printable ASCII excluding \\ and ~.\n                    total_written += write_ncr(unmappable, &mut dst[total_written..]);\n                    if total_written >= effective_dst_len {\n                        return (CoderResult::OutputFull,\n                                total_read,\n                                total_written,\n                                had_unmappables);\n                    }\n",
+    "parent_text": "                    // printable ASCII excluding \\ and ~.\n                    total_written += write_ncr(unmappable, &mut dst[total_written..]);\n"
+  }
+}

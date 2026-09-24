@@ -4,7 +4,7 @@
 
 Upstream: https://github.com/hsivonen/encoding_rs
 
-Candidate: 234bf08f703e0e5cccdd35b1d009e64ac95b450c-1
+Candidate: d894e27dfad14ec3b76e39e99dbb4fd00552a1dc-1
 
 Provenance: verbatim
 
