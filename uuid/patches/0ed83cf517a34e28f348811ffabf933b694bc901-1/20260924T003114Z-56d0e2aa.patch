@@ -1,0 +1,13 @@
+diff --git a/src/lib.rs b/src/lib.rs
+index f8c2f2f..951a093 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -588,7 +588,7 @@ impl Uuid {
+             6 => Some(Version::SortMac),
+             7 => Some(Version::SortRand),
+             8 => Some(Version::Custom),
+-            0xf if self.is_max() => Some(Version::Max),
++            0xf => Some(Version::Max),
+             _ => None,
+         }
+     }

@@ -1,0 +1,18 @@
+Command: rustup run 1.94.0 cargo test --locked --offline --lib tests::test_get_version_almost_max -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:37:05.261206+00:00
+STDOUT:
+
+running 1 test
+test tests::test_get_version_almost_max ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 71 filtered out; finished in 0.00s
+
+
+STDERR:
+warning: both `/home/runner/work/_temp/upstream/.cargo/config` and `/home/runner/work/_temp/upstream/.cargo/config.toml` exist. Using `/home/runner/work/_temp/upstream/.cargo/config`
+   Compiling uuid v1.22.0 (/home/runner/work/_temp/upstream)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.48s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T003114Z-56d0e2aa/debug/deps/uuid-a47eed72d4dc6004)
+
+Exit: 0
+Timed out: False

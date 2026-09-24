@@ -1,0 +1,34 @@
+Command: rustup run 1.94.0 cargo check --locked --offline --tests
+Started: 2026-09-24T00:36:52.473255+00:00
+STDOUT:
+
+STDERR:
+warning: both `/home/runner/work/_temp/upstream/.cargo/config` and `/home/runner/work/_temp/upstream/.cargo/config.toml` exist. Using `/home/runner/work/_temp/upstream/.cargo/config`
+   Compiling serde_core v1.0.228
+   Compiling proc-macro2 v1.0.106
+   Compiling quote v1.0.45
+   Compiling unicode-ident v1.0.24
+   Compiling serde v1.0.228
+   Compiling zmij v1.0.21
+   Compiling target-triple v1.0.0
+   Compiling serde_json v1.0.149
+    Checking winnow v1.0.0
+    Checking toml_parser v1.1.0+spec-1.1.0
+    Checking toml_writer v1.1.0+spec-1.1.0
+   Compiling rustversion v1.0.22
+    Checking itoa v1.0.18
+    Checking memchr v2.8.0
+   Compiling syn v2.0.117
+    Checking glob v0.3.3
+    Checking termcolor v1.4.1
+    Checking uuid v1.22.0 (/home/runner/work/_temp/upstream)
+    Checking toml_datetime v1.1.0+spec-1.1.0
+    Checking serde_spanned v1.1.0
+    Checking toml v1.1.0+spec-1.1.0
+    Checking serde_test v1.0.177
+   Compiling serde_derive v1.0.228
+    Checking trybuild v1.0.116
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 5.34s
+
+Exit: 0
+Timed out: False

@@ -1,0 +1,13 @@
+{
+  "commit": "0ed83cf517a34e28f348811ffabf933b694bc901",
+  "parent": "fc8da879f87868c36c7adc9584a457489a384031",
+  "fixed_commit": "0ed83cf517a34e28f348811ffabf933b694bc901",
+  "summary": "Uuid::get_version incorrectly returned Some(Version::Max) for any UUID with version nibble 0xf, including ffffffff-ffff-ffff-ffff-fffffffffff0. The fix adds an is_max() guard so only the all-ones UUID receives Version::Max; other UUIDs with that nibble return None. The regression test added by this commit checks this case. Reversing only the guard restores the incorrect behavior.",
+  "test": "tests::test_get_version_almost_max",
+  "expected_failure": "assertion failed: uuidmax.get_version().is_none()",
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "            0xf if self.is_max() => Some(Version::Max),\n",
+    "parent_text": "            0xf => Some(Version::Max),\n"
+  }
+}

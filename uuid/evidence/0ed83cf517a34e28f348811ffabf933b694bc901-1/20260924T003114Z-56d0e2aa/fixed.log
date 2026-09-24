@@ -1,0 +1,35 @@
+Command: rustup run 1.94.0 cargo test --locked --offline --lib tests::test_get_version_almost_max -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:36:58.782690+00:00
+STDOUT:
+
+running 1 test
+test tests::test_get_version_almost_max ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 71 filtered out; finished in 0.00s
+
+
+STDERR:
+warning: both `/home/runner/work/_temp/upstream/.cargo/config` and `/home/runner/work/_temp/upstream/.cargo/config.toml` exist. Using `/home/runner/work/_temp/upstream/.cargo/config`
+   Compiling serde_core v1.0.228
+   Compiling winnow v1.0.0
+   Compiling zmij v1.0.21
+   Compiling memchr v2.8.0
+   Compiling toml_parser v1.1.0+spec-1.1.0
+   Compiling itoa v1.0.18
+   Compiling toml_writer v1.1.0+spec-1.1.0
+   Compiling target-triple v1.0.0
+   Compiling glob v0.3.3
+   Compiling termcolor v1.4.1
+   Compiling toml_datetime v1.1.0+spec-1.1.0
+   Compiling serde_spanned v1.1.0
+   Compiling serde v1.0.228
+   Compiling serde_json v1.0.149
+   Compiling toml v1.1.0+spec-1.1.0
+   Compiling serde_test v1.0.177
+   Compiling trybuild v1.0.116
+   Compiling uuid v1.22.0 (/home/runner/work/_temp/upstream)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 5.41s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T003114Z-56d0e2aa/debug/deps/uuid-a47eed72d4dc6004)
+
+Exit: 0
+Timed out: False

@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: Proposal names no upstream test
+**unconfirmed**: The observed failure does not establish the described bug
 
 Upstream: https://github.com/uuid-rs/uuid
 
-Candidate: 3af4733e60f956bd8673b419d3a9e83fcd0a0b8e-1
+Candidate: 0ed83cf517a34e28f348811ffabf933b694bc901-1
 
 Provenance: verbatim
 
-Latest outcomes: {"blocked": 1}
+Latest outcomes: {"unconfirmed": 1}
 
-History coverage not yet recorded.
+Reviewed commits: 1 / 1747 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

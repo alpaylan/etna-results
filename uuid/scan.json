@@ -1,0 +1,12 @@
+{
+  "repo": "https://github.com/uuid-rs/uuid",
+  "tips": [
+    "0ed83cf517a34e28f348811ffabf933b694bc901"
+  ],
+  "shallow": false,
+  "reviewed": [
+    "0ed83cf517a34e28f348811ffabf933b694bc901"
+  ],
+  "reachable_commits": 1747,
+  "scope": "One queued candidate; not an exhaustive history scan."
+}
