@@ -1,0 +1,34 @@
+Command: rustup run 1.97.1 cargo fetch --locked
+Started: 2026-09-24T20:54:10.456574+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+  |
+  = help: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+ Downloading crates ...
+  Downloaded serde_json v1.0.151 (registry `era`)
+  Downloaded multiversion_no_op v1.0.0 (registry `era`)
+  Downloaded multiversion v0.8.0 (registry `era`)
+  Downloaded multiversion-macros v0.8.0 (registry `era`)
+  Downloaded itoa v1.0.18 (registry `era`)
+  Downloaded any_all_workaround v0.1.0 (registry `era`)
+  Downloaded cfg-if v1.0.4 (registry `era`)
+  Downloaded simdutf8 v0.1.5 (registry `era`)
+  Downloaded zmij v1.0.23 (registry `era`)
+  Downloaded rustversion v1.0.23 (registry `era`)
+  Downloaded core_detect v1.0.0 (registry `era`)
+  Downloaded bincode v1.3.3 (registry `era`)
+  Downloaded target-features v0.1.6 (registry `era`)
+  Downloaded quote v1.0.47 (registry `era`)
+  Downloaded serde_core v1.0.229 (registry `era`)
+  Downloaded serde_derive v1.0.229 (registry `era`)
+  Downloaded proc-macro2 v1.0.107 (registry `era`)
+  Downloaded unicode-ident v1.0.24 (registry `era`)
+  Downloaded memchr v2.8.3 (registry `era`)
+  Downloaded serde v1.0.229 (registry `era`)
+  Downloaded syn v2.0.119 (registry `era`)
+  Downloaded syn v3.0.3 (registry `era`)
+
+Exit: 0
+Timed out: False

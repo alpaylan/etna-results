@@ -1,0 +1,13 @@
+diff --git a/src/handles.rs b/src/handles.rs
+index bc20f0e..882cccc 100644
+--- a/src/handles.rs
++++ b/src/handles.rs
+@@ -1265,7 +1265,7 @@ impl<'a> Utf16Source<'a> {
+                 Some((non_ascii, consumed)) => {
+                     self.pos += consumed;
+                     dest.advance(consumed);
+-                    if dest.remaining().len() >= 2 {
++                    if dest.remaining().len() >= 1 {
+                         self.pos += 1; // commit to reading `non_ascii`
+                         let unit = non_ascii;
+                         let unit_minus_surrogate_start = unit.wrapping_sub(0xD800);

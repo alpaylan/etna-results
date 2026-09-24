@@ -1,0 +1,20 @@
+Command: rustup run 1.97.1 cargo test --locked --offline --lib tests::test_byte_destination_check_space_two -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T20:54:23.832042+00:00
+STDOUT:
+
+running 1 test
+test tests::test_byte_destination_check_space_two ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 144 filtered out; finished in 0.00s
+
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+  |
+  = help: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+   Compiling encoding_rs v0.8.35 (/home/runner/work/_temp/upstream)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.99s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T204501Z-7b06c1a6/debug/deps/encoding_rs-3ad896067b7ae8e7)
+
+Exit: 0
+Timed out: False

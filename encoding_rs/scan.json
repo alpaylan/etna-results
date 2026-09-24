@@ -1,12 +1,14 @@
 {
   "repo": "https://github.com/hsivonen/encoding_rs",
   "tips": [
+    "a074922023d74acbc56ee53aa931978315419916",
     "b9c57c278742e095889c2ee1354c3efbd3eb7274"
   ],
   "shallow": false,
   "reviewed": [
+    "a074922023d74acbc56ee53aa931978315419916",
     "b9c57c278742e095889c2ee1354c3efbd3eb7274"
   ],
-  "reachable_commits": 238,
+  "reachable_commits": 1036,
   "scope": "One queued candidate; not an exhaustive history scan."
 }

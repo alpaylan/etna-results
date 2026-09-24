@@ -1,0 +1,13 @@
+{
+  "commit": "a074922023d74acbc56ee53aa931978315419916",
+  "parent": "d6217039e31966643c3ffa18e10f187bdd5ae2b0",
+  "fixed_commit": "a074922023d74acbc56ee53aa931978315419916",
+  "summary": "The ASCII-copy fast paths allowed two-byte or four-byte encoding with only one or three output bytes remaining. The selected reversal restores the UTF-16 two-byte check: encoding 'abc一' as Shift_JIS into four bytes attempts a two-byte write with only one byte remaining, causing a bounds panic. Requiring two remaining bytes returns OutputFull after reading and writing only the three ASCII characters. The test was added by the fix; reproduction has not been run.",
+  "test": "tests::test_byte_destination_check_space_two",
+  "expected_failure": "mid > len",
+  "reversal": {
+    "path": "src/handles.rs",
+    "fixed_text": "                    if dest.remaining().len() >= 2 {\n                        self.pos += 1; // commit to reading `non_ascii`\n",
+    "parent_text": "                    if dest.remaining().len() >= 1 {\n                        self.pos += 1; // commit to reading `non_ascii`\n"
+  }
+}
