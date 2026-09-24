@@ -1,0 +1,48 @@
+Command: rustup run 1.61.0 cargo test --locked --offline --test floyd_warshall floyd_warshall_weighted_undirected -- --nocapture --test-threads=1
+Started: 2026-09-24T01:29:56.996303+00:00
+STDOUT:
+
+running 1 test
+test floyd_warshall_weighted_undirected ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 3 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling rand_core v0.4.2
+   Compiling rawpointer v0.2.1
+   Compiling hashbrown v0.11.2
+   Compiling either v1.6.1
+   Compiling fixedbitset v0.4.1
+   Compiling unchecked-index v0.2.2
+   Compiling defmac v0.2.1
+   Compiling rawslice v0.1.1
+   Compiling itertools v0.10.3
+   Compiling rand_core v0.3.1
+   Compiling serde v1.0.137
+   Compiling libc v0.2.126
+   Compiling odds v0.4.0
+   Compiling indexmap v1.8.2
+   Compiling rand v0.5.6
+   Compiling petgraph v0.6.2 (/home/runner/work/_temp/upstream)
+warning: field is never read: `first_error`
+   --> src/csr.rs:134:5
+    |
+134 |     first_error: (usize, usize),
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` on by default
+note: `EdgesNotSorted` has derived impls for the traits `Debug` and `Clone`, but these are intentionally ignored during dead code analysis
+   --> src/csr.rs:132:10
+    |
+132 | #[derive(Clone, Debug)]
+    |          ^^^^^  ^^^^^
+    = note: this warning originates in the derive macro `Clone` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+   Compiling bincode v1.3.3
+warning: `petgraph` (lib) generated 1 warning
+    Finished test [unoptimized + debuginfo] target(s) in 4.14s
+     Running tests/floyd_warshall.rs (/home/runner/work/_temp/build-20260924T012811Z-9afbf634/debug/deps/floyd_warshall-5606511829bea8a0)
+
+Exit: 0
+Timed out: False

@@ -3,17 +3,17 @@
 Resumed verified evidence; no tests rerun.
 
 **confirmed**: The same upstream test passed, panicked on the original defect ('assertion failed: `(left == right)`
-  left: `None`,
- right: `Some(())`'), and passed after restoration
+  left: `4`,
+ right: `3`'), and passed after restoration
 
 Upstream: https://github.com/petgraph/petgraph
 
-Candidate: e39f0f9523d4037ad212e89f51e1b7e8434964af-1
+Candidate: 4c7f18e73a730527b4b4fb571190d71d639b6376-1
 
 Provenance: verbatim
 
 Latest outcomes: {"confirmed": 1}
 
-Reviewed commits: 1 / 1102 reachable from the saved tip.
+Reviewed commits: 1 / 1250 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

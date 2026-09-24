@@ -1,0 +1,32 @@
+Command: rustup run 1.61.0 cargo test --locked --offline --test floyd_warshall floyd_warshall_weighted_undirected -- --nocapture --test-threads=1
+Started: 2026-09-24T01:30:03.567358+00:00
+STDOUT:
+
+running 1 test
+test floyd_warshall_weighted_undirected ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 3 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling petgraph v0.6.2 (/home/runner/work/_temp/upstream)
+warning: field is never read: `first_error`
+   --> src/csr.rs:134:5
+    |
+134 |     first_error: (usize, usize),
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` on by default
+note: `EdgesNotSorted` has derived impls for the traits `Debug` and `Clone`, but these are intentionally ignored during dead code analysis
+   --> src/csr.rs:132:10
+    |
+132 | #[derive(Clone, Debug)]
+    |          ^^^^^  ^^^^^
+    = note: this warning originates in the derive macro `Clone` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: `petgraph` (lib) generated 1 warning
+    Finished test [unoptimized + debuginfo] target(s) in 2.26s
+     Running tests/floyd_warshall.rs (/home/runner/work/_temp/build-20260924T012811Z-9afbf634/debug/deps/floyd_warshall-5606511829bea8a0)
+
+Exit: 0
+Timed out: False

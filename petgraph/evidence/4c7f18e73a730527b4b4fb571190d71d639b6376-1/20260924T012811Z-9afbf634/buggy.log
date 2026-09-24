@@ -1,0 +1,42 @@
+Command: rustup run 1.61.0 cargo test --locked --offline --test floyd_warshall floyd_warshall_weighted_undirected -- --nocapture --test-threads=1
+Started: 2026-09-24T01:30:01.262485+00:00
+STDOUT:
+
+running 1 test
+test floyd_warshall_weighted_undirected ... FAILED
+
+failures:
+
+failures:
+    floyd_warshall_weighted_undirected
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 3 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling petgraph v0.6.2 (/home/runner/work/_temp/upstream)
+warning: field is never read: `first_error`
+   --> src/csr.rs:134:5
+    |
+134 |     first_error: (usize, usize),
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` on by default
+note: `EdgesNotSorted` has derived impls for the traits `Debug` and `Clone`, but these are intentionally ignored during dead code analysis
+   --> src/csr.rs:132:10
+    |
+132 | #[derive(Clone, Debug)]
+    |          ^^^^^  ^^^^^
+    = note: this warning originates in the derive macro `Clone` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: `petgraph` (lib) generated 1 warning
+    Finished test [unoptimized + debuginfo] target(s) in 2.17s
+     Running tests/floyd_warshall.rs (/home/runner/work/_temp/build-20260924T012811Z-9afbf634/debug/deps/floyd_warshall-5606511829bea8a0)
+thread 'main' panicked at 'assertion failed: `(left == right)`
+  left: `4`,
+ right: `3`', tests/floyd_warshall.rs:244:13
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass '--test floyd_warshall'
+
+Exit: 101
+Timed out: False

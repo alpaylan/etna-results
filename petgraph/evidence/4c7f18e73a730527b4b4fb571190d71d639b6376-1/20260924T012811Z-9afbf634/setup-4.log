@@ -1,0 +1,71 @@
+Command: rustup run 1.61.0 cargo check --locked --offline --tests
+Started: 2026-09-24T01:29:50.408736+00:00
+STDOUT:
+
+STDERR:
+   Compiling autocfg v1.1.0
+   Compiling libc v0.2.126
+   Compiling serde v1.0.137
+    Checking rawpointer v0.2.1
+    Checking rand_core v0.4.2
+    Checking hashbrown v0.11.2
+    Checking fixedbitset v0.4.1
+    Checking unchecked-index v0.2.2
+    Checking either v1.6.1
+    Checking defmac v0.2.1
+    Checking rawslice v0.1.1
+    Checking rand_core v0.3.1
+    Checking itertools v0.10.3
+    Checking odds v0.4.0
+   Compiling indexmap v1.8.2
+    Checking rand v0.5.6
+    Checking petgraph v0.6.2 (/home/runner/work/_temp/upstream)
+warning: field is never read: `first_error`
+   --> src/csr.rs:134:5
+    |
+134 |     first_error: (usize, usize),
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` on by default
+note: `EdgesNotSorted` has derived impls for the traits `Debug` and `Clone`, but these are intentionally ignored during dead code analysis
+   --> src/csr.rs:132:10
+    |
+132 | #[derive(Clone, Debug)]
+    |          ^^^^^  ^^^^^
+    = note: this warning originates in the derive macro `Clone` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: `petgraph` (lib) generated 1 warning
+    Checking bincode v1.3.3
+warning: field is never read: `a`
+    --> tests/graph.rs:1879:9
+     |
+1879 |         a: i32,
+     |         ^^^^^^
+     |
+     = note: `#[warn(dead_code)]` on by default
+note: `Record` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis
+    --> tests/graph.rs:1877:14
+     |
+1877 |     #[derive(Debug)]
+     |              ^^^^^
+     = note: this warning originates in the derive macro `Debug` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: field is never read: `b`
+    --> tests/graph.rs:1880:9
+     |
+1880 |         b: &'static str,
+     |         ^^^^^^^^^^^^^^^
+     |
+note: `Record` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis
+    --> tests/graph.rs:1877:14
+     |
+1877 |     #[derive(Debug)]
+     |              ^^^^^
+     = note: this warning originates in the derive macro `Debug` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: `petgraph` (test "graph") generated 2 warnings
+warning: `petgraph` (lib test) generated 1 warning (1 duplicate)
+    Finished dev [unoptimized + debuginfo] target(s) in 6.44s
+
+Exit: 0
+Timed out: False

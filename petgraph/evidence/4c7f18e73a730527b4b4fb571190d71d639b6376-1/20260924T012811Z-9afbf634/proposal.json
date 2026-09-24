@@ -1,0 +1,13 @@
+{
+  "commit": "4c7f18e73a730527b4b4fb571190d71d639b6376",
+  "parent": "3e1a0c48bda1392ef38adeca1e878b3dfb0ea04c",
+  "fixed_commit": "4c7f18e73a730527b4b4fb571190d71d639b6376",
+  "summary": "Floyd-Warshall initialized each undirected edge in only its stored source-to-target direction, producing asymmetric and incorrect shortest-path distances. The fix also initializes the reverse direction for undirected graphs. The regression test added by this commit expects distance 3 from a to c through b; reversing the initialization fix should produce 4 instead. Both proposed regions occur exactly once in their respective Git versions. No tests were executed.",
+  "test": "floyd_warshall_weighted_undirected",
+  "expected_failure": "assertion failed: `(left == right)`\n  left: `4`,\n right: `3`",
+  "reversal": {
+    "path": "src/algo/floyd_warshall.rs",
+    "fixed_text": "    for edge in graph.edge_references() {\n        dist[graph.to_index(edge.source())][graph.to_index(edge.target())] = edge_cost(edge);\n        if !graph.is_directed() {\n            dist[graph.to_index(edge.target())][graph.to_index(edge.source())] = edge_cost(edge);\n        }\n    }\n",
+    "parent_text": "    for edge in graph.edge_references() {\n        dist[graph.to_index(edge.source())][graph.to_index(edge.target())] = edge_cost(edge);\n    }\n"
+  }
+}
