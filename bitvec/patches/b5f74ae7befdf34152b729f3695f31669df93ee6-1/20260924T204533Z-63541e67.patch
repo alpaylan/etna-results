@@ -1,0 +1,19 @@
+diff --git a/src/vec.rs b/src/vec.rs
+index b244a41..7a41044 100644
+--- a/src/vec.rs
++++ b/src/vec.rs
+@@ -528,7 +528,13 @@ where C: Cursor, T: Bits {
+ 	/// assert!(bv.some());
+ 	/// ```
+ 	pub fn from_bitslice(slice: &BitSlice<C, T>) -> Self {
+-		Self::from_iter(slice.iter())
++		let (elts, head, tail) = slice.bitptr().region_data();
++		let v: Vec<T> = slice.as_slice().to_owned();
++		let data = v.as_ptr();
++		let cap = v.capacity();
++		mem::forget(v);
++		let bp = BitPtr::new(data, elts, head, tail);
++		unsafe { Self::from_raw_parts(bp, cap) }
+ 	}
+ 
+ 	/// Creates a new `BitVec<C, T>` directly from the raw parts of another.

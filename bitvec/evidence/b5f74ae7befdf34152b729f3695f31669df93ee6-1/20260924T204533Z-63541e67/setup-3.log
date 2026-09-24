@@ -1,0 +1,19 @@
+Command: rustup run 1.35.0 cargo fetch --locked
+Started: 2026-09-24T20:46:14.298212+00:00
+STDOUT:
+
+STDERR:
+ Downloading crates ...
+  Downloaded serde_json v1.0.39 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded serde_derive v1.0.92 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded serde v1.0.92 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded unicode-xid v0.1.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded itoa v0.4.4 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded quote v0.6.12 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded proc-macro2 v0.4.30 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded ryu v0.2.8 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded syn v0.15.35 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded serde_test v1.0.92 (registry `git://127.0.0.1:9419/era-index`)
+
+Exit: 0
+Timed out: False

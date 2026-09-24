@@ -1,0 +1,24 @@
+Command: rustup run 1.35.0 cargo check --locked --tests
+Started: 2026-09-24T20:46:24.967381+00:00
+STDOUT:
+
+STDERR:
+    Checking bitvec v0.11.1 (/home/runner/work/_temp/upstream)
+error[E0277]: can't compare `bitvec::prelude::BitVec` with `&bitvec::prelude::BitSlice`
+  --> tests/issue_10.rs:45:2
+   |
+45 |     assert_eq!(bv2, slice);
+   |     ^^^^^^^^^^^^^^^^^^^^^^^ no implementation for `bitvec::prelude::BitVec == &bitvec::prelude::BitSlice`
+   |
+   = help: the trait `std::cmp::PartialEq<&bitvec::prelude::BitSlice>` is not implemented for `bitvec::prelude::BitVec`
+   = note: this error originates in a macro outside of the current crate (in Nightly builds, run with -Z external-macro-backtrace for more info)
+
+error: aborting due to previous error
+
+For more information about this error, try `rustc --explain E0277`.
+error: Could not compile `bitvec`.
+
+To learn more, run the command again with --verbose.
+
+Exit: 101
+Timed out: False

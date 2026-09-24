@@ -1,0 +1,13 @@
+{
+  "commit": "b5f74ae7befdf34152b729f3695f31669df93ee6",
+  "parent": "b136e881eb5560cc35618bf4968e14bd02a892de",
+  "fixed_commit": "b5f74ae7befdf34152b729f3695f31669df93ee6",
+  "summary": "BitVec::from_bitslice, also used by BitSlice::to_owned, cloned underlying storage elements without realigning a partial-element head. The fix collects the slice's logical bits into a new vector, packing them from the start of its storage. The fix adds tests/issue_10.rs, whose root-level issue_10 test copies bits 4..12 and checks equality, individual bits, and packed storage. Both proposed implementation regions occur exactly once in their respective revisions. No tests were run.",
+  "test": "issue_10",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/vec.rs",
+    "fixed_text": "\tpub fn from_bitslice(slice: &BitSlice<C, T>) -> Self {\n\t\tSelf::from_iter(slice.iter())\n\t}\n",
+    "parent_text": "\tpub fn from_bitslice(slice: &BitSlice<C, T>) -> Self {\n\t\tlet (elts, head, tail) = slice.bitptr().region_data();\n\t\tlet v: Vec<T> = slice.as_slice().to_owned();\n\t\tlet data = v.as_ptr();\n\t\tlet cap = v.capacity();\n\t\tmem::forget(v);\n\t\tlet bp = BitPtr::new(data, elts, head, tail);\n\t\tunsafe { Self::from_raw_parts(bp, cap) }\n\t}\n"
+  }
+}
