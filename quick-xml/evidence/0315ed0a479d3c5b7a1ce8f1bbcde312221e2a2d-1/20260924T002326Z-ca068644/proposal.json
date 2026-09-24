@@ -1,0 +1,13 @@
+{
+  "commit": "0315ed0a479d3c5b7a1ce8f1bbcde312221e2a2d",
+  "parent": "aa1d391e206fa9630e22241082b89a4e693f1ccd",
+  "fixed_commit": "0315ed0a479d3c5b7a1ce8f1bbcde312221e2a2d",
+  "summary": "Attribute::unescape_value passes a resolver returning None, causing all five predefined XML entities, including &amp;, to produce EscapeError::UnrecognizedEntity. The fix supplies resolve_predefined_entity so these references decode correctly. The verbatim reversal is identifiable, but no detecting upstream test exists at this revision: the fix adds no tests, and the only external caller of unescape_value is a fuzz target that tolerates errors. Existing escape tests exercise a different entry point. Blocked by the absence of a detecting upstream test; no tests were run.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/events/attributes.rs",
+    "fixed_text": "        self.unescape_value_with(resolve_predefined_entity)\n",
+    "parent_text": "        self.unescape_value_with(|_| None)\n"
+  }
+}
