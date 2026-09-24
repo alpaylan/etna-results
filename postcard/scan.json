@@ -1,0 +1,12 @@
+{
+  "repo": "https://github.com/jamesmunns/postcard",
+  "tips": [
+    "70ea33a1ac7f82632697f4578002267eaf9095f5"
+  ],
+  "shallow": false,
+  "reviewed": [
+    "70ea33a1ac7f82632697f4578002267eaf9095f5"
+  ],
+  "reachable_commits": 151,
+  "scope": "One queued candidate; not an exhaustive history scan."
+}

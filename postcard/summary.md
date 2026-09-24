@@ -1,15 +1,17 @@
 # Cloud bug-mining prototype
 
-**blocked**: Proposal names no upstream test
+Resumed verified evidence; no tests rerun.
+
+**confirmed**: The same upstream test passed, panicked on the original defect ('called `Result::unwrap()` on an `Err` value: DeserializeUnexpectedEnd'), and passed after restoration
 
 Upstream: https://github.com/jamesmunns/postcard
 
-Candidate: 77fd54b18977e8491ebe1b67cc0d104e32ab02d6-1
+Candidate: 70ea33a1ac7f82632697f4578002267eaf9095f5-1
 
 Provenance: verbatim
 
-Latest outcomes: {"blocked": 1}
+Latest outcomes: {"confirmed": 1}
 
-History coverage not yet recorded.
+Reviewed commits: 1 / 151 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

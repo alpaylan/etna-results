@@ -1,0 +1,26 @@
+Command: rustup run 1.62.0 cargo test --locked --offline --lib test::signed_int128 -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:23:38.191700+00:00
+STDOUT:
+
+running 1 test
+test test::signed_int128 ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 38 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling scopeguard v1.1.0
+   Compiling byteorder v1.4.3
+   Compiling stable_deref_trait v1.2.0
+   Compiling cobs v0.2.3
+   Compiling lock_api v0.4.7
+   Compiling serde v1.0.138
+   Compiling hash32 v0.2.1
+   Compiling spin v0.9.3
+   Compiling heapless v0.7.14
+   Compiling postcard v1.0.0 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 3.33s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T002204Z-de8f3668/debug/deps/postcard-d5669c06773d9ae1)
+
+Exit: 0
+Timed out: False

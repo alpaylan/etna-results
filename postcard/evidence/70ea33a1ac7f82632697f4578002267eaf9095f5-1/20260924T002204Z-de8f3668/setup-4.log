@@ -1,0 +1,27 @@
+Command: rustup run 1.62.0 cargo check --locked --offline --tests
+Started: 2026-09-24T00:23:28.845032+00:00
+STDOUT:
+
+STDERR:
+   Compiling proc-macro2 v1.0.40
+   Compiling semver v1.0.12
+   Compiling quote v1.0.20
+   Compiling unicode-ident v1.0.1
+   Compiling syn v1.0.98
+   Compiling autocfg v1.1.0
+   Compiling serde_derive v1.0.138
+   Compiling serde v1.0.138
+    Checking scopeguard v1.1.0
+    Checking byteorder v1.4.3
+    Checking stable_deref_trait v1.2.0
+    Checking cobs v0.2.3
+    Checking hash32 v0.2.1
+   Compiling lock_api v0.4.7
+   Compiling rustc_version v0.4.0
+    Checking spin v0.9.3
+   Compiling heapless v0.7.14
+    Checking postcard v1.0.0 (/home/runner/work/_temp/upstream)
+    Finished dev [unoptimized + debuginfo] target(s) in 9.27s
+
+Exit: 0
+Timed out: False
