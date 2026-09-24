@@ -1,0 +1,26 @@
+diff --git a/src/rope_builder.rs b/src/rope_builder.rs
+index d3a455e..7b5eba6 100644
+--- a/src/rope_builder.rs
++++ b/src/rope_builder.rs
+@@ -38,7 +38,7 @@ use crate::tree::{Node, NodeChildren, NodeText, MAX_BYTES, MAX_CHILDREN, MIN_BYT
+ ///
+ /// assert_eq!(rope, "Hello world!\nHow's it going?");
+ /// ```
+-#[derive(Debug, Clone)]
++#[derive(Debug, Clone, Default)]
+ pub struct RopeBuilder {
+     stack: SmallVec<[Arc<Node>; 4]>,
+     buffer: String,
+@@ -291,12 +291,6 @@ impl RopeBuilder {
+     }
+ }
+ 
+-impl Default for RopeBuilder {
+-    fn default() -> Self {
+-        Self::new()
+-    }
+-}
+-
+ enum NextText<'a> {
+     None,
+     UseBuffer,

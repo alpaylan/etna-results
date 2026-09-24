@@ -1,0 +1,25 @@
+Command: rustup run 1.65.0 cargo test --locked --offline --lib rope_builder::tests::rope_builder_default_01 -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:37:51.484522+00:00
+STDOUT:
+
+running 1 test
+test rope_builder::tests::rope_builder_default_01 ... FAILED
+
+failures:
+
+failures:
+    rope_builder::tests::rope_builder_default_01
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 359 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling ropey v1.5.1-alpha (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 2.34s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T003515Z-b49d70e4/debug/deps/ropey-1779da4be44c7d49)
+thread 'main' panicked at 'called `Option::unwrap()` on a `None` value', src/rope_builder.rs:248:37
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `--lib`
+
+Exit: 101
+Timed out: False

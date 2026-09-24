@@ -1,0 +1,83 @@
+Command: rustup run 1.65.0 cargo test --locked --offline --lib rope_builder::tests::rope_builder_default_01 -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:37:32.513547+00:00
+STDOUT:
+
+running 1 test
+test rope_builder::tests::rope_builder_default_01 ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 359 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling cfg-if v1.0.0
+   Compiling libc v0.2.138
+   Compiling serde v1.0.148
+   Compiling memoffset v0.7.1
+   Compiling crossbeam-utils v0.8.14
+   Compiling scopeguard v1.1.0
+   Compiling memchr v2.5.0
+   Compiling getrandom v0.2.8
+   Compiling crossbeam-epoch v0.9.13
+   Compiling rand_core v0.6.4
+   Compiling either v1.8.0
+   Compiling lazy_static v1.4.0
+   Compiling ryu v1.0.11
+   Compiling crossbeam-deque v0.8.2
+   Compiling num_cpus v1.14.0
+   Compiling crossbeam-channel v0.5.6
+   Compiling num-traits v0.2.15
+   Compiling ppv-lite86 v0.2.17
+   Compiling fastrand v1.8.0
+   Compiling regex-syntax v0.6.28
+   Compiling itoa v1.0.4
+   Compiling plotters-backend v0.3.4
+   Compiling regex-automata v0.1.10
+   Compiling remove_dir_all v0.5.3
+   Compiling unicode-width v0.1.10
+   Compiling bitflags v1.3.2
+   Compiling tempfile v3.3.0
+   Compiling textwrap v0.11.0
+   Compiling plotters-svg v0.3.3
+   Compiling rand_chacha v0.3.1
+   Compiling serde_json v1.0.89
+   Compiling bstr v0.2.17
+   Compiling rayon-core v1.10.1
+   Compiling itertools v0.10.5
+   Compiling wait-timeout v0.2.0
+   Compiling csv-core v0.1.10
+   Compiling bit-vec v0.6.3
+   Compiling same-file v1.0.6
+   Compiling fnv v1.0.7
+   Compiling quick-error v1.2.3
+   Compiling cast v0.3.0
+   Compiling half v1.8.2
+   Compiling byteorder v1.4.3
+   Compiling itoa v0.4.8
+   Compiling criterion-plot v0.4.5
+   Compiling csv v1.1.6
+   Compiling serde_cbor v0.11.2
+   Compiling rusty-fork v0.3.0
+   Compiling bit-set v0.5.3
+   Compiling walkdir v2.3.2
+   Compiling rayon v1.6.0
+   Compiling tinytemplate v1.2.1
+   Compiling regex v1.7.0
+   Compiling rand v0.8.5
+   Compiling plotters v0.3.4
+   Compiling clap v2.34.0
+   Compiling rand_xorshift v0.3.0
+   Compiling atty v0.2.14
+   Compiling oorandom v11.1.3
+   Compiling quick-error v2.0.1
+   Compiling proptest v1.0.0
+   Compiling fxhash v0.2.1
+   Compiling str_indices v0.4.0
+   Compiling unicode-segmentation v1.10.0
+   Compiling smallvec v1.10.0
+   Compiling criterion v0.3.6
+   Compiling ropey v1.5.1-alpha (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 18.76s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T003515Z-b49d70e4/debug/deps/ropey-1779da4be44c7d49)
+
+Exit: 0
+Timed out: False
