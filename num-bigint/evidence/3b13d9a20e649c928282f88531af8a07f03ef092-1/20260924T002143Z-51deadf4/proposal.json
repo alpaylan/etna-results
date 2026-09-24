@@ -1,0 +1,13 @@
+{
+  "commit": "3b13d9a20e649c928282f88531af8a07f03ef092",
+  "parent": "573681d27f17135cf428497e4f795de336d90cf1",
+  "fixed_commit": "3b13d9a20e649c928282f88531af8a07f03ef092",
+  "summary": "Signed scalar assignment promoted negative isize operands through UsizePromotion (u32/u64), turning them into large positive values and producing incorrect arithmetic. The fix uses IsizePromotion (i32/i64), preserving the sign. The implementation reversal is exact and unique, but no detecting upstream test was found at this revision: the fix adds no tests, bigint_scalar tests exercise non-assignment operators, bigint assignment tests use BigInt operands, and CI tests do not exercise negative isize assignment. Planning is blocked by the missing detecting test; no tests were run.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/macros.rs",
+    "fixed_text": "        promote_scalars_assign!(impl $imp<IsizePromotion> for $res, $method, isize);\n",
+    "parent_text": "        promote_scalars_assign!(impl $imp<UsizePromotion> for $res, $method, isize);\n"
+  }
+}
