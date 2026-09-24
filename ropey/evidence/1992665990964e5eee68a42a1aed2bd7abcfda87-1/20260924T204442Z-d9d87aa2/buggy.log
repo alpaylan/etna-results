@@ -1,0 +1,34 @@
+Command: rustup run 1.98.1 cargo test --locked --offline --lib rope::tests::cmp_rope_01 -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T20:55:04.712778+00:00
+STDOUT:
+
+running 1 test
+test rope::tests::cmp_rope_01 ... FAILED
+
+failures:
+
+failures:
+    rope::tests::cmp_rope_01
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 366 filtered out; finished in 0.00s
+
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+  |
+  = help: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+warning: Cargo.toml: `package.edition` is unspecified, defaulting to `2015` while 2021 is compatible with `rust-version`
+warning: `ropey` (manifest) generated 1 warning
+   Compiling ropey v1.6.1 (/home/runner/work/_temp/upstream)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.80s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T204442Z-d9d87aa2/debug/deps/ropey-732b4eb574839191)
+
+thread 'rope::tests::cmp_rope_01' (4575) panicked at src/rope.rs:3327:9:
+assertion `left == right` failed
+  left: Greater
+ right: Less
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `--lib`
+
+Exit: 101
+Timed out: False

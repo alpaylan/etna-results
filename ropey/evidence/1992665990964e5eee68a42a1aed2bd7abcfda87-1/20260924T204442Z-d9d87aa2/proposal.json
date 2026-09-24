@@ -1,0 +1,13 @@
+{
+  "commit": "1992665990964e5eee68a42a1aed2bd7abcfda87",
+  "parent": "42f6fc791b20e61c1b631465f69465dfa4c4fae2",
+  "fixed_commit": "1992665990964e5eee68a42a1aed2bd7abcfda87",
+  "summary": "RopeSlice comparison cleared chunk1 before using its length to advance chunk2, leaving already-compared bytes in chunk2. Rope comparison delegates to this implementation, so comparing chunks [\"a\", \"b\"] against [\"ac\"] incorrectly returns Greater instead of Less. The fix advances chunk2 before clearing chunk1. The selected regression test was added by this fix; reproduction has not been run.",
+  "test": "rope::tests::cmp_rope_01",
+  "expected_failure": "assertion `left == right` failed\n  left: Greater\n right: Less",
+  "reversal": {
+    "path": "src/slice.rs",
+    "fixed_text": "            } else {\n                let compared = chunk1.cmp(&chunk2[..chunk1.len()]);\n                if compared != std::cmp::Ordering::Equal {\n                    return compared;\n                }\n\n                chunk2 = &chunk2[chunk1.len()..];\n                chunk1 = &[];\n            }\n",
+    "parent_text": "            } else {\n                let compared = chunk1.cmp(&chunk2[..chunk1.len()]);\n                if compared != std::cmp::Ordering::Equal {\n                    return compared;\n                }\n\n                chunk1 = &[];\n                chunk2 = &chunk2[chunk1.len()..];\n            }\n"
+  }
+}

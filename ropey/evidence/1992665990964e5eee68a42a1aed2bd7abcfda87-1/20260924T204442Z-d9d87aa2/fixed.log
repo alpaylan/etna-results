@@ -1,0 +1,88 @@
+Command: rustup run 1.98.1 cargo test --locked --offline --lib rope::tests::cmp_rope_01 -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T20:54:49.957642+00:00
+STDOUT:
+
+running 1 test
+test rope::tests::cmp_rope_01 ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 366 filtered out; finished in 0.00s
+
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+  |
+  = help: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+warning: Cargo.toml: `package.edition` is unspecified, defaulting to `2015` while 2021 is compatible with `rust-version`
+warning: `ropey` (manifest) generated 1 warning
+   Compiling cfg-if v1.0.4
+   Compiling libc v0.2.189
+   Compiling crossbeam-utils v0.8.23
+   Compiling serde_core v1.0.229
+   Compiling linux-raw-sys v0.12.1
+   Compiling crossbeam-epoch v0.9.21
+   Compiling bitflags v2.13.1
+   Compiling regex-syntax v0.8.11
+   Compiling either v1.18.0
+   Compiling rustix v1.1.4
+   Compiling getrandom v0.3.4
+   Compiling rand_core v0.9.5
+   Compiling crossbeam-deque v0.8.8
+   Compiling num-traits v0.2.19
+   Compiling zerocopy v0.8.57
+   Compiling serde v1.0.229
+   Compiling plotters-backend v0.3.7
+   Compiling ryu v1.0.20
+   Compiling clap_lex v1.1.0
+   Compiling half v2.2.1
+   Compiling memchr v2.8.3
+   Compiling fastrand v2.5.0
+   Compiling ciborium-io v0.2.2
+   Compiling anstyle v1.0.14
+   Compiling itoa v1.0.15
+   Compiling once_cell v1.21.4
+   Compiling serde_json v1.0.145
+   Compiling tempfile v3.27.0
+   Compiling clap_builder v4.6.6
+   Compiling ciborium-ll v0.2.2
+   Compiling plotters-svg v0.3.7
+   Compiling regex-automata v0.4.18
+   Compiling rayon-core v1.12.1
+   Compiling ppv-lite86 v0.2.21
+   Compiling wait-timeout v0.2.1
+   Compiling itertools v0.13.0
+   Compiling same-file v1.0.6
+   Compiling quick-error v1.2.3
+   Compiling cast v0.3.0
+   Compiling fnv v1.0.7
+   Compiling bit-vec v0.8.0
+   Compiling bit-set v0.8.0
+   Compiling rusty-fork v0.3.1
+   Compiling walkdir v2.5.0
+   Compiling rand_chacha v0.9.0
+   Compiling criterion-plot v0.8.2
+   Compiling regex v1.13.1
+   Compiling clap v4.6.6
+   Compiling rayon v1.10.0
+   Compiling tinytemplate v1.2.1
+   Compiling alloca v0.4.0
+   Compiling plotters v0.3.7
+   Compiling ciborium v0.2.2
+   Compiling rand_xorshift v0.4.0
+   Compiling rand v0.9.5
+   Compiling page_size v0.6.0
+   Compiling anes v0.1.6
+   Compiling unarray v0.1.4
+   Compiling byteorder v1.5.0
+   Compiling oorandom v11.1.5
+   Compiling proptest v1.11.0
+   Compiling str_indices v0.4.4
+   Compiling fxhash v0.2.1
+   Compiling unicode-segmentation v1.13.2
+   Compiling smallvec v1.16.0
+   Compiling criterion v0.8.2
+   Compiling ropey v1.6.1 (/home/runner/work/_temp/upstream)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 14.66s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T204442Z-d9d87aa2/debug/deps/ropey-732b4eb574839191)
+
+Exit: 0
+Timed out: False

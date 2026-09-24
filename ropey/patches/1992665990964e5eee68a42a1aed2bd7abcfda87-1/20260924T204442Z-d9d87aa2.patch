@@ -1,0 +1,14 @@
+diff --git a/src/slice.rs b/src/slice.rs
+index c49894f..141cd8a 100644
+--- a/src/slice.rs
++++ b/src/slice.rs
+@@ -1951,8 +1951,8 @@ impl<'a> std::cmp::Ord for RopeSlice<'a> {
+                     return compared;
+                 }
+ 
+-                chunk2 = &chunk2[chunk1.len()..];
+                 chunk1 = &[];
++                chunk2 = &chunk2[chunk1.len()..];
+             }
+ 
+             if chunk1.is_empty() {
