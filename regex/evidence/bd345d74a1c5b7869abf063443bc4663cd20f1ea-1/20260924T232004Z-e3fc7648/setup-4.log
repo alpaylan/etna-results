@@ -1,0 +1,77 @@
+Command: rustup run 1.90.0 cargo check --locked --offline --tests
+Started: 2026-09-24T23:25:41.175143+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+   Compiling proc-macro2 v1.0.101
+   Compiling unicode-ident v1.0.19
+   Compiling quote v1.0.41
+   Compiling serde_core v1.0.228
+   Compiling serde v1.0.228
+   Compiling libc v0.2.177
+    Checking memchr v2.7.6
+    Checking equivalent v1.0.2
+    Checking cfg-if v1.0.3
+   Compiling syn v2.0.106
+    Checking hashbrown v0.16.0
+    Checking indexmap v2.11.4
+    Checking getrandom v0.2.16
+   Compiling anyhow v1.0.100
+    Checking winnow v0.7.13
+    Checking rand_core v0.6.4
+    Checking aho-corasick v1.1.3
+   Compiling doc-comment v0.3.3
+    Checking regex-syntax v0.8.6 (/home/runner/work/_temp/upstream/regex-syntax)
+    Checking rand v0.8.5
+   Compiling serde_derive v1.0.228
+    Checking atty v0.2.14
+    Checking log v0.4.28
+    Checking termcolor v1.4.1
+    Checking humantime v2.3.0
+    Checking quickcheck v1.0.3
+    Checking env_logger v0.9.3
+    Checking regex-automata v0.4.11 (/home/runner/work/_temp/upstream/regex-automata)
+    Checking serde_spanned v0.6.8
+    Checking toml_datetime v0.6.8
+    Checking bstr v1.10.0
+    Checking toml_edit v0.22.24
+    Checking regex v1.11.3 (/home/runner/work/_temp/upstream)
+warning: hiding a lifetime that's elided elsewhere is confusing
+    --> src/regex/bytes.rs:1684:22
+     |
+1684 |     pub fn get_match(&self) -> Match {
+     |                      ^^^^^     ----- the same lifetime is hidden here
+     |                      |
+     |                      the lifetime is elided here
+     |
+     = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+     = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+help: use `'_` for type paths
+     |
+1684 |     pub fn get_match(&self) -> Match<'_> {
+     |                                     ++++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+    --> src/regex/string.rs:1695:22
+     |
+1695 |     pub fn get_match(&self) -> Match {
+     |                      ^^^^^     ----- the same lifetime is hidden here
+     |                      |
+     |                      the lifetime is elided here
+     |
+     = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+     |
+1695 |     pub fn get_match(&self) -> Match<'_> {
+     |                                     ++++
+
+warning: `regex` (lib) generated 2 warnings
+    Checking toml v0.8.20
+    Checking regex-test v0.1.1 (/home/runner/work/_temp/upstream/regex-test)
+warning: `regex` (lib test) generated 2 warnings (2 duplicates)
+    Finished `dev` profile [optimized + debuginfo] target(s) in 6.79s
+
+Exit: 0
+Timed out: False

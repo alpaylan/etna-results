@@ -1,0 +1,17 @@
+diff --git a/regex-automata/src/dfa/sparse.rs b/regex-automata/src/dfa/sparse.rs
+index 5de00ac..13c0b6e 100644
+--- a/regex-automata/src/dfa/sparse.rs
++++ b/regex-automata/src/dfa/sparse.rs
+@@ -1860,12 +1860,6 @@ impl StartTable<Vec<u8>> {
+             let new_start_id = remap[dfa.to_index(old_start_id)];
+             sl.set_start(anchored, sty, new_start_id);
+         }
+-        if let Some(ref mut id) = sl.universal_start_anchored {
+-            *id = remap[dfa.to_index(*id)];
+-        }
+-        if let Some(ref mut id) = sl.universal_start_unanchored {
+-            *id = remap[dfa.to_index(*id)];
+-        }
+         Ok(sl)
+     }
+ }

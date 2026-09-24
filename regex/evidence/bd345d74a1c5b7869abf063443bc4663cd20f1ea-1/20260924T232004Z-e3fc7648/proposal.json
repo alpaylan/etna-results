@@ -1,0 +1,13 @@
+{
+  "commit": "bd345d74a1c5b7869abf063443bc4663cd20f1ea",
+  "parent": "72618c64c85611a30939252a823c000e35f7cffd",
+  "fixed_commit": "bd345d74a1c5b7869abf063443bc4663cd20f1ea",
+  "summary": "Dense-to-sparse DFA conversion retained dense state IDs for universal start states. Searches using those IDs could access invalid sparse states and panic or return incorrect results. The fix remaps both anchored and unanchored universal start IDs into sparse state IDs. The regression test added by this commit exercises universal-start searches on dense and converted sparse DFAs. This plan reverses only the implementation remapping; no tests were run.",
+  "test": "dfa::api::universal_start_search",
+  "expected_failure": null,
+  "reversal": {
+    "path": "regex-automata/src/dfa/sparse.rs",
+    "fixed_text": "        let mut sl = StartTable::new(dfa, start_pattern_len);\n        for (old_start_id, anchored, sty) in dfa.starts() {\n            let new_start_id = remap[dfa.to_index(old_start_id)];\n            sl.set_start(anchored, sty, new_start_id);\n        }\n        if let Some(ref mut id) = sl.universal_start_anchored {\n            *id = remap[dfa.to_index(*id)];\n        }\n        if let Some(ref mut id) = sl.universal_start_unanchored {\n            *id = remap[dfa.to_index(*id)];\n        }\n        Ok(sl)\n",
+    "parent_text": "        let mut sl = StartTable::new(dfa, start_pattern_len);\n        for (old_start_id, anchored, sty) in dfa.starts() {\n            let new_start_id = remap[dfa.to_index(old_start_id)];\n            sl.set_start(anchored, sty, new_start_id);\n        }\n        Ok(sl)\n"
+  }
+}
