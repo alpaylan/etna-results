@@ -1,0 +1,13 @@
+{
+  "commit": "1b3ccd66d2a683dd054c50e7d9c86fd3ba8571c3",
+  "parent": "4f0260136c47c0415e06001276e682a1d9fd79bb",
+  "fixed_commit": "1b3ccd66d2a683dd054c50e7d9c86fd3ba8571c3",
+  "summary": "Duplicate-key diagnostics reported `<unknown>` instead of known table names and misleading bracketed table names for root/table-header conflicts. The fix carries optional table paths and centralizes rendering, naming known tables, identifying document root, and omitting unavailable context. The fix adds duplicate-keys-cargo.toml, registered under that filename by the custom fs_snapshot harness in tests/test_invalid.rs; its snapshot expects `Duplicate key `categories` in table `project``. Blocked: a buildable verbatim reversal requires coordinated changes across src/parser/{errors,document,inline_table,table}.rs because DuplicateKey.table changes from String to Option<Vec<Key>>. The schema permits only one file region; reversing the formatter alone or a constructor alone creates type errors. No valid single-region reversal was established. No builds or tests were run.",
+  "test": "duplicate-keys-cargo.toml",
+  "expected_failure": null,
+  "reversal": {
+    "path": "",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
