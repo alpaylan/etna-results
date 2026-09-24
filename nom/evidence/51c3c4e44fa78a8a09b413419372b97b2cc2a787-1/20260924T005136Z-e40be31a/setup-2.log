@@ -1,0 +1,26 @@
+Command: rustup run 1.89.0 cargo generate-lockfile
+Started: 2026-09-24T00:55:20.175633+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+    Updating `era` index
+     Locking 119 packages to latest Rust 1.65.0 compatible versions
+      Adding anstyle v1.0.8 (available: v1.0.11)
+      Adding bumpalo v3.14.0 (available: v3.19.0)
+      Adding clap v4.3.24 (available: v4.5.45)
+      Adding clap_builder v4.3.24 (available: v4.5.44)
+      Adding clap_lex v0.5.0 (available: v0.5.1)
+      Adding codspeed v2.7.0 (available: v2.10.1)
+      Adding codspeed-criterion-compat v2.7.0 (available: v2.10.1)
+      Adding criterion v0.5.1 (available: v0.7.0)
+      Adding half v2.2.1 (available: v2.6.0)
+      Adding proptest v1.0.0 (available: v1.6.0)
+      Adding r-efi v5.3.0 (requires Rust 1.68)
+      Adding rayon v1.10.0 (available: v1.11.0)
+      Adding rayon-core v1.12.1 (available: v1.13.0)
+      Adding windows-link v0.1.3 (requires Rust 1.71)
+
+Exit: 0
+Timed out: False

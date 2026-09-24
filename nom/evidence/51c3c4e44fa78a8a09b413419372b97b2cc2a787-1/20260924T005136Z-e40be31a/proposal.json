@@ -1,0 +1,13 @@
+{
+  "commit": "51c3c4e44fa78a8a09b413419372b97b2cc2a787",
+  "parent": "a44b52ed9052a66f5eb2add9aa5b314f034dc580",
+  "fixed_commit": "51c3c4e44fa78a8a09b413419372b97b2cc2a787",
+  "summary": "When no character matches the stopping predicate, the &str implementation returns an empty remainder pointing to the start of the input. Consequently, recognize(multispace0) computes zero consumed bytes for an all-whitespace string and returns an empty recognized slice. The fix uses take_split(input_len()), placing the empty remainder at the end so recognize returns the entire input. The fix adds the selected regression test in tests/issues.rs.",
+  "test": "issue_1808_complete_string_parser_returns_wrong_slice",
+  "expected_failure": "assertion `left == right` failed\n  left: Ok((\"\", \"\"))\n right: Ok((\"\", \"\\n\"))",
+  "reversal": {
+    "path": "src/traits.rs",
+    "fixed_text": "  #[inline(always)]\n  fn split_at_position_complete<P, E: ParseError<Self>>(\n    &self,\n    predicate: P,\n  ) -> IResult<Self, Self, E>\n  where\n    P: Fn(Self::Item) -> bool,\n  {\n    match self.find(predicate) {\n      // The position i is returned from str::find() which means it is within the bounds of the string\n      Some(i) => {\n        let (str1, str2) = self.split_at(i);\n        Ok((str2, str1))\n      }\n      None => Ok(self.take_split(self.input_len())),\n    }\n  }\n",
+    "parent_text": "  #[inline(always)]\n  fn split_at_position_complete<P, E: ParseError<Self>>(\n    &self,\n    predicate: P,\n  ) -> IResult<Self, Self, E>\n  where\n    P: Fn(Self::Item) -> bool,\n  {\n    match self.find(predicate) {\n      // The position i is returned from str::find() which means it is within the bounds of the string\n      Some(i) => {\n        let (str1, str2) = self.split_at(i);\n        Ok((str2, str1))\n      }\n      None => Ok(self.split_at(0)),\n    }\n  }\n"
+  }
+}
