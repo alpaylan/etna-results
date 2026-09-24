@@ -1,0 +1,12 @@
+{
+  "repo": "https://github.com/indexmap-rs/indexmap",
+  "tips": [
+    "a442475ab6a0ddefd886aed1938e6486e4aed1f8"
+  ],
+  "shallow": false,
+  "reviewed": [
+    "a442475ab6a0ddefd886aed1938e6486e4aed1f8"
+  ],
+  "reachable_commits": 432,
+  "scope": "One queued candidate; not an exhaustive history scan."
+}

@@ -1,0 +1,39 @@
+Command: rustup run 1.44.0 cargo fetch --locked
+Started: 2026-09-24T00:57:21.766515+00:00
+STDOUT:
+
+STDERR:
+ Downloading crates ...
+  Downloaded num_cpus v1.13.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded rayon-core v1.7.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded rand_pcg v0.2.1 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded serde_test v1.0.111 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded getrandom v0.1.14 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded crossbeam-queue v0.2.2 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded rayon v1.3.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded rand_hc v0.2.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded fnv v1.0.7 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded memoffset v0.5.4 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded twox-hash v1.5.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded crossbeam-utils v0.7.2 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded ppv-lite86 v0.2.8 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded crossbeam-deque v0.7.3 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded quickcheck v0.9.2 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded rand v0.7.3 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded crossbeam-epoch v0.8.2 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded autocfg v1.0.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded wasi v0.9.0+wasi-snapshot-preview1 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded scopeguard v1.1.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded rand_chacha v0.2.2 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded either v1.5.3 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded rand_core v0.5.1 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded maybe-uninit v2.0.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded hermit-abi v0.1.13 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded cfg-if v0.1.10 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded itertools v0.8.2 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded lazy_static v1.4.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded serde v1.0.111 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded libc v0.2.71 (registry `git://127.0.0.1:9419/era-index`)
+
+Exit: 0
+Timed out: False

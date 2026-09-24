@@ -1,0 +1,39 @@
+Command: rustup run 1.44.0 cargo test --locked --offline --test quick reverse -- --nocapture --test-threads=1
+Started: 2026-09-24T00:57:34.150716+00:00
+STDOUT:
+
+running 1 test
+test reverse ... FAILED
+
+failures:
+
+failures:
+    reverse
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 16 filtered out
+
+
+STDERR:
+   Compiling indexmap v1.4.0 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 0.93s
+     Running /home/runner/work/_temp/build-20260924T005638Z-91e6cb43/debug/deps/quick-22b8703d58c6920a
+thread 'main' panicked at 'IndexMap: key not found', tests/quick.rs:379:24
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+thread 'main' panicked at 'IndexMap: key not found', tests/quick.rs:379:24
+thread 'main' panicked at 'IndexMap: key not found', tests/quick.rs:379:24
+thread 'main' panicked at 'IndexMap: key not found', tests/quick.rs:379:24
+thread 'main' panicked at 'IndexMap: key not found', tests/quick.rs:379:24
+thread 'main' panicked at 'IndexMap: key not found', tests/quick.rs:379:24
+thread 'main' panicked at 'IndexMap: key not found', tests/quick.rs:379:24
+thread 'main' panicked at 'IndexMap: key not found', tests/quick.rs:379:24
+thread 'main' panicked at 'IndexMap: key not found', tests/quick.rs:379:24
+thread 'main' panicked at 'IndexMap: key not found', tests/quick.rs:379:24
+thread 'main' panicked at 'index out of bounds: the len is 1 but the index is 1', /home/runner/work/_temp/upstream/src/map.rs:1588:57
+thread 'main' panicked at 'index out of bounds: the len is 1 but the index is 1', /home/runner/work/_temp/upstream/src/map.rs:1588:57
+thread 'main' panicked at 'index out of bounds: the len is 1 but the index is 1', /home/runner/work/_temp/upstream/src/map.rs:1588:57
+thread 'main' panicked at '[quickcheck] TEST FAILED (runtime error). Arguments: (Large([(0, 0)]))
+Error: "index out of bounds: the len is 1 but the index is 1"', /rustc/49cae55760da0a43428eba73abcb659bb70cf2e4/src/libstd/macros.rs:13:23
+error: test failed, to rerun pass '--test quick'
+
+Exit: 101
+Timed out: False

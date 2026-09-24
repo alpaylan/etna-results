@@ -1,0 +1,26 @@
+Command: rustup run 1.44.0 cargo check --locked --offline --tests
+Started: 2026-09-24T00:57:21.991400+00:00
+STDOUT:
+
+STDERR:
+   Compiling libc v0.2.71
+   Compiling getrandom v0.1.14
+    Checking cfg-if v0.1.10
+   Compiling serde v1.0.111
+    Checking ppv-lite86 v0.2.8
+   Compiling autocfg v1.0.0
+    Checking either v1.5.3
+    Checking lazy_static v1.4.0
+    Checking fnv v1.0.7
+    Checking itertools v0.8.2
+   Compiling indexmap v1.4.0 (/home/runner/work/_temp/upstream)
+    Checking rand_core v0.5.1
+    Checking rand_pcg v0.2.1
+    Checking rand_chacha v0.2.2
+    Checking rand v0.7.3
+    Checking quickcheck v0.9.2
+    Checking serde_test v1.0.111
+    Finished dev [unoptimized + debuginfo] target(s) in 5.12s
+
+Exit: 0
+Timed out: False

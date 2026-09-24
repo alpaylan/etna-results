@@ -1,0 +1,32 @@
+Command: rustup run 1.44.0 cargo test --locked --offline --test quick reverse -- --nocapture --test-threads=1
+Started: 2026-09-24T00:57:27.300315+00:00
+STDOUT:
+
+running 1 test
+test reverse ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 16 filtered out
+
+
+STDERR:
+   Compiling cfg-if v0.1.10
+   Compiling ppv-lite86 v0.2.8
+   Compiling either v1.5.3
+   Compiling lazy_static v1.4.0
+   Compiling fnv v1.0.7
+   Compiling indexmap v1.4.0 (/home/runner/work/_temp/upstream)
+   Compiling libc v0.2.71
+   Compiling serde v1.0.111
+   Compiling itertools v0.8.2
+   Compiling getrandom v0.1.14
+   Compiling rand_core v0.5.1
+   Compiling rand_pcg v0.2.1
+   Compiling rand_chacha v0.2.2
+   Compiling rand v0.7.3
+   Compiling quickcheck v0.9.2
+   Compiling serde_test v1.0.111
+    Finished test [unoptimized + debuginfo] target(s) in 6.57s
+     Running /home/runner/work/_temp/build-20260924T005638Z-91e6cb43/debug/deps/quick-22b8703d58c6920a
+
+Exit: 0
+Timed out: False

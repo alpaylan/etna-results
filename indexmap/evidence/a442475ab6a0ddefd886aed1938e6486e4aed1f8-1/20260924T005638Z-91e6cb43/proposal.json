@@ -1,0 +1,13 @@
+{
+  "commit": "a442475ab6a0ddefd886aed1938e6486e4aed1f8",
+  "parent": "0e4a3a2b9c50b276fabe8aca7a0d152b50098198",
+  "fixed_commit": "a442475ab6a0ddefd886aed1938e6486e4aed1f8",
+  "summary": "After reversing entries, the buggy implementation maps stored indices to len - i, one past their correct positions, breaking key lookups and potentially causing out-of-bounds panics. The fix uses len - i - 1. The existing top-level QuickCheck test reverse in tests/quick.rs checks key-value lookups and iteration order after reversal; the fix itself adds no tests.",
+  "test": "reverse",
+  "expected_failure": "index out of bounds",
+  "reversal": {
+    "path": "src/map.rs",
+    "fixed_text": "                    pos.set_pos::<Sz>(len - i - 1);\n",
+    "parent_text": "                    pos.set_pos::<Sz>(len - i);\n"
+  }
+}
