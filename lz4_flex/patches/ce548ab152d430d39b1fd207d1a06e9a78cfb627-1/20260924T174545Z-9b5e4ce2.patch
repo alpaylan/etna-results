@@ -1,0 +1,33 @@
+diff --git a/src/block/compress.rs b/src/block/compress.rs
+index f019a39..481d907 100644
+--- a/src/block/compress.rs
++++ b/src/block/compress.rs
+@@ -556,10 +556,6 @@ pub(crate) fn compress_into_sink_with_dict<const USE_DICT: bool>(
+     output: &mut impl Sink,
+     mut dict_data: &[u8],
+ ) -> Result<usize, CompressError> {
+-    if USE_DICT && dict_data.len() < MINMATCH {
+-        return compress_into_sink_without_dict(input, output);
+-    }
+-
+     if dict_data.len() + input.len() < u16::MAX as usize {
+         let mut dict = HashTable4KU16::new();
+         init_dict(&mut dict, &mut dict_data);
+@@ -571,17 +567,6 @@ pub(crate) fn compress_into_sink_with_dict<const USE_DICT: bool>(
+     }
+ }
+ 
+-/// Slow fallback for when the dictionary is too small to be useful. This avoids the overhead of
+-/// inlining.
+-#[cold]
+-#[inline(never)]
+-fn compress_into_sink_without_dict(
+-    input: &[u8],
+-    output: &mut impl Sink,
+-) -> Result<usize, CompressError> {
+-    compress_into_sink_with_dict::<false>(input, output, b"")
+-}
+-
+ #[inline]
+ fn init_dict<T: HashTable>(dict: &mut T, dict_data: &mut &[u8]) {
+     if dict_data.len() > WINDOW_SIZE {

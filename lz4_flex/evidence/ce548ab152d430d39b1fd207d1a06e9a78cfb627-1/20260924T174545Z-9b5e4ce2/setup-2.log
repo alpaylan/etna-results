@@ -1,0 +1,18 @@
+Command: rustup run 1.95.0 cargo generate-lockfile
+Started: 2026-09-24T17:48:43.982186+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+  |
+  = help: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+    Updating `era` index
+    Updating git repository `https://github.com/main--/rust-lz-fear`
+     Locking 107 packages to latest Rust 1.81 compatible versions
+      Adding binggan v0.16.1 (requires Rust 1.85)
+      Adding proptest v1.8.0 (available: v1.11.0, requires Rust 1.85)
+      Adding wasip2 v1.0.3+wasi-0.2.9 (requires Rust 1.87.0)
+      Adding wit-bindgen v0.57.1 (requires Rust 1.85.0)
+
+Exit: 0
+Timed out: False

@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: Dependency setup failed; see setup logs
+**unconfirmed**: The observed failure does not establish the described bug
 
 Upstream: https://github.com/PSeitz/lz4_flex
 
-Candidate: f758a09a4a916de927d1c1034478f1d904fd1f08-1
+Candidate: ce548ab152d430d39b1fd207d1a06e9a78cfb627-1
 
 Provenance: verbatim
 
-Latest outcomes: {"blocked": 1}
+Latest outcomes: {"unconfirmed": 1}
 
-Reviewed commits: 1 / 471 reachable from the saved tip.
+Reviewed commits: 1 / 548 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.
