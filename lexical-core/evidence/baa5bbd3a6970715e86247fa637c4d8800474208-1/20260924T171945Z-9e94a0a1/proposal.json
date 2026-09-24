@@ -1,0 +1,13 @@
+{
+  "commit": "baa5bbd3a6970715e86247fa637c4d8800474208",
+  "parent": "d0f4431e3569ee02f909eaf4dea161916ba65213",
+  "fixed_commit": "baa5bbd3a6970715e86247fa637c4d8800474208",
+  "summary": "Prefix matching consumed an extra input character after matching a special float literal, incorrectly accepting inputs such as \"inf1\" and \"nan0\". The fix checks whether the prefix iterator is exhausted before advancing the input iterator. The proposed reversal restores the case-insensitive bug verbatim. Blocked test selection: detecting negative-format assertions exist in data/test-parse-unittests/main.rs, enabled by this commit, but run through a standalone binary rather than a named Rust #[test]. No detecting named Rust test was found; the prefix unit tests check only the match boolean, not the remaining iterator.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "lexical-core/src/util/algorithm.rs",
+    "fixed_text": "    loop {\n        let ri = r.next().map(|x| x.to_ascii_lowercase());\n        if ri.is_none() {\n            return (true, l);\n        } else if l.next().map(|x| x.to_ascii_lowercase()) != ri {\n            return (false, l);\n        }\n    }\n",
+    "parent_text": "    loop {\n        let li = l.next().map(|x| x.to_ascii_lowercase());\n        let ri = r.next().map(|x| x.to_ascii_lowercase());\n        if ri.is_none() {\n            return (true, l);\n        } else if li != ri {\n            return (false, l);\n        }\n    }\n"
+  }
+}
