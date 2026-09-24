@@ -1,0 +1,13 @@
+{
+  "commit": "29f4c92f5464e5609ddb0fec31c811f46215cbc0",
+  "parent": "b87dbc550cf6cd4b80d9388eee411c5cd458ecac",
+  "fixed_commit": "29f4c92f5464e5609ddb0fec31c811f46215cbc0",
+  "summary": "Stack-based SPFA can incorrectly report a negative cycle in an acyclic graph because repeated vertex processing reaches its visit limit. The fix uses a FIFO VecDeque instead. The added tests/spfa.rs test spfa_no_neg_cycle exercises this behavior. Blocked under the single-file reversal schema: restoring the parent implementation in src/algo/spfa.rs changes spfa_loop's queue parameter to Vec, requiring the corresponding reversal in src/algo/johnson.rs, whose unconditionally compiled caller supplies VecDeque. Reversing only queue operations instead leaves unsupported VecDeque push/pop calls. A valid verbatim reversal requires both implementation files. No builds or tests were run.",
+  "test": "spfa_no_neg_cycle",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/algo/spfa.rs",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
