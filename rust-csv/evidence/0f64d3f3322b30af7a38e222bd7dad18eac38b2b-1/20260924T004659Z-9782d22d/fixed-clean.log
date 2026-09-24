@@ -1,0 +1,8 @@
+Command: rustup run 1.72.1 cargo clean -p csv
+Started: 2026-09-24T00:50:56.356506+00:00
+STDOUT:
+
+STDERR:
+
+Exit: 0
+Timed out: False

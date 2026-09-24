@@ -1,0 +1,21 @@
+Command: rustup run 1.72.1 cargo fetch --locked
+Started: 2026-09-24T00:50:49.506107+00:00
+STDOUT:
+
+STDERR:
+ Downloading crates ...
+  Downloaded itoa v1.0.9 (registry `era`)
+  Downloaded ryu v1.0.15 (registry `era`)
+  Downloaded arrayvec v0.5.2 (registry `era`)
+  Downloaded proc-macro2 v1.0.67 (registry `era`)
+  Downloaded quote v1.0.33 (registry `era`)
+  Downloaded syn v2.0.37 (registry `era`)
+  Downloaded byteorder v1.4.3 (registry `era`)
+  Downloaded memchr v2.6.4 (registry `era`)
+  Downloaded serde v1.0.188 (registry `era`)
+  Downloaded serde_derive v1.0.188 (registry `era`)
+  Downloaded unicode-ident v1.0.12 (registry `era`)
+  Downloaded bstr v1.6.2 (registry `era`)
+
+Exit: 0
+Timed out: False

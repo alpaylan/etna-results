@@ -1,0 +1,13 @@
+{
+  "commit": "0f64d3f3322b30af7a38e222bd7dad18eac38b2b",
+  "parent": "574ae1ff64693b42ae0ce153926d9a0a5d546936",
+  "fixed_commit": "0f64d3f3322b30af7a38e222bd7dad18eac38b2b",
+  "summary": "With QuoteStyle::Necessary, a first field beginning with a comment character could be written unquoted, causing a reader configured with that character to discard the row. The fix adds comment configuration and marks that byte as requiring quotes wherever it appears in a field. Reverse only the quote-table update, preserving the API and the regression test added in src/writer.rs. Both source regions occur exactly once in their respective revisions. No tests were run.",
+  "test": "writer::tests::comment_char_is_automatically_quoted",
+  "expected_failure": "assertion `left == right` failed: left: \"# comment,another\\n\", right: \"\\\"# comment\\\",another\\n\"",
+  "reversal": {
+    "path": "csv-core/src/writer.rs",
+    "fixed_text": "            _ => unreachable!(),\n        }\n        // If the first field of a row starts with a comment character,\n        // it needs to be quoted, or the row will not be readable later.\n        // As requires_quotes is calculated in advance, we force quotes\n        // when a comment character is encountered anywhere in the field.\n        if let Some(comment) = self.wtr.comment {\n            wtr.requires_quotes[comment as usize] = true;\n        }\n        wtr\n    }\n",
+    "parent_text": "            _ => unreachable!(),\n        }\n        wtr\n    }\n"
+  }
+}

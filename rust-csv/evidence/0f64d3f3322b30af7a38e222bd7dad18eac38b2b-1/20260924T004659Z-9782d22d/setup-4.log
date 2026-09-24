@@ -1,0 +1,21 @@
+Command: rustup run 1.72.1 cargo check --locked --offline --tests
+Started: 2026-09-24T00:50:49.859185+00:00
+STDOUT:
+
+STDERR:
+   Compiling proc-macro2 v1.0.67
+   Compiling unicode-ident v1.0.12
+   Compiling serde v1.0.188
+    Checking memchr v2.6.4
+    Checking itoa v1.0.9
+    Checking ryu v1.0.15
+    Checking csv-core v0.1.10 (/home/runner/work/_temp/upstream/csv-core)
+   Compiling quote v1.0.33
+   Compiling syn v2.0.37
+   Compiling serde_derive v1.0.188
+    Checking bstr v1.6.2
+    Checking csv v1.2.2 (/home/runner/work/_temp/upstream)
+    Finished dev [unoptimized + debuginfo] target(s) in 6.42s
+
+Exit: 0
+Timed out: False

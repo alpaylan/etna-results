@@ -2,6 +2,7 @@
   "repo": "https://github.com/BurntSushi/rust-csv",
   "tips": [
     "066de4aaf5dbf2c82bdb03fb574d905dde172d8a",
+    "0f64d3f3322b30af7a38e222bd7dad18eac38b2b",
     "23fb0cd676bf71c23fc8de45856cbf0187627e45",
     "9e644e66db0aa0b931758de1c2b7da555fb632b7",
     "ce01ae7fe4cf7938a22ca565c33678e7422da6c0",
@@ -10,6 +11,7 @@
   "shallow": false,
   "reviewed": [
     "066de4aaf5dbf2c82bdb03fb574d905dde172d8a",
+    "0f64d3f3322b30af7a38e222bd7dad18eac38b2b",
     "23fb0cd676bf71c23fc8de45856cbf0187627e45",
     "9e644e66db0aa0b931758de1c2b7da555fb632b7",
     "ce01ae7fe4cf7938a22ca565c33678e7422da6c0",

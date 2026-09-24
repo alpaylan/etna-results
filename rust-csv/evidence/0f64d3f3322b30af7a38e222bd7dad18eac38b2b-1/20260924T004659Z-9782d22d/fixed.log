@@ -1,0 +1,23 @@
+Command: rustup run 1.72.1 cargo test --locked --offline --lib writer::tests::comment_char_is_automatically_quoted -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:50:56.439093+00:00
+STDOUT:
+
+running 1 test
+test writer::tests::comment_char_is_automatically_quoted ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 139 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling memchr v2.6.4
+   Compiling ryu v1.0.15
+   Compiling itoa v1.0.9
+   Compiling serde v1.0.188
+   Compiling csv-core v0.1.10 (/home/runner/work/_temp/upstream/csv-core)
+   Compiling bstr v1.6.2
+   Compiling csv v1.2.2 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 4.42s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T004659Z-9782d22d/debug/deps/csv-1cd277dadcb33d9f)
+
+Exit: 0
+Timed out: False

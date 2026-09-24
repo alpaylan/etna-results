@@ -1,0 +1,28 @@
+Command: rustup run 1.72.1 cargo test --locked --offline --lib writer::tests::comment_char_is_automatically_quoted -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:51:00.999998+00:00
+STDOUT:
+
+running 1 test
+test writer::tests::comment_char_is_automatically_quoted ... FAILED
+
+failures:
+
+failures:
+    writer::tests::comment_char_is_automatically_quoted
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 139 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling csv-core v0.1.10 (/home/runner/work/_temp/upstream/csv-core)
+   Compiling csv v1.2.2 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 2.30s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T004659Z-9782d22d/debug/deps/csv-1cd277dadcb33d9f)
+thread 'writer::tests::comment_char_is_automatically_quoted' panicked at 'assertion failed: `(left == right)`
+  left: `"# comment,another\n"`,
+ right: `"\"# comment\",another\n"`', src/writer.rs:1452:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `--lib`
+
+Exit: 101
+Timed out: False
