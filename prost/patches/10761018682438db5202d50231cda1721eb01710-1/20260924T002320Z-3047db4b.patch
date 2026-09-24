@@ -1,0 +1,17 @@
+diff --git a/prost-types/src/datetime.rs b/prost-types/src/datetime.rs
+index 4bdc8fa..280ddf0 100644
+--- a/prost-types/src/datetime.rs
++++ b/prost-types/src/datetime.rs
+@@ -261,10 +261,8 @@ fn parse_nanos(s: &str) -> Option<(u32, &str)> {
+ 
+     // Parse the nanoseconds, if present.
+     let (nanos, s) = if let Some(s) = parse_char(s, b'.') {
+-        let (mut digits, s) = parse_digits(s);
+-        if digits.len() > 9 {
+-            digits = digits.split_at(9).0;
+-        }
++        let (digits, s) = parse_digits(s);
++        ensure!(digits.len() <= 9);
+         let nanos = 10u32.pow(9 - digits.len() as u32) * digits.parse::<u32>().ok()?;
+         (nanos, s)
+     } else {

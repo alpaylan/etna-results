@@ -1,0 +1,65 @@
+Command: rustup run 1.79.0 cargo check --locked --offline --tests
+Started: 2026-09-24T00:28:59.434596+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+   Compiling proc-macro2 v1.0.86
+   Compiling unicode-ident v1.0.12
+   Compiling anyhow v1.0.86
+   Compiling rustix v0.38.34
+   Compiling either v1.13.0
+   Compiling itertools v0.13.0
+   Compiling prettyplease v0.2.20
+   Compiling log v0.4.22
+   Compiling hashbrown v0.14.5
+   Compiling bitflags v2.6.0
+   Compiling quote v1.0.36
+   Compiling syn v2.0.71
+   Compiling regex-syntax v0.8.4
+   Compiling bytes v1.6.1
+   Compiling linux-raw-sys v0.4.14
+   Compiling equivalent v1.0.1
+   Compiling indexmap v2.2.6
+   Compiling fastrand v2.1.0
+   Compiling cfg-if v1.0.0
+   Compiling fixedbitset v0.4.2
+   Compiling petgraph v0.6.5
+   Compiling regex-automata v0.4.7
+   Compiling tempfile v3.10.1
+   Compiling once_cell v1.19.0
+   Compiling heck v0.5.0
+   Compiling multimap v0.10.0
+   Compiling libc v0.2.155
+   Compiling env_filter v0.1.0
+   Compiling regex v1.10.5
+   Compiling env_logger v0.11.3
+   Compiling version_check v0.9.4
+   Compiling prost-derive v0.13.1 (/home/runner/work/_temp/upstream/prost-derive)
+   Compiling unicase v2.7.0
+   Compiling libm v0.2.8
+   Compiling pulldown-cmark v0.9.6
+   Compiling serde v1.0.204
+   Compiling autocfg v1.3.0
+   Compiling num-traits v0.2.19
+   Compiling serde_derive v1.0.204
+   Compiling prost v0.13.1 (/home/runner/work/_temp/upstream/prost)
+   Compiling prost-types v0.13.1 (/home/runner/work/_temp/upstream/prost-types)
+    Checking getrandom v0.2.15
+   Compiling prost-build v0.13.1 (/home/runner/work/_temp/upstream/prost-build)
+    Checking memchr v2.7.4
+    Checking rand_core v0.6.4
+   Compiling protobuf v0.0.0 (/home/runner/work/_temp/upstream/protobuf)
+   Compiling serde_json v1.0.120
+   Compiling tests v0.0.0 (/home/runner/work/_temp/upstream/tests)
+error: failed to run custom build command for `protobuf v0.0.0 (/home/runner/work/_temp/upstream/protobuf)`
+
+Caused by:
+  process didn't exit successfully: `/home/runner/work/_temp/build-20260924T002320Z-3047db4b/debug/build/protobuf-5fa3fc6854f666fc/build-script-build` (exit status: 1)
+  --- stderr
+  Error: protobuf sources are not checked out; Try `git submodule update --init --recursive`
+warning: build failed, waiting for other jobs to finish...
+
+Exit: 101
+Timed out: False

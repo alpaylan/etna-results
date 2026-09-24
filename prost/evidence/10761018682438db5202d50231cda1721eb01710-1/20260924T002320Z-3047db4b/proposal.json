@@ -1,0 +1,13 @@
+{
+  "commit": "10761018682438db5202d50231cda1721eb01710",
+  "parent": "60092334927e100000cebf29f8f20f9c255830ee",
+  "fixed_commit": "10761018682438db5202d50231cda1721eb01710",
+  "summary": "parse_nanos rejected timestamps with more than nine fractional-second digits, returning TimestampError::ParseFailure. The fix consumes all fractional digits but truncates the numeric portion to nine digits, preserving nanosecond precision. The fix adds an assertion to datetime::tests::test_parse_timestamp expecting a long fraction to parse with nanos equal to 166666666. Both implementation regions occur exactly once in their respective revisions. No tests were executed.",
+  "test": "datetime::tests::test_parse_timestamp",
+  "expected_failure": "assertion `left == right` failed\n  left: Err(ParseFailure)",
+  "reversal": {
+    "path": "prost-types/src/datetime.rs",
+    "fixed_text": "        let (mut digits, s) = parse_digits(s);\n        if digits.len() > 9 {\n            digits = digits.split_at(9).0;\n        }\n",
+    "parent_text": "        let (digits, s) = parse_digits(s);\n        ensure!(digits.len() <= 9);\n"
+  }
+}
