@@ -1,0 +1,25 @@
+Command: rustup run 1.31.0 cargo test --locked --lib deserializer::tests::partially_invalid_utf8 -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:27:02.761921+00:00
+STDOUT:
+
+running 1 test
+test deserializer::tests::partially_invalid_utf8 ... FAILED
+
+failures:
+
+failures:
+    deserializer::tests::partially_invalid_utf8
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 124 filtered out
+
+
+STDERR:
+   Compiling csv v1.0.2 (/home/runner/work/_temp/upstream)
+    Finished dev [unoptimized + debuginfo] target(s) in 1.67s
+     Running /home/runner/work/_temp/build-20260924T002618Z-8958f738/debug/deps/csv-540c9991fdea5f99
+thread 'deserializer::tests::partially_invalid_utf8' panicked at 'called `Result::unwrap()` on an `Err` value: Error(Deserialize { pos: None, err: DeserializeError { field: Some(1), kind: InvalidUtf8(Utf8Error { valid_up_to: 3, error_len: Some(1) }) } })', libcore/result.rs:1009:5
+note: Run with `RUST_BACKTRACE=1` for a backtrace.
+error: test failed, to rerun pass '--lib'
+
+Exit: 101
+Timed out: False

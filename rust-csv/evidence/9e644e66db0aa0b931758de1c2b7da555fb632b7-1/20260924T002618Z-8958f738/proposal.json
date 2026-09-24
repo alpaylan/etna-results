@@ -1,0 +1,13 @@
+{
+  "commit": "9e644e66db0aa0b931758de1c2b7da555fb632b7",
+  "parent": "f6d46b18dc640d904dc73798df25950eba873289",
+  "fixed_commit": "9e644e66db0aa0b931758de1c2b7da555fb632b7",
+  "summary": "deserialize_byte_buf incorrectly validates raw byte fields as UTF-8 through next_field(), rejecting invalid UTF-8 even for Vec<u8> fields annotated with serde_bytes. The fix uses next_field_bytes() to preserve arbitrary bytes. The regression test added by this commit deserializes a middle field containing foo\\xFFbar and checks its exact bytes. This is a source-derived plan; no tests were executed.",
+  "test": "deserializer::tests::partially_invalid_utf8",
+  "expected_failure": "called `Result::unwrap()` on an `Err` value containing InvalidUtf8",
+  "reversal": {
+    "path": "src/deserializer.rs",
+    "fixed_text": "    fn deserialize_byte_buf<V: Visitor<'de>>(\n        self,\n        visitor: V,\n    ) -> Result<V::Value, Self::Error> {\n        self.next_field_bytes()\n            .and_then(|f| visitor.visit_byte_buf(f.to_vec()))\n        // self.next_field()\n            // .and_then(|f| visitor.visit_byte_buf(f.as_bytes().to_vec()))\n    }\n\n",
+    "parent_text": "    fn deserialize_byte_buf<V: Visitor<'de>>(\n        self,\n        visitor: V,\n    ) -> Result<V::Value, Self::Error> {\n        self.next_field()\n            .and_then(|f| visitor.visit_byte_buf(f.as_bytes().to_vec()))\n    }\n\n"
+  }
+}

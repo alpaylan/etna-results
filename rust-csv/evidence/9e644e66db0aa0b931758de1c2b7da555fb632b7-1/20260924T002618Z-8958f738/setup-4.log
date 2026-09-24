@@ -1,0 +1,22 @@
+Command: rustup run 1.31.0 cargo check --locked --tests
+Started: 2026-09-24T00:26:47.163414+00:00
+STDOUT:
+
+STDERR:
+   Compiling libc v0.2.45
+   Compiling version_check v0.1.5
+   Compiling proc-macro2 v0.4.24
+   Compiling unicode-xid v0.1.0
+   Compiling serde v1.0.82
+    Checking cfg-if v0.1.6
+   Compiling memchr v2.1.2
+   Compiling quote v0.6.10
+    Checking csv-core v0.1.4 (/home/runner/work/_temp/upstream/csv-core)
+   Compiling syn v0.15.23
+   Compiling serde_derive v1.0.82
+    Checking serde_bytes v0.10.4
+    Checking csv v1.0.2 (/home/runner/work/_temp/upstream)
+    Finished dev [unoptimized + debuginfo] target(s) in 8.70s
+
+Exit: 0
+Timed out: False
