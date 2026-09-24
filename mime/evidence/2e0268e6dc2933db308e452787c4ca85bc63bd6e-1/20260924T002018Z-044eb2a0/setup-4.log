@@ -1,0 +1,15 @@
+Command: rustup run 1.31.1 cargo check --locked --tests
+Started: 2026-09-24T00:20:56.818500+00:00
+STDOUT:
+
+STDERR:
+   Compiling serde v1.0.84
+    Checking quick-error v1.2.2
+    Checking mime-parse v0.0.0 (/home/runner/work/_temp/upstream/mime-parse)
+    Checking quoted-string v0.2.2
+    Checking serde_test v1.0.84
+    Checking mime v0.4.0-a.0 (/home/runner/work/_temp/upstream)
+    Finished dev [unoptimized + debuginfo] target(s) in 6.09s
+
+Exit: 0
+Timed out: False

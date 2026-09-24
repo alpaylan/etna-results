@@ -1,0 +1,16 @@
+diff --git a/mime-parse/src/rfc7231.rs b/mime-parse/src/rfc7231.rs
+index 89f15fc..f17a562 100644
+--- a/mime-parse/src/rfc7231.rs
++++ b/mime-parse/src/rfc7231.rs
+@@ -96,10 +96,7 @@ pub(crate) fn parse(opts: &Parser, src: impl Parse) -> Result<Mime, ParseError>
+                 start = i;
+                 break;
+             },
+-            Some((i, b' ')) if i > start => {
+-                start = i;
+-                break;
+-            },
++
+             Some((i, b'*')) if i == start && opts.can_range => {
+                 // sublevel star can only be the first character, and the next
+                 // must either be the end, or `;`

@@ -1,0 +1,13 @@
+{
+  "commit": "2e0268e6dc2933db308e452787c4ca85bc63bd6e",
+  "parent": "6eae72d9ecc2e9753282cb1c606fc55ead2733a4",
+  "fixed_commit": "2e0268e6dc2933db308e452787c4ca85bc63bd6e",
+  "summary": "The parser rejected valid media types containing a space between the subtype and parameter semicolon, such as \"text/plain ; charset=utf-8\". The fix recognizes that space as the subtype boundary and proceeds into parameter parsing. Reversing only this match arm restores the invalid-token error. The selected regression test was added by the fix; reproduction remains for the runner.",
+  "test": "rfc7231::tests::subtype_space_before_params",
+  "expected_failure": "called `Result::unwrap()` on an `Err` value: InvalidToken { pos: 10, byte: ' ' }",
+  "reversal": {
+    "path": "mime-parse/src/rfc7231.rs",
+    "fixed_text": "            Some((i, b';')) if i > start => {\n                start = i;\n                break;\n            },\n            Some((i, b' ')) if i > start => {\n                start = i;\n                break;\n            },\n            Some((i, b'*')) if i == start && opts.can_range => {\n",
+    "parent_text": "            Some((i, b';')) if i > start => {\n                start = i;\n                break;\n            },\n\n            Some((i, b'*')) if i == start && opts.can_range => {\n"
+  }
+}

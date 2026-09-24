@@ -1,19 +1,15 @@
 # Cloud bug-mining prototype
 
-Resumed verified evidence; no tests rerun.
-
-**confirmed**: The same upstream test passed, panicked on the original defect ('assertion failed: `(left == right)`
-  left: `"text/event-stream;"`,
- right: `"text/event-stream"`: case = "text/event-stream;"'), and passed after restoration
+**blocked**: fixed: no completed execution of the exact upstream test
 
 Upstream: https://github.com/hyperium/mime
 
-Candidate: 7a39824f8eb816496895593ccda418c177ef5756-1
+Candidate: 2e0268e6dc2933db308e452787c4ca85bc63bd6e-1
 
 Provenance: verbatim
 
-Latest outcomes: {"confirmed": 1}
+Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 218 reachable from the saved tip.
+Reviewed commits: 1 / 227 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

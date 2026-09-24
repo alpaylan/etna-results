@@ -1,0 +1,8 @@
+Command: rustup run 1.31.1 cargo clean -p mime
+Started: 2026-09-24T00:21:02.982805+00:00
+STDOUT:
+
+STDERR:
+
+Exit: 0
+Timed out: False
