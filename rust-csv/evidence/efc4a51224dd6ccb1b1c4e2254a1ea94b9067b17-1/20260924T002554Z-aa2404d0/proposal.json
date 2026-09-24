@@ -1,0 +1,13 @@
+{
+  "commit": "efc4a51224dd6ccb1b1c4e2254a1ea94b9067b17",
+  "parent": "3518426bf9f085b64818537fffa861868bbc18ca",
+  "fixed_commit": "efc4a51224dd6ccb1b1c4e2254a1ea94b9067b17",
+  "summary": "ByteRecord equality compared concatenated bytes, incorrectly treating [\"12\", \"34\"] and [\"123\", \"4\"] as equal. The fix compares corresponding fields, detecting their differing boundaries. The commit adds byte_record_eq_field_boundaries in tests/tests.rs. This reversal restores only ByteRecord's original equality implementation; no length guard exists at this historical revision. Tests have not been run.",
+  "test": "byte_record_eq_field_boundaries",
+  "expected_failure": "assertion failed: `(left != right)`",
+  "reversal": {
+    "path": "src/byte_record.rs",
+    "fixed_text": "impl PartialEq for ByteRecord {\n    fn eq(&self, other: &ByteRecord) -> bool {\n        self.iter().zip(other.iter()).all(|e| e.0 == e.1)\n    }\n}\n",
+    "parent_text": "impl PartialEq for ByteRecord {\n    fn eq(&self, other: &ByteRecord) -> bool {\n        self.as_slice() == other.as_slice()\n    }\n}\n"
+  }
+}

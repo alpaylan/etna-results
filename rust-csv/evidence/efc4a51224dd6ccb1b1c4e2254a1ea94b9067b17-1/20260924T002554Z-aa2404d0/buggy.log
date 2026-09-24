@@ -1,0 +1,27 @@
+Command: rustup run 1.31.0 cargo test --locked --test tests byte_record_eq_field_boundaries -- --nocapture --test-threads=1
+Started: 2026-09-24T00:26:45.841064+00:00
+STDOUT:
+
+running 1 test
+test byte_record_eq_field_boundaries ... FAILED
+
+failures:
+
+failures:
+    byte_record_eq_field_boundaries
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 42 filtered out
+
+
+STDERR:
+   Compiling csv v1.0.3 (/home/runner/work/_temp/upstream)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.70s
+     Running /home/runner/work/_temp/build-20260924T002554Z-aa2404d0/debug/deps/tests-393b70cc0c61da85
+thread 'byte_record_eq_field_boundaries' panicked at 'assertion failed: `(left != right)`
+  left: `ByteRecord(["12", "34"])`,
+ right: `ByteRecord(["123", "4"])`', tests/tests.rs:347:5
+note: Run with `RUST_BACKTRACE=1` for a backtrace.
+error: test failed, to rerun pass '--test tests'
+
+Exit: 101
+Timed out: False

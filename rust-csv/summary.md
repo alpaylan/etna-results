@@ -1,15 +1,19 @@
 # Cloud bug-mining prototype
 
-**blocked**: Selected test is not present at the fixed revision: reader::tests::comment_5
+Resumed verified evidence; no tests rerun.
+
+**confirmed**: The same upstream test passed, panicked on the original defect ('assertion failed: `(left != right)`
+  left: `ByteRecord(["12", "34"])`,
+ right: `ByteRecord(["123", "4"])`'), and passed after restoration
 
 Upstream: https://github.com/BurntSushi/rust-csv
 
-Candidate: a5745baa172d50679e34b33d6dba3d063eb40cd4-1
+Candidate: efc4a51224dd6ccb1b1c4e2254a1ea94b9067b17-1
 
 Provenance: verbatim
 
-Latest outcomes: {"blocked": 1}
+Latest outcomes: {"confirmed": 1}
 
-History coverage not yet recorded.
+Reviewed commits: 1 / 379 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.
