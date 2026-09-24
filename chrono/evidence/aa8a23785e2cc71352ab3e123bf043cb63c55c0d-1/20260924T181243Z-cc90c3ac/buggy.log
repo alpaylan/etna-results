@@ -1,0 +1,28 @@
+Command: rustup run 1.70.0 cargo test --locked --offline --lib format::strftime::tests::test_parse_only_timezone_offset_permissive_no_panic -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T18:16:13.089147+00:00
+STDOUT:
+
+running 1 test
+test format::strftime::tests::test_parse_only_timezone_offset_permissive_no_panic ... FAILED
+
+failures:
+
+failures:
+    format::strftime::tests::test_parse_only_timezone_offset_permissive_no_panic
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 177 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling serde v1.0.164
+   Compiling bincode v1.3.3
+   Compiling serde_json v1.0.96
+   Compiling chrono v0.4.26 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 5.65s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T181243Z-cc90c3ac/debug/deps/chrono-8712f857b65be768)
+thread 'format::strftime::tests::test_parse_only_timezone_offset_permissive_no_panic' panicked at 'Do not try to write %#z it is undefined', src/format/mod.rs:678:25
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `--lib`
+
+Exit: 101
+Timed out: False

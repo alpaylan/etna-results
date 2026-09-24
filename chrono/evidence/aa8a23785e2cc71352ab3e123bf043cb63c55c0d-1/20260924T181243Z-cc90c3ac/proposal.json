@@ -1,0 +1,13 @@
+{
+  "commit": "aa8a23785e2cc71352ab3e123bf043cb63c55c0d",
+  "parent": "2665e3091dd3eee2427e74d83ca85e70d839c13a",
+  "fixed_commit": "aa8a23785e2cc71352ab3e123bf043cb63c55c0d",
+  "summary": "Formatting with the parsing-only %#z specifier panics instead of returning a formatting error. The fix returns Err(fmt::Error), allowing callers to handle the unsupported formatter. The regression test added by this commit expects that error without a panic.",
+  "test": "format::strftime::tests::test_parse_only_timezone_offset_permissive_no_panic",
+  "expected_failure": "Do not try to write %#z it is undefined",
+  "reversal": {
+    "path": "src/format/mod.rs",
+    "fixed_text": "                    Internal(InternalFixed { val: InternalInternal::TimezoneOffsetPermissive }) => {\n                        return Err(fmt::Error);\n                    }\n",
+    "parent_text": "                    Internal(InternalFixed { val: InternalInternal::TimezoneOffsetPermissive }) => {\n                        panic!(\"Do not try to write %#z it is undefined\")\n                    }\n"
+  }
+}

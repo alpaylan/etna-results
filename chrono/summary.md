@@ -1,15 +1,17 @@
 # Cloud bug-mining prototype
 
-**blocked**: Proposal names no upstream test
+Resumed verified evidence; no tests rerun.
+
+**confirmed**: The same upstream test passed, panicked on the original defect ('Do not try to write %#z it is undefined'), and passed after restoration
 
 Upstream: https://github.com/chronotope/chrono
 
-Candidate: ff370ae656a52ada172bb7a0fd98d1051a998a93-1
+Candidate: aa8a23785e2cc71352ab3e123bf043cb63c55c0d-1
 
 Provenance: verbatim
 
-Latest outcomes: {"blocked": 1}
+Latest outcomes: {"confirmed": 1}
 
-History coverage not yet recorded.
+Reviewed commits: 1 / 1135 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

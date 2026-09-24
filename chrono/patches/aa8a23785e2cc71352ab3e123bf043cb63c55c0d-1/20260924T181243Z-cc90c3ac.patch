@@ -1,0 +1,13 @@
+diff --git a/src/format/mod.rs b/src/format/mod.rs
+index 7c9c3b7..c8bb1e3 100644
+--- a/src/format/mod.rs
++++ b/src/format/mod.rs
+@@ -675,7 +675,7 @@ fn format_inner(
+                         off.map(|&(_, off)| write_local_minus_utc(result, off, true, Colons::None))
+                     }
+                     Internal(InternalFixed { val: InternalInternal::TimezoneOffsetPermissive }) => {
+-                        return Err(fmt::Error);
++                        panic!("Do not try to write %#z it is undefined")
+                     }
+                     RFC2822 =>
+                     // same as `%a, %d %b %Y %H:%M:%S %z`
