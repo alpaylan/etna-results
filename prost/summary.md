@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: fixed_text does not occur exactly once at the fixed revision
+**blocked**: Dependency setup failed; see setup logs
 
 Upstream: https://github.com/tokio-rs/prost
 
-Candidate: baddf9828596bb7e2b908f5d4997542ebe59a7c3-1
+Candidate: 26463f437e1a3445c9d3119cf9cf0f64f5b23dfa-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-History coverage not yet recorded.
+Reviewed commits: 1 / 616 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

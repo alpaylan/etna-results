@@ -1,0 +1,13 @@
+{
+  "commit": "26463f437e1a3445c9d3119cf9cf0f64f5b23dfa",
+  "parent": "23f71749696d5836afa143cbbb860fa8943e0640",
+  "fixed_commit": "26463f437e1a3445c9d3119cf9cf0f64f5b23dfa",
+  "summary": "The Enumeration derive generates a TryFrom<i32> return type using Self::Error, which becomes ambiguous when the enum has an Error variant. The fix explicitly names ::prost::UnknownEnumValue. The fix adds FEEDING_ERROR to the existing enum_keyword_variant.proto fixture, included by the module containing enum_keyword_variant::dummy. This regression check detects the bug during compilation; the empty test body cannot fail at runtime. Consequently, the expected compilation failure cannot satisfy the reproduction contract's requirement that the buggy test target builds and executes a failing test.",
+  "test": "enum_keyword_variant::dummy",
+  "expected_failure": "error: ambiguous associated item",
+  "reversal": {
+    "path": "prost-derive/src/lib.rs",
+    "fixed_text": "            fn try_from(value: i32) -> ::core::result::Result<#ident, ::prost::UnknownEnumValue> {\n",
+    "parent_text": "            fn try_from(value: i32) -> ::core::result::Result<#ident, Self::Error> {\n"
+  }
+}

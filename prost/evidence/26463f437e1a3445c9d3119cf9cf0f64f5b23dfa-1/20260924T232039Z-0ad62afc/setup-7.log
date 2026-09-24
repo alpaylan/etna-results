@@ -1,0 +1,23 @@
+Command: rustup run 1.79.0 cargo check --locked --offline --tests
+Started: 2026-09-24T23:27:10.685013+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+warning: /home/runner/work/_temp/upstream/prost-derive/Cargo.toml: `proc_macro` is deprecated in favor of `proc-macro` and will not work in the 2024 edition
+(in the `prost_derive` library target)
+   Compiling protobuf v0.0.0 (/home/runner/work/_temp/upstream/protobuf)
+    Checking half v2.4.1
+    Checking ppv-lite86 v0.2.17
+    Checking itoa v1.0.11
+error: failed to run custom build command for `protobuf v0.0.0 (/home/runner/work/_temp/upstream/protobuf)`
+
+Caused by:
+  process didn't exit successfully: `/home/runner/work/_temp/build-20260924T232039Z-0ad62afc/debug/build/protobuf-db328a2667fc9da8/build-script-build` (exit status: 1)
+  --- stderr
+  Error: protobuf sources are not checked out; Try `git submodule update --init --recursive`
+warning: build failed, waiting for other jobs to finish...
+
+Exit: 101
+Timed out: False
