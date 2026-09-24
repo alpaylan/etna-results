@@ -1,0 +1,15 @@
+Command: rustup run 1.10.0 cargo fetch
+Started: 2026-09-24T00:25:00.040278+00:00
+STDOUT:
+
+STDERR:
+error: An unknown error occurred
+
+Caused by:
+  Feature `derive` depends on `serde_derive` which is not an optional dependency.
+Consider adding `optional = true` to the dependency
+
+To learn more, run the command again with --verbose.
+
+Exit: 101
+Timed out: False

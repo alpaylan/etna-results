@@ -1,0 +1,13 @@
+{
+  "commit": "8c75506f2275c215d45dcccf52340da8717c6fa5",
+  "parent": "c84c4d15ba3f0a5f1a7ff8b2bcd58e3b74e03661",
+  "fixed_commit": "8c75506f2275c215d45dcccf52340da8717c6fa5",
+  "summary": "Ratio::recip previously swapped numerator and denominator unchecked, returning 1/0 for zero and a negative denominator for negative inputs. The fix panics on a zero numerator and negates both swapped components for negative numerators. The newly added test::test_recip_fail in the num-rational crate checks the zero-input panic. This plan reverses only the implementation; no tests were run.",
+  "test": "test::test_recip_fail",
+  "expected_failure": "test did not panic as expected",
+  "reversal": {
+    "path": "rational/src/lib.rs",
+    "fixed_text": "    pub fn recip(&self) -> Ratio<T> {\n        match self.numer.cmp(&T::zero()) {\n            cmp::Ordering::Equal => panic!(\"numerator == 0\"),\n            cmp::Ordering::Greater => Ratio::new_raw(self.denom.clone(), self.numer.clone()),\n            cmp::Ordering::Less => Ratio::new_raw(T::zero() - self.denom.clone(),\n                                                  T::zero() - self.numer.clone())\n        }\n    }\n",
+    "parent_text": "    pub fn recip(&self) -> Ratio<T> {\n        Ratio::new_raw(self.denom.clone(), self.numer.clone())\n    }\n"
+  }
+}
