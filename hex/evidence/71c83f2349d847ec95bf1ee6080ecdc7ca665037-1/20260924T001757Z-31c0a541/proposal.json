@@ -1,0 +1,13 @@
+{
+  "commit": "71c83f2349d847ec95bf1ee6080ecdc7ca665037",
+  "parent": "eb3db11f9f8c7a54cf245b1a3524b6ae8f5df615",
+  "fixed_commit": "71c83f2349d847ec95bf1ee6080ecdc7ca665037",
+  "summary": "FromHex::from_hex silently skips ASCII whitespace rather than rejecting it. Contrary to the imported description, the original implementation does not convert whitespace to zero nibbles. The fix removes the whitespace match arm, causing whitespace to return InvalidHexCharacter with its byte index. The regression test added by the fix expects a space at index 4 to be rejected; restoring the parent implementation instead returns Ok containing the bytes of foobar. No tests were executed.",
+  "test": "test::test_from_hex_whitespace",
+  "expected_failure": "called `Result::unwrap_err()` on an `Ok` value: [102, 111, 111, 98, 97, 114]",
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "                b'0'...b'9' => buf |= byte - b'0',\n                _ => {\n",
+    "parent_text": "                b'0'...b'9' => buf |= byte - b'0',\n                b' '|b'\\r'|b'\\n'|b'\\t' => {\n                    buf >>= 4;\n                    continue\n                }\n                _ => {\n"
+  }
+}

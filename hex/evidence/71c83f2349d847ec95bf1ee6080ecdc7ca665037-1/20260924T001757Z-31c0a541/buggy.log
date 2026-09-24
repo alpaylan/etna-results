@@ -1,0 +1,44 @@
+Command: rustup run 1.7.0 cargo test --lib test::test_from_hex_whitespace -- --nocapture
+Started: 2026-09-24T00:18:13.047280+00:00
+STDOUT:
+   Compiling hex v0.1.0 (file:///home/runner/work/_temp/upstream)
+     Running /home/runner/work/_temp/build-20260924T001757Z-31c0a541/debug/hex-34ec4cf0dfc669ab
+
+running 1 test
+test test::test_from_hex_whitespace ... FAILED
+
+failures:
+
+failures:
+    test::test_from_hex_whitespace
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured
+
+
+STDERR:
+thread 'test::test_from_hex_whitespace' panicked at 'called `Result::unwrap_err()` on an `Ok` value: [102, 111, 111, 98, 97, 114]', ../src/libcore/result.rs:738
+stack backtrace:
+   1:     0x5566fe1cb060 - sys::backtrace::tracing::imp::write::hf7e21f48f7cb711bEju
+   2:     0x5566fe1cd775 - panicking::default_handler::_<closure>::closure.42502
+   3:     0x5566fe1cd21f - panicking::default_handler::hac4d0be12e3129d2Gwy
+   4:     0x5566fe1c0046 - sys_common::unwind::begin_unwind_inner::hf13a3e016c1e78e1bct
+   5:     0x5566fe1c0768 - sys_common::unwind::begin_unwind_fmt::h878e9fd8b85e0857hbt
+   6:     0x5566fe1ca6a1 - rust_begin_unwind
+   7:     0x5566fe1ff3ff - panicking::panic_fmt::h9f005ee999496200zYL
+   8:     0x5566fe1844ad - result::Result<T, E>::unwrap_err::h15102492108106146584
+                        at ../src/libcore/macros.rs:29
+   9:     0x5566fe184a8e - test::test_from_hex_whitespace::h97fbf3ba95771eabDua
+                        at /home/runner/work/_temp/upstream/<std macros>:147
+  10:     0x5566fe1a3566 - boxed::F.FnBox<A>::call_box::h17074415110089879331
+  11:     0x5566fe1a5edb - sys_common::unwind::try::try_fn::h1376537109479397131
+  12:     0x5566fe1ca638 - __rust_try
+  13:     0x5566fe1c751b - sys_common::unwind::try::inner_try::h7232ca0b9dac160cJ8s
+  14:     0x5566fe1a625a - boxed::F.FnBox<A>::call_box::h2663558374460014341
+  15:     0x5566fe1cbfa3 - sys::thread::Thread::new::thread_start::h93f164b37c9b35e1Ctx
+  16:     0x7f58c689cb83 - <unknown>
+  17:     0x7f58c6929d6b - <unknown>
+  18:                0x0 - <unknown>
+
+
+Exit: 101
+Timed out: False

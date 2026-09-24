@@ -1,0 +1,16 @@
+Command: rustup run 1.7.0 cargo test --lib test::test_from_hex_whitespace -- --nocapture
+Started: 2026-09-24T00:18:12.531231+00:00
+STDOUT:
+   Compiling hex v0.1.0 (file:///home/runner/work/_temp/upstream)
+     Running /home/runner/work/_temp/build-20260924T001757Z-31c0a541/debug/hex-34ec4cf0dfc669ab
+
+running 1 test
+test test::test_from_hex_whitespace ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured
+
+
+STDERR:
+
+Exit: 0
+Timed out: False
