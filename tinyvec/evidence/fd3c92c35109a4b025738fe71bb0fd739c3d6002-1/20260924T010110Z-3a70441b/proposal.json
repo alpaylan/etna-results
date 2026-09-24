@@ -1,0 +1,13 @@
+{
+  "commit": "fd3c92c35109a4b025738fe71bb0fd739c3d6002",
+  "parent": "66c99e290bcb352e84d0658ffee02b7270d2458d",
+  "fixed_commit": "fd3c92c35109a4b025738fe71bb0fd739c3d6002",
+  "summary": "ArrayVec::remove(len) on a nonempty vector iterated an empty slice, returned a default value, and decremented the length instead of panicking. The fix accesses targets[0] before shifting elements or decrementing length, causing the required bounds panic. The fix adds tests/arrayvec.rs::ArrayVec_remove_invalid, which expects removing index 1 from a one-element vector to panic.",
+  "test": "ArrayVec_remove_invalid",
+  "expected_failure": "test did not panic as expected",
+  "reversal": {
+    "path": "src/arrayvec.rs",
+    "fixed_text": "  pub fn remove(&mut self, index: usize) -> A::Item {\n    let targets: &mut [A::Item] = &mut self.deref_mut()[index..];\n    let item = replace(&mut targets[0], A::Item::default());\n    targets.rotate_left(1);\n    self.len -= 1;\n    item\n  }\n",
+    "parent_text": "  pub fn remove(&mut self, index: usize) -> A::Item {\n    let targets: &mut [A::Item] = &mut self.deref_mut()[index..];\n    let mut spare = A::Item::default();\n    for target in targets.iter_mut().rev() {\n      spare = replace(target, spare);\n    }\n    self.len -= 1;\n    spare\n  }\n"
+  }
+}

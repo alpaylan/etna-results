@@ -1,0 +1,20 @@
+diff --git a/src/arrayvec.rs b/src/arrayvec.rs
+index 608312c..b0e68a0 100644
+--- a/src/arrayvec.rs
++++ b/src/arrayvec.rs
+@@ -384,10 +384,12 @@ impl<A: Array> ArrayVec<A> {
+   #[inline]
+   pub fn remove(&mut self, index: usize) -> A::Item {
+     let targets: &mut [A::Item] = &mut self.deref_mut()[index..];
+-    let item = replace(&mut targets[0], A::Item::default());
+-    targets.rotate_left(1);
++    let mut spare = A::Item::default();
++    for target in targets.iter_mut().rev() {
++      spare = replace(target, spare);
++    }
+     self.len -= 1;
+-    item
++    spare
+   }
+ 
+   // NIGHTLY: remove_item, https://github.com/rust-lang/rust/issues/40062
