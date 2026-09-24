@@ -1,0 +1,35 @@
+diff --git a/src/lib.rs b/src/lib.rs
+index 03b0a5e..615a0ba 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -185,16 +185,14 @@ pub fn jaro_winkler_against_vec(a: &str, v: &Vec<&str>) -> Vec<f64> {
+ /// assert_eq!(3, levenshtein("kitten", "sitting"));
+ /// ```
+ pub fn levenshtein(a: &str, b: &str) -> usize {
+-    let a_len = a.chars().count();
+-    let b_len = b.chars().count();
+     if a == b { return 0; }
+-    else if a_len == 0 { return b_len; }
+-    else if b_len == 0 { return a_len; }
++    else if a.len() == 0 { return b.len(); }
++    else if b.len() == 0 { return a.len(); }
+ 
+-    let mut prev_distances: Vec<usize> = Vec::with_capacity(b_len + 1);
+-    let mut curr_distances: Vec<usize> = Vec::with_capacity(b_len + 1);
++    let mut prev_distances: Vec<usize> = Vec::with_capacity(b.len() + 1);
++    let mut curr_distances: Vec<usize> = Vec::with_capacity(b.len() + 1);
+ 
+-    for i in 0..(b_len + 1) {
++    for i in 0..(b.len() + 1) {
+         prev_distances.push(i);
+         curr_distances.push(0);
+     }
+@@ -212,7 +210,7 @@ pub fn levenshtein(a: &str, b: &str) -> usize {
+         prev_distances.clone_from(&curr_distances);
+     }
+ 
+-    curr_distances[b_len]
++    curr_distances[b.len()]
+ }
+ 
+ /// Calculates the Levenshtein distance between a string and each string in a

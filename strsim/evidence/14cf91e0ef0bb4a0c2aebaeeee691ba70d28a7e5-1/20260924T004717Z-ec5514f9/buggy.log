@@ -1,0 +1,40 @@
+Command: rustup run 1.8.0 cargo test --lib tests::levenshtein_diff_multibyte -- --nocapture
+Started: 2026-09-24T00:47:36.362248+00:00
+STDOUT:
+   Compiling strsim v0.4.0 (file:///home/runner/work/_temp/upstream)
+     Running /home/runner/work/_temp/build-20260924T004717Z-ec5514f9/debug/strsim-4dc386a441624db8
+
+running 1 test
+test tests::levenshtein_diff_multibyte ... FAILED
+
+failures:
+
+failures:
+    tests::levenshtein_diff_multibyte
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured
+
+
+STDERR:
+thread 'tests::levenshtein_diff_multibyte' panicked at 'assertion failed: `(left == right)` (left: `3`, right: `0`)', src/lib.rs:499
+stack backtrace:
+   1:     0x5644d7fa86c0 - sys::backtrace::tracing::imp::write::h3675b4f0ca767761Xcv
+   2:     0x5644d7fab07b - panicking::default_handler::_$u7b$$u7b$closure$u7d$$u7d$::closure.44519
+   3:     0x5644d7faace8 - panicking::default_handler::h18faf4fbd296d909lSz
+   4:     0x5644d7f9ee0c - sys_common::unwind::begin_unwind_inner::hfb5d07d6e405c6bbg1t
+   5:     0x5644d7f9f258 - sys_common::unwind::begin_unwind_fmt::h8b491a76ae84af35m0t
+   6:     0x5644d7f5d007 - tests::levenshtein_diff_multibyte::h31091323b34fd98bS3a
+                        at /home/runner/work/_temp/upstream/<std macros>:8
+   7:     0x5644d7f81fd6 - boxed::F.FnBox<A>::call_box::h12974170719861018744
+   8:     0x5644d7f846cb - sys_common::unwind::try::try_fn::h16547832986514587285
+   9:     0x5644d7fa7abb - __rust_try
+  10:     0x5644d7fa528d - sys_common::unwind::inner_try::hadd81c754a64f07ciYt
+  11:     0x5644d7f84a4a - boxed::F.FnBox<A>::call_box::h8956144540797489804
+  12:     0x5644d7fa9b29 - sys::thread::Thread::new::thread_start::h9bc812305b5e01feFPy
+  13:     0x7f75bf89cb83 - <unknown>
+  14:     0x7f75bf929d6b - <unknown>
+  15:                0x0 - <unknown>
+
+
+Exit: 101
+Timed out: False

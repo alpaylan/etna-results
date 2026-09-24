@@ -1,0 +1,16 @@
+Command: rustup run 1.8.0 cargo test --lib tests::levenshtein_diff_multibyte -- --nocapture
+Started: 2026-09-24T00:47:37.163357+00:00
+STDOUT:
+   Compiling strsim v0.4.0 (file:///home/runner/work/_temp/upstream)
+     Running /home/runner/work/_temp/build-20260924T004717Z-ec5514f9/debug/strsim-4dc386a441624db8
+
+running 1 test
+test tests::levenshtein_diff_multibyte ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured
+
+
+STDERR:
+
+Exit: 0
+Timed out: False

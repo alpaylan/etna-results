@@ -1,12 +1,14 @@
 {
   "repo": "https://github.com/rapidfuzz/strsim-rs",
   "tips": [
+    "14cf91e0ef0bb4a0c2aebaeeee691ba70d28a7e5",
     "20e3bdd2ee477db368ecb41815d55ab24550e0bf",
     "5b512dce33d186f4fbe7ed3fa7a5dc7e33d73823",
     "f6a759324b0d7a0dfd32b02e78e97372a7352aad"
   ],
   "shallow": false,
   "reviewed": [
+    "14cf91e0ef0bb4a0c2aebaeeee691ba70d28a7e5",
     "20e3bdd2ee477db368ecb41815d55ab24550e0bf",
     "5b512dce33d186f4fbe7ed3fa7a5dc7e33d73823",
     "f6a759324b0d7a0dfd32b02e78e97372a7352aad"
