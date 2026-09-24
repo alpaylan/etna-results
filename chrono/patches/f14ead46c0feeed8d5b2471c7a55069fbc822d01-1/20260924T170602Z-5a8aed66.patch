@@ -1,0 +1,14 @@
+diff --git a/src/offset/local/tz_info/rule.rs b/src/offset/local/tz_info/rule.rs
+index cd507d8..1895f21 100644
+--- a/src/offset/local/tz_info/rule.rs
++++ b/src/offset/local/tz_info/rule.rs
+@@ -357,8 +357,7 @@ fn parse_name<'a>(cursor: &mut Cursor<'a>) -> Result<&'a [u8], Error> {
+ fn parse_offset(cursor: &mut Cursor) -> Result<i32, Error> {
+     let (sign, hour, minute, second) = parse_signed_hhmmss(cursor)?;
+ 
+-    // The offset must fit in a `FixedOffset`, which is limited to ±23:59:59.
+-    if !(0..=23).contains(&hour) {
++    if !(0..=24).contains(&hour) {
+         return Err(Error::InvalidTzString("invalid offset hour"));
+     }
+     if !(0..=59).contains(&minute) {

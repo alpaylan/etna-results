@@ -1,0 +1,13 @@
+{
+  "commit": "f14ead46c0feeed8d5b2471c7a55069fbc822d01",
+  "parent": "c6063e6f5a03a48c6feeac3eb5b51ab4cb902759",
+  "fixed_commit": "f14ead46c0feeed8d5b2471c7a55069fbc822d01",
+  "summary": "The TZ parser accepted offset hours of 24, including FOO24, FOO+24, and FOO-24, producing offsets outside FixedOffset's ±23:59:59 range. The fix limits offset hours to 23 while preserving valid 23:59:59 offsets. The regression test added by this commit checks these boundaries. It requires Unix and the clock feature. No tests were executed.",
+  "test": "offset::local::tz_info::rule::tests::test_invalid_offset_hour",
+  "expected_failure": "assertion failed: TransitionRule::from_tz_string(b\"FOO24\", false).is_err()",
+  "reversal": {
+    "path": "src/offset/local/tz_info/rule.rs",
+    "fixed_text": "fn parse_offset(cursor: &mut Cursor) -> Result<i32, Error> {\n    let (sign, hour, minute, second) = parse_signed_hhmmss(cursor)?;\n\n    // The offset must fit in a `FixedOffset`, which is limited to ±23:59:59.\n    if !(0..=23).contains(&hour) {\n        return Err(Error::InvalidTzString(\"invalid offset hour\"));\n    }\n",
+    "parent_text": "fn parse_offset(cursor: &mut Cursor) -> Result<i32, Error> {\n    let (sign, hour, minute, second) = parse_signed_hhmmss(cursor)?;\n\n    if !(0..=24).contains(&hour) {\n        return Err(Error::InvalidTzString(\"invalid offset hour\"));\n    }\n"
+  }
+}

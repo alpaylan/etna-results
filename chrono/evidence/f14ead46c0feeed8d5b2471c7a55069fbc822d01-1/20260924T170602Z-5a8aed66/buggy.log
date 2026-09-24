@@ -1,0 +1,30 @@
+Command: rustup run 1.95.0 cargo test --locked --offline --lib offset::local::tz_info::rule::tests::test_invalid_offset_hour -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T17:13:48.626857+00:00
+STDOUT:
+
+running 1 test
+test offset::local::tz_info::rule::tests::test_invalid_offset_hour ... FAILED
+
+failures:
+
+failures:
+    offset::local::tz_info::rule::tests::test_invalid_offset_hour
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 287 filtered out; finished in 0.00s
+
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+  |
+  = help: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+   Compiling chrono v0.4.44 (/home/runner/work/_temp/upstream)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.06s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T170602Z-5a8aed66/debug/deps/chrono-a1b92697a0b7d01d)
+
+thread 'offset::local::tz_info::rule::tests::test_invalid_offset_hour' (3862) panicked at src/offset/local/tz_info/rule.rs:852:9:
+assertion failed: TransitionRule::from_tz_string(b"FOO24", false).is_err()
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `--lib`
+
+Exit: 101
+Timed out: False
