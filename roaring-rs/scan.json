@@ -1,0 +1,12 @@
+{
+  "repo": "https://github.com/RoaringBitmap/roaring-rs",
+  "tips": [
+    "c41bab3f0eb50b26b25cef4c066608add6c63f01"
+  ],
+  "shallow": false,
+  "reviewed": [
+    "c41bab3f0eb50b26b25cef4c066608add6c63f01"
+  ],
+  "reachable_commits": 1074,
+  "scope": "One queued candidate; not an exhaustive history scan."
+}

@@ -1,0 +1,12 @@
+diff --git a/roaring/src/bitmap/store/interval_store.rs b/roaring/src/bitmap/store/interval_store.rs
+index 50d65ca..ab3ae87 100644
+--- a/roaring/src/bitmap/store/interval_store.rs
++++ b/roaring/src/bitmap/store/interval_store.rs
+@@ -657,7 +657,6 @@ impl<I: SliceIterator<Interval>> RunIter<I> {
+             self.forward_offset = value;
+         } else {
+             self.intervals.next();
+-            self.forward_offset = 0;
+             return;
+         }
+         let total_offset = u64::from(self.forward_offset)

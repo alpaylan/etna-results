@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: Proposal names no upstream test
+**blocked**: fixed: no completed execution of the exact upstream test
 
 Upstream: https://github.com/RoaringBitmap/roaring-rs
 
-Candidate: a24ff696b6e3cacd13479ab4358bba6f4ad02cdf-1
+Candidate: c41bab3f0eb50b26b25cef4c066608add6c63f01-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-History coverage not yet recorded.
+Reviewed commits: 1 / 1074 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

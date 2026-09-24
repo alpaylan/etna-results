@@ -1,0 +1,13 @@
+{
+  "commit": "c41bab3f0eb50b26b25cef4c066608add6c63f01",
+  "parent": "eaccd090783fae53124c054b88afa953a31a83af",
+  "fixed_commit": "c41bab3f0eb50b26b25cef4c066608add6c63f01",
+  "summary": "Consuming a full 65,536-element run leaves forward_offset at 65,535 after removing the interval. The subsequent len() subtracts that stale offset from zero, causing subtraction overflow with overflow checks enabled. The fix resets the offset before returning. Reverse only the forward reset; the fix-added run_nth_max test in roaring/tests/iter.rs exercises nth(65,535) followed by len().",
+  "test": "run_nth_max",
+  "expected_failure": "attempt to subtract with overflow",
+  "reversal": {
+    "path": "roaring/src/bitmap/store/interval_store.rs",
+    "fixed_text": "    fn move_next(&mut self) {\n        if let Some(value) = self.forward_offset.checked_add(1) {\n            self.forward_offset = value;\n        } else {\n            self.intervals.next();\n            self.forward_offset = 0;\n            return;\n        }\n",
+    "parent_text": "    fn move_next(&mut self) {\n        if let Some(value) = self.forward_offset.checked_add(1) {\n            self.forward_offset = value;\n        } else {\n            self.intervals.next();\n            return;\n        }\n"
+  }
+}
