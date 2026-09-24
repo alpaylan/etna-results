@@ -1,0 +1,13 @@
+{
+  "commit": "e0e7e5c223441c7739c9a140c1e62db0399621ba",
+  "parent": "4183638ee45de54bc30915c42e1e70e67f43cc27",
+  "fixed_commit": "e0e7e5c223441c7739c9a140c1e62db0399621ba",
+  "summary": "decompress_size_prepended directly indexed four size-prefix bytes, panicking on inputs shorter than four bytes. The fix uses a shared helper that checks prefix availability and returns ExpectedAnotherByte before decoding the size and passing the remaining input to decompression. A verbatim reversal is available for the default safe decoder, but reproduction is blocked: the fix adds no tests, and no detecting upstream test exists at this revision. Existing round-trip tests, including tests::empty_string, supply valid compressed data with a complete size prefix.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/block/decompress_safe.rs",
+    "fixed_text": "pub fn decompress_size_prepended(input: &[u8]) -> Result<Vec<u8>, DecompressError> {\n    let (uncompressed_size, input) = super::uncompressed_size(input)?;\n    // Allocate a vector to contain the decompressed stream.\n    let mut vec = Vec::with_capacity(uncompressed_size);\n    decompress_into(input, &mut vec)?;\n\n    Ok(vec)\n}",
+    "parent_text": "pub fn decompress_size_prepended(input: &[u8]) -> Result<Vec<u8>, DecompressError> {\n    let uncompressed_size = (input[0] as usize)\n        | (input[1] as usize) << 8\n        | (input[2] as usize) << 16\n        | (input[3] as usize) << 24;\n    // Allocate a vector to contain the decompressed stream.\n    let mut vec = Vec::with_capacity(uncompressed_size);\n    decompress_into(&input[4..], &mut vec)?;\n\n    Ok(vec)\n}"
+  }
+}

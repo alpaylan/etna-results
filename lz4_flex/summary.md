@@ -4,7 +4,7 @@
 
 Upstream: https://github.com/PSeitz/lz4_flex
 
-Candidate: 44e14b15e51daaf010a554be07ee60ea95522c8d-1
+Candidate: e0e7e5c223441c7739c9a140c1e62db0399621ba-1
 
 Provenance: verbatim
 
