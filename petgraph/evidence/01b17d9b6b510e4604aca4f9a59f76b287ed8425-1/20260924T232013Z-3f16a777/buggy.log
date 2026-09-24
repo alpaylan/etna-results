@@ -1,0 +1,35 @@
+Command: rustup run 1.89.0 cargo test --locked --offline --lib visit::undirected_adaptor::tests::test_undirected_adaptor_can_traverse -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T23:24:33.618117+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+   Compiling petgraph v0.8.2 (/home/runner/work/_temp/upstream)
+error[E0599]: no method named `target` found for struct `graph_impl::EdgeReference` in the current scope
+    --> src/visit/undirected_adaptor.rs:131:28
+     |
+131  |                 .map(|e| e.target())
+     |                            ^^^^^^ method not found in `graph_impl::EdgeReference<'_, ()>`
+     |
+    ::: src/graph_impl/mod.rs:2297:1
+     |
+2297 | pub struct EdgeReference<'a, E: 'a, Ix = DefaultIx> {
+     | --------------------------------------------------- method `target` not found for this struct
+     |
+    ::: src/visit/mod.rs:230:8
+     |
+230  |     fn target(&self) -> Self::NodeId;
+     |        ------ the method is available for `graph_impl::EdgeReference<'_, ()>` here
+     |
+     = help: items from traits can only be used if the trait is in scope
+help: trait `EdgeRef` which provides `target` is implemented but not in scope; perhaps you want to import it
+     |
+67   +     use crate::visit::EdgeRef;
+     |
+
+For more information about this error, try `rustc --explain E0599`.
+error: could not compile `petgraph` (lib test) due to 1 previous error
+
+Exit: 101
+Timed out: False

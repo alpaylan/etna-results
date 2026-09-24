@@ -1,17 +1,15 @@
 # Cloud bug-mining prototype
 
-Resumed verified evidence; no tests rerun.
-
-**confirmed**: The same upstream test passed, panicked on the original defect ('assertion failed: !g.is_adjacent(&matrix, a, b)'), and passed after restoration
+**blocked**: buggy: no completed execution of the exact upstream test
 
 Upstream: https://github.com/petgraph/petgraph
 
-Candidate: 7fa3aac97168de7fca54644a5b45c464d5245535-1
+Candidate: 01b17d9b6b510e4604aca4f9a59f76b287ed8425-1
 
 Provenance: verbatim
 
-Latest outcomes: {"confirmed": 1}
+Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 1312 reachable from the saved tip.
+Reviewed commits: 1 / 1404 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

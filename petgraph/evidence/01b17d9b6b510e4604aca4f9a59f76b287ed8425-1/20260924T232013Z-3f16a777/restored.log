@@ -1,0 +1,19 @@
+Command: rustup run 1.89.0 cargo test --locked --offline --lib visit::undirected_adaptor::tests::test_undirected_adaptor_can_traverse -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T23:24:35.113370+00:00
+STDOUT:
+
+running 1 test
+test visit::undirected_adaptor::tests::test_undirected_adaptor_can_traverse ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 100 filtered out; finished in 0.00s
+
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+   Compiling petgraph v0.8.2 (/home/runner/work/_temp/upstream)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.68s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T232013Z-3f16a777/debug/deps/petgraph-ed650821504b7f7e)
+
+Exit: 0
+Timed out: False
