@@ -1,0 +1,13 @@
+{
+  "commit": "d5413254a251d41348bb36ff0294148425d09ad3",
+  "parent": "149694c467ad7dd2909922ca7ecd44b8f693e7f6",
+  "fixed_commit": "d5413254a251d41348bb36ff0294148425d09ad3",
+  "summary": "AllBytesIter incorrectly yields an extra zero after 255 because its inclusive bound allows 256, which casts to zero as u8. The fix uses an exclusive bound, yielding exactly bytes 0 through 255. The test added by the fix checks that each byte equals its enumeration index and should fail at index 256 after reversal. Reproduction has not been run.",
+  "test": "tests::all_bytes_iter",
+  "expected_failure": "assertion failed: AllBytesIter::new().enumerate().all(|(i, b)| b as usize == i)",
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "        if self.0 < 256 {\n",
+    "parent_text": "        if self.0 <= 256 {\n"
+  }
+}

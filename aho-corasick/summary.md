@@ -4,12 +4,12 @@
 
 Upstream: https://github.com/BurntSushi/aho-corasick
 
-Candidate: 10e396710ac7476aa870a737905dfb4e3ca41e65-1
+Candidate: d5413254a251d41348bb36ff0294148425d09ad3-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 98 reachable from the saved tip.
+Reviewed commits: 1 / 83 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

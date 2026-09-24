@@ -1,0 +1,13 @@
+diff --git a/src/lib.rs b/src/lib.rs
+index d2a7622..c14e9f6 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -304,7 +304,7 @@ impl Iterator for AllBytesIter {
+     type Item = u8;
+     #[inline]
+     fn next(&mut self) -> Option<Self::Item> {
+-        if self.0 < 256 {
++        if self.0 <= 256 {
+             let b = self.0 as u8;
+             self.0 += 1;
+             Some(b)

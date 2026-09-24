@@ -1,0 +1,34 @@
+Command: rustup run 1.27.1 cargo check --locked --tests
+Started: 2026-09-24T17:20:47.382236+00:00
+STDOUT:
+
+STDERR:
+   Compiling unicode-xid v0.1.0
+    Checking void v1.0.2
+    Checking libc v0.2.42
+    Checking ucd-util v0.1.1
+    Checking lazy_static v1.0.1
+   Compiling regex v1.0.1
+   Compiling serde v1.0.70
+    Checking utf8-ranges v1.0.0
+    Checking strsim v0.7.0
+    Checking unreachable v1.0.0
+    Checking regex-syntax v0.6.1
+   Compiling proc-macro2 v0.4.6
+    Checking memchr v2.0.1
+    Checking rand v0.4.2
+    Checking memmap v0.6.2
+    Checking thread_local v0.3.5
+    Checking aho-corasick v0.6.5
+    Checking csv-core v0.1.4
+    Checking quickcheck v0.6.2
+   Compiling quote v0.6.3
+   Compiling syn v0.14.4
+   Compiling serde_derive v1.0.70
+    Checking csv v1.0.0
+    Checking docopt v1.0.0
+    Checking aho-corasick v0.6.5 (file:///home/runner/work/_temp/upstream)
+    Finished dev [unoptimized + debuginfo] target(s) in 15.98s
+
+Exit: 0
+Timed out: False
