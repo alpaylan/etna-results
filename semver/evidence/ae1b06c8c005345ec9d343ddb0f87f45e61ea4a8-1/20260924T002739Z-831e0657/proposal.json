@@ -1,0 +1,13 @@
+{
+  "commit": "ae1b06c8c005345ec9d343ddb0f87f45e61ea4a8",
+  "parent": "0db483860111988be6eaf8906e7885980797852b",
+  "fixed_commit": "ae1b06c8c005345ec9d343ddb0f87f45e61ea4a8",
+  "summary": "Blocked: no existing upstream tests exist at the fixed revision. The commit adds Debug for Version, conditionally omitting empty pre and build fields. Contrary to the candidate description, the parent has neither a derived nor a manual Debug implementation for Version. A verbatim reversal would remove Debug support, not restore unconditional empty-field output; the claimed buggy implementation is absent from the original parent.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/display.rs",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
