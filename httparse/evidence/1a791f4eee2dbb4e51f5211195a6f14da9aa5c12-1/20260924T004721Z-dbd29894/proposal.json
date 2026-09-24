@@ -1,0 +1,13 @@
+{
+  "commit": "1a791f4eee2dbb4e51f5211195a6f14da9aa5c12",
+  "parent": "84e10de058afbe9f2b0bc1b2c53424a75ef35a03",
+  "fixed_commit": "1a791f4eee2dbb4e51f5211195a6f14da9aa5c12",
+  "summary": "Request targets containing backslashes were rejected with Error::Token because URI_MAP marked byte 0x5c as invalid. The fix changes that entry to accept backslashes, allowing the request target to parse unchanged. The proposed reversal restores only that entry; the selected regression test was added by the fix. No reproduction was run.",
+  "test": "tests::test_request_path_backslash",
+  "expected_failure": "assertion failed: `(left == right)`\n  left: `Err(Token)`,\n right: `Ok(Complete(28))`",
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,\n//  P  Q  R  S  T  U  V  W  X  Y  Z  [  \\  ]  ^  _\n    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,\n",
+    "parent_text": "    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1,\n//  P  Q  R  S  T  U  V  W  X  Y  Z  [  \\  ]  ^  _\n    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,\n"
+  }
+}

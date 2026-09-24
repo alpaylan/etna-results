@@ -1,19 +1,15 @@
 # Cloud bug-mining prototype
 
-Resumed verified evidence; no tests rerun.
-
-**confirmed**: The same upstream test passed, panicked on the original defect ('assertion `left == right` failed
-  left: Ok(Complete(28))
- right: Err(Token)'), and passed after restoration
+**blocked**: Selected test is not present at the fixed revision: tests::test_request_path_backslash
 
 Upstream: https://github.com/seanmonstar/httparse
 
-Candidate: 9f6702be571b19ac84e19678b0c4f7eefd2a11b7-1
+Candidate: 1a791f4eee2dbb4e51f5211195a6f14da9aa5c12-1
 
 Provenance: verbatim
 
-Latest outcomes: {"confirmed": 1}
+Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 230 reachable from the saved tip.
+History coverage not yet recorded.
 
 Scope: one queued candidate; history coverage is partial.
