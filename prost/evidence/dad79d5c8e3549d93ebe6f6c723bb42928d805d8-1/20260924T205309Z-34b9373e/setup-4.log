@@ -1,0 +1,87 @@
+Command: rustup run 1.96.0 cargo check --locked --offline --tests
+Started: 2026-09-24T21:01:19.383307+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+  |
+  = help: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+   Compiling proc-macro2 v1.0.106
+   Compiling quote v1.0.45
+   Compiling libc v0.2.186
+   Compiling unicode-ident v1.0.24
+   Compiling anyhow v1.0.102
+   Compiling either v1.16.0
+   Compiling getrandom v0.4.2
+   Compiling rustix v1.1.4
+   Compiling itertools v0.14.0
+   Compiling prettyplease v0.2.37
+   Compiling bytes v1.11.1
+   Compiling syn v2.0.117
+   Compiling rand_core v0.10.1
+   Compiling hashbrown v0.17.1
+   Compiling linux-raw-sys v0.12.1
+   Compiling log v0.4.32
+   Compiling cfg-if v1.0.4
+   Compiling foldhash v0.1.5
+   Compiling regex-syntax v0.8.10
+   Compiling bitflags v2.12.1
+   Compiling equivalent v1.0.2
+   Compiling indexmap v2.14.0
+   Compiling hashbrown v0.15.5
+   Compiling fixedbitset v0.5.7
+   Compiling regex-automata v0.4.14
+   Compiling fastrand v2.4.1
+   Compiling once_cell v1.21.4
+   Compiling tempfile v3.27.0
+   Compiling petgraph v0.8.3
+   Compiling regex v1.12.3
+   Compiling multimap v0.10.1
+   Compiling prost-derive v0.14.3 (/home/runner/work/_temp/upstream/prost-derive)
+   Compiling heck v0.5.0
+   Compiling env_filter v1.0.1
+   Compiling jobserver v0.1.34
+   Compiling find-msvc-tools v0.1.9
+   Compiling shlex v2.0.1
+   Compiling env_logger v0.11.10
+   Compiling cc v1.2.63
+    Checking memchr v2.8.1
+   Compiling prost v0.14.3 (/home/runner/work/_temp/upstream/prost)
+    Checking prost-types v0.14.3 (/home/runner/work/_temp/upstream/prost-types)
+   Compiling zerocopy v0.8.50
+   Compiling cmake v0.1.58
+   Compiling prost-build v0.14.3 (/home/runner/work/_temp/upstream/prost-build)
+   Compiling zerocopy-derive v0.8.50
+   Compiling pulldown-cmark v0.13.4
+   Compiling getrandom v0.3.4
+   Compiling serde_core v1.0.228
+   Compiling protobuf v0.0.0 (/home/runner/work/_temp/upstream/protobuf)
+    Checking unicase v2.9.0
+   Compiling autocfg v1.5.1
+   Compiling num-traits v0.2.19
+    Checking pulldown-cmark-to-cmark v22.0.0
+   Compiling zmij v1.0.21
+   Compiling serde v1.0.228
+    Checking rand_core v0.9.5
+   Compiling serde_derive v1.0.228
+   Compiling serde_json v1.0.150
+    Checking half v2.7.1
+   Compiling tests v0.0.0 (/home/runner/work/_temp/upstream/tests)
+   Compiling alloca v0.4.0
+    Checking itoa v1.0.18
+    Checking clap_lex v1.1.0
+    Checking ciborium-io v0.2.2
+    Checking anstyle v1.0.14
+error: failed to run custom build command for `tests v0.0.0 (/home/runner/work/_temp/upstream/tests)`
+
+Caused by:
+  process didn't exit successfully: `/home/runner/work/_temp/build-20260924T205309Z-34b9373e/debug/build/tests-39dc6b7ecfb9e6cc/build-script-build` (exit status: 101)
+  --- stderr
+
+  thread 'main' (4503) panicked at tests/build.rs:52:10:
+  called `Result::unwrap()` on an `Err` value: Custom { kind: NotFound, error: "Could not find `protoc`. If `protoc` is installed, try setting the `PROTOC` environment variable to the path of the `protoc` binary. To install it on Debian, run `apt-get install protobuf-compiler`. It is also available at https://github.com/protocolbuffers/protobuf/releases  For more information: https://docs.rs/prost-build/#sourcing-protoc" }
+  note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+warning: build failed, waiting for other jobs to finish...
+
+Exit: 101
+Timed out: False

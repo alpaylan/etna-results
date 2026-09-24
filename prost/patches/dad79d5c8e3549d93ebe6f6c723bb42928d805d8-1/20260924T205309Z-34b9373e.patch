@@ -1,0 +1,13 @@
+diff --git a/prost-derive/src/field/scalar.rs b/prost-derive/src/field/scalar.rs
+index adf559a..8bf4a72 100644
+--- a/prost-derive/src/field/scalar.rs
++++ b/prost-derive/src/field/scalar.rs
+@@ -672,7 +672,7 @@ impl DefaultValue {
+                 let value = value.trim();
+ 
+                 if let Ty::Enumeration(ref path) = *ty {
+-                    let variant = parse_str::<Ident>(value)?;
++                    let variant = Ident::new(value, Span::call_site());
+                     return Ok(DefaultValue::Enumeration(quote!(#path::#variant)));
+                 }
+ 

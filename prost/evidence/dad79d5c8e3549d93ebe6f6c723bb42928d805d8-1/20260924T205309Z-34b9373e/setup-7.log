@@ -1,0 +1,28 @@
+Command: rustup run 1.96.0 cargo check --locked --offline --tests
+Started: 2026-09-24T21:05:52.522823+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+  |
+  = help: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+    Checking protobuf v0.0.0 (/home/runner/work/_temp/upstream/protobuf)
+    Checking serde v1.0.228
+    Checking ciborium-ll v0.2.2
+    Checking serde_json v1.0.150
+    Checking clap_builder v4.6.0
+   Compiling alloca v0.4.0
+   Compiling tests v0.0.0 (/home/runner/work/_temp/upstream/tests)
+error: failed to run custom build command for `tests v0.0.0 (/home/runner/work/_temp/upstream/tests)`
+
+Caused by:
+  process didn't exit successfully: `/home/runner/work/_temp/build-20260924T205309Z-34b9373e/debug/build/tests-39dc6b7ecfb9e6cc/build-script-build` (exit status: 101)
+  --- stderr
+
+  thread 'main' (9303) panicked at tests/build.rs:52:10:
+  called `Result::unwrap()` on an `Err` value: Custom { kind: NotFound, error: "Could not find `protoc`. If `protoc` is installed, try setting the `PROTOC` environment variable to the path of the `protoc` binary. To install it on Debian, run `apt-get install protobuf-compiler`. It is also available at https://github.com/protocolbuffers/protobuf/releases  For more information: https://docs.rs/prost-build/#sourcing-protoc" }
+  note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+warning: build failed, waiting for other jobs to finish...
+
+Exit: 101
+Timed out: False

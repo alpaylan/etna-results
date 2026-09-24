@@ -1,0 +1,19 @@
+Command: rustup run 1.96.0 cargo generate-lockfile
+Started: 2026-09-24T20:58:10.308031+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+  |
+  = help: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+    Updating `era` index
+     Locking 141 packages to latest Rust 1.85 compatible versions
+      Adding criterion v0.8.2 (requires Rust 1.86)
+      Adding wasip2 v1.0.1+wasi-0.2.4 (available: v1.0.3+wasi-0.2.9, requires Rust 1.87.0)
+      Adding wasip3 v0.4.0+wasi-0.3.0-rc-2026-01-06 (requires Rust 1.87.0)
+      Adding wit-bindgen v0.51.0 (requires Rust 1.87.0)
+      Adding wit-bindgen-core v0.51.0 (requires Rust 1.87.0)
+      Adding wit-bindgen-rust v0.51.0 (requires Rust 1.87.0)
+
+Exit: 0
+Timed out: False

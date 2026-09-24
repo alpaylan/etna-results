@@ -1,0 +1,13 @@
+{
+  "commit": "dad79d5c8e3549d93ebe6f6c723bb42928d805d8",
+  "parent": "b0b6c93e3aac89df28690a4967a8bbe93ec95391",
+  "fixed_commit": "dad79d5c8e3549d93ebe6f6c723bb42928d805d8",
+  "summary": "An invalid enumeration default such as \"not-valid!\" makes DefaultValue::from_lit panic through Ident::new instead of returning an error. The fix uses fallible parsing with parse_str::<Ident>(value)? to propagate an error. The regression test added by the fix asserts that this input returns Err.",
+  "test": "field::scalar::tests::from_lit_rejects_invalid_enumeration_default_without_panic",
+  "expected_failure": "\"not-valid!\" is not a valid Ident",
+  "reversal": {
+    "path": "prost-derive/src/field/scalar.rs",
+    "fixed_text": "                    let variant = parse_str::<Ident>(value)?;\n",
+    "parent_text": "                    let variant = Ident::new(value, Span::call_site());\n"
+  }
+}
