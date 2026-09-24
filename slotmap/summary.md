@@ -4,7 +4,7 @@
 
 Upstream: https://github.com/orlp/slotmap
 
-Candidate: bd32b7d5ee96beef3cc3299b79ea42c340f5ad28-1
+Candidate: 5c3fb220071f935f77c4ef33dd4d0e745f28d2d6-1
 
 Provenance: verbatim
 

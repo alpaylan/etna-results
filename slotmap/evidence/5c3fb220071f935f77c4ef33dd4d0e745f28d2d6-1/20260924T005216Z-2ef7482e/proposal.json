@@ -1,0 +1,13 @@
+{
+  "commit": "5c3fb220071f935f77c4ef33dd4d0e745f28d2d6",
+  "parent": "c905b6ced490551476cb7c37778eb8128bdea7ba",
+  "fixed_commit": "5c3fb220071f935f77c4ef33dd4d0e745f28d2d6",
+  "summary": "SlotMap::clone_from leaked an occupied destination value when the corresponding source slot was vacant: overwriting the union bypassed the ManuallyDrop value's destructor. The fix explicitly drops that value before storing the vacant slot metadata. The implementation reversal is verbatim and each region occurs exactly once. Blocked: no detecting upstream test was found at the fixed commit. The fix adds no tests; basic::tests::check_drops exercises clone(), not clone_from(), and a repository-wide search found no test invoking clone_from. No tests were executed.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/basic.rs",
+    "fixed_text": "    fn clone_from(&mut self, source: &Self) {\n        match (self.get_mut(), source.get()) {\n            (OccupiedMut(self_val), Occupied(source_val)) => self_val.clone_from(source_val),\n            (OccupiedMut(_), Vacant(&next_free)) => unsafe {\n                // SAFETY: we are occupied.\n                ManuallyDrop::drop(&mut self.u.value);\n                self.u = SlotUnion { next_free };\n            },\n            (VacantMut(self_next_free), Vacant(&source_next_free)) => {\n                *self_next_free = source_next_free\n            },\n            (VacantMut(_), Occupied(value)) => {\n                self.u = SlotUnion {\n                    value: ManuallyDrop::new(value.clone()),\n                }\n            },\n        }\n        self.version = source.version;\n    }\n",
+    "parent_text": "    fn clone_from(&mut self, source: &Self) {\n        match (self.get_mut(), source.get()) {\n            (OccupiedMut(self_val), Occupied(source_val)) => self_val.clone_from(source_val),\n            (VacantMut(self_next_free), Vacant(&source_next_free)) => {\n                *self_next_free = source_next_free\n            },\n            (_, Occupied(value)) => {\n                self.u = SlotUnion {\n                    value: ManuallyDrop::new(value.clone()),\n                }\n            },\n            (_, Vacant(&next_free)) => self.u = SlotUnion { next_free },\n        }\n        self.version = source.version;\n    }\n"
+  }
+}
