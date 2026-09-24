@@ -1,0 +1,13 @@
+{
+  "commit": "5cf56035007f291b1b8f457fa3bfc79fb367419a",
+  "parent": "a6231701ee934cbbeb595fe71328fcbbf1b584d5",
+  "fixed_commit": "5cf56035007f291b1b8f457fa3bfc79fb367419a",
+  "summary": "Blocked: this commit only adds test_finite, guarding against infinite iteration when parsing the invalid format \"%2f\". The full diff changes only test code in src/format/strftime.rs; the implementation is identical to its parent. No implementation correction can be reversed verbatim from this candidate commit. The actual implementation fix must be identified separately. No builds or tests were run.",
+  "test": "format::strftime::tests::test_finite",
+  "expected_failure": "infinite loop",
+  "reversal": {
+    "path": "",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}

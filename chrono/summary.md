@@ -1,10 +1,10 @@
 # Cloud bug-mining prototype
 
-**blocked**: Proposal names no upstream test
+**blocked**: Reversal path is not changed by the upstream fix: 
 
 Upstream: https://github.com/chronotope/chrono
 
-Candidate: 49c4bad88a58631972ef685b49af3ce4bf29b520-1
+Candidate: 5cf56035007f291b1b8f457fa3bfc79fb367419a-1
 
 Provenance: verbatim
 
