@@ -1,19 +1,15 @@
 # Cloud bug-mining prototype
 
-Resumed verified evidence; no tests rerun.
-
-**confirmed**: The same upstream test passed, panicked on the original defect ('assertion failed: `(left == right)`
-  left: `12162685164875189569`,
- right: `10065942850530397974`'), and passed after restoration
+**blocked**: Proposal names no upstream test
 
 Upstream: https://github.com/cessen/ropey
 
-Candidate: fef5be9c9587974584bafa40c54a375ce6fbbc9a-1
+Candidate: 514b0686c04bd1108ec69d341302aeac9bc8dbb4-1
 
 Provenance: verbatim
 
-Latest outcomes: {"confirmed": 1}
+Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 520 reachable from the saved tip.
+History coverage not yet recorded.
 
 Scope: one queued candidate; history coverage is partial.
