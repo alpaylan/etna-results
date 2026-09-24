@@ -1,0 +1,13 @@
+{
+  "commit": "4d1d77849338f2532400094b00a5fc11f8cbec62",
+  "parent": "8fb19baa588b9375bd1020a7fe6d6dc1644e94b0",
+  "fixed_commit": "4d1d77849338f2532400094b00a5fc11f8cbec62",
+  "summary": "No valid implementation reversal exists. The full commit diff only removes test_ prefixes from test function names in five tests/*.rs files; test bodies and assertions are unchanged. The src tree is identical to the parent's. This commit does not correct a functional regression, so no detecting test or implementation region can be selected.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
