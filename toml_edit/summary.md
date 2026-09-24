@@ -1,10 +1,10 @@
 # Cloud bug-mining prototype
 
-**blocked**: Reversal path is not changed by the upstream fix: 
+**blocked**: Proposal names no upstream test
 
 Upstream: https://github.com/toml-rs/toml
 
-Candidate: 1b3ccd66d2a683dd054c50e7d9c86fd3ba8571c3-1
+Candidate: 0c0d5d371a699aeba8180e3bab236b67a3c3a6df-1
 
 Provenance: verbatim
 

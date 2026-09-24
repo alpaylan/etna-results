@@ -1,0 +1,13 @@
+{
+  "commit": "0c0d5d371a699aeba8180e3bab236b67a3c3a6df",
+  "parent": "c4631d7763f9228bb42279f3ed36d6221adb5eda",
+  "fixed_commit": "0c0d5d371a699aeba8180e3bab236b67a3c3a6df",
+  "summary": "Unquoted values such as value=trust produce misleading expectations for true, false, inf, or nan. The fix dispatches those literals by initial byte and labels failures as expecting a quoted string. The implementation reversal is exact and unique. Blocked test selection: detecting coverage exists in tests/test_invalid.rs through the fs_snapshot case string-no-quotes-constant-like.toml, whose expected diagnostic this commit updates. This harness=false target generates fixture-based cases rather than named Rust test functions; prototype/mine.py requires a matching fn declaration and cannot select this case. No suitable named Rust regression test was found. No builds or tests were run.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/parser/value.rs",
+    "fixed_text": "            b't' => {\n                crate::parser::numbers::true_().map(v::Value::from).expected(\"quoted string\")\n            },\n            b'f' => {\n                crate::parser::numbers::false_().map(v::Value::from).expected(\"quoted string\")\n            },\n            b'i' => {\n                crate::parser::numbers::inf().map(v::Value::from).expected(\"quoted string\")\n            },\n            b'n' => {\n                crate::parser::numbers::nan().map(v::Value::from).expected(\"quoted string\")\n            },\n            _ => {\n                // Pick something random to fail, we'll override `expected` anyways\n                crate::parser::numbers::nan().map(v::Value::from).expected(\"quoted string\")\n            },\n",
+    "parent_text": "            _ => {\n                // Uncommon enough not to be worth optimizing at this time\n                choice((\n                    crate::parser::numbers::true_().map(v::Value::from),\n                    crate::parser::numbers::false_().map(v::Value::from),\n                    crate::parser::numbers::inf().map(v::Value::from),\n                    crate::parser::numbers::nan().map(v::Value::from),\n                ))\n            },\n"
+  }
+}
