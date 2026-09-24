@@ -1,0 +1,13 @@
+{
+  "commit": "5f5ca4db28f83cf491251c892f99e796f14263c4",
+  "parent": "894b13c7478ce23ca093917f6d0d2caa3621ab12",
+  "fixed_commit": "5f5ca4db28f83cf491251c892f99e796f14263c4",
+  "summary": "The safe decoder subtracts an invalid match offset from the output position without checking for underflow. The fix-added error_case_4 supplies offset 7 with output position 0 and match length 4, reaching duplicate_slice and causing a subtraction-overflow panic in debug builds. The fix detects underflow and returns OffsetOutOfBounds. Reverse only this bounds check. Run the existing test with default features (including safe-decode) plus checked-decode, which prevents the test from being ignored. No tests were executed in this planning job.",
+  "test": "checked_decode::error_case_4",
+  "expected_failure": "attempt to subtract with overflow",
+  "reversal": {
+    "path": "src/block/decompress_safe.rs",
+    "fixed_text": "        let (start, did_overflow) = output.pos().overflowing_sub(offset);\n        if did_overflow {\n            return Err(DecompressError::OffsetOutOfBounds);\n        }\n\n        match match_length {\n",
+    "parent_text": "        let start = output.pos() - offset;\n        match match_length {\n"
+  }
+}

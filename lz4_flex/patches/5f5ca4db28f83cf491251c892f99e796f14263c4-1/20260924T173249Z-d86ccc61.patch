@@ -1,0 +1,17 @@
+diff --git a/src/block/decompress_safe.rs b/src/block/decompress_safe.rs
+index 17cc316..9a1ef19 100644
+--- a/src/block/decompress_safe.rs
++++ b/src/block/decompress_safe.rs
+@@ -264,11 +264,7 @@ fn duplicate_slice(
+     if match_length > offset {
+         duplicate_overlapping_slice(output, offset, match_length)?;
+     } else {
+-        let (start, did_overflow) = output.pos().overflowing_sub(offset);
+-        if did_overflow {
+-            return Err(DecompressError::OffsetOutOfBounds);
+-        }
+-
++        let start = output.pos() - offset;
+         match match_length {
+             0..=32 if output.pos() + 32 <= output.capacity() => {
+                 output.extend_from_within(start, 32, match_length)
