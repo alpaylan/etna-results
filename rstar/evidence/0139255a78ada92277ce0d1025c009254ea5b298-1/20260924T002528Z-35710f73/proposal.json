@@ -1,0 +1,13 @@
+{
+  "commit": "0139255a78ada92277ce0d1025c009254ea5b298",
+  "parent": "84d12654104e783011f24267145fb6bfccd2a30e",
+  "fixed_commit": "0139255a78ada92277ce0d1025c009254ea5b298",
+  "summary": "Floating-point logarithm rounding can overestimate tree depth, producing one cluster per axis. Bulk loading then recurses on the unchanged input until stack overflow. The fix clamps the cluster count to at least two so recursive partitions shrink. The implementation reversal is exact and unique, but the fix adds no regression test, and inspection of existing upstream bulk-loading tests did not establish a test that triggers this numerical instability. Leave this candidate blocked pending a detecting upstream test; no builds or tests were run.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "rstar/src/algorithm/bulk_load/bulk_load_sequential.rs",
+    "fixed_text": "    let number_of_clusters_on_axis =\n        calculate_number_of_clusters_on_axis::<T, Params>(elements.len()).max(2);\n",
+    "parent_text": "    let number_of_clusters_on_axis =\n        calculate_number_of_clusters_on_axis::<T, Params>(elements.len());\n"
+  }
+}
