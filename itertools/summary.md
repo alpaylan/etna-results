@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: Proposal names no upstream test
+**blocked**: Dependency setup failed; see setup logs
 
 Upstream: https://github.com/rust-itertools/itertools
 
-Candidate: c13ee581247fb009dbd12f7685b155e8c6bdcff5-1
+Candidate: ca7025816a263ab7b57f439962341309a1073273-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-History coverage not yet recorded.
+Reviewed commits: 1 / 663 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

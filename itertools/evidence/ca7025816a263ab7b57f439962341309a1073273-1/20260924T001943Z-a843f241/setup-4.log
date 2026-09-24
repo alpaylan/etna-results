@@ -1,0 +1,14 @@
+Command: rustup run 1.10.0 cargo fetch
+Started: 2026-09-24T00:23:23.109499+00:00
+STDOUT:
+
+STDERR:
+error: An unknown error occurred
+
+Caused by:
+  Features and dependencies cannot have the same name: `serde`
+
+To learn more, run the command again with --verbose.
+
+Exit: 101
+Timed out: False

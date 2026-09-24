@@ -1,0 +1,13 @@
+{
+  "commit": "ca7025816a263ab7b57f439962341309a1073273",
+  "parent": "a2457ddae500367289d10f3b4cec07cd5450cae7",
+  "fixed_commit": "ca7025816a263ab7b57f439962341309a1073273",
+  "summary": "Forward heap construction processes parents before their child subtrees are valid heaps, causing kmerge to yield unsorted output. The fix processes internal nodes bottom-up. The added test kmerge_2 in tests/tests.rs merges sorted iterators with initial heads 3, 2, 1, 0; the buggy implementation yields 1 first instead of 0.",
+  "test": "kmerge_2",
+  "expected_failure": "Failed assertion Some(1) == Some(0) for iteration 0",
+  "reversal": {
+    "path": "src/kmerge.rs",
+    "fixed_text": "fn heapify<T: Ord>(data: &mut [T]) {\n    for i in (0..data.len() / 2).rev() {\n        sift_down(data, i);\n    }\n}\n",
+    "parent_text": "fn heapify<T: Ord>(data: &mut [T]) {\n    for i in 0..data.len() / 2 {\n        sift_down(data, i);\n    }\n}\n"
+  }
+}

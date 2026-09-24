@@ -1,0 +1,13 @@
+diff --git a/src/kmerge.rs b/src/kmerge.rs
+index 8f37e5e..f916897 100644
+--- a/src/kmerge.rs
++++ b/src/kmerge.rs
+@@ -119,7 +119,7 @@ impl<I> Ord for HeadTail<I>
+ 
+ /// Make `data` a heap (max-heap w.r.t T's Ord).
+ fn heapify<T: Ord>(data: &mut [T]) {
+-    for i in (0..data.len() / 2).rev() {
++    for i in 0..data.len() / 2 {
+         sift_down(data, i);
+     }
+ }
