@@ -1,0 +1,13 @@
+{
+  "commit": "8bee20f2591db7499fdd2431386d9843b9c6417e",
+  "parent": "9c16185263660cf014a9419df2a8592626894696",
+  "fixed_commit": "8bee20f2591db7499fdd2431386d9843b9c6417e",
+  "summary": "Blocked: this commit only changes lexical-capi/tests/CMakeLists.txt. The C/C++ GTest executables omitted GTest's thread-library dependency; the fix discovers Threads and links both executables with CMAKE_THREAD_LIBS_INIT. No implementation or regression tests changed. Reversing this fix would alter protected test configuration and potentially cause a linker failure, which cannot satisfy the behavioral confirmation gate. No eligible implementation reversal or detecting Rust test exists for this change. No builds or tests were run.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
