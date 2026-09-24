@@ -1,0 +1,18 @@
+Command: rustup run 1.49.0 cargo check --locked --offline --tests
+Started: 2026-09-24T00:18:46.110665+00:00
+STDOUT:
+
+STDERR:
+   Compiling ryu v1.0.5
+   Compiling bitflags v1.2.1
+   Compiling lexical-core v0.7.4
+    Checking cfg-if v0.1.10
+    Checking arrayvec v0.5.2
+    Checking static_assertions v1.1.0
+    Checking hexf-parse v0.1.0
+    Checking fastrand v1.4.0
+    Checking fast-float v0.1.0 (/home/runner/work/_temp/upstream)
+    Finished dev [unoptimized + debuginfo] target(s) in 2.58s
+
+Exit: 0
+Timed out: False

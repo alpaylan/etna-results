@@ -1,0 +1,12 @@
+{
+  "repo": "https://github.com/aldanor/fast-float-rust",
+  "tips": [
+    "56ac048a96c10c014d5398bae9e548b929616228"
+  ],
+  "shallow": false,
+  "reviewed": [
+    "56ac048a96c10c014d5398bae9e548b929616228"
+  ],
+  "reachable_commits": 67,
+  "scope": "One queued candidate; not an exhaustive history scan."
+}

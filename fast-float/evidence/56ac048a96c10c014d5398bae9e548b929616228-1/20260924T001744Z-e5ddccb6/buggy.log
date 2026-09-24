@@ -1,0 +1,27 @@
+Command: rustup run 1.49.0 cargo test --locked --offline --test test_basic test_f64_general -- --nocapture --test-threads=1
+Started: 2026-09-24T00:18:52.128299+00:00
+STDOUT:
+
+running 1 test
+test test_f64_general ... FAILED
+
+failures:
+
+failures:
+    test_f64_general
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 6 filtered out
+
+
+STDERR:
+   Compiling fast-float v0.1.0 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 1.84s
+     Running /home/runner/work/_temp/build-20260924T001744Z-e5ddccb6/debug/deps/test_basic-9fbe468235a2d397
+thread 'main' panicked at 'assertion failed: `(left == right)`
+  left: `9007199254740994.0`,
+ right: `9007199254740992.0`', tests/test_basic.rs:213:5
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass '--test test_basic'
+
+Exit: 101
+Timed out: False

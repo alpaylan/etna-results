@@ -1,0 +1,25 @@
+Command: rustup run 1.49.0 cargo test --locked --offline --test test_basic test_f64_general -- --nocapture --test-threads=1
+Started: 2026-09-24T00:18:48.770493+00:00
+STDOUT:
+
+running 1 test
+test test_f64_general ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out
+
+
+STDERR:
+   Compiling arrayvec v0.5.2
+   Compiling static_assertions v1.1.0
+   Compiling cfg-if v0.1.10
+   Compiling hexf-parse v0.1.0
+   Compiling fastrand v1.4.0
+   Compiling fast-float v0.1.0 (/home/runner/work/_temp/upstream)
+   Compiling bitflags v1.2.1
+   Compiling ryu v1.0.5
+   Compiling lexical-core v0.7.4
+    Finished test [unoptimized + debuginfo] target(s) in 3.32s
+     Running /home/runner/work/_temp/build-20260924T001744Z-e5ddccb6/debug/deps/test_basic-9fbe468235a2d397
+
+Exit: 0
+Timed out: False

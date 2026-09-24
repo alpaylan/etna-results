@@ -1,0 +1,8 @@
+Command: rustup run 1.49.0 cargo clean -p fast-float
+Started: 2026-09-24T00:18:48.751379+00:00
+STDOUT:
+
+STDERR:
+
+Exit: 0
+Timed out: False
