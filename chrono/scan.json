@@ -1,6 +1,7 @@
 {
   "repo": "https://github.com/chronotope/chrono",
   "tips": [
+    "0466a4bf30cd55f4125f1366667f3c1c99d88001",
     "2afdde8f7f23f087b5027662e2882dba0663fef7",
     "2dbc11dcb150a2653456540370fd85af434d0746",
     "33516cc9f1ad1c78c214ca83c07d6c93785efb6c",
@@ -17,6 +18,7 @@
   ],
   "shallow": false,
   "reviewed": [
+    "0466a4bf30cd55f4125f1366667f3c1c99d88001",
     "2afdde8f7f23f087b5027662e2882dba0663fef7",
     "2dbc11dcb150a2653456540370fd85af434d0746",
     "33516cc9f1ad1c78c214ca83c07d6c93785efb6c",

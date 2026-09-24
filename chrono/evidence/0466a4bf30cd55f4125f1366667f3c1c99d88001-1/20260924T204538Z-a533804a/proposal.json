@@ -1,0 +1,13 @@
+{
+  "commit": "0466a4bf30cd55f4125f1366667f3c1c99d88001",
+  "parent": "0d6c3ce11ab1c22237b219909d92162976b622fb",
+  "fixed_commit": "0466a4bf30cd55f4125f1366667f3c1c99d88001",
+  "summary": "Formatting %s ignored the supplied time zone offset and treated local date and time as UTC, producing an incorrect Unix timestamp. The fix subtracts the offset before computing the timestamp, retaining the previous behavior when no offset is supplied. The test added by this commit checks a +09:30 datetime and expects 994518299; reversing the implementation should produce 994552499. No builds or tests were run.",
+  "test": "format::strftime::test_strftime_docs",
+  "expected_failure": "Assertion failure for %s formatting: actual \"994552499\", expected \"994518299\".",
+  "reversal": {
+    "path": "src/format/mod.rs",
+    "fixed_text": "                    Timestamp      => (1, match (date, time, off) {\n                        (Some(d), Some(t), None) =>\n                            Some(d.and_time(*t).timestamp()),\n                        (Some(d), Some(t), Some(&(_, off))) =>\n                            Some((d.and_time(*t) - off).timestamp()),\n                        (_, _, _) => None\n                    }),\n",
+    "parent_text": "                    Timestamp      => (1, match (date, time) {\n                        (Some(d), Some(t)) => Some(d.and_time(*t).timestamp()),\n                        (_, _) => None\n                    }),\n"
+  }
+}

@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: fixed: no completed execution of the exact upstream test
+**blocked**: Dependency setup failed; see setup logs
 
 Upstream: https://github.com/chronotope/chrono
 
-Candidate: bd636d811e0b1a7f441c1c0d8c177435c5742ba0-1
+Candidate: 0466a4bf30cd55f4125f1366667f3c1c99d88001-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 614 reachable from the saved tip.
+Reviewed commits: 1 / 169 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.
