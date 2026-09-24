@@ -1,0 +1,107 @@
+Command: rustup run 1.56.1 cargo test --locked --offline --lib parser::tests::documents -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T20:55:17.675309+00:00
+STDOUT:
+
+running 1 test
+test parser::tests::documents ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 26 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling lazy_static v1.4.0
+   Compiling cfg-if v1.0.0
+   Compiling scopeguard v1.1.0
+   Compiling regex-automata v0.1.10
+   Compiling either v1.6.1
+   Compiling unicode-width v0.1.9
+   Compiling ansi_term v0.12.1
+   Compiling itoa v0.4.8
+   Compiling strsim v0.8.0
+   Compiling bitflags v1.3.2
+   Compiling regex-syntax v0.6.25
+   Compiling vec_map v0.8.2
+   Compiling cfg-if v0.1.10
+   Compiling same-file v1.0.6
+   Compiling once_cell v1.8.0
+   Compiling glob v0.3.0
+   Compiling fnv v1.0.7
+   Compiling plotters-backend v0.3.2
+   Compiling termcolor v1.1.2
+   Compiling half v1.8.2
+   Compiling diff v0.1.12
+   Compiling hashbrown v0.11.2
+   Compiling bytes v1.1.0
+   Compiling oorandom v11.1.3
+   Compiling textwrap v0.11.0
+   Compiling itertools v0.10.1
+   Compiling walkdir v2.3.2
+   Compiling thread_local v1.1.3
+   Compiling plotters-svg v0.3.1
+   Compiling pretty_assertions v1.0.0
+   Compiling libc v0.2.108
+   Compiling memchr v2.4.1
+   Compiling crossbeam-utils v0.8.5
+   Compiling ryu v1.0.6
+   Compiling log v0.4.14
+   Compiling maybe-uninit v2.0.0
+   Compiling memoffset v0.6.4
+   Compiling num-traits v0.2.14
+   Compiling crossbeam-utils v0.7.2
+   Compiling indexmap v1.7.0
+   Compiling atty v0.2.14
+   Compiling num_cpus v1.13.0
+   Compiling time v0.1.44
+   Compiling aho-corasick v0.7.18
+   Compiling csv-core v0.1.10
+   Compiling combine v4.6.2
+   Compiling crossbeam-channel v0.5.1
+   Compiling crossbeam-epoch v0.9.5
+   Compiling crossbeam-channel v0.4.4
+   Compiling num-integer v0.1.44
+   Compiling plotters v0.3.1
+   Compiling clap v2.34.0
+   Compiling regex v1.5.4
+   Compiling crossbeam-deque v0.8.1
+   Compiling chrono v0.4.19
+   Compiling rayon-core v1.9.1
+   Compiling serde v1.0.130
+   Compiling include_dir v0.6.2
+   Compiling cast v0.2.7
+   Compiling rayon v1.5.1
+   Compiling bstr v0.2.17
+   Compiling serde_json v1.0.72
+   Compiling serde_cbor v0.11.2
+   Compiling kstring v1.0.6
+   Compiling toml v0.5.8
+   Compiling toml-test-data v1.0.0
+   Compiling structopt v0.3.25
+   Compiling criterion-plot v0.4.4
+   Compiling globset v0.4.8
+   Compiling csv v1.1.6
+   Compiling toml-test v0.3.1
+   Compiling tinytemplate v1.2.1
+   Compiling libtest-mimic v0.3.0
+   Compiling ignore v0.4.18
+   Compiling criterion v0.3.5
+   Compiling toml-test-harness v0.3.0
+   Compiling toml_edit v0.10.0 (/home/runner/work/_temp/upstream)
+    Finished test [optimized + debuginfo] target(s) in 47.73s
+     Running unittests (/home/runner/work/_temp/build-20260924T205350Z-5a467f28/debug/deps/toml_edit-3137099827b4a44d)
+[src/parser/mod.rs:638] doc.to_string() = "\n# This is a TOML document.\n\ntitle = \"TOML Example\"\n\n    [owner]\n    name = \"Tom Preston-Werner\"\n    dob = 1979-05-27T07:32:00-08:00 # First class dates\n\n    [database]\n    server = \"192.168.1.1\"\n    ports = [ 8001, 8001, 8002 ]\n    connection_max = 5000\n    enabled = true\n\n    [servers]\n\n    # Indentation (tabs and/or spaces) is allowed but not required\n[servers.alpha]\n    ip = \"10.0.0.1\"\n    dc = \"eqdc10\"\n\n    [servers.beta]\n    ip = \"10.0.0.2\"\n    dc = \"eqdc10\"\n\n    [clients]\n    data = [ [\"gamma\", \"delta\"], [1, 2] ]\n\n    # Line breaks are OK when inside arrays\nhosts = [\n    \"alpha\",\n    \"omega\"\n]\n\n   'some.wierd .stuff'   =  \"\"\"\n                         like\n                         that\n                      #   \"\"\" # this broke my sintax highlighting\n   \" also. like \" = '''\nthat\n'''\n   double = 2e39 # this number looks familiar\n# trailing comment"
+[src/parser/mod.rs:639] document = "\n# This is a TOML document.\n\ntitle = \"TOML Example\"\n\n    [owner]\n    name = \"Tom Preston-Werner\"\n    dob = 1979-05-27T07:32:00-08:00 # First class dates\n\n    [database]\n    server = \"192.168.1.1\"\n    ports = [ 8001, 8001, 8002 ]\n    connection_max = 5000\n    enabled = true\n\n    [servers]\n\n    # Indentation (tabs and/or spaces) is allowed but not required\n[servers.alpha]\n    ip = \"10.0.0.1\"\n    dc = \"eqdc10\"\n\n    [servers.beta]\n    ip = \"10.0.0.2\"\n    dc = \"eqdc10\"\n\n    [clients]\n    data = [ [\"gamma\", \"delta\"], [1, 2] ]\n\n    # Line breaks are OK when inside arrays\nhosts = [\n    \"alpha\",\n    \"omega\"\n]\n\n   'some.wierd .stuff'   =  \"\"\"\n                         like\n                         that\n                      #   \"\"\" # this broke my sintax highlighting\n   \" also. like \" = '''\nthat\n'''\n   double = 2e39 # this number looks familiar\n# trailing comment"
+[src/parser/mod.rs:638] doc.to_string() = ""
+[src/parser/mod.rs:639] document = ""
+[src/parser/mod.rs:638] doc.to_string() = "  "
+[src/parser/mod.rs:639] document = "  "
+[src/parser/mod.rs:638] doc.to_string() = " hello = 'darkness' # my old friend\n"
+[src/parser/mod.rs:639] document = " hello = 'darkness' # my old friend\n"
+[src/parser/mod.rs:638] doc.to_string() = "[parent . child]\nkey = \"value\"\n"
+[src/parser/mod.rs:639] document = "[parent . child]\nkey = \"value\"\n"
+[src/parser/mod.rs:638] doc.to_string() = "hello.world = \"a\"\n"
+[src/parser/mod.rs:639] document = "hello.world = \"a\"\n"
+[src/parser/mod.rs:638] doc.to_string() = "foo = 1979-05-27 # Comment\n"
+[src/parser/mod.rs:639] document = "foo = 1979-05-27 # Comment\n"
+
+Exit: 0
+Timed out: False

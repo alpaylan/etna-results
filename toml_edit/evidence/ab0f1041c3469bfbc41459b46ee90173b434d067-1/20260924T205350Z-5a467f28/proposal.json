@@ -1,0 +1,13 @@
+{
+  "commit": "ab0f1041c3469bfbc41459b46ee90173b434d067",
+  "parent": "9e81c5a9e380f06bddee7e26ccec70e95acdb4a5",
+  "fixed_commit": "ab0f1041c3469bfbc41459b46ee90173b434d067",
+  "summary": "The parser incorrectly consumes trailing space after a local date as a date/time separator, rejecting valid input such as `foo = 1979-05-27 # Comment`. The fix checks for an hour after the separator and backtracks when absent, allowing the space and comment to be parsed normally. The fix adds this regression case to parser::tests::documents. Both reversal regions occur exactly once; replacing the fixed region restores the parent implementation file exactly. No tests were run.",
+  "test": "parser::tests::documents",
+  "expected_failure": "Failed to parse:\n```\nfoo = 1979-05-27 # Comment\n\n```",
+  "reversal": {
+    "path": "src/parser/datetime.rs",
+    "fixed_text": "                attempt((\n                    satisfy(is_time_delim),\n                    look_ahead(time_hour())\n                )),\n",
+    "parent_text": "                satisfy(is_time_delim),\n"
+  }
+}
