@@ -1,15 +1,19 @@
 # Cloud bug-mining prototype
 
-**blocked**: Dependency setup failed; see setup logs
+Resumed verified evidence; no tests rerun.
+
+**confirmed**: The same upstream test passed, panicked on the original defect ('assertion `left == right` failed
+  left: AABB { lower: (1.0, 1.0, 1.0), upper: (4.0, 4.0, 4.0) }
+ right: AABB { lower: (3.0, 3.0, 3.0), upper: (4.0, 4.0, 4.0) }'), and passed after restoration
 
 Upstream: https://github.com/georust/rstar
 
-Candidate: f93071fc3e3e9b6ef7faf282c0fc992638346a53-1
+Candidate: 7634435cc268b798973f4a81a09f5352382da0fa-1
 
 Provenance: verbatim
 
-Latest outcomes: {"blocked": 1}
+Latest outcomes: {"confirmed": 1}
 
-Reviewed commits: 1 / 302 reachable from the saved tip.
+Reviewed commits: 1 / 279 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

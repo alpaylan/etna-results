@@ -1,0 +1,31 @@
+diff --git a/rstar/src/aabb.rs b/rstar/src/aabb.rs
+index 092ff51..6974ebc 100644
+--- a/rstar/src/aabb.rs
++++ b/rstar/src/aabb.rs
+@@ -70,16 +70,16 @@ where
+         I: IntoIterator<Item = &'a P> + 'a,
+         P: 'a,
+     {
+-        i.into_iter().fold(
+-            Self {
+-                lower: P::from_value(P::Scalar::max_value()),
+-                upper: P::from_value(P::Scalar::min_value()),
+-            },
+-            |aabb, p| Self {
+-                lower: aabb.lower.min_point(p),
+-                upper: aabb.upper.max_point(p),
+-            },
+-        )
++        i.into_iter()
++            .fold(Self::new_empty(), |aabb, p| aabb.add_point(p))
++    }
++
++    /// Returns the AABB that contains `self` and another point.
++    fn add_point(&self, point: &P) -> Self {
++        AABB {
++            lower: self.lower.min_point(point),
++            upper: self.upper.max_point(point),
++        }
+     }
+ 
+     /// Returns the point within this AABB closest to a given point.

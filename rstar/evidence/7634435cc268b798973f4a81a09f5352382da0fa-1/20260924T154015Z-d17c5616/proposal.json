@@ -1,0 +1,13 @@
+{
+  "commit": "7634435cc268b798973f4a81a09f5352382da0fa",
+  "parent": "0139255a78ada92277ce0d1025c009254ea5b298",
+  "fixed_commit": "7634435cc268b798973f4a81a09f5352382da0fa",
+  "summary": "AABB::from_points initialized its coordinate-wise min/max fold with new_empty(), whose lower and upper coordinates were one and zero. This incorrectly enlarged bounding boxes: points (3, 3, 3) and (4, 4, 4) produced a lower corner of (1, 1, 1). The fix initializes lower coordinates to the scalar maximum and upper coordinates to the scalar minimum, so the input points determine the bounds independently of new_empty(). The selected regression test was added by this fix. No tests were executed.",
+  "test": "aabb::test::test_from_points_issue_170_regression",
+  "expected_failure": "assertion `left == right` failed\n  left: AABB { lower: (1.0, 1.0, 1.0), upper: (4.0, 4.0, 4.0) }\n right: AABB { lower: (3.0, 3.0, 3.0), upper: (4.0, 4.0, 4.0) }",
+  "reversal": {
+    "path": "rstar/src/aabb.rs",
+    "fixed_text": "    pub fn from_points<'a, I>(i: I) -> Self\n    where\n        I: IntoIterator<Item = &'a P> + 'a,\n        P: 'a,\n    {\n        i.into_iter().fold(\n            Self {\n                lower: P::from_value(P::Scalar::max_value()),\n                upper: P::from_value(P::Scalar::min_value()),\n            },\n            |aabb, p| Self {\n                lower: aabb.lower.min_point(p),\n                upper: aabb.upper.max_point(p),\n            },\n        )\n    }\n\n",
+    "parent_text": "    pub fn from_points<'a, I>(i: I) -> Self\n    where\n        I: IntoIterator<Item = &'a P> + 'a,\n        P: 'a,\n    {\n        i.into_iter()\n            .fold(Self::new_empty(), |aabb, p| aabb.add_point(p))\n    }\n\n    /// Returns the AABB that contains `self` and another point.\n    fn add_point(&self, point: &P) -> Self {\n        AABB {\n            lower: self.lower.min_point(point),\n            upper: self.upper.max_point(point),\n        }\n    }\n\n"
+  }
+}

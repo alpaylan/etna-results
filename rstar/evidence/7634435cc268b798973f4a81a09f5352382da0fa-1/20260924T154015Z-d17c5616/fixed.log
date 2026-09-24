@@ -1,0 +1,52 @@
+Command: rustup run 1.79.0 cargo test --locked --offline --lib aabb::test::test_from_points_issue_170_regression -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T15:46:46.103630+00:00
+STDOUT:
+
+running 1 test
+test aabb::test::test_from_points_issue_170_regression ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 46 filtered out; finished in 0.00s
+
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+   Compiling libm v0.2.8
+   Compiling libc v0.2.155
+   Compiling cfg-if v1.0.0
+   Compiling bytemuck v1.16.1
+   Compiling byteorder v1.5.0
+   Compiling safe_arch v0.7.2
+   Compiling ppv-lite86 v0.2.17
+   Compiling num-traits v0.2.19
+   Compiling wide v0.7.24
+   Compiling rawpointer v0.2.1
+   Compiling matrixmultiply v0.3.8
+   Compiling getrandom v0.1.16
+   Compiling num-integer v0.1.46
+   Compiling rand_core v0.5.1
+   Compiling approx v0.5.1
+   Compiling num-complex v0.4.6
+   Compiling num-rational v0.4.2
+   Compiling rand_chacha v0.2.2
+   Compiling hash32 v0.3.1
+   Compiling simba v0.8.1
+   Compiling serde v1.0.203
+   Compiling typenum v1.17.0
+   Compiling mint v0.5.9
+   Compiling itoa v1.0.11
+   Compiling ryu v1.0.18
+   Compiling stable_deref_trait v1.2.0
+   Compiling heapless v0.8.0
+   Compiling rand v0.7.3
+   Compiling rand_hc v0.2.0
+   Compiling approx v0.3.2
+   Compiling smallvec v1.13.2
+   Compiling serde_json v1.0.118
+   Compiling nalgebra v0.32.6
+   Compiling rstar v0.12.0 (/home/runner/work/_temp/upstream/rstar)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 12.20s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T154015Z-d17c5616/debug/deps/rstar-0cdbedefbd828cbd)
+
+Exit: 0
+Timed out: False

@@ -1,0 +1,19 @@
+Command: rustup run 1.79.0 cargo test --locked --offline --lib aabb::test::test_from_points_issue_170_regression -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T15:47:01.019463+00:00
+STDOUT:
+
+running 1 test
+test aabb::test::test_from_points_issue_170_regression ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 46 filtered out; finished in 0.00s
+
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+   Compiling rstar v0.12.0 (/home/runner/work/_temp/upstream/rstar)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.36s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T154015Z-d17c5616/debug/deps/rstar-0cdbedefbd828cbd)
+
+Exit: 0
+Timed out: False
