@@ -1,0 +1,13 @@
+{
+  "commit": "226c22ab07423fd04818ddbcd3a1f594729206f8",
+  "parent": "af6116e49b4e5ed9c733713a2cb220fdbd048433",
+  "fixed_commit": "226c22ab07423fd04818ddbcd3a1f594729206f8",
+  "summary": "KeyData's Debug implementation printed the null sentinel as \"4294967295v1\". The fix checks is_null() and prints \"null\", preserving the existing format for non-null keys. The implementation reversal is exact and unique, but the fix adds no tests and inspection found no existing upstream test asserting null-key debug formatting at this revision. Blocked for lack of a detecting upstream test; no tests were run.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "impl Debug for KeyData {\n    fn fmt(&self, f: &mut Formatter) -> fmt::Result {\n        if self.is_null() {\n            f.write_str(\"null\")\n        } else {\n            write!(f, \"{}v{}\", self.idx, self.version.get())\n        }\n    }\n}\n",
+    "parent_text": "impl Debug for KeyData {\n    fn fmt(&self, f: &mut Formatter) -> fmt::Result {\n        write!(f, \"{}v{}\", self.idx, self.version.get())\n    }\n}\n"
+  }
+}
