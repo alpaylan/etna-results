@@ -1,0 +1,13 @@
+{
+  "commit": "bd636d811e0b1a7f441c1c0d8c177435c5742ba0",
+  "parent": "d4116e12579b2861c8a3a97a4898a876ef8572f9",
+  "fixed_commit": "bd636d811e0b1a7f441c1c0d8c177435c5742ba0",
+  "summary": "Optional timestamp serializers encoded Some values as bare integers, omitting the option marker required by bincode and breaking round trips. The fix uses serialize_some to preserve that marker. This reversal isolates the nanosecond branch exercised by the bincode regression test added in the fix. The test requires the serde feature. No builds or tests were run.",
+  "test": "naive::datetime::serde::test_serde_bincode_optional",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/datetime.rs",
+    "fixed_text": "                Some(ref dt) => serializer.serialize_some(&dt.timestamp_nanos()),\n",
+    "parent_text": "                Some(ref dt) => ts_nanoseconds::serialize(dt, serializer),\n"
+  }
+}

@@ -1,0 +1,98 @@
+Command: rustup run 1.44.0 cargo check --locked --offline --tests
+Started: 2026-09-24T20:46:38.353051+00:00
+STDOUT:
+
+STDERR:
+   Compiling autocfg v1.0.0
+   Compiling libc v0.2.71
+    Checking lazy_static v1.4.0
+   Compiling serde v1.0.111
+   Compiling byteorder v1.3.4
+   Compiling semver-parser v0.7.0
+    Checking cfg-if v0.1.10
+   Compiling maybe-uninit v2.0.0
+   Compiling proc-macro2 v1.0.18
+   Compiling memchr v2.3.3
+   Compiling ryu v1.0.5
+   Compiling unicode-xid v0.2.0
+    Checking scopeguard v1.1.0
+    Checking either v1.5.3
+   Compiling syn v1.0.30
+   Compiling rayon-core v1.7.0
+   Compiling bitflags v1.2.1
+    Checking itoa v0.4.5
+    Checking unicode-width v0.1.7
+    Checking regex-syntax v0.6.18
+    Checking same-file v1.0.6
+   Compiling doc-comment v0.3.3
+    Checking oorandom v11.1.1
+   Compiling num-traits v0.2.11
+   Compiling crossbeam-utils v0.7.2
+   Compiling memoffset v0.5.4
+   Compiling crossbeam-epoch v0.8.2
+   Compiling num-integer v0.1.42
+   Compiling num-iter v0.1.40
+   Compiling semver v0.9.0
+    Checking itertools v0.9.0
+    Checking textwrap v0.11.0
+    Checking walkdir v2.3.1
+   Compiling rustc_version v0.2.3
+    Checking regex v1.3.9
+    Checking regex-automata v0.1.9
+    Checking csv-core v0.1.10
+    Checking num_cpus v1.13.0
+    Checking time v0.1.43
+    Checking atty v0.2.14
+    Checking clap v2.33.1
+   Compiling quote v1.0.6
+    Checking crossbeam-queue v0.2.2
+   Compiling cast v0.2.3
+    Checking num-traits v0.1.43
+    Checking plotters v0.2.15
+    Checking crossbeam-deque v0.7.3
+    Checking chrono v0.4.11 (/home/runner/work/_temp/upstream)
+warning: unnecessary parentheses around const expression
+   --> src/naive/internals.rs:167:24
+    |
+167 | static MDL_TO_OL: [i8; (MAX_MDL as usize + 1)] = [
+    |                        ^^^^^^^^^^^^^^^^^^^^^^ help: remove these parentheses
+    |
+    = note: `#[warn(unused_parens)]` on by default
+
+warning: unnecessary parentheses around const expression
+   --> src/naive/internals.rs:222:24
+    |
+222 | static OL_TO_MDL: [u8; (MAX_OL as usize + 1)] = [
+    |                        ^^^^^^^^^^^^^^^^^^^^^ help: remove these parentheses
+
+    Checking criterion-plot v0.4.2
+    Checking rayon v1.3.0
+warning: 2 warnings emitted
+
+    Checking bstr v0.2.13
+    Checking serde_json v1.0.53
+    Checking bincode v0.8.0
+    Checking csv v1.1.3
+    Checking tinytemplate v1.1.0
+   Compiling serde_derive v1.0.111
+    Checking criterion v0.3.2
+warning: unnecessary parentheses around const expression
+   --> src/naive/internals.rs:167:24
+    |
+167 | static MDL_TO_OL: [i8; (MAX_MDL as usize + 1)] = [
+    |                        ^^^^^^^^^^^^^^^^^^^^^^ help: remove these parentheses
+    |
+    = note: `#[warn(unused_parens)]` on by default
+
+warning: unnecessary parentheses around const expression
+   --> src/naive/internals.rs:222:24
+    |
+222 | static OL_TO_MDL: [u8; (MAX_OL as usize + 1)] = [
+    |                        ^^^^^^^^^^^^^^^^^^^^^ help: remove these parentheses
+
+warning: 2 warnings emitted
+
+    Finished dev [unoptimized + debuginfo] target(s) in 24.51s
+
+Exit: 0
+Timed out: False

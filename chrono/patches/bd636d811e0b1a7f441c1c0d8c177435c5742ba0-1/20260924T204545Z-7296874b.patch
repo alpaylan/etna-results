@@ -1,0 +1,13 @@
+diff --git a/src/datetime.rs b/src/datetime.rs
+index e56ec6a..46facb6 100644
+--- a/src/datetime.rs
++++ b/src/datetime.rs
+@@ -1184,7 +1184,7 @@ pub mod serde {
+             where S: ser::Serializer
+         {
+             match *opt {
+-                Some(ref dt) => serializer.serialize_some(&dt.timestamp_nanos()),
++                Some(ref dt) => ts_nanoseconds::serialize(dt, serializer),
+                 None => serializer.serialize_none(),
+             }
+         }

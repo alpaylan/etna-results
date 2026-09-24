@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: Toolchain install failed; see setup logs
+**blocked**: fixed: no completed execution of the exact upstream test
 
 Upstream: https://github.com/chronotope/chrono
 
-Candidate: 2dbc11dcb150a2653456540370fd85af434d0746-1
+Candidate: bd636d811e0b1a7f441c1c0d8c177435c5742ba0-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 135 reachable from the saved tip.
+Reviewed commits: 1 / 614 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.
