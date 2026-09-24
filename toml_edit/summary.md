@@ -1,10 +1,10 @@
 # Cloud bug-mining prototype
 
-**blocked**: Selected test is not present at the fixed revision: key-no-eol.toml
+**blocked**: Proposal names no upstream test
 
 Upstream: https://github.com/toml-rs/toml
 
-Candidate: 010d842fcc9c5ad77bc09fe23eae51b56ba9efd9-1
+Candidate: fe79d63c004f75e79764aa0ef640365b4cd3c3e9-1
 
 Provenance: verbatim
 

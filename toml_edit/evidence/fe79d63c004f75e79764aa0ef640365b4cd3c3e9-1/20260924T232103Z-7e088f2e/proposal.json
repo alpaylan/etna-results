@@ -1,0 +1,13 @@
+{
+  "commit": "fe79d63c004f75e79764aa0ef640365b4cd3c3e9",
+  "parent": "1b3ccd66d2a683dd054c50e7d9c86fd3ba8571c3",
+  "fixed_commit": "fe79d63c004f75e79764aa0ef640365b4cd3c3e9",
+  "summary": "Extending a string-valued key with a dotted key incorrectly reports a duplicate key in the document root. The fix reports the offending dotted path and its non-table value type. The verbatim reversal below restores the incorrect diagnostic. Blocked test selection: the fix adds duplicate-keys-dotted.toml and its expected stderr, exercised by the custom fs_snapshot harness in tests/test_invalid.rs under the generated name duplicate-keys-dotted.toml. This is not a named Rust test function, and prototype/mine.py requires a matching function declaration. No compatible detecting Rust test was found. No builds or tests were run.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/parser/table.rs",
+    "fixed_text": "                Item::Value(ref v) => {\n                    return Err(extend_wrong_type(path, i, v.type_name()));\n                }\n",
+    "parent_text": "                Item::Value(..) => {\n                    return Err(duplicate_key(path, i));\n                }\n"
+  }
+}
