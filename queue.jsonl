@@ -1018,3 +1018,32 @@
 {"id": "4c7f18e73a730527b4b4fb571190d71d639b6376-1", "provenance": "verbatim", "published_at": "2026-09-24T01:30:28.526337+00:00", "run": {"attempt": "20260924T012811Z-9afbf634", "id": "35942970882", "url": "https://github.com/alpaylan/etna-ify/actions/runs/35942970882"}, "status": "confirmed"}
 {"id": "605c81c9b9dfaeb8c26c92129fbd5d0f567e0fb8-1", "provenance": "verbatim", "published_at": "2026-09-24T01:32:41.491380+00:00", "run": {"attempt": "20260924T013150Z-6cab0b53", "id": "35943241621", "url": "https://github.com/alpaylan/etna-ify/actions/runs/35943241621"}, "status": "confirmed"}
 {"id": "944f60397a35043ef5704e9bf76b26cdcb5fc55d-1", "published_at": "2026-09-24T01:40:58.638573+00:00", "run": {"attempt": "20260924T013605Z-b59b0565", "id": "35943559782", "url": "https://github.com/alpaylan/etna-ify/actions/runs/35943559782"}, "status": "blocked"}
+{"claimed_at": "2026-09-24T02:45:24.904122+00:00", "claimed_by": "local://stale-reclaim", "id": "4edd74815be5b4542cd422e0c0542a6f27ec9c6d-1", "status": "claimed"}
+{"claimed_at": "2026-09-24T02:45:24.904128+00:00", "claimed_by": "local://stale-reclaim", "id": "090a5c50cb3a6a6cdb7906ac3b810c2893a6c51c-1", "status": "claimed"}
+{"claimed_at": "2026-09-24T02:45:24.904129+00:00", "claimed_by": "local://stale-reclaim", "id": "f9f3c7857d31c1c2341a1ddee0e9447f81a61465-1", "status": "claimed"}
+{"claimed_at": "2026-09-24T02:45:24.904130+00:00", "claimed_by": "local://stale-reclaim", "id": "86391acae7da828e6d13cacd106f57220b3d33be-1", "status": "claimed"}
+{"claimed_at": "2026-09-24T02:45:24.904131+00:00", "claimed_by": "local://stale-reclaim", "id": "49c4bad88a58631972ef685b49af3ce4bf29b520-1", "status": "claimed"}
+{"claimed_at": "2026-09-24T02:45:24.904131+00:00", "claimed_by": "local://stale-reclaim", "id": "71624c3e49a8eb7b37eb591ca8c605696d8c0b33-1", "status": "claimed"}
+{"claimed_at": "2026-09-24T02:45:24.904132+00:00", "claimed_by": "local://stale-reclaim", "id": "fb3e0597c71adb1c6eddeb3eae4471bb7e21c327-1", "status": "claimed"}
+{"claimed_at": "2026-09-24T02:45:24.904133+00:00", "claimed_by": "local://stale-reclaim", "id": "64fe7aaa18987c34a8ff506368a9eaef3522493f-1", "status": "claimed"}
+{"claimed_at": "2026-09-24T02:45:24.904134+00:00", "claimed_by": "local://stale-reclaim", "id": "ff2cf9f90677c9c69a7d469034717ba714b7f99a-1", "status": "claimed"}
+{"claimed_at": "2026-09-24T02:45:24.904134+00:00", "claimed_by": "local://stale-reclaim", "id": "446e11bd05397fcd19077fe61790fbe41060f74d-1", "status": "claimed"}
+{"claimed_at": "2026-09-24T02:45:24.904135+00:00", "claimed_by": "local://stale-reclaim", "id": "0c9456acf484691ef250998fec8ca823241c563c-1", "status": "claimed"}
+{"claimed_at": "2026-09-24T02:45:24.904136+00:00", "claimed_by": "local://stale-reclaim", "id": "33bbb5450d88bd9de02475f42679da8ba810f2e1-1", "status": "claimed"}
+{"claimed_at": "2026-09-24T02:45:24.904137+00:00", "claimed_by": "local://stale-reclaim", "id": "e5cc951127ea6f05faa72b48de7c2e8630f94555-1", "status": "claimed"}
+{"claimed_at": "2026-09-24T02:45:24.904137+00:00", "claimed_by": "local://stale-reclaim", "id": "5a25f274706ff5807c99842c1a91b3113cccf19f-1", "status": "claimed"}
+{"claimed_at": "2026-09-24T02:45:24.904138+00:00", "claimed_by": "local://stale-reclaim", "id": "4ad5e3451fcd2e2192406351671a962e2e2be909-1", "status": "claimed"}
+{"claimed_at": "2026-09-24T02:45:24.904139+00:00", "claimed_by": "local://stale-reclaim", "id": "59f2a7311dd6540696bfd0145f5281ce495f4385-1", "status": "claimed"}
+{"claimed_at": "2026-09-24T02:45:24.904140+00:00", "claimed_by": "local://stale-reclaim", "id": "d57478073e07fc83b0871fa542fb0840a5579a67-1", "status": "claimed"}
+{"claimed_at": "2026-09-24T02:45:24.904140+00:00", "claimed_by": "local://stale-reclaim", "id": "dde5abdd99e122d8ae64ad71928561a6d0393643-1", "status": "claimed"}
+{"claimed_at": "2026-09-24T02:45:24.904141+00:00", "claimed_by": "local://stale-reclaim", "id": "84d12654104e783011f24267145fb6bfccd2a30e-1", "status": "claimed"}
+{"claimed_at": "2026-09-24T02:45:24.904142+00:00", "claimed_by": "local://stale-reclaim", "id": "f93071fc3e3e9b6ef7faf282c0fc992638346a53-1", "status": "claimed"}
+{"claimed_at": "2026-09-24T02:45:24.904142+00:00", "claimed_by": "local://stale-reclaim", "id": "9aa17e64dd5d8ed7e1968d159fa885173db59395-1", "status": "claimed"}
+{"claimed_at": "2026-09-24T02:45:24.904143+00:00", "claimed_by": "local://stale-reclaim", "id": "df8f740698bd6301af85531e76ffe32b432df5aa-1", "status": "claimed"}
+{"claimed_at": "2026-09-24T02:45:24.904144+00:00", "claimed_by": "local://stale-reclaim", "id": "895f84938d9cec06d6f7706301c536ccd563b490-1", "status": "claimed"}
+{"claimed_at": "2026-09-24T02:45:24.904145+00:00", "claimed_by": "local://stale-reclaim", "id": "b7c66d0c422270b6be8f870e6007af5b2619c2d9-1", "status": "claimed"}
+{"claimed_at": "2026-09-24T02:45:24.904145+00:00", "claimed_by": "local://stale-reclaim", "id": "7634435cc268b798973f4a81a09f5352382da0fa-1", "status": "claimed"}
+{"claimed_at": "2026-09-24T02:45:24.904146+00:00", "claimed_by": "local://stale-reclaim", "id": "47efe5136b75307ed5e308cdceea0f18bc20e42a-1", "status": "claimed"}
+{"claimed_at": "2026-09-24T02:45:24.904147+00:00", "claimed_by": "local://stale-reclaim", "id": "48c004ddc27eebc8484a30602c894ba3915ec721-1", "status": "claimed"}
+{"claimed_at": "2026-09-24T02:45:24.904147+00:00", "claimed_by": "local://stale-reclaim", "id": "ed749ef26001bac182d5f373909ba01e97500915-1", "status": "claimed"}
+{"claimed_at": "2026-09-24T02:45:24.904148+00:00", "claimed_by": "local://stale-reclaim", "id": "85761c401d750cc8341f1de7d37e9f553091e8db-1", "status": "claimed"}
