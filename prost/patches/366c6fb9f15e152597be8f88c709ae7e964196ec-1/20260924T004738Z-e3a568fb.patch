@@ -1,0 +1,14 @@
+diff --git a/prost-types/src/datetime.rs b/prost-types/src/datetime.rs
+index 69d7019..f31ccac 100644
+--- a/prost-types/src/datetime.rs
++++ b/prost-types/src/datetime.rs
+@@ -330,9 +330,6 @@ fn parse_two_digit_numeric(s: &str) -> Option<(u8, &str)> {
+     if s.len() < 2 {
+         return None;
+     }
+-    if s.starts_with('+') {
+-        return None;
+-    }
+     let (digits, s) = s.split_at(2);
+     Some((digits.parse().ok()?, s))
+ }

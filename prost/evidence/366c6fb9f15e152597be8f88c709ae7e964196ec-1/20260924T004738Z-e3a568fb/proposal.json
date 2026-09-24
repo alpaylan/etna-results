@@ -1,0 +1,13 @@
+{
+  "commit": "366c6fb9f15e152597be8f88c709ae7e964196ec",
+  "parent": "ee619460ef1f84c5c033d08b7a5b606116e0b414",
+  "fixed_commit": "366c6fb9f15e152597be8f88c709ae7e964196ec",
+  "summary": "Rust's unsigned integer parser accepts a leading '+', so parse_two_digit_numeric incorrectly accepts malformed timestamp fields. The upstream regression assertion added to test_parse_timestamp checks that \"19+1-+2-+3T+4:+5:+6Z\" returns ParseFailure; the buggy implementation instead interprets it as 1901-02-03T04:05:06Z. The fix rejects a leading '+' before parsing each two-byte numeric field. Reversing only that guard preserves the existing test. No tests were executed.",
+  "test": "datetime::tests::test_parse_timestamp",
+  "expected_failure": "assertion `left == right` failed; left is Ok(Timestamp { ... }), right is Err(ParseFailure)",
+  "reversal": {
+    "path": "prost-types/src/datetime.rs",
+    "fixed_text": "fn parse_two_digit_numeric(s: &str) -> Option<(u8, &str)> {\n    debug_assert!(s.is_ascii());\n    if s.len() < 2 {\n        return None;\n    }\n    if s.starts_with('+') {\n        return None;\n    }\n    let (digits, s) = s.split_at(2);\n    Some((digits.parse().ok()?, s))\n}",
+    "parent_text": "fn parse_two_digit_numeric(s: &str) -> Option<(u8, &str)> {\n    debug_assert!(s.is_ascii());\n    if s.len() < 2 {\n        return None;\n    }\n    let (digits, s) = s.split_at(2);\n    Some((digits.parse().ok()?, s))\n}"
+  }
+}
