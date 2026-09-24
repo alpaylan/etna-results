@@ -1,0 +1,27 @@
+Command: rustup run 1.23.0 cargo test --locked --lib test::test_comparisons -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:18:16.898606+00:00
+STDOUT:
+
+running 1 test
+test test::test_comparisons ... FAILED
+
+failures:
+
+failures:
+    test::test_comparisons
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 4 filtered out
+
+
+STDERR:
+   Compiling half v1.0.1 (file:///home/runner/work/_temp/upstream)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.50 secs
+     Running /home/runner/work/_temp/build-20260924T001743Z-40e34570/debug/deps/half-3b88dde4011bfd74
+thread 'test::test_comparisons' panicked at 'assertion failed: `(left == right)`
+  left: `Some(Less)`,
+ right: `Some(Equal)`', src/lib.rs:956:8
+note: Run with `RUST_BACKTRACE=1` for a backtrace.
+error: test failed, to rerun pass '--lib'
+
+Exit: 101
+Timed out: False

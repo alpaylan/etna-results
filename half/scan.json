@@ -1,0 +1,12 @@
+{
+  "repo": "https://github.com/VoidStarKat/half-rs",
+  "tips": [
+    "22b5bd6c086d4caf8651bf5b866241ba8ce67407"
+  ],
+  "shallow": false,
+  "reviewed": [
+    "22b5bd6c086d4caf8651bf5b866241ba8ce67407"
+  ],
+  "reachable_commits": 43,
+  "scope": "One queued candidate; not an exhaustive history scan."
+}

@@ -1,0 +1,37 @@
+diff --git a/src/lib.rs b/src/lib.rs
+index 3fd47f7..ea68587 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -426,27 +426,12 @@ impl PartialOrd for f16 {
+     fn partial_cmp(&self, other: &f16) -> Option<Ordering> {
+         if self.is_nan() || other.is_nan() {
+             None
++        } else if self.0 == other.0 {
++            Some(Ordering::Equal)
++        } else if self.0 < other.0 {
++            Some(Ordering::Less)
+         } else {
+-            let neg = self.0 & 0x8000u16 != 0;
+-            let other_neg = other.0 & 0x8000u16 != 0;
+-            match (neg, other_neg) {
+-                (false, false) => Some(self.0.cmp(&other.0)),
+-                (false, true) => {
+-                    if (self.0 | other.0) & 0x7FFFu16 == 0 {
+-                        Some(Ordering::Equal)
+-                    } else {
+-                        Some(Ordering::Greater)
+-                    }
+-                }
+-                (true, false) => {
+-                    if (self.0 | other.0) & 0x7FFFu16 == 0 {
+-                        Some(Ordering::Equal)
+-                    } else {
+-                        Some(Ordering::Less)
+-                    }
+-                }
+-                (true, true) => Some(other.0.cmp(&self.0)),
+-            }
++            Some(Ordering::Greater)
+         }
+     }
+ 

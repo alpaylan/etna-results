@@ -1,0 +1,10 @@
+Command: rustup run 1.23.0 cargo check --locked --tests
+Started: 2026-09-24T00:18:15.394205+00:00
+STDOUT:
+
+STDERR:
+   Compiling half v1.0.1 (file:///home/runner/work/_temp/upstream)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.30 secs
+
+Exit: 0
+Timed out: False

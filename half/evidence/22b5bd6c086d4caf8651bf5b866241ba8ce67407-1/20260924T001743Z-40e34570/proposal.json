@@ -1,0 +1,13 @@
+{
+  "commit": "22b5bd6c086d4caf8651bf5b866241ba8ce67407",
+  "parent": "198ced11dc7709b5eb1b0766a4a2172091741422",
+  "fixed_commit": "22b5bd6c086d4caf8651bf5b866241ba8ce67407",
+  "summary": "f16::partial_cmp compared raw unsigned bit patterns, incorrectly ordering signed zeros, mixed signs, and negative values. The fix handles signs explicitly, treats positive and negative zero as equal, and reverses magnitude ordering for negative operands while preserving NaN handling. This reversal restores only the parent partial_cmp implementation. The regression test added by the fix should detect it at the first signed-zero comparison; no tests were run.",
+  "test": "test::test_comparisons",
+  "expected_failure": "assertion failed: `(left == right)` (left: `Some(Less)`, right: `Some(Equal)`)",
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "    fn partial_cmp(&self, other: &f16) -> Option<Ordering> {\n        if self.is_nan() || other.is_nan() {\n            None\n        } else {\n            let neg = self.0 & 0x8000u16 != 0;\n            let other_neg = other.0 & 0x8000u16 != 0;\n            match (neg, other_neg) {\n                (false, false) => Some(self.0.cmp(&other.0)),\n                (false, true) => {\n                    if (self.0 | other.0) & 0x7FFFu16 == 0 {\n                        Some(Ordering::Equal)\n                    } else {\n                        Some(Ordering::Greater)\n                    }\n                }\n                (true, false) => {\n                    if (self.0 | other.0) & 0x7FFFu16 == 0 {\n                        Some(Ordering::Equal)\n                    } else {\n                        Some(Ordering::Less)\n                    }\n                }\n                (true, true) => Some(other.0.cmp(&self.0)),\n            }\n        }\n    }\n",
+    "parent_text": "    fn partial_cmp(&self, other: &f16) -> Option<Ordering> {\n        if self.is_nan() || other.is_nan() {\n            None\n        } else if self.0 == other.0 {\n            Some(Ordering::Equal)\n        } else if self.0 < other.0 {\n            Some(Ordering::Less)\n        } else {\n            Some(Ordering::Greater)\n        }\n    }\n"
+  }
+}

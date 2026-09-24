@@ -1,0 +1,15 @@
+Command: rustup run 1.23.0 cargo fetch --locked
+Started: 2026-09-24T00:18:14.546218+00:00
+STDOUT:
+
+STDERR:
+ Downloading syn v0.11.11 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading serde v1.0.27 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading serde_derive_internals v0.19.0 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading unicode-xid v0.0.4 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading quote v0.3.15 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading serde_derive v1.0.27 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading synom v0.11.3 (registry `git://127.0.0.1:9419/era-index`)
+
+Exit: 0
+Timed out: False
