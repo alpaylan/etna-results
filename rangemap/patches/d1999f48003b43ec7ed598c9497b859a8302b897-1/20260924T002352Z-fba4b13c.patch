@@ -1,0 +1,50 @@
+diff --git a/src/map.rs b/src/map.rs
+index 4df8e1f..470492b 100644
+--- a/src/map.rs
++++ b/src/map.rs
+@@ -106,27 +106,24 @@ where
+         // the range to insert or immediately preceding it?
+         //
+         // If there is any such stored range, it will be the last
+-        // whose start is less than or equal to the start of the range to insert,
+-        // or the one before that if both of the above cases exist.
+-        let mut candidates = self
++        // whose start is less than or equal to the start of the range to insert.
++        if let Some((stored_range_start_wrapper, stored_value)) = self
+             .btm
+             .range((Bound::Unbounded, Bound::Included(&new_range_start_wrapper)))
++            .next_back()
+             .filter(|(stored_range_start_wrapper, _stored_value)| {
+-                // Does the candidate range either overlap
++                // Does the only candidate range either overlap
+                 // or immediately precede the range to insert?
+                 // (Remember that it might actually cover the _whole_
+                 // range to insert and then some.)
+                 stored_range_start_wrapper
+                     .range
+                     .touches(&new_range_start_wrapper.range)
+-            });
+-        if let Some(mut candidate) = candidates.next_back() {
+-            // Or the one before it if both cases described above exist.
+-            if let Some(another_candidate) = candidates.next_back() {
+-                candidate = another_candidate;
+-            }
+-            let (stored_range_start_wrapper, stored_value) =
+-                (candidate.0.clone(), candidate.1.clone());
++            })
++            .map(|(stored_range_start_wrapper, stored_value)| {
++                (stored_range_start_wrapper.clone(), stored_value.clone())
++            })
++        {
+             self.adjust_touching_ranges_for_insert(
+                 stored_range_start_wrapper,
+                 stored_value,
+@@ -153,7 +150,7 @@ where
+         while let Some((stored_range_start_wrapper, stored_value)) = self
+             .btm
+             .range((
+-                Bound::Included(&new_range_start_wrapper),
++                Bound::Excluded(&new_range_start_wrapper),
+                 Bound::Included(&new_range_end_as_start),
+             ))
+             .next()

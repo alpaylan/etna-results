@@ -1,0 +1,17 @@
+Command: rustup run 1.50.0 cargo test --locked --offline --lib map::tests::replace_at_end_of_existing_range_should_coalesce -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:25:23.974583+00:00
+STDOUT:
+
+running 1 test
+test map::tests::replace_at_end_of_existing_range_should_coalesce ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 85 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling rangemap v0.1.8 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 1.53s
+     Running /home/runner/work/_temp/build-20260924T002352Z-fba4b13c/debug/deps/rangemap-1ffdb05c4c1ce835
+
+Exit: 0
+Timed out: False
