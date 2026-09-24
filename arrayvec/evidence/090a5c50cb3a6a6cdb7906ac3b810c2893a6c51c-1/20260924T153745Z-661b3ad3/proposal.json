@@ -1,0 +1,13 @@
+{
+  "commit": "090a5c50cb3a6a6cdb7906ac3b810c2893a6c51c",
+  "parent": "f6651428544957f689bc3a43641c8154e625d40c",
+  "fixed_commit": "090a5c50cb3a6a6cdb7906ac3b810c2893a6c51c",
+  "summary": "ArrayString::try_push formed a mutable byte slice over potentially uninitialized storage. The fix passes a raw pointer and remaining capacity to encode_utf8 and initializes bytes using ptr::write. Blocked: the added char::test_encode_utf8 and char::test_encode_utf8_oob tests use initialized buffers and do not demonstrate the uninitialized-memory issue; the existing test_string_push checks string contents and capacity without establishing detection of this issue. A verbatim reversal of encode_utf8 also restores its two-argument signature, breaking the unchanged three-argument calls in the added tests. No valid implementation-only reversal and detecting test could be established under these constraints. No builds or tests were run.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}

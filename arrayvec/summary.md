@@ -1,17 +1,15 @@
 # Cloud bug-mining prototype
 
-Resumed verified evidence; no tests rerun.
-
-**confirmed**: The same upstream test passed, panicked on the original defect ('attempted to subtract with overflow'), and passed after restoration
+**blocked**: Proposal names no upstream test
 
 Upstream: https://github.com/bluss/arrayvec
 
-Candidate: 2a1378d3eb073026468063fd354d90511b61def0-1
+Candidate: 090a5c50cb3a6a6cdb7906ac3b810c2893a6c51c-1
 
 Provenance: verbatim
 
-Latest outcomes: {"confirmed": 1}
+Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 151 reachable from the saved tip.
+History coverage not yet recorded.
 
 Scope: one queued candidate; history coverage is partial.

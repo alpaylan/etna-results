@@ -1047,3 +1047,4 @@
 {"claimed_at": "2026-09-24T02:45:24.904147+00:00", "claimed_by": "local://stale-reclaim", "id": "48c004ddc27eebc8484a30602c894ba3915ec721-1", "status": "claimed"}
 {"claimed_at": "2026-09-24T02:45:24.904147+00:00", "claimed_by": "local://stale-reclaim", "id": "ed749ef26001bac182d5f373909ba01e97500915-1", "status": "claimed"}
 {"claimed_at": "2026-09-24T02:45:24.904148+00:00", "claimed_by": "local://stale-reclaim", "id": "85761c401d750cc8341f1de7d37e9f553091e8db-1", "status": "claimed"}
+{"id": "090a5c50cb3a6a6cdb7906ac3b810c2893a6c51c-1", "published_at": "2026-09-24T15:37:59.502100+00:00", "run": {"attempt": "20260924T153745Z-661b3ad3", "id": "36021405005", "url": "https://github.com/alpaylan/etna-ify/actions/runs/36021405005"}, "status": "blocked"}
