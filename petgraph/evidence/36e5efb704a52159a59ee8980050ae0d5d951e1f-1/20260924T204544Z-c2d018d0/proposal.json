@@ -1,0 +1,13 @@
+{
+  "commit": "36e5efb704a52159a59ee8980050ae0d5d951e1f",
+  "parent": "2b358e03cba60c9fd3f7c3f62172947299ed985a",
+  "fixed_commit": "36e5efb704a52159a59ee8980050ae0d5d951e1f",
+  "summary": "WalkEdges::next_neighbor returned the starting endpoint instead of the neighboring endpoint: the source for outgoing walks and the target for incoming walks. The fix selects the opposite endpoint using 1 - self.direction as usize. The fix-added walk_edges test in tests/ograph.rs detects the bug because its outgoing traversal computes zero edge weights instead of target-minus-source differences. No builds or tests were run.",
+  "test": "walk_edges",
+  "expected_failure": "Assertion failure at assert_eq!(gr[e0], 1.): actual edge weight 0.0, expected 1.0.",
+  "reversal": {
+    "path": "src/graph.rs",
+    "fixed_text": "                Some((edge_index, edge.node[1 - self.direction as usize]))\n",
+    "parent_text": "                Some((edge_index, edge.node[self.direction as usize]))\n"
+  }
+}

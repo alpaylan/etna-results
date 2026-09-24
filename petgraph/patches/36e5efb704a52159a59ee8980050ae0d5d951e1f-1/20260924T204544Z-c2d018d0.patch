@@ -1,0 +1,13 @@
+diff --git a/src/graph.rs b/src/graph.rs
+index c95d6ab..6a137da 100644
+--- a/src/graph.rs
++++ b/src/graph.rs
+@@ -1187,7 +1187,7 @@ impl<Ix: IndexType> WalkEdges<Ix> {
+             Some(edge) => {
+                 let edge_index = self.next;
+                 self.next = edge.next[self.direction as usize];
+-                Some((edge_index, edge.node[1 - self.direction as usize]))
++                Some((edge_index, edge.node[self.direction as usize]))
+             }
+         }
+     }
