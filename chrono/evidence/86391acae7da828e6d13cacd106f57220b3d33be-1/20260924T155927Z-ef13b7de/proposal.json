@@ -1,0 +1,13 @@
+{
+  "commit": "86391acae7da828e6d13cacd106f57220b3d33be",
+  "parent": "b65255ea43557c2dc30ecfa4d6c34a754d0a1918",
+  "fixed_commit": "86391acae7da828e6d13cacd106f57220b3d33be",
+  "summary": "Formatting a Unix timestamp with an offset can panic when subtracting the offset produces a NaiveDateTime outside its representable range. The fix converts the local datetime to an i64 timestamp first, then subtracts the offset in seconds, avoiding the intermediate datetime overflow. The exact implementation reversal is available, but no detecting upstream test was found at this revision: the fix adds no tests, existing offset-aware timestamp formatting tests use ordinary dates, and naive timestamp tests omit offsets. Leave this candidate blocked pending a detecting upstream test; no builds or tests were run.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/format/formatting.rs",
+    "fixed_text": "                            Some(d.and_time(*t).timestamp() - i64::from(off.local_minus_utc()))\n",
+    "parent_text": "                            Some((d.and_time(*t) - off).timestamp())\n"
+  }
+}
