@@ -1,0 +1,13 @@
+{
+  "commit": "80601003b3fbc993dc23e65d5c7c476970ba9053",
+  "parent": "a9fea9f02d494e7bee90eb172e54c980638c199d",
+  "fixed_commit": "80601003b3fbc993dc23e65d5c7c476970ba9053",
+  "summary": "Duration::checked_div truncated the seconds carry and nanoseconds contributions separately, losing a nanosecond when their remainders should combine. Dividing Duration::new(1, 1) by 7 returned 142857142 nanoseconds instead of 142857143. The fix combines both remainders before division. The commit adds the detecting regression test; its integration target requires --all-features. This plan reverses only the implementation method; no tests were executed.",
+  "test": "duration::checked_div_regression",
+  "expected_failure": "assertion `left == right` failed: actual duration has 142857142 nanoseconds; expected 142857143 nanoseconds.",
+  "reversal": {
+    "path": "time/src/duration.rs",
+    "fixed_text": "    pub const fn checked_div(self, rhs: i32) -> Option<Self> {\n        let (secs, extra_secs) = (\n            const_try_opt!(self.seconds.checked_div(rhs as i64)),\n            self.seconds % (rhs as i64),\n        );\n        let (mut nanos, extra_nanos) = (self.nanoseconds.get() / rhs, self.nanoseconds.get() % rhs);\n        nanos += ((extra_secs * (Nanosecond.per(Second) as i64) + extra_nanos as i64)\n            / (rhs as i64)) as i32;\n\n        // Safety: `nanoseconds` is in range.\n        unsafe { Some(Self::new_unchecked(secs, nanos)) }\n    }",
+    "parent_text": "    pub const fn checked_div(self, rhs: i32) -> Option<Self> {\n        let seconds = const_try_opt!(self.seconds.checked_div(rhs as i64));\n        let carry = self.seconds - seconds * (rhs as i64);\n        let extra_nanos =\n            const_try_opt!((carry * Nanosecond.per(Second) as i64).checked_div(rhs as i64));\n        let nanoseconds =\n            const_try_opt!(self.nanoseconds.get().checked_div(rhs)) + (extra_nanos as i32);\n\n        // Safety: TODO may not be safe? `nanoseconds` could overflow past a billion on final\n        // addition?\n        unsafe { Some(Self::new_unchecked(seconds, nanoseconds)) }\n    }"
+  }
+}

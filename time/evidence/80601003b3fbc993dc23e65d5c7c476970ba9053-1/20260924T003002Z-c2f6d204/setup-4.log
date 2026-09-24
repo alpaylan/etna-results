@@ -1,0 +1,74 @@
+Command: rustup run 1.71.0 cargo check --locked --offline --tests
+Started: 2026-09-24T00:33:24.130013+00:00
+STDOUT:
+
+STDERR:
+   Compiling proc-macro2 v1.0.66
+   Compiling unicode-ident v1.0.11
+   Compiling serde v1.0.178
+   Compiling serde_derive v1.0.178
+   Compiling syn v1.0.109
+   Compiling serde_json v1.0.104
+    Checking deranged v0.3.6
+   Compiling time-core v0.1.1 (/home/runner/work/_temp/upstream/time-core)
+    Checking itoa v1.0.9
+   Compiling quote v1.0.32
+    Checking rand_core v0.6.4
+    Checking ryu v1.0.15
+    Checking rand v0.8.5
+   Compiling time-macros v0.2.10 (/home/runner/work/_temp/upstream/time-macros)
+    Checking time v0.3.23 (/home/runner/work/_temp/upstream/time)
+warning: method `subsec_nanoseconds_ranged` is never used
+   --> time/src/duration.rs:909:25
+    |
+193 | impl Duration {
+    | ------------- method in this implementation
+...
+909 |     pub(crate) const fn subsec_nanoseconds_ranged(self) -> Nanoseconds {
+    |                         ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` on by default
+
+warning: method `as_hms_nano_ranged` is never used
+   --> time/src/time.rs:378:25
+    |
+108 | impl Time {
+    | --------- method in this implementation
+...
+378 |     pub(crate) const fn as_hms_nano_ranged(self) -> (Hours, Minutes, Seconds, Nanoseconds) {
+    |                         ^^^^^^^^^^^^^^^^^^
+
+warning: method `as_hms_ranged` is never used
+   --> time/src/utc_offset.rs:205:25
+    |
+43  | impl UtcOffset {
+    | -------------- method in this implementation
+...
+205 |     pub(crate) const fn as_hms_ranged(self) -> (Hours, Minutes, Seconds) {
+    |                         ^^^^^^^^^^^^^
+
+warning: `time` (lib) generated 3 warnings
+    Checking serde_test v1.0.176
+   Compiling quickcheck_macros v1.0.0
+warning: unreachable statement
+  --> time/../tests/main.rs:78:5
+   |
+70 | /     return if status.success() {
+71 | |         Ok(())
+72 | |     } else {
+73 | |         Err(Box::new(Error(status)))
+74 | |     };
+   | |_____- any code following this expression is unreachable
+...
+78 | /     "Tests must be run with `--all-features`. Because the flag was not provided, `cargo test \
+79 | |      --all-features` is run.";
+   | |______________________________^ unreachable statement
+   |
+   = note: `#[warn(unreachable_code)]` on by default
+
+warning: `time` (test "tests") generated 1 warning
+warning: `time` (lib test) generated 3 warnings (3 duplicates)
+    Finished dev [unoptimized] target(s) in 4.19s
+
+Exit: 0
+Timed out: False

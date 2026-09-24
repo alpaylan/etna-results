@@ -1,0 +1,12 @@
+Command: rustup run 1.71.0 cargo test --locked --offline --test duration checked_div_regression -- --nocapture --test-threads=1
+Started: 2026-09-24T00:33:28.438659+00:00
+STDOUT:
+
+STDERR:
+error: no test target named `duration`.
+Available test targets:
+    tests
+
+
+Exit: 101
+Timed out: False
