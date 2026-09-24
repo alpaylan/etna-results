@@ -1,15 +1,17 @@
 # Cloud bug-mining prototype
 
-**blocked**: Selected test is not present at the fixed revision: tests::test_request_header_value_htab
+Resumed verified evidence; no tests rerun.
+
+**confirmed**: The same upstream test passed, panicked on the original defect ('assertion failed: ret.is_some()'), and passed after restoration
 
 Upstream: https://github.com/seanmonstar/httparse
 
-Candidate: 59a9fd11b3023581055b4997ff21829e03e909a2-1
+Candidate: 0376bc146dbc223323b3f380a82975614da78fef-1
 
 Provenance: verbatim
 
-Latest outcomes: {"blocked": 1}
+Latest outcomes: {"confirmed": 1}
 
-History coverage not yet recorded.
+Reviewed commits: 1 / 138 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

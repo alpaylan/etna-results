@@ -1,11 +1,13 @@
 {
   "repo": "https://github.com/seanmonstar/httparse",
   "tips": [
+    "0376bc146dbc223323b3f380a82975614da78fef",
     "34efc1e39726d7f8d3afe34e2b44d2eebb6ba952",
     "9f6702be571b19ac84e19678b0c4f7eefd2a11b7"
   ],
   "shallow": false,
   "reviewed": [
+    "0376bc146dbc223323b3f380a82975614da78fef",
     "34efc1e39726d7f8d3afe34e2b44d2eebb6ba952",
     "9f6702be571b19ac84e19678b0c4f7eefd2a11b7"
   ],

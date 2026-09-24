@@ -1,0 +1,47 @@
+Command: rustup run 1.44.1 cargo test --locked --offline --lib iter::tests::test_next_8_just_right -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T20:49:07.983285+00:00
+STDOUT:
+
+running 1 test
+test iter::tests::test_next_8_just_right ... FAILED
+
+failures:
+
+failures:
+    iter::tests::test_next_8_just_right
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 34 filtered out
+
+
+STDERR:
+   Compiling httparse v1.3.4 (/home/runner/work/_temp/upstream)
+warning: use of deprecated item 'try': use the `?` operator instead
+   --> build.rs:138:21
+    |
+138 |         let major = try!(num.parse::<u32>().map_err(|e| e.to_string()));
+    |                     ^^^
+    |
+    = note: `#[warn(deprecated)]` on by default
+
+warning: use of deprecated item 'try': use the `?` operator instead
+   --> build.rs:147:21
+    |
+147 |         let minor = try!(num.parse::<u32>().map_err(|e| e.to_string()));
+    |                     ^^^
+
+warning: use of deprecated item 'try': use the `?` operator instead
+   --> build.rs:156:21
+    |
+156 |         let patch = try!(num.parse::<u32>().map_err(|e| e.to_string()));
+    |                     ^^^
+
+warning: 3 warnings emitted
+
+    Finished test [unoptimized + debuginfo] target(s) in 0.51s
+     Running /home/runner/work/_temp/build-20260924T204811Z-54471b0a/debug/deps/httparse-6da3e6f4b9ebdcc9
+thread 'main' panicked at 'assertion failed: ret.is_some()', src/iter.rs:182:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass '--lib'
+
+Exit: 101
+Timed out: False

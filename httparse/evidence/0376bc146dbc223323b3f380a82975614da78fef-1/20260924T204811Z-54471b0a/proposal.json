@@ -1,0 +1,13 @@
+{
+  "commit": "0376bc146dbc223323b3f380a82975614da78fef",
+  "parent": "a9377af771d3594bbdaceaa49777635604f22d9d",
+  "fixed_commit": "0376bc146dbc223323b3f380a82975614da78fef",
+  "summary": "Bytes::next_8 incorrectly returns None when exactly eight bytes remain because its bounds check requires more than eight. The fix changes > to >=, allowing the complete eight-byte block. The regression test added by this commit advances two positions into a ten-byte slice and checks that next_8 returns Some containing the remaining bytes. This is a plan only; no tests were run.",
+  "test": "iter::tests::test_next_8_just_right",
+  "expected_failure": "assertion failed: ret.is_some()",
+  "reversal": {
+    "path": "src/iter.rs",
+    "fixed_text": "        if self.slice.len() >= self.pos + 8 {\n",
+    "parent_text": "        if self.slice.len() > self.pos + 8 {\n"
+  }
+}

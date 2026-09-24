@@ -1,0 +1,12 @@
+Command: rustup run 1.44.1 cargo fetch --locked
+Started: 2026-09-24T20:49:00.845449+00:00
+STDOUT:
+
+STDERR:
+ Downloading crates ...
+  Downloaded gcc v0.3.55 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded pico-sys v0.0.1 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded libc v0.2.71 (registry `git://127.0.0.1:9419/era-index`)
+
+Exit: 0
+Timed out: False

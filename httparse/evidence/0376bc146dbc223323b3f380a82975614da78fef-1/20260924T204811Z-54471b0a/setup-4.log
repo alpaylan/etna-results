@@ -1,0 +1,35 @@
+Command: rustup run 1.44.1 cargo check --locked --offline --tests
+Started: 2026-09-24T20:49:01.268767+00:00
+STDOUT:
+
+STDERR:
+   Compiling gcc v0.3.55
+   Compiling libc v0.2.71
+   Compiling httparse v1.3.4 (/home/runner/work/_temp/upstream)
+warning: use of deprecated item 'try': use the `?` operator instead
+   --> build.rs:138:21
+    |
+138 |         let major = try!(num.parse::<u32>().map_err(|e| e.to_string()));
+    |                     ^^^
+    |
+    = note: `#[warn(deprecated)]` on by default
+
+warning: use of deprecated item 'try': use the `?` operator instead
+   --> build.rs:147:21
+    |
+147 |         let minor = try!(num.parse::<u32>().map_err(|e| e.to_string()));
+    |                     ^^^
+
+warning: use of deprecated item 'try': use the `?` operator instead
+   --> build.rs:156:21
+    |
+156 |         let patch = try!(num.parse::<u32>().map_err(|e| e.to_string()));
+    |                     ^^^
+
+warning: 3 warnings emitted
+
+   Compiling pico-sys v0.0.1
+    Finished dev [unoptimized + debuginfo] target(s) in 5.19s
+
+Exit: 0
+Timed out: False
