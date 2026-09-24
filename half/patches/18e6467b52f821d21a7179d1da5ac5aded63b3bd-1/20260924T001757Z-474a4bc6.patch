@@ -1,0 +1,32 @@
+diff --git a/src/lib.rs b/src/lib.rs
+index 26de6ab..c49f99d 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -747,6 +747,7 @@ mod convert {
+         let sign = half_sign << 16;
+         // Unbias exponent
+         let unbiased_exp = ((half_exp as i32) >> 10) - 15;
++        let man = (half_man & 0x03FFu32) << 13;
+ 
+         // Check for subnormals, which will be normalized by adjusting exponent
+         if half_exp == 0 {
+@@ -762,15 +763,13 @@ mod convert {
+             };
+ 
+             // Rebias and adjust exponent
+-            let exp = ((127 - 15 - e) as u32) << 23;
+-            let man = (half_man << (14+e)) & 0x7F_FF_FFu32;
+-            return f32::from_bits(sign | exp | man);
++            let exp = ((unbiased_exp + 127 - e) << 23) as u32;
++            return unsafe { mem::transmute(sign | exp | man) };
+         }
+ 
+         // Rebias exponent for a normalized normal
+-        let exp = ((unbiased_exp + 127) as u32) << 23;
+-        let man = (half_man & 0x03FFu32) << 13;
+-        f32::from_bits(sign | exp | man)
++        let exp = ((unbiased_exp + 127) << 23) as u32;
++        unsafe { mem::transmute(sign | exp | man) }
+     }
+ 
+     pub fn f16_to_f64(i: u16) -> f64 {

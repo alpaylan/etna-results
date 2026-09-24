@@ -1,0 +1,14 @@
+Command: rustup run 1.27.0 cargo fetch --locked
+Started: 2026-09-24T00:18:32.447199+00:00
+STDOUT:
+
+STDERR:
+ Downloading serde_derive v1.0.66 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading syn v0.14.2 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading proc-macro2 v0.4.6 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading unicode-xid v0.1.0 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading quote v0.6.3 (registry `git://127.0.0.1:9419/era-index`)
+ Downloading serde v1.0.66 (registry `git://127.0.0.1:9419/era-index`)
+
+Exit: 0
+Timed out: False

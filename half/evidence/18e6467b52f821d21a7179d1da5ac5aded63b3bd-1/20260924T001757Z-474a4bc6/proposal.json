@@ -1,0 +1,13 @@
+{
+  "commit": "18e6467b52f821d21a7179d1da5ac5aded63b3bd",
+  "parent": "30240ea0d43e80a9b32da483146b3c097fb1d8bf",
+  "fixed_commit": "18e6467b52f821d21a7179d1da5ac5aded63b3bd",
+  "summary": "The software f16-to-f32 conversion reused the normal-number mantissa shift for subnormals, producing incorrect values. The fix normalizes the subnormal mantissa using the exponent adjustment and masks out the implicit leading bit. The commit adds detecting assertions to test::test_f16_to_f32. Run with use-intrinsics disabled to exercise this implementation. At this historical revision the implementation is in src/lib.rs, not the imported candidate's src/binary16/arch.rs. No tests were run.",
+  "test": "test::test_f16_to_f32",
+  "expected_failure": "assertion `left == right` failed",
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "        let unbiased_exp = ((half_exp as i32) >> 10) - 15;\n\n        // Check for subnormals, which will be normalized by adjusting exponent\n        if half_exp == 0 {\n            // Calculate how much to adjust the exponent by\n            let e = {\n                let mut e_adj = 0;\n                let mut hm_adj = half_man << 1;\n                while hm_adj & 0x0400u32 == 0 {\n                    e_adj += 1;\n                    hm_adj <<= 1;\n                }\n                e_adj\n            };\n\n            // Rebias and adjust exponent\n            let exp = ((127 - 15 - e) as u32) << 23;\n            let man = (half_man << (14+e)) & 0x7F_FF_FFu32;\n            return f32::from_bits(sign | exp | man);\n        }\n\n        // Rebias exponent for a normalized normal\n        let exp = ((unbiased_exp + 127) as u32) << 23;\n        let man = (half_man & 0x03FFu32) << 13;\n        f32::from_bits(sign | exp | man)\n",
+    "parent_text": "        let unbiased_exp = ((half_exp as i32) >> 10) - 15;\n        let man = (half_man & 0x03FFu32) << 13;\n\n        // Check for subnormals, which will be normalized by adjusting exponent\n        if half_exp == 0 {\n            // Calculate how much to adjust the exponent by\n            let e = {\n                let mut e_adj = 0;\n                let mut hm_adj = half_man << 1;\n                while hm_adj & 0x0400u32 == 0 {\n                    e_adj += 1;\n                    hm_adj <<= 1;\n                }\n                e_adj\n            };\n\n            // Rebias and adjust exponent\n            let exp = ((unbiased_exp + 127 - e) << 23) as u32;\n            return unsafe { mem::transmute(sign | exp | man) };\n        }\n\n        // Rebias exponent for a normalized normal\n        let exp = ((unbiased_exp + 127) << 23) as u32;\n        unsafe { mem::transmute(sign | exp | man) }\n"
+  }
+}
