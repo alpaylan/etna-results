@@ -1,0 +1,13 @@
+diff --git a/src/iter.rs b/src/iter.rs
+index 13ff578..7f0f0ac 100644
+--- a/src/iter.rs
++++ b/src/iter.rs
+@@ -620,7 +620,7 @@ impl<'a> Lines<'a> {
+                 is_reversed: false,
+                 byte_idx: 0,
+                 line_idx: 0,
+-                total_lines: 1,
++                total_lines: 0,
+             };
+         }
+ 

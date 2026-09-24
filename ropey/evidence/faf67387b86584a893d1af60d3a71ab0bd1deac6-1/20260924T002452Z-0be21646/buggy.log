@@ -1,0 +1,25 @@
+Command: rustup run 1.67.0 cargo test --locked --offline --lib iter::tests::empty_iter -- --exact --nocapture --test-threads=1
+Started: 2026-09-24T00:28:17.802553+00:00
+STDOUT:
+
+running 1 test
+test iter::tests::empty_iter ... FAILED
+
+failures:
+
+failures:
+    iter::tests::empty_iter
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 362 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling ropey v1.5.1 (/home/runner/work/_temp/upstream)
+    Finished test [unoptimized + debuginfo] target(s) in 2.16s
+     Running unittests src/lib.rs (/home/runner/work/_temp/build-20260924T002452Z-0be21646/debug/deps/ropey-787e839bdd111998)
+thread 'iter::tests::empty_iter' panicked at 'attempt to subtract with overflow', src/iter.rs:1240:17
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `--lib`
+
+Exit: 101
+Timed out: False

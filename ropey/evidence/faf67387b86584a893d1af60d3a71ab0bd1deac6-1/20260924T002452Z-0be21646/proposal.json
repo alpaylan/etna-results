@@ -1,0 +1,13 @@
+{
+  "commit": "faf67387b86584a893d1af60d3a71ab0bd1deac6",
+  "parent": "1029afac9ff0878cb5a68152745fa855dd996d62",
+  "fixed_commit": "faf67387b86584a893d1af60d3a71ab0bd1deac6",
+  "summary": "The empty-rope/slice branch initialized total_lines to 0 despite yielding one empty line. This reports an incorrect iterator length and causes subtraction underflow in size_hint after that line is yielded, including during Vec collection. The fix initializes total_lines to 1. The regression test added by this commit collects an empty rope's lines and expects one empty line. Both reversal regions were verified unique in their respective Git objects; no tests were run.",
+  "test": "iter::tests::empty_iter",
+  "expected_failure": "attempt to subtract with overflow",
+  "reversal": {
+    "path": "src/iter.rs",
+    "fixed_text": "        // Special-case: empty slice/rope.\n        if byte_idx_range.0 == byte_idx_range.1 {\n            return Lines {\n                iter: LinesEnum::Light,\n                text: \"\",\n                at_end: false,\n                is_reversed: false,\n                byte_idx: 0,\n                line_idx: 0,\n                total_lines: 1,\n            };\n        }\n",
+    "parent_text": "        // Special-case: empty slice/rope.\n        if byte_idx_range.0 == byte_idx_range.1 {\n            return Lines {\n                iter: LinesEnum::Light,\n                text: \"\",\n                at_end: false,\n                is_reversed: false,\n                byte_idx: 0,\n                line_idx: 0,\n                total_lines: 0,\n            };\n        }\n"
+  }
+}
