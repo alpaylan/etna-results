@@ -1,0 +1,14 @@
+diff --git a/src/reader.rs b/src/reader.rs
+index cacf6a4..12eee17 100644
+--- a/src/reader.rs
++++ b/src/reader.rs
+@@ -626,8 +626,8 @@ impl<R: io::Read> Reader<R> {
+                 return NextField::Error(Error::Io(err));
+             }
+             if self.buf.len() == 0 {
++                self.eof = true;
+                 if let StartRecord = self.state {
+-                    self.eof = true;
+                     return self.next_eoc();
+                 } else if let EndRecord = self.state {
+                     self.state = StartRecord;

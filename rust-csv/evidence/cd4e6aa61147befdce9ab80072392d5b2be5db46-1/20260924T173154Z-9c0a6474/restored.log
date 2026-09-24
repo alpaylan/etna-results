@@ -1,0 +1,48 @@
+Command: rustup run 1.10.0 cargo test --lib tests::extra_record_crlf -- --nocapture
+Started: 2026-09-24T17:35:42.335743+00:00
+STDOUT:
+Build failed, waiting for other jobs to finish...
+
+STDERR:
+   Compiling libc v0.2.189
+   Compiling kernel32-sys v0.2.2
+/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/libc-0.2.189/build.rs:119:9: 119:69 error: there is no argument named `vers`
+/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/libc-0.2.189/build.rs:119         println!("cargo:warning=setting FreeBSD version to {vers}");
+                                                                                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<std macros>:1:33: 1:58 note: in this expansion of concat!
+<std macros>:2:27: 2:58 note: in this expansion of format_args!
+<std macros>:1:23: 1:60 note: in this expansion of print! (defined in <std macros>)
+/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/libc-0.2.189/build.rs:119:9: 119:69 note: in this expansion of println! (defined in <std macros>)
+/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/libc-0.2.189/build.rs:180:12: 180:19 error: macro undefined: 'matches!'
+/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/libc-0.2.189/build.rs:180         && matches!(target_os.as_str(), "linux" | "windows")
+                                                                                                  ^~~~~~~
+/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/libc-0.2.189/build.rs:231:13: 231:58 error: there is no argument named `cfg`
+/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/libc-0.2.189/build.rs:231             println!("cargo:rustc-check-cfg=cfg({cfg})");
+                                                                                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<std macros>:1:33: 1:58 note: in this expansion of concat!
+<std macros>:2:27: 2:58 note: in this expansion of format_args!
+<std macros>:1:23: 1:60 note: in this expansion of print! (defined in <std macros>)
+/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/libc-0.2.189/build.rs:231:13: 231:58 note: in this expansion of println! (defined in <std macros>)
+/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/libc-0.2.189/build.rs:235:13: 235:80 error: there is no argument named `name`
+/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/libc-0.2.189/build.rs:235             println!("cargo:rustc-check-cfg=cfg({name},values(\"{values}\"))");
+                                                                                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<std macros>:1:33: 1:58 note: in this expansion of concat!
+<std macros>:2:27: 2:58 note: in this expansion of format_args!
+<std macros>:1:23: 1:60 note: in this expansion of print! (defined in <std macros>)
+/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/libc-0.2.189/build.rs:235:13: 235:80 note: in this expansion of println! (defined in <std macros>)
+/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/libc-0.2.189/build.rs:235:13: 235:80 error: there is no argument named `values`
+/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/libc-0.2.189/build.rs:235             println!("cargo:rustc-check-cfg=cfg({name},values(\"{values}\"))");
+                                                                                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<std macros>:1:33: 1:58 note: in this expansion of concat!
+<std macros>:2:27: 2:58 note: in this expansion of format_args!
+<std macros>:1:23: 1:60 note: in this expansion of print! (defined in <std macros>)
+/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/libc-0.2.189/build.rs:235:13: 235:80 note: in this expansion of println! (defined in <std macros>)
+/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/libc-0.2.189/build.rs:296:24: 296:25 error: no rules expected the token `,`
+/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/libc-0.2.189/build.rs:296         Some("rustc 1"),
+                                                                                                              ^
+error: Could not compile `libc`.
+
+To learn more, run the command again with --verbose.
+
+Exit: 101
+Timed out: False

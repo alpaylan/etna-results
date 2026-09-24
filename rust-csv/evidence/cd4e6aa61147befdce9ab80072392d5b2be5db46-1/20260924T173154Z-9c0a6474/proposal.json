@@ -1,0 +1,13 @@
+{
+  "commit": "cd4e6aa61147befdce9ab80072392d5b2be5db46",
+  "parent": "c260dfc4be5e7cfeecda838dd4dc8cb1865d55eb",
+  "fixed_commit": "cd4e6aa61147befdce9ab80072392d5b2be5db46",
+  "summary": "The reader set eof as soon as its input buffer was exhausted, making done() return true while a final field or end-of-record marker was still being emitted. The fix sets eof only in the StartRecord branch that returns EndOfCsv. The regression test added by this commit checks that done() remains false after the final end-of-record marker and becomes true after EndOfCsv.",
+  "test": "tests::extra_record_crlf",
+  "expected_failure": "assertion failed: !d.done()",
+  "reversal": {
+    "path": "src/reader.rs",
+    "fixed_text": "            if self.buf.len() == 0 {\n                if let StartRecord = self.state {\n                    self.eof = true;\n                    return self.next_eoc();\n                } else if let EndRecord = self.state {\n                    self.state = StartRecord;\n                    return self.next_eor();\n                } else {\n                    self.state = EndRecord;\n                    return self.next_data();\n                }\n            }\n",
+    "parent_text": "            if self.buf.len() == 0 {\n                self.eof = true;\n                if let StartRecord = self.state {\n                    return self.next_eoc();\n                } else if let EndRecord = self.state {\n                    self.state = StartRecord;\n                    return self.next_eor();\n                } else {\n                    self.state = EndRecord;\n                    return self.next_data();\n                }\n            }\n"
+  }
+}

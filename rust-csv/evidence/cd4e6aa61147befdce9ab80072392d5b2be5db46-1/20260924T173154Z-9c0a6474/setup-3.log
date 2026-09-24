@@ -1,0 +1,21 @@
+Command: rustup run 1.10.0 cargo fetch
+Started: 2026-09-24T17:35:33.598496+00:00
+STDOUT:
+
+STDERR:
+ Downloading byteorder v0.5.3
+ Downloading memchr v0.1.11
+ Downloading thread_local v0.2.7
+ Downloading kernel32-sys v0.2.2
+ Downloading regex v0.1.80
+ Downloading winapi-build v0.1.1
+ Downloading regex-syntax v0.3.9
+ Downloading aho-corasick v0.5.3
+ Downloading thread-id v2.0.0
+ Downloading winapi v0.2.8
+ Downloading libc v0.2.189
+ Downloading rustc-serialize v0.3.25
+ Downloading utf8-ranges v0.1.3
+
+Exit: 0
+Timed out: False

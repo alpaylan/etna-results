@@ -1,0 +1,11 @@
+Command: rustup run 1.10.0 cargo build
+Started: 2026-09-24T17:35:34.098527+00:00
+STDOUT:
+
+STDERR:
+   Compiling rustc-serialize v0.3.25
+   Compiling byteorder v0.5.3
+   Compiling csv v0.14.5 (file:///home/runner/work/_temp/upstream)
+
+Exit: 0
+Timed out: False
