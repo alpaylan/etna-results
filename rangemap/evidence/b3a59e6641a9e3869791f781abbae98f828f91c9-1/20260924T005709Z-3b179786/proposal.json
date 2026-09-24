@@ -1,0 +1,13 @@
+{
+  "commit": "b3a59e6641a9e3869791f781abbae98f828f91c9",
+  "parent": "ea9b2e343d19092b9c49bf14ad7bf0a163b1fb00",
+  "fixed_commit": "b3a59e6641a9e3869791f781abbae98f828f91c9",
+  "summary": "RangeMap equality delegated to BTreeMap equality, whose RangeStartWrapper keys compare only range starts. Consequently, maps containing 1..3 => false and 1..4 => false incorrectly compared equal. The fix checks equal entry counts and compares both endpoints and values of corresponding entries. The regression test added by this commit asserts these maps differ. Reversing only the equality method restores the bug while preserving tests and unrelated changes. No tests were run.",
+  "test": "map::tests::equality",
+  "expected_failure": "assertion `left != right` failed",
+  "reversal": {
+    "path": "src/map.rs",
+    "fixed_text": "    fn eq(&self, other: &RangeMap<K, V>) -> bool {\n        if self.btm.len() != other.btm.len() {\n            return false;\n        }\n\n        self.btm\n            .iter()\n            .zip(other.btm.iter())\n            .all(|((k1, v1), (k2, v2))| k1.start == k2.start && k1.end == k2.end && v1 == v2)\n    }\n",
+    "parent_text": "    fn eq(&self, other: &RangeMap<K, V>) -> bool {\n        self.btm == other.btm\n    }\n"
+  }
+}
