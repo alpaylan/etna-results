@@ -1,0 +1,13 @@
+{
+  "commit": "339524684344f74ea7e5e05b3b5ae4e5043999f8",
+  "parent": "5d76282e96c631dce842ebc99c2aef9dc3a23796",
+  "fixed_commit": "339524684344f74ea7e5e05b3b5ae4e5043999f8",
+  "summary": "SmallVec::leak returned a mutable slice into its consumed inline stack storage, leaving a dangling reference after return. The fix panics when storage is inline, allowing only spilled storage to be leaked. The implementation reversal is exact and unique, but no detecting upstream test exists at this revision: the fix adds no tests, and a repository-wide search finds no calls to leak. Leave this candidate blocked pending an eligible upstream test; no reproduction was attempted.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "    pub fn leak<'a>(self) -> &'a mut [T] {\n        if !self.spilled() {\n            panic!(\"SmallVec::leak() called on inline (stack) SmallVec, which cannot be safely leaked\");\n        }\n        let mut me = ManuallyDrop::new(self);\n        unsafe { core::slice::from_raw_parts_mut(me.as_mut_ptr(), me.len()) }\n    }\n",
+    "parent_text": "    pub fn leak<'a>(self) -> &'a mut [T] {\n        let mut me = ManuallyDrop::new(self);\n        unsafe { core::slice::from_raw_parts_mut(me.as_mut_ptr(), me.len()) }\n    }\n"
+  }
+}
