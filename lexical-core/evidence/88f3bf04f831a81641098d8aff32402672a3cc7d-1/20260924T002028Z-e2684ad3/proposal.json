@@ -1,0 +1,13 @@
+{
+  "commit": "88f3bf04f831a81641098d8aff32402672a3cc7d",
+  "parent": "24a1d6aaf2c2cbd22ac9d907ffe2a020ea252851",
+  "fixed_commit": "88f3bf04f831a81641098d8aff32402672a3cc7d",
+  "summary": "Negative zero bypasses the writer's self < ZERO sign check, causing default serialization to produce \"0.0\" instead of \"-0.0\". The fix adds an is_sign_negative() branch in the shared formatter that emits '-' and includes it in the output length. This reversal removes that branch while preserving the argument-order refactoring. The fix adds issue_94_test in lexical-write-float/tests/issue_94_tests.rs. No tests were run.",
+  "test": "issue_94_test",
+  "expected_failure": "assertion `left == right` failed\n  left: Ok(\"0.0\")\n right: Ok(\"-0.0\")",
+  "reversal": {
+    "path": "lexical-write-float/src/shared.rs",
+    "fixed_text": "        } else if $float.is_sign_negative() {\n            // handle this as a positive, just write a leading '-' and then add 1 to our count\n            // # Safety: This is always safe since our buffer is much larger than 1 byte.\n            unsafe { index_unchecked_mut!($bytes[0]) = b'-'; }\n            // # Safety: This is always safe since our buffer is much larger than 1 byte.\n            let bytes = unsafe { &mut index_unchecked_mut!($bytes[1..]) };\n            unsafe { $write_positive::<$($generic,)? FORMAT>(bytes, $($args,)*) + 1 }\n        } else {\n",
+    "parent_text": "        } else {\n            // Write negative exponent without scientific notation.\n"
+  }
+}

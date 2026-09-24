@@ -1,0 +1,20 @@
+diff --git a/lexical-write-float/src/shared.rs b/lexical-write-float/src/shared.rs
+index c4d4369..2c3e28c 100644
+--- a/lexical-write-float/src/shared.rs
++++ b/lexical-write-float/src/shared.rs
+@@ -198,14 +198,8 @@ macro_rules! write_float {
+             // Write negative exponent without scientific notation.
+             // SAFETY: safe as long as bytes is large enough to hold all the digits.
+             unsafe { $write_negative::<$($generic,)? FORMAT>($bytes, $($args,)*) }
+-        } else if $float.is_sign_negative() {
+-            // handle this as a positive, just write a leading '-' and then add 1 to our count
+-            // # Safety: This is always safe since our buffer is much larger than 1 byte.
+-            unsafe { index_unchecked_mut!($bytes[0]) = b'-'; }
+-            // # Safety: This is always safe since our buffer is much larger than 1 byte.
+-            let bytes = unsafe { &mut index_unchecked_mut!($bytes[1..]) };
+-            unsafe { $write_positive::<$($generic,)? FORMAT>(bytes, $($args,)*) + 1 }
+         } else {
++            // Write negative exponent without scientific notation.
+             // Write positive exponent without scientific notation.
+             // SAFETY: safe as long as bytes is large enough to hold all the digits.
+             unsafe { $write_positive::<$($generic,)? FORMAT>($bytes, $($args,)*) }
