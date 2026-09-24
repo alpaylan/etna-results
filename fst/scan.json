@@ -1,0 +1,12 @@
+{
+  "repo": "https://github.com/BurntSushi/fst",
+  "tips": [
+    "439e6aafa1206db74415484e6b6b79cc7a427259"
+  ],
+  "shallow": false,
+  "reviewed": [
+    "439e6aafa1206db74415484e6b6b79cc7a427259"
+  ],
+  "reachable_commits": 122,
+  "scope": "One queued candidate; not an exhaustive history scan."
+}

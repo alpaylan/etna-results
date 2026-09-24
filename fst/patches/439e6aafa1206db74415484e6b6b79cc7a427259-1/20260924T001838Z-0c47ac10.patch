@@ -1,0 +1,23 @@
+diff --git a/src/raw/ops.rs b/src/raw/ops.rs
+index 1e72ba8..9135c06 100644
+--- a/src/raw/ops.rs
++++ b/src/raw/ops.rs
+@@ -280,14 +280,12 @@ impl<'a, 'f> Streamer<'a> for Difference<'f> {
+                     });
+                 }
+             };
+-            let mut unique = true;
+-            while let Some(slot) = self.heap.pop_if_le(&self.key) {
+-                if slot.input() == &*self.key {
+-                    unique = false;
+-                }
++            let mut popped: usize = 0;
++            while let Some(slot) = self.heap.pop_if_equal(&self.key) {
+                 self.heap.refill(slot);
++                popped += 1;
+             }
+-            if unique {
++            if popped == 0 {
+                 return Some((&self.key, &self.outs))
+             }
+         }

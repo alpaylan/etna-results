@@ -1,0 +1,13 @@
+{
+  "commit": "439e6aafa1206db74415484e6b6b79cc7a427259",
+  "parent": "4a564c266a7d215bc7f340591438b24a452981b7",
+  "fixed_commit": "439e6aafa1206db74415484e6b6b79cc7a427259",
+  "summary": "Difference only advanced secondary streams when their smallest key equaled the current first-stream key. A smaller secondary key could therefore hide later matches, incorrectly retaining shared keys: [\"a\", \"c\"] minus [\"b\", \"c\"] yields [\"a\", \"c\"] instead of [\"a\"]. The fix advances secondary keys less than or equal to the current key and excludes that key only on equality. The proposed reversal restores the original comparison and counter logic. No tests were run.",
+  "test": "raw::ops::tests::difference2",
+  "expected_failure": "assertion failed: `(left == right)` (left: `[\"a\", \"c\"]`, right: `[\"a\"]`)",
+  "reversal": {
+    "path": "src/raw/ops.rs",
+    "fixed_text": "            let mut unique = true;\n            while let Some(slot) = self.heap.pop_if_le(&self.key) {\n                if slot.input() == &*self.key {\n                    unique = false;\n                }\n                self.heap.refill(slot);\n            }\n            if unique {\n                return Some((&self.key, &self.outs))\n            }\n",
+    "parent_text": "            let mut popped: usize = 0;\n            while let Some(slot) = self.heap.pop_if_equal(&self.key) {\n                self.heap.refill(slot);\n                popped += 1;\n            }\n            if popped == 0 {\n                return Some((&self.key, &self.outs))\n            }\n"
+  }
+}
