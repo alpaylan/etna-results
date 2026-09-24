@@ -1,0 +1,13 @@
+{
+  "commit": "12d7337a5863e24002a67ddbd7d8ad6cb4787803",
+  "parent": "bd73a7dc39ac19854a55b75aa36a2897aabe5233",
+  "fixed_commit": "12d7337a5863e24002a67ddbd7d8ad6cb4787803",
+  "summary": "Blocked: the full diff changes only tests/debugger_visualizer.rs, updating debugger-output expectations and whitespace. Nightly Rust changed string type names from str to ref$<str$>; the fix uses regex patterns accepting either representation, escapes array$, and accommodates trimmed whitespace. No implementation file changes, so no implementation-only verbatim reversal is possible while preserving upstream tests.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
