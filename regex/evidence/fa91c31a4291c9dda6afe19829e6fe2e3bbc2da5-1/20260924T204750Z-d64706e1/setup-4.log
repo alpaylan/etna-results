@@ -1,0 +1,47 @@
+Command: rustup run 1.97.0 cargo check --locked --offline --tests
+Started: 2026-09-24T20:56:53.802662+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+  |
+  = help: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+   Compiling proc-macro2 v1.0.103
+   Compiling unicode-ident v1.0.22
+   Compiling quote v1.0.41
+   Compiling serde_core v1.0.228
+   Compiling libc v0.2.186
+   Compiling serde v1.0.228
+    Checking memchr v2.8.3
+    Checking hashbrown v0.16.1
+   Compiling syn v2.0.106
+    Checking equivalent v1.0.2
+    Checking cfg-if v1.0.4
+    Checking getrandom v0.2.17
+   Compiling anyhow v1.0.100
+    Checking winnow v0.7.15
+    Checking indexmap v2.11.4
+    Checking rand_core v0.6.4
+    Checking aho-corasick v1.1.4
+    Checking regex-syntax v0.8.11 (/home/runner/work/_temp/upstream/regex-syntax)
+   Compiling doc-comment v0.3.4
+    Checking rand v0.8.7
+    Checking bstr v1.13.0
+    Checking atty v0.2.14
+    Checking humantime v2.4.0
+    Checking log v0.4.28
+   Compiling serde_derive v1.0.228
+    Checking termcolor v1.4.1
+    Checking quickcheck v1.0.3
+    Checking env_logger v0.9.3
+    Checking regex-automata v0.4.15 (/home/runner/work/_temp/upstream/regex-automata)
+    Checking regex v1.13.0 (/home/runner/work/_temp/upstream)
+    Checking toml_datetime v0.6.8
+    Checking serde_spanned v0.6.8
+    Checking toml_edit v0.22.24
+    Checking toml v0.8.20
+    Checking regex-test v0.1.1 (/home/runner/work/_temp/upstream/regex-test)
+    Finished `dev` profile [optimized + debuginfo] target(s) in 8.95s
+
+Exit: 0
+Timed out: False
