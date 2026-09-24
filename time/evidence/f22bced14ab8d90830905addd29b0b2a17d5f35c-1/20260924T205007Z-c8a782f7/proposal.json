@@ -1,0 +1,13 @@
+{
+  "commit": "f22bced14ab8d90830905addd29b0b2a17d5f35c",
+  "parent": "866c3a0c795445b15bfcb18cb7f005827de0db1c",
+  "fixed_commit": "f22bced14ab8d90830905addd29b0b2a17d5f35c",
+  "summary": "RFC3339 parsing rejected date/time separators other than T or t, including spaces used by rusqlite. The fix consumes any single separator byte and reports a missing separator as InvalidComponent(\"separator\"). This reversal restores the restrictive check in the OffsetDateTime parsing path. The existing parsing::rfc_3339 test gained space and dollar-sign cases in this commit; the space case should return InvalidLiteral with the reversal. No tests were executed.",
+  "test": "parsing::rfc_3339",
+  "expected_failure": "Error: ParseFromDescription(InvalidLiteral)",
+  "reversal": {
+    "path": "time/src/parsing/parsable.rs",
+    "fixed_text": "        let ParsedItem(input, day) =\n            exactly_n_digits::<2, _>(input).ok_or(InvalidComponent(\"day\"))?;\n\n        // RFC3339 allows any separator, not just `T`, not just `space`.\n        // cf. Section 5.6: Internet Date/Time Format:\n        //   NOTE: ISO 8601 defines date and time separated by \"T\".\n        //   Applications using this syntax may choose, for the sake of\n        //   readability, to specify a full-date and full-time separated by\n        //   (say) a space character.\n        // Specifically, rusqlite uses space separators.\n        let input = input\n            .get(1..)\n            .ok_or_else(|| InvalidComponent(\"separator\"))?;\n\n",
+    "parent_text": "        let ParsedItem(input, day) =\n            exactly_n_digits::<2, _>(input).ok_or(InvalidComponent(\"day\"))?;\n        let input = ascii_char_ignore_case::<b'T'>(input)\n            .ok_or(InvalidLiteral)?\n            .into_inner();\n"
+  }
+}

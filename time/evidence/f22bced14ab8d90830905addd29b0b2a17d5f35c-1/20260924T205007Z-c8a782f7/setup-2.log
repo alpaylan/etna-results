@@ -1,0 +1,20 @@
+Command: rustup run 1.80.1 cargo generate-lockfile
+Started: 2026-09-24T20:54:05.158121+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+    Updating `era` index
+     Locking 97 packages to latest compatible versions
+      Adding anes v0.1.6 (latest: v0.2.0)
+      Adding itertools v0.10.5 (latest: v0.13.0)
+      Adding rstest v0.18.2 (latest: v0.22.0)
+      Adding rstest_macros v0.18.2 (latest: v0.22.0)
+      Adding rstest_reuse v0.6.0 (latest: v0.7.0)
+      Adding syn v1.0.109 (latest: v2.0.76)
+      Adding wasi v0.11.0+wasi-snapshot-preview1 (latest: v0.13.2+wasi-0.2.1)
+      Adding windows-sys v0.52.0 (latest: v0.59.0)
+
+Exit: 0
+Timed out: False
