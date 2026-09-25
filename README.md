@@ -24,6 +24,9 @@ are imported from the prior `alpaylan/*-etna` trials and reproduced under
 the contracts in etna-ify (`docs/provenance-tiers.md`,
 `docs/cloud-execution.md`, `skills/`).
 
+See [CONFIRMED.md](CONFIRMED.md) for the human-readable index of every
+confirmed bug (regenerated nightly by the discovery workflow).
+
 ## Write protocol
 
 - Append-only JSONL; the last complete record per ID is the current state.
