@@ -1,0 +1,14 @@
+{
+  "commit": "77fd54b18977e8491ebe1b67cc0d104e32ab02d6",
+  "parent": "2e308a8cfd0c069d29dcf69dcee528204901435a",
+  "fixed_commit": "77fd54b18977e8491ebe1b67cc0d104e32ab02d6",
+  "summary": "Serializer::collect_str unconditionally panicked via unreachable!(). The fix formats the value twice: first to count UTF-8 bytes, then to emit those bytes after a varint length prefix, matching string serialization. The implementation reversal is exact and isolated. Blocked: the fix adds no tests, and inspection of existing unit, integration, and documentation tests found no test exercising collect_str at this revision. Existing string tests exercise serialize_str instead. No builds or tests were run.",
+  "test": "",
+  "package": null,
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/ser/serializer.rs",
+    "fixed_text": "    fn collect_str<T: ?Sized>(self, value: &T) -> Result<Self::Ok>\n    where\n        T: core::fmt::Display,\n    {\n        use core::fmt::Write;\n\n        struct CountWriter {\n            ct: usize\n        }\n        impl Write for CountWriter {\n            fn write_str(&mut self, s: &str) -> core::result::Result<(), core::fmt::Error> {\n                self.ct += s.as_bytes().len();\n                Ok(())\n            }\n        }\n\n        let mut ctr = CountWriter {\n            ct: 0,\n        };\n\n        write!(&mut ctr, \"{}\", value).map_err(|_| Error::CollectStrError)?;\n        let len = ctr.ct;\n        self.output\n            .try_push_varint_usize(&VarintUsize(len))\n            .map_err(|_| Error::SerializeBufferFull)?;\n\n        struct FmtWriter<'a, IF>\n        where\n            IF: SerFlavor,\n        {\n            output: &'a mut IF,\n        }\n        impl<'a, IF> Write for FmtWriter<'a, IF>\n        where\n            IF: SerFlavor,\n        {\n            fn write_str(&mut self, s: &str) -> core::result::Result<(), core::fmt::Error> {\n                self.output.try_extend(s.as_bytes()).map_err(|_| core::fmt::Error::default())\n            }\n        }\n\n        let mut fw = FmtWriter {\n            output: &mut self.output,\n        };\n        write!(&mut fw, \"{}\", value).map_err(|_| Error::CollectStrError)?;\n\n        Ok(())\n    }\n",
+    "parent_text": "    fn collect_str<T: ?Sized>(self, _value: &T) -> Result<Self::Ok>\n    where\n        T: core::fmt::Display,\n    {\n        unreachable!()\n    }\n"
+  }
+}
