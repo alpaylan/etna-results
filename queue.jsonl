@@ -2576,3 +2576,4 @@
 {"id": "ceb3e075cc1a341e22feb21f531e70c03d73f838-1", "planned_at": "2026-09-25T18:42:51.591799+00:00", "planner": "kimi-dd:bedrock/moonshotai.kimi-k2.5", "status": "planned"}
 {"id": "cb1c3c8653e8a1a96ec0159ef69d9906c71940aa-1", "planned_at": "2026-09-25T18:43:04.892137+00:00", "planner": "kimi-dd:bedrock/moonshotai.kimi-k2.5", "status": "planned"}
 {"id": "6ce282a3d8e551350bfd8d2f5c89949605c85969-1", "planned_at": "2026-09-25T18:43:10.230761+00:00", "planner": "kimi-dd:bedrock/moonshotai.kimi-k2.5", "status": "planned"}
+{"id": "6ce282a3d8e551350bfd8d2f5c89949605c85969-1", "published_at": "2026-09-25T19:32:19.420747+00:00", "reason": "fixed: source differs beyond the exact implementation reversal", "run": {"attempt": "20260925T190801Z-fa1d893b", "id": "36177233517", "url": "https://github.com/alpaylan/etna-ify/actions/runs/36177233517"}, "status": "blocked"}
