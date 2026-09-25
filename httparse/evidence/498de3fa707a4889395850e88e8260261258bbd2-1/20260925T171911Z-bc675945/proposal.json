@@ -1,0 +1,14 @@
+{
+  "commit": "498de3fa707a4889395850e88e8260261258bbd2",
+  "parent": "46c0915e1a57c9751feca5dcc976e53a616ea33a",
+  "fixed_commit": "498de3fa707a4889395850e88e8260261258bbd2",
+  "summary": "parse_token incorrectly accepted CR or LF as delimiters for request methods and paths. The fix permits only a space, causing CR and LF to return Error::Token. The regression test added by this commit uses LF after GET and expects Err(Token); reversing the implementation condition should instead produce Ok(Complete(33)). The test exists through the req! macro. No tests were run.",
+  "test": "tests::test_request_with_invalid_token_delimiter",
+  "package": null,
+  "expected_failure": "assertion failed: `(left == right)` (left: `Ok(Complete(33))`, right: `Err(Token)`)",
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "        if b == b' ' {\n",
+    "parent_text": "        if b == b' ' || b == b'\\r' || b == b'\\n' {\n"
+  }
+}
