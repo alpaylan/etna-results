@@ -1,0 +1,14 @@
+{
+  "commit": "0661b0f89df3df7ed9f9dc6ded800935e5fe7d85",
+  "parent": "97431fc92e011cbb389da2ed4c7ad9117a96945f",
+  "fixed_commit": "0661b0f89df3df7ed9f9dc6ded800935e5fe7d85",
+  "summary": "Cannot establish a valid plan: this commit changes CI coverage collection, replacing travis-cargo with a custom kcov script, and renames three integration test files without changing their contents. No Rust implementation changes or regression tests address a functional library bug, so there is no eligible implementation reversal or detecting upstream test.",
+  "test": "",
+  "package": null,
+  "expected_failure": null,
+  "reversal": {
+    "path": "",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
