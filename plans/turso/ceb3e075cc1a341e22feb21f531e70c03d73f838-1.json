@@ -1,0 +1,14 @@
+{
+  "commit": "ceb3e075cc1a341e22feb21f531e70c03d73f838",
+  "expected_failure": "timeout",
+  "fixed_commit": "ceb3e075cc1a341e22feb21f531e70c03d73f838",
+  "package": "turso_core",
+  "parent": "c1e146642d40b697c690a847c435d4bebe8d0d89",
+  "reversal": {
+    "fixed_text": "                self.commit_coordinator.clear_issued();\n                let writer_is_another_tx = batch.writing.tx_id != self.tx_id;\n                if writer_is_another_tx {\n                    if self.commit_coordinator.take_abandoned(batch.writing.tx_id) {\n                        if self.mvcc_store.txs.get(&batch.writing.tx_id).is_some() {\n                            self.mvcc_store.rollback_tx_inner(\n                                batch.writing.tx_id,\n                                None,\n                                self.db_id,\n                            );\n                        }\n                    } else {\n                        self.commit_coordinator.request_retry(batch.writing.ticket);\n                    }\n                }\n                self.commit_coordinator.requeue(batch.rest.into_iter());",
+    "parent_text": "                self.commit_coordinator.clear_issued();\n                if self.commit_coordinator.take_abandoned(batch.writing.tx_id) {\n                    if self.mvcc_store.txs.get(&batch.writing.tx_id).is_some() {\n                        self.mvcc_store\n                            .rollback_tx_inner(batch.writing.tx_id, None, self.db_id);\n                    }\n                } else {\n                    self.commit_coordinator.request_retry(batch.writing.ticket);\n                }\n                self.commit_coordinator.requeue(batch.rest.into_iter());",
+    "path": "core/mvcc/database/mod.rs"
+  },
+  "summary": "When the group commit leader is writing its own log record and the write fails or the statement is dropped before the log offset advances, the cleanup treated the record like another transaction's and asked for a retry of its ticket. Nobody ever takes that retry, because the failed transaction is rolled back by cleanup_dropped_commit. The ticket then sat in the retry set forever and take_work returned no work for every later commit, so every subsequent commit on the store yielded without progress. The fix adds a check `writer_is_another_tx` to only apply retry/abandon handling when the writer is another transaction, not when it's the leader's own record.",
+  "test": "busy_from_log_tx_does_not_block_subsequent_commit_with_group_commit"
+}

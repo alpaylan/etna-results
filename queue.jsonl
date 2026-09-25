@@ -2571,3 +2571,8 @@
 {"id": "6c5de212f1e15de89ca7139367905e829b73e3df-1", "published_at": "2026-09-25T18:39:30.208832+00:00", "reason": "The implementation reversal did not make the upstream test fail", "run": {"attempt": "20260925T183104Z-728df7d0", "id": "36173868185", "url": "https://github.com/alpaylan/etna-ify/actions/runs/36173868185"}, "status": "unconfirmed"}
 {"id": "6ce282a3d8e551350bfd8d2f5c89949605c85969-1", "status": "pending", "requeued_at": "2026-09-25T18:41:58.203893+00:00", "note": "harness fix: live crates.io-index fallback"}
 {"id": "4ee410a0791abff8bff157989e8494941b7c507a-1", "status": "pending", "requeued_at": "2026-09-25T18:41:58.203893+00:00", "note": "harness fix: live crates.io-index fallback"}
+{"id": "a61a716daf52d6ed2b5578073fd504522fb91f08-1", "planned_at": "2026-09-25T18:42:37.545757+00:00", "planner": "kimi-dd:bedrock/moonshotai.kimi-k2.5", "status": "planned"}
+{"id": "19b7d7dc15f2180d41239b65cbe1348a34f34dfa-1", "planned_at": "2026-09-25T18:42:39.541528+00:00", "planner": "kimi-dd:bedrock/moonshotai.kimi-k2.5", "status": "planned"}
+{"id": "ceb3e075cc1a341e22feb21f531e70c03d73f838-1", "planned_at": "2026-09-25T18:42:51.591799+00:00", "planner": "kimi-dd:bedrock/moonshotai.kimi-k2.5", "status": "planned"}
+{"id": "cb1c3c8653e8a1a96ec0159ef69d9906c71940aa-1", "planned_at": "2026-09-25T18:43:04.892137+00:00", "planner": "kimi-dd:bedrock/moonshotai.kimi-k2.5", "status": "planned"}
+{"id": "6ce282a3d8e551350bfd8d2f5c89949605c85969-1", "planned_at": "2026-09-25T18:43:10.230761+00:00", "planner": "kimi-dd:bedrock/moonshotai.kimi-k2.5", "status": "planned"}

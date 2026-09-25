@@ -1,0 +1,14 @@
+{
+  "commit": "19b7d7dc15f2180d41239b65cbe1348a34f34dfa",
+  "expected_failure": "iteration N: child is finished but the group never will be",
+  "fixed_commit": "19b7d7dc15f2180d41239b65cbe1348a34f34dfa",
+  "package": "turso_core",
+  "parent": "176fd75c29c67f3ec7ff8557d02551688c99f795",
+  "reversal": {
+    "fixed_text": "    /// The group this completion belongs to, if any. Set exactly once, by\n    /// whichever side gets there first: `CompletionGroup::build` sets it to\n    /// the group when it links the completion, and `Completion::callback`\n    /// sets it to `None` when the completion finishes with no group linked\n    /// yet. The loser counts the completion into the group: the callback\n    /// counts it if `build` linked first, and `build` counts it if the\n    /// completion finished first.\n    parent: OnceLock<Option<Arc<GroupCompletionInner>>>,",
+    "parent_text": "    /// Optional parent group this completion belongs to\n    parent: OnceLock<Arc<GroupCompletionInner>>,",
+    "path": "core/io/completions.rs"
+  },
+  "summary": "The bug is a race condition in CompletionGroup::build that causes completion groups to hang forever. The issue occurs when a child completion finishes on another thread between the check `if !c.finished()` and the call to `c.link_internal(&group)` in the build method. In this case, the child is not finished when checked (so build doesn't count it), but it's not linked when it finishes (so its callback doesn't count it either). The outstanding count never reaches zero, causing the group to never complete. The fix changes the parent field from `OnceLock<Arc<GroupCompletionInner>>` to `OnceLock<Option<Arc<GroupCompletionInner>>>` and uses it as a synchronization point: whichever side (build or callback) sets it first determines who counts the completion. If build sets it to Some(group), the callback counts it; if the callback sets it to None (meaning it finished first), build counts it. This eliminates the race window.",
+  "test": "group_build_racing_with_child_completion_on_another_thread"
+}

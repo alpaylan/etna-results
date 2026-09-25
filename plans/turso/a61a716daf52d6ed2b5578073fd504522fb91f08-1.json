@@ -1,0 +1,14 @@
+{
+  "commit": "a61a716daf52d6ed2b5578073fd504522fb91f08",
+  "expected_failure": "portable changes cannot resolve user data table id",
+  "fixed_commit": "a61a716daf52d6ed2b5578073fd504522fb91f08",
+  "package": "turso_core",
+  "parent": "a15a997400ee1d0f9afc4e4b69e0d469554ede7e",
+  "reversal": {
+    "fixed_text": "#[cfg(feature = \"conn_raw_api\")]\nfn portable_table_name_for_mv_table_id<Clock: LogicalClock, A: ConcurrentAllocator>(\n    connection: &Connection,\n    mvcc_store: &MvStore<Clock, A>,\n    table_id: MVTableId,\n) -> Option<String> {\n    // `table_id` is the id as serialized into the log (see\n    // `canonicalize_table_id`), so interpret it directly as a rootpage first;\n    // `table_id_to_rootpage` is keyed by in-memory counter ids and a canonical\n    // -(root_page) id can alias an unrelated object's counter id. The map is\n    // only a fallback for a stale id serialized before a concurrent checkpoint\n    // published new roots.\n    let direct = i64::from(table_id);\n    if let Some(name) = table_name_for_rootpage(connection, direct)\n        .or_else(|| table_name_for_rootpage_in_mvcc_schema(mvcc_store, direct))\n    {\n        return Some(name);\n    }\n    let rootpage = rootpage_for_mv_table_id(mvcc_store, table_id);\n    if rootpage == direct {\n        return None;\n    }\n    table_name_for_rootpage(connection, rootpage)\n        .or_else(|| table_name_for_rootpage_in_mvcc_schema(mvcc_store, rootpage))\n}",
+    "parent_text": "#[cfg(feature = \"conn_raw_api\")]\nfn portable_table_name_for_mv_table_id<Clock: LogicalClock, A: ConcurrentAllocator>(\n    connection: &Connection,\n    mvcc_store: &MvStore<Clock, A>,\n    table_id: MVTableId,\n) -> Option<String> {\n    let rootpage = rootpage_for_mv_table_id(mvcc_store, table_id);\n    table_name_for_rootpage(connection, rootpage)\n        .or_else(|| table_name_for_rootpage_in_mvcc_schema(mvcc_store, rootpage))\n}",
+    "path": "core/mvcc/database/mod.rs"
+  },
+  "summary": "The bug was in rootpage resolution for portable changes in MVCC. After a checkpoint, log records reference tables by canonical -(root_page) IDs, but `table_id_to_rootpage` is keyed by original in-memory counter IDs. When sqlite_schema page splits interleave with btree creation, root pages drift away from -(counter_id) alignment. A canonical ID like -159 could alias an unrelated object's counter ID that happened to be -159, causing resolution to follow the wrong rootpage. The fix adds direct rootpage interpretation first, before consulting the `table_id_to_rootpage` map, with the map only as a fallback for stale IDs serialized before concurrent checkpoints.",
+  "test": "test_mvcc_portable_changes_resolve_checkpointed_table_despite_counter_id_alias"
+}
