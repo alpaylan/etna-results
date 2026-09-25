@@ -1,0 +1,14 @@
+diff --git a/core/storage/wal.rs b/core/storage/wal.rs
+index 55868acca..740105ba3 100644
+--- a/core/storage/wal.rs
++++ b/core/storage/wal.rs
+@@ -2255,9 +2255,6 @@ impl WalCoordination for ShmWalCoordination {
+                 }
+             }
+         }
+-        if self.authority.has_active_db_file_reader() {
+-            max_safe_frame = max_safe_frame.min(self.load_snapshot().nbackfills);
+-        }
+         match self.authority.min_active_reader_frame() {
+             Some(shared_min) => max_safe_frame.min(shared_min),
+             None => max_safe_frame,

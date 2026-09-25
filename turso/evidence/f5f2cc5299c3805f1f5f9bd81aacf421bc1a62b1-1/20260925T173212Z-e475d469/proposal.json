@@ -1,0 +1,14 @@
+{
+  "commit": "f5f2cc5299c3805f1f5f9bd81aacf421bc1a62b1",
+  "parent": "bd9e155135eaac5f78af7c25721ac5886c06662a",
+  "fixed_commit": "f5f2cc5299c3805f1f5f9bd81aacf421bc1a62b1",
+  "summary": "After a full WAL checkpoint, database-file readers held only process-local protection, allowing another process to checkpoint newer pages into their older snapshots. The fix registers these readers in shared memory and caps checkpointing at the current backfill point while any is active. This verbatim reversal removes that checkpoint cap, allowing the newly added subprocess test to detect backfilling past its reader's snapshot. No builds or tests were executed.",
+  "test": "multiprocess_tests::subprocess_db_file_reader_stops_checkpoint_in_other_process",
+  "package": "turso_core",
+  "expected_failure": "no frame past the child's snapshot may reach the database file while it reads",
+  "reversal": {
+    "path": "core/storage/wal.rs",
+    "fixed_text": "        if self.authority.has_active_db_file_reader() {\n            max_safe_frame = max_safe_frame.min(self.load_snapshot().nbackfills);\n        }\n        match self.authority.min_active_reader_frame() {\n            Some(shared_min) => max_safe_frame.min(shared_min),\n            None => max_safe_frame,\n        }",
+    "parent_text": "        match self.authority.min_active_reader_frame() {\n            Some(shared_min) => max_safe_frame.min(shared_min),\n            None => max_safe_frame,\n        }"
+  }
+}

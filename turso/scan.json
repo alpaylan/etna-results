@@ -2,12 +2,14 @@
   "repo": "https://github.com/tursodatabase/turso",
   "tips": [
     "4ee410a0791abff8bff157989e8494941b7c507a",
-    "6ce282a3d8e551350bfd8d2f5c89949605c85969"
+    "6ce282a3d8e551350bfd8d2f5c89949605c85969",
+    "f5f2cc5299c3805f1f5f9bd81aacf421bc1a62b1"
   ],
   "shallow": false,
   "reviewed": [
     "4ee410a0791abff8bff157989e8494941b7c507a",
-    "6ce282a3d8e551350bfd8d2f5c89949605c85969"
+    "6ce282a3d8e551350bfd8d2f5c89949605c85969",
+    "f5f2cc5299c3805f1f5f9bd81aacf421bc1a62b1"
   ],
   "reachable_commits": 20539,
   "scope": "One queued candidate; not an exhaustive history scan."
