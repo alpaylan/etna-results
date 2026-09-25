@@ -1,0 +1,14 @@
+{
+  "commit": "3bc74361d157ffd52910223aded0bde58300a14c",
+  "parent": "80f8d1595ef93b24ed676d015d3bf263687cf199",
+  "fixed_commit": "3bc74361d157ffd52910223aded0bde58300a14c",
+  "summary": "Blocked: this commit only raises the combine dependency requirement from 4.5.2 to 4.6.3 and updates diagnostic snapshots, removing misleading backticks around descriptions such as 'key' and 'end of input'. No implementation file changes, so no permitted verbatim implementation reversal exists. Reverting the dependency requirement would also still permit combine 4.6.3. Existing coverage uses the custom snapshot harness in tests/test_invalid.rs, including empty-table.toml, rather than a Rust test function with a module-qualified name.",
+  "test": "",
+  "package": null,
+  "expected_failure": null,
+  "reversal": {
+    "path": "",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
