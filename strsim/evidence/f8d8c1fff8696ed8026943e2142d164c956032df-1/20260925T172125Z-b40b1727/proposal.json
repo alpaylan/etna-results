@@ -1,0 +1,14 @@
+{
+  "commit": "f8d8c1fff8696ed8026943e2142d164c956032df",
+  "parent": "b2fc338541fef33104ec53c9821e61af13b1ff45",
+  "fixed_commit": "f8d8c1fff8696ed8026943e2142d164c956032df",
+  "summary": "The old damerau_levenshtein computed restricted optimal-string-alignment distance, returning 3 instead of 2 for \"ca\" → \"abc\". The fix preserves that algorithm as osa_distance and adds unrestricted Damerau-Levenshtein using character-position tracking. Blocked: swapping in the parent function violates changed-line provenance because its body survives unchanged in osa_distance. Reversing the enclosing changes would remove OSA APIs required by unchanged tests and include doctests. No valid implementation-only verbatim reversal was established.",
+  "test": "tests::damerau_levenshtein_diff",
+  "package": null,
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
