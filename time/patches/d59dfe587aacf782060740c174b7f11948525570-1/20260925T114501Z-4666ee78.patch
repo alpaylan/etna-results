@@ -1,0 +1,22 @@
+diff --git a/src/duration.rs b/src/duration.rs
+index 01c42ed..6c77b69 100644
+--- a/src/duration.rs
++++ b/src/duration.rs
+@@ -609,10 +609,14 @@ impl Duration {
+     /// This feature is `const fn` when using rustc >= 1.52.
+     #[const_fn("1.52")]
+     pub const fn checked_div(self, rhs: i32) -> Option<Self> {
+-        let seconds = const_try_opt!(self.seconds.checked_div(rhs as i64));
++        if rhs == 0 {
++            return None;
++        }
++
++        let seconds = self.seconds / (rhs as i64);
+         let carry = self.seconds - seconds * (rhs as i64);
+-        let extra_nanos = const_try_opt!((carry * 1_000_000_000).checked_div(rhs as i64));
+-        let nanoseconds = const_try_opt!(self.nanoseconds.checked_div(rhs)) + (extra_nanos as i32);
++        let extra_nanos = carry * 1_000_000_000 / (rhs as i64);
++        let nanoseconds = self.nanoseconds / rhs + (extra_nanos as i32);
+ 
+         Some(Self::new_unchecked(seconds, nanoseconds))
+     }

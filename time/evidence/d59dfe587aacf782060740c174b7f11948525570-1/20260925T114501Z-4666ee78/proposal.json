@@ -1,0 +1,13 @@
+{
+  "commit": "d59dfe587aacf782060740c174b7f11948525570",
+  "parent": "740f64ad87712cd3c93701b1ea4b8f2d32b86db0",
+  "fixed_commit": "d59dfe587aacf782060740c174b7f11948525570",
+  "summary": "Duration::checked_div previously guarded only against division by zero. Duration::MIN.checked_div(-1) therefore attempted i64::MIN / -1 and panicked on overflow instead of returning None. The fix uses checked integer division and propagates None through const_try_opt!. The commit adds the detecting assertion to duration::checked_div. The proposed reversal restores only the original function implementation; both regions occur exactly once in their respective Git versions. No builds or tests were run.",
+  "test": "duration::checked_div",
+  "expected_failure": "attempt to divide with overflow",
+  "reversal": {
+    "path": "src/duration.rs",
+    "fixed_text": "    pub const fn checked_div(self, rhs: i32) -> Option<Self> {\n        let seconds = const_try_opt!(self.seconds.checked_div(rhs as i64));\n        let carry = self.seconds - seconds * (rhs as i64);\n        let extra_nanos = const_try_opt!((carry * 1_000_000_000).checked_div(rhs as i64));\n        let nanoseconds = const_try_opt!(self.nanoseconds.checked_div(rhs)) + (extra_nanos as i32);\n\n        Some(Self::new_unchecked(seconds, nanoseconds))\n    }\n",
+    "parent_text": "    pub const fn checked_div(self, rhs: i32) -> Option<Self> {\n        if rhs == 0 {\n            return None;\n        }\n\n        let seconds = self.seconds / (rhs as i64);\n        let carry = self.seconds - seconds * (rhs as i64);\n        let extra_nanos = carry * 1_000_000_000 / (rhs as i64);\n        let nanoseconds = self.nanoseconds / rhs + (extra_nanos as i32);\n\n        Some(Self::new_unchecked(seconds, nanoseconds))\n    }\n"
+  }
+}
