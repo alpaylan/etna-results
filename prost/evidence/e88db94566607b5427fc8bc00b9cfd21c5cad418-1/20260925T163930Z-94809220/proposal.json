@@ -1,0 +1,14 @@
+{
+  "commit": "e88db94566607b5427fc8bc00b9cfd21c5cad418",
+  "parent": "aac9ed1969f792e3f7bfed8b7f495476f95b2f38",
+  "fixed_commit": "e88db94566607b5427fc8bc00b9cfd21c5cad418",
+  "summary": "Packed fixed-width fields reported an encoded length that omitted the payload-length varint and incorrectly counted a key for empty fields. The fix includes the length prefix for nonempty fields and returns zero for empty fields. The check_repeated_floats test enabled by this commit exercises three packed floats: reversing this calculation should report 14 bytes while encoding 15, failing its length assertion. This is a source-based plan; no tests were run.",
+  "test": "check_repeated_floats",
+  "package": "proto",
+  "expected_failure": "assertion failed: `(left == right)`",
+  "reversal": {
+    "path": "src/encoding.rs",
+    "fixed_text": "         pub fn $encoded_len_packed(tag: u32, values: &Vec<$ty>) -> usize {\n             if values.is_empty() {\n                 0\n             } else {\n                 let len = $width * values.len();\n                 key_len(tag) + encoded_len_varint(len as u64) + len\n             }\n         }\n",
+    "parent_text": "         pub fn $encoded_len_packed(tag: u32, values: &Vec<$ty>) -> usize {\n             key_len(tag) + $width * values.len()\n         }\n"
+  }
+}
