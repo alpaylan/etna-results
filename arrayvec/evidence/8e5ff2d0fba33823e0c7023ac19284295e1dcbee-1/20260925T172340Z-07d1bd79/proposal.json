@@ -1,0 +1,14 @@
+{
+  "commit": "8e5ff2d0fba33823e0c7023ac19284295e1dcbee",
+  "parent": "d9222c0e61ecac7a896b82a54246bb4a038daa1d",
+  "fixed_commit": "8e5ff2d0fba33823e0c7023ac19284295e1dcbee",
+  "summary": "No valid functional-regression plan: the complete diff only renames capacity_left to remaining_capacity and updates callers, documentation, and tests. The calculation self.capacity() - self.len() is unchanged. The updated upstream test test_capacity_left in tests/tests.rs checks identical behavior. Reversing the rename while preserving tests would cause missing-method compilation errors, not a behavioral test failure. No detecting upstream test or functional implementation reversal was identified.",
+  "test": "",
+  "package": null,
+  "expected_failure": null,
+  "reversal": {
+    "path": "",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
