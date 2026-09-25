@@ -1,0 +1,14 @@
+{
+  "commit": "3b9a5811a1862e92d0f4c5d641c50839a3cc7b5f",
+  "parent": "65f01b7d20f2c2cecfc5c40305ce9adf0f782db6",
+  "fixed_commit": "3b9a5811a1862e92d0f4c5d641c50839a3cc7b5f",
+  "summary": "The parser rejected valid TOML datetimes with lowercase t or a space separator, and lowercase z offsets. The fix accepts those forms and constructs datetime values from parsed components. This reversal restores the uppercase-T-only separator restriction. Blocked on test selection: the checked-in Rust tests use uppercase T; the fix enables external compliance cases through the harness=false decoder_compliance target, but no full Rust test name demonstrating this regression could be established from the available source. No builds or tests were run.",
+  "test": "",
+  "package": null,
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/parser/datetime.rs",
+    "fixed_text": "                satisfy(is_time_delim),\n",
+    "parent_text": "                char('T'),\n"
+  }
+}
