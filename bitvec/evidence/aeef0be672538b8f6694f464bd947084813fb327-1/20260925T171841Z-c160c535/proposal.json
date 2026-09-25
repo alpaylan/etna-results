@@ -1,0 +1,14 @@
+{
+  "commit": "aeef0be672538b8f6694f464bd947084813fb327",
+  "parent": "9b755667afc7c7273aa84e6fc7a34e158b7e668b",
+  "fixed_commit": "aeef0be672538b8f6694f464bd947084813fb327",
+  "summary": "The historical octal formatter allocates floor(usize::BITS / 3) digit slots, causing an out-of-bounds panic when formatting a full-width storage element requiring another digit. The fix adds the remainder to the buffer width, providing sufficient capacity. Unlike the imported description, this revision uses indexed writes and does not silently truncate digits. Blocked: the fix adds no tests, and the existing slice::traits::format::octal test uses only u8 elements, which fit in the original buffer. No detecting upstream test was found at the fixed commit.",
+  "test": "",
+  "package": null,
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/slice/traits.rs",
+    "fixed_text": "\t\t\t\tconst D: usize = <usize as BitMemory>::BITS as usize / $blksz;\n\t\t\t\tconst M: usize = <usize as BitMemory>::BITS as usize % $blksz;\n\t\t\t\tconst W: usize = D + M;\n",
+    "parent_text": "\t\t\t\tconst W: usize = <usize as BitMemory>::BITS as usize / $blksz;\n"
+  }
+}
