@@ -1,0 +1,14 @@
+{
+  "commit": "c9487f49b1f061a91efeec8492721f15ad3a6929",
+  "parent": "43429ffb4b29343bfebc22e9bc94edec63d542fc",
+  "fixed_commit": "c9487f49b1f061a91efeec8492721f15ad3a6929",
+  "summary": "Blocked: this commit only modifies equal_combinations_2 in tests/quick.rs to work around a compiler ICE, replacing cloned-value tuple combinations with reference-based iteration. The library implementation is identical before and after the commit. No implementation-only reversal exists; reversing the change would modify the test and potentially cause a compilation failure, which cannot establish a functional regression under the confirmation gate.",
+  "test": "",
+  "package": null,
+  "expected_failure": null,
+  "reversal": {
+    "path": "",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
