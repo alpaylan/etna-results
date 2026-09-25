@@ -1,0 +1,15 @@
+diff --git a/regex-syntax/src/ast/parse.rs b/regex-syntax/src/ast/parse.rs
+index aead947..25ad49d 100644
+--- a/regex-syntax/src/ast/parse.rs
++++ b/regex-syntax/src/ast/parse.rs
+@@ -1799,8 +1799,8 @@ impl<'s, P: Borrow<Parser>> ParserI<'s, P> {
+         // after a `-` is a `-`, then `--` corresponds to a "difference"
+         // operation.
+         if self.char() != '-'
+-            || self.peek_space() == Some(']')
+-            || self.peek_space() == Some('-')
++            || self.peek() == Some(']')
++            || self.peek() == Some('-')
+         {
+             return prim1.into_class_set_item(self);
+         }

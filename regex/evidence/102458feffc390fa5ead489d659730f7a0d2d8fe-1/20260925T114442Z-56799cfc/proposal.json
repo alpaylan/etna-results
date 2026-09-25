@@ -1,0 +1,13 @@
+{
+  "commit": "102458feffc390fa5ead489d659730f7a0d2d8fe",
+  "parent": "3e370e4c6b2096f2e61cc083aa020a3a3e3f165b",
+  "fixed_commit": "102458feffc390fa5ead489d659730f7a0d2d8fe",
+  "summary": "In whitespace-insensitive mode, (?x)[ / - ] incorrectly fails to parse because lookahead sees the space after '-' instead of the closing bracket. The parser treats '-' as a range operator, consumes ']' as its endpoint, and reports an unclosed character class. The fix uses whitespace-aware lookahead so the trailing '-' is recognized as literal. Reversing the two lookahead calls restores the faulty behavior while preserving the regression test added by the fix. No tests were executed.",
+  "test": "ast::parse::tests::regression_455_trailing_dash_ignore_whitespace",
+  "expected_failure": "assertion failed: parser(\"(?x)[ / - ]\").parse().is_ok()",
+  "reversal": {
+    "path": "regex-syntax/src/ast/parse.rs",
+    "fixed_text": "        if self.char() != '-'\n            || self.peek_space() == Some(']')\n            || self.peek_space() == Some('-')\n        {\n            return prim1.into_class_set_item(self);\n        }\n",
+    "parent_text": "        if self.char() != '-'\n            || self.peek() == Some(']')\n            || self.peek() == Some('-')\n        {\n            return prim1.into_class_set_item(self);\n        }\n"
+  }
+}
