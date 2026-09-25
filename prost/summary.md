@@ -1,10 +1,10 @@
 # Cloud bug-mining prototype
 
-**blocked**: fixed_text does not occur exactly once at the fixed revision
+**blocked**: Proposal names no upstream test
 
 Upstream: https://github.com/tokio-rs/prost
 
-Candidate: baddf9828596bb7e2b908f5d4997542ebe59a7c3-1
+Candidate: b2ce9edbf3267d1dd2ce1533ac6eb1134e7eb783-1
 
 Provenance: verbatim
 

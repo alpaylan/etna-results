@@ -1,0 +1,14 @@
+{
+  "commit": "b2ce9edbf3267d1dd2ce1533ac6eb1134e7eb783",
+  "parent": "bb5a1fa388ed198ce96dde39796d314dffa8c162",
+  "fixed_commit": "b2ce9edbf3267d1dd2ce1533ac6eb1134e7eb783",
+  "summary": "Blocked: this fix repairs a compilation error from merged changes. append_oneof referenced an undefined fields variable and its obsolete tuple representation. The fix iterates oneof.fields and passes each field's descriptor to can_field_derive_copy. The existing tests/src/derive_copy.rs contains compile-time Copy trait checks, not runnable test functions; the fix only adds a dead_code allowance there. The verbatim reversal would prevent prost-build from compiling, so it cannot demonstrate a behavioral test failure under the confirmation gate. No builds or tests were run.",
+  "test": "",
+  "package": "tests",
+  "expected_failure": "error[E0425]: cannot find value `fields` in this scope",
+  "reversal": {
+    "path": "prost-build/src/code_generator.rs",
+    "fixed_text": "        let can_oneof_derive_copy = oneof.fields.iter().all(|field| {\n            self.message_graph\n                .can_field_derive_copy(fq_message_name, &field.descriptor)\n        });\n",
+    "parent_text": "        let can_oneof_derive_copy = fields.iter().map(|(field, _idx)| field).all(|field| {\n            self.message_graph\n                .can_field_derive_copy(fq_message_name, field)\n        });\n"
+  }
+}
