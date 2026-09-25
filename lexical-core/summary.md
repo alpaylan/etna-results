@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: fixed: no completed execution of the exact upstream test
+**blocked**: Proposal names no upstream test
 
 Upstream: https://github.com/Alexhuszagh/rust-lexical
 
-Candidate: e5295a17709cd3b1ab0bbf494228de690b780d40-1
+Candidate: cc3ba2757cfbfb7f0d0763b4ef3b40e4af361087-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 221 reachable from the saved tip.
+History coverage not yet recorded.
 
 Scope: one queued candidate; history coverage is partial.
