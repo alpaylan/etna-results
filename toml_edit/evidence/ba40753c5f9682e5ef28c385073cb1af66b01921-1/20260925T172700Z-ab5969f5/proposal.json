@@ -1,0 +1,14 @@
+{
+  "commit": "ba40753c5f9682e5ef28c385073cb1af66b01921",
+  "parent": "091cc1e16fe6ec4313762192e7e5da372a5ff2fa",
+  "fixed_commit": "ba40753c5f9682e5ef28c385073cb1af66b01921",
+  "summary": "Float exponents incorrectly used the integer parser, which consumes only the first zero of a zero-prefixed exponent and leaves trailing digits unparsed. The fix permits an optional sign followed by zero-prefixable digits. A verbatim reversal is available, but test selection is blocked: the fix enables valid/float/zero.toml through the custom decoder_compliance harness, without a corresponding named Rust test. Existing named float tests do not exercise zero-prefixed exponents. No builds or tests were run.",
+  "test": "",
+  "package": null,
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/parser/numbers.rs",
+    "fixed_text": "parse!(exp() -> &'a str, {\n    recognize((\n        one_of(\"eE\".chars()),\n        optional(one_of(\"+-\".chars())),\n        parse_zero_prefixable_int(),\n    ))\n});\n",
+    "parent_text": "parse!(exp() -> &'a str, {\n    recognize((\n        one_of(\"eE\".chars()),\n        parse_integer(),\n    ))\n});\n"
+  }
+}
