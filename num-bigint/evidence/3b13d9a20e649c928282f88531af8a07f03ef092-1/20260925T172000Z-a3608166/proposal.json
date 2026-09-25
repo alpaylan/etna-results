@@ -1,0 +1,14 @@
+{
+  "commit": "3b13d9a20e649c928282f88531af8a07f03ef092",
+  "parent": "573681d27f17135cf428497e4f795de336d90cf1",
+  "fixed_commit": "3b13d9a20e649c928282f88531af8a07f03ef092",
+  "summary": "Signed scalar assignment promoted negative isize operands through unsigned UsizePromotion, turning them into large positive values and producing incorrect arithmetic. Using IsizePromotion preserves their sign. The implementation reversal is exact, but no detecting upstream test was found at this commit: scalar tests exercise non-assignment operators, assignment tests use BigInt operands, and the CI primitive QuickCheck tests convert operands to BigInt. The fix adds no tests. Blocked pending an existing detecting test; no builds or tests were run.",
+  "test": "",
+  "package": null,
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/macros.rs",
+    "fixed_text": "macro_rules! promote_signed_scalars_assign {\n    (impl $imp:ident for $res:ty, $method:ident) => {\n        promote_scalars_assign!(impl $imp<i32> for $res, $method, i8, i16);\n        promote_scalars_assign!(impl $imp<IsizePromotion> for $res, $method, isize);\n    }\n}\n",
+    "parent_text": "macro_rules! promote_signed_scalars_assign {\n    (impl $imp:ident for $res:ty, $method:ident) => {\n        promote_scalars_assign!(impl $imp<i32> for $res, $method, i8, i16);\n        promote_scalars_assign!(impl $imp<UsizePromotion> for $res, $method, isize);\n    }\n}\n"
+  }
+}
