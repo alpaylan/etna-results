@@ -1,0 +1,13 @@
+{
+  "commit": "4fb4eb3a624032aff7b138ae1c6dc56acf928d0c",
+  "parent": "3b9a5811a1862e92d0f4c5d641c50839a3cc7b5f",
+  "fixed_commit": "4fb4eb3a624032aff7b138ae1c6dc56acf928d0c",
+  "summary": "Blocked: the commit replaces exposed chrono types with datetime wrappers, supplies explicit RFC-3339 formatting, and flattens DateTime into Value variants. Previously, datetime rendering delegated to chrono's default Display. The formatting correction is entangled with the API refactor: src/datetime.rs is newly added and has no corresponding parent region, while restoring the old datetime implementation elsewhere references removed types and variants. Existing parser tests preserve input representations and were updated for the new API; the added formatting doctests require the new wrappers. No valid same-file verbatim reversal and unchanged detecting test pair was established. No builds or tests were run.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
