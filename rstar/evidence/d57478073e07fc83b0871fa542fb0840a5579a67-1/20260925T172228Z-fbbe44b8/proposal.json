@@ -1,0 +1,14 @@
+{
+  "commit": "d57478073e07fc83b0871fa542fb0840a5579a67",
+  "parent": "f93071fc3e3e9b6ef7faf282c0fc992638346a53",
+  "fixed_commit": "d57478073e07fc83b0871fa542fb0840a5579a67",
+  "summary": "OMT bulk loading rounded the per-axis cluster count upward, producing too many child clusters and oversized internal nodes. The fix uses floor instead of ceil to correct that overpartitioning. The implementation reversal is exact and unique, but no detecting upstream test was found at this revision. The fix adds no tests; existing bulk-loading tests check contents, size, or allocation capacity, and test_bulk_load_crash explicitly disables maximum node-size checks. Leave this candidate blocked pending a detecting upstream test.",
+  "test": "",
+  "package": "rstar",
+  "expected_failure": null,
+  "reversal": {
+    "path": "rstar/src/algorithm/bulk_load/cluster_group_iterator.rs",
+    "fixed_text": "    number_of_clusters.powf(1. / max_dimension).floor() as usize\n",
+    "parent_text": "    number_of_clusters.powf(1. / max_dimension).ceil() as usize\n"
+  }
+}
