@@ -1,0 +1,14 @@
+{
+  "commit": "1209e823b633c7ac73ae686896382b7207a907ac",
+  "parent": "7b88dc7d5e213a4d8095f4fed64d8f4732968fef",
+  "fixed_commit": "1209e823b633c7ac73ae686896382b7207a907ac",
+  "summary": "With debug assertions disabled, placing size_table.pop_front() inside debug_assert_eq! skips the removal, leaving stale cumulative sizes that cause incorrect indexed reads or bounds panics. The fix performs the removal unconditionally. The existing split property test exercises left-chunk removal through split_off and checks the resulting vectors through indexed iteration. Run with debug assertions disabled, such as cargo test --release. This is a proposed detection path; no tests were executed.",
+  "test": "vector::test::split",
+  "package": null,
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/nodes/rrb.rs",
+    "fixed_text": "                        let first = size_table.pop_front();\n                        debug_assert_eq!(value, first);\n",
+    "parent_text": "                        debug_assert_eq!(value, size_table.pop_front());\n"
+  }
+}
