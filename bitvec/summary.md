@@ -4,7 +4,7 @@
 
 Upstream: https://github.com/ferrilab/bitvec
 
-Candidate: aeef0be672538b8f6694f464bd947084813fb327-1
+Candidate: 8e48751508526cbe0c656f4dffa60cf4e6e4bfb0-1
 
 Provenance: verbatim
 
