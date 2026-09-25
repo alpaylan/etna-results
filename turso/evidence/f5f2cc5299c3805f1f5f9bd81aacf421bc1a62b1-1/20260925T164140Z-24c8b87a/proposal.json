@@ -1,0 +1,14 @@
+{
+  "commit": "f5f2cc5299c3805f1f5f9bd81aacf421bc1a62b1",
+  "parent": "bd9e155135eaac5f78af7c25721ac5886c06662a",
+  "fixed_commit": "f5f2cc5299c3805f1f5f9bd81aacf421bc1a62b1",
+  "summary": "Readers starting after a full WAL checkpoint held only a process-local database-file read lock and were invisible to other processes. Another process could checkpoint newer pages into the database file, violating the reader's snapshot. The fix registers these readers in a shared slot per process and limits checkpoint backfill while they remain active, without blocking WAL restarts. This reversal removes the database-file reader registration. The selected test was added by the fix and checks cross-process reader visibility and snapshot protection. No tests were executed.",
+  "test": "multiprocess_tests::subprocess_db_file_reader_stops_checkpoint_in_other_process",
+  "package": "turso_core",
+  "expected_failure": "a reader that bypasses the WAL must still be visible to other processes",
+  "reversal": {
+    "path": "core/storage/wal.rs",
+    "fixed_text": "        if snapshot.max_frame == snapshot.nbackfills {\n            if !read_locks[0].read() {\n                return None;\n            }\n            if self.load_snapshot() != snapshot {\n                read_locks[0].unlock();\n                return None;\n            }\n            if !self.publish_shared_reader(read_locks, snapshot, 0) {\n                return None;\n            }\n            return Some(ReadGuardKind::DbFile);\n        }\n",
+    "parent_text": "        if snapshot.max_frame == snapshot.nbackfills {\n            if !read_locks[0].read() {\n                return None;\n            }\n            if self.load_snapshot() != snapshot {\n                read_locks[0].unlock();\n                return None;\n            }\n            return Some(ReadGuardKind::DbFile);\n        }\n"
+  }
+}
