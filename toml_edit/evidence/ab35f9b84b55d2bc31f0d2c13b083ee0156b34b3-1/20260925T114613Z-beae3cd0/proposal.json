@@ -1,0 +1,13 @@
+{
+  "commit": "ab35f9b84b55d2bc31f0d2c13b083ee0156b34b3",
+  "parent": "f89260ed49fd20e67f90ab56941de49011e78b01",
+  "fixed_commit": "ab35f9b84b55d2bc31f0d2c13b083ee0156b34b3",
+  "summary": "Programmatically constructed NaN floats serialize as Rust's uppercase \"NaN\", which is invalid TOML. The fix emits lowercase \"nan\" while preserving surrounding decoration. The implementation reversal is exact and unique. Test selection is blocked: the fix enables valid/float/inf-and-nan.toml through tests/encoder_compliance.rs, a harness=false target using toml-test-harness 0.3. That dependency's source and fixtures are unavailable locally, so the full registered test name cannot be established. Existing NaN unit tests exercise parsing, not serialization. No builds or tests were run.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/encode.rs",
+    "fixed_text": "            Value::Float(ref repr) => {\n                if repr.value().is_nan() {\n                    write!(f, \"{}\", repr.decor.display(&\"nan\", DEFAULT_VALUE_DECOR))\n                } else {\n                    write!(f, \"{}\", repr)\n                }\n            }\n",
+    "parent_text": "            Value::Float(ref repr) => write!(f, \"{}\", repr),\n"
+  }
+}
