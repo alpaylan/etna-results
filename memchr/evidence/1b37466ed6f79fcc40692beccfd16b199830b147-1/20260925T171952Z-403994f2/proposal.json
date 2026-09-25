@@ -1,0 +1,14 @@
+{
+  "commit": "1b37466ed6f79fcc40692beccfd16b199830b147",
+  "parent": "619a813dbd9960c4f7a9fda95cb255906f046c29",
+  "fixed_commit": "1b37466ed6f79fcc40692beccfd16b199830b147",
+  "summary": "Blocked: the imported description does not match this commit. Both revisions call memrchr; the implementation change only alters reverse-position bookkeeping. At the fixed revision, rposition starts at zero and never becomes positive, so next_back returns position + index + 1, exactly as the parent does via assignment to rposition. By source inspection, the added tests::memrchr_iter test yields Some(15), Some(10), Some(5), None under both implementations and does not detect a regression. No detecting upstream test was found. No builds or tests were run.",
+  "test": "",
+  "package": null,
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "                if self.rposition > 0{\n                    //memrchr has been used once already.\n                    self.rposition = self.rposition - index;\n                    return Some(self.rposition);\n                }else{\n                    return Some(self.position + index+1);\n                }\n",
+    "parent_text": "                self.rposition = self.position + index + 1;\n                Some(self.rposition)\n"
+  }
+}
