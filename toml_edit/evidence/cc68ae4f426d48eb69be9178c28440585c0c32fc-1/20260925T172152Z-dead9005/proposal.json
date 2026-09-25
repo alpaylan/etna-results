@@ -1,0 +1,14 @@
+{
+  "commit": "cc68ae4f426d48eb69be9178c28440585c0c32fc",
+  "parent": "8c8ef44ea1264f6e3645bfe32aac6bc943b31fa2",
+  "fixed_commit": "cc68ae4f426d48eb69be9178c28440585c0c32fc",
+  "summary": "An unquoted ')' stops lex_atom without consuming input, causing repeated empty tokens and nontermination. Removing ')' from TOKEN_START lets the lexer consume it. The one-line verbatim reversal is established. However, the fix adds deb.toml regression fixtures exercised by custom decoder_compliance targets with harness = false, rather than a module-qualified Rust test function. No suitable named Rust test was established, so test is empty and this plan remains blocked. No tests were executed.",
+  "test": "",
+  "package": "toml",
+  "expected_failure": null,
+  "reversal": {
+    "path": "crates/toml_parser/src/lexer/mod.rs",
+    "fixed_text": "    const TOKEN_START: &[u8] = b\".=,[]{} \\t#\\r\\n'\\\"\";\n",
+    "parent_text": "    const TOKEN_START: &[u8] = b\".=,[]{} \\t#\\r\\n)'\\\"\";\n"
+  }
+}

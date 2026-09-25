@@ -1,10 +1,10 @@
 # Cloud bug-mining prototype
 
-**blocked**: Proposal fields do not match the supported schema
+**blocked**: Proposal names no upstream test
 
 Upstream: https://github.com/toml-rs/toml
 
-Candidate: c007620241d3b0b0c1f1b4be94e07886c2c573c9-1
+Candidate: cc68ae4f426d48eb69be9178c28440585c0c32fc-1
 
 Provenance: verbatim
 
