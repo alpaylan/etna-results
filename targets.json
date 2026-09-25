@@ -1,282 +1,287 @@
 [
- {
-  "repo": "https://github.com/Alexhuszagh/rust-lexical",
-  "shard": "lexical-core",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/BurntSushi/aho-corasick",
-  "shard": "aho-corasick",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/BurntSushi/bstr",
-  "shard": "bstr",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/BurntSushi/fst",
-  "shard": "fst",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/BurntSushi/memchr",
-  "shard": "memchr",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/BurntSushi/rust-csv",
-  "shard": "rust-csv",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/KokaKiwi/rust-hex",
-  "shard": "hex",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/Lokathor/tinyvec",
-  "shard": "tinyvec",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/PSeitz/lz4_flex",
-  "shard": "lz4_flex",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/ParkMyCar/compact_str",
-  "shard": "compact_str",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/RoaringBitmap/roaring-rs",
-  "shard": "roaring-rs",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/VoidStarKat/half-rs",
-  "shard": "half",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/aldanor/fast-float-rust",
-  "shard": "fast-float",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/bluss/arrayvec",
-  "shard": "arrayvec",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/bodil/im-rs",
-  "shard": "im-rs",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/cessen/ropey",
-  "shard": "ropey",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/chronotope/chrono",
-  "shard": "chrono",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/dtolnay/ryu",
-  "shard": "ryu",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/dtolnay/semver",
-  "shard": "semver",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/ferrilab/bitvec",
-  "shard": "bitvec",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/georust/rstar",
-  "shard": "rstar",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/hsivonen/encoding_rs",
-  "shard": "encoding_rs",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/hyperium/mime",
-  "shard": "mime",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/indexmap-rs/indexmap",
-  "shard": "indexmap",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/jamesmunns/postcard",
-  "shard": "postcard",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/jeffparsons/rangemap",
-  "shard": "rangemap",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/jeromefroe/lru-rs",
-  "shard": "lru",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/marshallpierce/rust-base64",
-  "shard": "rust-base64",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/meilisearch/arroy",
-  "shard": "arroy",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/orlp/slotmap",
-  "shard": "slotmap",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/paupino/rust-decimal",
-  "shard": "rust-decimal",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/petgraph/petgraph",
-  "shard": "petgraph",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/rapidfuzz/strsim-rs",
-  "shard": "strsim",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/reem/rust-ordered-float",
-  "shard": "ordered-float",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/rust-bakery/nom",
-  "shard": "nom",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/rust-itertools/itertools",
-  "shard": "itertools",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/rust-lang/hashbrown",
-  "shard": "hashbrown",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/rust-lang/regex",
-  "shard": "regex",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/rust-num/num-bigint",
-  "shard": "num-bigint",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/rust-num/num-rational",
-  "shard": "num-rational",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/rusticstuff/simdutf8",
-  "shard": "simdutf8",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/seanmonstar/httparse",
-  "shard": "httparse",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/servo/rust-smallvec",
-  "shard": "smallvec",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/servo/rust-url",
-  "shard": "url",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/srijs/rust-crc32fast",
-  "shard": "crc32fast",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/sunshowers-code/buf-list",
-  "shard": "buf-list",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/tafia/quick-xml",
-  "shard": "quick-xml",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/time-rs/time",
-  "shard": "time",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/tkaitchuck/ahash",
-  "shard": "ahash",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/tokio-rs/bytes",
-  "shard": "bytes",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/tokio-rs/prost",
-  "shard": "prost",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/toml-rs/toml",
-  "shard": "toml_edit",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/unicode-rs/unicode-normalization",
-  "shard": "unicode-normalization",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/unicode-rs/unicode-segmentation",
-  "shard": "unicode-segmentation",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/uuid-rs/uuid",
-  "shard": "uuid",
-  "language": "rust"
- },
- {
-  "repo": "https://github.com/winnow-rs/winnow",
-  "shard": "winnow",
-  "language": "rust"
- }
+  {
+    "repo": "https://github.com/Alexhuszagh/rust-lexical",
+    "shard": "lexical-core",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/BurntSushi/aho-corasick",
+    "shard": "aho-corasick",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/BurntSushi/bstr",
+    "shard": "bstr",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/BurntSushi/fst",
+    "shard": "fst",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/BurntSushi/memchr",
+    "shard": "memchr",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/BurntSushi/rust-csv",
+    "shard": "rust-csv",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/KokaKiwi/rust-hex",
+    "shard": "hex",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/Lokathor/tinyvec",
+    "shard": "tinyvec",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/PSeitz/lz4_flex",
+    "shard": "lz4_flex",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/ParkMyCar/compact_str",
+    "shard": "compact_str",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/RoaringBitmap/roaring-rs",
+    "shard": "roaring-rs",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/VoidStarKat/half-rs",
+    "shard": "half",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/aldanor/fast-float-rust",
+    "shard": "fast-float",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/bluss/arrayvec",
+    "shard": "arrayvec",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/bodil/im-rs",
+    "shard": "im-rs",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/cessen/ropey",
+    "shard": "ropey",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/chronotope/chrono",
+    "shard": "chrono",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/dtolnay/ryu",
+    "shard": "ryu",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/dtolnay/semver",
+    "shard": "semver",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/ferrilab/bitvec",
+    "shard": "bitvec",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/georust/rstar",
+    "shard": "rstar",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/hsivonen/encoding_rs",
+    "shard": "encoding_rs",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/hyperium/mime",
+    "shard": "mime",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/indexmap-rs/indexmap",
+    "shard": "indexmap",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/jamesmunns/postcard",
+    "shard": "postcard",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/jeffparsons/rangemap",
+    "shard": "rangemap",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/jeromefroe/lru-rs",
+    "shard": "lru",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/marshallpierce/rust-base64",
+    "shard": "rust-base64",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/meilisearch/arroy",
+    "shard": "arroy",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/orlp/slotmap",
+    "shard": "slotmap",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/paupino/rust-decimal",
+    "shard": "rust-decimal",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/petgraph/petgraph",
+    "shard": "petgraph",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/rapidfuzz/strsim-rs",
+    "shard": "strsim",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/reem/rust-ordered-float",
+    "shard": "ordered-float",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/rust-bakery/nom",
+    "shard": "nom",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/rust-itertools/itertools",
+    "shard": "itertools",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/rust-lang/hashbrown",
+    "shard": "hashbrown",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/rust-lang/regex",
+    "shard": "regex",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/rust-num/num-bigint",
+    "shard": "num-bigint",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/rust-num/num-rational",
+    "shard": "num-rational",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/rusticstuff/simdutf8",
+    "shard": "simdutf8",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/seanmonstar/httparse",
+    "shard": "httparse",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/servo/rust-smallvec",
+    "shard": "smallvec",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/servo/rust-url",
+    "shard": "url",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/srijs/rust-crc32fast",
+    "shard": "crc32fast",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/sunshowers-code/buf-list",
+    "shard": "buf-list",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/tafia/quick-xml",
+    "shard": "quick-xml",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/time-rs/time",
+    "shard": "time",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/tkaitchuck/ahash",
+    "shard": "ahash",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/tokio-rs/bytes",
+    "shard": "bytes",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/tokio-rs/prost",
+    "shard": "prost",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/toml-rs/toml",
+    "shard": "toml_edit",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/unicode-rs/unicode-normalization",
+    "shard": "unicode-normalization",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/unicode-rs/unicode-segmentation",
+    "shard": "unicode-segmentation",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/uuid-rs/uuid",
+    "shard": "uuid",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/winnow-rs/winnow",
+    "shard": "winnow",
+    "language": "rust"
+  },
+  {
+    "repo": "https://github.com/tursodatabase/turso",
+    "shard": "turso",
+    "language": "rust"
+  }
 ]
