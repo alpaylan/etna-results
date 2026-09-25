@@ -1,0 +1,14 @@
+{
+  "commit": "4dd4a2725f165da8718ace604712545440875637",
+  "parent": "af017276cb0884823f51e1de75f95273c9a528f9",
+  "fixed_commit": "4dd4a2725f165da8718ace604712545440875637",
+  "summary": "Sync sent each request body as one Full<Bytes> frame, causing Windows IoSlice construction to panic when its length exceeded u32::MAX. The fix introduces ChunkedBody with zero-copy frames capped at 4 MiB and an exact size hint. Blocked: the added regression test directly constructs ChunkedBody, which does not exist in the parent. Removing that implementation verbatim prevents the unchanged test from compiling; restoring only the worker's Full<Bytes> usage leaves the tested ChunkedBody unchanged. Altering its frame-splitting logic would invent parent code. No valid verbatim reversal with a detecting unchanged test was established. The regression test belongs to package turso and requires its sync feature. No builds or tests were run.",
+  "test": "",
+  "package": "turso",
+  "expected_failure": null,
+  "reversal": {
+    "path": "bindings/rust/src/sync.rs",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
