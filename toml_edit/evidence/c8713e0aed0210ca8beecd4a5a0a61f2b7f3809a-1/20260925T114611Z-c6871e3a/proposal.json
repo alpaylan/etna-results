@@ -1,0 +1,13 @@
+{
+  "commit": "c8713e0aed0210ca8beecd4a5a0a61f2b7f3809a",
+  "parent": "d0f7e157c07b9fff057dd7f3add5b6fe5e3c4b99",
+  "fixed_commit": "c8713e0aed0210ca8beecd4a5a0a61f2b7f3809a",
+  "summary": "Float insertion emitted unnecessary scientific notation: 8.1415926 became 8.1415926e0. The fix uses decimal formatting, appends .0 to integral floats, explicitly formats signed zero, and preserves the sign of NaN. The existing tests::test_insert_values in tests/test_edit.rs was updated by this commit to expect key3 = 8.1415926 and should detect the implementation reversal. No builds or tests were run.",
+  "test": "tests::test_insert_values",
+  "expected_failure": "assertion failed: `(left == right)`; display diff showing expected `key3 = 8.1415926` versus actual `key3 = 8.1415926e0`.",
+  "reversal": {
+    "path": "src/value.rs",
+    "fixed_text": "        let repr = match (f.is_sign_negative(), f.is_nan(), f == 0.0) {\n            (true, true, _) => \"-nan\".to_owned(),\n            (false, true, _) => \"nan\".to_owned(),\n            (true, false, true) => \"-0.0\".to_owned(),\n            (false, false, true) => \"0.0\".to_owned(),\n            (_, false, false) => {\n                if f % 1.0 == 0.0 {\n                    format!(\"{}.0\", f)\n                } else {\n                    format!(\"{}\", f)\n                }\n            }\n        };\n",
+    "parent_text": "        let repr = if f.is_nan() {\n            \"nan\".to_owned()\n        } else {\n            format!(\"{:e}\", f)\n        };\n"
+  }
+}
