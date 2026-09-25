@@ -1,0 +1,29 @@
+Command: rustup run 1.55.0 cargo test --locked --offline -p toml_edit --lib value::tests::from_iter_formatting -- --exact --nocapture --test-threads=1
+Started: 2026-09-25T18:36:26.471582+00:00
+STDOUT:
+
+running 1 test
+test value::tests::from_iter_formatting ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 17 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling serde v1.0.130
+   Compiling bstr v0.2.16
+   Compiling serde_json v1.0.67
+   Compiling serde_cbor v0.11.2
+   Compiling toml v0.5.8
+   Compiling globset v0.4.8
+   Compiling csv v1.1.6
+   Compiling tinytemplate v1.2.1
+   Compiling toml-test v0.3.1
+   Compiling ignore v0.4.18
+   Compiling criterion v0.3.5
+   Compiling toml-test-harness v0.3.0
+   Compiling toml_edit v0.3.0 (/home/runner/work/_temp/upstream)
+    Finished test [optimized + debuginfo] target(s) in 1m 18s
+     Running unittests (/home/runner/work/_temp/build-20260925T183104Z-728df7d0/debug/deps/toml_edit-470fd1a78e234c29)
+
+Exit: 0
+Timed out: False

@@ -1,0 +1,14 @@
+{
+  "commit": "6c5de212f1e15de89ca7139367905e829b73e3df",
+  "expected_failure": "assertion failed: `(left == right)`\n  left: `\"[\\\"node\\\",\\\"mouth\\\"]\"`,\n right: `\"[\\\"node\\\", \\\"mouth\\\"]\"`",
+  "fixed_commit": "6c5de212f1e15de89ca7139367905e829b73e3df",
+  "package": "toml_edit",
+  "parent": "e6c4ce43f33036824cd60e5416df7f8d4eb3606a",
+  "reversal": {
+    "fixed_text": "impl std::fmt::Display for Array {\n    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {\n        crate::encode::Encode::encode(self, f, (\"\", \"\"))\n    }\n}\n\nimpl<V: Into<Value>> Extend<V> for Array {",
+    "parent_text": "impl<V: Into<Value>> Extend<V> for Array {",
+    "path": "src/array.rs"
+  },
+  "summary": "The bug was in the default formatting of arrays when converting to string. Before the fix, arrays were formatted without proper spacing between elements - they would render as `[\"node\",\"mouth\"]` instead of `[\"node\", \"mouth\"]`. The root cause was that the Display implementation for Array used `self.iter().join(\",\")` which concatenated elements with just a comma, ignoring the need for spaces after commas in TOML array formatting. The fix introduced a new `Encode` trait that allows passing context-specific default decorations, so arrays can now apply proper formatting (space after comma for all elements except the first, which uses no leading space).",
+  "test": "value::tests::from_iter_formatting"
+}

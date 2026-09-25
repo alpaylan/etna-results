@@ -1,0 +1,17 @@
+diff --git a/src/array.rs b/src/array.rs
+index 1eac0ec..c956ee0 100644
+--- a/src/array.rs
++++ b/src/array.rs
+@@ -304,12 +304,6 @@ impl Array {
+     }
+ }
+ 
+-impl std::fmt::Display for Array {
+-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+-        crate::encode::Encode::encode(self, f, ("", ""))
+-    }
+-}
+-
+ impl<V: Into<Value>> Extend<V> for Array {
+     fn extend<T: IntoIterator<Item = V>>(&mut self, iter: T) {
+         for value in iter {
