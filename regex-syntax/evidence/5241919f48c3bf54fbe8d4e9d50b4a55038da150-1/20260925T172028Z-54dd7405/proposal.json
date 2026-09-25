@@ -1,0 +1,14 @@
+{
+  "commit": "5241919f48c3bf54fbe8d4e9d50b4a55038da150",
+  "parent": "488fe569575ea06e1d8c5b9f98f95d9644e1efa8",
+  "fixed_commit": "5241919f48c3bf54fbe8d4e9d50b4a55038da150",
+  "summary": "The inverted space-to-tab range was normalized to U+0009–U+0020, making [[:blank:]] incorrectly match control characters U+000A–U+001F. The fix uses separate singleton ranges for tab and space. The fix-added regression test exists through the ismatch! macro in tests/regression.rs, included as module regression by tests/test_default.rs (integration target default, package regex), and expects no match against those control characters.",
+  "test": "regression::blank_matches_nothing_between_space_and_tab",
+  "package": "regex",
+  "expected_failure": "assertion failed: `(left == right)`\n  left: `false`,\n right: `true`",
+  "reversal": {
+    "path": "regex-syntax/src/hir/translate.rs",
+    "fixed_text": "        Blank => {\n            const X: T = &[('\\t', '\\t'), (' ', ' ')];\n            X\n        }\n",
+    "parent_text": "        Blank => {\n            const X: T = &[(' ', '\\t')];\n            X\n        }\n"
+  }
+}
