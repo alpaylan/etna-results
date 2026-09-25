@@ -1,0 +1,74 @@
+Command: rustup run 1.94.1 cargo check --locked --offline --tests -p toml
+Started: 2026-09-25T17:27:14.834036+00:00
+STDOUT:
+
+STDERR:
+warning: both `/home/runner/work/_temp/upstream/.cargo/config` and `/home/runner/work/_temp/upstream/.cargo/config.toml` exist. Using `/home/runner/work/_temp/upstream/.cargo/config`
+   Compiling serde_core v1.0.228
+   Compiling proc-macro2 v1.0.106
+   Compiling unicode-ident v1.0.24
+   Compiling quote v1.0.45
+    Checking utf8parse v0.2.2
+    Checking memchr v2.8.0
+    Checking is_terminal_polyfill v1.70.2
+    Checking colorchoice v1.0.5
+    Checking anstyle v1.0.14
+    Checking anstyle-query v1.1.5
+    Checking lexarg-parser v0.0.2
+   Compiling crossbeam-utils v0.8.21
+   Compiling autocfg v1.5.0
+    Checking lexarg-error v0.0.2
+   Compiling zmij v1.0.21
+    Checking lexarg v0.0.2
+   Compiling num-traits v0.2.19
+    Checking aho-corasick v1.1.4
+   Compiling syn v2.0.117
+    Checking anstyle-parse v1.0.0
+    Checking anstyle-parse v0.2.7
+   Compiling typeid v1.0.3
+   Compiling serde v1.0.228
+    Checking regex-syntax v0.8.10
+   Compiling serde_json v1.0.149
+    Checking json-write v0.0.2
+    Checking libtest-json v0.0.2
+    Checking anstream v0.6.21
+    Checking anstream v1.0.0
+   Compiling include_dir_macros v0.7.4
+    Checking crossbeam-epoch v0.9.18
+    Checking regex-automata v0.4.14
+    Checking libtest-lexarg v0.0.3
+    Checking bstr v1.12.1
+    Checking itoa v1.0.18
+    Checking same-file v1.0.6
+   Compiling erased-serde v0.4.10
+    Checking log v0.4.29
+    Checking walkdir v2.5.0
+    Checking chrono v0.4.44
+   Compiling serde_derive v1.0.228
+    Checking libtest2-harness v0.0.3
+    Checking globset v0.4.18
+    Checking include_dir v0.7.4
+    Checking crossbeam-deque v0.8.6
+    Checking snapbox-macros v1.1.0
+    Checking ryu v1.0.23
+    Checking winnow v1.0.1
+    Checking normalize-line-endings v0.3.0
+    Checking similar v2.7.0
+    Checking ignore v0.4.25
+    Checking toml_parser v1.1.2+spec-1.1.0 (/home/runner/work/_temp/upstream/crates/toml_parser)
+    Checking snapbox v1.2.1
+    Checking libtest2-mimic v0.0.4
+    Checking toml-test-data v2.5.0
+    Checking serde_spanned v1.1.1 (/home/runner/work/_temp/upstream/crates/serde_spanned)
+    Checking toml_datetime v1.1.1+spec-1.1.0 (/home/runner/work/_temp/upstream/crates/toml_datetime)
+    Checking toml_writer v1.1.1+spec-1.1.0 (/home/runner/work/_temp/upstream/crates/toml_writer)
+    Checking either v1.15.0
+    Checking serde-untagged v0.1.9
+    Checking toml v1.1.2+spec-1.1.0 (/home/runner/work/_temp/upstream/crates/toml)
+    Checking itertools v0.14.0
+    Checking toml-test v2.1.0
+    Checking toml-test-harness v1.5.0
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 10.79s
+
+Exit: 0
+Timed out: False

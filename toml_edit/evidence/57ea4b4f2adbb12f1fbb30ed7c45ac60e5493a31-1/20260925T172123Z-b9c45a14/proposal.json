@@ -1,0 +1,14 @@
+{
+  "commit": "57ea4b4f2adbb12f1fbb30ed7c45ac60e5493a31",
+  "parent": "92e8001d770da40ec88c86adb9ed5415965bc8a0",
+  "fixed_commit": "57ea4b4f2adbb12f1fbb30ed7c45ac60e5493a31",
+  "summary": "Malformed inline tables can exit parsing without a closing brace, leaving their span unset and causing downstream code to panic with 'all items have spans'. The fix tracks the latest event span and supplies a fallback outer span, allowing input \"={[]\\r].\" to return a parse error. The upstream fix updates the selected regression test to expect that error. The proposed reversal removes only the fallback. No builds or tests were run.",
+  "test": "invalid::inline_table_missing_key",
+  "package": "toml_edit",
+  "expected_failure": "all items have spans",
+  "reversal": {
+    "path": "crates/toml_edit/src/parser/inline_table.rs",
+    "fixed_text": "    }\n    if result.span.is_none() {\n        result.span = Some(open_event.span().start()..close_span.end());\n    }\n\n    Value::InlineTable(result)\n",
+    "parent_text": "    }\n\n    Value::InlineTable(result)\n"
+  }
+}
