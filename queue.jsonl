@@ -1970,3 +1970,8 @@
 {"claimed_at": "2026-09-25T16:02:08.018533+00:00", "claimed_by": "https://github.com/alpaylan/etna-ify/actions/runs/36158120764", "id": "19b7d7dc15f2180d41239b65cbe1348a34f34dfa-1", "status": "claimed"}
 {"claimed_at": "2026-09-25T16:02:08.018534+00:00", "claimed_by": "https://github.com/alpaylan/etna-ify/actions/runs/36158120764", "id": "a06bea30259be4b1650c513231b2d40223c68f83-1", "status": "claimed"}
 {"claimed_at": "2026-09-25T16:02:08.018536+00:00", "claimed_by": "https://github.com/alpaylan/etna-ify/actions/runs/36158120764", "id": "cbf4de6dbf13bfe2da73ac4734cb0dbc3fcaecc5-1", "status": "claimed"}
+{"enriched_at": "2026-09-25T16:02:54.475215+00:00", "id": "ceb3e075cc1a341e22feb21f531e70c03d73f838-1", "package": "turso_core", "resolver_toolchain": "1.90.0", "toolchain": "1.98.1", "toolchain_source": "era-inference"}
+{"enriched_at": "2026-09-25T16:02:56.346102+00:00", "id": "f5f2cc5299c3805f1f5f9bd81aacf421bc1a62b1-1", "package": "turso_core", "resolver_toolchain": "1.90.0", "toolchain": "1.98.1", "toolchain_source": "era-inference"}
+{"enriched_at": "2026-09-25T16:02:58.232536+00:00", "id": "4ee410a0791abff8bff157989e8494941b7c507a-1", "package": "turso_core", "resolver_toolchain": "1.90.0", "toolchain": "1.98.1", "toolchain_source": "era-inference"}
+{"enriched_at": "2026-09-25T16:02:59.043584+00:00", "id": "6ce282a3d8e551350bfd8d2f5c89949605c85969-1", "package": "turso_core", "resolver_toolchain": "1.90.0", "toolchain": "1.98.1", "toolchain_source": "era-inference"}
+{"enriched_at": "2026-09-25T16:03:00.283924+00:00", "id": "cb1c3c8653e8a1a96ec0159ef69d9906c71940aa-1", "package": "core_tester", "resolver_toolchain": "1.90.0", "toolchain": "1.98.1", "toolchain_source": "era-inference"}
