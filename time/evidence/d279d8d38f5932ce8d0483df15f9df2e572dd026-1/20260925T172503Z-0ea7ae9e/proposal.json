@@ -1,0 +1,14 @@
+{
+  "commit": "d279d8d38f5932ce8d0483df15f9df2e572dd026",
+  "parent": "f04a28feecd42e5e0657bdad2a4cf0f93c9ee749",
+  "fixed_commit": "d279d8d38f5932ce8d0483df15f9df2e572dd026",
+  "summary": "Blocked: this commit changes only a compile-fail test and its expected diagnostics. The test used offset!(+24), which had become valid; changing it to offset!(+26) restores invalid-hour diagnostic coverage. The implementation is identical before and after this commit and already rejects hours above 25. No implementation change exists to reverse without modifying tests.",
+  "test": "",
+  "package": "time",
+  "expected_failure": null,
+  "reversal": {
+    "path": "",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}

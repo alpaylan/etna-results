@@ -1,10 +1,10 @@
 # Cloud bug-mining prototype
 
-**blocked**: Proposal fields do not match the supported schema
+**blocked**: Proposal names no upstream test
 
 Upstream: https://github.com/time-rs/time
 
-Candidate: 496412f43f3b401919f0bd31bca557799fdbf22d-1
+Candidate: d279d8d38f5932ce8d0483df15f9df2e572dd026-1
 
 Provenance: verbatim
 
