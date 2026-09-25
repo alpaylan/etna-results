@@ -1,0 +1,14 @@
+{
+  "commit": "c007620241d3b0b0c1f1b4be94e07886c2c573c9",
+  "parent": "13d027fb84a9a8bc260a0d9edb7b31cb330e9696",
+  "fixed_commit": "c007620241d3b0b0c1f1b4be94e07886c2c573c9",
+  "summary": "Multiline strings ending with one or two content quotes were closed prematurely, leaving quotes unconsumed and causing valid TOML to be rejected. The fix recognizes those quotes together with the closing delimiter and appends them to the parsed value. This reversal isolates the multiline basic-string correction. Test selection is blocked: the fix enables valid/string/multiline-quotes.toml through the external toml-test-harness custom harness, but its full test name cannot be established from the available source. The repository's named Rust string tests do not exercise trailing content quotes.",
+  "test": "",
+  "package": null,
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/parser/strings.rs",
+    "fixed_text": "parse!(ml_basic_string() -> String, {\n    (\n        range(ML_BASIC_STRING_DELIM),\n        (\n            optional(newline()),\n            ml_basic_body(),\n        ).map(|t| t.1),\n        // Deviate from grammar by pulling mll_quotes into here so we can handle the confusion with\n        // it and the closing delim\n        choice((\n            attempt((\n                bytes(b\"\\\"\\\"\"), range(ML_BASIC_STRING_DELIM)\n            )).map(|_| Some(\"\\\"\\\"\")),\n            attempt((\n                bytes(b\"\\\"\"), range(ML_BASIC_STRING_DELIM)\n            )).map(|_| Some(\"\\\"\")),\n            range(ML_BASIC_STRING_DELIM).map(|_| None),\n        )),\n    ).map(|(_, mut b, q)| {\n        if let Some(q) = q {\n            b.push_str(q);\n        }\n        b\n    }).message(\"While parsing a Multiline Basic String\")\n});\n",
+    "parent_text": "parse!(ml_basic_string() -> String, {\n    between(\n        range(ML_BASIC_STRING_DELIM),\n        range(ML_BASIC_STRING_DELIM),\n        (\n            optional(newline()),\n            ml_basic_body(),\n        ).map(|t| t.1),\n    ).message(\"While parsing a Multiline Basic String\")\n});\n"
+  }
+}
