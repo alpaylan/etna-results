@@ -1,0 +1,14 @@
+{
+  "commit": "ab76b863b4b7bb21608a61e5fee2fc968501791c",
+  "parent": "116343fc1dccbc4fc622be5014b3f354bbfb25d8",
+  "fixed_commit": "ab76b863b4b7bb21608a61e5fee2fc968501791c",
+  "summary": "CaptureLocations::get delegates to Locations::pos, whose unchecked index doubling can overflow, causing a panic or an incorrect capture lookup. Checked arithmetic returns None on overflow. The verbatim reversal is valid and unique. Planning is blocked by runner support: the detecting tests added by this fix are doctests, including src/re_unicode.rs - re_unicode::CaptureLocations (line 914), which exercises index 9944060567225171988. The runner requires a named test function and supports only library/integration targets. No detecting named test function was found; test is empty to retain this obstacle. No builds or tests were run.",
+  "test": "",
+  "package": "regex",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/re_trait.rs",
+    "fixed_text": "        let (s, e) = (i.checked_mul(2)?, i.checked_mul(2)?.checked_add(1)?);\n",
+    "parent_text": "        let (s, e) = (i * 2, i * 2 + 1);\n"
+  }
+}

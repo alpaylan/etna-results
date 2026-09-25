@@ -1,10 +1,10 @@
 # Cloud bug-mining prototype
 
-**blocked**: Proposal fields do not match the supported schema
+**blocked**: Proposal names no upstream test
 
 Upstream: https://github.com/rust-lang/regex
 
-Candidate: d5e5da68e22e3fe3455500822af2a3fadf2dea59-1
+Candidate: ab76b863b4b7bb21608a61e5fee2fc968501791c-1
 
 Provenance: verbatim
 
