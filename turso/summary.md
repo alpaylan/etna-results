@@ -4,7 +4,7 @@
 
 Upstream: https://github.com/tursodatabase/turso
 
-Candidate: b3a2956290fff8d1b27a43e00394a7e39a847f59-1
+Candidate: f1800bb8ce65515bbc39ff0968285941a43ceca8-1
 
 Provenance: verbatim
 

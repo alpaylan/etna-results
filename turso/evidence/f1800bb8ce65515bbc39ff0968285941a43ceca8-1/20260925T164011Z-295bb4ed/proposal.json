@@ -1,0 +1,14 @@
+{
+  "commit": "f1800bb8ce65515bbc39ff0968285941a43ceca8",
+  "parent": "22a0a0f6e05f7e2c8cca9c7e6150a05bc5ac32db",
+  "fixed_commit": "f1800bb8ce65515bbc39ff0968285941a43ceca8",
+  "summary": "The insertion free-space check counts the raw payload length, but allocation reserves at least 4 bytes per cell. A 3-byte cell therefore passes the check with 5 free bytes despite requiring 6 bytes including its pointer, causing cell content to overlap the pointer array. The fix checks the minimum allocation size so the cell takes the overflow path. This reversal isolates that correction; the selected unit test was added by the fix. No tests were executed.",
+  "test": "storage::btree::tests::test_tiny_cell_insert_must_not_overlap_cell_pointer_array",
+  "package": "turso_core",
+  "expected_failure": "cell content area overlaps cell pointer array",
+  "reversal": {
+    "path": "core/storage/btree.rs",
+    "fixed_text": "        // otherwise, we need to check if we have enough space.\n        // allocate_cell_space() never allocates less than MINIMUM_CELL_SIZE\n        // bytes, so a smaller payload must reserve that much or the cell\n        // content area slides into the cell pointer array.\n        payload.len().max(MINIMUM_CELL_SIZE) + CELL_PTR_SIZE_BYTES <= free\n",
+    "parent_text": "        // otherwise, we need to check if we have enough space\n        payload.len() + CELL_PTR_SIZE_BYTES <= free\n"
+  }
+}
