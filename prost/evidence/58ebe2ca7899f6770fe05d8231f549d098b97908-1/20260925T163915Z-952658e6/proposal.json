@@ -1,0 +1,14 @@
+{
+  "commit": "58ebe2ca7899f6770fe05d8231f549d098b97908",
+  "parent": "24f3940320df518c5e0256b6138ba4d60636f6cd",
+  "fixed_commit": "58ebe2ca7899f6770fe05d8231f549d098b97908",
+  "summary": "The generator emitted protobuf message and enum names without UpperCamelCase conversion and preserved unconverted type references. The fix normalizes declarations and references consistently. This reversal restores unconverted message declarations, producing Foo_barBaz and fuzz_buster instead of FooBarBaz and FuzzBuster. The regression test added by the fix references the corrected names. The reversal is expected to prevent its compilation, so it cannot satisfy the confirmation gate requiring an executed test failure. No builds or tests were run.",
+  "test": "tests::test_ident_conversions",
+  "package": "tests",
+  "expected_failure": "cannot find type `FooBarBaz`",
+  "reversal": {
+    "path": "prost-build/src/code_generator.rs",
+    "fixed_text": "        self.buf.push_str(&to_upper_camel(&message_name));\n",
+    "parent_text": "        self.buf.push_str(&message_name);\n"
+  }
+}
