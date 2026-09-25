@@ -1,0 +1,14 @@
+{
+  "commit": "c71ea2344fd4a728263f33d66a9708d93c52dc48",
+  "parent": "79c83a4a1aaffb3be742cbd7817ebdbe80ef656b",
+  "fixed_commit": "c71ea2344fd4a728263f33d66a9708d93c52dc48",
+  "summary": "BitSlice::split_at_mut incorrectly rejects mid == self.len(), including splitting an empty slice at zero. The fix makes the bounds check inclusive. The fix adds a detecting doctest in src/slice/api.rs, but prototype/mine.py only supports named unit/integration tests and rejects doctest names. No detecting unit/integration test was found; test is empty to retain a blocked result. The implementation reversal is exact and unique. No tests were run.",
+  "test": "",
+  "package": null,
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/slice/api.rs",
+    "fixed_text": "\tpub fn split_at_mut(\n\t\t&mut self,\n\t\tmid: usize,\n\t) -> (&mut BitSlice<O, T::Alias>, &mut BitSlice<O, T::Alias>) {\n\t\tself.assert_in_bounds(mid, 0..=self.len());\n\t\tunsafe { self.split_at_unchecked_mut(mid) }\n\t}\n",
+    "parent_text": "\tpub fn split_at_mut(\n\t\t&mut self,\n\t\tmid: usize,\n\t) -> (&mut BitSlice<O, T::Alias>, &mut BitSlice<O, T::Alias>) {\n\t\tself.assert_in_bounds(mid, 0..self.len());\n\t\tunsafe { self.split_at_unchecked_mut(mid) }\n\t}\n"
+  }
+}
