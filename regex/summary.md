@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: fixed: no completed execution of the exact upstream test
+**blocked**: Proposal fields do not match the supported schema
 
 Upstream: https://github.com/rust-lang/regex
 
-Candidate: ae70b41d4f46641dbc45c7a4f87954aea356283e-1
+Candidate: e8e95bb9a1acdcf76813e870869951771848d132-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 1129 reachable from the saved tip.
+History coverage not yet recorded.
 
 Scope: one queued candidate; history coverage is partial.

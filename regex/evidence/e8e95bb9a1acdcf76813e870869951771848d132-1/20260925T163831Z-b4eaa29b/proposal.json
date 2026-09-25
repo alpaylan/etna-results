@@ -1,0 +1,14 @@
+{
+  "commit": "e8e95bb9a1acdcf76813e870869951771848d132",
+  "parent": "6fe95dda00d1b6e020d6a04b34555d8c61f5b770",
+  "fixed_commit": "e8e95bb9a1acdcf76813e870869951771848d132",
+  "summary": "Tuned Boyer-Moore search panics with debug assertions enabled when the haystack is shorter than its literal pattern. The fix returns None for this valid no-match case. The added regression::literal_panic test checks that matching typename type\\-parameter\\-\\d+\\-\\d+::.+ against \"test\" returns false. Both reversal regions occur exactly once, and replacing the fixed region restores the parent implementation file exactly. Tests were not run.",
+  "test": "regression::literal_panic",
+  "package": "regex",
+  "expected_failure": "assertion failed: haystack.len() >= self.pattern.len()",
+  "reversal": {
+    "path": "src/literals.rs",
+    "fixed_text": "        if haystack.len() < self.pattern.len() {\n            return None;\n        }\n",
+    "parent_text": "        debug_assert!(haystack.len() >= self.pattern.len());\n"
+  }
+}
