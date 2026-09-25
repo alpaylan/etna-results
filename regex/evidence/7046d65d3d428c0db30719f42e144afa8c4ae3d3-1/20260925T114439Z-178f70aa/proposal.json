@@ -1,0 +1,13 @@
+{
+  "commit": "7046d65d3d428c0db30719f42e144afa8c4ae3d3",
+  "parent": "d19d1aefc441d83daf9fb002da63db0a14f4ff68",
+  "fixed_commit": "7046d65d3d428c0db30719f42e144afa8c4ae3d3",
+  "summary": "Anchor checks treated failed UTF-8 decoding as the beginning or end of the haystack, allowing spurious ^/$ matches beside invalid bytes. The fix checks actual byte positions while retaining newline handling. This reversal restores the original ByteInput anchor checks. The fix-added bytes::invalidutf8_anchor1 test expects only (0, 0) and checks both find_iter and captures_iter; it is included in the default-bytes, nfa-bytes, and backtrack-bytes targets. Both source regions occur exactly once. No tests were executed.",
+  "test": "bytes::invalidutf8_anchor1",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/input.rs",
+    "fixed_text": "    fn next_char(&self, at: InputAt) -> Char {\n        decode_utf8(&self[at.pos()..]).map(|(c, _)| c).into()\n    }\n\n    fn previous_char(&self, at: InputAt) -> Char {\n        decode_last_utf8(&self[..at.pos()]).map(|(c, _)| c).into()\n    }\n\n    fn is_empty_match(&self, at: InputAt, empty: &InstEmptyLook) -> bool {\n        use prog::EmptyLook::*;\n        match empty.look {\n            StartLine => {\n                let c = self.previous_char(at);\n                at.pos() == 0 || c == '\\n'\n            }\n            EndLine => {\n                let c = self.next_char(at);\n                at.pos() == self.len() || c == '\\n'\n            }\n            StartText => at.pos() == 0,\n            EndText => at.pos() == self.len(),\n",
+    "parent_text": "    fn next_char(&self, at: InputAt) -> Char {\n        decode_utf8(&self[at.pos()..]).map(|(c, _)| c).into()\n    }\n\n    fn previous_char(&self, at: InputAt) -> Char {\n        decode_last_utf8(&self[..at.pos()]).map(|(c, _)| c).into()\n    }\n\n    fn is_empty_match(&self, at: InputAt, empty: &InstEmptyLook) -> bool {\n        use prog::EmptyLook::*;\n        match empty.look {\n            StartLine => {\n                let c = self.previous_char(at);\n                c.is_none() || c == '\\n'\n            }\n            EndLine => {\n                let c = self.next_char(at);\n                c.is_none() || c == '\\n'\n            }\n            StartText => self.previous_char(at).is_none(),\n            EndText => self.next_char(at).is_none(),\n"
+  }
+}

@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: fixed: no completed execution of the exact upstream test
+**blocked**: Selected test is not present at the fixed revision: bytes::invalidutf8_anchor1
 
 Upstream: https://github.com/rust-lang/regex
 
-Candidate: 64ad0b618e043b791ed5385dd5504a436da1ddae-1
+Candidate: 7046d65d3d428c0db30719f42e144afa8c4ae3d3-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 1621 reachable from the saved tip.
+History coverage not yet recorded.
 
 Scope: one queued candidate; history coverage is partial.
