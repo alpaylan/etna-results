@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: No crates.io-index snapshot covers 2026-09-24
+**blocked**: Proposal names no upstream test
 
 Upstream: https://github.com/tursodatabase/turso
 
-Candidate: 6ce282a3d8e551350bfd8d2f5c89949605c85969-1
+Candidate: 66f21aec298af7150d8ba9fed6e460462d5de51a-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 20539 reachable from the saved tip.
+History coverage not yet recorded.
 
 Scope: one queued candidate; history coverage is partial.

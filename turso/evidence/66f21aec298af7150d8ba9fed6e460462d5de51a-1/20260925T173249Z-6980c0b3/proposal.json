@@ -1,0 +1,14 @@
+{
+  "commit": "66f21aec298af7150d8ba9fed6e460462d5de51a",
+  "parent": "564e95dc6e4a4100790283759a910942f914c745",
+  "fixed_commit": "66f21aec298af7150d8ba9fed6e460462d5de51a",
+  "summary": "A failed captured write leaves a stale CDC transaction ID after rollback, allowing a subsequent empty COMMIT to emit a spurious CDC record and historically panic without an active MVCC transaction. The fix resets the ID on transaction rollback, establishes a transaction before CDC commit-record writes, and rejects OpenWrite without an MVCC transaction. The exact reversal below removes the rollback reset. Blocked: the added test, functions::test_cdc::test_cdc_mvcc_failed_insert_then_empty_commit, performs an intervening SELECT whose successful autocommit halt resets the stale ID, masking this reversal. No other detecting upstream Rust test was established. No builds or tests were run.",
+  "test": "",
+  "package": "core_tester",
+  "expected_failure": null,
+  "reversal": {
+    "path": "core/vdbe/mod.rs",
+    "fixed_text": "    fn rollback_current_txn(&self, pager: &Arc<Pager>) {\n        self.connection.rollback_current_txn_state(pager, true);\n        self.connection.set_cdc_transaction_id(-1);\n    }\n",
+    "parent_text": "    fn rollback_current_txn(&self, pager: &Arc<Pager>) {\n        self.connection.rollback_current_txn_state(pager, true);\n    }\n"
+  }
+}
