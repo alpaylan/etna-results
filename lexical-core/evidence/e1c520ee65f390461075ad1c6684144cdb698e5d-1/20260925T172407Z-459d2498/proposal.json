@@ -1,0 +1,14 @@
+{
+  "commit": "e1c520ee65f390461075ad1c6684144cdb698e5d",
+  "parent": "554558528c38a864a59ee929508fb08077f783ce",
+  "fixed_commit": "e1c520ee65f390461075ad1c6684144cdb698e5d",
+  "summary": "Blocked: this commit corrects expected mantissa/exponent values in atof::algorithm::correct::tests::parse_float_test, adds integer conversion proptests and test dependencies, and enables benchmark runs. The parsing and integer conversion implementations are identical to the parent. No implementation fix can be reversed to reproduce a functional regression while preserving upstream tests.",
+  "test": "",
+  "package": "lexical-core",
+  "expected_failure": null,
+  "reversal": {
+    "path": "",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
