@@ -1,0 +1,14 @@
+{
+  "commit": "77eea550589abc2d2f5f52c58fd2909b09f8fa29",
+  "parent": "0c55a070d3d95241c3caafda667de489bef7b109",
+  "fixed_commit": "77eea550589abc2d2f5f52c58fd2909b09f8fa29",
+  "summary": "The generator skipped group fields in oneof enums, omitting their variants. The fix removes that skip and adds recursive-group boxing. This reversal restores only the skip. The newly added tests::test_group_oneof references the omitted G variant, so the buggy target is expected to fail compilation before executing tests; this would block confirmation under the reproduction gate. No builds or tests were run.",
+  "test": "tests::test_group_oneof",
+  "package": "tests",
+  "expected_failure": "no variant or associated item named `G` found for enum `oneof_group::Field`",
+  "reversal": {
+    "path": "prost-build/src/code_generator.rs",
+    "fixed_text": "        for (field, idx) in fields {\n            let type_ = field.r#type();\n",
+    "parent_text": "        for (field, idx) in fields {\n            // TODO(danburkert/prost#19): support groups.\n            let type_ = field.r#type();\n            if type_ == Type::Group {\n                continue;\n            }\n"
+  }
+}

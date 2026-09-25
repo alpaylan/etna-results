@@ -1,0 +1,82 @@
+Command: rustup run 1.34.2 cargo check --locked --tests
+Started: 2026-09-25T17:27:47.742067+00:00
+STDOUT:
+
+STDERR:
+   Compiling openssl-sys v0.9.47
+   Compiling rayon v1.0.3
+    Checking clap v2.33.0
+    Checking num-traits v0.2.6
+error: failed to run custom build command for `openssl-sys v0.9.47`
+process didn't exit successfully: `/home/runner/work/_temp/build-20260925T172657Z-47e4f021/debug/build/openssl-sys-91bfd3d9bfaa5271/build-script-main` (exit code: 101)
+--- stdout
+cargo:rustc-cfg=const_fn
+cargo:rerun-if-env-changed=X86_64_UNKNOWN_LINUX_GNU_OPENSSL_LIB_DIR
+X86_64_UNKNOWN_LINUX_GNU_OPENSSL_LIB_DIR unset
+cargo:rerun-if-env-changed=OPENSSL_LIB_DIR
+OPENSSL_LIB_DIR unset
+cargo:rerun-if-env-changed=X86_64_UNKNOWN_LINUX_GNU_OPENSSL_INCLUDE_DIR
+X86_64_UNKNOWN_LINUX_GNU_OPENSSL_INCLUDE_DIR unset
+cargo:rerun-if-env-changed=OPENSSL_INCLUDE_DIR
+OPENSSL_INCLUDE_DIR unset
+cargo:rerun-if-env-changed=X86_64_UNKNOWN_LINUX_GNU_OPENSSL_DIR
+X86_64_UNKNOWN_LINUX_GNU_OPENSSL_DIR unset
+cargo:rerun-if-env-changed=OPENSSL_DIR
+OPENSSL_DIR unset
+cargo:rustc-link-lib=ssl
+cargo:rustc-link-lib=crypto
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-unknown-linux-gnu")
+HOST = Some("x86_64-unknown-linux-gnu")
+CC_x86_64-unknown-linux-gnu = None
+CC_x86_64_unknown_linux_gnu = None
+HOST_CC = None
+CC = None
+CFLAGS_x86_64-unknown-linux-gnu = None
+CFLAGS_x86_64_unknown_linux_gnu = None
+HOST_CFLAGS = None
+CFLAGS = None
+CRATE_CC_NO_DEFAULTS = None
+DEBUG = Some("true")
+CARGO_CFG_TARGET_FEATURE = Some("fxsr,sse,sse2")
+running: "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-fno-omit-frame-pointer" "-m64" "-Wall" "-Wextra" "-E" "build/expando.c"
+cargo:warning=build/expando.c:4:24: error: pasting "RUST_VERSION_OPENSSL_" and "(" does not give a valid preprocessing token
+cargo:warning=    4 | #define VERSION2(n, v) RUST_VERSION_##n##_##v
+cargo:warning=      |                        ^~~~~~~~~~~~~
+cargo:warning=build/expando.c:5:23: note: in expansion of macro ‘VERSION2’
+cargo:warning=    5 | #define VERSION(n, v) VERSION2(n, v)
+cargo:warning=      |                       ^~~~~~~~
+cargo:warning=build/expando.c:10:1: note: in expansion of macro ‘VERSION’
+cargo:warning=   10 | VERSION(OPENSSL, OPENSSL_VERSION_NUMBER)
+cargo:warning=      | ^~~~~~~
+exit code: 1
+
+--- stderr
+thread 'main' panicked at '
+Header expansion error:
+Error { kind: ToolExecError, message: "Command \"cc\" \"-O0\" \"-ffunction-sections\" \"-fdata-sections\" \"-fPIC\" \"-g\" \"-fno-omit-frame-pointer\" \"-m64\" \"-Wall\" \"-Wextra\" \"-E\" \"build/expando.c\" with args \"cc\" did not execute successfully (status code exit code: 1)." }
+
+Failed to find OpenSSL development headers.
+
+You can try fixing this setting the `OPENSSL_DIR` environment variable
+pointing to your OpenSSL installation or installing OpenSSL headers package
+specific to your distribution:
+
+    # On Ubuntu
+    sudo apt-get install libssl-dev
+    # On Arch Linux
+    sudo pacman -S openssl
+    # On Fedora
+    sudo dnf install openssl-devel
+
+See rust-openssl README for more information:
+
+    https://github.com/sfackler/rust-openssl#linux
+', /home/runner/.cargo/registry/src/127.0.0.1-6a9c99ba1818a266/openssl-sys-0.9.47/build/main.rs:126:13
+note: Run with `RUST_BACKTRACE=1` environment variable to display a backtrace.
+
+warning: build failed, waiting for other jobs to finish...
+error: build failed
+
+Exit: 101
+Timed out: False

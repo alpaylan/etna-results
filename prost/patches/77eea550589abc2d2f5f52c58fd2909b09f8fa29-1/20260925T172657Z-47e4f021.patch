@@ -1,0 +1,16 @@
+diff --git a/prost-build/src/code_generator.rs b/prost-build/src/code_generator.rs
+index 593bba8..e76e005 100644
+--- a/prost-build/src/code_generator.rs
++++ b/prost-build/src/code_generator.rs
+@@ -491,7 +491,11 @@ impl<'a> CodeGenerator<'a> {
+         self.path.push(2);
+         self.depth += 1;
+         for (field, idx) in fields {
++            // TODO(danburkert/prost#19): support groups.
+             let type_ = field.r#type();
++            if type_ == Type::Group {
++                continue;
++            }
+ 
+             self.path.push(idx as i32);
+             self.append_doc();
