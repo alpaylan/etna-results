@@ -1,0 +1,9 @@
+Command: rustup run 1.59.0 cargo generate-lockfile
+Started: 2026-09-25T11:46:05.504146+00:00
+STDOUT:
+
+STDERR:
+    Updating `era` index
+
+Exit: 0
+Timed out: False

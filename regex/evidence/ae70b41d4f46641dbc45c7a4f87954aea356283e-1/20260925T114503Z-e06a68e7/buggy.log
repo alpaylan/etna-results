@@ -1,0 +1,9 @@
+Command: rustup run 1.59.0 cargo test --locked --offline --test test_default big_empty_regex_fails -- --nocapture --test-threads=1
+Started: 2026-09-25T11:46:41.035621+00:00
+STDOUT:
+
+STDERR:
+error: no test target named `test_default`
+
+Exit: 101
+Timed out: False

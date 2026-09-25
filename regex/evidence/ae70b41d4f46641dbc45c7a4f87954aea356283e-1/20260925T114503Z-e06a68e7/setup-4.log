@@ -1,0 +1,20 @@
+Command: rustup run 1.59.0 cargo check --locked --offline --tests
+Started: 2026-09-25T11:46:29.796849+00:00
+STDOUT:
+
+STDERR:
+   Compiling libc v0.2.119
+   Compiling memchr v2.4.1
+    Checking cfg-if v1.0.0
+    Checking regex-syntax v0.6.25 (/home/runner/work/_temp/upstream/regex-syntax)
+    Checking lazy_static v1.4.0
+    Checking aho-corasick v0.7.18
+    Checking getrandom v0.2.5
+    Checking rand_core v0.6.3
+    Checking rand v0.8.5
+    Checking regex v1.5.4 (/home/runner/work/_temp/upstream)
+    Checking quickcheck v1.0.3
+    Finished dev [unoptimized + debuginfo] target(s) in 10.96s
+
+Exit: 0
+Timed out: False

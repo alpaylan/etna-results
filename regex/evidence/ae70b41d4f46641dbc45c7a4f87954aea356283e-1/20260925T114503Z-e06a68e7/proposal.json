@@ -1,0 +1,13 @@
+{
+  "commit": "ae70b41d4f46641dbc45c7a4f87954aea356283e",
+  "parent": "b92ffd5471018419ec48dbdef32757424439f065",
+  "fixed_commit": "ae70b41d4f46641dbc45c7a4f87954aea356283e",
+  "summary": "Compiling huge repetitions of empty expressions consumes excessive CPU without triggering the compiled-size limit because empty expressions emit no instructions. The fix charges synthetic instruction bytes for empty expressions, allowing size checks to reject them. Reversing the Empty match arm restores this behavior for (?:){4294967295}, exercised by big_empty_regex_fails in tests/test_default.rs (integration target default), added by the fix. The buggy test may take a very long time before its assertion fails; reproduction has not been run.",
+  "test": "big_empty_regex_fails",
+  "expected_failure": "assertion failed: result.is_err()",
+  "reversal": {
+    "path": "src/compile.rs",
+    "fixed_text": "            Empty => self.c_empty(),\n",
+    "parent_text": "            Empty => Ok(None),\n"
+  }
+}

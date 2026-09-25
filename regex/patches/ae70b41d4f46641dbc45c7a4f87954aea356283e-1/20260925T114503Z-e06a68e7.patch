@@ -1,0 +1,13 @@
+diff --git a/src/compile.rs b/src/compile.rs
+index 069f445..e997045 100644
+--- a/src/compile.rs
++++ b/src/compile.rs
+@@ -270,7 +270,7 @@ impl Compiler {
+ 
+         self.check_size()?;
+         match *expr.kind() {
+-            Empty => self.c_empty(),
++            Empty => Ok(None),
+             Literal(hir::Literal::Unicode(c)) => self.c_char(c),
+             Literal(hir::Literal::Byte(b)) => {
+                 assert!(self.compiled.uses_bytes());

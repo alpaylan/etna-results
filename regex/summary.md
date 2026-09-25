@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: fixed: cannot guarantee a fresh package build
+**blocked**: fixed: no completed execution of the exact upstream test
 
 Upstream: https://github.com/rust-lang/regex
 
-Candidate: 231643248b585eae007c46fad0c4830978c0d425-1
+Candidate: ae70b41d4f46641dbc45c7a4f87954aea356283e-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 905 reachable from the saved tip.
+Reviewed commits: 1 / 1129 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.
