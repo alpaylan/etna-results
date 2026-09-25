@@ -1,0 +1,14 @@
+{
+  "commit": "0cd5c24fd09c601251b9a76c3dbfb942965480c9",
+  "parent": "7b91964ac42a5c2eaf3af9e89561459f8b5613c3",
+  "fixed_commit": "0cd5c24fd09c601251b9a76c3dbfb942965480c9",
+  "summary": "Blocked: this commit fixes test input handling, not the algorithm implementation. The previous QuickCheck test passed disconnected graphs to an algorithm requiring connected terminals, potentially panicking on unreachable shortest-path targets. The replacement steiner_tree_spans_terminals test in tests/quickcheck.rs processes connected components separately and skips components with fewer than two nodes. Changes to src/algo/steiner_tree.rs affect documentation only; all implementation code is identical to the parent. No implementation reversal can reproduce this correction while preserving upstream tests.",
+  "test": "",
+  "package": "petgraph",
+  "expected_failure": null,
+  "reversal": {
+    "path": "",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}

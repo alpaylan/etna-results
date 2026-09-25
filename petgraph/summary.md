@@ -4,7 +4,7 @@
 
 Upstream: https://github.com/petgraph/petgraph
 
-Candidate: 0fae246b07f3dba059a40288c4a7a96588bef19b-1
+Candidate: 0cd5c24fd09c601251b9a76c3dbfb942965480c9-1
 
 Provenance: verbatim
 
