@@ -1,0 +1,14 @@
+{
+  "commit": "f5c49ba6607517c7eea73a32ffef66515f4b7049",
+  "parent": "73e5c7262227c86b993f50688f6d7853d6345aaa",
+  "fixed_commit": "f5c49ba6607517c7eea73a32ffef66515f4b7049",
+  "summary": "The exact-count repeat_n_ implementation accepted successful child parses that consumed no input, accumulating repeated outputs at the same position. The fix compares eof_offset before and after each successful parse and invokes ErrMode::assert when no progress occurs. A verbatim reversal is identifiable, but no detecting upstream test was found at this commit: the fix adds no tests, existing empty-parser tests exercise unbounded repetition, and exact-count tests use consuming parsers or zero repetitions. Leave this candidate blocked for lack of a detecting upstream test; no tests were executed.",
+  "test": "",
+  "package": "winnow",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/combinator/multi.rs",
+    "fixed_text": "    let mut res = C::initial(Some(count));\n\n    for _ in 0..count {\n        let len = i.eof_offset();\n        match f.parse_next(i) {\n            Ok(o) => {\n                // infinite loop check: the parser must always consume\n                if i.eof_offset() == len {\n                    return Err(ErrMode::assert(i, \"`repeat` parsers must always consume\"));\n                }\n\n                res.accumulate(o);\n",
+    "parent_text": "    let mut res = C::initial(Some(count));\n\n    for _ in 0..count {\n        match f.parse_next(i) {\n            Ok(o) => {\n                res.accumulate(o);\n"
+  }
+}
