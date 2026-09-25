@@ -1,0 +1,26 @@
+diff --git a/src/offset_date_time.rs b/src/offset_date_time.rs
+index fb776f6..5a35881 100644
+--- a/src/offset_date_time.rs
++++ b/src/offset_date_time.rs
+@@ -884,9 +884,7 @@ where
+     type Output = Self;
+ 
+     fn add(self, rhs: T) -> Self::Output {
+-        (self.utc_datetime + rhs)
+-            .assume_utc()
+-            .to_offset(self.offset)
++        self.replace_date_time(self.utc_datetime + rhs)
+     }
+ }
+ 
+@@ -906,9 +904,7 @@ where
+     type Output = Self;
+ 
+     fn sub(self, rhs: T) -> Self::Output {
+-        (self.utc_datetime - rhs)
+-            .assume_utc()
+-            .to_offset(self.offset)
++        self.replace_date_time(self.utc_datetime - rhs)
+     }
+ }
+ 

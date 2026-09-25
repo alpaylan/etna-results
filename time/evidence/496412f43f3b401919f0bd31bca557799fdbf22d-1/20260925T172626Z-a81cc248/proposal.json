@@ -1,0 +1,14 @@
+{
+  "commit": "496412f43f3b401919f0bd31bca557799fdbf22d",
+  "parent": "f37791e50edf9fbeba087b6f53f34c4f500f7324",
+  "fixed_commit": "496412f43f3b401919f0bd31bca557799fdbf22d",
+  "summary": "OffsetDateTime addition and subtraction passed UTC arithmetic results to replace_date_time, which interprets its argument in the stored local offset and subtracts that offset again. Consequently, even adding or subtracting zero changes the instant when the offset is nonzero. The fix treats the result as UTC with assume_utc() and preserves the original display offset with to_offset(). The regression test added by this commit checks zero-duration arithmetic at offset +12:00:01. This plan reverses both arithmetic corrections; no tests were run.",
+  "test": "offset_date_time::arithmetic_regression",
+  "package": "time",
+  "expected_failure": "assertion failed: `(left == right)`",
+  "reversal": {
+    "path": "src/offset_date_time.rs",
+    "fixed_text": "impl<T> Add<T> for OffsetDateTime\nwhere\n    PrimitiveDateTime: Add<T, Output = PrimitiveDateTime>,\n{\n    type Output = Self;\n\n    fn add(self, rhs: T) -> Self::Output {\n        (self.utc_datetime + rhs)\n            .assume_utc()\n            .to_offset(self.offset)\n    }\n}\n\nimpl<T> AddAssign<T> for OffsetDateTime\nwhere\n    Self: Add<T, Output = Self>,\n{\n    fn add_assign(&mut self, rhs: T) {\n        *self = *self + rhs;\n    }\n}\n\nimpl<T> Sub<T> for OffsetDateTime\nwhere\n    PrimitiveDateTime: Sub<T, Output = PrimitiveDateTime>,\n{\n    type Output = Self;\n\n    fn sub(self, rhs: T) -> Self::Output {\n        (self.utc_datetime - rhs)\n            .assume_utc()\n            .to_offset(self.offset)\n    }\n}\n\n",
+    "parent_text": "impl<T> Add<T> for OffsetDateTime\nwhere\n    PrimitiveDateTime: Add<T, Output = PrimitiveDateTime>,\n{\n    type Output = Self;\n\n    fn add(self, rhs: T) -> Self::Output {\n        self.replace_date_time(self.utc_datetime + rhs)\n    }\n}\n\nimpl<T> AddAssign<T> for OffsetDateTime\nwhere\n    Self: Add<T, Output = Self>,\n{\n    fn add_assign(&mut self, rhs: T) {\n        *self = *self + rhs;\n    }\n}\n\nimpl<T> Sub<T> for OffsetDateTime\nwhere\n    PrimitiveDateTime: Sub<T, Output = PrimitiveDateTime>,\n{\n    type Output = Self;\n\n    fn sub(self, rhs: T) -> Self::Output {\n        self.replace_date_time(self.utc_datetime - rhs)\n    }\n}\n\n"
+  }
+}
