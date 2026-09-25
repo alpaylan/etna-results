@@ -1,0 +1,14 @@
+{
+  "commit": "58ebe2ca7899f6770fe05d8231f549d098b97908",
+  "parent": "24f3940320df518c5e0256b6138ba4d60636f6cd",
+  "fixed_commit": "58ebe2ca7899f6770fe05d8231f549d098b97908",
+  "summary": "Message declarations preserved protobuf names such as Foo_barBaz and fuzz_buster instead of generating FooBarBaz and FuzzBuster. The fix applies UpperCamelCase conversion to declarations and type references. This reversal isolates message declaration conversion. The regression test was added by the fix, but reversing this change is expected to prevent its target from compiling, which cannot satisfy the runtime confirmation gate. No builds or tests were run.",
+  "test": "tests::test_ident_conversions",
+  "package": "tests",
+  "expected_failure": null,
+  "reversal": {
+    "path": "prost-build/src/code_generator.rs",
+    "fixed_text": "        self.buf.push_str(&to_upper_camel(&message_name));\n",
+    "parent_text": "        self.buf.push_str(&message_name);\n"
+  }
+}
