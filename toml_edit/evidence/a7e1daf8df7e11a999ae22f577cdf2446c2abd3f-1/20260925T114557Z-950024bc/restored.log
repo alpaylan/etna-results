@@ -1,0 +1,17 @@
+Command: rustup run 1.54.0 cargo test --locked --offline --test test_edit test_inserted_leaf_table_goes_after_last_sibling -- --nocapture --test-threads=1
+Started: 2026-09-25T11:49:11.213917+00:00
+STDOUT:
+
+running 1 test
+test tests::test_inserted_leaf_table_goes_after_last_sibling ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 21 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling toml_edit v0.2.1 (/home/runner/work/_temp/upstream)
+    Finished test [optimized + debuginfo] target(s) in 23.85s
+     Running tests/test_edit.rs (/home/runner/work/_temp/build-20260925T114557Z-950024bc/debug/deps/test_edit-c4d4b71b97bb6945)
+
+Exit: 0
+Timed out: False

@@ -1,0 +1,49 @@
+Command: rustup run 1.54.0 cargo test --locked --offline --test test_edit test_inserted_leaf_table_goes_after_last_sibling -- --nocapture --test-threads=1
+Started: 2026-09-25T11:48:47.183164+00:00
+STDOUT:
+
+running 1 test
+test tests::test_inserted_leaf_table_goes_after_last_sibling ... FAILED
+
+failures:
+
+failures:
+    tests::test_inserted_leaf_table_goes_after_last_sibling
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 21 filtered out; finished in 0.00s
+
+
+STDERR:
+   Compiling toml_edit v0.2.1 (/home/runner/work/_temp/upstream)
+warning: associated function is never used: `to_string_in_original_order`
+   --> src/encode.rs:205:8
+    |
+205 |     fn to_string_in_original_order(&self) -> String {
+    |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` on by default
+
+warning: 1 warning emitted
+
+    Finished test [optimized + debuginfo] target(s) in 23.91s
+     Running tests/test_edit.rs (/home/runner/work/_temp/build-20260925T114557Z-950024bc/debug/deps/test_edit-c4d4b71b97bb6945)
+thread 'main' panicked at 'assertion failed: `(left == right)`
+
+[1mDiff[0m [31m< left[0m / [32mright >[0m :
+ 
+         [package]
+         [dependencies]
+[31m<        [[example]][0m
+         [dependencies.opencl]
+ 
+ [dependencies.newthing]
+[32m>        [[example]][0m
+         [dev-dependencies]
+ 
+
+', tests/test_edit.rs:62:13
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass '--test test_edit'
+
+Exit: 101
+Timed out: False

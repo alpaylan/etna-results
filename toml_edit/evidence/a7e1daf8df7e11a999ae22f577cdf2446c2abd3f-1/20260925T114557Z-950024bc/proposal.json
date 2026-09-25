@@ -1,0 +1,13 @@
+{
+  "commit": "a7e1daf8df7e11a999ae22f577cdf2446c2abd3f",
+  "parent": "4864b83c285d9c85a5f675329a617ac88a424282",
+  "fixed_commit": "a7e1daf8df7e11a999ae22f577cdf2446c2abd3f",
+  "summary": "Document formatting traversed tables hierarchically instead of preserving their original header order. In the selected test, inserting dependencies.newthing incorrectly moves [[example]] after the dependency subtables. The fix routes Display through the existing position-sorted serializer, preserving [[example]] before dependencies.opencl and placing the inserted table after its sibling. The detecting test in tests/test_edit.rs was updated by this fix. Both reversal regions occur exactly once in their respective Git versions. No builds or tests were run.",
+  "test": "tests::test_inserted_leaf_table_goes_after_last_sibling",
+  "expected_failure": "assertion failed: `(left == right)`",
+  "reversal": {
+    "path": "src/encode.rs",
+    "fixed_text": "impl Display for Document {\n    fn fmt(&self, f: &mut Formatter<'_>) -> Result {\n        let s = self.to_string_in_original_order();\n        s.fmt(f)\n    }\n}\n",
+    "parent_text": "impl Display for Document {\n    fn fmt(&self, f: &mut Formatter<'_>) -> Result {\n        write!(f, \"{}\", self.as_table())?;\n        write!(f, \"{}\", self.trailing)\n    }\n}\n"
+  }
+}

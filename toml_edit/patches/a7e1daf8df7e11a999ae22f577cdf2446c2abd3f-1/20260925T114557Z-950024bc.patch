@@ -1,0 +1,15 @@
+diff --git a/src/encode.rs b/src/encode.rs
+index 218f572..a1704cd 100644
+--- a/src/encode.rs
++++ b/src/encode.rs
+@@ -230,8 +230,8 @@ impl Document {
+ 
+ impl Display for Document {
+     fn fmt(&self, f: &mut Formatter<'_>) -> Result {
+-        let s = self.to_string_in_original_order();
+-        s.fmt(f)
++        write!(f, "{}", self.as_table())?;
++        write!(f, "{}", self.trailing)
+     }
+ }
+ 
