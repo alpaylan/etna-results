@@ -1,0 +1,14 @@
+{
+  "commit": "dd81eb532b09b6e7df68f65b46932c2cf85b6b06",
+  "parent": "6f5bccefd533185d16b09b7dfec03801084c90dd",
+  "fixed_commit": "dd81eb532b09b6e7df68f65b46932c2cf85b6b06",
+  "summary": "as_mut_bytes exposed the entire capacity as initialized bytes, including uninitialized heap storage. The fix restricts the slice to len() and accesses spare capacity through raw pointers or MaybeUninit. The added regression test checks that the returned slice length equals the string length. Blocked: a compiling verbatim reversal requires changing compact_str/src/lib.rs and restoring the deleted Repr::as_mut_buf helper in compact_str/src/repr/mod.rs. The schema permits only one file region; reversing as_mut_bytes alone would fail compilation. No tests were run.",
+  "test": "tests::test_as_mut_bytes_only_exposes_initialized_data",
+  "package": "compact_str",
+  "expected_failure": null,
+  "reversal": {
+    "path": "compact_str/src/lib.rs",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
