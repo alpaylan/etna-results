@@ -1,0 +1,14 @@
+{
+  "commit": "9f41c18435249691cb06c0e98ca5653a3d02ed57",
+  "parent": "dd7fd96b3246f607825420f12141ebd1e0c4185a",
+  "fixed_commit": "9f41c18435249691cb06c0e98ca5653a3d02ed57",
+  "summary": "MergeJoinBy::size_hint adds finite upper bounds with unchecked usize addition, which can panic with overflow checks enabled or wrap to an invalid bound otherwise. The fix uses checked_add to return None on overflow. The exact implementation reversal is valid, but no detecting upstream test was found at this revision: the fix adds no tests, existing merge-join tests and the documentation example use small inputs, and quickcheck's size_merge exercises a different adaptor. The imported OpaqueIter property is absent. Leave this candidate blocked for lack of a detecting upstream test; no tests were executed.",
+  "test": "",
+  "package": null,
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/merge_join.rs",
+    "fixed_text": "            (Some(x), Some(y)) => x.checked_add(y),\n",
+    "parent_text": "            (Some(x), Some(y)) => Some(x + y),\n"
+  }
+}

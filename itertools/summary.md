@@ -1,10 +1,10 @@
 # Cloud bug-mining prototype
 
-**blocked**: Proposal fields do not match the supported schema
+**blocked**: Proposal names no upstream test
 
 Upstream: https://github.com/rust-itertools/itertools
 
-Candidate: c9487f49b1f061a91efeec8492721f15ad3a6929-1
+Candidate: 9f41c18435249691cb06c0e98ca5653a3d02ed57-1
 
 Provenance: verbatim
 
