@@ -1,0 +1,18 @@
+diff --git a/core/vdbe/execute.rs b/core/vdbe/execute.rs
+index 7b1ee25e2..55a74fe9e 100644
+--- a/core/vdbe/execute.rs
++++ b/core/vdbe/execute.rs
+@@ -4505,7 +4505,13 @@ pub fn op_transaction_inner(
+                                 !conn.is_nested_stmt(),
+                                 "nested stmt should not begin a new read transaction"
+                             );
++                            pager.begin_read_tx()?;
++                            if conn.get_auto_commit() {
++                                state.auto_txn_cleanup = TxnCleanup::RollbackTxn;
++                            }
+                         }
++                        // MVCC reads must refresh WAL change counters to avoid stale page-cache reads.
++                        pager.mvcc_refresh_if_db_changed();
+                         // In MVCC we don't have write exclusivity, therefore we just need to start a transaction if needed.
+                         // Programs can run Transaction twice, first with read flag and then with write flag. So a single txid is enough
+                         // for both.
