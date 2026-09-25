@@ -1,0 +1,28 @@
+Command: rustup run 1.31.1 cargo check --locked --tests
+Started: 2026-09-25T11:45:29.596185+00:00
+STDOUT:
+
+STDERR:
+   Compiling version_check v0.1.5
+   Compiling libc v0.2.45
+    Checking cfg-if v0.1.6
+   Compiling memchr v2.1.2
+    Checking nom v4.1.1 (/home/runner/work/_temp/upstream)
+warning: unused macro definition
+    --> src/multi.rs:1086:3
+     |
+1086 | /   macro_rules! take (
+1087 | |     ($i:expr, $count:expr) => (
+1088 | |       {
+1089 | |         let cnt = $count as usize;
+...    |
+1097 | |     )
+1098 | |   );
+     | |____^
+     |
+     = note: #[warn(unused_macros)] on by default
+
+    Finished dev [unoptimized + debuginfo] target(s) in 7.52s
+
+Exit: 0
+Timed out: False

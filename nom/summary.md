@@ -4,12 +4,12 @@
 
 Upstream: https://github.com/rust-bakery/nom
 
-Candidate: 517bc7759c88c4d0083c865c38a1570ea6e5087b-1
+Candidate: 7f0e9ec68c9aeba69b1bc8aa2a923192cfc00bf1-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 2229 reachable from the saved tip.
+Reviewed commits: 1 / 1869 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

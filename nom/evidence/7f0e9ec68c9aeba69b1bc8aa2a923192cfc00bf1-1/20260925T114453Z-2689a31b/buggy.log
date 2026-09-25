@@ -1,0 +1,10 @@
+Command: rustup run 1.31.1 cargo test --locked --test issues issue_848_overflow_incomplete_bits_to_bytes -- --nocapture --test-threads=1
+Started: 2026-09-25T11:45:37.368063+00:00
+STDOUT:
+
+STDERR:
+error: target `issues` in package `nom` requires the features: `alloc`, `regexp_macros`
+Consider enabling them by passing e.g. `--features="alloc regexp_macros"`
+
+Exit: 101
+Timed out: False

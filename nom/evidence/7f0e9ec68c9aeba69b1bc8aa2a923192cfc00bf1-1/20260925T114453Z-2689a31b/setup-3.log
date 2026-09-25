@@ -1,0 +1,20 @@
+Command: rustup run 1.31.1 cargo fetch --locked
+Started: 2026-09-25T11:45:29.369810+00:00
+STDOUT:
+
+STDERR:
+ Downloading crates ...
+  Downloaded regex-syntax v0.6.4 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded ucd-util v0.1.3 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded memchr v2.1.2 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded utf8-ranges v1.0.2 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded lazy_static v1.2.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded regex v1.1.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded aho-corasick v0.6.9 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded thread_local v0.3.6 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded version_check v0.1.5 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded libc v0.2.45 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded cfg-if v0.1.6 (registry `git://127.0.0.1:9419/era-index`)
+
+Exit: 0
+Timed out: False
