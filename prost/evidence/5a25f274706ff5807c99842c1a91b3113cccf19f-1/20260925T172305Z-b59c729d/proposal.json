@@ -1,0 +1,14 @@
+{
+  "commit": "5a25f274706ff5807c99842c1a91b3113cccf19f",
+  "parent": "ab6af6e6b712faf302a68910542ce3b5befe5314",
+  "fixed_commit": "5a25f274706ff5807c99842c1a91b3113cccf19f",
+  "summary": "The parent mutates a String's backing bytes before validating UTF-8, potentially leaving an invalid String after an error or panic. The fix moves the bytes into a separate vector and assigns back only a validated String. Blocked: the added test encoding::test::string_merge_failure supplies b\"\\x80\\x80\", an unterminated length varint. Decoding therefore errors before appending bytes, leaving the initially empty string empty in both implementations. No detecting upstream test was found. Reversal regions are unset: restoring the parent body also requires restoring the separate std::str import, and a single spanning region would include test code. No tests were executed.",
+  "test": "",
+  "package": "prost",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/encoding.rs",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
