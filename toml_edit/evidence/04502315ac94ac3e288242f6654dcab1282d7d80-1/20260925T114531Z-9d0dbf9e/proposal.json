@@ -1,0 +1,13 @@
+{
+  "commit": "04502315ac94ac3e288242f6654dcab1282d7d80",
+  "parent": "e2616860a277625a8ca70203e41c5b9bad8934ff",
+  "fixed_commit": "04502315ac94ac3e288242f6654dcab1282d7d80",
+  "summary": "Cannot establish a functional regression plan: this commit, titled 'fix(fmt): run cargo fmt', only reformats imports, the equivalent match/if expression in Key::parse, whitespace, and existing test invocations. Key parsing behavior is unchanged, and no regression test is added or behaviorally updated. Reversing these changes would not reintroduce a functional bug. No builds or tests were executed.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
