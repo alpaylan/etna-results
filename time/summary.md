@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: Dependency setup failed; see setup logs
+**blocked**: Proposal fields do not match the supported schema
 
 Upstream: https://github.com/time-rs/time
 
-Candidate: 64f2ee56d1ede827987e1299485998b4ff44b1ce-1
+Candidate: 496412f43f3b401919f0bd31bca557799fdbf22d-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 701 reachable from the saved tip.
+History coverage not yet recorded.
 
 Scope: one queued candidate; history coverage is partial.
