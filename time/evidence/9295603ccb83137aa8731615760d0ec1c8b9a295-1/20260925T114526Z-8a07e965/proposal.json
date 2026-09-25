@@ -1,0 +1,13 @@
+{
+  "commit": "9295603ccb83137aa8731615760d0ec1c8b9a295",
+  "parent": "44382c30f4137d8e720f04fde9b63b14c3f48a85",
+  "fixed_commit": "9295603ccb83137aa8731615760d0ec1c8b9a295",
+  "summary": "Converting 2019-01-01 00:00 +13 to UTC-13 requires moving back two dates to 2018-12-30 22:00. The old unsigned ordinal could underflow, and year normalization only handled ordinal zero. The fix uses a signed ordinal and preserves excess days when normalizing across year boundaries. This reversal restores only the original zero-only boundary condition, leaving ordinal -1 unnormalized in the regression test. Both regions occur exactly once in their respective Git versions. No tests were run.",
+  "test": "offset_date_time::to_offset_invalid_regression",
+  "expected_failure": "assertion failed: ordinal > 0",
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "        } else if $ordinal < 1 {\n",
+    "parent_text": "        } else if $ordinal == 0 {\n"
+  }
+}

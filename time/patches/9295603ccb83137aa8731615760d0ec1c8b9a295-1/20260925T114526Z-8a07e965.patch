@@ -1,0 +1,13 @@
+diff --git a/src/lib.rs b/src/lib.rs
+index d621522..8e0e581 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -219,7 +219,7 @@ macro_rules! cascade {
+         if $ordinal > crate::util::days_in_year($year) as i16 {
+             $ordinal -= crate::util::days_in_year($year) as i16;
+             $year += 1;
+-        } else if $ordinal < 1 {
++        } else if $ordinal == 0 {
+             $year -= 1;
+             $ordinal += crate::util::days_in_year($year) as i16;
+         }
