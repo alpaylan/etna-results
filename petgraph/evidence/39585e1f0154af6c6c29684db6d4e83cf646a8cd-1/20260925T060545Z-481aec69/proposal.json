@@ -1,0 +1,13 @@
+{
+  "commit": "39585e1f0154af6c6c29684db6d4e83cf646a8cd",
+  "parent": "bb0575969cc8e8041c4106f761c47d2dace1627c",
+  "fixed_commit": "39585e1f0154af6c6c29684db6d4e83cf646a8cd",
+  "summary": "Blocked: no detecting upstream runtime test found. The commit fixes isomorphism test compilation by explicitly dereferencing Small<Graph> wrappers; reversing those changes would modify tests. Its only implementation change removes an erroneous stable_graph feature gate from Csr's EdgeCount implementation, making the trait available without that unrelated feature. The verbatim reversal below restores that gate, but leaves runtime behavior unchanged when enabled and can cause missing-trait compilation errors when disabled. Existing Csr tests use its inherent edge_count method and do not detect the trait's absence. No builds or tests were run.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/visit/mod.rs",
+    "fixed_text": "impl<N, E, Ty, Ix> EdgeCount for Csr<N, E, Ty, Ix>\nwhere\n    Ty: EdgeType,\n    Ix: IndexType,\n{\n    #[inline]\n    fn edge_count(&self) -> usize {\n        self.edge_count()\n    }\n}\n",
+    "parent_text": "#[cfg(feature = \"stable_graph\")]\nimpl<N, E, Ty, Ix> EdgeCount for Csr<N, E, Ty, Ix>\nwhere\n    Ty: EdgeType,\n    Ix: IndexType,\n{\n    #[inline]\n    fn edge_count(&self) -> usize {\n        self.edge_count()\n    }\n}\n"
+  }
+}

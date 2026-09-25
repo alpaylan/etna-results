@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: fixed: no completed execution of the exact upstream test
+**blocked**: Proposal names no upstream test
 
 Upstream: https://github.com/petgraph/petgraph
 
-Candidate: c429f01b4b407167f12854db0f5d24ed7d674a9e-1
+Candidate: 39585e1f0154af6c6c29684db6d4e83cf646a8cd-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 1425 reachable from the saved tip.
+History coverage not yet recorded.
 
 Scope: one queued candidate; history coverage is partial.
