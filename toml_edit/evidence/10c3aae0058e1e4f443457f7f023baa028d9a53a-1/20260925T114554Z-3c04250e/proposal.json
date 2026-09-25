@@ -1,0 +1,13 @@
+{
+  "commit": "10c3aae0058e1e4f443457f7f023baa028d9a53a",
+  "parent": "90395120fc84a68014cac33b13704b6623884e40",
+  "fixed_commit": "10c3aae0058e1e4f443457f7f023baa028d9a53a",
+  "summary": "The parent incorrectly rejects valid mixed-type TOML arrays. The fix removes element-type checks and mixed-array errors, allowing heterogeneous values. Blocked: no buildable single-file verbatim reversal was established. Restoring src/parser/array.rs requires deleted types and methods from src/value.rs and src/parser/errors.rs; restoring src/value.rs changes push_formatted back to Result, incompatible with the unchanged parser's loop body. The fix enables mixed-array cases through the custom decoder_compliance harness, but no detecting Rust test function name was established. Existing parser::tests::arrays and test_arrays_hetergeneous only exercise arrays whose immediate elements share a type. No builds or tests were executed.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
