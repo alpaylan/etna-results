@@ -1,0 +1,14 @@
+{
+  "commit": "0e60859e56db673e53482c6a09af3aa794c1f60b",
+  "parent": "a397a1fd546e848a2f169a3de5827bbc8203e202",
+  "fixed_commit": "0e60859e56db673e53482c6a09af3aa794c1f60b",
+  "summary": "Blocked: no functional regression or detecting upstream test identified. The implementation changes suppress unused_unsafe warnings and replace equivalent raw-pointer casts with .cast(), preserving pointer behavior. Test changes remove deprecated API usage and enable test_try_into_array, which does not detect this implementation reversal. The exact reversal below restores warning-producing code, not an identified behavioral bug. No builds or tests were run.",
+  "test": "",
+  "package": null,
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "    #[inline]\n    const fn as_ptr_inline(&self) -> *const T {\n        // SAFETY: it is safe because we aren't reading the value, just getting\n        // a reference to it. reading it would be UB potentially, but\n        // for that downstream unsafe is required\n        #[allow(unused_unsafe, reason = \"Unsafe in MSRV\")]\n        (unsafe { &raw const self.inline }).cast()\n    }\n\n    #[inline]\n    const fn as_mut_ptr_inline(&mut self) -> *mut T {\n        // SAFETY: same as above\n        #[allow(unused_unsafe, reason = \"Unsafe in MSRV\")]\n        (unsafe { &raw mut self.inline }).cast()\n    }\n\n",
+    "parent_text": "    #[inline]\n    const fn as_ptr_inline(&self) -> *const T {\n        // SAFETY: it is safe because we aren't reading the value, just getting\n        // a reference to it. reading it would be UB potentially, but\n        // for that downstream unsafe is required\n        (unsafe { &raw const self.inline }) as *mut T\n    }\n\n    #[inline]\n    const fn as_mut_ptr_inline(&mut self) -> *mut T {\n        // SAFETY: same as above\n        (unsafe { &raw mut self.inline }) as *mut T\n    }\n\n"
+  }
+}
