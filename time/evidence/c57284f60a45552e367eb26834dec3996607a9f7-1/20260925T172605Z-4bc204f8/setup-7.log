@@ -1,0 +1,48 @@
+Command: rustup run 1.96.0 cargo check --locked --offline --tests -p time
+Started: 2026-09-25T17:33:55.566735+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+  |
+  = help: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+    Checking time v0.3.47 (/home/runner/work/_temp/upstream/time)
+error: cannot find attribute `rstest` in this scope
+  --> time/tests/integration/main.rs:25:3
+   |
+25 | #[rstest]
+   |   ^^^^^^
+   |
+  --> /rustc/ac68faa20c58cbccd01ee7208bf3b6e93a7d7f96/library/core/src/macros/mod.rs:1750:4
+   |
+   = note: similarly named attribute macro `test` defined here
+   |
+   = note: `rstest` is in scope, but it is a crate, not an attribute
+help: an attribute macro with a similar name exists
+   |
+25 - #[rstest]
+25 + #[test]
+   |
+
+warning: unreachable statement
+  --> time/tests/integration/main.rs:50:5
+   |
+42 | /     return if status.success() {
+43 | |         Ok(())
+44 | |     } else {
+45 | |         Err(Box::new(Error(status)))
+46 | |     };
+   | |_____- any code following this expression is unreachable
+...
+50 | /     "Tests must be run with `--all-features`. Because the flag was not provided, `cargo test \
+51 | |      --all-features` is run.";
+   | |______________________________^ unreachable statement
+   |
+   = note: `-W unreachable-code` implied by `-W unused`
+   = help: to override `-W unused` add `#[allow(unreachable_code)]`
+
+warning: `time` (test "tests") generated 1 warning
+error: could not compile `time` (test "tests") due to 1 previous error; 1 warning emitted
+
+Exit: 101
+Timed out: False

@@ -1,0 +1,14 @@
+{
+  "commit": "c57284f60a45552e367eb26834dec3996607a9f7",
+  "parent": "a74f35fe67ea7aa67b127a057cc65e098f4ec641",
+  "fixed_commit": "c57284f60a45552e367eb26834dec3996607a9f7",
+  "summary": "Parsing truncated strftime padding modifiers \"%_\", \"%-\", or \"%0\" panics because the tokenizer indexes the missing third byte. The fix checks that byte with get(2) and returns InvalidFormatDescription::Expected for a valid escape sequence at index 2. The fix adds the selected parameterized regression test in time/tests/integration/parse_format_description.rs; its integration target is \"tests\" and requires --all-features. No tests were executed.",
+  "test": "parse_format_description::strftime_padding_missing_component",
+  "package": "time",
+  "expected_failure": "index out of bounds: the len is 2 but the index is 2",
+  "reversal": {
+    "path": "time/src/format_description/parse/strftime.rs",
+    "fixed_text": "        let padding = match self.input.get(1) {\n            Some(&b'_') => Some(Padding::Space),\n            Some(&b'-') => Some(Padding::None),\n            Some(&b'0') => Some(Padding::Zero),\n            Some(_) => None,\n            None => {\n                return Some(Err(error_expected_end(Location {\n                    byte: self.byte_pos,\n                })));\n            }\n        };\n\n        let (component, advance) = match (padding, self.input.get(2)) {\n            (Some(_), Some(&component)) => (component, 3),\n            (Some(_), None) => {\n                return Some(Err(error_expected_end(Location {\n                    byte: self.byte_pos + 2,\n                })));\n            }\n            (None, _) => (self.input[1], 2),\n        };\n\n",
+    "parent_text": "        let (padding, component, advance) = match self.input.get(1) {\n            Some(&b'_') => (Some(Padding::Space), self.input[2], 3),\n            Some(&b'-') => (Some(Padding::None), self.input[2], 3),\n            Some(&b'0') => (Some(Padding::Zero), self.input[2], 3),\n            Some(_) => (None, self.input[1], 2),\n            _ => {\n                return Some(Err(error_expected_end(Location {\n                    byte: self.byte_pos,\n                })));\n            }\n        };\n\n"
+  }
+}

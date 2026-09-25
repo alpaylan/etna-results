@@ -1,0 +1,8 @@
+Command: git checkout -q FETCH_HEAD
+Started: 2026-09-25T17:28:58.833108+00:00
+STDOUT:
+
+STDERR:
+
+Exit: 0
+Timed out: False
