@@ -1,0 +1,22 @@
+Command: rustup run 1.25.0 cargo check --locked --tests
+Started: 2026-09-25T11:45:23.428111+00:00
+STDOUT:
+
+STDERR:
+   Compiling libc v0.2.40
+   Compiling utf8-ranges v1.0.0
+   Compiling void v1.0.2
+   Compiling ucd-util v0.1.1
+   Compiling lazy_static v1.0.0
+   Compiling regex v0.2.10 (file:///home/runner/work/_temp/upstream)
+   Compiling unreachable v1.0.0
+   Compiling regex-syntax v0.5.3 (file:///home/runner/work/_temp/upstream/regex-syntax)
+   Compiling thread_local v0.3.5
+   Compiling memchr v2.0.1
+   Compiling rand v0.4.2
+   Compiling aho-corasick v0.6.4
+   Compiling quickcheck v0.6.2
+    Finished dev [unoptimized + debuginfo] target(s) in 29.69 secs
+
+Exit: 0
+Timed out: False

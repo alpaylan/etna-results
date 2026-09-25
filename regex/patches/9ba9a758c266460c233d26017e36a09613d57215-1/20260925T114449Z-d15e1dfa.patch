@@ -1,0 +1,19 @@
+diff --git a/regex-syntax/src/error.rs b/regex-syntax/src/error.rs
+index 3f2fade..4ebcc18 100644
+--- a/regex-syntax/src/error.rs
++++ b/regex-syntax/src/error.rs
+@@ -166,13 +166,7 @@ impl<'p> Spans<'p> {
+     fn from_formatter<'e, E: fmt::Display>(
+         fmter: &'p Formatter<'e, E>,
+     ) -> Spans<'p> {
+-        let mut line_count = fmter.pattern.lines().count();
+-        // If the pattern ends with a `\n` literal, then our line count is
+-        // off by one, since a span can occur immediately after the last `\n`,
+-        // which is consider to be an additional line.
+-        if fmter.pattern.ends_with('\n') {
+-            line_count += 1;
+-        }
++        let line_count = fmter.pattern.lines().count();
+         let line_number_width =
+             if line_count <= 1 {
+                 0

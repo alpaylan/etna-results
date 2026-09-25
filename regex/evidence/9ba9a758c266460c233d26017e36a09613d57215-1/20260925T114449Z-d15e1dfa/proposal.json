@@ -1,0 +1,13 @@
+{
+  "commit": "9ba9a758c266460c233d26017e36a09613d57215",
+  "parent": "2b1fc2772dc4d99ad732a43751fb5627f327abc8",
+  "fixed_commit": "9ba9a758c266460c233d26017e36a09613d57215",
+  "summary": "Formatting a regex parse error can panic when the pattern ends with a newline and the error span lies immediately after it. str::lines() omits the trailing empty line, leaving the formatter's by_line vector too short. The fix increments the line count for a trailing newline. The regression test added by this commit parses \"a{\\n\" and checks that formatting its error produces a nonempty string without panicking.",
+  "test": "error::tests::regression_464",
+  "expected_failure": "index out of bounds: the len is 1 but the index is 1",
+  "reversal": {
+    "path": "regex-syntax/src/error.rs",
+    "fixed_text": "        let mut line_count = fmter.pattern.lines().count();\n        // If the pattern ends with a `\\n` literal, then our line count is\n        // off by one, since a span can occur immediately after the last `\\n`,\n        // which is consider to be an additional line.\n        if fmter.pattern.ends_with('\\n') {\n            line_count += 1;\n        }\n",
+    "parent_text": "        let line_count = fmter.pattern.lines().count();\n"
+  }
+}
