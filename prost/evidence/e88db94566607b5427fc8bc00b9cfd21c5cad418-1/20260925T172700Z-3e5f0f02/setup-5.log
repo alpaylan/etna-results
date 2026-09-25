@@ -1,0 +1,18 @@
+Command: rustup run 1.90.0 cargo generate-lockfile
+Started: 2026-09-25T17:27:25.562509+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+error: failed to load manifest for workspace member `/home/runner/work/_temp/upstream/proto-derive`
+referenced by workspace at `/home/runner/work/_temp/upstream/Cargo.toml`
+
+Caused by:
+  failed to parse manifest at `/home/runner/work/_temp/upstream/proto-derive/Cargo.toml`
+
+Caused by:
+  can't find library `proto_derive`, rename file to `src/lib.rs` or specify lib.path
+
+Exit: 101
+Timed out: False

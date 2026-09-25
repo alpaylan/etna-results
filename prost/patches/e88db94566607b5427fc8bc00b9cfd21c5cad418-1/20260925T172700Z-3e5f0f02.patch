@@ -1,0 +1,18 @@
+diff --git a/src/encoding.rs b/src/encoding.rs
+index 57cd3a3..d500b2a 100644
+--- a/src/encoding.rs
++++ b/src/encoding.rs
+@@ -511,12 +511,7 @@ macro_rules! fixed_width {
+ 
+          #[inline]
+          pub fn $encoded_len_packed(tag: u32, values: &Vec<$ty>) -> usize {
+-             if values.is_empty() {
+-                 0
+-             } else {
+-                 let len = $width * values.len();
+-                 key_len(tag) + encoded_len_varint(len as u64) + len
+-             }
++             key_len(tag) + $width * values.len()
+          }
+     );
+ }

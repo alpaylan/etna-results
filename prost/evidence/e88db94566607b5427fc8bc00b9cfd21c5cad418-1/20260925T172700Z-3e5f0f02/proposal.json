@@ -1,0 +1,14 @@
+{
+  "commit": "e88db94566607b5427fc8bc00b9cfd21c5cad418",
+  "parent": "aac9ed1969f792e3f7bfed8b7f495476f95b2f38",
+  "fixed_commit": "e88db94566607b5427fc8bc00b9cfd21c5cad418",
+  "summary": "Packed fixed-width fields omitted the payload-length prefix from their calculated encoded length and reported a tag length for empty fields. The fix includes the prefix for nonempty fields and returns zero for empty fields. The upstream check_repeated_floats test, enabled by this commit in tests/message_encoding.rs, should detect the reversal by comparing a calculated length of 14 against 15 bytes written. No builds or tests were run.",
+  "test": "check_repeated_floats",
+  "package": "proto",
+  "expected_failure": "assertion failed: `(left == right)` (left: `14`, right: `15`)",
+  "reversal": {
+    "path": "src/encoding.rs",
+    "fixed_text": "         pub fn $encoded_len_packed(tag: u32, values: &Vec<$ty>) -> usize {\n             if values.is_empty() {\n                 0\n             } else {\n                 let len = $width * values.len();\n                 key_len(tag) + encoded_len_varint(len as u64) + len\n             }\n         }\n",
+    "parent_text": "         pub fn $encoded_len_packed(tag: u32, values: &Vec<$ty>) -> usize {\n             key_len(tag) + $width * values.len()\n         }\n"
+  }
+}
