@@ -1,10 +1,10 @@
 # Cloud bug-mining prototype
 
-**blocked**: Proposal names no upstream test
+**blocked**: fixed_text does not occur exactly once at the fixed revision
 
 Upstream: https://github.com/petgraph/petgraph
 
-Candidate: 0cd5c24fd09c601251b9a76c3dbfb942965480c9-1
+Candidate: 29f4c92f5464e5609ddb0fec31c811f46215cbc0-1
 
 Provenance: verbatim
 

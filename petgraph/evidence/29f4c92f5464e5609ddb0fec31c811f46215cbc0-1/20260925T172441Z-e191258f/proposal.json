@@ -1,0 +1,14 @@
+{
+  "commit": "29f4c92f5464e5609ddb0fec31c811f46215cbc0",
+  "parent": "b87dbc550cf6cd4b80d9388eee411c5cd458ecac",
+  "fixed_commit": "29f4c92f5464e5609ddb0fec31c811f46215cbc0",
+  "summary": "Stack-based SPFA can exceed its vertex-visit threshold and incorrectly report a negative cycle in an acyclic graph. The fix uses a FIFO VecDeque instead. The added tests/spfa.rs test spfa_no_neg_cycle checks this behavior. Blocked: a compiling verbatim reversal requires changes in both src/algo/spfa.rs and src/algo/johnson.rs, but the schema permits only one reversal path. Restoring SPFA's Vec parameter leaves Johnson's unconditional caller passing VecDeque; restoring only pop() leaves an unsupported VecDeque method. No valid single-file verbatim region was established.",
+  "test": "spfa_no_neg_cycle",
+  "package": "petgraph",
+  "expected_failure": "assertion failed: spfa_res.is_ok()",
+  "reversal": {
+    "path": "src/algo/spfa.rs",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
