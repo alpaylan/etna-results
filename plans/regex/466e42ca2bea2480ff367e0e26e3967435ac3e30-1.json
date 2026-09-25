@@ -1,0 +1,14 @@
+{
+  "commit": "466e42ca2bea2480ff367e0e26e3967435ac3e30",
+  "expected_failure": null,
+  "fixed_commit": "466e42ca2bea2480ff367e0e26e3967435ac3e30",
+  "package": "regex-lite",
+  "parent": "5dff4bd7e3bf8b87a272e31c23f1b64417e4c5de",
+  "reversal": {
+    "fixed_text": "    pub(super) fn parse(&self) -> Result<Hir, Error> {\n        let hir = self.parse_inner()?;\n        // While we also check nesting during parsing, that only checks the\n        // number of recursive parse calls. It does not necessarily cover\n        // all possible recursive nestings of the Hir itself. For example,\n        // repetition operators don't require recursive parse calls. So one\n        // can stack them arbitrarily without overflowing the stack in the\n        // *parser*. But then if one recurses over the resulting Hir, a stack\n        // overflow is possible. So here we check the Hir nesting level\n        // thoroughly to ensure it isn't nested too deeply.\n        //\n        // Note that we do still need the nesting limit check in the parser as\n        // well, since that will avoid overflowing the stack during parse time\n        // before the complete Hir value is constructed.\n        check_hir_nesting(&hir, self.config.nest_limit)?;\n        Ok(hir)\n    }\n\n    fn parse_inner(&self) -> Result<Hir, Error> {",
+    "parent_text": "    pub(super) fn parse(&self) -> Result<Hir, Error> {",
+    "path": "regex-lite/src/hir/parse.rs"
+  },
+  "summary": "The regex-lite parser could produce a very deeply nested Hir value beyond the configured nested limit. This was caused by repetition operators adding nested structures to the Hir without corresponding recursive calls in the parser. The fix adds a check_hir_nesting() function that validates the depth of the final Hir value after parsing completes, and changes parse() to call parse_inner() and then check the nesting depth before returning. Without this check, deeply nested patterns like '.{asterisk}{asterisk}...' (32768 asterisks) would cause stack overflow in the Thompson NFA compiler when it recursively traverses the Hir.",
+  "test": "fuzz::many_zero_to_many_reps"
+}

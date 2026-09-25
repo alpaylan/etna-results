@@ -1,0 +1,14 @@
+{
+  "commit": "d0f7e157c07b9fff057dd7f3add5b6fe5e3c4b99",
+  "expected_failure": "assertion failed: `(left == right)`\n  left: `PrettyString(\"\\n[tbl]\\nkey1 = \\\"value1\\\"\\nkey2 = 42\\nkey3 = 8.1415926e0\\n\\n        [tbl.son]\\n\")`,\n right: `PrettyString(\"\\n[tbl]\\nkey1 = \\\"value1\\\"\\nkey2 = 42\\nkey3 = 8.1415926\\n\\n        [tbl.son]\\n\")`",
+  "fixed_commit": "d0f7e157c07b9fff057dd7f3add5b6fe5e3c4b99",
+  "package": "toml_edit",
+  "parent": "ab35f9b84b55d2bc31f0d2c13b083ee0156b34b3",
+  "reversal": {
+    "fixed_text": "impl From<f64> for Value {\n    fn from(f: f64) -> Self {\n        let repr = if f.is_nan() {\n            \"nan\".to_owned()\n        } else {\n            format!(\"{:e}\", f)\n        };\n        let repr = Repr::new_unchecked(repr);\n\n        Value::Float(Formatted::new(f, repr))\n    }\n}",
+    "parent_text": "impl From<f64> for Value {\n    fn from(f: f64) -> Self {\n        Value::Float(Formatted::new(f, Repr::new_unchecked(f.to_string())))\n    }\n}",
+    "path": "src/value.rs"
+  },
+  "summary": "The bug was that floats were being formatted using Rust's default Display implementation for f64 (via f.to_string()), which for certain values like 1000.0 produces \"1000\" without a decimal point or exponent. When this output was later parsed back, it would be interpreted as an integer rather than a float, causing type mismatches. The fix changes the float formatting to use scientific notation ({:e}) which always includes an 'e' character, ensuring the value is unambiguously a float. Additionally, the fix moves the NaN handling from the Display impl in encode.rs to the repr generation in value.rs, ensuring consistent representation.",
+  "test": "tests::test_insert_values"
+}

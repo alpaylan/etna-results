@@ -1,0 +1,14 @@
+{
+  "commit": "7d3dccb79f5faeb1513676ba5092911a9e9e3045",
+  "expected_failure": null,
+  "fixed_commit": "7d3dccb79f5faeb1513676ba5092911a9e9e3045",
+  "package": null,
+  "parent": "c088b755602ad064f8367c125ea935e8411a5f9b",
+  "reversal": {
+    "fixed_text": "// full-date      = date-fullyear \"-\" date-month \"-\" date-mday\nparse!(full_date() -> Date, {\n    (\n        attempt((date_fullyear(), char('-'))),\n        date_month(),\n        char('-'),\n        date_mday(),\n    ).map(|((year, _), month, _, day)| {\n        Date { year, month, day }\n    })\n});",
+    "parent_text": "// full-date      = date-fullyear \"-\" date-month \"-\" date-mday\nparse!(full_date() -> chrono::NaiveDate, {\n    (\n        attempt((date_fullyear(), char('-'))),\n        date_month(),\n        char('-'),\n        date_mday(),\n    ).and_then(|((year, _), month, _, day)| {\n        chrono::NaiveDate::from_ymd_opt(year, month, day).ok_or(CustomError::DateOutOfRange { year, month, day })\n    })\n});",
+    "path": "src/parser/datetime.rs"
+  },
+  "summary": "The fix removes the chrono dependency and replaces it with a custom datetime implementation. The bug was that the old code used chrono's NaiveDate/NaiveTime/NaiveDateTime types which have different validation rules than TOML's datetime specification. Specifically, chrono validates dates more strictly (e.g., checking for valid day-month combinations, leap years) while TOML allows any day 1-31 regardless of month. The fix replaces chrono with a custom implementation that matches TOML's more permissive datetime parsing rules.",
+  "test": "test_parse::test_value_from_str"
+}

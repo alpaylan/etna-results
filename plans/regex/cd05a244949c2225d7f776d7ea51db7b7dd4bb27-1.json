@@ -1,0 +1,14 @@
+{
+  "commit": "cd05a244949c2225d7f776d7ea51db7b7dd4bb27",
+  "expected_failure": null,
+  "fixed_commit": "cd05a244949c2225d7f776d7ea51db7b7dd4bb27",
+  "package": null,
+  "parent": "9687986de45378c744180cc696286aad7db83c5e",
+  "reversal": {
+    "fixed_text": "            if at.pos() == end || at.is_end() {\n                break;\n            }",
+    "parent_text": "            if at.pos() == end {\n                break;\n            }",
+    "path": "src/pikevm.rs"
+  },
+  "summary": "The regex engine could enter an infinite loop when matching Unicode regexes with bytes::Regex on invalid UTF-8 input. The bug was in the termination condition of the NFA simulation loops in both the backtracking engine (backtrack.rs) and Pike VM (pikevm.rs). The original code only checked `at.pos() == end` to break the loop, but this could fail to terminate when the input contained invalid UTF-8 sequences that caused the position to not advance normally. The fix adds an additional check `|| at.is_end()` to ensure the loop terminates when the end of input is reached, regardless of position comparisons.",
+  "test": "regression_nfa_stops1"
+}

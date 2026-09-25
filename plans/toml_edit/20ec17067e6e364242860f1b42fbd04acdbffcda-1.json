@@ -1,0 +1,14 @@
+{
+  "commit": "20ec17067e6e364242860f1b42fbd04acdbffcda",
+  "expected_failure": null,
+  "fixed_commit": "20ec17067e6e364242860f1b42fbd04acdbffcda",
+  "package": null,
+  "parent": "04502315ac94ac3e288242f6654dcab1282d7d80",
+  "reversal": {
+    "fixed_text": "            table.append_value(parse_key!(\"'key3'\"), 8.1415926);",
+    "parent_text": "            table.append_value(parse_key!(\"'key3'\"), 3.1415926);",
+    "path": "tests/edit.rs"
+  },
+  "summary": "This is a clippy-related fix that changes a test assertion value from 3.1415926 to 8.1415926. The commit message 'argh, clippy is too smart...' suggests clippy was detecting something about the floating-point literal 3.1415926 (likely that it resembles pi but isn't exactly pi, triggering a floating-point comparison or approximation lint). The fix changes the value to 8.1415926 to avoid the lint. The 'bug' is that the test uses a value that triggers clippy warnings, making the codebase fail clippy checks.",
+  "test": "test_insert_values"
+}
