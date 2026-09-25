@@ -1,0 +1,14 @@
+{
+  "commit": "f88cd780699eb96e5284ebbbd31e3c36ab57258f",
+  "parent": "010d842fcc9c5ad77bc09fe23eae51b56ba9efd9",
+  "fixed_commit": "f88cd780699eb96e5284ebbbd31e3c36ab57258f",
+  "summary": "Missing TOML keys produced diagnostics identifying the unexpected token without explaining that a key was expected. Adding .expected(\"key\") supplies that diagnostic. The implementation reversal is exact and unique. Test selection is blocked: detecting snapshots, including key-empty.toml, exist in tests/fixtures/invalid and run through the harness=false fs_snapshot runner in tests/test_invalid.rs, but have no Rust test function/module name meeting the requested selection contract. No suitable named Rust regression test was found. No builds or tests were run.",
+  "test": "",
+  "package": null,
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/parser/key.rs",
+    "fixed_text": "        byte(DOT_SEP)\n    ).expected(\"key\")\n",
+    "parent_text": "        byte(DOT_SEP)\n    )\n"
+  }
+}
