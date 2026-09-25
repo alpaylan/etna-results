@@ -1,0 +1,14 @@
+{
+  "commit": "1596cb22efcfaf0c4a1e5a05fb693618b3acc478",
+  "parent": "f91fb8fc682e6887cbd605b842e33027c2b0c9a1",
+  "fixed_commit": "1596cb22efcfaf0c4a1e5a05fb693618b3acc478",
+  "summary": "Dfs::new premarks node 0 as discovered, causing SCC's first traversal to skip it and potentially omit its component. Dfs::empty allows every node to participate in the first pass. Blocked: the only existing SCC test, scc in tests/ograph.rs, does not demonstrate the bug. Static inspection indicates its directed and undirected cases still recover node 0 during the second pass and produce the expected components after reversal. No tests were executed.",
+  "test": "",
+  "package": null,
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/graph.rs",
+    "fixed_text": "    let mut dfs = Dfs::empty(g);\n",
+    "parent_text": "    let mut dfs = Dfs::new(g, NodeIndex(0));\n"
+  }
+}

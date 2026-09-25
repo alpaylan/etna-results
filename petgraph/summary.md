@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: Toolchain install failed; see setup logs
+**blocked**: Proposal fields do not match the supported schema
 
 Upstream: https://github.com/petgraph/petgraph
 
-Candidate: 4e0584d5f7b7b1351c780fc89e74ed52fe19d27d-1
+Candidate: 1596cb22efcfaf0c4a1e5a05fb693618b3acc478-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 191 reachable from the saved tip.
+History coverage not yet recorded.
 
 Scope: one queued candidate; history coverage is partial.
