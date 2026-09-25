@@ -1,0 +1,14 @@
+{
+  "commit": "a5745baa172d50679e34b33d6dba3d063eb40cd4",
+  "parent": "3a4ed9a36c42cea7589f4f08608bcd9b3b5128bf",
+  "fixed_commit": "a5745baa172d50679e34b33d6dba3d063eb40cd4",
+  "summary": "The parser incorrectly recognized the configured comment byte at the beginning of any field, discarding subsequent input. The fix moves comment recognition from StartField to StartRecord, preserving fields such as '#bar' in 'foo,#bar,baz'. The fix adds reader::tests::comment_5 in the csv-core workspace package, which expects all three fields. No tests were executed.",
+  "test": "reader::tests::comment_5",
+  "package": "csv-core",
+  "expected_failure": "nfa by field",
+  "reversal": {
+    "path": "csv-core/src/reader.rs",
+    "fixed_text": "            StartRecord => {\n                if self.term.equals(c) {\n                    (StartRecord, NfaInputAction::Discard)\n                } else if self.comment == Some(c) {\n                    (InComment, NfaInputAction::Discard)\n                } else {\n                    (StartField, NfaInputAction::Epsilon)\n                }\n            }\n            EndRecord => {\n                (StartRecord, NfaInputAction::Epsilon)\n            }\n            StartField => {\n                if self.quoting && self.quote == c {\n                    (InQuotedField, NfaInputAction::Discard)\n                } else if self.delimiter == c {\n                    (EndFieldDelim, NfaInputAction::Discard)\n                } else if self.term.equals(c) {\n                    (EndFieldTerm, NfaInputAction::Epsilon)\n                } else {\n                    (InField, NfaInputAction::CopyToOutput)\n                }\n            }\n",
+    "parent_text": "            StartRecord => {\n                if self.term.equals(c) {\n                    (StartRecord, NfaInputAction::Discard)\n                } else {\n                    (StartField, NfaInputAction::Epsilon)\n                }\n            }\n            EndRecord => {\n                (StartRecord, NfaInputAction::Epsilon)\n            }\n            StartField => {\n                if self.quoting && self.quote == c {\n                    (InQuotedField, NfaInputAction::Discard)\n                } else if self.delimiter == c {\n                    (EndFieldDelim, NfaInputAction::Discard)\n                } else if self.term.equals(c) {\n                    (EndFieldTerm, NfaInputAction::Epsilon)\n                } else if self.comment == Some(c) {\n                    (InComment, NfaInputAction::Discard)\n                } else {\n                    (InField, NfaInputAction::CopyToOutput)\n                }\n            }\n"
+  }
+}
