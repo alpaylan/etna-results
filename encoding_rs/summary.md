@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**unconfirmed**: The observed failure does not establish the described bug
+**blocked**: Proposal names no upstream test
 
 Upstream: https://github.com/hsivonen/encoding_rs
 
-Candidate: a074922023d74acbc56ee53aa931978315419916-1
+Candidate: 234bf08f703e0e5cccdd35b1d009e64ac95b450c-1
 
 Provenance: verbatim
 
-Latest outcomes: {"unconfirmed": 1}
+Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 1036 reachable from the saved tip.
+History coverage not yet recorded.
 
 Scope: one queued candidate; history coverage is partial.

@@ -1,0 +1,14 @@
+{
+  "commit": "234bf08f703e0e5cccdd35b1d009e64ac95b450c",
+  "parent": "f77126c8fa8d3421597f370c92a19650fc8eedb3",
+  "fixed_commit": "234bf08f703e0e5cccdd35b1d009e64ac95b450c",
+  "summary": "For target encodings requiring numeric character replacement, encode_from_utf8 subtracted NCR_EXTRA (9 at this revision) from the destination length without checking its size. A shorter buffer caused subtraction overflow or a subsequent slice-bounds panic. The fix returns (CoderResult::OutputFull, 0, 0, false) before subtracting. The proposed reversal restores the exact parent implementation. Blocked: no detecting upstream test was found at the fixed commit. The fix adds no tests; existing encoding test helpers allocate at least 10 output bytes, and Encoding::encode reserves replacement space.",
+  "test": "",
+  "package": null,
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "    pub fn encode_from_utf8(&mut self,\n                            src: &str,\n                            dst: &mut [u8],\n                            last: bool)\n                            -> (CoderResult, usize, usize, bool) {\n        let dst_len = dst.len();\n        let effective_dst_len = if self.encoding().can_encode_everything() {\n            dst_len\n        } else {\n            if dst_len < NCR_EXTRA {\n                return (CoderResult::OutputFull, 0, 0, false);\n            }\n            dst_len - NCR_EXTRA\n        };\n",
+    "parent_text": "    pub fn encode_from_utf8(&mut self,\n                            src: &str,\n                            dst: &mut [u8],\n                            last: bool)\n                            -> (CoderResult, usize, usize, bool) {\n        let effective_dst_len = dst.len() -\n                                if self.encoding().can_encode_everything() {\n            0\n        } else {\n            NCR_EXTRA\n        };\n"
+  }
+}
