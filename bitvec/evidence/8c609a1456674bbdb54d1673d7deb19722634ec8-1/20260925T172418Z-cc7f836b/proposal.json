@@ -1,0 +1,14 @@
+{
+  "commit": "8c609a1456674bbdb54d1673d7deb19722634ec8",
+  "parent": "00ceee2a7b75f6494a93917833626e89d84f1a64",
+  "fixed_commit": "8c609a1456674bbdb54d1673d7deb19722634ec8",
+  "summary": "Blocked: the entire fix changes tests only. Tests unconditionally used u64 storage although its BitStore implementation requires a 64-bit target, causing test compilation failures on 32-bit targets. The fix adds target guards and substitutes u32 inputs in two slice tests. No implementation code changes, so no valid implementation-only reversal exists. Reversing these changes would modify protected tests and produce a compilation failure rather than a qualifying behavioral failure. No builds or tests were run.",
+  "test": "",
+  "package": null,
+  "expected_failure": null,
+  "reversal": {
+    "path": "",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
