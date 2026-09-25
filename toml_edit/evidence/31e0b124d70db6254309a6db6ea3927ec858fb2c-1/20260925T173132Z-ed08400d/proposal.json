@@ -1,0 +1,14 @@
+{
+  "commit": "31e0b124d70db6254309a6db6ea3927ec858fb2c",
+  "parent": "e44405e156764e52b2a6277fd9e06fa5e0c449b0",
+  "fixed_commit": "31e0b124d70db6254309a6db6ea3927ec858fb2c",
+  "summary": "Standard-table serialization ignored an inline table's dotted flag, rendering src as an inline-table assignment instead of src.git as a dotted key. The fix recursively collects dotted inline-table entries with their parent key path. The selected regression test was added by this commit. The reversal restores only the original value-handling branch; both source regions occur exactly once. No builds or tests were run.",
+  "test": "test_insert_dotted_into_implicit_table",
+  "package": null,
+  "expected_failure": "Display equality assertion fails: expected src.git = \"https://github.com/nixos/nixpkgs\", but serialization emits src as an inline-table assignment.",
+  "reversal": {
+    "path": "src/table.rs",
+    "fixed_text": "                Item::Value(value) => {\n                    if let Some(table) = value.as_inline_table() {\n                        if table.is_dotted() {\n                            table.append_values(&path, values);\n                        } else {\n                            values.push((path, value));\n                        }\n                    } else {\n                        values.push((path, value));\n                    }\n                }\n",
+    "parent_text": "                Item::Value(value) => {\n                    values.push((path, value));\n                }\n"
+  }
+}
