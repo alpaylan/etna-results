@@ -1,0 +1,14 @@
+{
+  "commit": "d5e5da68e22e3fe3455500822af2a3fadf2dea59",
+  "parent": "f7ea409880702d7821fab134c3eab04eccb5b166",
+  "fixed_commit": "d5e5da68e22e3fe3455500822af2a3fadf2dea59",
+  "summary": "The generated property-name table incorrectly mapped 'c' to ISO_Comment after stripping the 'is' prefix from its 'isc' alias. Property-name lookup precedes general-category lookup, so C resolved to Binary(\"ISO_Comment\") instead of GeneralCategory(\"Other\"), causing valid \\pC expressions to fail. The fix removes the erroneous 'c' mapping and preserves 'isc'. Restoring only the erroneous entry should trigger the regression test added by this commit. No builds or tests were run.",
+  "test": "unicode::tests::regression_466",
+  "package": "regex-syntax",
+  "expected_failure": "assertion failed: `(left == right)`\n  left: `Binary(\"ISO_Comment\")`,\n right: `GeneralCategory(\"Other\")`",
+  "reversal": {
+    "path": "regex-syntax/src/unicode_tables/property_names.rs",
+    "fixed_text": "  (\"bpb\", \"Bidi_Paired_Bracket\"), (\"bpt\", \"Bidi_Paired_Bracket_Type\"),\n  (\"canonicalcombiningclass\", \"Canonical_Combining_Class\"),\n",
+    "parent_text": "  (\"bpb\", \"Bidi_Paired_Bracket\"), (\"bpt\", \"Bidi_Paired_Bracket_Type\"),\n  (\"c\", \"ISO_Comment\"),\n  (\"canonicalcombiningclass\", \"Canonical_Combining_Class\"),\n"
+  }
+}

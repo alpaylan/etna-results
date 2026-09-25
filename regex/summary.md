@@ -4,7 +4,7 @@
 
 Upstream: https://github.com/rust-lang/regex
 
-Candidate: e8e95bb9a1acdcf76813e870869951771848d132-1
+Candidate: d5e5da68e22e3fe3455500822af2a3fadf2dea59-1
 
 Provenance: verbatim
 
