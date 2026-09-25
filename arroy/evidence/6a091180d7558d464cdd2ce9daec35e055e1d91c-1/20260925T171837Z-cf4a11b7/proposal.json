@@ -1,0 +1,14 @@
+{
+  "commit": "6a091180d7558d464cdd2ce9daec35e055e1d91c",
+  "parent": "68ed432b4e85d01cd49b0b412e412fb92067a56b",
+  "fixed_commit": "6a091180d7558d464cdd2ce9daec35e055e1d91c",
+  "summary": "Cosine::built_distance divided by arbitrarily small nonzero norm products and left the computed cosine unclamped, allowing floating-point rounding to produce distances outside [0, 1], including negative values. The fix requires the divisor to exceed f32::EPSILON and clamps cosine to [-1, 1] before computing (1 - cos) / 2. The exact implementation reversal is identifiable, but no detecting upstream test was established: the fix adds no tests, and inspection of existing cosine reader and writer tests found no demonstrated trigger for this numerical regression. Leave the candidate blocked pending a detecting upstream test; no builds or tests were run.",
+  "test": "",
+  "package": null,
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/distance/cosine.rs",
+    "fixed_text": "        if pnqn > f32::EPSILON {\n            let cos = pq / pnqn;\n            let cos = cos.clamp(-1.0, 1.0);\n",
+    "parent_text": "        if pnqn != 0.0 {\n            let cos = pq / pnqn;\n"
+  }
+}
