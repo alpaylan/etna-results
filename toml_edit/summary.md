@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: fixed: source differs beyond the exact implementation reversal
+**blocked**: Proposal names no upstream test
 
 Upstream: https://github.com/toml-rs/toml
 
-Candidate: 57ea4b4f2adbb12f1fbb30ed7c45ac60e5493a31-1
+Candidate: 2ff172e445a6ebb3bbdcad7b54183eb9a1f7fc7f-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 2974 reachable from the saved tip.
+History coverage not yet recorded.
 
 Scope: one queued candidate; history coverage is partial.

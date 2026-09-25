@@ -1,0 +1,14 @@
+{
+  "commit": "2ff172e445a6ebb3bbdcad7b54183eb9a1f7fc7f",
+  "parent": "c01344542de21003d2991b660108ca642d354cf5",
+  "fixed_commit": "2ff172e445a6ebb3bbdcad7b54183eb9a1f7fc7f",
+  "summary": "easy::Value table equality incorrectly depended on insertion order because Map delegated equality to LinkedHashMap. The fix switches to IndexMap, whose equality ignores entry order. Blocked: the fix deletes the relevant tests/serde.rs hashmap test and adds no replacement; inspection found no detecting test at the fixed revision. Additionally, a compiling verbatim reversal requires restoring the removed dependency and corresponding map types, which cannot be expressed by this schema's single implementation-file region. The equality method itself is unchanged, so rewriting it would not be a verbatim reversal.",
+  "test": "",
+  "package": null,
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/easy/map.rs",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
