@@ -1,0 +1,14 @@
+{
+  "commit": "fe84f4040e4ff4d502d80443d5de0d1e4e2a3c94",
+  "parent": "da3035fec4a162061f6814f5375d4371db829f46",
+  "fixed_commit": "fe84f4040e4ff4d502d80443d5de0d1e4e2a3c94",
+  "summary": "Negative years were padded before their minus sign: year -1 displayed as 00-1 instead of -0001. The fix writes the sign separately, then pads the unsigned magnitude using itoa. The existing display test in tests/date.rs gains the detecting -0001 assertion. Blocked: restoring the historical behavior requires coordinated reversals in multiple files because format_value was replaced by format_number. The schema permits only one region in one file. Reversing only the sign block would instead drop negative signs, introducing behavior different from the historical bug; restoring its original formatting call alone would reference the removed helper. No builds or tests were run.",
+  "test": "display",
+  "package": "time",
+  "expected_failure": null,
+  "reversal": {
+    "path": "",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}

@@ -1,10 +1,10 @@
 # Cloud bug-mining prototype
 
-**blocked**: Proposal names no upstream test
+**blocked**: Reversal path is not changed by the upstream fix: 
 
 Upstream: https://github.com/time-rs/time
 
-Candidate: fd664eef0dd6bf4ca729ece9f4bfd8c4bd96ef82-1
+Candidate: fe84f4040e4ff4d502d80443d5de0d1e4e2a3c94-1
 
 Provenance: verbatim
 
