@@ -2577,3 +2577,22 @@
 {"id": "cb1c3c8653e8a1a96ec0159ef69d9906c71940aa-1", "planned_at": "2026-09-25T18:43:04.892137+00:00", "planner": "kimi-dd:bedrock/moonshotai.kimi-k2.5", "status": "planned"}
 {"id": "6ce282a3d8e551350bfd8d2f5c89949605c85969-1", "planned_at": "2026-09-25T18:43:10.230761+00:00", "planner": "kimi-dd:bedrock/moonshotai.kimi-k2.5", "status": "planned"}
 {"id": "6ce282a3d8e551350bfd8d2f5c89949605c85969-1", "published_at": "2026-09-25T19:32:19.420747+00:00", "reason": "fixed: source differs beyond the exact implementation reversal", "run": {"attempt": "20260925T190801Z-fa1d893b", "id": "36177233517", "url": "https://github.com/alpaylan/etna-ify/actions/runs/36177233517"}, "status": "blocked"}
+{"id": "b58396d3aadd4c91086c94feb5ef5a29465b7d86-1", "status": "pending", "requeued_at": "2026-09-25T19:48:47.772046+00:00", "note": "harness fix: committed-lock-first + setup baseline"}
+{"id": "a61f31bace6b63c6d3336a3867b5617976b0653e-1", "status": "pending", "requeued_at": "2026-09-25T19:48:47.772046+00:00", "note": "harness fix: committed-lock-first + setup baseline"}
+{"id": "a6cdac3e99e747c9ec80b4ef238e1480e63927fb-1", "status": "pending", "requeued_at": "2026-09-25T19:48:47.772046+00:00", "note": "harness fix: committed-lock-first + setup baseline"}
+{"id": "b91d460cc8584110c95d8eb7fcb2f45f86b6b14a-1", "status": "pending", "requeued_at": "2026-09-25T19:48:47.772046+00:00", "note": "harness fix: committed-lock-first + setup baseline"}
+{"id": "796812017df0f118130423e5109803a1742b62c5-1", "status": "pending", "requeued_at": "2026-09-25T19:48:47.772046+00:00", "note": "harness fix: committed-lock-first + setup baseline"}
+{"id": "1b0bd028f6695ad8314de816787eb041553685eb-1", "status": "pending", "requeued_at": "2026-09-25T19:48:47.772046+00:00", "note": "harness fix: committed-lock-first + setup baseline"}
+{"id": "57ea4b4f2adbb12f1fbb30ed7c45ac60e5493a31-1", "status": "pending", "requeued_at": "2026-09-25T19:48:47.772046+00:00", "note": "harness fix: committed-lock-first + setup baseline"}
+{"id": "b428d6504dd5f600ebe2a13bdd7b6510aa7d4a17-1", "status": "pending", "requeued_at": "2026-09-25T19:48:47.772046+00:00", "note": "harness fix: committed-lock-first + setup baseline"}
+{"id": "85761c401d750cc8341f1de7d37e9f553091e8db-1", "status": "pending", "requeued_at": "2026-09-25T19:48:47.772046+00:00", "note": "harness fix: committed-lock-first + setup baseline"}
+{"id": "a40d83bcdbd393090a23276622323ef42d7ed956-1", "status": "pending", "requeued_at": "2026-09-25T19:48:47.772046+00:00", "note": "harness fix: committed-lock-first + setup baseline"}
+{"id": "04093b5e7623427b010b849010270df815cdebd5-1", "status": "pending", "requeued_at": "2026-09-25T19:48:47.772046+00:00", "note": "harness fix: committed-lock-first + setup baseline"}
+{"id": "a65ef0e73c89a380949b300f717340dca43c6caf-1", "status": "pending", "requeued_at": "2026-09-25T19:48:47.772046+00:00", "note": "harness fix: committed-lock-first + setup baseline"}
+{"id": "f22bced14ab8d90830905addd29b0b2a17d5f35c-1", "status": "pending", "requeued_at": "2026-09-25T19:48:47.772046+00:00", "note": "harness fix: committed-lock-first + setup baseline"}
+{"id": "8cbf0dbff0556c1d5df2c08cf8a047f903362c9d-1", "status": "pending", "requeued_at": "2026-09-25T19:48:47.772046+00:00", "note": "harness fix: committed-lock-first + setup baseline"}
+{"id": "b7b5d4765f56c1c8bd3fe7ee6d3f311b3b6f1aa4-1", "status": "pending", "requeued_at": "2026-09-25T19:48:47.772046+00:00", "note": "harness fix: committed-lock-first + setup baseline"}
+{"id": "b3a2956290fff8d1b27a43e00394a7e39a847f59-1", "status": "pending", "requeued_at": "2026-09-25T19:48:47.772046+00:00", "note": "harness fix: committed-lock-first + setup baseline"}
+{"id": "a06bea30259be4b1650c513231b2d40223c68f83-1", "status": "pending", "requeued_at": "2026-09-25T19:48:47.772046+00:00", "note": "harness fix: committed-lock-first + setup baseline"}
+{"id": "f5f2cc5299c3805f1f5f9bd81aacf421bc1a62b1-1", "status": "pending", "requeued_at": "2026-09-25T19:48:47.772046+00:00", "note": "harness fix: committed-lock-first + setup baseline"}
+{"id": "6ce282a3d8e551350bfd8d2f5c89949605c85969-1", "status": "pending", "requeued_at": "2026-09-25T19:48:47.772046+00:00", "note": "harness fix: committed-lock-first + setup baseline"}
