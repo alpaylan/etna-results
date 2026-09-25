@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**unconfirmed**: The observed failure does not establish the described bug
+**blocked**: Proposal names no upstream test
 
 Upstream: https://github.com/unicode-rs/unicode-segmentation
 
-Candidate: 68c127e52156690d061b54e2ccb25a58bc46c6de-1
+Candidate: 0f55f70b445202fd9d3c101b9936e6649e808441-1
 
 Provenance: verbatim
 
-Latest outcomes: {"unconfirmed": 1}
+Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 251 reachable from the saved tip.
+History coverage not yet recorded.
 
 Scope: one queued candidate; history coverage is partial.

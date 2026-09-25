@@ -1,0 +1,14 @@
+{
+  "commit": "0f55f70b445202fd9d3c101b9936e6649e808441",
+  "parent": "0fa7148d3bfd1b1e35e942b27f8c86d460bae896",
+  "fixed_commit": "0f55f70b445202fd9d3c101b9936e6649e808441",
+  "summary": "GraphemeCursor::next_boundary panicked when the chunk suffix at the cursor was empty while offset < len, because it unwrapped an empty character iterator. The fix returns Err(GraphemeIncomplete::NextChunk) and uses saturating subtraction for the chunk-relative offset. The exact reversal regions each occur once. Blocked: the fix adds no tests, and inspection of existing unit tests, integration tests, QuickCheck tests, doctests, and the fuzz target found no test exercising this trigger. No builds or tests were run.",
+  "test": "",
+  "package": null,
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/grapheme.rs",
+    "fixed_text": "        let mut iter = chunk[self.offset.saturating_sub(chunk_start)..].chars();\n        let mut ch = match iter.next() {\n            Some(ch) => ch,\n            None => return Err(GraphemeIncomplete::NextChunk),\n        };\n",
+    "parent_text": "        let mut iter = chunk[self.offset - chunk_start..].chars();\n        let mut ch = iter.next().unwrap();\n"
+  }
+}
