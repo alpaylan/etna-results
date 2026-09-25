@@ -1,0 +1,14 @@
+{
+  "commit": "49c4bad88a58631972ef685b49af3ce4bf29b520",
+  "parent": "9212542ae4088625191cce676799036b0417dc59",
+  "fixed_commit": "49c4bad88a58631972ef685b49af3ce4bf29b520",
+  "summary": "Negative fractional-second timestamps cast a negative millisecond remainder to u32 before multiplication, causing overflow or invalid nanoseconds. The fix handles negative inputs by subtracting one second and complementing the absolute remainder in nanoseconds. The fix extends the doctest in src/naive/datetime/mod.rs at line 143 with a -2208936075 millisecond round-trip assertion. This is the only detecting upstream test found, but prototype/mine.py supports library and integration tests, not doctests. The test field is therefore empty to retain a blocked result. The implementation reversal is exact; no builds or tests were run.",
+  "test": "",
+  "package": null,
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/naive/datetime/mod.rs",
+    "fixed_text": "    pub fn from_timestamp_millis(millis: i64) -> Option<NaiveDateTime> {\n        let secs = millis / 1000;\n\n        if millis < 0 {\n            let nsecs = (millis % 1000).abs() as u32 * NANOS_IN_MILLISECOND;\n            NaiveDateTime::from_timestamp_opt(secs - 1, NANOS_IN_SECOND - nsecs)\n        } else {\n            let nsecs = (millis % 1000) as u32 * NANOS_IN_MILLISECOND;\n            NaiveDateTime::from_timestamp_opt(secs, nsecs)\n        }\n    }\n",
+    "parent_text": "    pub fn from_timestamp_millis(millis: i64) -> Option<NaiveDateTime> {\n        let secs = millis / 1000;\n        let nsecs = (millis % 1000) as u32 * 1_000_000;\n        NaiveDateTime::from_timestamp_opt(secs, nsecs)\n    }\n"
+  }
+}
