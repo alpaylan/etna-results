@@ -1,0 +1,13 @@
+{
+  "commit": "4e0584d5f7b7b1351c780fc89e74ed52fe19d27d",
+  "parent": "742bfedc639f098ccbf81966f78779c55ff60924",
+  "fixed_commit": "4e0584d5f7b7b1351c780fc89e74ed52fe19d27d",
+  "summary": "UnionFind::into_labeling compressed paths starting from each element's parent, leaving some elements labeled with intermediate parents instead of their set representative. The fix starts path compression from each element's own index, ensuring every returned label is its representative. The fix adds the root-level labeling test in tests/unionfind.rs, which joins all 48 elements and asserts that every label is identical. Both reversal regions occur exactly once in their respective implementation files. No tests were run.",
+  "test": "labeling",
+  "expected_failure": "assertion failed: v.iter().all(|x| *x == v[0])",
+  "reversal": {
+    "path": "src/unionfind.rs",
+    "fixed_text": "    pub fn into_labeling(mut self) -> Vec<K> where\n        K: num::NumCast,\n    {\n        // write in the labeling of each element\n        unsafe {\n            for ix in (0..self.parent.len()) {\n                self.find_mut_recursive(num::cast(ix).unwrap());\n            }\n        }\n        self.parent\n    }\n",
+    "parent_text": "    pub fn into_labeling(mut self) -> Vec<K>\n    {\n        // write in the labeling of each element\n        unsafe {\n            for ix in (0..self.parent.len()) {\n                let k = *get_unchecked(&self.parent[], ix);\n                self.find_mut(k);\n            }\n        }\n        self.parent\n    }\n"
+  }
+}

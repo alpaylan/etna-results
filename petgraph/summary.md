@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: Proposal names no upstream test
+**blocked**: Toolchain install failed; see setup logs
 
 Upstream: https://github.com/petgraph/petgraph
 
-Candidate: 39585e1f0154af6c6c29684db6d4e83cf646a8cd-1
+Candidate: 4e0584d5f7b7b1351c780fc89e74ed52fe19d27d-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-History coverage not yet recorded.
+Reviewed commits: 1 / 191 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.
