@@ -1,0 +1,14 @@
+{
+  "commit": "db8546a0dd70d76ac174e89ce74a35308c5686a2",
+  "parent": "a4b0f53f1bae05b0ff63e33c96ba24d9f9aadfdd",
+  "fixed_commit": "db8546a0dd70d76ac174e89ce74a35308c5686a2",
+  "summary": "No valid implementation reversal exists. The entire commit changes only tests/reader-errors.rs: the err2! macro's namespace-reader test incorrectly used read_event() for its first read; the correction uses read_resolved_event() to exercise the intended namespace-resolving API consistently. The implementation source tree is identical to the parent's. Reversing this change would modify test code, violating the requirement to preserve upstream tests.",
+  "test": "",
+  "package": null,
+  "expected_failure": null,
+  "reversal": {
+    "path": "",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}

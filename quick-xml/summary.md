@@ -4,7 +4,7 @@
 
 Upstream: https://github.com/tafia/quick-xml
 
-Candidate: 42a9a37033a62e7cb3ec964b0739f1e7b1763ed6-1
+Candidate: db8546a0dd70d76ac174e89ce74a35308c5686a2-1
 
 Provenance: verbatim
 
