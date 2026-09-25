@@ -1,0 +1,14 @@
+{
+  "commit": "d0f2a64eb22391188b8984f973b3d4abf5720fd5",
+  "parent": "13b586d0286417c9606d91914a50846a74d00d34",
+  "fixed_commit": "d0f2a64eb22391188b8984f973b3d4abf5720fd5",
+  "summary": "Scientific formatting of Decimal::ZERO produces \"e0\" because its zero mantissa contributes no digits. The fix returns \"0e0\" immediately for zero. The regression test added by the fix compares decimal and integer zero formatting and checks parsing. Reversing only the zero guard should fail that comparison; no tests were executed.",
+  "test": "str::test::to_scientific_0",
+  "package": "rust_decimal",
+  "expected_failure": "assertion `left == right` failed\n  left: \"e0\"\n right: \"0e0\"",
+  "reversal": {
+    "path": "src/str.rs",
+    "fixed_text": "    if value.is_zero() {\n        return f.write_str(\"0e0\");\n    }\n\n    // Get the scale - this is the e value. With multiples of 10 this may get bigger.\n    let mut exponent = -(value.scale() as isize);\n",
+    "parent_text": "    // Get the scale - this is the e value. With multiples of 10 this may get bigger.\n    let mut exponent = -(value.scale() as isize);\n"
+  }
+}

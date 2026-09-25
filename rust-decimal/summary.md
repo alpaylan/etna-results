@@ -1,10 +1,10 @@
 # Cloud bug-mining prototype
 
-**blocked**: fixed_text does not occur exactly once at the fixed revision
+**blocked**: Reversal changes are not part of the upstream fix
 
 Upstream: https://github.com/paupino/rust-decimal
 
-Candidate: c74bd40701cce99b264af6b9af2e66d0f66251f1-1
+Candidate: d0f2a64eb22391188b8984f973b3d4abf5720fd5-1
 
 Provenance: verbatim
 
