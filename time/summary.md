@@ -4,12 +4,12 @@
 
 Upstream: https://github.com/time-rs/time
 
-Candidate: 9295603ccb83137aa8731615760d0ec1c8b9a295-1
+Candidate: 64f2ee56d1ede827987e1299485998b4ff44b1ce-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 793 reachable from the saved tip.
+Reviewed commits: 1 / 701 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.
