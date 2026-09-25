@@ -2569,3 +2569,5 @@
 {"id": "6c5de212f1e15de89ca7139367905e829b73e3df-1", "planned_at": "2026-09-25T18:30:01.814384+00:00", "planner": "kimi-dd:bedrock/moonshotai.kimi-k2.5", "status": "planned"}
 {"id": "7d3dccb79f5faeb1513676ba5092911a9e9e3045-1", "planned_at": "2026-09-25T18:30:02.695968+00:00", "planner": "kimi-dd:bedrock/moonshotai.kimi-k2.5", "status": "planned"}
 {"id": "6c5de212f1e15de89ca7139367905e829b73e3df-1", "published_at": "2026-09-25T18:39:30.208832+00:00", "reason": "The implementation reversal did not make the upstream test fail", "run": {"attempt": "20260925T183104Z-728df7d0", "id": "36173868185", "url": "https://github.com/alpaylan/etna-ify/actions/runs/36173868185"}, "status": "unconfirmed"}
+{"id": "6ce282a3d8e551350bfd8d2f5c89949605c85969-1", "status": "pending", "requeued_at": "2026-09-25T18:41:58.203893+00:00", "note": "harness fix: live crates.io-index fallback"}
+{"id": "4ee410a0791abff8bff157989e8494941b7c507a-1", "status": "pending", "requeued_at": "2026-09-25T18:41:58.203893+00:00", "note": "harness fix: live crates.io-index fallback"}
