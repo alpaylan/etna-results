@@ -1,0 +1,14 @@
+{
+  "commit": "a06bea30259be4b1650c513231b2d40223c68f83",
+  "parent": "9060151968df09ba7ff02e6683adc59fc354332d",
+  "fixed_commit": "a06bea30259be4b1650c513231b2d40223c68f83",
+  "summary": "Fresh MVCC readers pinned a pager snapshot before acquiring the blocking checkpoint read gate. A checkpoint could intervene, leaving old physical pages paired with newer logical MVCC metadata. The fix acquires the checkpoint gate before pinning the pager snapshot. This verbatim reversal restores premature snapshot pinning in the main-database path; the regression test added by the fix checks that no pager read mark is pinned while a checkpoint blocks MVCC begin. Tests have not been run.",
+  "test": "mvcc::database::tests::reader_does_not_pin_read_mark_until_checkpoint_gate_is_available",
+  "package": "turso_core",
+  "expected_failure": "reader must not pin a pager read mark before MVCC begin is allowed",
+  "reversal": {
+    "path": "core/vdbe/execute.rs",
+    "fixed_text": "                        if started_read_tx {\n                            turso_assert!(\n                                !conn.is_nested_stmt(),\n                                \"nested stmt should not begin a new read transaction\"\n                            );\n                        }\n",
+    "parent_text": "                        if started_read_tx {\n                            turso_assert!(\n                                !conn.is_nested_stmt(),\n                                \"nested stmt should not begin a new read transaction\"\n                            );\n                            pager.begin_read_tx()?;\n                            if conn.get_auto_commit() {\n                                state.auto_txn_cleanup = TxnCleanup::RollbackTxn;\n                            }\n                        }\n"
+  }
+}
