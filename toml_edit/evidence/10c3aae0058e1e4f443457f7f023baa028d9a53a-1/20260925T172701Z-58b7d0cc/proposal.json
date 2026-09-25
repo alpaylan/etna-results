@@ -1,0 +1,14 @@
+{
+  "commit": "10c3aae0058e1e4f443457f7f023baa028d9a53a",
+  "parent": "90395120fc84a68014cac33b13704b6623884e40",
+  "fixed_commit": "10c3aae0058e1e4f443457f7f023baa028d9a53a",
+  "summary": "The implementation rejected valid mixed-type TOML arrays. The fix removes the homogeneous-type check and associated fallible array APIs. Blocked: a compiling verbatim reversal requires coordinated changes across src/value.rs, src/parser/array.rs, and src/parser/errors.rs, which this single-file reversal schema cannot express. Restoring only the parser references removed methods and an error variant; restoring value.rs makes the unchanged parser loop return Result instead of (). Regression coverage enabled by the fix resides in the custom decoder_compliance harness, not a source-defined Rust test with an established full test name. The ordinary array tests inspected do not exercise mixed element types. No builds or tests were run.",
+  "test": "",
+  "package": null,
+  "expected_failure": null,
+  "reversal": {
+    "path": "",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
