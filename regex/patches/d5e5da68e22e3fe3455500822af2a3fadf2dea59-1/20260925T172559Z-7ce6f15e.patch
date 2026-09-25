@@ -1,0 +1,12 @@
+diff --git a/regex-syntax/src/unicode_tables/property_names.rs b/regex-syntax/src/unicode_tables/property_names.rs
+index a000d58..dd50550 100644
+--- a/regex-syntax/src/unicode_tables/property_names.rs
++++ b/regex-syntax/src/unicode_tables/property_names.rs
+@@ -15,6 +15,7 @@ pub const PROPERTY_NAMES: &'static [(&'static str, &'static str)] = &[
+   ("bidipairedbrackettype", "Bidi_Paired_Bracket_Type"), ("blk", "Block"),
+   ("block", "Block"), ("bmg", "Bidi_Mirroring_Glyph"),
+   ("bpb", "Bidi_Paired_Bracket"), ("bpt", "Bidi_Paired_Bracket_Type"),
++  ("c", "ISO_Comment"),
+   ("canonicalcombiningclass", "Canonical_Combining_Class"),
+   ("cased", "Cased"), ("casefolding", "Case_Folding"),
+   ("caseignorable", "Case_Ignorable"), ("ccc", "Canonical_Combining_Class"),

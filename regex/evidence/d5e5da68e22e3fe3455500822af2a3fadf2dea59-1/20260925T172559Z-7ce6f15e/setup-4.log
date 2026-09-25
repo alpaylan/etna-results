@@ -1,0 +1,11 @@
+Command: rustup run 1.25.0 cargo check --locked --tests -p regex-syntax
+Started: 2026-09-25T17:26:34.540919+00:00
+STDOUT:
+
+STDERR:
+   Compiling ucd-util v0.1.1
+   Compiling regex-syntax v0.5.5 (file:///home/runner/work/_temp/upstream/regex-syntax)
+    Finished dev [unoptimized + debuginfo] target(s) in 8.32 secs
+
+Exit: 0
+Timed out: False
