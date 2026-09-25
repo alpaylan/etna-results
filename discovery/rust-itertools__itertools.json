@@ -1,10 +1,10 @@
 {
-  "back_to": "09cd80b608d740248b7a9323fd469a52b1b6c578",
+  "back_to": "3976b1e229bba0b739e554fbb4854883515b5b8a",
   "branch": "master",
   "complete": false,
   "repo": "https://github.com/rust-itertools/itertools",
-  "reviewed_total": 500,
+  "reviewed_total": 1000,
   "shallow": false,
   "tip": "fd619332f002979c3d7958fe0fc45509f84fdb8d",
-  "updated_at": "2026-09-24T19:28:08.220128+00:00"
+  "updated_at": "2026-09-25T09:04:04.855626+00:00"
 }

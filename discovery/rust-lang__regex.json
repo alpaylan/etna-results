@@ -1,10 +1,10 @@
 {
-  "back_to": "b5372864e2df6a2f5e543a556a62197f50ca3650",
+  "back_to": "1912d34c9c7bdea2e781960b99e8f192b8fc4fbb",
   "branch": "master",
   "complete": false,
   "repo": "https://github.com/rust-lang/regex",
-  "reviewed_total": 500,
+  "reviewed_total": 1000,
   "shallow": false,
   "tip": "72d650cb0a880a01ab6dc2137c0888e8f89740f7",
-  "updated_at": "2026-09-24T19:28:08.220128+00:00"
+  "updated_at": "2026-09-25T09:04:04.855626+00:00"
 }

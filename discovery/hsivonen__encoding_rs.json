@@ -1,10 +1,10 @@
 {
-  "back_to": "24af2766c955ab994d3d877fb3bf46e9862f0cb7",
+  "back_to": "2dadb029b8559bb1ae0b431ceda8e21fde950e35",
   "branch": "main",
-  "complete": false,
+  "complete": true,
   "repo": "https://github.com/hsivonen/encoding_rs",
-  "reviewed_total": 800,
+  "reviewed_total": 829,
   "shallow": false,
   "tip": "a155adc7271c9e507556d053c95b459186671d2a",
-  "updated_at": "2026-09-24T19:28:08.220128+00:00"
+  "updated_at": "2026-09-25T09:04:04.855626+00:00"
 }

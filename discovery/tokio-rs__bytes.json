@@ -1,10 +1,10 @@
 {
-  "back_to": "66c00aaf725831fe78bfdd38d6719c0f15948475",
+  "back_to": "52aeab40eefddde5a5105b2bf45ed4283711d33b",
   "branch": "master",
-  "complete": false,
+  "complete": true,
   "repo": "https://github.com/tokio-rs/bytes",
-  "reviewed_total": 500,
+  "reviewed_total": 510,
   "shallow": false,
   "tip": "7930d93d583757e922014312d4aa3e58a415131f",
-  "updated_at": "2026-09-24T19:28:08.220128+00:00"
+  "updated_at": "2026-09-25T09:04:04.855626+00:00"
 }

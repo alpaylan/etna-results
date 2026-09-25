@@ -1,10 +1,10 @@
 {
-  "back_to": "9bd682556cfc4b34b1ce32dbefa76923a5bcb38a",
+  "back_to": "de96b4df3741c8c5c32d5c6551b2f670b2919ae6",
   "branch": "main",
-  "complete": false,
+  "complete": true,
   "repo": "https://github.com/rusticstuff/simdutf8",
-  "reviewed_total": 500,
+  "reviewed_total": 571,
   "shallow": false,
   "tip": "641d57f313df57354246d2b68d4778c092e076c3",
-  "updated_at": "2026-09-24T19:28:08.220128+00:00"
+  "updated_at": "2026-09-25T09:04:04.855626+00:00"
 }

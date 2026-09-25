@@ -1,10 +1,10 @@
 {
-  "back_to": "d0bc4982bc5ba633ac2efd747b8a4e14c13985dd",
+  "back_to": "6fdf817363b5555a91a3a9012cff5d317c590590",
   "branch": "master",
-  "complete": false,
+  "complete": true,
   "repo": "https://github.com/petgraph/petgraph",
-  "reviewed_total": 500,
+  "reviewed_total": 843,
   "shallow": false,
   "tip": "a4d94bd2c39ac198c22682b2dcb1ff21583d0db0",
-  "updated_at": "2026-09-24T19:28:08.220128+00:00"
+  "updated_at": "2026-09-25T09:04:04.855626+00:00"
 }
