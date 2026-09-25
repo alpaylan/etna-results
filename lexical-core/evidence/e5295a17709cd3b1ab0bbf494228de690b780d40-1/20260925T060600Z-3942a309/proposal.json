@@ -1,0 +1,13 @@
+{
+  "commit": "e5295a17709cd3b1ab0bbf494228de690b780d40",
+  "parent": "c3ed01225fa1881aed256937f2a24f712801b404",
+  "fixed_commit": "e5295a17709cd3b1ab0bbf494228de690b780d40",
+  "summary": "FloatSlice::uninitialized created invalid slice references through explicit_uninitialized(), which uses mem::zeroed() with debug assertions enabled. These null references can cause valid float parsing to fail even though the fields are subsequently overwritten. The fix initializes both references to valid empty slices. The fix-added vector_issue test in lexical-test/tests/issue8.rs parses three strings into a float vector; its package enables debug assertions. No tests were executed in this planning job.",
+  "test": "vector_issue",
+  "expected_failure": null,
+  "reversal": {
+    "path": "lexical-core/src/atof/algorithm/correct.rs",
+    "fixed_text": "            integer: &[],\n            fraction: &[],\n",
+    "parent_text": "            integer: explicit_uninitialized(),\n            fraction: explicit_uninitialized(),\n"
+  }
+}

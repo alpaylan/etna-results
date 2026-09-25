@@ -1,0 +1,17 @@
+Command: rustup run 1.32.0 cargo test --locked --lib vector_issue -- --exact --nocapture --test-threads=1
+Started: 2026-09-25T06:06:46.114005+00:00
+STDOUT:
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 2 filtered out
+
+
+STDERR:
+   Compiling lexical-core v0.4.0 (/home/runner/work/_temp/upstream/lexical-core)
+   Compiling lexical v2.1.0 (/home/runner/work/_temp/upstream)
+    Finished dev [unoptimized + debuginfo] target(s) in 1.50s
+     Running /home/runner/work/_temp/build-20260925T060600Z-3942a309/debug/deps/lexical-190c43c7c79fb20b
+
+Exit: 0
+Timed out: False

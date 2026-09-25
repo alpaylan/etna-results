@@ -1,0 +1,23 @@
+Command: rustup run 1.32.0 cargo check --locked --tests
+Started: 2026-09-25T06:06:37.461701+00:00
+STDOUT:
+
+STDERR:
+    Checking void v1.0.2
+   Compiling ryu v0.2.7
+   Compiling num-traits v0.2.6
+    Checking static_assertions v0.2.5
+    Checking cfg-if v0.1.6
+    Checking dtoa v0.4.3
+    Checking bencher v0.1.5
+    Checking itoa v0.4.3
+    Checking lazy_static v1.2.0
+    Checking unreachable v1.0.0
+    Checking stackvector v1.0.2
+    Checking lexical-core v0.4.0 (/home/runner/work/_temp/upstream/lexical-core)
+    Checking approx v0.3.1
+    Checking lexical v2.1.0 (/home/runner/work/_temp/upstream)
+    Finished dev [unoptimized + debuginfo] target(s) in 3.70s
+
+Exit: 0
+Timed out: False

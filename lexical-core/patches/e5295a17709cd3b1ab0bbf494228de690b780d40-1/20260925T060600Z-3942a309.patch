@@ -1,0 +1,15 @@
+diff --git a/lexical-core/src/atof/algorithm/correct.rs b/lexical-core/src/atof/algorithm/correct.rs
+index 1576cd6..684c5eb 100644
+--- a/lexical-core/src/atof/algorithm/correct.rs
++++ b/lexical-core/src/atof/algorithm/correct.rs
+@@ -47,8 +47,8 @@ impl<'a> FloatSlice<'a> {
+     #[inline]
+     pub(super) fn uninitialized() -> FloatSlice<'a> {
+         FloatSlice {
+-            integer: &[],
+-            fraction: &[],
++            integer: explicit_uninitialized(),
++            fraction: explicit_uninitialized(),
+             digits_start: explicit_uninitialized(),
+             truncated: explicit_uninitialized(),
+             raw_exponent: explicit_uninitialized(),

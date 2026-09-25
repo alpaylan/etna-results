@@ -1,0 +1,8 @@
+Command: rustup run 1.32.0 cargo clean -p lexical
+Started: 2026-09-25T06:06:46.051408+00:00
+STDOUT:
+
+STDERR:
+
+Exit: 0
+Timed out: False
