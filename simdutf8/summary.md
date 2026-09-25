@@ -4,7 +4,7 @@
 
 Upstream: https://github.com/rusticstuff/simdutf8
 
-Candidate: b3dee2355055aebaebb079cc934ce09c7a7cbbd3-1
+Candidate: ee8a160e254e3034698c912a3fcc014ce82ac11a-1
 
 Provenance: verbatim
 

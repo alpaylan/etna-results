@@ -1,0 +1,14 @@
+{
+  "commit": "ee8a160e254e3034698c912a3fcc014ce82ac11a",
+  "parent": "38bea76afd4c91827efb5f9ba78fea220653fba8",
+  "fixed_commit": "ee8a160e254e3034698c912a3fcc014ce82ac11a",
+  "summary": "Blocked: the full commit diff only replaces `features = \"std\"` with `feature = \"std\"` in two cfg attributes in tests/tests.rs. The typo incorrectly enables test imports regardless of Cargo's std feature; the correction gates them on that feature being disabled. No implementation changes or detecting regression tests were added. Reversing this fix would change test configuration, violating the implementation-only reversal requirement.",
+  "test": "",
+  "package": null,
+  "expected_failure": null,
+  "reversal": {
+    "path": "",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
