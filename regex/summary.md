@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: Selected test is not present at the fixed revision: bytes::invalidutf8_anchor1
+**blocked**: fixed: cannot guarantee a fresh package build
 
 Upstream: https://github.com/rust-lang/regex
 
-Candidate: 7046d65d3d428c0db30719f42e144afa8c4ae3d3-1
+Candidate: e5b40638151f2126ddf25b7ab71faa4192dc4efe-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-History coverage not yet recorded.
+Reviewed commits: 1 / 546 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

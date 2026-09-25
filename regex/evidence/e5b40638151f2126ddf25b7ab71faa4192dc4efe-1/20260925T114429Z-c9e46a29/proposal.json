@@ -1,0 +1,13 @@
+{
+  "commit": "e5b40638151f2126ddf25b7ab71faa4192dc4efe",
+  "parent": "51f31946efa148fd15be3eaa092cfb02052bc495",
+  "fixed_commit": "e5b40638151f2126ddf25b7ab71faa4192dc4efe",
+  "summary": "The Unicode character-class printer renders [-./] as (?u:[--/]), which reparses without the dot and changes matching behavior. The fix prints the hyphen separately at the beginning and adjusts the remaining range, producing (?u:[-\\.-/]). This reversal isolates the Unicode implementation change. The selected regression test was added by the fix in regex-syntax/src/lib.rs; its first assertion detects this formatting error. No tests were run.",
+  "test": "tests::roundtrip_class_hypen",
+  "expected_failure": "assertion failed: expected \"(?u:[-\\\\.-/])\", actual \"(?u:[--/])\"",
+  "reversal": {
+    "path": "regex-syntax/src/lib.rs",
+    "fixed_text": "impl fmt::Display for CharClass {\n    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {\n        try!(write!(f, \"(?u:[\"));\n        for range in self.iter() {\n            if range.start == '-' || range.end == '-' {\n                try!(write!(f, \"-\"));\n                break;\n            }\n        }\n        for range in self.iter() {\n            let mut range = *range;\n            if range.start == '-' {\n                range.start = ((range.start as u8) + 1) as char;\n            }\n            if range.end == '-' {\n                range.end = ((range.end as u8) - 1) as char;\n            }\n            if range.start > range.end {\n                continue;\n            }\n            try!(write!(f, \"{}\", range));\n        }\n        try!(write!(f, \"])\"));\n        Ok(())\n    }\n}\n",
+    "parent_text": "impl fmt::Display for CharClass {\n    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {\n        try!(write!(f, \"(?u:[\"));\n        for range in self.iter() {\n            try!(write!(f, \"{}\", range));\n        }\n        try!(write!(f, \"])\"));\n        Ok(())\n    }\n}\n"
+  }
+}
