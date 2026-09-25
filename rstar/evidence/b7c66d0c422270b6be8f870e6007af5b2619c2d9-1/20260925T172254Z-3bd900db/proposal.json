@@ -1,0 +1,14 @@
+{
+  "commit": "b7c66d0c422270b6be8f870e6007af5b2619c2d9",
+  "parent": "803db5270a43f93be85909e7ff736953fb9996cb",
+  "fixed_commit": "b7c66d0c422270b6be8f870e6007af5b2619c2d9",
+  "summary": "min_max_dist_2 summed maximum squared components before subtracting the largest max-minus-min difference, introducing floating-point rounding discrepancies with distance_2. The fix substitutes the selected minimum component before summing in dimension order, matching length_2's accumulation order. A verbatim implementation reversal is available, but no detecting upstream test was established at this revision: the fix adds no tests, no existing test directly calls min_max_dist_2, and the nearest-neighbor tests do not specifically exercise the rounding discrepancy. Leave this candidate blocked for lack of an established detecting test; no builds or tests were run.",
+  "test": "",
+  "package": "rstar",
+  "expected_failure": null,
+  "reversal": {
+    "path": "rstar/src/aabb.rs",
+    "fixed_text": "    fn min_max_dist_2(&self, point: &P) -> <P as Point>::Scalar {\n        let l = self.lower.sub(point);\n        let u = self.upper.sub(point);\n        let mut max_diff = (Zero::zero(), Zero::zero(), 0); // diff, min, index\n        let mut result = P::new();\n\n        for i in 0..P::DIMENSIONS {\n            let mut min = l.nth(i);\n            let mut max = u.nth(i);\n            max = max * max;\n            min = min * min;\n            if max < min {\n                std::mem::swap(&mut min, &mut max);\n            }\n\n            let diff = max - min;\n            *result.nth_mut(i) = max;\n\n            if diff >= max_diff.0 {\n                max_diff = (diff, min, i);\n            }\n        }\n\n        *result.nth_mut(max_diff.2) = max_diff.1;\n        result.fold(Zero::zero(), |acc, curr| acc + curr)\n    }\n",
+    "parent_text": "    fn min_max_dist_2(&self, point: &P) -> <P as Point>::Scalar {\n        let l = self.lower.sub(point);\n        let u = self.upper.sub(point);\n        let mut max_diff = Zero::zero();\n        let mut result: <P as Point>::Scalar = Zero::zero();\n\n        for i in 0..P::DIMENSIONS {\n            let mut min = l.nth(i);\n            let mut max = u.nth(i);\n            max = max * max;\n            min = min * min;\n            if max < min {\n                std::mem::swap(&mut min, &mut max);\n            }\n\n            let diff = max - min;\n            result = result + max;\n            if diff > max_diff {\n                max_diff = diff;\n            }\n        }\n\n        result - max_diff\n    }\n"
+  }
+}
