@@ -1,0 +1,13 @@
+diff --git a/src/iter.rs b/src/iter.rs
+index 57c5d2c..fee1c73 100644
+--- a/src/iter.rs
++++ b/src/iter.rs
+@@ -143,7 +143,7 @@ impl<'a> Iterator for RopeLines<'a> {
+             let a = self.node.line_to_char(self.line_idx).max(self.start_char);
+ 
+             // Early out if we're past the specified end char
+-            if a > self.end_char {
++            if a >= self.end_char {
+                 self.line_idx = self.node.line_break_count() + 1;
+                 return None;
+             }

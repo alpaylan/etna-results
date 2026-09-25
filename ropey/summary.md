@@ -1,17 +1,15 @@
 # Cloud bug-mining prototype
 
-Resumed verified evidence; no tests rerun.
-
-**confirmed**: The same upstream test passed, panicked on the original defect ('assertion failed: text.len() > 0'), and passed after restoration
+**blocked**: fixed: no completed execution of the exact upstream test
 
 Upstream: https://github.com/cessen/ropey
 
-Candidate: c340f4d2b1a3dc27d57e46cf5b23b6bcaeec6f74-1
+Candidate: 40de39d7abb20666a5582f6a5b2a0961bd851e63-1
 
 Provenance: verbatim
 
-Latest outcomes: {"confirmed": 1}
+Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 68 reachable from the saved tip.
+Reviewed commits: 1 / 23 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

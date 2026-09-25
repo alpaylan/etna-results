@@ -1,0 +1,36 @@
+Command: rustup run 1.22.0 cargo test --locked --lib iter::tests::lines_01 -- --exact --nocapture --test-threads=1
+Started: 2026-09-25T11:44:49.727224+00:00
+STDOUT:
+
+running 1 test
+test iter::tests::lines_01 ... Node size: 352
+FAILED
+
+failures:
+
+failures:
+    iter::tests::lines_01
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 40 filtered out
+
+
+STDERR:
+   Compiling btree_rope v0.1.0 (file:///home/runner/work/_temp/upstream)
+warning: unused import: `slice::RopeSlice`
+   --> src/iter.rs:257:9
+    |
+257 |     use slice::RopeSlice;
+    |         ^^^^^^^^^^^^^^^^
+    |
+    = note: #[warn(unused_imports)] on by default
+
+    Finished dev [unoptimized + debuginfo] target(s) in 1.14 secs
+     Running /home/runner/work/_temp/build-20260925T114408Z-a1749dc8/debug/deps/btree_rope-b29dfec30062dffd
+thread 'iter::tests::lines_01' panicked at 'assertion failed: `(left == right)`
+  left: `34`,
+ right: `33`', src/iter.rs:360:8
+note: Run with `RUST_BACKTRACE=1` for a backtrace.
+error: test failed, to rerun pass '--lib'
+
+Exit: 101
+Timed out: False

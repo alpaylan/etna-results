@@ -1,0 +1,13 @@
+{
+  "commit": "40de39d7abb20666a5582f6a5b2a0961bd851e63",
+  "parent": "d4fee7a8bce4e2b40aced4e29ca81be9ba039e99",
+  "fixed_commit": "40de39d7abb20666a5582f6a5b2a0961bd851e63",
+  "summary": "RopeLines::next prematurely stops when a line starts exactly at end_char, omitting the final empty line after a trailing line break. The fix changes >= to >, allowing that empty line to be yielded. Reversing only this condition should make the regression test added by the fix count 33 lines instead of 34. Both source regions occur exactly once. No tests were executed.",
+  "test": "iter::tests::lines_01",
+  "expected_failure": "assertion failed: `(left == right)` (left: `34`, right: `33`)",
+  "reversal": {
+    "path": "src/iter.rs",
+    "fixed_text": "            if a > self.end_char {\n                self.line_idx = self.node.line_break_count() + 1;\n                return None;\n            }\n",
+    "parent_text": "            if a >= self.end_char {\n                self.line_idx = self.node.line_break_count() + 1;\n                return None;\n            }\n"
+  }
+}

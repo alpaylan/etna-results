@@ -1,0 +1,9 @@
+Command: rustup run 1.22.0 cargo check --locked --tests
+Started: 2026-09-25T11:44:45.849692+00:00
+STDOUT:
+
+STDERR:
+    Finished dev [unoptimized + debuginfo] target(s) in 0.0 secs
+
+Exit: 0
+Timed out: False
