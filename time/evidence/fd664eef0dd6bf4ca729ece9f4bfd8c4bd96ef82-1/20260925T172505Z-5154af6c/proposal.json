@@ -1,0 +1,14 @@
+{
+  "commit": "fd664eef0dd6bf4ca729ece9f4bfd8c4bd96ef82",
+  "parent": "b8d09a7bccbd3ea300fe30bf12b5f0a11ba1d539",
+  "fixed_commit": "fd664eef0dd6bf4ca729ece9f4bfd8c4bd96ef82",
+  "summary": "Blocked: this commit only updates tests/compile-fail/invalid_serializer.stderr to expect an additional E0391 opaque-type cycle diagnostic, referencing rust-lang/rust#119273. The associated compile_fail test belongs to package time. No implementation changes exist to reverse; the macro implementation is identical before and after the commit. Reversing the diagnostic expectation would change test evidence and violate the implementation-only requirement.",
+  "test": "",
+  "package": "time",
+  "expected_failure": null,
+  "reversal": {
+    "path": "",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
