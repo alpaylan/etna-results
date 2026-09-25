@@ -1,0 +1,14 @@
+{
+  "commit": "0a096d4fb752c71ad8528f3e167e9afd58b4217e",
+  "parent": "7964c638a9d3bb467c03a017292fe1194e6f0664",
+  "fixed_commit": "0a096d4fb752c71ad8528f3e167e9afd58b4217e",
+  "summary": "Uuid::to_fields_le duplicated byte 5 into both halves of d2. The fix reads byte 4 for the low byte, restoring correct little-endian decoding. The existing doctest at src/lib.rs:772 exercises this difference: it expects 0xBD9A, whereas the buggy implementation produces 0xBDBD. However, the runner requires named function tests and does not support this doctest. No existing unit or integration test calls to_fields_le, so test is empty and the plan is blocked.",
+  "test": "",
+  "package": null,
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "        let d2 =\n            u16::from(self.as_bytes()[5]) << 8 | u16::from(self.as_bytes()[4]);\n",
+    "parent_text": "        let d2 =\n            u16::from(self.as_bytes()[5]) << 8 | u16::from(self.as_bytes()[5]);\n"
+  }
+}
