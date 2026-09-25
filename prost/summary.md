@@ -4,7 +4,7 @@
 
 Upstream: https://github.com/tokio-rs/prost
 
-Candidate: b2ce9edbf3267d1dd2ce1533ac6eb1134e7eb783-1
+Candidate: 318dfef3fc79c2129548577590b94b804c229ffe-1
 
 Provenance: verbatim
 
