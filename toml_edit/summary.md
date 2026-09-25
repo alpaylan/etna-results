@@ -4,7 +4,7 @@
 
 Upstream: https://github.com/toml-rs/toml
 
-Candidate: f89260ed49fd20e67f90ab56941de49011e78b01-1
+Candidate: 4cd357381454dd7ebbb0952eaf3975f7d956dda9-1
 
 Provenance: verbatim
 

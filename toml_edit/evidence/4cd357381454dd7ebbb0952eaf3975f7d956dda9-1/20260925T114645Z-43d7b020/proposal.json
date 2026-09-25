@@ -1,0 +1,13 @@
+{
+  "commit": "4cd357381454dd7ebbb0952eaf3975f7d956dda9",
+  "parent": "ae730bb904baefdb49ebe02b603e03121e979260",
+  "fixed_commit": "4cd357381454dd7ebbb0952eaf3975f7d956dda9",
+  "summary": "Parsed values retain explicit empty decoration, suppressing default spacing when inserted into a document: foo ='bar' instead of foo = 'bar'. The fix clears decoration while preserving the value's TOML representation. The added doctest src/lib.rs - (line 48) checks this behavior, but prototype/mine.py only recognizes named test functions and cannot select doctests. No detecting named test was found; test selection is blocked. The implementation reversal is exact and unique in both revisions. No tests were executed.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/value.rs",
+    "fixed_text": "            Ok((mut value, _)) => {\n                // Only take the repr and not decor, as its probably not intended\n                value.decor_mut().clear();\n                Ok(value)\n            }\n",
+    "parent_text": "            Ok((value, _)) => Ok(value),\n"
+  }
+}
