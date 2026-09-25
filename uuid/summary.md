@@ -4,7 +4,7 @@
 
 Upstream: https://github.com/uuid-rs/uuid
 
-Candidate: 0a096d4fb752c71ad8528f3e167e9afd58b4217e-1
+Candidate: 3af4733e60f956bd8673b419d3a9e83fcd0a0b8e-1
 
 Provenance: verbatim
 
