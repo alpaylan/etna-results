@@ -1,0 +1,14 @@
+{
+  "commit": "baddf9828596bb7e2b908f5d4997542ebe59a7c3",
+  "parent": "1f38ea600478bf22b0b812cc788553a9e3019531",
+  "fixed_commit": "baddf9828596bb7e2b908f5d4997542ebe59a7c3",
+  "summary": "The old include generator indexes component zero of an empty package path and panics. The fix uses a module stack and recorded filenames, allowing package-less output to be included at the root. The fix adds tests::write_includes covering this case. Blocked: no valid verbatim reversal was established under the required constraints. Restoring the old implementation changes the method signature and visibility incompatibly with the unchanged regression test and requires the removed Module::to_partial_file_name helper from another file. Restoring only its body leaves incompatible variables and recursive calls. No builds or tests were run.",
+  "test": "tests::write_includes",
+  "package": "prost-build",
+  "expected_failure": null,
+  "reversal": {
+    "path": "prost-build/src/config.rs",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
