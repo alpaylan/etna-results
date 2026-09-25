@@ -2,11 +2,13 @@
   "repo": "https://github.com/rust-itertools/itertools",
   "tips": [
     "13aa10e27a6bb5b5dd70cb677924af5846862560",
+    "481dd81ae415633f607b1d5f3012d2d31a14c058",
     "ca7025816a263ab7b57f439962341309a1073273"
   ],
   "shallow": false,
   "reviewed": [
     "13aa10e27a6bb5b5dd70cb677924af5846862560",
+    "481dd81ae415633f607b1d5f3012d2d31a14c058",
     "ca7025816a263ab7b57f439962341309a1073273"
   ],
   "reachable_commits": 1112,

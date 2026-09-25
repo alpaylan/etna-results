@@ -1,0 +1,28 @@
+diff --git a/src/zip_longest.rs b/src/zip_longest.rs
+index 5baa2d5..007a684 100644
+--- a/src/zip_longest.rs
++++ b/src/zip_longest.rs
+@@ -16,18 +16,16 @@ use self::EitherOrBoth::{Right, Left, Both};
+ #[derive(Clone)]
+ #[must_use = "iterator adaptors are lazy and do nothing unless consumed"]
+ pub struct ZipLongest<T, U> {
+-    a: Fuse<T>,
+-    b: Fuse<U>,
++    a: T,
++    b: U
+ }
+ 
+-impl<T, U> ZipLongest<T, U> where
+-    T: Iterator,
+-    U: Iterator,
++impl<T, U> ZipLongest<T, U>
+ {
+-    /// Create a new **ZipLongest** iterator.
++    /// Create a new ZipLongest iterator.
+     pub fn new(a: T, b: U) -> ZipLongest<T, U>
+     {
+-        ZipLongest{a: a.fuse(), b: b.fuse()}
++        ZipLongest{a: a, b: b}
+     }
+ }
+ 

@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: Proposal names no upstream test
+**blocked**: Toolchain install failed; see setup logs
 
 Upstream: https://github.com/rust-itertools/itertools
 
-Candidate: 4e9b9a563addc6cde1089ac5d41ba9445b2db233-1
+Candidate: 481dd81ae415633f607b1d5f3012d2d31a14c058-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-History coverage not yet recorded.
+Reviewed commits: 1 / 314 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

@@ -1,0 +1,13 @@
+{
+  "commit": "481dd81ae415633f607b1d5f3012d2d31a14c058",
+  "parent": "96ef4bd94857fb7f53179f39a27a3c176644e2e0",
+  "fixed_commit": "481dd81ae415633f607b1d5f3012d2d31a14c058",
+  "summary": "ZipLongest polls an input again after it returns None, allowing a non-fused input to resume yielding values. The fix wraps both inputs in Fuse, preserving exhaustion independently. The regression test added in tests/zip.rs expects Right(3) for the third item; reversing the input storage and constructor changes should instead produce Both(3, 3). Both selected regions occur exactly once in their respective Git source files. No builds or tests were run.",
+  "test": "zip_longest_fused",
+  "expected_failure": "assertion failed: `(left == right)` (left: `Some(Both(3, 3))`, right: `Some(Right(3))`)",
+  "reversal": {
+    "path": "src/zip_longest.rs",
+    "fixed_text": "pub struct ZipLongest<T, U> {\n    a: Fuse<T>,\n    b: Fuse<U>,\n}\n\nimpl<T, U> ZipLongest<T, U> where\n    T: Iterator,\n    U: Iterator,\n{\n    /// Create a new **ZipLongest** iterator.\n    pub fn new(a: T, b: U) -> ZipLongest<T, U>\n    {\n        ZipLongest{a: a.fuse(), b: b.fuse()}\n    }\n}\n",
+    "parent_text": "pub struct ZipLongest<T, U> {\n    a: T,\n    b: U\n}\n\nimpl<T, U> ZipLongest<T, U>\n{\n    /// Create a new ZipLongest iterator.\n    pub fn new(a: T, b: U) -> ZipLongest<T, U>\n    {\n        ZipLongest{a: a, b: b}\n    }\n}\n"
+  }
+}
