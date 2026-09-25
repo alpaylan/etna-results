@@ -1,0 +1,14 @@
+{
+  "commit": "ee771a2b7568af25054c54d882e993b3ebba3512",
+  "parent": "b9db6125db148472aeb6f52b401cb27e38490402",
+  "fixed_commit": "ee771a2b7568af25054c54d882e993b3ebba3512",
+  "summary": "Enum-default paths were resolved from the derive-generated implementation module instead of the message's enclosing module. Adding super:: compensates for that extra module level. The implementation reversal is exact and unique. However, the added protobuf fixtures expose a compilation error before the existing packages::test in package tests can execute. No existing runtime test demonstrating this regression was found; test is empty because compilation failures do not satisfy the confirmation gate. No builds or tests were run.",
+  "test": "",
+  "package": "tests",
+  "expected_failure": null,
+  "reversal": {
+    "path": "prost-derive/src/field/scalar.rs",
+    "fixed_text": "    pub fn typed(&self, ty: &Ty) -> Tokens {\n        if let Ty::Enumeration(..) = *ty {\n            quote!(super::#self as i32)\n        } else {\n            quote!(#self)\n        }\n    }",
+    "parent_text": "    pub fn typed(&self, ty: &Ty) -> Tokens {\n        if let Ty::Enumeration(..) = *ty {\n            quote!(#self as i32)\n        } else {\n            quote!(#self)\n        }\n    }"
+  }
+}
