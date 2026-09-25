@@ -1,0 +1,14 @@
+{
+  "commit": "c088b755602ad064f8367c125ea935e8411a5f9b",
+  "parent": "8433155f5c52bd3f5174999de39d33b92b59ee00",
+  "fixed_commit": "c088b755602ad064f8367c125ea935e8411a5f9b",
+  "summary": "Root enum deserialization incorrectly forwards to deserialize_any, presenting a TOML table as a map to an enum visitor and rejecting valid input such as [Plain]. The fix implements deserialize_enum, validates that the root table contains exactly one variant, and calls visit_enum. Reverse only this root dispatch correction. The fix-added test enum_unit::from_std_table in tests/enum_external_deserialize.rs exercises this behavior and requires the easy feature. This is a source-based plan; tests were not run.",
+  "test": "enum_unit::from_std_table",
+  "package": null,
+  "expected_failure": "invalid type: map, expected enum TheEnum",
+  "reversal": {
+    "path": "src/easy/de/mod.rs",
+    "fixed_text": "    // Called when the type to deserialize is an enum, as opposed to a field in the type.\n    fn deserialize_enum<V>(\n        self,\n        _name: &'static str,\n        _variants: &'static [&'static str],\n        visitor: V,\n    ) -> Result<V::Value, Error>\n    where\n        V: serde::de::Visitor<'de>,\n    {\n        match self.input.root {\n            crate::Item::Table(v) => {\n                if v.is_empty() {\n                    Err(crate::easy::de::Error::custom(\n                        \"wanted exactly 1 element, found 0 elements\",\n                    ))\n                } else if v.len() != 1 {\n                    Err(crate::easy::de::Error::custom(\n                        \"wanted exactly 1 element, more than 1 element\",\n                    ))\n                } else {\n                    visitor.visit_enum(crate::easy::de::TableMapAccess::new(v))\n                }\n            }\n            _ => Err(crate::easy::de::Error::custom(\"wanted table\")),\n        }\n    }\n\n    serde::forward_to_deserialize_any! {\n        bool u8 u16 u32 u64 i8 i16 i32 i64 f32 f64 char str string seq\n        bytes byte_buf map unit newtype_struct\n        ignored_any unit_struct tuple_struct tuple identifier struct\n    }",
+    "parent_text": "    serde::forward_to_deserialize_any! {\n        bool u8 u16 u32 u64 i8 i16 i32 i64 f32 f64 char str string seq\n        bytes byte_buf map unit newtype_struct\n        ignored_any unit_struct tuple_struct tuple enum identifier struct\n    }"
+  }
+}
