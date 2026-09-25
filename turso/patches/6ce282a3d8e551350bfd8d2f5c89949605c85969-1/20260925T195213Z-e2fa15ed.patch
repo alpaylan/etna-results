@@ -1,0 +1,30 @@
+diff --git a/core/vdbe/vacuum.rs b/core/vdbe/vacuum.rs
+index fd990c1a6..d3771393f 100644
+--- a/core/vdbe/vacuum.rs
++++ b/core/vdbe/vacuum.rs
+@@ -348,21 +348,15 @@ fn finalize_vacuum_target_header(
+ ) -> crate::types::IOResultOr<()> {
+     if let Some(mv_store) = target_conn.mv_store_for_db(crate::MAIN_DB_ID) {
+         let tx_id = target_conn.get_mv_tx_id_for_db(crate::MAIN_DB_ID);
+-        mv_store.with_header_mut(|header| header_meta.apply_to(header), tx_id.as_ref())?;
+-        set_mvcc_schema_version_from_header_cookie(target_conn, header_meta.schema_cookie)?;
+-        return Ok(crate::IOResult::Done(()));
++        return mv_store
++            .with_header_mut(|header| header_meta.apply_to(header), tx_id.as_ref())
++            .map(crate::IOResult::Done)
++            .map_err(Into::into);
+     }
+     let pager = target_conn.pager.load();
+     pager.with_header_mut(|header| header_meta.apply_to(header))
+ }
+ 
+-fn set_mvcc_schema_version_from_header_cookie(
+-    target_conn: &Arc<Connection>,
+-    schema_cookie: u32,
+-) -> Result<()> {
+-    target_conn.with_schema_mut(|schema| schema.schema_version = schema_cookie)
+-}
+-
+ /// Finish a VACUUM INTO output database with durable on-disk state.
+ ///
+ /// Target build runs with `synchronous=OFF` for speed, so its commit alone is

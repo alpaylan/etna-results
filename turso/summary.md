@@ -1,6 +1,6 @@
 # Cloud bug-mining prototype
 
-**blocked**: fixed: source differs beyond the exact implementation reversal
+**blocked**: fixed: no completed execution of the exact upstream test
 
 Upstream: https://github.com/tursodatabase/turso
 

@@ -1,0 +1,14 @@
+{
+  "commit": "6ce282a3d8e551350bfd8d2f5c89949605c85969",
+  "expected_failure": "assertion failed: `(left == right)`\n  left: `[(1,)]`,\n right: `[(42,)]`",
+  "fixed_commit": "6ce282a3d8e551350bfd8d2f5c89949605c85969",
+  "package": "turso_core",
+  "parent": "6d01be3604bbd2bc1066c2fef3f8049b98ed4523",
+  "reversal": {
+    "fixed_text": "fn finalize_vacuum_target_header(\n    target_conn: &Arc<Connection>,\n    header_meta: &VacuumDbHeaderMeta,\n) -> crate::types::IOResultOr<()> {\n    if let Some(mv_store) = target_conn.mv_store_for_db(crate::MAIN_DB_ID) {\n        let tx_id = target_conn.get_mv_tx_id_for_db(crate::MAIN_DB_ID);\n        mv_store.with_header_mut(|header| header_meta.apply_to(header), tx_id.as_ref())?;\n        set_mvcc_schema_version_from_header_cookie(target_conn, header_meta.schema_cookie)?;\n        return Ok(crate::IOResult::Done(()));\n    }\n    let pager = target_conn.pager.load();\n    pager.with_header_mut(|header| header_meta.apply_to(header))\n}\n\nfn set_mvcc_schema_version_from_header_cookie(\n    target_conn: &Arc<Connection>,\n    schema_cookie: u32,\n) -> Result<()> {\n    target_conn.with_schema_mut(|schema| schema.schema_version = schema_cookie)\n}",
+    "parent_text": "fn finalize_vacuum_target_header(\n    target_conn: &Arc<Connection>,\n    header_meta: &VacuumDbHeaderMeta,\n) -> crate::types::IOResultOr<()> {\n    if let Some(mv_store) = target_conn.mv_store_for_db(crate::MAIN_DB_ID) {\n        let tx_id = target_conn.get_mv_tx_id_for_db(crate::MAIN_DB_ID);\n        return mv_store\n            .with_header_mut(|header| header_meta.apply_to(header), tx_id.as_ref())\n            .map(crate::IOResult::Done)\n            .map_err(Into::into);\n    }\n    let pager = target_conn.pager.load();\n    pager.with_header_mut(|header| header_meta.apply_to(header))\n}",
+    "path": "core/vdbe/vacuum.rs"
+  },
+  "summary": "VACUUM INTO on an MVCC database incorrectly preserved the source schema_version in the target database header but failed to update the target connection's in-memory schema_version. When the target MVCC database performed its final TRUNCATE checkpoint, the checkpoint wrote the connection's stale schema_version (from the target's own initial state) instead of the copied cookie, causing PRAGMA schema_version to return the wrong value. The fix adds a call to set_mvcc_schema_version_from_header_cookie() after updating the MVCC header, ensuring the connection's schema_version matches the copied header cookie.",
+  "test": "core::vdbe::vacuum::tests::vacuum_db_header_meta_schema_cookie_survives_mvcc_target_checkpoint"
+}

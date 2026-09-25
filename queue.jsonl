@@ -2596,3 +2596,4 @@
 {"id": "a06bea30259be4b1650c513231b2d40223c68f83-1", "status": "pending", "requeued_at": "2026-09-25T19:48:47.772046+00:00", "note": "harness fix: committed-lock-first + setup baseline"}
 {"id": "f5f2cc5299c3805f1f5f9bd81aacf421bc1a62b1-1", "status": "pending", "requeued_at": "2026-09-25T19:48:47.772046+00:00", "note": "harness fix: committed-lock-first + setup baseline"}
 {"id": "6ce282a3d8e551350bfd8d2f5c89949605c85969-1", "status": "pending", "requeued_at": "2026-09-25T19:48:47.772046+00:00", "note": "harness fix: committed-lock-first + setup baseline"}
+{"id": "6ce282a3d8e551350bfd8d2f5c89949605c85969-1", "published_at": "2026-09-25T20:16:35.496642+00:00", "reason": "fixed: no completed execution of the exact upstream test", "run": {"attempt": "20260925T195213Z-e2fa15ed", "id": "36181966675", "url": "https://github.com/alpaylan/etna-ify/actions/runs/36181966675"}, "status": "blocked"}
