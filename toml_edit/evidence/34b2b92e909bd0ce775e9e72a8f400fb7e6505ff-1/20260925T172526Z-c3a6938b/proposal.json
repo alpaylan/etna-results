@@ -1,0 +1,14 @@
+{
+  "commit": "34b2b92e909bd0ce775e9e72a8f400fb7e6505ff",
+  "parent": "572ef7e993ed1c9efaea2affe45a3f6d290af6b9",
+  "fixed_commit": "34b2b92e909bd0ce775e9e72a8f400fb7e6505ff",
+  "summary": "Invalid alphabetic values produced misleading diagnostics: value=trust reported column 8 and Expected `rue`. The fix dispatches alphabetic values to true, false, inf, or nan, reporting column 7 and the complete alternatives. Removing this dispatch restores the old behavior. The fix updates the detecting snapshot tests/fixtures/invalid/string-no-quotes-constant-like.stderr, exercised by tests/test_invalid.rs. However, that target uses a custom fs_snapshot harness with dynamically named cases, not Rust test functions; the current runner cannot resolve it. No detecting function-based test was found, so test is empty and the plan is blocked. No builds or tests were run.",
+  "test": "",
+  "package": null,
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/parser/value.rs",
+    "fixed_text": "            crate::parser::inline_table::INLINE_TABLE_OPEN => inline_table().map(v::Value::InlineTable),\n            b'a'..=b'z' | b'A'..=b'Z' => {\n                choice((\n                    range(crate::parser::numbers::TRUE).map(|_| v::Value::from(true)),\n                    range(crate::parser::numbers::FALSE).map(|_| v::Value::from(false)),\n                    crate::parser::numbers::inf().map(v::Value::from),\n                    crate::parser::numbers::nan().map(v::Value::from),\n                ))\n            },\n            // Uncommon enough not to be worth optimizing at this time\n",
+    "parent_text": "            crate::parser::inline_table::INLINE_TABLE_OPEN => inline_table().map(v::Value::InlineTable),\n            // Uncommon enough not to be worth optimizing at this time\n"
+  }
+}
