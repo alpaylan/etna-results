@@ -1,0 +1,14 @@
+{
+  "commit": "aed424a778f43373824232e242e4f7894ba221f1",
+  "parent": "f8a6c7031df1748b8469eb94372e2bd53d82ef1c",
+  "fixed_commit": "aed424a778f43373824232e242e4f7894ba221f1",
+  "summary": "SplitN could yield a spurious empty remainder after its underlying split was exhausted: splitting b\"abcdef\" with limit 2 and separator \"X\" produced [b\"abcdef\", b\"\"]. The fix checks self.split.done before yielding another item; it also corrects the reverse iterator. The proposed reversal isolates the forward iterator. Detecting assertions exist in the splitn_str doctest updated by this fix, but prototype/mine.py supports only named unit/integration tests and rejects doctest names. No detecting unit/integration test was found at this revision, so test is empty and this plan is blocked pending doctest support. No builds or tests were run.",
+  "test": "",
+  "package": null,
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/ext_slice.rs",
+    "fixed_text": "impl<'a> Iterator for SplitN<'a> {\n    type Item = &'a [u8];\n\n    #[inline]\n    fn next(&mut self) -> Option<&'a [u8]> {\n        self.count += 1;\n        if self.count > self.limit || self.split.done {\n            None\n        } else if self.count == self.limit {\n            Some(&self.split.finder.haystack[self.split.last..])\n        } else {\n            self.split.next()\n        }\n    }\n}\n",
+    "parent_text": "impl<'a> Iterator for SplitN<'a> {\n    type Item = &'a [u8];\n\n    #[inline]\n    fn next(&mut self) -> Option<&'a [u8]> {\n        self.count += 1;\n        if self.count > self.limit {\n            None\n        } else if self.count == self.limit {\n            Some(&self.split.finder.haystack[self.split.last..])\n        } else {\n            self.split.next()\n        }\n    }\n}\n"
+  }
+}

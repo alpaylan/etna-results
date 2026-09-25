@@ -1,19 +1,15 @@
 # Cloud bug-mining prototype
 
-Resumed verified evidence; no tests rerun.
-
-**confirmed**: The same upstream test passed, panicked on the original defect ('assertion `left == right` failed
-  left: "\"\\xff�\\xff\""
- right: "\"\\xFF�\\xFF\""'), and passed after restoration
+**blocked**: Proposal names no upstream test
 
 Upstream: https://github.com/BurntSushi/bstr
 
-Candidate: af99a6ecb4723d0ea03982797a1becd8437d3f7d-1
+Candidate: aed424a778f43373824232e242e4f7894ba221f1-1
 
 Provenance: verbatim
 
-Latest outcomes: {"confirmed": 1}
+Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 228 reachable from the saved tip.
+History coverage not yet recorded.
 
 Scope: one queued candidate; history coverage is partial.
