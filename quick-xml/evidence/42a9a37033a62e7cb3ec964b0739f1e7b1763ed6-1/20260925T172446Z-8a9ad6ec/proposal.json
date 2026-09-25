@@ -1,0 +1,14 @@
+{
+  "commit": "42a9a37033a62e7cb3ec964b0739f1e7b1763ed6",
+  "parent": "967d60dffdf23aa9c34c7d85ec3575a4cadc45cb",
+  "fixed_commit": "42a9a37033a62e7cb3ec964b0739f1e7b1763ed6",
+  "summary": "No valid implementation reversal exists: this commit changes only tests, and the src trees are identical before and after it. It corrects an ignored test's XML by representing the unrenamed value field as a child element instead of an attribute, and removes the redundant ignored test_parse_enum test. Reversing either change would modify tests, violating the requirement to preserve them. No implementation regression can be demonstrated from this commit.",
+  "test": "",
+  "package": null,
+  "expected_failure": null,
+  "reversal": {
+    "path": "",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}
