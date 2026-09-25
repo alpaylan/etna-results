@@ -1,0 +1,14 @@
+{
+  "commit": "c007620241d3b0b0c1f1b4be94e07886c2c573c9",
+  "parent": "13d027fb84a9a8bc260a0d9edb7b31cb330e9696",
+  "fixed_commit": "c007620241d3b0b0c1f1b4be94e07886c2c573c9",
+  "summary": "The parser prematurely treats trailing quote runs as closing delimiters, rejecting valid multiline strings with one or two quotes immediately before the delimiter. The fix recognizes these quotes together with the delimiter and appends them to the parsed value. The proposed reversal restores the multiline basic-string implementation verbatim. Blocked test selection: the fix enables valid/string/multiline-quotes.toml through external toml-test-harness compliance targets declared with harness=false; this case has no selectable Rust test function in the upstream source. Inspected parser unit tests and integration fixtures do not exercise the trailing-quote regression. No tests were executed.",
+  "test": "",
+  "package": null,
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/parser/strings.rs",
+    "fixed_text": "parse!(ml_basic_string() -> String, {\n    (\n        range(ML_BASIC_STRING_DELIM),\n        (\n            optional(newline()),\n            ml_basic_body(),\n        ).map(|t| t.1),\n        // Deviate from grammar by pulling mll_quotes into here so we can handle the confusion with\n        // it and the closing delim\n        choice((\n            attempt((\n                bytes(b\"\\\"\\\"\"), range(ML_BASIC_STRING_DELIM)\n            )).map(|_| Some(\"\\\"\\\"\")),\n            attempt((\n                bytes(b\"\\\"\"), range(ML_BASIC_STRING_DELIM)\n            )).map(|_| Some(\"\\\"\")),\n            range(ML_BASIC_STRING_DELIM).map(|_| None),\n        )),\n    ).map(|(_, mut b, q)| {\n        if let Some(q) = q {\n            b.push_str(q);\n        }\n        b\n    }).message(\"While parsing a Multiline Basic String\")\n});\n",
+    "parent_text": "parse!(ml_basic_string() -> String, {\n    between(\n        range(ML_BASIC_STRING_DELIM),\n        range(ML_BASIC_STRING_DELIM),\n        (\n            optional(newline()),\n            ml_basic_body(),\n        ).map(|t| t.1),\n    ).message(\"While parsing a Multiline Basic String\")\n});\n"
+  }
+}
