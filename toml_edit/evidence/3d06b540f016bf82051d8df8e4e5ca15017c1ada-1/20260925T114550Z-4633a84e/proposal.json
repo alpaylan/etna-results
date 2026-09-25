@@ -1,0 +1,13 @@
+{
+  "commit": "3d06b540f016bf82051d8df8e4e5ca15017c1ada",
+  "parent": "ab30db7a7177aca60b9e0c0cb05195ce7baa2108",
+  "fixed_commit": "3d06b540f016bf82051d8df8e4e5ca15017c1ada",
+  "summary": "The float parser rejected valid TOML nan and inf literals, including their signed forms, because it accepted only numeric float syntax. The fix adds special-float parsing that produces NaN or appropriately signed infinity. The existing parser::tests::floats test was extended by this commit to cover all six forms. The proposed implementation-only reversal restores the exact parent code; both regions occur uniquely. No builds or tests were run.",
+  "test": "parser::tests::floats",
+  "expected_failure": "Unexpected error for \"nan\":",
+  "reversal": {
+    "path": "src/parser/numbers.rs",
+    "fixed_text": "parse!(float() -> f64, {\n    choice((\n        parse_float()\n            .and_then(|s| s.replace(\"_\", \"\").parse()),\n        special_float(),\n    )).message(\"While parsing a Float\")\n});\n\n// special-float = [ minus / plus ] ( inf / nan )\nparse!(special_float() -> f64, {\n    attempt(optional(one_of(\"+-\".chars())).and(choice((inf(), nan()))).map(|(s, f)| {\n        match s {\n            Some('+') | None => f,\n            Some('-') => -f,\n            _ => unreachable!(\"one_of should prevent this\"),\n        }\n    }))\n});\n\n// inf = %x69.6e.66  ; inf\nparse!(inf() -> f64, {\n    range(\"inf\").map(|_| f64::INFINITY)\n});\n\n// nan = %x6e.61.6e  ; nan\nparse!(nan() -> f64, {\n    range(\"nan\").map(|_| f64::NAN)\n});\n",
+    "parent_text": "parse!(float() -> f64, {\n    parse_float()\n        .and_then(|s| s.replace(\"_\", \"\").parse())\n        .message(\"While parsing a Float\")\n});\n"
+  }
+}
