@@ -1,0 +1,15 @@
+Command: rustup run 1.78.0 cargo check --locked --offline --tests -p compact_str
+Started: 2026-09-25T17:29:59.688312+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+error: There are multiple `compact_str` packages in your project, and the specification `compact_str` is ambiguous.
+Please re-run this command with one of the following specifications:
+  compact_str@0.6.1
+  path+file:///home/runner/work/_temp/upstream/compact_str#0.8.0-beta
+  registry+https://github.com/rust-lang/crates.io-index#compact_str@0.8.0-beta
+
+Exit: 101
+Timed out: False

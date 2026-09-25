@@ -1,0 +1,24 @@
+diff --git a/compact_str/src/lib.rs b/compact_str/src/lib.rs
+index c6819ed..5d5cabc 100644
+--- a/compact_str/src/lib.rs
++++ b/compact_str/src/lib.rs
+@@ -2026,18 +2026,12 @@ impl BorrowMut<str> for CompactString {
+ 
+ impl Eq for CompactString {}
+ 
+-impl<T: AsRef<str> + ?Sized> PartialEq<T> for CompactString {
++impl<T: AsRef<str>> PartialEq<T> for CompactString {
+     fn eq(&self, other: &T) -> bool {
+         self.as_str() == other.as_ref()
+     }
+ }
+ 
+-impl PartialEq<CompactString> for &CompactString {
+-    fn eq(&self, other: &CompactString) -> bool {
+-        self.as_str() == other.as_str()
+-    }
+-}
+-
+ impl PartialEq<CompactString> for String {
+     fn eq(&self, other: &CompactString) -> bool {
+         self.as_str() == other.as_str()

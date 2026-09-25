@@ -1,0 +1,15 @@
+Command: rustup run 1.78.0 cargo generate-lockfile
+Started: 2026-09-25T17:28:35.441451+00:00
+STDOUT:
+
+STDERR:
+warning: `/home/runner/work/_temp/upstream/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+    Updating `era` index
+    Updating git repository `https://github.com/ParkMyCar/honggfuzz-rs.git`
+    Updating git submodule `https://github.com/google/honggfuzz`
+    Updating git submodule `https://github.com/aquynh/capstone`
+    Updating git submodule `https://github.com/libunwind/libunwind.git`
+
+Exit: 0
+Timed out: False
