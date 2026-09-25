@@ -1,0 +1,14 @@
+{
+  "commit": "4dd4a2725f165da8718ace604712545440875637",
+  "parent": "af017276cb0884823f51e1de75f95273c9a528f9",
+  "fixed_commit": "4dd4a2725f165da8718ace604712545440875637",
+  "summary": "Sync sent each request body as one Full<Bytes> frame, causing Windows IoSlice construction to panic when its length exceeded u32::MAX. The fix introduces ChunkedBody with zero-copy frames capped at 4 MiB and an exact size hint. Blocked: the added test, sync::tests::http_body_never_yields_a_frame_larger_than_the_frame_limit (package turso, feature sync), directly instantiates the newly introduced ChunkedBody. Reverting its introduction makes the unchanged test fail to compile; retaining it while restoring the worker's Full<Bytes> usage leaves the tested implementation fixed. Removing the frame cap would invent parent code. No detecting test compatible with a valid verbatim reversal was established. No builds or tests were run.",
+  "test": "",
+  "package": "turso",
+  "expected_failure": null,
+  "reversal": {
+    "path": "bindings/rust/src/sync.rs",
+    "fixed_text": "",
+    "parent_text": ""
+  }
+}

@@ -1,10 +1,10 @@
 # Cloud bug-mining prototype
 
-**blocked**: Proposal fields do not match the supported schema
+**blocked**: Proposal names no upstream test
 
 Upstream: https://github.com/tursodatabase/turso
 
-Candidate: f5f2cc5299c3805f1f5f9bd81aacf421bc1a62b1-1
+Candidate: 4dd4a2725f165da8718ace604712545440875637-1
 
 Provenance: verbatim
 
