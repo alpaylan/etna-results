@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: Dependency setup failed; see setup logs
+**blocked**: Proposal names no upstream test
 
 Upstream: https://github.com/tokio-rs/prost
 
-Candidate: 846c4529ae59432d9c17dd9448eb56d4f67c2964-1
+Candidate: 318dfef3fc79c2129548577590b94b804c229ffe-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 714 reachable from the saved tip.
+History coverage not yet recorded.
 
 Scope: one queued candidate; history coverage is partial.

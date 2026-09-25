@@ -1,0 +1,13 @@
+{
+  "commit": "318dfef3fc79c2129548577590b94b804c229ffe",
+  "parent": "aba197c453da1c631231c3bcce17f09ce88e4fc7",
+  "fixed_commit": "318dfef3fc79c2129548577590b94b804c229ffe",
+  "summary": "Map-entry decoding returned success for unknown fields without consuming their payload, allowing payload bytes to be misinterpreted as field keys and causing incorrect decoding or errors. The fix calls skip_field to consume the payload according to its wire type. The verbatim reversal is isolated and both regions occur exactly once. Blocked: no detecting upstream test was established at this revision. The fix adds no regression input for this behavior; existing map roundtrip tests encode only known key/value fields, and the external conformance runner's coverage could not be established. No builds or tests were run.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/encoding.rs",
+    "fixed_text": "                match tag {\n                    1 => key_merge(wire_type, key, buf),\n                    2 => val_merge(wire_type, val, buf),\n                    _ => skip_field(wire_type, buf),\n                }\n",
+    "parent_text": "                match tag {\n                    1 => key_merge(wire_type, key, buf),\n                    2 => val_merge(wire_type, val, buf),\n                    _ => Ok(()),\n                }\n"
+  }
+}
