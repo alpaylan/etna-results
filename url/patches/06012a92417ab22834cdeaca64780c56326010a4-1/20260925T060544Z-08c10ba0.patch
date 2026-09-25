@@ -1,0 +1,15 @@
+diff --git a/src/parser.rs b/src/parser.rs
+index dc771d1..d096809 100644
+--- a/src/parser.rs
++++ b/src/parser.rs
+@@ -1170,10 +1170,6 @@ impl<'a> Parser<'a> {
+             // The query and path states will be handled by the caller.
+             return input;
+         }
+-
+-        if maybe_c != None && maybe_c != Some('/') {
+-            self.serialization.push('/');
+-        }
+         // Otherwise, if c is not the EOF code point:
+         self.parse_path(scheme_type, has_host, path_start, input)
+     }

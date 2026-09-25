@@ -1,0 +1,13 @@
+{
+  "commit": "06012a92417ab22834cdeaca64780c56326010a4",
+  "parent": "0a18f93153ea0bd29c4135af1b45a6e84699c752",
+  "fixed_commit": "06012a92417ab22834cdeaca64780c56326010a4",
+  "summary": "Setting the path of postgres://postgres@localhost/ to diesel_foo omits the separating slash, producing postgres://postgres@localhostdiesel_foo. The fix inserts a leading slash for a nonempty non-special URL path that lacks one. The fix-added test test_non_special_path in tests/unit.rs checks this behavior. The reversal removes only that implementation correction; no tests were executed.",
+  "test": "test_non_special_path",
+  "expected_failure": "assertion failed: `(left == right)`\n  left: `\"postgres://postgres@localhostdiesel_foo\"`,\n right: `\"postgres://postgres@localhost/diesel_foo\"`",
+  "reversal": {
+    "path": "src/parser.rs",
+    "fixed_text": "            // The query and path states will be handled by the caller.\n            return input;\n        }\n\n        if maybe_c != None && maybe_c != Some('/') {\n            self.serialization.push('/');\n        }\n        // Otherwise, if c is not the EOF code point:\n        self.parse_path(scheme_type, has_host, path_start, input)\n    }\n",
+    "parent_text": "            // The query and path states will be handled by the caller.\n            return input;\n        }\n        // Otherwise, if c is not the EOF code point:\n        self.parse_path(scheme_type, has_host, path_start, input)\n    }\n"
+  }
+}

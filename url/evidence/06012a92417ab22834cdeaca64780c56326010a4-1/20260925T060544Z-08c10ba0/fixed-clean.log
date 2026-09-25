@@ -1,0 +1,8 @@
+Command: rustup run 1.44.0 cargo clean -p url
+Started: 2026-09-25T06:06:45.276048+00:00
+STDOUT:
+
+STDERR:
+
+Exit: 0
+Timed out: False

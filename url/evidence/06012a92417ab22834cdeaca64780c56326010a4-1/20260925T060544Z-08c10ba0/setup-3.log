@@ -1,0 +1,39 @@
+Command: rustup run 1.44.0 cargo fetch --locked
+Started: 2026-09-25T06:06:36.339616+00:00
+STDOUT:
+
+STDERR:
+ Downloading crates ...
+  Downloaded unicode-xid v0.2.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded unicode-normalization v0.1.12 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded unicode-bidi v0.3.4 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded ryu v1.0.5 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded kernel32-sys v0.2.2 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded bencher v0.1.5 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded rustc-serialize v0.3.24 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded term v0.4.6 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded serde v1.0.111 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded matches v0.1.8 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded semver-parser v0.7.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded proc-macro2 v1.0.18 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded winapi-build v0.1.1 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded rustc_version v0.2.3 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded unicode-width v0.1.7 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded getopts v0.2.21 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded semver v0.9.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded quote v1.0.7 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded rustc-test v0.3.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded itoa v0.4.5 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded smallvec v1.4.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded time v0.1.43 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded serde_json v1.0.55 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded serde_derive v1.0.111 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded syn v1.0.31 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded libc v0.2.71 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded winapi v0.2.8 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded winapi v0.3.8 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded winapi-i686-pc-windows-gnu v0.4.0 (registry `git://127.0.0.1:9419/era-index`)
+  Downloaded winapi-x86_64-pc-windows-gnu v0.4.0 (registry `git://127.0.0.1:9419/era-index`)
+
+Exit: 0
+Timed out: False

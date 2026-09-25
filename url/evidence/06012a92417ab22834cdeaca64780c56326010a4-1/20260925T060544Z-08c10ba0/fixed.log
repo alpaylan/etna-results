@@ -1,0 +1,47 @@
+Command: rustup run 1.44.0 cargo test --locked --offline --test unit test_non_special_path -- --nocapture --test-threads=1
+Started: 2026-09-25T06:06:45.296695+00:00
+STDOUT:
+
+running 3 tests
+test test_non_special_path ... ok
+test test_non_special_path2 ... ok
+test test_non_special_path3 ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 35 filtered out
+
+
+STDERR:
+   Compiling smallvec v1.4.0
+   Compiling matches v0.1.8
+   Compiling unicode-width v0.1.7
+   Compiling rustc-serialize v0.3.24
+   Compiling itoa v0.4.5
+   Compiling term v0.4.6
+   Compiling percent-encoding v2.1.0 (/home/runner/work/_temp/upstream/percent_encoding)
+   Compiling bencher v0.1.5
+   Compiling unicode-bidi v0.3.4
+   Compiling getopts v0.2.21
+   Compiling unicode-normalization v0.1.12
+   Compiling libc v0.2.71
+   Compiling ryu v1.0.5
+   Compiling serde v1.0.111
+   Compiling time v0.1.43
+   Compiling idna v0.2.0 (/home/runner/work/_temp/upstream/idna)
+   Compiling rustc-test v0.3.0
+   Compiling url v2.1.1 (/home/runner/work/_temp/upstream)
+warning: use of deprecated item 'std::error::Error::description': use the Display impl or to_string()
+  --> src/parser.rs:95:32
+   |
+95 |         fmt::Display::fmt(self.description(), f)
+   |                                ^^^^^^^^^^^
+   |
+   = note: `#[warn(deprecated)]` on by default
+
+warning: 1 warning emitted
+
+   Compiling serde_json v1.0.55
+    Finished test [unoptimized + debuginfo] target(s) in 8.29s
+     Running /home/runner/work/_temp/build-20260925T060544Z-08c10ba0/debug/deps/unit-c4601560484fe445
+
+Exit: 0
+Timed out: False

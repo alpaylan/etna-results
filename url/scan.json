@@ -1,6 +1,7 @@
 {
   "repo": "https://github.com/servo/rust-url",
   "tips": [
+    "06012a92417ab22834cdeaca64780c56326010a4",
     "3174ea50f822eb63797776d7be1ae4418163c724",
     "464b1f7d8fe9de117af184c1acb52b4f821a0cdc",
     "467ef63969f477ee44b7456bb450fba95af25780",
@@ -9,6 +10,7 @@
   ],
   "shallow": false,
   "reviewed": [
+    "06012a92417ab22834cdeaca64780c56326010a4",
     "3174ea50f822eb63797776d7be1ae4418163c724",
     "464b1f7d8fe9de117af184c1acb52b4f821a0cdc",
     "467ef63969f477ee44b7456bb450fba95af25780",
