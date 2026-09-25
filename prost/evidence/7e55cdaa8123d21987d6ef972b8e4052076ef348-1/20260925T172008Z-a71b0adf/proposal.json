@@ -1,0 +1,14 @@
+{
+  "commit": "7e55cdaa8123d21987d6ef972b8e4052076ef348",
+  "parent": "d16bed88bb45abc6bbea92c9a42c454d8a194ec3",
+  "fixed_commit": "7e55cdaa8123d21987d6ef972b8e4052076ef348",
+  "summary": "parse_offset rejected negative zero offsets (-00:00, -0000, and -00), causing Timestamp parsing to return ParseFailure. Removing the guard accepts these offsets as zero while preserving hour/minute bounds. Blocked: the fix adds no tests, existing timestamp parsing tests omit negative zero offsets, and the parsing roundtrip property only produces Z offsets. No detecting upstream test was found at the fixed commit. The reversal regions are unique and restore the exact parent file; no builds or tests were run.",
+  "test": "",
+  "package": "prost-types",
+  "expected_failure": null,
+  "reversal": {
+    "path": "prost-types/src/datetime.rs",
+    "fixed_text": "        ensure!(hour < 24 && minute < 60);\n",
+    "parent_text": "        // '-00:00' indicates an unknown local offset.\n        ensure!(is_positive || hour > 0 || minute > 0);\n\n        ensure!(hour < 24 && minute < 60);\n"
+  }
+}

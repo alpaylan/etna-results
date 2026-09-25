@@ -1,10 +1,10 @@
 # Cloud bug-mining prototype
 
-**blocked**: Proposal fields do not match the supported schema
+**blocked**: Proposal names no upstream test
 
 Upstream: https://github.com/tokio-rs/prost
 
-Candidate: e88db94566607b5427fc8bc00b9cfd21c5cad418-1
+Candidate: 7e55cdaa8123d21987d6ef972b8e4052076ef348-1
 
 Provenance: verbatim
 
