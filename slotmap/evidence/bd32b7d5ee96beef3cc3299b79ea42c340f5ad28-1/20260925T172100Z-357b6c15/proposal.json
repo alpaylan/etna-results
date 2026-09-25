@@ -1,0 +1,14 @@
+{
+  "commit": "bd32b7d5ee96beef3cc3299b79ea42c340f5ad28",
+  "parent": "1f7d05ed36abd07812e7978edd0504cd58c29d22",
+  "fixed_commit": "bd32b7d5ee96beef3cc3299b79ea42c340f5ad28",
+  "summary": "VacantEntry::insert could replace a stale occupied slot, leaking its value through mem::forget and incorrectly incrementing num_elems. The fix drops the replaced slot and increments the count only when it was truly vacant. A verbatim reversal is available, but no detecting upstream test was found at this commit: the fix adds no tests, secondary::tests::qc_secmap_equiv_hashmap uses direct insert rather than entry, and entry doctests do not replace stale occupied slots. Blocked pending a detecting upstream test; no tests were executed.",
+  "test": "",
+  "package": null,
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/secondary.rs",
+    "fixed_text": "    pub fn insert(self, value: V) -> &'a mut V {\n        let slot = unsafe { self.map.slots.get_unchecked_mut(self.kd.idx as usize) };\n        // Despite the slot being considered Vacant for this entry, it might be occupied\n        // with an outdated element.\n        match replace(slot, Slot::new_occupied(self.kd.version.get(), value)) {\n            Occupied { .. } => {},\n            Vacant => self.map.num_elems += 1,\n        }\n        unsafe { slot.get_unchecked_mut() }\n    }\n",
+    "parent_text": "    pub fn insert(self, value: V) -> &'a mut V {\n        let slot = unsafe { self.map.slots.get_unchecked_mut(self.kd.idx as usize) };\n        self.map.num_elems += 1;\n        let old_slot = replace(slot, Slot::new_occupied(self.kd.version.get(), value));\n        core::mem::forget(old_slot); // No need to check, it was vacant.\n        unsafe { slot.get_unchecked_mut() }\n    }\n"
+  }
+}
