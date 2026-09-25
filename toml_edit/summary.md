@@ -1,20 +1,15 @@
 # Cloud bug-mining prototype
 
-Resumed verified evidence; no tests rerun.
-
-**confirmed**: The same upstream test passed, panicked on the original defect ('Unexpected error for "nan": Parse error at line: 1, column: 1
-Unexpected `n`
-Expected `-` or `+`
-While parsing a Float'), and passed after restoration
+**blocked**: fixed: no completed execution of the exact upstream test
 
 Upstream: https://github.com/toml-rs/toml
 
-Candidate: 3d06b540f016bf82051d8df8e4e5ca15017c1ada-1
+Candidate: 217ccd40b498e164a6c605d4d7e01ca0117896f8-1
 
 Provenance: verbatim
 
-Latest outcomes: {"confirmed": 1}
+Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 265 reachable from the saved tip.
+Reviewed commits: 1 / 483 reachable from the saved tip.
 
 Scope: one queued candidate; history coverage is partial.

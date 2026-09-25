@@ -1,0 +1,8 @@
+Command: rustup run 1.58.1 cargo clean -p toml_edit
+Started: 2026-09-25T11:48:09.346458+00:00
+STDOUT:
+
+STDERR:
+
+Exit: 0
+Timed out: False

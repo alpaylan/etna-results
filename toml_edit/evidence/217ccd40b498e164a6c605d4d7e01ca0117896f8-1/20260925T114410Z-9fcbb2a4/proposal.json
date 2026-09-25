@@ -1,0 +1,13 @@
+{
+  "commit": "217ccd40b498e164a6c605d4d7e01ca0117896f8",
+  "parent": "e869ac6c3d795035a95d52b9cb6762e9d4438efd",
+  "fixed_commit": "217ccd40b498e164a6c605d4d7e01ca0117896f8",
+  "summary": "Pretty serialization marked every table implicit, causing empty tables to disappear: serializing \"[example]\\n\" produced an empty string. The fix marks only nonempty tables implicit, preserving meaningful empty table headers. The fix-added regression test is pretty_empty_table in tests/pretty.rs and requires the easy feature. Both reversal regions occur exactly once; replacing the fixed region restores the exact parent implementation file. No tests were run.",
+  "test": "pretty_empty_table",
+  "expected_failure": "pretty_empty_table: equality assertion fails because the expected string is \"[example]\\n\" but the serialized result is \"\".",
+  "reversal": {
+    "path": "src/ser/pretty.rs",
+    "fixed_text": "    fn visit_table_mut(&mut self, node: &mut crate::Table) {\n        node.decor_mut().clear();\n\n        // Empty tables could be semantically meaningful, so make sure they are not implicit\n        if !node.is_empty() {\n            node.set_implicit(true);\n        }\n\n        crate::visit_mut::visit_table_mut(self, node);\n    }\n\n",
+    "parent_text": "    fn visit_table_mut(&mut self, node: &mut crate::Table) {\n        node.decor_mut().clear();\n        node.set_implicit(true);\n\n        crate::visit_mut::visit_table_mut(self, node);\n    }\n\n"
+  }
+}
