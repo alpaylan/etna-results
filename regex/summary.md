@@ -1,10 +1,10 @@
 # Cloud bug-mining prototype
 
-**blocked**: Proposal names no upstream test
+**blocked**: Selected test is not present at the fixed revision: bytes::invalidutf8_anchor1
 
 Upstream: https://github.com/rust-lang/regex
 
-Candidate: ab76b863b4b7bb21608a61e5fee2fc968501791c-1
+Candidate: 7046d65d3d428c0db30719f42e144afa8c4ae3d3-1
 
 Provenance: verbatim
 
