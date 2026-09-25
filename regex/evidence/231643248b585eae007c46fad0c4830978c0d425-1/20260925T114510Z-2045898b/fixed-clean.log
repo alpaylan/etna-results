@@ -1,0 +1,12 @@
+Command: rustup run 1.33.0 cargo clean -p regex
+Started: 2026-09-25T11:46:20.959880+00:00
+STDOUT:
+
+STDERR:
+error: There are multiple `regex` packages in your project, and the specification `regex` is ambiguous.
+Please re-run this command with `-p <spec>` where `<spec>` is one of the following:
+  https://github.com/rust-lang/crates.io-index#regex:1.1.2
+  file:///home/runner/work/_temp/upstream#regex:1.1.2
+
+Exit: 101
+Timed out: False

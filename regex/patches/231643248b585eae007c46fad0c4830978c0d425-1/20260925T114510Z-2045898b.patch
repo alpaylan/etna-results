@@ -1,0 +1,21 @@
+diff --git a/regex-syntax/src/hir/translate.rs b/regex-syntax/src/hir/translate.rs
+index c2afd98..cfda09c 100644
+--- a/regex-syntax/src/hir/translate.rs
++++ b/regex-syntax/src/hir/translate.rs
+@@ -282,16 +282,6 @@ impl<'t, 'p> Visitor for TranslatorI<'t, 'p> {
+             }
+             Ast::Flags(ref x) => {
+                 self.set_flags(&x.flags);
+-                // Flags in the AST are generally considered directives and
+-                // not actual sub-expressions. However, they can be used in
+-                // the concrete syntax like `((?i))`, and we need some kind of
+-                // indication of an expression there, and Empty is the correct
+-                // choice.
+-                //
+-                // There can also be things like `(?i)+`, but we rule those out
+-                // in the parser. In the future, we might allow them for
+-                // consistency sake.
+-                self.push(HirFrame::Expr(Hir::empty()));
+             }
+             Ast::Literal(ref x) => {
+                 self.push(HirFrame::Expr(self.hir_literal(x)?));
