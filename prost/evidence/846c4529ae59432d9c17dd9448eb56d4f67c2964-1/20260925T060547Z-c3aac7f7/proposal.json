@@ -1,0 +1,13 @@
+{
+  "commit": "846c4529ae59432d9c17dd9448eb56d4f67c2964",
+  "parent": "bb81b3c1d30a676897e23c00772be49c9331c8b5",
+  "fixed_commit": "846c4529ae59432d9c17dd9448eb56d4f67c2964",
+  "summary": "Explicit boxing configuration generated repeated message fields as Vec<Box<T>>, adding unnecessary indirection. The fix returns false for repeated fields before consulting boxing configuration, producing Vec<T>. The existing test updated by this fix constructs boxed_bar_list with Vec<Bar>. Reversing the selected implementation region should cause a compile-time type mismatch in that test; this would block confirmation under the requirement that the buggy test target builds and executes. No builds or tests were run.",
+  "test": "boxed_field::test_boxed_field",
+  "expected_failure": "error[E0308]: mismatched types: expected Vec<Box<Bar>>, found Vec<Bar> at boxed_bar_list: Vec::from([Bar {}])",
+  "reversal": {
+    "path": "prost-build/src/context.rs",
+    "fixed_text": "        if field.label() == Label::Repeated {\n            // Repeated field are stored in Vec, therefore it is already heap allocated\n            return false;\n        }\n        let fd_type = field.r#type();\n        if (fd_type == Type::Message || fd_type == Type::Group)\n",
+    "parent_text": "        let repeated = field.label() == Label::Repeated;\n        let fd_type = field.r#type();\n        if !repeated\n            && (fd_type == Type::Message || fd_type == Type::Group)\n"
+  }
+}

@@ -1,0 +1,20 @@
+diff --git a/prost-build/src/context.rs b/prost-build/src/context.rs
+index f4dee04..6b5d7e2 100644
+--- a/prost-build/src/context.rs
++++ b/prost-build/src/context.rs
+@@ -141,12 +141,10 @@ impl<'a> Context<'a> {
+         oneof: Option<&str>,
+         field: &FieldDescriptorProto,
+     ) -> bool {
+-        if field.label() == Label::Repeated {
+-            // Repeated field are stored in Vec, therefore it is already heap allocated
+-            return false;
+-        }
++        let repeated = field.label() == Label::Repeated;
+         let fd_type = field.r#type();
+-        if (fd_type == Type::Message || fd_type == Type::Group)
++        if !repeated
++            && (fd_type == Type::Message || fd_type == Type::Group)
+             && self
+                 .message_graph
+                 .is_nested(field.type_name(), fq_message_name)
