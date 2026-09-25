@@ -1,0 +1,13 @@
+{
+  "commit": "77eea550589abc2d2f5f52c58fd2909b09f8fa29",
+  "parent": "0c55a070d3d95241c3caafda667de489bef7b109",
+  "fixed_commit": "77eea550589abc2d2f5f52c58fd2909b09f8fa29",
+  "summary": "The generator skipped group variants in oneof enums and omitted boxing for recursive group fields. The fix generates those variants and includes groups in recursive boxing decisions. The proposed reversal restores only the oneof-group omission. Blocked under the confirmation gate: the added tests::test_group_oneof directly constructs Field::G, so this reversal removes a referenced variant and prevents test compilation rather than producing an executed test failure. Reversing recursive boxing also produces invalid recursive Rust types. No suitable upstream runtime test was found; test is therefore empty. No builds or tests were run.",
+  "test": "",
+  "expected_failure": null,
+  "reversal": {
+    "path": "prost-build/src/code_generator.rs",
+    "fixed_text": "        self.path.push(2);\n        self.depth += 1;\n        for (field, idx) in fields {\n            let type_ = field.r#type();\n",
+    "parent_text": "        self.path.push(2);\n        self.depth += 1;\n        for (field, idx) in fields {\n            // TODO(danburkert/prost#19): support groups.\n            let type_ = field.r#type();\n            if type_ == Type::Group {\n                continue;\n            }\n"
+  }
+}
