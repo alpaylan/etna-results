@@ -4,7 +4,7 @@
 
 Upstream: https://github.com/jamesmunns/postcard
 
-Candidate: 77fd54b18977e8491ebe1b67cc0d104e32ab02d6-1
+Candidate: 2a62f8c3cd643ccabea9034b71f9c9e97529f4e3-1
 
 Provenance: verbatim
 

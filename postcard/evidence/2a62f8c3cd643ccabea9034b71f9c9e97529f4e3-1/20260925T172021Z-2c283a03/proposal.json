@@ -1,0 +1,14 @@
+{
+  "commit": "2a62f8c3cd643ccabea9034b71f9c9e97529f4e3",
+  "parent": "eba957374c1eb14b605a85d059ac8506186a397d",
+  "fixed_commit": "2a62f8c3cd643ccabea9034b71f9c9e97529f4e3",
+  "summary": "Tuple-struct deserialization discarded the known field count and called deserialize_seq, consuming payload bytes as a varint length although tuple-struct serialization writes no length prefix. The fix calls deserialize_tuple(len, visitor), preserving field alignment. Blocked: no detecting upstream test exists at this revision. The fix adds no tests; de::test::structs and tests/loopback.rs use TupleStruct((u8, u16)), a single-field newtype that invokes deserialize_newtype_struct and then deserialize_tuple, bypassing the affected method.",
+  "test": "",
+  "package": null,
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/de/deserializer.rs",
+    "fixed_text": "    fn deserialize_tuple_struct<V>(\n        self,\n        _name: &'static str,\n        len: usize,\n        visitor: V,\n    ) -> Result<V::Value>\n    where\n        V: Visitor<'de>,\n    {\n        self.deserialize_tuple(len, visitor)\n    }\n",
+    "parent_text": "    fn deserialize_tuple_struct<V>(\n        self,\n        _name: &'static str,\n        _len: usize,\n        visitor: V,\n    ) -> Result<V::Value>\n    where\n        V: Visitor<'de>,\n    {\n        self.deserialize_seq(visitor)\n    }\n"
+  }
+}
