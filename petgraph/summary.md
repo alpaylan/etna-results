@@ -1,10 +1,10 @@
 # Cloud bug-mining prototype
 
-**blocked**: Proposal fields do not match the supported schema
+**blocked**: Proposal names no upstream test
 
 Upstream: https://github.com/petgraph/petgraph
 
-Candidate: 1596cb22efcfaf0c4a1e5a05fb693618b3acc478-1
+Candidate: 0fae246b07f3dba059a40288c4a7a96588bef19b-1
 
 Provenance: verbatim
 

@@ -1,0 +1,14 @@
+{
+  "commit": "0fae246b07f3dba059a40288c4a7a96588bef19b",
+  "parent": "d4681eaf1a87be34c7bf95c51edb1984d329002b",
+  "fixed_commit": "0fae246b07f3dba059a40288c4a7a96588bef19b",
+  "summary": "Dfs marked nodes discovered when pushing them, which could produce incorrect DFS preorder. Restarting with move_to at an already-discovered node also emitted that node again. The fix marks nodes discovered when popped and skips previously discovered nodes. The implementation reversal is exact and unique, but no detecting upstream test was found at this revision: the fix adds no tests, existing iterative DFS tests check reachability or counts rather than preorder, and the explicit move_to test resets discovery first. Leave this candidate blocked pending an eligible detecting test. No builds or tests were run.",
+  "test": "",
+  "package": "petgraph",
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/visit/traversal.rs",
+    "fixed_text": "    pub fn move_to(&mut self, start: N)\n    {\n        self.stack.clear();\n        self.stack.push(start);\n    }\n\n    /// Return the next node in the dfs, or **None** if the traversal is done.\n    pub fn next<G>(&mut self, graph: G) -> Option<N>\n        where G: IntoNeighbors<NodeId=N>,\n    {\n        while let Some(node) = self.stack.pop() {\n            if self.discovered.visit(node) {\n                for succ in graph.neighbors(node) {\n                    if !self.discovered.is_visited(&succ) {\n                        self.stack.push(succ);\n                    }\n                }\n                return Some(node);\n            }\n        }\n        None\n    }",
+    "parent_text": "    pub fn move_to(&mut self, start: N)\n    {\n        self.discovered.visit(start);\n        self.stack.clear();\n        self.stack.push(start);\n    }\n\n    /// Return the next node in the dfs, or **None** if the traversal is done.\n    pub fn next<G>(&mut self, graph: G) -> Option<N>\n        where G: IntoNeighbors<NodeId=N>,\n    {\n        if let Some(node) = self.stack.pop() {\n            for succ in graph.neighbors(node) {\n                if self.discovered.visit(succ) {\n                    self.stack.push(succ);\n                }\n            }\n\n            return Some(node);\n        }\n        None\n    }"
+  }
+}
