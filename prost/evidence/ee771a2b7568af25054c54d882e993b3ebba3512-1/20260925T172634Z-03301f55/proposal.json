@@ -1,0 +1,14 @@
+{
+  "commit": "ee771a2b7568af25054c54d882e993b3ebba3512",
+  "parent": "b9db6125db148472aeb6f52b401cb27e38490402",
+  "fixed_commit": "ee771a2b7568af25054c54d882e993b3ebba3512",
+  "summary": "Enum default expressions were resolved inside the derive-generated implementation module without accounting for its extra nesting. Adding super:: resolves them relative to the message's enclosing module. The fix extends fixtures used by packages::test with Widget.Type. Reversal is expected to cause a path-resolution compilation error, which cannot satisfy the confirmation gate requiring an executed test failure. No builds or tests were run.",
+  "test": "packages::test",
+  "package": "tests",
+  "expected_failure": null,
+  "reversal": {
+    "path": "prost-derive/src/field/scalar.rs",
+    "fixed_text": "            quote!(super::#self as i32)\n",
+    "parent_text": "            quote!(#self as i32)\n"
+  }
+}

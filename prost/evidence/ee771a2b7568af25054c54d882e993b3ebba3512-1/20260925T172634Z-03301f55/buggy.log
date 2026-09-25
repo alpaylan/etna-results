@@ -1,0 +1,9 @@
+Command: rustup run 1.20.0 cargo test --locked --test mod test -- --nocapture --test-threads=1
+Started: 2026-09-25T17:27:07.555288+00:00
+STDOUT:
+
+STDERR:
+error: no test target named `mod`
+
+Exit: 101
+Timed out: False

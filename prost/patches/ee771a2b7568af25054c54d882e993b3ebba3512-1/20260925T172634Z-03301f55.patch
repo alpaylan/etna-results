@@ -1,0 +1,13 @@
+diff --git a/prost-derive/src/field/scalar.rs b/prost-derive/src/field/scalar.rs
+index ece114c..21214f2 100644
+--- a/prost-derive/src/field/scalar.rs
++++ b/prost-derive/src/field/scalar.rs
+@@ -631,7 +631,7 @@ impl DefaultValue {
+ 
+     pub fn typed(&self, ty: &Ty) -> Tokens {
+         if let Ty::Enumeration(..) = *ty {
+-            quote!(super::#self as i32)
++            quote!(#self as i32)
+         } else {
+             quote!(#self)
+         }
