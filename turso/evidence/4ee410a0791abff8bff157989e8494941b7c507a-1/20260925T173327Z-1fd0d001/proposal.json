@@ -1,0 +1,14 @@
+{
+  "commit": "4ee410a0791abff8bff157989e8494941b7c507a",
+  "parent": "00ace89e2144512bae147f60ea1139297c193080",
+  "fixed_commit": "4ee410a0791abff8bff157989e8494941b7c507a",
+  "summary": "Comparison collation resolution ignored a left column's implicit BINARY collation, allowing a right NOCASE column to win and incorrectly match differently cased strings. The fix recognizes column operands through unary +, parentheses, and CAST, includes their default BINARY collation, and preserves explicit COLLATE precedence. The selected unit test was added by this fix and expects BINARY for a wrapped left column compared with a NOCASE right column. Reversing the selected implementation region should return NoCase instead; no tests were run.",
+  "test": "translate::collate::tests::test_resolve_comparison_collseq_uplus_and_parens_keep_column_collation",
+  "package": "turso_core",
+  "expected_failure": "assertion `left == right` failed\n  left: NoCase\n right: Binary",
+  "reversal": {
+    "path": "core/translate/collate.rs",
+    "fixed_text": "    let (lhs_explicit, _) =\n        get_collseq_parts_from_expr_with_symbols(lhs_expr, referenced_tables, symbol_table, None)?;\n    let (rhs_explicit, _) =\n        get_collseq_parts_from_expr_with_symbols(rhs_expr, referenced_tables, symbol_table, None)?;\n    let lhs_column = comparison_operand_column_collseq(lhs_expr, referenced_tables)?;\n    let rhs_column = comparison_operand_column_collseq(rhs_expr, referenced_tables)?;\n",
+    "parent_text": "    let (lhs_explicit, lhs_column) =\n        get_collseq_parts_from_expr_with_symbols(lhs_expr, referenced_tables, symbol_table, None)?;\n    let (rhs_explicit, rhs_column) =\n        get_collseq_parts_from_expr_with_symbols(rhs_expr, referenced_tables, symbol_table, None)?;\n"
+  }
+}
