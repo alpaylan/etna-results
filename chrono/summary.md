@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: Toolchain install failed; see setup logs
+**blocked**: Reversal changes are not part of the upstream fix
 
 Upstream: https://github.com/chronotope/chrono
 
-Candidate: 45765ebd138974f63f8d66f3b6f4f843c305c65b-1
+Candidate: 9a5f76c9bb70647d1ab4abd88872e395a7c06c79-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 93 reachable from the saved tip.
+History coverage not yet recorded.
 
 Scope: one queued candidate; history coverage is partial.
