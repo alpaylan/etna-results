@@ -4,7 +4,7 @@
 
 Upstream: https://github.com/winnow-rs/winnow
 
-Candidate: f5c49ba6607517c7eea73a32ffef66515f4b7049-1
+Candidate: 86b4c25b33aadc3095333b31afd89be6cc9c6e82-1
 
 Provenance: verbatim
 
