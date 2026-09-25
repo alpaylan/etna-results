@@ -1,0 +1,14 @@
+{
+  "commit": "c0631f26e86157a8110a202c112b0ea7a051025b",
+  "parent": "5c385a9b1751f0734db24af731d1926e1d2bc731",
+  "fixed_commit": "c0631f26e86157a8110a202c112b0ea7a051025b",
+  "summary": "A response status line ending in bare LF without a reason phrase leaves the byte-slice start at the status code, causing the first header name to include \"200\\n\". The fix calls bytes.slice() before parsing headers. The fix adds the detecting test through the res! macro in module tests. Both reversal regions occur exactly once in their respective Git versions. No builds or tests were run.",
+  "test": "tests::test_response_no_cr",
+  "package": null,
+  "expected_failure": "assertion failed: `(left == right)`\n  left: `\"200\\nContent-type\"`,\n right: `\"Content-type\"`",
+  "reversal": {
+    "path": "src/lib.rs",
+    "fixed_text": "            b'\\n' => {\n                bytes.slice();\n                self.reason = Some(\"\");\n            }\n",
+    "parent_text": "            b'\\n' => self.reason = Some(\"\"),\n"
+  }
+}
