@@ -1,0 +1,75 @@
+diff --git a/core/io/win_iocp.rs b/core/io/win_iocp.rs
+index 1e106324f..003aea430 100644
+--- a/core/io/win_iocp.rs
++++ b/core/io/win_iocp.rs
+@@ -420,28 +420,19 @@ impl IO for WindowsIOCP {
+         Ok(())
+     }
+ 
+-    /// Reap completion packets until nothing submitted is still outstanding.
+     #[instrument(err, skip_all, level = Level::TRACE)]
+     fn step(&self) -> Result<()> {
+         trace!("I/O Step..");
+ 
+-        while self.instance.has_tracked_io() {
+-            match self.instance.process_packet_from_iocp(IOCP_STEP_TIMEOUT_MS) {
+-                Err(GetIOCPPacketError::SystemError(code)) => {
+-                    return Err(get_generic_limboerror_from_os_err(code));
+-                }
+-                // Empty is a timeout: re-check the table and keep waiting.
+-                // InvalidIO still untracked the packet, so the loop makes
+-                // progress. Aborted means a packet arrived without an
+-                // OVERLAPPED, which only PostQueuedCompletionStatus can
+-                // produce and we never call it.
+-                Err(GetIOCPPacketError::Aborted)
+-                | Err(GetIOCPPacketError::Empty)
+-                | Err(GetIOCPPacketError::InvalidIO)
+-                | Ok(()) => {}
++        match self.instance.process_packet_from_iocp() {
++            Err(GetIOCPPacketError::SystemError(code)) => {
++                Err(get_generic_limboerror_from_os_err(code))
+             }
++            Err(GetIOCPPacketError::Aborted)
++            | Err(GetIOCPPacketError::Empty)
++            | Err(GetIOCPPacketError::InvalidIO)
++            | Ok(()) => Ok(()),
+         }
+-        Ok(())
+     }
+ }
+ 
+@@ -587,15 +578,7 @@ impl InnerWindowsIOCP {
+         None
+     }
+ 
+-    /// True while at least one submitted operation has not had its packet
+-    /// reaped yet. Packets are inserted before the operation is started and
+-    /// removed by `forget_io_packet`, so this is the IOCP equivalent of
+-    /// io_uring's `pending_ops`.
+-    fn has_tracked_io(&self) -> bool {
+-        !self.tracked_io_packets.lock().is_empty()
+-    }
+-
+-    fn process_packet_from_iocp(&self, timeout_ms: u32) -> Result<(), GetIOCPPacketError> {
++    fn process_packet_from_iocp(&self) -> Result<(), GetIOCPPacketError> {
+         let mut overlapped_ptr = ptr::null_mut();
+         let mut bytes_received = 0;
+         let mut iocp_key = 0;
+@@ -606,7 +589,7 @@ impl InnerWindowsIOCP {
+                 &raw mut bytes_received,
+                 &raw mut iocp_key,
+                 &raw mut overlapped_ptr,
+-                timeout_ms,
++                0,
+             )
+         };
+ 
+@@ -678,7 +661,7 @@ impl InnerWindowsIOCP {
+ 
+     fn drain(&self) -> Result<()> {
+         loop {
+-            match self.process_packet_from_iocp(IOCP_NO_WAIT_MS) {
++            match self.process_packet_from_iocp() {
+                 Err(GetIOCPPacketError::Empty | GetIOCPPacketError::Aborted) => {
+                     break;
+                 }
