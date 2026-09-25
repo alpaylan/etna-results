@@ -1,0 +1,14 @@
+{
+  "commit": "c13ee581247fb009dbd12f7685b155e8c6bdcff5",
+  "parent": "dd0e66c0bae3ad2c7fdd075711d8163a4adb10ae",
+  "fixed_commit": "c13ee581247fb009dbd12f7685b155e8c6bdcff5",
+  "summary": "The counting helper evaluates n + k before subtracting one, causing overflow that can panic or produce incorrect size hints. The fix handles n == 0 separately and uses (n - 1).checked_add(k), preserving representable results and returning None on overflow. The implementation reversal is exact and unique, but no detecting upstream test was found at this commit: the fix adds no tests, the existing range-count test limits n and k to 0..=7, and the other adaptor tests do not exercise overflowing size hints. Leave this candidate blocked pending a suitable existing upstream test; no tests were run.",
+  "test": "",
+  "package": null,
+  "expected_failure": null,
+  "reversal": {
+    "path": "src/combinations_with_replacement.rs",
+    "fixed_text": "    let count = |n: usize, k: usize| {\n        let positions = if n == 0 { k.saturating_sub(1) } else { (n - 1).checked_add(k)? };\n        checked_binomial(positions, k)\n    };\n",
+    "parent_text": "    let count = |n: usize, k: usize| checked_binomial((n + k).saturating_sub(1), k);\n"
+  }
+}
