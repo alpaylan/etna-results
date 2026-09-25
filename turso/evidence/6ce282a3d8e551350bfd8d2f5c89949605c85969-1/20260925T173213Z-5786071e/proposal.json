@@ -1,0 +1,14 @@
+{
+  "commit": "6ce282a3d8e551350bfd8d2f5c89949605c85969",
+  "parent": "6d01be3604bbd2bc1066c2fef3f8049b98ed4523",
+  "fixed_commit": "6ce282a3d8e551350bfd8d2f5c89949605c85969",
+  "summary": "VACUUM INTO updated an MVCC target's header schema cookie without updating its in-memory schema version. The final checkpoint overwrote the intended cookie (source cookie plus one) with the target's stale schema version. The fix synchronizes the in-memory schema version with the finalized header cookie. The upstream test added by this fix checks that cookie 42 and the other metadata survive a TRUNCATE checkpoint. This plan has not been executed.",
+  "test": "vdbe::vacuum::tests::vacuum_db_header_meta_schema_cookie_survives_mvcc_target_checkpoint",
+  "package": "turso_core",
+  "expected_failure": "assertion `left == right` failed",
+  "reversal": {
+    "path": "core/vdbe/vacuum.rs",
+    "fixed_text": "fn finalize_vacuum_target_header(\n    target_conn: &Arc<Connection>,\n    header_meta: &VacuumDbHeaderMeta,\n) -> crate::types::IOResultOr<()> {\n    if let Some(mv_store) = target_conn.mv_store_for_db(crate::MAIN_DB_ID) {\n        let tx_id = target_conn.get_mv_tx_id_for_db(crate::MAIN_DB_ID);\n        mv_store.with_header_mut(|header| header_meta.apply_to(header), tx_id.as_ref())?;\n        set_mvcc_schema_version_from_header_cookie(target_conn, header_meta.schema_cookie)?;\n        return Ok(crate::IOResult::Done(()));\n    }\n    let pager = target_conn.pager.load();\n    pager.with_header_mut(|header| header_meta.apply_to(header))\n}\n\nfn set_mvcc_schema_version_from_header_cookie(\n    target_conn: &Arc<Connection>,\n    schema_cookie: u32,\n) -> Result<()> {\n    target_conn.with_schema_mut(|schema| schema.schema_version = schema_cookie)\n}\n\n",
+    "parent_text": "fn finalize_vacuum_target_header(\n    target_conn: &Arc<Connection>,\n    header_meta: &VacuumDbHeaderMeta,\n) -> crate::types::IOResultOr<()> {\n    if let Some(mv_store) = target_conn.mv_store_for_db(crate::MAIN_DB_ID) {\n        let tx_id = target_conn.get_mv_tx_id_for_db(crate::MAIN_DB_ID);\n        return mv_store\n            .with_header_mut(|header| header_meta.apply_to(header), tx_id.as_ref())\n            .map(crate::IOResult::Done)\n            .map_err(Into::into);\n    }\n    let pager = target_conn.pager.load();\n    pager.with_header_mut(|header| header_meta.apply_to(header))\n}\n\n"
+  }
+}
