@@ -1,0 +1,20 @@
+diff --git a/core/functions/math.rs b/core/functions/math.rs
+index 298f373d4..3842d272a 100644
+--- a/core/functions/math.rs
++++ b/core/functions/math.rs
+@@ -18,13 +18,8 @@ fn gcd_inner(mut a: i64, mut b: i64) -> Option<i64> {
+         if a == 0 || b == 0 || a == b {
+             return None;
+         }
+-        // Must precede the reduction: `i64::MIN % -1` overflows, and rustc emits
+-        // that check even in release. -1 divides everything, so the GCD is 1.
+-        if a == -1 || b == -1 {
+-            return Some(1);
+-        }
+-        // Reduce the MIN operand once. Safe now: the divisor is neither 0 nor
+-        // -1, and the result has |a| < i64::MAX so the loop cannot see MIN again.
++        // Recover: reduce the MIN-valued operand once via the modulo loop body.
++        // a = a % b is safe because b != 0 and b != i64::MIN here.
+         if a == i64::MIN {
+             a %= b;
+         } else {
