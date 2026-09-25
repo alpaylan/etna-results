@@ -1,15 +1,15 @@
 # Cloud bug-mining prototype
 
-**blocked**: fixed: source differs beyond the exact implementation reversal
+**blocked**: Reversal path is not changed by the upstream fix: 
 
 Upstream: https://github.com/time-rs/time
 
-Candidate: a65ef0e73c89a380949b300f717340dca43c6caf-1
+Candidate: fe84f4040e4ff4d502d80443d5de0d1e4e2a3c94-1
 
 Provenance: verbatim
 
 Latest outcomes: {"blocked": 1}
 
-Reviewed commits: 1 / 1013 reachable from the saved tip.
+History coverage not yet recorded.
 
 Scope: one queued candidate; history coverage is partial.
